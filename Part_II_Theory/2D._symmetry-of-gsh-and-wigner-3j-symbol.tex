@@ -1,0 +1,229 @@
+
+\chapter{Properties of Wigner 3j-Symbol and GSH \label{chpt:symmetry}}
+
+The properties of Wigner 3j-symbol and Wigner generalized spherical
+harmonics (GSH, Winger D-symbol) play a huge role in the reduction
+of molecular Ornstein-Zernike equation as well as finding the relation
+between rotational invariant projections. Their main properties presented
+in Messiah \citep{Messiah}, Gray \& Gubbins \citep{Gray-Gubbins}
+and Edmonds \citep{Edmonds} are listed here.
+
+
+\section{Properties of Wigner 3j-Symbol}
+
+Wigner 3j-symbols are equivalent to Clebsch-Gordon (CG) coefficients
+with phase factor:
+\begin{equation}
+\left(\begin{array}{ccc}
+m & n & l\\
+\mu & \nu & -\lambda
+\end{array}\right)=\frac{\left(-\right)^{m-n+\lambda}}{\sqrt{2l+1}}<mn\mu\nu\mid l\lambda>
+\end{equation}
+and can be calculated with the Racah formula \citep{Messiah}.
+
+
+\subsubsection*{Reality}
+
+The 3j-symbols are real.
+\begin{equation}
+\left(\begin{array}{ccc}
+m & n & l\\
+\mu & \nu & \lambda
+\end{array}\right)=\left(\begin{array}{ccc}
+m & n & l\\
+\mu & \nu & \lambda
+\end{array}\right)^{*}
+\end{equation}
+
+
+
+\subsubsection*{Selection rules}
+
+\begin{equation}
+\left(\begin{array}{ccc}
+m & n & l\\
+\mu & \nu & \lambda
+\end{array}\right)=0\;\mathrm{if}\,\left\{ \begin{array}{l}
+\mu+\nu+\lambda=0\\
+\underset{\mathrm{(triangular\,inequalities)}}{\left|m-n\right|<l<m+n}
+\end{array}\right.\,\mathrm{are\,not\,meet.}\,
+\end{equation}
+
+
+
+\subsubsection*{Permutation }
+\begin{enumerate}
+\item Even permutation
+\begin{equation}
+\left(\begin{array}{ccc}
+m & n & l\\
+\mu & \nu & \lambda
+\end{array}\right)=\left(\begin{array}{ccc}
+n & l & m\\
+\nu & \lambda & \mu
+\end{array}\right)=\left(\begin{array}{ccc}
+l & m & n\\
+\lambda & \mu & \nu
+\end{array}\right)
+\end{equation}
+
+\item Odd permutation
+\begin{eqnarray}
+\left(-\right)^{m+n+l}\left(\begin{array}{ccc}
+m & n & l\\
+\mu & \nu & \lambda
+\end{array}\right) & = & \left(\begin{array}{ccc}
+n & m & l\\
+\nu & \mu & \lambda
+\end{array}\right)\nonumber \\
+=\left(\begin{array}{ccc}
+m & l & n\\
+\mu & \lambda & \nu
+\end{array}\right) & = & \left(\begin{array}{ccc}
+l & n & m\\
+\lambda & \nu & \mu
+\end{array}\right)
+\end{eqnarray}
+
+\item Simultaneous change of signs of $\mu$, $\nu$ and $\lambda$
+\begin{equation}
+\left(\begin{array}{ccc}
+m & n & l\\
+\mu & \nu & \lambda
+\end{array}\right)=\left(-\right)^{m+n+l}\left(\begin{array}{ccc}
+m & n & l\\
+-\mu & -\nu & -\lambda
+\end{array}\right)
+\end{equation}
+
+\end{enumerate}
+
+\subsubsection*{Orthogonality}
+
+\begin{equation}
+\sum_{l=\left|m-n\right|}^{m+n}\sum_{\lambda=-l}^{l}\left(2l+1\right)\left(\begin{array}{ccc}
+m & n & l\\
+\mu & \nu & \lambda
+\end{array}\right)\left(\begin{array}{ccc}
+m & n & l\\
+\mu' & \nu' & \lambda
+\end{array}\right)=\delta_{\mu\mu'}\delta_{\nu\nu'}\label{eq:3j-orthogonality}
+\end{equation}
+\begin{equation}
+\sum_{\mu=-m}^{m}\sum_{\nu=-n}^{n}\left(\begin{array}{ccc}
+m & n & l\\
+\mu & \nu & \lambda
+\end{array}\right)\left(\begin{array}{ccc}
+m & n & l'\\
+\mu & \nu & \lambda'
+\end{array}\right)=\left(2l+1\right)^{-1}\delta_{ll'}\delta_{\lambda\lambda'}
+\end{equation}
+
+
+
+\section{Properties of GSH}
+
+There are many different definitions of GSH in the lectures, here
+we adopt the definition in Messiah
+\begin{equation}
+R_{\mu'\mu}^{m}(\phi\theta\psi)=e^{-i\mu'\phi}r_{\mu'\mu}^{m}(\theta)e^{-i\mu\psi}
+\end{equation}
+where $r_{\mu\mu'}^{m}$ is the generalized Legendre polynomial (GLP),
+which is real, and can be evaluated using the Wigner formula
+\begin{eqnarray}
+r_{\mu'\mu}^{m}(\theta) & = & \left[\left(m+\mu'\right)!\left(m-\mu'\right)!\left(m+\mu\right)!\left(m-\mu\right)!\right]^{\frac{1}{2}}\times\nonumber \\
+ &  & \sum_{i}\frac{\left(-\right)^{i}\left(\cos\theta/2\right)^{2m+\mu'-\mu-2i}\left(\sin\theta/2\right)^{2i-\mu'+\mu}}{\left(m+\mu'-i\right)!\left(m-\mu-i\right)!i!\left(i-\mu'+\mu\right)!}
+\end{eqnarray}
+
+
+
+\subsubsection*{Symmetries of $r_{\mu'\mu}^{m}(\theta)$}
+
+\begin{equation}
+r_{\mu\mu'}^{m}(\theta)=(-)^{\mu'-\mu}r_{\mu'\mu}^{m}(\theta)
+\end{equation}
+\begin{equation}
+r_{\underline{\mu'}\underline{\mu}}^{m}(\theta)=\left(-\right)^{\mu'-\mu}r_{\mu'\mu}^{m}(\theta)
+\end{equation}
+\begin{equation}
+r_{\mu'\mu}^{m}(\theta)=r_{\mu\mu'}^{m}(-\theta)
+\end{equation}
+\begin{equation}
+r_{\mu'\mu}^{m}(\theta+\pi)=(-)^{m+\mu}r_{\mu'\underline{\mu}}^{m}(\theta)
+\end{equation}
+where $\underline{\mu}\equiv-\mu$.
+
+
+\subsubsection*{Symmetries of $R_{\mu'\mu}^{m}(\phi\theta\psi)$}
+
+\begin{equation}
+R_{\mu'\mu}^{m}(\phi\theta\psi)=\left(-\right)^{\mu'-\mu}R_{\underline{\mu'}\underline{\mu}}^{m*}(\phi\theta\psi)\label{eq:symm-gsh-1}
+\end{equation}
+\begin{equation}
+R_{\mu'\mu}^{m}(\phi\theta\psi)=\left(-\right)^{\mu'-\mu}R_{\mu\mu'}^{m*}(\phi\theta\psi)
+\end{equation}
+\begin{equation}
+R_{\mu'\mu}^{m}(\phi\theta\psi)=(-)^{m+\mu'}R_{\underline{\mu'}\mu}^{m}(-\phi,\theta+\pi,\psi)=(-)^{m+\mu}R_{\mu'\underline{\mu}}^{m}(\phi,\theta+\pi,-\psi)
+\end{equation}
+
+
+
+\subsubsection*{Unitarity and orthogonality}
+
+\begin{equation}
+\sum_{\mu'}R_{\mu'\mu}^{m}(\phi\theta\psi)R_{\mu'\mu''}^{m*}(\phi\theta\psi)=\delta_{\mu\mu''}
+\end{equation}
+\begin{equation}
+\sum_{\mu}R_{\mu'\mu}^{m}(\phi\theta\psi)R_{\mu''\mu}^{m*}(\phi\theta\psi)=\delta_{\mu'\mu''}
+\end{equation}
+\begin{equation}
+\sum_{m\mu'\mu}R_{\mu'\mu}^{m}(\phi\theta\psi)R_{\mu'\mu'}^{m*}(\phi'\theta'\psi')=\delta_{\phi\phi'}\delta_{\theta\theta'}\delta_{\psi\psi'}
+\end{equation}
+\begin{equation}
+\frac{1}{8\pi^{2}}\int\mathrm{d}\cos\theta\mathrm{d}\phi\mathrm{d}\psi R_{\mu'\mu}^{m}(\phi\theta\psi)R_{\nu'\nu}^{n*}(\phi\theta\psi)=\frac{\delta_{mn}\delta_{\mu'\nu'}\delta_{\mu\nu}}{2n+1}\label{eq:gsh-orthogonality}
+\end{equation}
+
+
+
+\subsubsection*{$r_{\mu'\mu}^{m}(\theta)$ in terms of $\cos\theta$ and $\sin\theta$}
+\begin{enumerate}
+\item If $\left(-\right)^{\mu'+\mu}=+1$, $r_{\mu'\mu}^{m}(\theta)$ is
+polynomial of degree $m$ in $\cos\theta$.
+\item If $\left(-\right)^{\mu'+\mu}=-1$, $r_{\mu'\mu}^{m}(\theta)/\sin\theta$
+is polynomial of degree $(m-1)$ in $\cos\theta$.
+\end{enumerate}
+
+\subsubsection*{Rotation and product}
+
+\begin{equation}
+R_{\mu'\mu}^{m}(\boldsymbol{\omega})=\sum_{\chi}R_{\mu'\chi}^{m}(\boldsymbol{\omega_{2}})R_{\chi\mu}^{m}(\boldsymbol{\omega_{1}})
+\end{equation}
+where $\boldsymbol{\omega}$ is the result of the successive application
+of $\boldsymbol{\omega}_{1}$ and $\boldsymbol{\omega_{2}}$ in order.
+
+\begin{equation}
+\begin{array}{c}
+{\displaystyle R_{\chi\mu}^{m}(\boldsymbol{\omega})=\sum_{\mu'}R_{\mu'\chi}^{m*}(\hat{\mathbf{k}})R_{\mu'\mu}^{m}(\mathbf{\Omega})}\\
+{\displaystyle R_{\mu'\mu}^{m}(\mathbf{\Omega})=\sum_{\chi}R_{\chi\mu'}^{m*}(\hat{\mathbf{k}}^{-1})R_{\chi\mu}^{m}(\boldsymbol{\omega})=\sum_{\chi}R_{\mu'\chi}^{m}(\hat{\mathbf{k}})R_{\chi\mu}^{m}(\boldsymbol{\omega})}
+\end{array}\label{eq:gsh-rotation}
+\end{equation}
+
+
+
+\subsubsection*{Composition relation for GSHs
+\begin{equation}
+\sum_{\mu'\nu'\lambda'}\left(\protect\begin{array}{ccc}
+m & n & l\protect\\
+\mu' & \nu' & \lambda'
+\protect\end{array}\right)R_{\mu'\mu}^{m}(\phi\theta\psi)R_{\nu'\nu}^{n}(\phi\theta\psi)R_{\lambda'\lambda}^{l}(\phi\theta\psi)=\left(\protect\begin{array}{ccc}
+m & n & l\protect\\
+\mu & \nu & \lambda
+\protect\end{array}\right)\label{eq:gg.a91}
+\end{equation}
+}
+
+
+\subsubsection*{
+\[
+\]
+}

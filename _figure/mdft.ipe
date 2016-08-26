@@ -1,0 +1,504 @@
+<?xml version="1.0"?>
+<!DOCTYPE ipe SYSTEM "ipe.dtd">
+<ipe version="70107" creator="Ipe 7.1.7">
+<info created="D:20160118213509" modified="D:20160820161055"/>
+<ipestyle name="basic">
+<symbol name="arrow/arc(spx)">
+<path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
+0 0 m
+-1 0.333 l
+-1 -0.333 l
+h
+</path>
+</symbol>
+<symbol name="arrow/farc(spx)">
+<path stroke="sym-stroke" fill="white" pen="sym-pen">
+0 0 m
+-1 0.333 l
+-1 -0.333 l
+h
+</path>
+</symbol>
+<symbol name="arrow/ptarc(spx)">
+<path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
+0 0 m
+-1 0.333 l
+-0.8 0 l
+-1 -0.333 l
+h
+</path>
+</symbol>
+<symbol name="arrow/fptarc(spx)">
+<path stroke="sym-stroke" fill="white" pen="sym-pen">
+0 0 m
+-1 0.333 l
+-0.8 0 l
+-1 -0.333 l
+h
+</path>
+</symbol>
+<symbol name="mark/circle(sx)" transformations="translations">
+<path fill="sym-stroke">
+0.6 0 0 0.6 0 0 e
+0.4 0 0 0.4 0 0 e
+</path>
+</symbol>
+<symbol name="mark/disk(sx)" transformations="translations">
+<path fill="sym-stroke">
+0.6 0 0 0.6 0 0 e
+</path>
+</symbol>
+<symbol name="mark/fdisk(sfx)" transformations="translations">
+<group>
+<path fill="sym-fill">
+0.5 0 0 0.5 0 0 e
+</path>
+<path fill="sym-stroke" fillrule="eofill">
+0.6 0 0 0.6 0 0 e
+0.4 0 0 0.4 0 0 e
+</path>
+</group>
+</symbol>
+<symbol name="mark/box(sx)" transformations="translations">
+<path fill="sym-stroke" fillrule="eofill">
+-0.6 -0.6 m
+0.6 -0.6 l
+0.6 0.6 l
+-0.6 0.6 l
+h
+-0.4 -0.4 m
+0.4 -0.4 l
+0.4 0.4 l
+-0.4 0.4 l
+h
+</path>
+</symbol>
+<symbol name="mark/square(sx)" transformations="translations">
+<path fill="sym-stroke">
+-0.6 -0.6 m
+0.6 -0.6 l
+0.6 0.6 l
+-0.6 0.6 l
+h
+</path>
+</symbol>
+<symbol name="mark/fsquare(sfx)" transformations="translations">
+<group>
+<path fill="sym-fill">
+-0.5 -0.5 m
+0.5 -0.5 l
+0.5 0.5 l
+-0.5 0.5 l
+h
+</path>
+<path fill="sym-stroke" fillrule="eofill">
+-0.6 -0.6 m
+0.6 -0.6 l
+0.6 0.6 l
+-0.6 0.6 l
+h
+-0.4 -0.4 m
+0.4 -0.4 l
+0.4 0.4 l
+-0.4 0.4 l
+h
+</path>
+</group>
+</symbol>
+<symbol name="mark/cross(sx)" transformations="translations">
+<group>
+<path fill="sym-stroke">
+-0.43 -0.57 m
+0.57 0.43 l
+0.43 0.57 l
+-0.57 -0.43 l
+h
+</path>
+<path fill="sym-stroke">
+-0.43 0.57 m
+0.57 -0.43 l
+0.43 -0.57 l
+-0.57 0.43 l
+h
+</path>
+</group>
+</symbol>
+<symbol name="arrow/fnormal(spx)">
+<path stroke="sym-stroke" fill="white" pen="sym-pen">
+0 0 m
+-1 0.333 l
+-1 -0.333 l
+h
+</path>
+</symbol>
+<symbol name="arrow/pointed(spx)">
+<path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
+0 0 m
+-1 0.333 l
+-0.8 0 l
+-1 -0.333 l
+h
+</path>
+</symbol>
+<symbol name="arrow/fpointed(spx)">
+<path stroke="sym-stroke" fill="white" pen="sym-pen">
+0 0 m
+-1 0.333 l
+-0.8 0 l
+-1 -0.333 l
+h
+</path>
+</symbol>
+<symbol name="arrow/linear(spx)">
+<path stroke="sym-stroke" pen="sym-pen">
+-1 0.333 m
+0 0 l
+-1 -0.333 l
+</path>
+</symbol>
+<symbol name="arrow/fdouble(spx)">
+<path stroke="sym-stroke" fill="white" pen="sym-pen">
+0 0 m
+-1 0.333 l
+-1 -0.333 l
+h
+-1 0 m
+-2 0.333 l
+-2 -0.333 l
+h
+</path>
+</symbol>
+<symbol name="arrow/double(spx)">
+<path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
+0 0 m
+-1 0.333 l
+-1 -0.333 l
+h
+-1 0 m
+-2 0.333 l
+-2 -0.333 l
+h
+</path>
+</symbol>
+<pen name="heavier" value="0.8"/>
+<pen name="fat" value="1.2"/>
+<pen name="ultrafat" value="2"/>
+<symbolsize name="large" value="5"/>
+<symbolsize name="small" value="2"/>
+<symbolsize name="tiny" value="1.1"/>
+<arrowsize name="large" value="10"/>
+<arrowsize name="small" value="5"/>
+<arrowsize name="tiny" value="3"/>
+<color name="red" value="1 0 0"/>
+<color name="green" value="0 1 0"/>
+<color name="blue" value="0 0 1"/>
+<color name="yellow" value="1 1 0"/>
+<color name="orange" value="1 0.647 0"/>
+<color name="gold" value="1 0.843 0"/>
+<color name="purple" value="0.627 0.125 0.941"/>
+<color name="gray" value="0.745"/>
+<color name="brown" value="0.647 0.165 0.165"/>
+<color name="navy" value="0 0 0.502"/>
+<color name="pink" value="1 0.753 0.796"/>
+<color name="seagreen" value="0.18 0.545 0.341"/>
+<color name="turquoise" value="0.251 0.878 0.816"/>
+<color name="violet" value="0.933 0.51 0.933"/>
+<color name="darkblue" value="0 0 0.545"/>
+<color name="darkcyan" value="0 0.545 0.545"/>
+<color name="darkgray" value="0.663"/>
+<color name="darkgreen" value="0 0.392 0"/>
+<color name="darkmagenta" value="0.545 0 0.545"/>
+<color name="darkorange" value="1 0.549 0"/>
+<color name="darkred" value="0.545 0 0"/>
+<color name="lightblue" value="0.678 0.847 0.902"/>
+<color name="lightcyan" value="0.878 1 1"/>
+<color name="lightgray" value="0.827"/>
+<color name="lightgreen" value="0.565 0.933 0.565"/>
+<color name="lightyellow" value="1 1 0.878"/>
+<dashstyle name="dashed" value="[4] 0"/>
+<dashstyle name="dotted" value="[1 3] 0"/>
+<dashstyle name="dash dotted" value="[4 2 1 2] 0"/>
+<dashstyle name="dash dot dotted" value="[4 2 1 2 1 2] 0"/>
+<textsize name="large" value="\large"/>
+<textsize name="Large" value="\Large"/>
+<textsize name="LARGE" value="\LARGE"/>
+<textsize name="huge" value="\huge"/>
+<textsize name="Huge" value="\Huge"/>
+<textsize name="small" value="\small"/>
+<textsize name="footnote" value="\footnotesize"/>
+<textsize name="tiny" value="\tiny"/>
+<textstyle name="center" begin="\begin{center}" end="\end{center}"/>
+<textstyle name="itemize" begin="\begin{itemize}" end="\end{itemize}"/>
+<textstyle name="item" begin="\begin{itemize}\item{}" end="\end{itemize}"/>
+<gridsize name="4 pts" value="4"/>
+<gridsize name="8 pts (~3 mm)" value="8"/>
+<gridsize name="16 pts (~6 mm)" value="16"/>
+<gridsize name="32 pts (~12 mm)" value="32"/>
+<gridsize name="10 pts (~3.5 mm)" value="10"/>
+<gridsize name="20 pts (~7 mm)" value="20"/>
+<gridsize name="14 pts (~5 mm)" value="14"/>
+<gridsize name="28 pts (~10 mm)" value="28"/>
+<gridsize name="56 pts (~20 mm)" value="56"/>
+<anglesize name="90 deg" value="90"/>
+<anglesize name="60 deg" value="60"/>
+<anglesize name="45 deg" value="45"/>
+<anglesize name="30 deg" value="30"/>
+<anglesize name="22.5 deg" value="22.5"/>
+<tiling name="falling" angle="-60" step="4" width="1"/>
+<tiling name="rising" angle="30" step="4" width="1"/>
+</ipestyle>
+<page>
+<layer name="alpha"/>
+<view layers="alpha" active="alpha"/>
+<path layer="alpha" stroke="black" fill="lightyellow" pen="heavier" cap="1" join="1">
+344 808
+352 816
+404 816
+456 816
+464 808
+464 752
+464 696
+456 688
+404 688
+352 688
+344 696
+344 752 u
+</path>
+<path matrix="1 0 0 1 0 -12" stroke="black" fill="white">
+360 804 m
+360 780 l
+448 780 l
+448 804 l
+h
+</path>
+<path stroke="black" fill="lightyellow" pen="heavier" cap="1" join="1">
+16 800
+24 808
+88 808
+152 808
+160 800
+160 748
+160 692
+152 684
+88 684
+24 684
+16 692
+16 748 u
+</path>
+<path matrix="1 0 0 1 -72 16" stroke="black" fill="black" cap="1" join="1">
+88 808
+88 812
+92 816
+104 816
+116 816
+120 812
+120 808
+120 804
+116 800
+104 800
+92 800
+88 804 u
+</path>
+<path matrix="1 0 0 1 -76 16" stroke="black" fill="black" cap="1" join="1">
+128 808
+128 812
+132 816
+152 816
+172 816
+176 812
+176 808
+176 804
+172 800
+152 800
+132 800
+128 804 u
+</path>
+<path matrix="1 0 0 1 -76 16" stroke="black" fill="black" cap="1" join="1">
+204 816
+232 816
+236 812
+236 808
+236 804
+232 800
+204 800
+184 800
+180 804
+180 808
+180 812
+184 816 u
+</path>
+<text matrix="1 0 0 1 -56 16" transformations="translations" pos="88 808" stroke="white" type="label" width="27.051" height="6.918" depth="0" halign="center" valign="center">\bf dft.in</text>
+<text matrix="1 0 0 1 -12 16" transformations="translations" pos="88 808" stroke="white" type="label" width="42.232" height="6.918" depth="0" halign="center" valign="center">\bf solute.in</text>
+<text matrix="1 0 0 1 44 16" transformations="translations" pos="88 808" stroke="white" type="label" width="47.642" height="6.918" depth="0" halign="center" valign="center">\bf solvent.in</text>
+<text matrix="1 0 0 1 -40 36" transformations="translations" pos="128 760" stroke="black" type="label" width="113.409" height="7.473" depth="2.49" halign="center" valign="center">\bf 1) Initialize simulation</text>
+<path stroke="black" fill="white" pen="heavier" cap="1" join="1" arrow="pointed/small">
+32 816 m
+48 808 l
+</path>
+<path stroke="black" fill="white" pen="heavier" cap="1" join="1" arrow="pointed/small">
+76 816 m
+76 808 l
+</path>
+<path stroke="black" fill="white" pen="heavier" cap="1" join="1" arrow="pointed/small">
+132 816 m
+104 808 l
+</path>
+<path matrix="1 0 0 1 4 0" stroke="black" fill="white" cap="1" join="1">
+56 784 m
+56 768 l
+112 768 l
+112 784 l
+h
+</path>
+<path matrix="1 0 0 1 4 -4" stroke="black" fill="white" cap="1" join="1">
+20 764 m
+20 732 l
+148 732 l
+148 764 l
+h
+</path>
+<path matrix="1.1 0 0 1 -4.4 12" stroke="black" fill="white" cap="1" join="1">
+44 708 m
+44 692 l
+124 692 l
+124 708 l
+h
+</path>
+<text matrix="1 0 0 1 52 -4" transformations="translations" pos="36 780" stroke="black" type="label" width="45.413" height="6.926" depth="1.93" halign="center" valign="center">read input</text>
+<text matrix="1 0 0 1 48 -8" transformations="translations" pos="40 744" stroke="black" type="label" width="116.895" height="6.926" depth="1.93" halign="center" valign="center">pre-calculate reusable data</text>
+<text matrix="1 0 0 1 52 -12" transformations="translations" pos="36 764" stroke="black" type="label" width="91.463" height="6.926" depth="1.93" halign="center" valign="center">initialize work arrays</text>
+<text matrix="1 0 0 1 48 -12" transformations="translations" pos="40 724" stroke="black" type="label" width="82.787" height="8.846" depth="2.49" halign="center" valign="center">initialize $\varphi^{(0)}(\mathbf{r},\mathbf{\Omega})$</text>
+<text matrix="1 0 0 1 4 -12" transformations="translations" pos="84 756" stroke="black" type="label" width="7.749" height="6.918" depth="0" halign="center" valign="center">\&amp;</text>
+<path stroke="black" fill="white" cap="1" join="1" arrow="pointed/tiny">
+88 768 m
+88 760 l
+</path>
+<path stroke="black" fill="white" cap="1" join="1" arrow="pointed/tiny">
+88 728 m
+88 720 l
+</path>
+<path stroke="black" fill="lightyellow" pen="heavier" cap="1" join="1">
+168 820
+176 828
+252 828
+328 828
+336 820
+336 756
+336 692
+328 684
+252 684
+176 684
+168 692
+168 756 u
+</path>
+<text matrix="1 0 0 1 124 56" transformations="translations" pos="128 760" stroke="black" type="label" width="138.018" height="7.473" depth="2.49" halign="center" valign="center">\bf 2) Find equilibrium density</text>
+<path stroke="black" cap="1" join="1" arrow="pointed/tiny">
+88 704 m
+88 696 l
+176 696 l
+176 780 l
+188 780 l
+</path>
+<path matrix="1 0 0 1 0 4" stroke="black" cap="1" join="1">
+32 788 m
+144 788 l
+</path>
+<path stroke="black" cap="1" join="1">
+184 812 m
+320 812 l
+</path>
+<path matrix="1 0 0 1 0 -20" stroke="black" fill="white" cap="1" join="1">
+188 808 m
+188 792 l
+316 792 l
+316 808 l
+h
+</path>
+<text matrix="1 0 0 1 60 -28" transformations="translations" pos="192 808" stroke="black" type="label" width="118.563" height="11.569" depth="5.2" halign="center" valign="center">evaluate $\mathcal{F}[\varphi^{(i)}]$ and $\frac{\mathcal{F}[\varphi^{(i)}]}{\varphi^{(i)}}$</text>
+<text transformations="translations" pos="252 800" stroke="black" type="label" width="16.061" height="8.853" depth="1.93" halign="center" valign="center">$\varphi^{(i)}$</text>
+<text matrix="1 0 0 1 0 -68" transformations="translations" pos="252 800" stroke="black" type="label" width="26.148" height="8.853" depth="1.93" halign="center" valign="center">$\varphi^{(i+1)}$</text>
+<path matrix="1 0 0 1 0 8" stroke="black" fill="white" cap="1" join="1">
+200 756 m
+200 740 l
+304 740 l
+304 756 l
+h
+</path>
+<text matrix="1 0 0 1 32 8" transformations="translations" pos="220 748" stroke="black" type="label" width="93.082" height="6.808" depth="0" halign="center" valign="center">minimizer L-BFGS-B</text>
+<path matrix="1 0 0 1 0 4" stroke="black" fill="white" cap="1" join="1" arrow="pointed/tiny">
+252 792 m
+252 784 l
+</path>
+<path matrix="1 0 0 1 0 4" stroke="black" fill="white" cap="1" join="1" arrow="pointed/tiny">
+252 768 m
+252 760 l
+</path>
+<path matrix="1 0 0 1 0 8" stroke="black" fill="white" cap="1" join="1">
+252 712 m
+200 704 l
+252 696 l
+304 704 l
+h
+</path>
+<text matrix="1 0 0 1 28 8" transformations="translations" pos="224 704" stroke="black" type="label" width="42.092" height="6.926" depth="1.93" halign="center" valign="center">converge?</text>
+<path matrix="1 0 0 1 0 4" stroke="black" fill="white" cap="1" join="1" arrow="pointed/tiny">
+252 744 m
+252 736 l
+</path>
+<path matrix="1 0 0 1 0 4" stroke="black" fill="white" cap="1" join="1" arrow="pointed/tiny">
+252 724 m
+252 716 l
+</path>
+<path matrix="1 0 0 1 0 4" stroke="black" cap="1" join="1" arrow="pointed/tiny">
+304 708 m
+324 708 l
+324 796 l
+260 796 l
+</path>
+<path stroke="black" cap="1" join="1" arrow="pointed/tiny">
+252 704 m
+252 696 l
+352 696 l
+352 780 l
+360 780 l
+</path>
+<text matrix="1 0 0 1 12 -24" transformations="translations" pos="296 724" stroke="black" type="label" width="13.339" height="4.297" depth="1.93" valign="baseline">yes</text>
+<text matrix="1 0 0 1 96 -12" transformations="translations" pos="212 728" stroke="black" type="label" width="10.516" height="4.289" depth="0" valign="baseline">no</text>
+<text matrix="1 0 0 1 276 44" transformations="translations" pos="128 760" stroke="black" type="label" width="89.535" height="7.473" depth="2.49" halign="center" valign="center">\bf 3) Process output</text>
+<path matrix="1 0 0 1 0 -12" stroke="black" cap="1" join="1">
+360 812 m
+448 812 l
+</path>
+<text matrix="1 0 0 1 4 -16" transformations="translations" pos="400 800" stroke="black" type="label" width="47.655" height="6.926" depth="1.93" halign="center" valign="center">free energy</text>
+<text matrix="1 0 0 1 4 -24" transformations="translations" pos="400 800" stroke="black" type="label" width="58.226" height="6.918" depth="0" halign="center" valign="center"> \&amp; corrections</text>
+<path matrix="0.6875 0 0 1 230.75 -48" stroke="black" fill="white" cap="1" join="1">
+188 808 m
+188 792 l
+316 792 l
+316 808 l
+h
+</path>
+<text matrix="1 0 0 1 212 -56" transformations="translations" pos="192 808" stroke="black" type="label" width="72.949" height="6.918" depth="0" halign="center" valign="center">solvent structure</text>
+<path matrix="1 0 0 1 152 -24" stroke="black" fill="white" cap="1" join="1" arrow="pointed/tiny">
+252 792 m
+252 784 l
+</path>
+<path matrix="0.6875 0 0 1 230.75 -72" stroke="black" fill="white" cap="1" join="1">
+188 808 m
+188 792 l
+316 792 l
+316 808 l
+h
+</path>
+<text matrix="1 0 0 1 212 -80" transformations="translations" pos="192 808" stroke="black" type="label" width="69.6" height="6.926" depth="1.93" halign="center" valign="center">other properties</text>
+<path matrix="1 0 0 1 152 -48" stroke="black" fill="white" cap="1" join="1" arrow="pointed/tiny">
+252 792 m
+252 784 l
+</path>
+<path matrix="1 0 0 1 152 -72" stroke="black" fill="white" cap="1" join="1" arrow="pointed/tiny">
+252 792 m
+252 784 l
+</path>
+<text matrix="1 0 0 1 152 -96" transformations="translations" pos="252 800" stroke="black" type="label" width="18.265" height="6.918" depth="0" halign="center" valign="center">OK!</text>
+</page>
+</ipe>

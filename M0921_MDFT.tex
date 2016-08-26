@@ -1,0 +1,273 @@
+%% LyX 2.1.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english,american,fontsize=11pt,paper=a4,twoside,openright,titlepage,numbers=noenddot,headinclude,BCOR=5mm,footinclude=true,cleardoublepage=empty]{scrreprt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\setcounter{secnumdepth}{2}
+\usepackage{color}
+\usepackage{array}
+\usepackage{verbatim}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{textcomp}
+\usepackage{url}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\newcommand{\lyxmathsym}[1]{\ifmmode\begingroup\def\b@ld{bold}
+  \text{\ifx\math@version\b@ld\bfseries\fi#1}\endgroup\else#1\fi}
+
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+\floatstyle{ruled}
+\newfloat{algorithm}{tbp}{loa}[chapter]
+\providecommand{\algorithmname}{Algorithm}
+\floatname{algorithm}{\protect\algorithmname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+% Classic Thesis Style loader
+\makeatother
+\input{classicthesis-config.tex}
+\makeatletter
+
+% \input@path is a list of paths where LaTeX should look for files
+% LyX defines it as a single element list with the path of the main document in it
+% Comes in two forms: {\string "/home/user/dir ectory/\string "/} or {/home/user/directory//}
+% This is a hack to extract the bare path from the above strings
+\ifcsname input@path\endcsname 
+  \edef\@basepath{\expandafter\@firstofone\input@path} %remove braces
+  \def\rm@quotes#1"#2"#3\@nul{\ifx\relax#2\relax #1\else #2\fi}
+  \edef\@basepath{\expandafter\rm@quotes\@basepath""\@nul} %remove quotes
+\else\edef\@basepath{./}\fi
+
+
+\let\orig@addbibresource\addbibresource
+\renewrobustcmd*{\addbibresource}[2][type=file]{\orig@addbibresource[#1]{\@basepath#2}}
+
+% use Latin Modern instead of Computer Modern sans serif
+\renewcommand{\sfdefault}{lmss}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\addbibresource{Bibliography.bib}
+\addbibresource[label=ownpubs]{AMiede_Publications.bib}
+
+\ExecuteBibliographyOptions{backref=true,isbn=false}
+
+\@ifundefined{showcaptionsetup}{}{%
+ \PassOptionsToPackage{caption=false}{subfig}}
+\usepackage{subfig}
+\makeatother
+
+\usepackage{babel}
+\addto\captionsenglish{\renewcommand{\algorithmname}{Algorithm}}
+
+\begin{document}
+\frenchspacing
+\raggedbottom
+\pagenumbering{roman}
+\pagestyle{plain}
+
+\include{Front_Staff/Titlepage}
+
+\include{Front_Staff/Titleback}
+
+\cleardoublepage{}
+
+\include{Front_Staff/Abstract}
+
+\cleardoublepage{}
+
+\include{Front_Staff/Acknowledgments}
+
+\cleardoublepage{}
+
+\pagestyle{scrheadings}
+
+\include{Contents}
+
+\cleardoublepage{}
+
+\pagenumbering{arabic}
+
+\include{Introduction}
+
+
+\ctparttext{the computing science gives a convenient way to find this properties.\\
+In this part, several important models and methods related to this
+issue are briefly reviewed. \\
+As a huge part of this thesis involves computing science, principle
+and technics about performance are also presented.}
+
+
+\part{State of the Art: Solvation, Models and Methods}
+
+\include{Part_I_State_of_the_Art/11._models}
+
+\include{Part_I_State_of_the_Art/12._theory_of_liquids}
+
+\include{Part_I_State_of_the_Art/13._integral_equation_method}
+
+\include{Part_I_State_of_the_Art/14._molecular_density_functional_theory}\include{Part_I_State_of_the_Art/15._molecular_dynamics_simulation}
+
+
+\ctparttext{This chapter presents a complete theory of the $\mathcal{F}_{\mathrm{exc}}$
+evaluation under HRF approximation: 
+\[
+\mathcal{F}_{\mathrm{exc}}=-\frac{\beta^{-1}}{2}\int\mathrm{d}\mathbf{r_{1}}\mathrm{d}\mathbf{r_{2}}\mathrm{d}\mathbf{\Omega_{1}}\mathrm{d}\mathbf{\Omega_{2}}\Delta\rho(\mathbf{r_{1}},\mathbf{\Omega_{1}})\Delta\rho(\mathbf{r_{2}},\mathbf{\Omega_{2}})c(r_{12},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})
+\]
+which is based on previous work of Zhao et al. \citep{Zhao_2011},
+where the HRF approximation bas been applied to linear molecules ($\mathbf{\Omega}\equiv(\Theta,\Phi)$).
+In this thesis, the method is generated to molecular solvent, using
+3 Euler angles, i. e. $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$,
+where the computing cost of the original algorithm is no longer reasonable.
+Further approximation is therefore made, where the density variable
+$\rho(\mathbf{r},\mathbf{\Omega})$ is expended on generalized spherical
+harmonics. Theoretically, this approximation gives little loss of
+accuracy, but makes a great advantage in computing time and memory
+requirement. The prove is shown in the implementation part.\\
+\medskip{}
+Section \ref{chpt:fft-spatial} describes the FFT treatment for the
+spatial convolution in the gradient $\gamma$ of the excess functional
+$\mathcal{F}_{\mathrm{exc}}$, which reduces the algorithm complexity
+from $O(N^{2})$ to $O(N\log_{2}N)$. A DCF directly issue of Monte
+Carlo simulation and solution HNC is used, in both intermolecular
+and projection form. To use the intermolecular form, the matrix which
+does the transform from laboratory to intermolecular coordinates system
+is generalized to molecular case compared to previous work, then interpolation
+of zero and first order is involved. To use the projection from, DCF
+is reconstructed with all projections. For order of projections $n_{\mathrm{max}}=1$,
+the formula of each projections are written explicitly. \\
+\medskip{}
+Section \ref{chpt:angular-convolution} presents the treatment of
+angular convolution. As IEM and MDFT have mathematical equivalence,
+an algorithm inspired by the work of Fries \citep{Fries_Patey_1985}
+and Blum \citep{Blum_I,Blum_II} for IEM is built for MDFT. In this
+algorithm, the density variable $\rho(\mathbf{r},\mathbf{\Omega})$
+is expended on generalized spherical harmonics, then rotated onto
+intermolecular frame. It is shown that in this form, the OZ equation
+is largely simplified.\\
+\medskip{}
+The solvent properties involved in this thesis are presented in the
+next two chapters. Section \ref{chpt:thermodynamic-quantities} presents
+some thermodynamic quantities, including the solvation free energy
+and its corrections, ... and section \ref{chpt:solvation-structure}
+gives some forms of structure that can be preformed, such as the radical
+distribution function, radical polarization functions, rotational
+invariants expansion, etc.}
+
+
+\part{Theory: HRF Approximation, For Molecular Solvent}
+
+\include{Part_II_Theory/21._reduction_of_spatial_convolution_by_fft}
+
+\include{Part_II_Theory/22._angular_convolution_a_better_algorithm}
+
+\include{Part_II_Theory/23._thermodynamic_quantities}
+
+\include{Part_II_Theory/24._solvation_structure}
+
+
+\ctparttext{The code MDFT developed in this thesis is based on the branch master
+of Git project MDFT (\url{https://github.com/maxlevesque/MDFT/}),
+version {[}Fri Jun 20 19:05:52 2014 +0200{]}. All the implementations
+are run on \textsf{\textbf{POINCARE}} machines of IDRIS, which involved
+two kinds of machines:\\
+\medskip{}
+\textsf{\textbf{poincare{[}001-092{]}:}} 2 processors Sandy Bridge
+E5-2670 (2.60GHz, 8 cores per processor, being 16 cores per node);
+32 GB of memory per node.\\
+\medskip{}
+\textsf{\textbf{poincarebig{[}01-02{]}:}} 4 processors AMD Opteron
+6282 (2.60GHz, 16 cores per processor, being 64 cores per node); 128
+GB of memory per node.\\
+\medskip{}
+The former is used for regular calculation, whose memory hierarchy
+is shown in figure \ref{fig:poincare}. The later is only used in
+the evaluation of accuracy, in case of memory leak in the former.\\
+\medskip{}
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=0.9\columnwidth]{_figure/poincare}
+\par\end{centering}
+
+\caption{Structure of a POINCARE node\label{fig:poincare}}
+\end{figure}
+\medskip{}
+Section \ref{chpt:algorithms-and-branches},\\
+\medskip{}
+Section \ref{chpt:accuracy} discussion on precision,\\
+\medskip{}
+Section \ref{chpt:seq-code-performance} computing performance and
+memory limits,\\
+\medskip{}
+Section \ref{chpt:parallelization} OpenMP, MPI giving the possibility
+to go beyond the memory limit. Due to the complexity of minimizer
+L-BFGS, this process is only added on the part of $\mathcal{F}_{\mathrm{exc}}$
+evaluation. Tests of performance stability with respect to both threads
+and nodes are made.}
+
+
+\part{Implementation}
+
+\include{Part_III_Implementation/31._algorithms_and_branches}
+
+\include{Part_III_Implementation/32._numerical_and_physical_accuracy}
+
+\include{Part_III_Implementation/33._computing_performance_of_sequential_code}
+
+\include{Part_III_Implementation/34._computing_performance_of_parallel_code}
+
+
+\ctparttext{Only a few applications are made due to the time limit of this thesis,
+concluding\\
+\medskip{}
+Section {[}ref{]} to show the capability of MDFT to calculate ions
+and small molecules.\\
+\medskip{}
+Section {[}ref{]} to show a qualitative influence of polar solvent
+on the reaction including metal-oxo centre.}
+
+
+\part{Applications}
+
+\include{Part_IV_Applications/41._ions}
+
+\include{Part_IV_Applications/42._mnoxo}
+
+
+\ctparttext{The only one publication during this thesis}
+
+
+\part{Conclusion and Perspectives}
+
+\include{Part_V_Conclusion_and_Perspectives/51._Conclusion}
+
+\include{Part_V_Conclusion_and_Perspectives/52._Perspectives}
+
+\cleardoublepage{}
+
+\appendix
+
+\part{Appendix}
+
+\include{Part_I_State_of_the_Art/1A._computing_performance}\include{Part_II_Theory/2A._equivalence_of_quadrature_projection_order}\include{Part_II_Theory/2B._rotational_invariant_expansion}
+
+\include{Part_II_Theory/2C._evaluation_of_rotation_matrix_elements_by_recurrence}
+
+\include{Part_II_Theory/2D._symmetry-of-gsh-and-wigner-3j-symbol}\include{Part_II_Theory/2E._error_evaluation_of_interpolation_strategies}
+
+\include{Part_III_Implementation/3A._original_data}
+
+\cleardoublepage{}
+
+\include{Bibliography}
+\end{document}

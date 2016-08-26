@@ -1,0 +1,537 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass classicthesis
+\use_default_options true
+\maintain_unincluded_children false
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex8
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Calculation of Rotation Matrix Elements 
+\begin_inset Formula $R_{\mu\mu'}^{m}$
+\end_inset
+
+ by Recurrence
+\begin_inset CommandInset label
+LatexCommand label
+name "chpt:rotM-by-recurrence"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{R}^{m}(\mathbf{\Omega})\equiv\left\{ R_{\mu'\chi}^{m}(\mathbf{\Omega})\right\} $
+\end_inset
+
+ is the rotation matrix of dimension 
+\begin_inset Formula $\left(2m+1\right)\times\left(2m+1\right)$
+\end_inset
+
+, defined in Messiah, etc.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Edmonds,Gray-Gubbins,Messiah"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In MDFT, evaluation of 
+\begin_inset Formula $R_{\mu'\chi}^{m}(\hat{\mathbf{k}})$
+\end_inset
+
+ for each 
+\begin_inset Formula $m$
+\end_inset
+
+, 
+\begin_inset Formula $\mu'$
+\end_inset
+
+, 
+\begin_inset Formula $\chi$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{k}$
+\end_inset
+
+ by its definition:
+\begin_inset Formula 
+\begin{equation}
+R_{\mu'\chi}^{m}(\hat{\mathbf{k}})=r_{\mu'\chi}^{m}(\theta_{k})e^{-i\mu'\phi_{k}}\label{eq:r_definition}
+\end{equation}
+
+\end_inset
+
+is too costing to be done in iterations, on the other hand, to stock directly
+ the value of every element is heavy in terms of memory.
+ An algorithm of 
+\begin_inset Formula $R_{\mu\mu'}^{m}(\hat{\mathbf{k}})$
+\end_inset
+
+ evaluation by recurrence described by Choi 
+\shape italic
+et al.
+
+\shape default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Choi_1999"
+
+\end_inset
+
+ suggests an acceptable cost during the computation, by generating the rotation
+ matrix elements from these of lower order to avoid extra calculation.
+\end_layout
+
+\begin_layout Section
+Case of 
+\begin_inset Formula $m_{\mathrm{max}}\leq1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+According to the definition in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:r_definition"
+
+\end_inset
+
+), it's easy to find
+\begin_inset Formula 
+\begin{equation}
+R_{00}^{0}=1
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $m=1$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{R}^{1}(\hat{\mathbf{k}})$
+\end_inset
+
+ depends only on the 
+\begin_inset Formula $3\times3$
+\end_inset
+
+ orthogonal matrix 
+\begin_inset Formula $\mathbf{R}$
+\end_inset
+
+ that defines the rotation from the basis vectors of laboratory frame to
+ those of 
+\begin_inset Formula $\mathbf{k}$
+\end_inset
+
+-frame
+\begin_inset Formula 
+\begin{equation}
+\mathbf{R}=\left[\begin{array}{ccc}
+R_{xx} & R_{yx} & R_{zx}\\
+R_{xy} & R_{yy} & R_{zy}\\
+R_{xz} & R_{yz} & R_{zz}
+\end{array}\right]=\left[\begin{array}{ccc}
+\cos\theta_{k}\cos\phi_{k} & -\sin\phi_{k} & \sin\theta_{k}\cos\phi_{k}\\
+\cos\theta_{k}\sin\phi_{k} & \cos\phi_{k} & \sin\theta_{k}\sin\phi_{k}\\
+-\sin\theta_{k} & 0 & \cos\theta_{k}
+\end{array}\right]
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The matrix 
+\begin_inset Formula $\mathbf{R}$
+\end_inset
+
+ can be calculated by the cross products of basis vectors as shown in figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotation"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\left[\begin{array}{ccc}
+\mathbf{e}_{1}^{''} & \mathbf{e}_{2}^{'} & \mathbf{e}_{3}^{''}\end{array}\right]=\left[\begin{array}{ccc}
+\mathbf{e}_{1} & \mathbf{e}_{2} & \mathbf{e}_{3}\end{array}\right]\mathbf{R}=\mathbf{R}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The rotation matrix 
+\begin_inset Formula $\mathbf{R}^{m}$
+\end_inset
+
+ can be separated into the real 
+\begin_inset Formula $\mathbf{F}^{m}$
+\end_inset
+
+ and imaginary 
+\begin_inset Formula $\mathbf{G}^{m}$
+\end_inset
+
+ part, which can be given by the relations
+\begin_inset Formula 
+\begin{equation}
+R_{\chi\chi'}^{m}=F_{\chi\chi'}^{m}+iG_{\chi\chi'}^{m}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\left[\begin{array}{ccc}
+F_{\underline{1}\underline{1}}^{1} & F_{\underline{1}0}^{1} & F_{\underline{1}1}^{1}\\
+F_{0\underline{1}}^{1} & F_{00}^{1} & F_{01}^{1}\\
+F_{1\underline{1}}^{1} & F_{10}^{1} & F_{11}^{1}
+\end{array}\right]=\left[\begin{array}{ccc}
+\left(R_{yy}+R_{xx}\right)/2 & R_{xz}/\sqrt{2} & \left(R_{yy}-R_{xx}\right)/2\\
+R_{zx}/\sqrt{2} & R_{zz} & -R_{zx}/\sqrt{2}\\
+\left(R_{yy}-R_{xx}\right)/2 & -R_{xz}/\sqrt{2} & \left(R_{yy}+R_{xx}\right)/2
+\end{array}\right]
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\left[\begin{array}{ccc}
+G_{\underline{1}\underline{1}}^{1} & G_{\underline{1}0}^{1} & G_{\underline{1}1}^{1}\\
+G_{0\underline{1}}^{1} & G_{00}^{1} & G_{01}^{1}\\
+G_{1\underline{1}}^{1} & G_{10}^{1} & G_{11}^{1}
+\end{array}\right]=\left[\begin{array}{ccc}
+\left(R_{yx}-R_{xy}\right)/2 & R_{yz}/\sqrt{2} & -\left(R_{yx}+R_{xy}\right)/2\\
+-R_{zy}/\sqrt{2} & 0 & -R_{zy}/\sqrt{2}\\
+\left(R_{yx}+R_{xy}\right)/2 & R_{yz}/\sqrt{2} & \left(R_{xy}-R_{yx}\right)/2
+\end{array}\right]
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Case of 
+\begin_inset Formula $m_{\mathrm{max}}>1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Recurrence relation for 
+\begin_inset Formula $-m+1\leq\chi'\leq m-1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The recurrence relation for 
+\begin_inset Formula $-m\leq\chi\leq m$
+\end_inset
+
+, 
+\begin_inset Formula $-m+1\leq\chi'\leq m-1$
+\end_inset
+
+ between matrix elements is
+\begin_inset Formula 
+\begin{equation}
+R_{\chi\chi'}^{m}=a_{\chi\chi'}^{m}R_{00}^{1}R_{\chi\chi'}^{m-1}+b_{\chi\chi'}^{m}R_{10}^{1}R_{\chi-1,\chi'}^{m-1}+b_{-\chi,\chi'}^{m}R_{\text{-1,}0}^{1}R_{\chi+1,\chi'}^{m-1}\label{eq:relation_1}
+\end{equation}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ll}
+a_{\chi\chi'}^{m}=\left[\dfrac{\left(m+\chi\right)\left(m-\chi\right)}{\left(m+\chi'\right)\left(m-\chi'\right)}\right]^{\frac{1}{2}} & (-m+1\leq\chi\leq m-1)\\
+b_{\chi\chi'}^{m}=\left[\dfrac{\left(m+\chi\right)\left(m+\chi-1\right)}{2\left(m+\chi'\right)\left(m-\chi'\right)}\right]^{\frac{1}{2}} & (-m+2\leq\chi\leq m-2)
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To separate the real and imaginary part, suppose
+\begin_inset Formula 
+\begin{equation}
+H_{\chi\chi'}^{m}(i,j)=F_{ij}^{1}F_{\chi\chi'}^{m-1}-G_{ij}^{1}G_{\chi\chi'}^{m-1}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+K_{\chi\chi'}^{m}(i,j)=F_{ij}^{1}G_{\chi\chi'}^{m-1}+G_{ij}^{1}F_{\chi\chi'}^{m-1}
+\end{equation}
+
+\end_inset
+
+therefore
+\begin_inset Formula 
+\begin{equation}
+F_{\chi\chi'}^{m}=a_{\chi\chi'}^{m}H_{\chi\chi'}^{m}(0,0)+b_{\chi\chi'}^{m}H_{\chi-1,\chi'}^{m}(1,0)+b_{-\chi,\chi'}^{m}H_{\chi+1,\chi'}^{m}(-1,0)
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+G_{\chi\chi'}^{m}=a_{\chi\chi'}^{m}K_{\chi\chi'}^{m}(0,0)+b_{\chi\chi'}^{m}K_{\chi-1,\chi'}^{m}(1,0)+b_{-\chi,\chi'}^{m}K_{\chi+1,\chi'}^{m}(-1,0)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the case of 
+\begin_inset Formula $\chi=\pm m$
+\end_inset
+
+, certain terms in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:relation_1"
+
+\end_inset
+
+) is out of definition.
+ They are supposed to be zero.
+ Another way is to suppose that
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ll}
+a_{\chi\chi'}^{m}=0 & \mathrm{for}\,\chi=\pm m\\
+b_{\chi\chi'}^{m}=0 & \mathrm{for}\,\chi=\pm m\,\mathrm{and}\,\chi=\mp(m-1)
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Recurrence relation for 
+\begin_inset Formula $-m+2\leq\chi'\leq m$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the case 
+\begin_inset Formula $\chi'=\pm m$
+\end_inset
+
+ which are not covered in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:relation_1"
+
+\end_inset
+
+), another recurrence relation supposes that
+\begin_inset Formula 
+\begin{equation}
+R_{\chi\chi'}^{m}=c_{\chi\chi'}^{m}R_{0,1}^{1}R_{\chi,\chi'-1}^{m-1}+d_{\chi\chi'}^{m}R_{1,1}^{1}R_{\chi-1,\chi'-1}^{m-1}+d_{-\chi,\chi'}^{m}R_{\text{-1,}1}^{1}R_{\chi+1,\chi'-1}^{m-1}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+F_{\chi\chi'}^{m}=c_{\chi\chi'}^{m}H_{\chi,\chi'-1}^{m}(0,1)+d_{\chi\chi'}^{m}H_{\chi-1,\chi'-1}^{m}(1,1)+d_{-\chi,\chi'}^{m}H_{\chi+1,\chi'-1}^{m}(-1,1)
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+G_{\chi\chi'}^{m}=c_{\chi\chi'}^{m}K_{\chi,\chi'-1}^{m}(0,1)+d_{\chi\chi'}^{m}K_{\chi-1,\chi'-1}^{m}(1,1)+d_{-\chi,\chi'}^{m}K_{\chi+1,\chi'-1}^{m}(-1,1)
+\end{equation}
+
+\end_inset
+
+with
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ll}
+c_{\chi\chi'}^{m}=\left[\dfrac{2\left(m+\chi\right)\left(m-\chi\right)}{\left(m+\chi'\right)\left(m+\chi'-1\right)}\right]^{\frac{1}{2}} & (-m+1\leq\chi\leq m-1)\\
+d_{\chi\chi'}^{m}=\left[\dfrac{\left(m+\chi\right)\left(m+\chi-1\right)}{\left(m+\chi'\right)\left(m+\chi'-1\right)}\right]^{\frac{1}{2}} & (-m+2\leq\chi\leq m-2)
+\end{array}
+\end{equation}
+
+\end_inset
+
+and
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ll}
+c_{\chi\chi'}^{m}=0 & \mathrm{for}\,\chi=\pm m\\
+d_{\chi\chi'}^{m}=0 & \mathrm{for}\,\chi=\pm m\,\mathrm{and}\,\chi=\mp(m-1)
+\end{array}
+\end{equation}
+
+\end_inset
+
+which is available for 
+\begin_inset Formula $-m+2\leq\chi'\leq m$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Symmetries
+\end_layout
+
+\begin_layout Standard
+The symmetries of 
+\begin_inset Formula $R_{\chi\chi'}^{m}$
+\end_inset
+
+ allow us to calculate only a half of elements: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+R_{-m,-m'}^{l}=\left(-1\right)^{m+m'}R_{mm'}^{l*}
+\end{equation}
+
+\end_inset
+
+which gives
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+F_{-m,-m'}^{l}=\left(-1\right)^{m+m'}F_{mm'}^{l}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+G_{-m,-m'}^{l}=-\left(-1\right)^{m+m'}G_{mm'}^{l}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

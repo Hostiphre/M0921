@@ -1,0 +1,620 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass classicthesis
+\use_default_options true
+\maintain_unincluded_children false
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex8
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Statistical Mechanics of Classical Fluids 
+\begin_inset CommandInset label
+LatexCommand label
+name "chpt:statistical-mechanics"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+the link between statistical mechanics and thermodynamics
+\end_layout
+
+\begin_layout Standard
+From pair distribution functions and interaction potential we can get all
+ informations about solvent equilibrium state.
+\end_layout
+
+\begin_layout Standard
+equilibrium statistical mechanics of classical fluids.
+\end_layout
+
+\begin_layout Standard
+one component bulk fluids.
+ thermodynamic state point is specified by 
+\begin_inset Formula $\rho$
+\end_inset
+
+ and temperature T.
+ 
+\end_layout
+
+\begin_layout Section
+Hamiltonian of a micro-state
+\end_layout
+
+\begin_layout Standard
+effective Hamiltonian, i.e.
+ the theorist constructs a model fluid.
+ 
+\end_layout
+
+\begin_layout Standard
+In classical mechanics, the instantaneous state (phase point) of an 
+\begin_inset Formula $N$
+\end_inset
+
+-particle solvent system is specified by 
+\begin_inset Formula $3N$
+\end_inset
+
+ coordinates 
+\begin_inset Formula $\mathbf{r}^{N}\equiv\mathbf{r}_{1},\ldots,\mathbf{r}_{N}$
+\end_inset
+
+ and 
+\begin_inset Formula $3N$
+\end_inset
+
+ momenta 
+\begin_inset Formula $\mathbf{p}^{N}\equiv\mathbf{p}_{1},\ldots,\mathbf{p}_{N}$
+\end_inset
+
+.
+ The Hamiltonian os the system is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H_{N}(\mathbf{r}^{N},\mathbf{p}^{N})=K_{N}(\mathbf{p}^{N})+V_{N}(\mathbf{r}^{N})+V_{N}^{\mathrm{ext}}(\mathbf{r}^{N})
+\end{equation}
+
+\end_inset
+
+where
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{N}(\mathbf{p}^{N})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $={\displaystyle \sum_{i=1}^{N}\frac{\mathbf{p}_{i}^{2}}{2m}}$
+\end_inset
+
+ is the kinetic energy 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $V_{N}(\mathbf{r}^{N})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $={\displaystyle \sum_{i<j}^{N}u(\left|\mathbf{r}_{i}-\mathbf{r}_{j}\right|)+3\,\mathrm{body}+\ldots}$
+\end_inset
+
+ is the interatomic potential energy 
+\begin_inset Formula $\mathcal{U}(\mathbf{r}^{N})$
+\end_inset
+
+, One then has a pairwise additive description of the total inter-particle
+ potential which leads one to define a model or effective Hamiltonian as
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $V_{N}^{\mathrm{ext}}(\mathbf{r}^{N})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $={\displaystyle \sum_{i=1}^{N}}V_{\mathrm{ext}}(\mathbf{r}_{i})$
+\end_inset
+
+ is the potential energy arising from the interaction of the particles with
+ the external field
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The distribution of phase points of systems of 
+\color red
+the ensemble
+\color inherit
+ is described by a phase space probability density 
+\begin_inset Formula $f^{[N]}(\mathbf{r}^{N},\mathbf{p}^{N};t)$
+\end_inset
+
+, such that 
+\begin_inset Formula 
+\begin{equation}
+\int f^{[N]}(\mathbf{r}^{N},\mathbf{p}^{N};t)\mathrm{d}\mathbf{r}^{N}\mathrm{d}\mathbf{p}^{N}=1
+\end{equation}
+
+\end_inset
+
+for all 
+\begin_inset Formula $t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+subset of particles of size 
+\begin_inset Formula $n$
+\end_inset
+
+, reduced phase space distribution function 
+\begin_inset Formula 
+\begin{equation}
+f^{[n]}(\mathbf{r}^{n},\mathbf{p}^{n};t)=\dfrac{N!}{(N-n)!}\int f^{[N]}(\mathbf{r}^{N},\mathbf{p}^{N};t)\mathrm{d}\mathbf{r}^{N-n}\mathrm{d}\mathbf{p}^{N-n}=1
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbf{r}^{n}\equiv\mathbf{r}_{1},\ldots,\mathbf{r}_{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{r}^{N-n}\equiv\mathbf{r}_{n+1},\ldots,\mathbf{r}_{N}$
+\end_inset
+
+.
+ the probability of finding a subset of 
+\begin_inset Formula $n$
+\end_inset
+
+ particles in the reduced phase space element....
+ the factor is the number of ways of choosing a subset of size 
+\begin_inset Formula $n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The Liouville theorem shows that the probability density is independent
+ of time.
+\end_layout
+
+\begin_layout Standard
+The Bogoliubov–Born–Green–Kirkwood–Yvon hierarchy express 
+\begin_inset Formula $f^{(n)}$
+\end_inset
+
+ in terms of 
+\begin_inset Formula $f^{(n+1)}$
+\end_inset
+
+, approximation closure
+\end_layout
+
+\begin_layout Section
+Time averages and ensemble averages / Partition functions and Thermodynamics
+\end_layout
+
+\begin_layout Standard
+The classical canonical partition function for a one component fluid is
+ given by,
+\begin_inset Formula 
+\begin{equation}
+Z_{N}(\beta,V)=\dfrac{h^{-dN}}{N!}\int\mathrm{d}\mathbf{r}^{N}\mathrm{d}\mathbf{p}^{N}e^{-\beta H_{N}}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula $d$
+\end_inset
+
+ is the dimensionality and 
+\begin_inset Formula $V$
+\end_inset
+
+ is the volume of the system.
+ We can integrate over the momenta to obtain
+\begin_inset Formula 
+\begin{equation}
+Z_{N}(\beta,V)=\Lambda^{-dN}Q_{N}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+Q_{N}=\dfrac{1}{N!}\int\mathrm{d}\mathbf{r}^{N}e^{-\beta\mathcal{U}(\mathbf{r}_{1},\ldots,\mathbf{r}_{n})}
+\end{equation}
+
+\end_inset
+
+is the configurational partition function.
+ Note that the potential energy 
+\begin_inset Formula $\mathcal{U}(\mathbf{r}_{1},\ldots,\mathbf{r}_{n})$
+\end_inset
+
+ may still include an external field contribution.
+\end_layout
+
+\begin_layout Standard
+The Helmholtz free energy is simply
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+F_{N}(\beta,V)=-\beta^{-1}\ln Z_{N}
+\]
+
+\end_inset
+
+which leads to entropy 
+\begin_inset Formula 
+\[
+S=\left(\dfrac{\partial F_{N}}{\partial T}\right)_{V}
+\]
+
+\end_inset
+
+pressure
+\begin_inset Formula 
+\[
+p=\left(\dfrac{\partial F_{N}}{\partial V}\right)_{T}
+\]
+
+\end_inset
+
+for bulk fluid
+\end_layout
+
+\begin_layout Standard
+For an ideal (non-interacting) gas, where 
+\begin_inset Formula $\Phi\rightarrow0$
+\end_inset
+
+, in 
+\begin_inset Formula $d=3$
+\end_inset
+
+???
+\begin_inset Formula 
+\[
+\beta F_{N}=\ln(N!\Lambda^{3N}V^{-N})=N\ln(\Lambda^{3}\rho)-N
+\]
+
+\end_inset
+
+Stering equation...
+ number density 
+\begin_inset Formula $\rho=N/V$
+\end_inset
+
+ (a uniform ideal classical gas.)
+\end_layout
+
+\begin_layout Standard
+Th grand function We consider open systems with fixed temperature 
+\begin_inset Formula $T$
+\end_inset
+
+ and chemical potential 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
+ The partition function for the grand canonical ensemble is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Xi(\beta???,\mu,T)=\sum_{N=0}^{\infty}\frac{e^{\beta\mu N}}{h^{3N}N!}\iint\mathrm{d}\mathbf{r}^{N}\mathrm{d}\mathbf{p}^{N}e^{-\beta H_{N}(\mathbf{r}^{N},\mathbf{p}^{N})}=\sum_{N=0}^{\infty}\frac{1}{N!}\int\mathrm{d}\mathbf{r}^{N}e^{-\beta V_{N}(\mathbf{r}^{N})}\left(\prod_{i=1}^{N}\frac{e^{\beta u(\mathbf{r}_{i})}}{\Lambda^{3N}}\right)
+\end{equation}
+
+\end_inset
+
+with 
+\begin_inset Formula $\Lambda=(2\pi\hbar^{2}/m)^{\frac{1}{2}}$
+\end_inset
+
+ and 
+\begin_inset Formula $u(\mathbf{r})=\mu-V_{\mathrm{ext}}(\mathbf{r})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The equilibrium density of probability 
+\begin_inset Formula 
+\[
+f(\mathbf{r}^{N},\mathbf{p}^{N};N)=\frac{1}{h^{3N}N!}\frac{1}{\Xi}e^{-\beta\left[H_{N}(\mathbf{r}^{N},\mathbf{p}^{N})-\mu N\right]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and the grand potential
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Omega=-\beta^{-1}\ln\Xi(\beta???,\mu,T)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+which for the case of a uniform fluid, reduces to 
+\begin_inset Formula $\Omega=-pV$
+\end_inset
+
+ .
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Omega\left[u\right]=\beta^{-1}\left\langle \ln\left(h^{3N}N!f(\mathbf{r}^{N},\mathbf{p}^{N};N)\right)+K_{N}(\mathbf{p}^{N})+V_{N}(\mathbf{r}^{N})-\sum_{i=0}^{N}u(\mathbf{r}_{i})\right\rangle 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+u(\mathbf{r}_{i})=\int\delta(\mathbf{r}-\mathbf{r}_{i})u(\mathbf{r})\mathrm{d}\mathbf{r}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\rho(\mathbf{r})=\left\langle \sum_{i=1}^{N}\delta(\mathbf{r}-\mathbf{r}_{i})\right\rangle 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Omega\left[u\right]=\beta^{-1}\left\langle \ln\left(h^{3N}N!f(\mathbf{r}^{N},\mathbf{p}^{N};N)\right)+K_{N}(\mathbf{p}^{N})+V_{N}(\mathbf{r}^{N})\right\rangle -\int\rho(\mathbf{r})u(\mathbf{r})\mathrm{d}\mathbf{r}
+\]
+
+\end_inset
+
+free energy of Helmholtz
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Omega\left[u\right]=F+\mu\left\langle N\right\rangle =F+\mu\int\rho(\mathbf{r})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Distribution functions
+\end_layout
+
+\begin_layout Standard
+the direct correlation function hierarchy:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+c^{(1)}(\mathbf{r})=-\dfrac{\delta(\beta\mathcal{F}_{\mathrm{exc}}[\rho])}{\delta\rho(\mathbf{r})}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+c^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})=\dfrac{\delta c^{(1)}(\mathbf{r}_{1})}{\delta\rho(\mathbf{r}_{2})}=-\dfrac{\delta^{2}(\beta\mathcal{F}_{\mathrm{exc}}[\rho])}{\delta\rho(\mathbf{r}_{1})\delta\rho(\mathbf{r}_{2})}=c^{(2)}(\mathbf{r}_{2},\mathbf{r}_{1})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+c^{(n)}(\mathbf{r}_{1},\ldots,\mathbf{r}_{n})=\dfrac{\delta c^{(n-1)}(\mathbf{r}_{1},\ldots,\mathbf{r}_{n-1})}{\delta\rho(\mathbf{r}_{n})}
+\]
+
+\end_inset
+
+for bulk solvent
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}[\rho]$
+\end_inset
+
+ is the excess (over ideal) 
+\color red
+Helmholtz free energy
+\color inherit
+ functional arising from the interactions.
+\end_layout
+
+\end_body
+\end_document

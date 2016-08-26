@@ -1,0 +1,235 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass classicthesis
+\use_default_options true
+\maintain_unincluded_children false
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pdfbookmark[1]{Acknowledgments}{acknowledgments}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align right
+
+\shape slanted
+When you are studying any matter, or considering any philosophy, ask yourself
+ only, what are the facts and what is the truth that the facts bear out.
+\begin_inset Newline newline
+\end_inset
+
+ Never let yourself be diverted either by what you wish to believe, or by
+ what you think would have beneficent social effects if it were believed.
+\begin_inset Newline newline
+\end_inset
+
+ But look only, and solely, at what are the facts.
+\end_layout
+
+\begin_layout Standard
+\align right
+--- Bertrand Russell 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begingroup
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+let
+\backslash
+clearpage
+\backslash
+relax
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+let
+\backslash
+cleardoublepage
+\backslash
+relax
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Chapter*
+Acknowledgements
+\end_layout
+
+\begin_layout Standard
+I would love to express my most respectful gratitude to my thesis advisors
+ Daniel Borgis and Luc Belloni, who developed the main theory used in this
+ thesis, and whose great knowledge of liquid theory as well as the genius
+ way of thinking and explaining have given me a solid guide on doing this
+ research.
+ I would also love to thank them for their being engaged in the endless
+ work of correcting this manuscript.
+\end_layout
+
+\begin_layout Standard
+I'm also grateful to Maximilien Levesque, who also belong to this project
+ and joined the supervision of my thesis.
+ Thanks for sharing some results and data that is useful to this thesis.
+\end_layout
+
+\begin_layout Standard
+I wish to acknowledge all the great heads having accepted to evaluate and
+ give ideas about my work: 
+\color red
+(noms des jurés)
+\color inherit
+, thank you to be part of the jury of this thesis.
+\end_layout
+
+\begin_layout Standard
+For a master student issue from pure chemistry speciality, a lack of knowledge
+ about informatics brought me a lot of difficulties.
+ I would like to express my sincere gratitude to my colleagues Pierre Kestener,
+ Matthieu Haefele, Yacine Ould-Rouis, and Martial Mancip for huge aide in
+ informatics and very useful advices during this thesis.
+\end_layout
+
+\begin_layout Standard
+This thesis undergoes at 
+\shape italic
+Maison de la Simulation, CEA Saclay
+\shape default
+, financially supported by Bourse Idex-CEA.
+ I'm grateful to all the organizations and staffs that gave me the chance
+ to have this three-year experience.
+\end_layout
+
+\begin_layout Standard
+I am also grateful to ...
+ for the help in correcting huge amount of grammar faults in the manuscript.
+\end_layout
+
+\begin_layout Standard
+I'm deeply indebted to my tutors of license and master, Monsieur Hongwei
+ Tan and Madame Michelle Gupta, whose clear logic and warm encouragement
+ gave me all the necessaries to be in loved with theoretical chemistry.
+\end_layout
+
+\begin_layout Standard
+Finally I would like to thank my father, who made the right decision to
+ send me here in France and support me in every aspect.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+endgroup
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

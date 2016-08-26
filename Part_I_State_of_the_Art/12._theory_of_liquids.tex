@@ -1,0 +1,179 @@
+
+\chapter{Statistical Mechanics of Classical Fluids \label{chpt:statistical-mechanics}}
+
+the link between statistical mechanics and thermodynamics
+
+From pair distribution functions and interaction potential we can
+get all informations about solvent equilibrium state.
+
+equilibrium statistical mechanics of classical fluids.
+
+one component bulk fluids. thermodynamic state point is specified
+by $\rho$ and temperature T. 
+
+
+\section{Hamiltonian of a micro-state}
+
+effective Hamiltonian, i.e. the theorist constructs a model fluid. 
+
+In classical mechanics, the instantaneous state (phase point) of an
+$N$-particle solvent system is specified by $3N$ coordinates $\mathbf{r}^{N}\equiv\mathbf{r}_{1},\ldots,\mathbf{r}_{N}$
+and $3N$ momenta $\mathbf{p}^{N}\equiv\mathbf{p}_{1},\ldots,\mathbf{p}_{N}$.
+The Hamiltonian os the system is
+
+\begin{equation}
+H_{N}(\mathbf{r}^{N},\mathbf{p}^{N})=K_{N}(\mathbf{p}^{N})+V_{N}(\mathbf{r}^{N})+V_{N}^{\mathrm{ext}}(\mathbf{r}^{N})
+\end{equation}
+where
+
+\begin{tabular}{ll}
+$K_{N}(\mathbf{p}^{N})$ & $={\displaystyle \sum_{i=1}^{N}\frac{\mathbf{p}_{i}^{2}}{2m}}$ is
+the kinetic energy \tabularnewline
+$V_{N}(\mathbf{r}^{N})$ & $={\displaystyle \sum_{i<j}^{N}u(\left|\mathbf{r}_{i}-\mathbf{r}_{j}\right|)+3\,\mathrm{body}+\ldots}$
+is the interatomic potential energy $\mathcal{U}(\mathbf{r}^{N})$,
+One then has a pairwise additive description of the total inter-particle
+potential which leads one to define a model or effective Hamiltonian
+as\tabularnewline
+$V_{N}^{\mathrm{ext}}(\mathbf{r}^{N})$ & $={\displaystyle \sum_{i=1}^{N}}V_{\mathrm{ext}}(\mathbf{r}_{i})$
+is the potential energy arising from the interaction of the particles
+with the external field\tabularnewline
+ & \tabularnewline
+\end{tabular}
+
+The distribution of phase points of systems of \textcolor{red}{the
+ensemble} is described by a phase space probability density $f^{[N]}(\mathbf{r}^{N},\mathbf{p}^{N};t)$,
+such that 
+\begin{equation}
+\int f^{[N]}(\mathbf{r}^{N},\mathbf{p}^{N};t)\mathrm{d}\mathbf{r}^{N}\mathrm{d}\mathbf{p}^{N}=1
+\end{equation}
+for all $t$.
+
+subset of particles of size $n$, reduced phase space distribution
+function 
+\begin{equation}
+f^{[n]}(\mathbf{r}^{n},\mathbf{p}^{n};t)=\dfrac{N!}{(N-n)!}\int f^{[N]}(\mathbf{r}^{N},\mathbf{p}^{N};t)\mathrm{d}\mathbf{r}^{N-n}\mathrm{d}\mathbf{p}^{N-n}=1
+\end{equation}
+where $\mathbf{r}^{n}\equiv\mathbf{r}_{1},\ldots,\mathbf{r}_{n}$
+and $\mathbf{r}^{N-n}\equiv\mathbf{r}_{n+1},\ldots,\mathbf{r}_{N}$.
+the probability of finding a subset of $n$ particles in the reduced
+phase space element.... the factor is the number of ways of choosing
+a subset of size $n$.
+
+The Liouville theorem shows that the probability density is independent
+of time.
+
+The Bogoliubov–Born–Green–Kirkwood–Yvon hierarchy express $f^{(n)}$
+in terms of $f^{(n+1)}$, approximation closure
+
+
+\section{Time averages and ensemble averages / Partition functions and Thermodynamics}
+
+The classical canonical partition function for a one component fluid
+is given by,
+\begin{equation}
+Z_{N}(\beta,V)=\dfrac{h^{-dN}}{N!}\int\mathrm{d}\mathbf{r}^{N}\mathrm{d}\mathbf{p}^{N}e^{-\beta H_{N}}
+\end{equation}
+$d$ is the dimensionality and $V$ is the volume of the system. We
+can integrate over the momenta to obtain
+\begin{equation}
+Z_{N}(\beta,V)=\Lambda^{-dN}Q_{N}
+\end{equation}
+\begin{equation}
+Q_{N}=\dfrac{1}{N!}\int\mathrm{d}\mathbf{r}^{N}e^{-\beta\mathcal{U}(\mathbf{r}_{1},\ldots,\mathbf{r}_{n})}
+\end{equation}
+is the configurational partition function. Note that the potential
+energy $\mathcal{U}(\mathbf{r}_{1},\ldots,\mathbf{r}_{n})$ may still
+include an external field contribution.
+
+The Helmholtz free energy is simply
+
+\[
+F_{N}(\beta,V)=-\beta^{-1}\ln Z_{N}
+\]
+which leads to entropy 
+\[
+S=\left(\dfrac{\partial F_{N}}{\partial T}\right)_{V}
+\]
+pressure
+\[
+p=\left(\dfrac{\partial F_{N}}{\partial V}\right)_{T}
+\]
+for bulk fluid
+
+For an ideal (non-interacting) gas, where $\Phi\rightarrow0$, in
+$d=3$???
+\[
+\beta F_{N}=\ln(N!\Lambda^{3N}V^{-N})=N\ln(\Lambda^{3}\rho)-N
+\]
+Stering equation... number density $\rho=N/V$ (a uniform ideal classical
+gas.)
+
+Th grand function We consider open systems with fixed temperature
+$T$ and chemical potential $\mu$. The partition function for the
+grand canonical ensemble is
+
+\begin{equation}
+\Xi(\beta???,\mu,T)=\sum_{N=0}^{\infty}\frac{e^{\beta\mu N}}{h^{3N}N!}\iint\mathrm{d}\mathbf{r}^{N}\mathrm{d}\mathbf{p}^{N}e^{-\beta H_{N}(\mathbf{r}^{N},\mathbf{p}^{N})}=\sum_{N=0}^{\infty}\frac{1}{N!}\int\mathrm{d}\mathbf{r}^{N}e^{-\beta V_{N}(\mathbf{r}^{N})}\left(\prod_{i=1}^{N}\frac{e^{\beta u(\mathbf{r}_{i})}}{\Lambda^{3N}}\right)
+\end{equation}
+with $\Lambda=(2\pi\hbar^{2}/m)^{\frac{1}{2}}$ and $u(\mathbf{r})=\mu-V_{\mathrm{ext}}(\mathbf{r})$.
+
+The equilibrium density of probability 
+\[
+f(\mathbf{r}^{N},\mathbf{p}^{N};N)=\frac{1}{h^{3N}N!}\frac{1}{\Xi}e^{-\beta\left[H_{N}(\mathbf{r}^{N},\mathbf{p}^{N})-\mu N\right]}
+\]
+
+
+and the grand potential
+
+\[
+\Omega=-\beta^{-1}\ln\Xi(\beta???,\mu,T)
+\]
+
+
+which for the case of a uniform fluid, reduces to $\Omega=-pV$ . 
+
+\[
+\Omega\left[u\right]=\beta^{-1}\left\langle \ln\left(h^{3N}N!f(\mathbf{r}^{N},\mathbf{p}^{N};N)\right)+K_{N}(\mathbf{p}^{N})+V_{N}(\mathbf{r}^{N})-\sum_{i=0}^{N}u(\mathbf{r}_{i})\right\rangle 
+\]
+
+
+\[
+u(\mathbf{r}_{i})=\int\delta(\mathbf{r}-\mathbf{r}_{i})u(\mathbf{r})\mathrm{d}\mathbf{r}
+\]
+
+
+\[
+\rho(\mathbf{r})=\left\langle \sum_{i=1}^{N}\delta(\mathbf{r}-\mathbf{r}_{i})\right\rangle 
+\]
+
+
+\[
+\Omega\left[u\right]=\beta^{-1}\left\langle \ln\left(h^{3N}N!f(\mathbf{r}^{N},\mathbf{p}^{N};N)\right)+K_{N}(\mathbf{p}^{N})+V_{N}(\mathbf{r}^{N})\right\rangle -\int\rho(\mathbf{r})u(\mathbf{r})\mathrm{d}\mathbf{r}
+\]
+free energy of Helmholtz
+
+\[
+\Omega\left[u\right]=F+\mu\left\langle N\right\rangle =F+\mu\int\rho(\mathbf{r})
+\]
+
+
+
+\section{Distribution functions}
+
+the direct correlation function hierarchy:
+
+\[
+c^{(1)}(\mathbf{r})=-\dfrac{\delta(\beta\mathcal{F}_{\mathrm{exc}}[\rho])}{\delta\rho(\mathbf{r})}
+\]
+\[
+c^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})=\dfrac{\delta c^{(1)}(\mathbf{r}_{1})}{\delta\rho(\mathbf{r}_{2})}=-\dfrac{\delta^{2}(\beta\mathcal{F}_{\mathrm{exc}}[\rho])}{\delta\rho(\mathbf{r}_{1})\delta\rho(\mathbf{r}_{2})}=c^{(2)}(\mathbf{r}_{2},\mathbf{r}_{1})
+\]
+
+
+\[
+c^{(n)}(\mathbf{r}_{1},\ldots,\mathbf{r}_{n})=\dfrac{\delta c^{(n-1)}(\mathbf{r}_{1},\ldots,\mathbf{r}_{n-1})}{\delta\rho(\mathbf{r}_{n})}
+\]
+for bulk solvent
+
+$\mathcal{F}_{\mathrm{exc}}[\rho]$ is the excess (over ideal) \textcolor{red}{Helmholtz
+free energy} functional arising from the interactions.

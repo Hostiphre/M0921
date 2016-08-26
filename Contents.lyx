@@ -1,0 +1,931 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass classicthesis
+\use_default_options true
+\maintain_unincluded_children false
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%*************************
+\end_layout
+
+\begin_layout Plain Layout
+
+% Table of Contents
+\end_layout
+
+\begin_layout Plain Layout
+
+%*************************
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+phantomsection
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+refstepcounter{dummy}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pdfbookmark[1]{
+\backslash
+contentsname}{tableofcontents} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{tocdepth}{2} % <-- 2 includes up to subsections in the ToC 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{secnumdepth}{3} % <-- 3 section numbers up to subsubsections
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+manualmark 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+markboth{
+\backslash
+spacedlowsmallcaps{
+\backslash
+contentsname}}{
+\backslash
+spacedlowsmallcaps{
+\backslash
+contentsname}} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tableofcontents  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+automark[section]{chapter} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+chaptermark}[1]{
+\backslash
+markboth{
+\backslash
+spacedlowsmallcaps{#1}}{
+\backslash
+spacedlowsmallcaps{#1}}} 
+\backslash
+renewcommand{
+\backslash
+sectionmark}[1]{
+\backslash
+markright{
+\backslash
+thesection
+\backslash
+enspace
+\backslash
+spacedlowsmallcaps{#1}}}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begingroup
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+let
+\backslash
+clearpage
+\backslash
+relax
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+let
+\backslash
+cleardoublepage
+\backslash
+relax
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%*************************
+\end_layout
+
+\begin_layout Plain Layout
+
+% List of Figures     
+\end_layout
+
+\begin_layout Plain Layout
+
+%*************************
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+phantomsection
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+refstepcounter{dummy}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+addcontentsline{toc}{chapter}{
+\backslash
+listfigurename}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pdfbookmark[1]{
+\backslash
+listfigurename}{lof}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+listoffigures
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 8ex
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%*************************
+\end_layout
+
+\begin_layout Plain Layout
+
+% List of Tables
+\end_layout
+
+\begin_layout Plain Layout
+
+%*************************
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+phantomsection
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+refstepcounter{dummy}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+addcontentsline{toc}{chapter}{
+\backslash
+listtablename}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pdfbookmark[1]{
+\backslash
+listtablename}{lot}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+listoftables
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 8ex
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%*************************
+\end_layout
+
+\begin_layout Plain Layout
+
+% List of Listings
+\end_layout
+
+\begin_layout Plain Layout
+
+%*************************
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+phantomsection
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+refstepcounter{dummy}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+addcontentsline{toc}{chapter}{
+\backslash
+lstlistlistingname}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pdfbookmark[1]{
+\backslash
+lstlistlistingname}{lol}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstlistoflistings 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 8ex
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%*************************
+\end_layout
+
+\begin_layout Plain Layout
+
+% Notations
+\end_layout
+
+\begin_layout Plain Layout
+
+%*************************
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+phantomsection
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+refstepcounter{dummy}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pdfbookmark[1]{Notations}{notations}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+markboth{
+\backslash
+spacedlowsmallcaps{Notations}}{
+\backslash
+spacedlowsmallcaps{Notations}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter*{Notations}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{-0.5em}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="3.3em">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathcal{F}[\rho]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+solvation free energy functional 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{-1.5em}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="3.3em">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+excess free energy functional 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{-1.5em}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="3.3em">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+density of solvent
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{-1.5em}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="3.3em">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\gamma(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+gradient of excess free energy functional, 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 8ex
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%*************************
+\end_layout
+
+\begin_layout Plain Layout
+
+% Acronyms
+\end_layout
+
+\begin_layout Plain Layout
+
+%*************************
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+phantomsection
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+refstepcounter{dummy}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pdfbookmark[1]{Acronyms}{acronyms}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+markboth{
+\backslash
+spacedlowsmallcaps{Acronyms}}{
+\backslash
+spacedlowsmallcaps{Acronyms}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter*{Acronyms}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{acronym}[UML]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+acro{DCF}{direct correlation function}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+acro{DFT}{discret Fourier transform, also refer to density functional theory}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+acro{FE}{function evaluation}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+acro{FGSHT}{fast generalized spherical harmonic transform}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+acro{HNC}{hypernetted-chain (approximation)}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+acro{HRF}{homogeneous reference fluid (approximation)}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+acro{IET}{integral equation theory}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+acro{MC}{Monte Carlo}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+acro{MD}{molecular dynamics}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+acro{MDFT}{molecular density functional theory}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+acro{MOZ}{molecular Ornstein-Zernike (equation)}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+acro{OZ}{Ornstein-Zernike (equation)}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+acro{PCF}{pair correlation function}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+acro{PDF}{pair distribution function}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+acro{QM}{quantum mechanics} 
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+acro{RISM}{reference interaction site model}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{acronym}              
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+endgroup
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,1143 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass classicthesis
+\use_default_options true
+\maintain_unincluded_children false
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Hello.
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+A margin.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+General: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+drafting
+\family default
+: prints 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Parts and Chapters: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+parts
+\family default
+: if you 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+nochapters
+\family default
+: allows 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+linedheaders
+\family default
+: changes 
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset listings
+lstparams "frame=lt"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand{
+\backslash
+myTitle}{A Classic Thesis Style
+\backslash
+xspace} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand{
+\backslash
+mySubtitle}{An Homage to...
+\backslash
+xspace} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+This is a code listing layout inserted from the Lyx insert menu
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you want to use the 
+\family typewriter
+glossaries
+\family default
+ package, take care of loading it with the following options:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "frame=none"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+usepackage[style=long,nolist]{glossaries}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Examples: 
+\shape italic
+Italics
+\shape default
+, 
+\begin_inset Flex CT - Spaced All Caps
+status collapsed
+
+\begin_layout Plain Layout
+all caps
+\end_layout
+
+\end_inset
+
+, 
+\shape smallcaps
+Small Caps
+\shape default
+, 
+\begin_inset Flex CT - Spaced Low Small Caps
+status collapsed
+
+\begin_layout Plain Layout
+low small caps
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Acronym test: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{UML}
+\end_layout
+
+\end_inset
+
+ -- 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acf{UML}
+\end_layout
+
+\end_inset
+
+ -- 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acfp{UML}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Flex CT - acronym
+status open
+
+\begin_layout Plain Layout
+
+UML
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset Flex CT - Description Label
+status collapsed
+
+\begin_layout Plain Layout
+Description-Label Test
+\end_layout
+
+\end_inset
+
+: Illo secundo continentes sia il, sia russo distinguer se.
+ Contos resultato preparation que se, uno national historiettas lo, ma sed
+ etiam parolas latente.
+ Ma unic quales sia.
+ Pan in patre altere summario, le pro latino resultato.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="3">
+<features rotate="0" booktabs="true" tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+labitur bonorum pri no
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+que vista
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+human
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+fastidii ea ius
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+germano
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+demonstratea
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+suscipit instructior
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+titulo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+personas
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+quaestio philosophia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+facto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+demonstrated 
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+key "knuth:1974"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+Autem timeam deleniti usu id
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:example"
+
+\end_inset
+
+Autem timeam deleniti usu id.
+ 
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+key "knuth:1974"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+enlargethispage{20cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{addmargin}[0em]{-5em} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename _figure/mdft.eps
+	width 75page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+aa
+\end_layout
+
+\end_inset
+
+aa
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{addmargin} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\xi$
+\end_inset
+
+ comes from the Rutherford scattering cross section and is defined as: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\xi=\frac{2\pi z^{2}e^{4}N_{\textrm{Av}}Z\rho\delta x}{m_{\textrm{e}}\beta^{2}c^{2}A}=153.4\frac{z^{2}}{\beta^{2}}\frac{Z}{A}\rho\delta x\quad\textrm{keV},
+\end{eqnarray*}
+
+\end_inset
+
+ where
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $z$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+charge of the incident particle 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{\textrm{Av}}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Avogadro's number 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $Z$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+atomic number of the material 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $A$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+atomic weight of the material 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rho$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+density 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta x$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+thickness of the material 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+A large number of collisions involving the loss of all or most of the incident
+ particle energy during the traversal of an absorber.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+As the total energy transfer is composed of a multitude of small energy
+ losses, we can apply the central limit theorem and describe the fluctuations
+ by a Gaussian distribution.
+ This case is applicable to non-relativistic particles and is described
+ by the inequality 
+\begin_inset Formula $\kappa>10$
+\end_inset
+
+ (i.
+\begin_inset space \thinspace{}
+\end_inset
+
+e., when the mean energy loss in the absorber is greater than the maximum
+ energy transfer in a single collision).
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Particles traversing thin counters and incident electrons under any conditions.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+The relevant inequalities and distributions are 
+\begin_inset Formula $0.01<\kappa<10$
+\end_inset
+
+, Vavilov distribution, and 
+\begin_inset Formula $\kappa<0.01$
+\end_inset
+
+, Landau distribution.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Description
+\begin_inset Flex CT - Description Label
+status collapsed
+
+\begin_layout Plain Layout
+aEnumerate environment
+\end_layout
+
+\end_inset
+
+ where items are numbered by small capital letters can be entered by choosing
+ 
+\begin_inset Quotes eld
+\end_inset
+
+aEnumerate (ClassicThesis)
+\begin_inset Quotes erd
+\end_inset
+
+ from the Standard toolbar menu.
+\end_layout
+
+\begin_deeper
+\begin_layout aEnumerate (ClassicThesis)
+Being the second list environment here, the depth of the aenumerate environment
+\end_layout
+
+\begin_layout aEnumerate (ClassicThesis)
+had to be increased by one
+\end_layout
+
+\end_deeper
+\begin_layout Description
+\begin_inset Flex CT - Description Label
+status collapsed
+
+\begin_layout Plain Layout
+Bibliography & Citations
+\end_layout
+
+\end_inset
+
+ This template has switched to 
+\family typewriter
+BibLaTeX
+\family default
+ and 
+\family typewriter
+biber
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+
+\family typewriter
+Biber
+\family default
+, as opposed to 
+\family typewriter
+bibtex
+\family default
+, supports Unicode character encoding.
+ All thesis files have in version 4.2 been saved in 
+\size footnotesize
+UTF-8
+\size default
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\family default
+ for processing citations and bibliographies.
+ Due to lacking support in LyX, a 
+\begin_inset CommandInset href
+LatexCommand href
+name "few hacks"
+target "http://wiki.lyx.org/BibTeX/Biblatex"
+
+\end_inset
+
+ have been applied 
+\family typewriter
+
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+check the new hacks in
+\family typewriter
+ classic\SpecialChar \-
+thesis.layout
+\end_layout
+
+\end_inset
+
+
+\family default
+ so that the citations can be added through 
+\family typewriter
+the Insert\SpecialChar \menuseparator
+Citation
+\family default
+ dialog (however, only in 
+\family typewriter
+natbib
+\family default
+ 
+\family typewriter
+compati\SpecialChar \-
+bility
+\family default
+ 
+\family typewriter
+mode
+\family default
+) and that the bibliography databases can be found during LaTeX compilation.
+ The .
+\family typewriter
+bib
+\family default
+ files have to be loaded from 
+\family typewriter
+Document\SpecialChar \menuseparator
+Settings\SpecialChar \menuseparator
+LaTeX preamble
+\family default
+ of the main thesis file.
+ Note that the references will only show up in LyX dialogs when the .
+\family typewriter
+bib
+\family default
+ files have also been added through the 
+\begin_inset Flex CT - Spaced Low Small Caps
+status open
+
+\begin_layout Plain Layout
+BibTeX Generated Bibliography
+\end_layout
+
+\end_inset
+
+ button in the main thesis file.
+ Additional options to BibLaTeX can be set either in 
+\family typewriter
+classicthesis\SpecialChar \-
+-config.tex
+\family default
+ or in the preamble, by adding them to 
+\family typewriter
+
+\backslash
+Execute\SpecialChar \-
+Bibliography\SpecialChar \-
+Options{}
+\family default
+.
+ A few examples of citations generated by BibLaTeX:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Authors and reference numbers, like 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "cormen:2001,dueck:trio"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+List of reference numbers, like 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "cormen:2001,dueck:trio"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+List of authors, like 
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+key "dueck:trio,cormen:2001"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+BibLaTeX has many other citation commands that can only be called from a
+ TeX code insert in LyX, like this superscript citation 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+supercite{bringhurst:2002}
+\end_layout
+
+\end_inset
+
+ or the whole reference 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+footfullcite{bringhurst:2002}
+\end_layout
+
+\end_inset
+
+ in the footnote.
+ Refer to BibLaTeX 
+\begin_inset CommandInset href
+LatexCommand href
+name "documentation"
+target "https://www.ctan.org/pkg/biblatex/"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset href
+LatexCommand href
+name "examples"
+target "https://www.ctan.org/tex-archive/macros/latex/contrib/biblatex/doc/examples/"
+
+\end_inset
+
+ to learn more about citation styles and available options.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Pascal,float=h"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:pascal"
+
+\end_inset
+
+A floating example
+\end_layout
+
+\end_inset
+
+for i:=maxint downto 0 do
+\end_layout
+
+\begin_layout Plain Layout
+
+begin
+\end_layout
+
+\begin_layout Plain Layout
+
+{ do nothing }
+\end_layout
+
+\begin_layout Plain Layout
+
+end;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "/Users/lding/Desktop/__M0921/Bibliography"
+options "plainnat"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

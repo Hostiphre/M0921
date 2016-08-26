@@ -1,0 +1,430 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass classicthesis
+\use_default_options true
+\maintain_unincluded_children false
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex8
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Molecular Dynamics & Monte Carlo Simulation
+\begin_inset CommandInset label
+LatexCommand label
+name "chpt:reference-method"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As reference method [Allen and Tildesley] [Frenkel and Smit]
+\end_layout
+
+\begin_layout Standard
+The data we used in this thesis issue from 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MC}
+\end_layout
+
+\end_inset
+
+ simulations are in two aspects: (1) The 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ of bulk water produced by the work of Zhao et al.
+ [ref] and Belloni et al.
+ [ref].
+ (2) The 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acf{RDF}
+\end_layout
+
+\end_inset
+
+ of ions and molecules.
+ The first two topics give a brief review of the principe of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MC}
+\end_layout
+
+\end_inset
+
+, the last two gives the detail of generation of the above two data.
+\end_layout
+
+\begin_layout Section
+Molecular Dynamics
+\end_layout
+
+\begin_layout Subsection
+Principle
+\end_layout
+
+\begin_layout Subsection
+Determination of free energy: umbrella sampling
+\end_layout
+
+\begin_layout Section
+Monte Carlo Method
+\end_layout
+
+\begin_layout Section
+Direct correlation function of water
+\end_layout
+
+\begin_layout Standard
+described the direct correlation functions (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+) used during the thesis, including different sources and forms, as well
+ as their comparison.
+\end_layout
+
+\begin_layout Subsection
+Dipole DCF from molecular dynamics simulation
+\end_layout
+
+\begin_layout Subsection
+Extraction of DCF from bulk Monte Carlo simulation
+\end_layout
+
+\begin_layout Standard
+This DCF set is calculated by Belloni 
+\shape italic
+et al.
+
+\shape default
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Luc_2012"
+
+\end_inset
+
+ and is presented here briefly for understanding.
+ first rotational invariant of the Fourier transform of the total correlation
+ function h
+\end_layout
+
+\begin_layout Standard
+example:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\hat{c}^{000}(k)=\frac{\hat{h}^{000}(k)}{1+n_{0}\hat{h}^{000}(k)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $g$
+\end_inset
+
+ accumulated, solve the inverse OZ equation to find 
+\begin_inset Formula $c$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+norm of wave vector 
+\begin_inset Formula $\left\Vert \mathbf{q}\right\Vert =\left\{ i\cdot\Delta_{q}\mid0\leq i\leq n,i\in\mathbb{Z}\right\} $
+\end_inset
+
+, beginning from the 10th line, where 
+\begin_inset Formula $\Delta_{q}$
+\end_inset
+
+ is the minimum difference between two norm 
+\begin_inset Formula $q$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+Conventions
+\end_layout
+
+\begin_layout Standard
+whereas I take the notation of Wertheim and Hansen, or in k-space
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\Phi^{000} & =1\nonumber \\
+\Phi^{011} & =\hat{\mathbf{k}}\cdot\mathbf{\Omega}_{1}\nonumber \\
+\Phi^{101} & =\hat{\mathbf{k}}\cdot\mathbf{\Omega}_{2}\nonumber \\
+\Phi^{110} & =\mathbf{\Omega}_{1}\cdot\mathbf{\Omega}_{2}\\
+\Phi^{112} & =3\mathbf{(\hat{\mathbf{k}}\cdot\mathbf{\Omega}_{1})(\hat{\mathbf{k}}\cdot\mathbf{\Omega}_{2})-\Omega}_{1}\cdot\mathbf{\Omega}_{2}\nonumber 
+\end{align}
+
+\end_inset
+
+Different rotational invariant projections from Luc’s c.
+ Luc defines (ac- cording to Blum)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\Phi^{000} & =1\nonumber \\
+\Phi^{011} & =i\mathbf{k}\cdot\mathbf{\Omega}_{1}=i\cos\theta_{1}\nonumber \\
+\Phi^{101} & =i\mathbf{k}\cdot\mathbf{\Omega}_{2}=i\cos\theta_{2}\nonumber \\
+\Phi^{110} & =-\sqrt{3}\mathbf{\Omega}_{1}\cdot\mathbf{\Omega}_{2}=-\sqrt{3}(\sin\theta_{1}\sin\theta_{2}\cos\phi_{12}+\cos\theta_{1}\cos\theta_{2})\\
+\Phi^{112} & =\sqrt{\frac{3}{10}}\left[3\mathbf{(\mathbf{k}\cdot\mathbf{\Omega}_{1})(\mathbf{k}\cdot\mathbf{\Omega}_{2})-\Omega}_{1}\cdot\mathbf{\Omega}_{2}\right]=\sqrt{\frac{3}{10}}\left(2\cos\theta_{1}\cos\theta_{2}-\sin\theta_{1}\sin\theta_{2}\cos\phi_{12}\right)\nonumber 
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Comparison with non-coupling dipole DCF in MDFT (
+\begin_inset Formula $n_{\max}=1$
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Comparison-with-non-coupling"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $c_{s}^{000},c_{\Delta}^{110},c_{d}^{112}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection
+Comparison with respect to 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+first rotational invariants 
+\begin_inset Formula $m{}_{\mathrm{max}}=1$
+\end_inset
+
+ (4 independent projections 
+\begin_inset Formula $c_{s}^{000},c_{\Delta}^{110},c_{d}^{112}$
+\end_inset
+
+ and 
+\begin_inset Formula $c_{+}^{011}=-c_{-}^{101}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsection
+Transform between ck_angular and projections
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\hat{c_{q}}(\cos\theta_{1},\cos\theta_{2},\phi,\psi_{1},\psi_{2})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+olumns: 
+\begin_inset Formula $\cos\theta_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $\cos\theta_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\psi_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $\psi_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\phi=\phi_{1}-\phi_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathrm{Re}(\hat{c})$
+\end_inset
+
+, 
+\begin_inset Formula $\mathrm{Im}(\hat{c})$
+\end_inset
+
+; with 
+\begin_inset Formula $(\mathrm{n}_{\theta}+1)\mathrm{n}_{\theta}\mathrm{n}_{\phi}\mathrm{n}_{\psi}^{2}/4$
+\end_inset
+
+ items as only 
+\begin_inset Formula $\cos\theta_{1}+\cos\theta_{2}>0$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi\in\left[0,\pi\right]$
+\end_inset
+
+ is stocked, where 
+\begin_inset Formula $n_{\mathrm{(angle)}}$
+\end_inset
+
+ is the number of angles for each dimension.
+ 
+\end_layout
+
+\begin_layout Section
+Umbrella sampling
+\end_layout
+
+\end_body
+\end_document

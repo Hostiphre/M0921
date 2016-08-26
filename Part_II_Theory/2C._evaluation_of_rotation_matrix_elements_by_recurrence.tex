@@ -1,0 +1,179 @@
+
+\chapter{Calculation of Rotation Matrix Elements $R_{\mu\mu'}^{m}$ by Recurrence\label{chpt:rotM-by-recurrence}}
+
+$\mathbf{R}^{m}(\mathbf{\Omega})\equiv\left\{ R_{\mu'\chi}^{m}(\mathbf{\Omega})\right\} $
+is the rotation matrix of dimension $\left(2m+1\right)\times\left(2m+1\right)$,
+defined in Messiah, etc. \citep{Edmonds,Gray-Gubbins,Messiah}.
+
+In MDFT, evaluation of $R_{\mu'\chi}^{m}(\hat{\mathbf{k}})$ for each
+$m$, $\mu'$, $\chi$ and $\mathbf{k}$ by its definition:
+\begin{equation}
+R_{\mu'\chi}^{m}(\hat{\mathbf{k}})=r_{\mu'\chi}^{m}(\theta_{k})e^{-i\mu'\phi_{k}}\label{eq:r_definition}
+\end{equation}
+is too costing to be done in iterations, on the other hand, to stock
+directly the value of every element is heavy in terms of memory. An
+algorithm of $R_{\mu\mu'}^{m}(\hat{\mathbf{k}})$ evaluation by recurrence
+described by Choi \textit{et al.} \citep{Choi_1999} suggests an acceptable
+cost during the computation, by generating the rotation matrix elements
+from these of lower order to avoid extra calculation.
+
+
+\section{Case of $m_{\mathrm{max}}\leq1$}
+
+According to the definition in eq. (\ref{eq:r_definition}), it's
+easy to find
+\begin{equation}
+R_{00}^{0}=1
+\end{equation}
+
+
+For $m=1$, $\mathbf{R}^{1}(\hat{\mathbf{k}})$ depends only on the
+$3\times3$ orthogonal matrix $\mathbf{R}$ that defines the rotation
+from the basis vectors of laboratory frame to those of $\mathbf{k}$-frame
+\begin{equation}
+\mathbf{R}=\left[\begin{array}{ccc}
+R_{xx} & R_{yx} & R_{zx}\\
+R_{xy} & R_{yy} & R_{zy}\\
+R_{xz} & R_{yz} & R_{zz}
+\end{array}\right]=\left[\begin{array}{ccc}
+\cos\theta_{k}\cos\phi_{k} & -\sin\phi_{k} & \sin\theta_{k}\cos\phi_{k}\\
+\cos\theta_{k}\sin\phi_{k} & \cos\phi_{k} & \sin\theta_{k}\sin\phi_{k}\\
+-\sin\theta_{k} & 0 & \cos\theta_{k}
+\end{array}\right]
+\end{equation}
+
+
+The matrix $\mathbf{R}$ can be calculated by the cross products of
+basis vectors as shown in figure \ref{fig:rotation}
+\begin{equation}
+\left[\begin{array}{ccc}
+\mathbf{e}_{1}^{''} & \mathbf{e}_{2}^{'} & \mathbf{e}_{3}^{''}\end{array}\right]=\left[\begin{array}{ccc}
+\mathbf{e}_{1} & \mathbf{e}_{2} & \mathbf{e}_{3}\end{array}\right]\mathbf{R}=\mathbf{R}
+\end{equation}
+
+
+The rotation matrix $\mathbf{R}^{m}$ can be separated into the real
+$\mathbf{F}^{m}$ and imaginary $\mathbf{G}^{m}$ part, which can
+be given by the relations
+\begin{equation}
+R_{\chi\chi'}^{m}=F_{\chi\chi'}^{m}+iG_{\chi\chi'}^{m}
+\end{equation}
+\begin{equation}
+\left[\begin{array}{ccc}
+F_{\underline{1}\underline{1}}^{1} & F_{\underline{1}0}^{1} & F_{\underline{1}1}^{1}\\
+F_{0\underline{1}}^{1} & F_{00}^{1} & F_{01}^{1}\\
+F_{1\underline{1}}^{1} & F_{10}^{1} & F_{11}^{1}
+\end{array}\right]=\left[\begin{array}{ccc}
+\left(R_{yy}+R_{xx}\right)/2 & R_{xz}/\sqrt{2} & \left(R_{yy}-R_{xx}\right)/2\\
+R_{zx}/\sqrt{2} & R_{zz} & -R_{zx}/\sqrt{2}\\
+\left(R_{yy}-R_{xx}\right)/2 & -R_{xz}/\sqrt{2} & \left(R_{yy}+R_{xx}\right)/2
+\end{array}\right]
+\end{equation}
+\begin{equation}
+\left[\begin{array}{ccc}
+G_{\underline{1}\underline{1}}^{1} & G_{\underline{1}0}^{1} & G_{\underline{1}1}^{1}\\
+G_{0\underline{1}}^{1} & G_{00}^{1} & G_{01}^{1}\\
+G_{1\underline{1}}^{1} & G_{10}^{1} & G_{11}^{1}
+\end{array}\right]=\left[\begin{array}{ccc}
+\left(R_{yx}-R_{xy}\right)/2 & R_{yz}/\sqrt{2} & -\left(R_{yx}+R_{xy}\right)/2\\
+-R_{zy}/\sqrt{2} & 0 & -R_{zy}/\sqrt{2}\\
+\left(R_{yx}+R_{xy}\right)/2 & R_{yz}/\sqrt{2} & \left(R_{xy}-R_{yx}\right)/2
+\end{array}\right]
+\end{equation}
+
+
+
+\section{Case of $m_{\mathrm{max}}>1$}
+
+
+\subsection{Recurrence relation for $-m+1\leq\chi'\leq m-1$}
+
+The recurrence relation for $-m\leq\chi\leq m$, $-m+1\leq\chi'\leq m-1$
+between matrix elements is
+\begin{equation}
+R_{\chi\chi'}^{m}=a_{\chi\chi'}^{m}R_{00}^{1}R_{\chi\chi'}^{m-1}+b_{\chi\chi'}^{m}R_{10}^{1}R_{\chi-1,\chi'}^{m-1}+b_{-\chi,\chi'}^{m}R_{\text{-1,}0}^{1}R_{\chi+1,\chi'}^{m-1}\label{eq:relation_1}
+\end{equation}
+where
+\begin{equation}
+\begin{array}{ll}
+a_{\chi\chi'}^{m}=\left[\dfrac{\left(m+\chi\right)\left(m-\chi\right)}{\left(m+\chi'\right)\left(m-\chi'\right)}\right]^{\frac{1}{2}} & (-m+1\leq\chi\leq m-1)\\
+b_{\chi\chi'}^{m}=\left[\dfrac{\left(m+\chi\right)\left(m+\chi-1\right)}{2\left(m+\chi'\right)\left(m-\chi'\right)}\right]^{\frac{1}{2}} & (-m+2\leq\chi\leq m-2)
+\end{array}
+\end{equation}
+
+
+To separate the real and imaginary part, suppose
+\begin{equation}
+H_{\chi\chi'}^{m}(i,j)=F_{ij}^{1}F_{\chi\chi'}^{m-1}-G_{ij}^{1}G_{\chi\chi'}^{m-1}
+\end{equation}
+\begin{equation}
+K_{\chi\chi'}^{m}(i,j)=F_{ij}^{1}G_{\chi\chi'}^{m-1}+G_{ij}^{1}F_{\chi\chi'}^{m-1}
+\end{equation}
+therefore
+\begin{equation}
+F_{\chi\chi'}^{m}=a_{\chi\chi'}^{m}H_{\chi\chi'}^{m}(0,0)+b_{\chi\chi'}^{m}H_{\chi-1,\chi'}^{m}(1,0)+b_{-\chi,\chi'}^{m}H_{\chi+1,\chi'}^{m}(-1,0)
+\end{equation}
+\begin{equation}
+G_{\chi\chi'}^{m}=a_{\chi\chi'}^{m}K_{\chi\chi'}^{m}(0,0)+b_{\chi\chi'}^{m}K_{\chi-1,\chi'}^{m}(1,0)+b_{-\chi,\chi'}^{m}K_{\chi+1,\chi'}^{m}(-1,0)
+\end{equation}
+
+
+In the case of $\chi=\pm m$, certain terms in eq. (\ref{eq:relation_1})
+is out of definition. They are supposed to be zero. Another way is
+to suppose that
+\begin{equation}
+\begin{array}{ll}
+a_{\chi\chi'}^{m}=0 & \mathrm{for}\,\chi=\pm m\\
+b_{\chi\chi'}^{m}=0 & \mathrm{for}\,\chi=\pm m\,\mathrm{and}\,\chi=\mp(m-1)
+\end{array}
+\end{equation}
+
+
+
+\subsection{Recurrence relation for $-m+2\leq\chi'\leq m$}
+
+For the case $\chi'=\pm m$ which are not covered in eq. (\ref{eq:relation_1}),
+another recurrence relation supposes that
+\begin{equation}
+R_{\chi\chi'}^{m}=c_{\chi\chi'}^{m}R_{0,1}^{1}R_{\chi,\chi'-1}^{m-1}+d_{\chi\chi'}^{m}R_{1,1}^{1}R_{\chi-1,\chi'-1}^{m-1}+d_{-\chi,\chi'}^{m}R_{\text{-1,}1}^{1}R_{\chi+1,\chi'-1}^{m-1}
+\end{equation}
+\begin{equation}
+F_{\chi\chi'}^{m}=c_{\chi\chi'}^{m}H_{\chi,\chi'-1}^{m}(0,1)+d_{\chi\chi'}^{m}H_{\chi-1,\chi'-1}^{m}(1,1)+d_{-\chi,\chi'}^{m}H_{\chi+1,\chi'-1}^{m}(-1,1)
+\end{equation}
+\begin{equation}
+G_{\chi\chi'}^{m}=c_{\chi\chi'}^{m}K_{\chi,\chi'-1}^{m}(0,1)+d_{\chi\chi'}^{m}K_{\chi-1,\chi'-1}^{m}(1,1)+d_{-\chi,\chi'}^{m}K_{\chi+1,\chi'-1}^{m}(-1,1)
+\end{equation}
+with
+\begin{equation}
+\begin{array}{ll}
+c_{\chi\chi'}^{m}=\left[\dfrac{2\left(m+\chi\right)\left(m-\chi\right)}{\left(m+\chi'\right)\left(m+\chi'-1\right)}\right]^{\frac{1}{2}} & (-m+1\leq\chi\leq m-1)\\
+d_{\chi\chi'}^{m}=\left[\dfrac{\left(m+\chi\right)\left(m+\chi-1\right)}{\left(m+\chi'\right)\left(m+\chi'-1\right)}\right]^{\frac{1}{2}} & (-m+2\leq\chi\leq m-2)
+\end{array}
+\end{equation}
+and
+\begin{equation}
+\begin{array}{ll}
+c_{\chi\chi'}^{m}=0 & \mathrm{for}\,\chi=\pm m\\
+d_{\chi\chi'}^{m}=0 & \mathrm{for}\,\chi=\pm m\,\mathrm{and}\,\chi=\mp(m-1)
+\end{array}
+\end{equation}
+which is available for $-m+2\leq\chi'\leq m$.
+
+
+\subsection{Symmetries}
+
+The symmetries of $R_{\chi\chi'}^{m}$ allow us to calculate only
+a half of elements: 
+
+\begin{equation}
+R_{-m,-m'}^{l}=\left(-1\right)^{m+m'}R_{mm'}^{l*}
+\end{equation}
+which gives
+
+\begin{equation}
+F_{-m,-m'}^{l}=\left(-1\right)^{m+m'}F_{mm'}^{l}
+\end{equation}
+\begin{equation}
+G_{-m,-m'}^{l}=-\left(-1\right)^{m+m'}G_{mm'}^{l}
+\end{equation}
+

@@ -1,0 +1,2476 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass classicthesis
+\use_default_options true
+\maintain_unincluded_children false
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex8
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Classical Density Functional Theory
+\begin_inset CommandInset label
+LatexCommand label
+name "chpt:mdft"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Classical density functional theory provides a framework for determining
+ thermodynamic properties and correlation functions of a wide variety of
+ inhomogeneous (model) fluids starting from a microscopic basis, i.e.
+ the Hamiltonian describing interactions between particles.
+ DFT is based on the result that the grand potential of a specified inhomogeneou
+s fluid is a functional of the average one-body density,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\rho(r)=\left\langle \sum_{i=1}^{N}\delta(\mathbf{r}-\mathbf{r}_{i})\right\rangle 
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbf{r_{i}}$
+\end_inset
+
+ is the position coordinate of particle 
+\begin_inset Formula $i$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+This article describes all the fundamental theories behind MDFT different
+ algorithms involved in this thesis to evaluate excess free energy functional
+ 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ under HRF approximation.
+\end_layout
+
+\begin_layout Section
+Equilibrium Classical DFT
+\end_layout
+
+\begin_layout Section
+Variation principle
+\end_layout
+
+\begin_layout Standard
+The key idea is that 
+\begin_inset Formula $\mathcal{F}[\rho]$
+\end_inset
+
+ is a unique functional of 
+\begin_inset Formula $\rho(\mathbf{r})$
+\end_inset
+
+; its form does not depend on the external potential 
+\begin_inset Formula $V(\mathbf{r})$
+\end_inset
+
+.
+ 
+\color red
+!!!!
+\end_layout
+
+\begin_layout Standard
+variation principe: par minimization
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acf{MDFT}
+\end_layout
+
+\end_inset
+
+, the grand potential density functional corresponding to an inhomogeneous
+ fluid density 
+\begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+ is given by 
+\begin_inset Formula 
+\begin{equation}
+\Theta[\rho(\mathbf{r},\mathbf{\Omega})]=\Theta[\rho_{0}]+\mathcal{F}[\rho(\mathbf{r},\mathbf{\Omega})]
+\end{equation}
+
+\end_inset
+
+Where 
+\begin_inset Formula $\Theta[\rho_{0}]$
+\end_inset
+
+ is the correspondent reference bulk fluid grand potential.
+ And 
+\begin_inset Formula $\rho$
+\end_inset
+
+ is the fluid density function variable of 3 to 6 dimensions, including
+ 3 coordinations for the position part, and 0 to 3 for the angular part.
+ For instance, in an isotropic fluid: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\rho(\mathbf{r},\mathbf{\Omega})=\left\{ \begin{array}{ll}
+n(\mathbf{r}) & \mbox{if atomic, }\Omega\equiv1\\
+n(\mathbf{r})/4\pi & \mbox{if linear, }\Omega\equiv(\theta,\phi)\\
+n(\mathbf{r})/8\pi^{2} & \mbox{if non-linear, }\Omega\equiv(\theta,\phi,\psi)
+\end{array}\right.\label{eq:rho}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here the 
+\begin_inset Formula $4\pi$
+\end_inset
+
+ and 
+\begin_inset Formula $8\pi^{2}$
+\end_inset
+
+ is the normalization factor who equals to 
+\begin_inset Formula $\int\mathrm{d}\mathbf{\Omega}$
+\end_inset
+
+.
+ The 6D definition of the latest case in eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:rho"
+
+\end_inset
+
+ of 
+\begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+ is needed for arbitrary solvent, which results the most complex form of
+ the functional.
+ 
+\end_layout
+
+\begin_layout Standard
+According to the variation principle (c.f.
+ Evans), the equilibrium density can be found by minimizing the free energy
+ functional 
+\begin_inset Formula $\mathcal{F}[\rho]$
+\end_inset
+
+ regarding to 
+\begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{equation}
+\frac{\delta\mathcal{F}[\rho]}{\delta\rho(\mathbf{r},\mathbf{\Omega})}|_{\rho=\rho_{0}}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And this functional is defined as a sum of functional contributions: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}[\rho]=\mathcal{F}_{\mathrm{id}}[\rho]+\mathcal{F}_{\mathrm{ext}}[\rho]+\mathcal{F}_{\mathrm{exc}}[\rho]
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The ideal term 
+\begin_inset Formula $\mathcal{F}_{\mathrm{id}}[\rho]$
+\end_inset
+
+ is deduced from the particle interaction-free condition: 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}_{\mathrm{id}}[\rho]=\beta^{-1}\int\mathrm{d}\mathbf{r}\mathrm{d\Omega}\left[\mathbf{\mathbf{\ln\left(\frac{\rho(\mathbf{r},\mathbf{\mathbf{\mathbf{\mathbf{\Omega}}}})}{\rho_{0}}\right)}}-\rho(\mathbf{r},\mathbf{\mathbf{\mathbf{\Omega}}})+\rho_{0}\right]
+\end{equation}
+
+\end_inset
+
+Where 
+\begin_inset Formula $\beta=\left(K_{\mathrm{B}}T\right)^{-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\rho_{0}$
+\end_inset
+
+ is the reference bulk density of pure solvent.
+ 
+\end_layout
+
+\begin_layout Standard
+The external potential term calculates the contribution of solute external
+ potential 
+\begin_inset Formula $V_{\mathrm{ext}}$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}_{\mathrm{ext}}[\rho]=\int\mathrm{d}\mathbf{r}\mathrm{d}\mathbf{\mathbf{\Omega}}V_{\mathrm{ext}}(\mathbf{r},\mathbf{\mathbf{\mathbf{\mathbf{\Omega}}}})\rho(\mathbf{r},\mathbf{\mathbf{\mathbf{\mathbf{\Omega}}}})
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+V_{\mathrm{ext}}(\mathbf{r},\mathbf{\mathbf{\mathbf{\mathbf{\Omega}}}})=\sum_{j\in\mathrm{solvent}}\left\{ q_{j}V_{q}(\mathbf{r}_{j})+\sum_{i\in\mathrm{solute}}4\epsilon_{ij}\left[\left(\frac{\sigma_{ij}}{r_{ij}}\right)^{12}-\left(\frac{\sigma_{ij}}{r_{ij}}\right)^{6}\right]\right\} 
+\end{equation}
+
+\end_inset
+
+Where 
+\begin_inset Formula $V_{\mathrm{ext}}$
+\end_inset
+
+ is pre-calculated and stored as a 6-dimension double precision (8 bytes
+ per real value) table.
+ It contains the contribution of Lennard-Jones interaction and electrostatic
+ potential.
+ 
+\end_layout
+
+\begin_layout Standard
+This two terms 
+\begin_inset Formula $\mathcal{F}_{\mathrm{id}}[\rho]$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{F}_{\mathrm{ext}}[\rho]$
+\end_inset
+
+ are physically exact.
+ 
+\end_layout
+
+\begin_layout Standard
+The excess term 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}[\rho]$
+\end_inset
+
+ depend on the exact correlation function, which is a priori unknown: 
+\begin_inset Formula 
+\begin{equation}
+C(\mathbf{r}_{1},\mathbf{r}_{2},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2};\rho)\equiv\frac{\beta\delta^{2}\mathcal{F}_{\mathrm{exc}}[\rho]}{\delta\rho(\mathbf{r}_{1},\mathbf{\Omega}_{1})\delta\rho(\mathbf{r}_{2},\mathbf{\Omega}_{2})}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The ideal term 
+\begin_inset Formula $\mathcal{F}_{id}[\rho]$
+\end_inset
+
+ is deduced from the condition that the interaction potential of particles
+ 
+\begin_inset Formula $\Phi=0$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+Z_{N}(\beta,V)=\frac{\lambda^{-3N}}{N!}\int_{V}d\mathbf{r}^{N}e^{-\beta\Phi}=\frac{\lambda^{-3N}}{N!}V^{N}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+F_{N}(\beta,V)=-\beta^{-1}\log{Z_{N}}=\beta^{-1}\log{(N!\lambda^{3N}V^{-N})}=\beta^{-1}(N\log{\lambda^{3}\rho}-N)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(also available for the in homogenous case.) Since we define 
+\begin_inset Formula 
+\[
+\mathcal{F}_{id}[\rho]=\int d\mathbf{X}f_{id}[\rho(\mathbf{X})]
+\]
+
+\end_inset
+
+We have 
+\begin_inset Formula 
+\[
+f_{id}[\rho(\mathbf{X})]=\beta^{-1}\Delta\rho(\log{\lambda^{3}\Delta\rho}-1)
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula 
+\[
+\mathcal{F}_{id}[\rho]=\beta^{-1}\int d\mathbf{X}_{1}[\rho(\mathbf{X}_{1})\log{(\frac{\rho(\mathbf{X}_{1})}{\rho_{0}})}-\rho(\mathbf{X}_{1})+\rho_{0}]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The external potential term 
+\begin_inset Formula 
+\[
+\mathcal{F}_{ext}[\rho]=\int d\mathbf{X}_{1}V_{ext}(\mathbf{X}_{1})\rho(\mathbf{X}_{1})
+\]
+
+\end_inset
+
+Where 
+\begin_inset Formula $V_{ext}$
+\end_inset
+
+ is given by table.
+\end_layout
+
+\begin_layout Standard
+The exact (in an approximation that C do not depend on 
+\begin_inset Formula $\rho$
+\end_inset
+
+) form of the excess term 
+\begin_inset Formula $\mathcal{F}_{exc}$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\mathcal{F}_{exc}[\rho]=\beta^{-1}\int d\mathbf{X}_{1}d\mathbf{X}_{2}\Delta\rho(\mathbf{X}_{1})\Delta\rho(\mathbf{X}_{2})C(\mathbf{X}_{1},\mathbf{X}_{2};\rho)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $C(\mathbf{X}_{1},\mathbf{X}_{2};\rho)$
+\end_inset
+
+ is the correlation function, a priori unknown, which definition is: 
+\begin_inset Formula 
+\[
+C(\mathbf{X}_{1},\mathbf{X}_{2};\rho)=\frac{\beta\delta^{2}\mathcal{F}_{exc}[\rho]}{\delta\rho(\mathbf{r}_{1})\delta\rho(\mathbf{r}_{2})}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+structure MDFT
+\end_layout
+
+\begin_layout Standard
+The code MDFT is built for minimizing the free energy functional 
+\begin_inset Formula $\mathcal{F}[\rho]$
+\end_inset
+
+ by minimizer L-BFGS (ref).
+ It's main structure is shown in fig.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\lang english
+Flowchart of code MDFT
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The minimizer requires the functional and its gradient as input, and produce
+ at each iteration a new fluid density 
+\begin_inset Formula $\text{\rho(\mathbf{r},\mathbf{\mathbf{\mathbf{\Omega}}})}$
+\end_inset
+
+ nearer to the equilibrium density.
+ The objective for 
+\series bold
+branch hesper
+\series default
+ is to calculate the excess term 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}[\rho]$
+\end_inset
+
+ of the functional in eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:F_exc"
+
+\end_inset
+
+, as well as its gradient: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\gamma(\mathbf{r}_{1},\mathbf{\Omega})=\frac{\delta\mathcal{F}_{\mathrm{exc}}}{\delta\rho}=-\beta^{-1}\int d\mathbf{r}_{2}d\mathbf{\Omega}_{2}\Delta\rho(\mathbf{r}_{2},\mathbf{\Omega}_{2})c^{(2)}(\mathbf{r}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\label{eq:gradient}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Ideal free energy
+\end_layout
+
+\begin_layout Section
+External free energy
+\end_layout
+
+\begin_layout Subsection
+Electrostatic potential
+\end_layout
+
+\begin_layout Standard
+The direct evaluation of the Coulomb sum for 
+\begin_inset Formula $N$
+\end_inset
+
+ particles is 
+\begin_inset Formula 
+\begin{equation}
+U_{C}=\sum_{i<j}a\frac{q_{i}q_{j}}{\left\Vert \bm{r}_{i}-\bm{r}_{j}\right\Vert },\label{eq:direct-coulomb-sum}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $a$
+\end_inset
+
+ is a constant that gives 
+\begin_inset Formula $U_{C}$
+\end_inset
+
+ the dimension of an energy, and 
+\begin_inset Formula $q_{i}$
+\end_inset
+
+,
+\begin_inset Formula $\bm{r}_{i}$
+\end_inset
+
+ are the charge and position of particle 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ The computation of equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:direct-coulomb-sum"
+
+\end_inset
+
+ is demanding because it requires a large number of distances 
+\begin_inset Formula $r_{ij}\equiv\left\Vert \bm{r}_{i}-\bm{r}_{j}\right\Vert $
+\end_inset
+
+ to be computed.
+ In our case, we have 
+\begin_inset Formula $\textrm{nfft}_{1}\times\textrm{nfft}_{2}\times\textrm{nfft}_{3}\times N_{\bm{\Omega}}\times N_{\psi}\times N_{q_{v}}$
+\end_inset
+
+, where 
+\begin_inset Formula $N_{q_{v}}$
+\end_inset
+
+ is the number of point charges of the solvent molecule, to be computed
+ per point charge of the solute.
+ This is typically 
+\begin_inset Formula $10^{9}$
+\end_inset
+
+ distances for MDFT.
+\end_layout
+
+\begin_layout Standard
+L'énergie électrostatique s'écrit
+\begin_inset Formula 
+\begin{eqnarray}
+\mathcal{F}_{q} & = & \frac{1}{2}\iiint\frac{\rho_{c}^{\textrm{soluté}}\left(\boldsymbol{r^{\prime}}\right)\rho_{c}^{\textrm{solvant}}\left(\boldsymbol{r},\boldsymbol{\Omega}\right)}{4\pi\epsilon_{0}\left\Vert \boldsymbol{r}-\boldsymbol{r^{\prime}}\right\Vert }\textrm{d}\boldsymbol{r}\textrm{d}\boldsymbol{r^{\prime}}\textrm{d}\boldsymbol{\Omega}\\
+ & = & \frac{1}{2}\frac{1}{4\pi\epsilon_{0}}\iiint\frac{\rho_{c}^{\textrm{soluté}}\left(\boldsymbol{r^{\prime}}\right)}{\left\Vert \boldsymbol{r}-\boldsymbol{r^{\prime}}\right\Vert }\left[\rho^{\textrm{solvant}}*\sigma\right]\left(\boldsymbol{r},\boldsymbol{\Omega}\right)\textrm{d}\boldsymbol{r}\textrm{d}\boldsymbol{r^{\prime}}\textrm{d}\boldsymbol{\Omega}\\
+ & = & \frac{1}{2}\frac{1}{4\pi\epsilon_{0}}\iint\left[\rho_{c}^{\textrm{soluté}}*\left\Vert \boldsymbol{r}\right\Vert ^{-1}\right]\left(\boldsymbol{r},\boldsymbol{\Omega}\right)\left[\rho^{\textrm{solvant}}*\sigma\right]\left(\boldsymbol{r},\boldsymbol{\Omega}\right)\textrm{d}\boldsymbol{r}\textrm{d}\boldsymbol{\Omega}\\
+ & =
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+On définit une densité de charge d'une molécule 
+\begin_inset Formula $\boldsymbol{\sigma}\left(\boldsymbol{r},\boldsymbol{\Omega}\right)$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{\sigma}\left(\boldsymbol{r},\boldsymbol{\Omega}\right)=\sum_{m=1}^{\textrm{sites du solvant}}q_{m}\delta\left(\boldsymbol{r}-\boldsymbol{s}_{m}\left(\boldsymbol{\Omega}\right)\right).
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula $\boldsymbol{s}_{m}\left(\boldsymbol{\Omega}\right)$
+\end_inset
+
+ désigne la position du 
+\begin_inset Formula $m^{\textrm{ième}}$
+\end_inset
+
+ site de la molécule de solvant quand elle a l'orientation 
+\begin_inset Formula $\boldsymbol{\Omega}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Excess free energy
+\end_layout
+
+\begin_layout Standard
+In the molecular density functional theory (MDFT), the excess free energy
+ functional 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ can be developed via Taylor expansion 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}_{\mathrm{exc}}\left[\rho\right]\equiv\mathcal{F}_{\mathrm{exc}}\left[\rho_{0}\right]+\int\mathrm{d}\mathbf{X_{1}}\frac{\delta\mathcal{F}_{\mathrm{exc}}\left[\rho\right]}{\mathrm{\delta}\rho(\mathbf{X_{1}})}\Delta\rho(\mathbf{X_{1}})+\frac{1}{2}\int\mathrm{d}\mathbf{X_{1}}\mathrm{d}\mathbf{X_{2}}\frac{\mathrm{\delta}^{2}\mathcal{F}_{\mathrm{exc}}\left[\rho\right]}{\mathrm{\delta}\rho(\mathbf{X_{1}})\mathrm{\delta}\rho(\mathbf{X_{2}})}\Delta\rho(\mathbf{X_{1}})\Delta\rho(\mathbf{X_{2}})+\mathcal{O}(\Delta\rho^{3})\label{eq:Taylor-1}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbf{X}\equiv(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+, 
+\begin_inset Formula $\beta^{-1}=k_{\mathrm{B}}T$
+\end_inset
+
+, 
+\begin_inset Formula $\Delta\rho=\rho-\rho_{0}$
+\end_inset
+
+, and 
+\begin_inset Formula $\rho(\mathbf{X})$
+\end_inset
+
+ the single-particle density of the fluid.
+\end_layout
+
+\begin_layout Subsection
+Homogenous Reference Fluid Approximation
+\end_layout
+
+\begin_layout Standard
+According to the variation principle, the first derivative in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Taylor-1"
+
+\end_inset
+
+) is zero
+\begin_inset Formula 
+\begin{equation}
+\left.\frac{\mathrm{\delta}\mathcal{F}_{\mathrm{exc}}\left[\rho\right]}{\mathrm{\delta}\rho(\mathbf{X_{1}})}\right|_{\rho=\rho_{\mathrm{eq}}}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}\left[\rho_{0}\right]$
+\end_inset
+
+ can be compensated by the grand potential of bulk fluid (to be detailed),
+ we can then focus on only 
+\begin_inset Formula $\mathcal{O}(\Delta\rho^{2})$
+\end_inset
+
+ and higher order terms.
+\end_layout
+
+\begin_layout Standard
+As 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ is a generating functional of 
+\begin_inset Formula $c^{(n)}(\mathbf{X}^{n})$
+\end_inset
+
+, the direct correlations functions (DCF) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hensen-McDonald"
+
+\end_inset
+
+, for example
+\begin_inset Formula 
+\begin{equation}
+c^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})=-\beta\frac{\mathrm{\delta}^{2}\mathcal{F}_{\mathrm{exc}}\left[\rho\right]}{\mathrm{\delta}\rho(\mathbf{X_{1}})\mathrm{\delta}\rho(\mathbf{X_{2}})}
+\end{equation}
+
+\end_inset
+
+eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Taylor-1"
+
+\end_inset
+
+) can be rewritten as
+\begin_inset Formula 
+\begin{eqnarray}
+\mathcal{F}_{\mathrm{exc}}\left[\rho\right] & = & -\frac{\beta^{-1}}{2}\int\mathrm{d}\mathbf{X_{1}}\mathrm{d}\mathbf{X_{2}}c^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})\Delta\rho(\mathbf{X_{1}})\Delta\rho(\mathbf{X_{2}})+\mathcal{O}(\Delta\rho^{3})\nonumber \\
+ & \simeq & -\frac{\beta^{-1}}{2}\int\mathrm{d}\mathbf{X_{1}}\mathrm{d}\mathbf{X_{2}}c^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})\Delta\rho(\mathbf{X_{1}})\Delta\rho(\mathbf{X_{2}})\label{eq:fexc-2nd-term-1}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If we take further approximation, to assume that
+\begin_inset Formula 
+\begin{equation}
+c^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})\simeq c_{0}^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $c_{0}^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})$
+\end_inset
+
+ is the DCF of the bulk fluid, it's called the homogenous reference fluid
+ (HRF) approximation.
+\end_layout
+
+\begin_layout Subsection
+nn_cs
+\end_layout
+
+\begin_layout Standard
+We define 
+\begin_inset Formula $r=\left\Vert \bm{r}-\bm{r}^{\prime}\right\Vert $
+\end_inset
+
+, and 
+\begin_inset Formula $\Delta n\left(\bm{r}\right)=n\left(\bm{r}\right)-n_{0}$
+\end_inset
+
+, and 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ the density (given in dft.in) of the homogeneous fluid of reference, e.g.,
+ 0.0332891 molecule per 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+AA$^3$
+\end_layout
+
+\end_inset
+
+ for water.
+\end_layout
+
+\begin_layout Standard
+We also define 
+\begin_inset Formula $n\left(\bm{r}\right)=\int\rho(\bm{r},\boldsymbol{\Omega})\mbox{d}\boldsymbol{\Omega}$
+\end_inset
+
+.
+ We have 
+\begin_inset Formula 
+\begin{eqnarray}
+F_{exc} & = & -\frac{1}{2}k_{B}T\iint\Delta n\left(\boldsymbol{r}\right)\Delta n\left(\boldsymbol{r}^{\prime}\right)c\left(r\right)d\bm{r}d\bm{r}^{\prime},
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, we consider the convolution in the right hand side of the equation,
+ 
+\begin_inset Formula $\gamma\equiv\left(\Delta n*c\right)$
+\end_inset
+
+, that can be computed much efficiently than in 
+\begin_inset Formula $O\left(N^{2}\right)$
+\end_inset
+
+ by fast Fourier transform in 
+\begin_inset Formula $O\left(N\log N\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+Inputs:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\rho\left(\bm{r},\Omega\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $c_{s}\left(k\right)$
+\end_inset
+
+, with 
+\begin_inset Formula $k\equiv\left\Vert \bm{k}\right\Vert $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+functions to Fast Fourier Transform (FFT) and inverse Fast Fourier Transform
+ (FFT
+\begin_inset Formula $^{-1}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $n_{0}$
+\end_inset
+
+, the density of the homogeneous fluid of reference
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $T$
+\end_inset
+
+ the temperature in Kelvin
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $k_{B}$
+\end_inset
+
+ the Boltzmann constant.
+\end_layout
+
+\begin_layout Subsection
+polarisation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}_{exc}=-\frac{k_{B}T}{2}\iiint_{\mathcal{R}^{3}}\int_{\theta=0}^{\pi}\int_{\phi=0}^{2\pi}\int_{\psi=0}^{2\pi}\Delta\rho\left(\bm{r}_{1},\bm{\Omega}_{1}\right)c^{\left(2\right)}\left(\bm{r}_{1},\bm{r}_{2},\bm{\Omega}_{1},\bm{\Omega}_{2}\right)\Delta\rho\left(\bm{r}_{2},\bm{\Omega}_{2}\right)d\bm{r}_{1}d\bm{r}_{2}d\bm{\Omega}_{1}d\bm{\Omega}_{2}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\rho=n/\left(8\pi^{2}\right)$
+\end_inset
+
+ and we define 
+\begin_inset Formula 
+\begin{eqnarray}
+\bm{P}\left(\bm{r}\right) & = & \int\bm{p}\rho\left(\bm{r},\bm{\Omega}\right)d\bm{\Omega}
+\end{eqnarray}
+
+\end_inset
+
+with 
+\begin_inset Formula $\bm{p}=p\bm{\Omega}$
+\end_inset
+
+ the dipolar moment of a water molecule.
+\end_layout
+
+\begin_layout Section
+OZ Equation in MDFT and IEM Formalism
+\end_layout
+
+\begin_layout Standard
+Ornstein-Zernike (OZ) equation is a fundamental equation to the theory of
+ liquids, which defined 
+\begin_inset Formula $c^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})$
+\end_inset
+
+.
+ Its most common form is as shown 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hensen-McDonald"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+h^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})=c^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})+\int c^{(2)}(\mathbf{X_{1}},\mathbf{X_{3}})\rho(\mathbf{X_{3}})h^{(2)}(\mathbf{X_{3}},\mathbf{X_{2}})\mathrm{d}\mathbf{X_{3}}\label{eq:oz-iem-2}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $h^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})$
+\end_inset
+
+ is the pair correlation function (PCF).
+ When the fluid is homogenous, eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:oz-iem-2"
+
+\end_inset
+
+) becomes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+h^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})=c^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})+\rho_{0}\int c^{(2)}(\mathbf{X_{1}},\mathbf{X_{3}})h^{(2)}(\mathbf{X_{3}},\mathbf{X_{2}})\mathrm{d}\mathbf{X_{3}}\label{eq:oz-iem-1-1}
+\end{equation}
+
+\end_inset
+
+which gives 
+\begin_inset Formula 
+\begin{equation}
+\gamma(\mathbf{X_{1}},\mathbf{X_{2}})=h^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})-c^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})=\rho_{0}\int c^{(2)}(\mathbf{X_{1}},\mathbf{X_{3}})h^{(2)}(\mathbf{X_{3}},\mathbf{X_{2}})\mathrm{d}\mathbf{X_{3}}\label{eq:gamma-oz-2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If we take 
+\begin_inset Formula $\mathbf{X_{2}}$
+\end_inset
+
+ as origin in the laboratory coordinate system, eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gamma-oz-2"
+
+\end_inset
+
+) becomes:
+\begin_inset Formula 
+\begin{equation}
+\gamma(\mathbf{X_{1}})=\int c^{(2)}(\mathbf{X}_{1},\mathbf{X_{3}})\Delta\rho(\mathbf{X_{3}})\mathrm{d}\mathbf{X_{3}}\label{eq:gamma-oz-1-1}
+\end{equation}
+
+\end_inset
+
+which coincides with the gradient of 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}\left[\rho\right]$
+\end_inset
+
+ in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fexc-2nd-term-1"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+It can be further proved that the homogenous reference fluid (HRF) approximation
+ of molecular density functional theory (MDFT) is mathematically equivalent
+ to the hypernetted chain (HNC) approximation to integral equations method
+ (IEM) if the fluid is homogenous.
+ (To be detailed.)
+\end_layout
+
+\begin_layout Section
+Statistical mechanics
+\end_layout
+
+\begin_layout Section
+Principe of Variation
+\end_layout
+
+\begin_layout Section
+Ideal free energy functional
+\end_layout
+
+\begin_layout Section
+External free energy functional
+\end_layout
+
+\begin_layout Section
+Homogenous Reference Fluid Approximation
+\end_layout
+
+\begin_layout Standard
+In the molecular density functional theory (MDFT), the excess free energy
+ functional 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ can be developed via Taylor expansion 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}_{\mathrm{exc}}\left[\rho\right]\equiv\mathcal{F}_{\mathrm{exc}}\left[\rho_{0}\right]+\int\mathrm{d}\mathbf{X_{1}}\frac{\delta\mathcal{F}_{\mathrm{exc}}\left[\rho\right]}{\mathrm{\delta}\rho(\mathbf{X_{1}})}\Delta\rho(\mathbf{X_{1}})+\frac{1}{2}\int\mathrm{d}\mathbf{X_{1}}\mathrm{d}\mathbf{X_{2}}\frac{\mathrm{\delta}^{2}\mathcal{F}_{\mathrm{exc}}\left[\rho\right]}{\mathrm{\delta}\rho(\mathbf{X_{1}})\mathrm{\delta}\rho(\mathbf{X_{2}})}\Delta\rho(\mathbf{X_{1}})\Delta\rho(\mathbf{X_{2}})+\mathcal{O}(\Delta\rho^{3})\label{eq:Taylor}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbf{X}\equiv(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+, 
+\begin_inset Formula $\beta^{-1}=k_{\mathrm{B}}T$
+\end_inset
+
+, 
+\begin_inset Formula $\Delta\rho=\rho-\rho_{0}$
+\end_inset
+
+, and 
+\begin_inset Formula $\rho(\mathbf{X})$
+\end_inset
+
+ the single-particle density of the fluid.
+\end_layout
+
+\begin_layout Standard
+According to the variation principle, the first derivative in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Taylor"
+
+\end_inset
+
+) is zero
+\begin_inset Formula 
+\begin{equation}
+\left.\frac{\mathrm{\delta}\mathcal{F}_{\mathrm{exc}}\left[\rho\right]}{\mathrm{\delta}\rho(\mathbf{X_{1}})}\right|_{\rho=\rho_{\mathrm{eq}}}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}\left[\rho_{0}\right]$
+\end_inset
+
+ can be compensated by the grand potential of bulk fluid (to be detailed),
+ we can then focus on only 
+\begin_inset Formula $\mathcal{O}(\Delta\rho^{2})$
+\end_inset
+
+ and higher order terms.
+\end_layout
+
+\begin_layout Standard
+As 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ is a generating functional of 
+\begin_inset Formula $c^{(n)}(\mathbf{X}^{n})$
+\end_inset
+
+, the direct correlations functions (DCF) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hensen-McDonald"
+
+\end_inset
+
+, for example
+\begin_inset Formula 
+\begin{equation}
+c^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})=-\beta\frac{\mathrm{\delta}^{2}\mathcal{F}_{\mathrm{exc}}\left[\rho\right]}{\mathrm{\delta}\rho(\mathbf{X_{1}})\mathrm{\delta}\rho(\mathbf{X_{2}})}
+\end{equation}
+
+\end_inset
+
+eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Taylor"
+
+\end_inset
+
+) can be rewritten as
+\begin_inset Formula 
+\begin{eqnarray}
+\mathcal{F}_{\mathrm{exc}}\left[\rho\right] & = & -\frac{\beta^{-1}}{2}\int\mathrm{d}\mathbf{X_{1}}\mathrm{d}\mathbf{X_{2}}c^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})\Delta\rho(\mathbf{X_{1}})\Delta\rho(\mathbf{X_{2}})+\mathcal{O}(\Delta\rho^{3})\nonumber \\
+ & \simeq & -\frac{\beta^{-1}}{2}\int\mathrm{d}\mathbf{X_{1}}\mathrm{d}\mathbf{X_{2}}c^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})\Delta\rho(\mathbf{X_{1}})\Delta\rho(\mathbf{X_{2}})\label{eq:fexc-2nd-term}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If we take further approximation, to assume that
+\begin_inset Formula 
+\begin{equation}
+c^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})\simeq c_{0}^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $c_{0}^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})$
+\end_inset
+
+ is the DCF of the bulk fluid, it's called the homogenous reference fluid
+ (HRF) approximation.
+\end_layout
+
+\begin_layout Section
+OZ Equation in MDFT and IEM Formalism
+\end_layout
+
+\begin_layout Standard
+Ornstein-Zernike (OZ) equation is a fundamental equation to the theory of
+ liquids, which defined 
+\begin_inset Formula $c^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})$
+\end_inset
+
+.
+ Its most common form is as shown 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hensen-McDonald"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+h^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})=c^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})+\int c^{(2)}(\mathbf{X_{1}},\mathbf{X_{3}})\rho(\mathbf{X_{3}})h^{(2)}(\mathbf{X_{3}},\mathbf{X_{2}})\mathrm{d}\mathbf{X_{3}}\label{eq:oz-iem}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $h^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})$
+\end_inset
+
+ is the pair correlation function (PCF).
+ When the fluid is homogenous, eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:oz-iem"
+
+\end_inset
+
+) becomes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+h^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})=c^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})+\rho_{0}\int c^{(2)}(\mathbf{X_{1}},\mathbf{X_{3}})h^{(2)}(\mathbf{X_{3}},\mathbf{X_{2}})\mathrm{d}\mathbf{X_{3}}\label{eq:oz-iem-1}
+\end{equation}
+
+\end_inset
+
+which gives 
+\begin_inset Formula 
+\begin{equation}
+\gamma(\mathbf{X_{1}},\mathbf{X_{2}})=h^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})-c^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})=\rho_{0}\int c^{(2)}(\mathbf{X_{1}},\mathbf{X_{3}})h^{(2)}(\mathbf{X_{3}},\mathbf{X_{2}})\mathrm{d}\mathbf{X_{3}}\label{eq:gamma-oz}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If we take 
+\begin_inset Formula $\mathbf{X_{2}}$
+\end_inset
+
+ as origin in the laboratory coordinate system, eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gamma-oz"
+
+\end_inset
+
+) becomes:
+\begin_inset Formula 
+\begin{equation}
+\gamma(\mathbf{X_{1}})=\int c^{(2)}(\mathbf{X}_{1},\mathbf{X_{3}})\Delta\rho(\mathbf{X_{3}})\mathrm{d}\mathbf{X_{3}}\label{eq:gamma-oz-1}
+\end{equation}
+
+\end_inset
+
+which coincides with the gradient of 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}\left[\rho\right]$
+\end_inset
+
+ in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fexc-2nd-term"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+It can be further proved that the homogenous reference fluid (HRF) approximation
+ of molecular density functional theory (MDFT) is mathematically equivalent
+ to the hypernetted chain (HNC) approximation to integral equations method
+ (IEM) if the fluid is homogenous.
+ (To be detailed.)
+\end_layout
+
+\begin_layout Section
+Supercell discretization
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $L_{x}\times L_{y}\times L_{z}$
+\end_inset
+
+ Å
+\begin_inset Formula $^{3}$
+\end_inset
+
+ space is discretized on a regular grid of 
+\begin_inset Formula $\textrm{nfft}_{1}\times\textrm{nfft}_{2}\times\textrm{nfft}_{3}$
+\end_inset
+
+ nodes.
+ Angular grid is discretized with Lebedev (L) or Gauss-Legendre (GL) quadrature
+ for 
+\begin_inset Formula $\bm{\Omega}\equiv\left\{ \theta,\phi\right\} ,\theta\in\left[0,\pi\right],\phi\in\left[0,2\pi\right]$
+\end_inset
+
+, and regular quadrature for 
+\begin_inset Formula $\psi\in\left[0,\pi\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+translate_solute_to_center = {
+\bar under
+T
+\bar default
+,F}
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This translates your solute to the center of the supercell: all solute coordinat
+es are moved by {Lx/2., Ly/2., Lz/2.}, with {Lx,Ly,Lz} the length of the supercell.
+\end_layout
+
+\begin_layout Section
+cg_vect
+\end_layout
+
+\begin_layout Subsection
+Multipolar polarization
+\end_layout
+
+\begin_layout Standard
+We define a charge density 
+\begin_inset Formula $\sigma\left(\bm{r},\bm{\Omega}\right)$
+\end_inset
+
+ and polarization density 
+\begin_inset Formula $\bm{p}\left(\bm{r},\bm{\Omega}\right)$
+\end_inset
+
+ of a molecule at the origin of the cartesian reference frame with orientation
+ 
+\begin_inset Formula $\bm{\Omega}$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{equation}
+\sigma\left(\bm{r},\bm{\Omega}\right)=\sum_{m}q_{m}\delta\left(\bm{r}-\bm{s}_{m}\left(\bm{\Omega}\right)\right)
+\end{equation}
+
+\end_inset
+
+in the general case, and 
+\begin_inset Formula 
+\begin{equation}
+\sigma\left(\bm{r},\bm{\Omega}\right)=q_{O}\delta\left(\bm{r}\right)+q_{H}\delta\left(\bm{r}-\bm{s}_{H_{1}}\left(\bm{\Omega}\right)\right)+q_{H}\delta\left(\bm{r}-\bm{s}_{H_{2}}\left(\bm{\Omega}\right)\right)
+\end{equation}
+
+\end_inset
+
+for a single SPC-type water molecule with oxygen at the origin.
+\end_layout
+
+\begin_layout Section
+Poisson solver : Iterative solvers for linear equations
+\end_layout
+
+\begin_layout Standard
+Given a square system of 
+\begin_inset Formula $n$
+\end_inset
+
+ linear equations:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\bm{A}\bm{x}=\bm{b}.\label{eq:linsys}
+\end{equation}
+
+\end_inset
+
+ Some (very slow) direct techniques exist that involve algebra.
+ We will solve this equation by an iterative (also called relaxation) method.
+ We will use a sequence of 
+\begin_inset Formula $\bm{x}^{\left(k\right)}$
+\end_inset
+
+ that converges toward the fixed point 
+\begin_inset Formula $\bm{x}$
+\end_inset
+
+, solution of our problem.
+\end_layout
+
+\begin_layout Standard
+In conclusion, we want to write, for a given 
+\begin_inset Formula $\bm{x}^{\left(0\right)}$
+\end_inset
+
+, a sequence 
+\begin_inset Formula $\bm{x}^{\left(k+1\right)}=F\left(\bm{x}^{\left(k\right)}\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Jacobi's method
+\end_layout
+
+\begin_layout Standard
+We decompose 
+\begin_inset Formula $A=D-L-U$
+\end_inset
+
+ where 
+\begin_inset Formula $D$
+\end_inset
+
+ is an inversible matrix.
+\begin_inset Formula 
+\begin{equation}
+\bm{A}\bm{x}=\bm{b}\Leftrightarrow\bm{D}\bm{x}=\left(\bm{L}+\bm{U}\right)\bm{x}+\bm{b}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray}
+\Leftrightarrow\bm{x} & = & \bm{D}^{-1}\left(\bm{L}+\bm{U}\right)\bm{x}+\bm{D}^{-1}\bm{b}\\
+ & = & F\left(\bm{x}\right)
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $F$
+\end_inset
+
+ is a linear function of 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+It is shown that we can solve this equation by iteratively solving, where
+ 
+\begin_inset Formula $k$
+\end_inset
+
+ indicates the iteration number
+\begin_inset Formula 
+\begin{equation}
+\bm{x}^{\left(k+1\right)}=\bm{D}^{-1}\left(\bm{L}+\bm{U}\right)\bm{x}^{\left(k\right)}+\bm{D}^{-1}\bm{b}.
+\end{equation}
+
+\end_inset
+
+Since 
+\begin_inset Formula $\mbox{diag}\left(\left(\bm{L}+\bm{U}\right)\bm{x}^{\left(k\right)}\right)=\bm{0}$
+\end_inset
+
+, each 
+\begin_inset Formula $x_{i}^{\left(k+1\right)}$
+\end_inset
+
+ is independent of 
+\begin_inset Formula $x_{i}^{\left(k\right)}$
+\end_inset
+
+.
+ It is instead a weighted average of other 
+\begin_inset Formula $x_{j\neq i}$
+\end_inset
+
+.
+ Since we don't know the solution 
+\emph on
+a priori
+\emph default
+, we define the residual at each step 
+\begin_inset Formula $k$
+\end_inset
+
+ as 
+\begin_inset Formula $\bm{r}^{\left(k\right)}=\bm{b}-\bm{A}\bm{x}^{\left(k\right)}$
+\end_inset
+
+.
+ See algorithm
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Jacobi's-algorithm"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\bar under
+Output
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\bm{x}$
+\end_inset
+
+, an approximate solution to 
+\begin_inset Formula $\bm{A}\bm{x}=\bm{b}$
+\end_inset
+
+ where 
+\begin_inset Formula $\bm{A}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bm{b}$
+\end_inset
+
+ are known.
+\end_layout
+
+\begin_layout Plain Layout
+
+\bar under
+Inputs
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\bm{A}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\bm{b}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\bm{x}^{\left(0\right)}$
+\end_inset
+
+ including boundary conditions.
+ No restriction on 
+\begin_inset Formula $\bm{x}^{\left(0\right)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\epsilon$
+\end_inset
+
+, the tolerance or convergence criteria.
+ A suitable tolerance might be 
+\begin_inset Formula $\left\Vert \bm{r}^{\left(k\right)}\right\Vert <\epsilon$
+\end_inset
+
+ or 
+\begin_inset Formula $\left\Vert \bm{r}^{\left(k\right)}-\bm{r}^{\left(k-1\right)}\right\Vert <\epsilon$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\bar under
+Restrictions
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\bm{A}$
+\end_inset
+
+ must be strictly diagonaly dominant, 
+\emph on
+i.e.
+\emph default
+, 
+\begin_inset Formula $\left|A_{i,i}\right|>\sum_{j=1,n;j\neq i}\left|A_{i,j}\right|$
+\end_inset
+
+ 
+\begin_inset Formula $\Rightarrow A_{i,i}\neq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\bar under
+Algo
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\bm{D}\longleftarrow\mbox{diag}\left(\bm{A}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\bm{R}\longleftarrow\bm{D}-\bm{A}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\bm{D}^{-1}\longleftarrow1/\bm{D}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+do while 
+\begin_inset Formula $\xi\geq\epsilon$
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\bm{x}_{\mathrm{old}}\longleftarrow\bm{x}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\bm{x}\longleftarrow\bm{D}^{-1}\bm{R}\bm{x}_{\mathrm{old}}+\bm{D}^{-1}\bm{b}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\bm{r}\longleftarrow\bm{A}\bm{x}-\bm{b}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\xi\longleftarrow\left\Vert \bm{r}\right\Vert $
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\lang english
+Jacobi's algorithm
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Jacobi's-algorithm"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+vext q
+\end_layout
+
+\begin_layout Standard
+L'énergie électrostatique s'écrit
+\begin_inset Formula 
+\begin{eqnarray}
+\mathcal{F}_{q} & = & \frac{1}{2}\iiint\frac{\rho_{c}^{\textrm{soluté}}\left(\boldsymbol{r^{\prime}}\right)\rho_{c}^{\textrm{solvant}}\left(\boldsymbol{r},\boldsymbol{\Omega}\right)}{4\pi\epsilon_{0}\left\Vert \boldsymbol{r}-\boldsymbol{r^{\prime}}\right\Vert }\textrm{d}\boldsymbol{r}\textrm{d}\boldsymbol{r^{\prime}}\textrm{d}\boldsymbol{\Omega}\\
+ & = & \frac{1}{2}\frac{1}{4\pi\epsilon_{0}}\iiint\frac{\rho_{c}^{\textrm{soluté}}\left(\boldsymbol{r^{\prime}}\right)}{\left\Vert \boldsymbol{r}-\boldsymbol{r^{\prime}}\right\Vert }\left[\rho^{\textrm{solvant}}*\sigma\right]\left(\boldsymbol{r},\boldsymbol{\Omega}\right)\textrm{d}\boldsymbol{r}\textrm{d}\boldsymbol{r^{\prime}}\textrm{d}\boldsymbol{\Omega}\\
+ & = & \frac{1}{2}\frac{1}{4\pi\epsilon_{0}}\iint\left[\rho_{c}^{\textrm{soluté}}*\left\Vert \boldsymbol{r}\right\Vert ^{-1}\right]\left(\boldsymbol{r},\boldsymbol{\Omega}\right)\left[\rho^{\textrm{solvant}}*\sigma\right]\left(\boldsymbol{r},\boldsymbol{\Omega}\right)\textrm{d}\boldsymbol{r}\textrm{d}\boldsymbol{\Omega}\\
+ & =
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+On définit une densité de charge d'une molécule 
+\begin_inset Formula $\boldsymbol{\sigma}\left(\boldsymbol{r},\boldsymbol{\Omega}\right)$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{\sigma}\left(\boldsymbol{r},\boldsymbol{\Omega}\right)=\sum_{m=1}^{\textrm{sites du solvant}}q_{m}\delta\left(\boldsymbol{r}-\boldsymbol{s}_{m}\left(\boldsymbol{\Omega}\right)\right).
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula $\boldsymbol{s}_{m}\left(\boldsymbol{\Omega}\right)$
+\end_inset
+
+ désigne la position du 
+\begin_inset Formula $m^{\textrm{ième}}$
+\end_inset
+
+ site de la molécule de solvant quand elle a l'orientation 
+\begin_inset Formula $\boldsymbol{\Omega}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Code MDFT
+\end_layout
+
+\begin_layout Standard
+The code MDFT is the implementation of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ theory.
+ It reads the force field (pair potential) 
+\begin_inset Formula $u(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+ of solute and solvent as input, as well as necessary parameters like the
+ temperature 
+\begin_inset Formula $T$
+\end_inset
+
+, number density of solvent 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+, etc.
+ It minimizes the functional [ref] and gives the equilibrium density 
+\begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+, then computes output properties.
+ The main structure of code is shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:code-mdft"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/mdft.eps
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Main structure of code MDFT
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:code-mdft"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Minimizer L-BFGS-B
+\end_layout
+
+\begin_layout Standard
+The minimizer adopted by MDFT is the L-BFGS-B 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Zhu_1994_bfgs,Zhu_bfgs_1997_algorithm"
+
+\end_inset
+
+ package version 3.0 written in Fortran 77, implementing the limited-memory
+ Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm with constraints of the
+ form 
+\begin_inset Formula $l\leq x\leq u$
+\end_inset
+
+ to the variable 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ 
+\color red
+During the evaluation of the initial code which use L-BFGS,
+\color inherit
+ the constraint function is not used.
+\end_layout
+
+\begin_layout Standard
+The functional 
+\begin_inset Formula $\mathcal{F}[x_{i}]$
+\end_inset
+
+ and the gradient of functional 
+\begin_inset Formula $\nabla\mathcal{F}[x_{i}]=\dfrac{\delta\mathcal{F}}{\delta x}(x_{i})$
+\end_inset
+
+ is needed by L-BFGS to minimize the functional.
+ It saves the variables 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ and gradient of the past 
+\begin_inset Formula $m$
+\end_inset
+
+ iterations, which is memory eater.
+\end_layout
+
+\begin_layout Standard
+The functional in MDFT to be minimized is eq.
+ (
+\color red
+ref
+\color inherit
+), and its gradient is
+\begin_inset Formula 
+\begin{equation}
+\frac{\delta\mathcal{F}[\rho]}{\delta\rho(\mathbf{r},\mathbf{\Omega})}=\beta^{-1}\ln\left(\dfrac{\rho(\mathbf{r},\mathbf{\Omega})}{\rho_{0}}\right)+V_{\mathrm{ext}}(\mathbf{r},\mathbf{\Omega})+V_{\mathrm{exc}}(\mathbf{r},\mathbf{\Omega})
+\end{equation}
+
+\end_inset
+
+
+\color red
+where 
+\begin_inset Formula $\rho_{0}$
+\end_inset
+
+ is the angular density of bulk solvent 
+\begin_inset Formula $\rho_{0}=n_{0}/\left(8\pi^{2}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Treatment to avoid unphysical density
+\end_layout
+
+\begin_layout Standard
+During the minimization, the density variable 
+\begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+ can have unphysical negative number, 
+\color red
+which also cause the divergence of the minimization.
+
+\color inherit
+ To avoid this phenomenon, a normalized 
+\begin_inset Formula $\varphi(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+ is used as variable during the minimization in the place of 
+\begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+, so that
+\begin_inset Formula 
+\begin{equation}
+\rho(\mathbf{r},\mathbf{\Omega})=\rho_{0}\varphi^{2}(\mathbf{r},\mathbf{\Omega})\label{eq:cg_vect}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+According to the definition (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:cg_vect"
+
+\end_inset
+
+) we see
+\begin_inset Formula 
+\begin{equation}
+\frac{\delta\rho(\mathbf{r},\mathbf{\Omega})}{\delta\varphi}=2\rho_{0}\varphi(\mathbf{r},\mathbf{\Omega})
+\end{equation}
+
+\end_inset
+
+Therefore the gradient to feed the L-BFGS minimizer 
+\color red
+(but in the code there is additional 
+\begin_inset Formula $\mathrm{d}\mathbf{r}\mathrm{d}\mathbf{\Omega}$
+\end_inset
+
+ ??? for all the three part)
+\color inherit
+
+\begin_inset Formula 
+\begin{equation}
+\frac{\delta\mathcal{F}}{\delta\varphi}=\frac{\delta\mathcal{F}}{\delta\rho}\cdot\frac{\delta\rho}{\delta\varphi}=2\rho_{0}\varphi(\mathbf{r},\mathbf{\Omega})\cdot\left[\beta^{-1}\ln\varphi^{2}+V_{\mathrm{ext}}+V_{\mathrm{exc}}\right]
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Evaluation of 
+\begin_inset Formula $V_{\mathrm{ext}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In eq.
+ (
+\color red
+ref
+\color inherit
+) we define the external potential 
+\begin_inset Formula $V_{\mathrm{ext}}$
+\end_inset
+
+ as the gradient of external free energy functional due to the solute, of
+ unity 
+\color red
+[]
+\color inherit
+.
+ When the solute is a molecule with force field, it is contains two components
+\begin_inset Formula 
+\begin{equation}
+V_{\mathrm{ext}}(\mathbf{r},\mathbf{\Omega})=V_{\mathrm{LJ}}(\mathbf{r})+V_{\mathrm{coul}}(\mathbf{r},\mathbf{\Omega})
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Lennard-Jones potential is given by
+\begin_inset Formula 
+\begin{equation}
+V_{\mathrm{LJ}}(\mathbf{r})=\sum_{u}\sum_{v}4\epsilon_{uv}\left[\left(\dfrac{\sigma_{uv}}{r_{uv}}\right)^{12}-\left(\dfrac{\sigma_{uv}}{r_{uv}}\right)^{6}\right]\label{eq:LJ}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $u$
+\end_inset
+
+ stands for solute, and 
+\begin_inset Formula $v$
+\end_inset
+
+ stands for solvent, 
+\begin_inset Formula $\epsilon_{uv}=\sqrt{\epsilon_{u}\epsilon_{v}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{uv}=\left(\sigma_{u}+\sigma_{v}\right)$
+\end_inset
+
+ are the geometric and arithmetic average Lennard-Jones parameters between
+ solute and solvent.
+ 
+\begin_inset Formula $r_{ij}$
+\end_inset
+
+ is the norm of relative site-site vector
+\begin_inset Formula 
+\begin{equation}
+\mathbf{r}_{uv}=\mathbf{r}+\mathbf{R}(\mathbf{\Omega})\mathbf{s}_{v}-\mathbf{r}_{u}\label{eq:ruv}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbf{r}_{u}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{s}_{j}$
+\end_inset
+
+ are the coordinates of solute / solvent molecule in the molecular frame,
+ and 
+\begin_inset Formula $\mathbf{R}(\mathbf{\Omega})$
+\end_inset
+
+ the rotation matrix of the Euler angles 
+\begin_inset Formula $\mathbf{\Omega}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In the case where the solvent site wears only one LJ centre, eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ruv"
+
+\end_inset
+
+) reduces to
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{r}_{uv}=\mathbf{r}-\mathbf{r}_{u}
+\end{equation}
+
+\end_inset
+
+which is what we use exactly in the code as the solvent is SPC/E water.
+\end_layout
+
+\begin_layout Standard
+...
+\end_layout
+
+\begin_layout Standard
+The Coulomb interaction is calculated by 
+\color red
+solving the Poisson equation 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Marchi_2001"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The charge density of the solute is projected onto space grid,
+\begin_inset Formula 
+\begin{equation}
+\rho_{q}(\mathbf{r})=\sum_{u}q_{ijk}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $q_{ijk}$
+\end_inset
+
+ is the charge on the space grid distributed by its nearby point charge
+ as shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Charge-density-projected"
+
+\end_inset
+
+a.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/lding/Desktop/__M0921/_figure/charge_int.eps
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Charge density projected onto grids
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Charge-density-projected"
+
+\end_inset
+
+.
+ (a) Solute.
+ (b) Solvent.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+V_{\mathrm{coul}}(\mathbf{r},\mathbf{\Omega})=\sum_{v}q_{v}V_{q}(\mathbf{r}_{u})
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Poisson solver
+\end_layout
+
+\begin_layout Standard
+Field 
+\begin_inset Formula 
+\begin{equation}
+E(\mathbf{r})=-\overrightarrow{\nabla}V_{q}(\mathbf{r})
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $V_{q}(\mathbf{r})$
+\end_inset
+
+ is ...
+ of unity ...
+\end_layout
+
+\begin_layout Standard
+Local expression of Gauss theorem 
+\begin_inset Formula 
+\begin{equation}
+\nabla\cdot E(\mathbf{r})=\frac{\rho_{q}(\mathbf{r})}{\varepsilon_{0}}
+\end{equation}
+
+\end_inset
+
+therefore
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\nabla^{2}V_{q}(\mathbf{r})=-\frac{\rho_{q}(\mathbf{r})}{\varepsilon_{0}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\hat{V}_{q}(\mathbf{k})=\frac{\hat{\rho}_{q}(\mathbf{k})}{\varepsilon_{0}k^{2}}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\hat{V}_{q}(\mathbf{k})$
+\end_inset
+
+ is the Fourier transform of 
+\begin_inset Formula $V_{q}(\mathbf{r})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The Fourier transform, since the Laplacian is a linear operator
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+\nabla^{2}f(\mathbf{r}) & = & \nabla^{2}\int\mathrm{d}\mathbf{k}\hat{f}(k)e^{2\pi i\mathbf{r}\cdot\mathbf{k}}\\
+ & = & \int\mathrm{d}\mathbf{k}\hat{f}(k)\nabla^{2}e^{2\pi i\mathbf{r}\cdot\mathbf{k}}\\
+ & = & \int\mathrm{d}\mathbf{k}\left(-4\pi^{2}\left|\mathbf{k}\right|^{2}\right)\hat{f}(k)e^{2\pi i\mathbf{r}\cdot\mathbf{k}}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}\left[\nabla^{2}V_{q}(\mathbf{r})\right]=-4\pi^{2}\left|\mathbf{k}\right|^{2}\hat{V}_{q}(\mathbf{k})
+\end{equation}
+
+\end_inset
+
+For Fourier series 
+\begin_inset Formula $-4\pi^{2}\left|\mathbf{k}\right|^{2}$
+\end_inset
+
+ is the eigenvalue of laplacian 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}\left[\nabla^{2}V_{q}(\mathbf{r})\right]=\mathcal{F}\left[-\frac{\rho_{q}(\mathbf{r})}{\varepsilon_{0}}\right]=\left(i\mathbf{k}\right)^{2}\hat{V}_{q}(\mathbf{k})=-4\pi\hat{\rho}_{q}(\mathbf{k})
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\hat{V}_{\mathrm{Poisson}}(\mathbf{k})=\frac{4\pi\hat{\rho}_{q}(\mathbf{k})}{k^{2}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Evaluation of 
+\begin_inset Formula $V_{\mathrm{exc}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V_{\mathrm{exc}}$
+\end_inset
+
+ is ...
+ of unity []
+\end_layout
+
+\begin_layout Standard
+Diople
+\end_layout
+
+\begin_layout Standard
+We define 
+\begin_inset Formula $r=\left\Vert \bm{r}-\bm{r}^{\prime}\right\Vert $
+\end_inset
+
+, and 
+\begin_inset Formula $\Delta n\left(\bm{r}\right)=n\left(\bm{r}\right)-n_{0}$
+\end_inset
+
+, and 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ the density of the bulk solvent, e.g., 0.0332891 molecule per 
+\begin_inset Formula $\textrm{Å}^{3}$
+\end_inset
+
+ for water.
+\end_layout
+
+\begin_layout Standard
+We also define 
+\begin_inset Formula $n\left(\bm{r}\right)=\int\rho(\bm{r},\boldsymbol{\Omega})\mbox{d}\boldsymbol{\Omega}$
+\end_inset
+
+.
+ We have 
+\begin_inset Formula 
+\begin{eqnarray}
+F_{exc} & = & -\frac{1}{2}k_{B}T\iint\Delta n\left(\boldsymbol{r}\right)\Delta n\left(\boldsymbol{r}^{\prime}\right)c\left(r\right)d\bm{r}d\bm{r}^{\prime},
+\end{eqnarray}
+
+\end_inset
+
+Now, we consider the convolution in the right hand side of the equation,
+ 
+\begin_inset Formula $\gamma\equiv\left(\Delta n*c\right)$
+\end_inset
+
+, that can be computed much efficiently than in 
+\begin_inset Formula $O\left(N^{2}\right)$
+\end_inset
+
+ by fast Fourier transform in 
+\begin_inset Formula $O\left(N\log N\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+\bm{P}\left(\bm{r}\right) & = & \int\bm{p}\rho\left(\bm{r},\bm{\Omega}\right)d\bm{\Omega}
+\end{eqnarray}
+
+\end_inset
+
+with 
+\begin_inset Formula $\bm{p}=p\bm{\Omega}$
+\end_inset
+
+ the dipolar moment of a water molecule.
+\end_layout
+
+\begin_layout Standard
+HRF approximation 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Zhao_2011"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Work by Zhao et al.
+\end_layout
+
+\end_body
+\end_document

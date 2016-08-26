@@ -1,0 +1,1140 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass classicthesis
+\use_default_options true
+\maintain_unincluded_children false
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex8
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Introduction
+\begin_inset CommandInset label
+LatexCommand label
+name "chpt:introduction"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This thesis is about to develop an original numerical toolkit for physical
+ chemists and structural biologists, based on the molecular density functional
+ theory (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+), which makes it possible to predict efficiently, and with a microscopic
+ accuracy, the solvation properties of arbitrary molecular objects in arbitrary
+ molecular solvents (mainly water).
+ This introduction will help to understand the objective of this thesis,
+ it explains why people are interested in the nature of solvation, and where
+ we are in the computing trends in solvation simulation.
+\end_layout
+
+\begin_layout Section
+Simulation of solvent effects
+\end_layout
+
+\begin_layout Standard
+Solvation is a fundamental phenomenon in chemistry.
+ The chemical behavior of lots of systems has a strong dependence on the
+ nature of solvent.
+ For example, for some popular issue as metal-organic reacting center 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Mn-oxo,PCET"
+
+\end_inset
+
+, or pharmaceutical etudes 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "drug_1_Perlovich,drug_2_Perlovich,drug_3"
+
+\end_inset
+
+.
+ The solvation properties required by etudes are very variable, such as
+ the Gibbs free energy of solvation, solubility, partition coefficient,
+ saturated vapor pressure, pH value, as well as the 3D solvation structure,
+ etc.
+ Overall, the interest of these solvation properties comes from many domains,
+ such as chemistry, biochemistry, pharmaceutics, medicine, environmental
+ and agrochemical industries.
+ Unlike the well-studied quantum mechanics (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{QM}
+\end_layout
+
+\end_inset
+
+) for chemical interaction and macroscopic finite element model for physical
+ process, the theories of solvation are very variable and still under developing
+, owing to the ambiguous compromise between the accuracy and the computing
+ cost.
+ In a word, the studies in this domain are quite important and vibrant.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\color red
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100text%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename _figure/solvation.pdf
+	width 100col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+The solvation process
+\end_layout
+
+\end_inset
+
+The solvation process.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Process-of-solvation"
+
+\end_inset
+
+ To a thermodynamic system, whose properties only depends on the initial
+ and final states, it can go through different paths.
+ The physical process of solvation (left path)takes the solute from vacuum
+ into bulk solvent, progressively passing through the vacuum-liquid interface.
+ Theoretically, the solvation energy is defined as the energy consumed in
+ such a progress.
+ In theoretical studies, the process can be decomposed to some artificial
+ unphysical process (right path), involving the growth of an uncharged solute-si
+zed cavity within the bulk solvent, the transfer of the solute charge distributi
+on from vacuum into the cavity, and the interaction between the solute and
+ solvent, etc.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To change a phenomenon to a model, we must understand its process.
+ Solvation is defined as the process of moving a molecule from the gas phase
+ (or vacuum) to a condensed phase (figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Process-of-solvation"
+
+\end_inset
+
+), which builds a stabilizing interaction with the solute (or solute moiety
+ like protein residues, interfaces, etc.) 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "iupac"
+
+\end_inset
+
+.
+ Such interactions are mostly classical, involving electrostatic forces
+ and van der Waals forces, with also chemically more specific effects such
+ as hydrogen bond formation, and quantic effects for some small solvents
+ whose vibrational or rotational energy states is at the same magnitude
+ as 
+\begin_inset Formula $k_{\mathrm{B}}T$
+\end_inset
+
+, etc.
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Gray-Gubbins"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+As not all kinds of interactions is important in applications, according
+ to the usage, different models and methods are developed.
+\end_layout
+
+\begin_layout Standard
+In the most of the 20th century 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cramer_1999"
+
+\end_inset
+
+, the study of solvation effects has been dominated by continuum (implicit)
+ models, which is simply depending on the dielectric constants and not costly
+ on computation resource.
+ They provide an accurate way to treat the strong, long-range electrostatic
+ interactions which dominate many solvation phenomena, but lack of detail
+ informations in the first solvation shell.
+ The later, which mainly includes the cavity formation energy and solute-solvent
+ van der Waals interactions, is often rudely treat by introducing an artificial
+ form of cavity, that links to the form of solute.
+ And the methods for electrostatic interactions involves like generalized
+ Born model, or through better estimates via Poisson-Boltzmann calculations.
+ They are widely integrated within 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{QM}
+\end_layout
+
+\end_inset
+
+ simulations of the solvent, by add extra solvation terms onto the Fock
+ or Kohn-Sham operator 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Jensen,scrf,Tomasi_1994_implicit_model"
+
+\end_inset
+
+.
+ However, the improper treatment of the first-shell, where the microscopic
+ interactions are primarily located, often introduce sometimes huge error
+ in free energy evaluation, especially for polar solvents (like water),
+ despite the accuracy that the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{QM}
+\end_layout
+
+\end_inset
+
+ calculation alone can achieve.
+ Therefore, classical molecular simulations, which describing the individual
+ solvent molecules (explicit), particularly the molecular dynamics (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
+\end_inset
+
+) and Monte Carlo method (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MC}
+\end_layout
+
+\end_inset
+
+), became the alternative solution during the last few decades.
+ They generate trajectories and configurations, then estimate free energy
+ changes by statistical mechanic technics, such as free energy perturbation
+ (FEP) theory or thermodynamic integration (TI) 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Jorgensen_1995_MC"
+
+\end_inset
+
+.
+ These calculation is very demanding on computing cost, due to the requirement
+ of many (hundreds or thousands of) solvent molecules to form a realistic
+ model.
+\end_layout
+
+\begin_layout Standard
+Recently, a third domain of theory to describe solvent, based on the statistical
+ mechanics of fluid, is growing rapidly.
+ It is generally called liquid theory, involves mainly the integral equation
+ theory (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+), and the classical density functional theory for liquids.
+ These approaches are cope to give the molecular nature of the first-shell,
+ but without calculate all the instantaneous micro-states with respect to
+ time, which can be integrated over positions and momentums theoretically.
+ Therefore, they are of magnitudes faster than those simulations by micro-states.
+\end_layout
+
+\begin_layout Standard
+The integral equation theory (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+) is about solving the Ornstein-Zernike (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+) equation with a specific closure equation 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Hensen-McDonald,Gray-Gubbins"
+
+\end_inset
+
+.
+ It was firstly limited to so called 
+\begin_inset Quotes eld
+\end_inset
+
+simple liquid
+\begin_inset Quotes erd
+\end_inset
+
+ - a system of spherical particles.
+ A part, Chandler and Andersen in 1971 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Chandler_1972_RISM"
+
+\end_inset
+
+ developed the reference interaction site model (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{RISM}
+\end_layout
+
+\end_inset
+
+), which discretizes the distribution and correlation functions into a site-site
+ set of functions, and solve the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation in matrix 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "hirata_molecular_2004"
+
+\end_inset
+
+.
+ Another part, Blum 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Blum_I,Blum_II"
+
+\end_inset
+
+, Fries and Patey 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Fries_Patey_1985"
+
+\end_inset
+
+ extend the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation to molecular case, where the distribution and correlation functions
+ depend on both position and orientation.
+ In their theory, the orientation part of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation is simplified by expending the distribution and correlation functions
+ on Wigner generalized spherical harmonics.
+\end_layout
+
+\begin_layout Standard
+The classical density functional theory approach deal with inhomogeneous
+ liquids, which uses the same variation principle and minimization strategy
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "mermin_thermal_1965,Evans_1979,Hansen_1987"
+
+\end_inset
+
+ as electronic density functional theory 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DFT}
+\end_layout
+
+\end_inset
+
+ that treats electric interactions and has a great success in computational
+ chemistry.
+ It gives the Helmholtz free energy and the equilibrium solvent density,
+ by minimizing the free energy functional of the solvent density in the
+ presence of a given external potential.
+ Borgis and collaborators 
+\color red
+[too many ref]
+\color inherit
+ have recently generalized it into molecular case, named molecular density
+ functional theory (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+), where the solvent density depends on both position and orientation, 
+\begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+.
+ The main theoretical difficulty lies in the definition of well-funded and
+ reliable functionals of the excess free energy 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}\left[\rho\right]$
+\end_inset
+
+, according to the geometric complexity of the solvent molecule.
+ Some recent researches have shown that it is cope with linear solvents
+ like acetonitrile, but still have little non-satisfaction with the most
+ complex solvent, i.
+ e.
+ water.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ can be proved to be mathematically equivalent to the two-component molecular
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The majority of work of all these theories have been focused on water, since
+ it is one of the most difficult systems to model due to its molecular geometry,
+ ineligible multi-body interaction, quantum effect, hydrogen bond, etc.
+ The importance of including instantaneous polarization in potential functions
+ is also an issue 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "polarisable_1,polarisable_2"
+
+\end_inset
+
+.
+ However, since polarizable force fields are not yet in common use, the
+ simulations by micro-states and the liquid theory which feed on force field
+ also have their own limit, compared to the continuum model which can be
+ polarizable.
+ The advantages and disadvantages of each branch of theory are listed in
+ table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Theories-of-solvation"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="5">
+<features rotate="0" booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+Theory
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+Speed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+Long-Range
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+First-Shell
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+Polarizable Solvent
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Continuum model
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+fast
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+yes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+no
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+fully
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Simulation by time
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+costly
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+yes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+yes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+partially, very costly
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Liquid theory
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+fast
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+yes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+yes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+partially
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Theories of solvation simulation
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Theories-of-solvation"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This thesis consists in the development of the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+, focusing on the generalization and algorithmic acceleration of the excess
+ free energy functional 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ evaluation under homogenous reference fluid (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HRF}
+\end_layout
+
+\end_inset
+
+) approximation, which will be discussed in detail in later chapters.
+ 
+\end_layout
+
+\begin_layout Section
+Scope of this thesis
+\end_layout
+
+\begin_layout Standard
+Chapter I reviews a selection of models and methods to the solvent effect.
+ It includes the mainly used continuum model, the basic of liquid theory,
+ as well as its two frontier research domains, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+.
+ The code structure of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+, which all the development in this thesis is based on, is also presented.
+ There is also a brief introduction to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MC}
+\end_layout
+
+\end_inset
+
+, as well as the generation of direct correlation function (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+) used in this thesis by such methods.
+ 
+\end_layout
+
+\begin_layout Standard
+Chapter II presents all the theory developed and newly used in this thesis.
+ In this thesis, two algorithms of excess energy functional evaluation are
+ proposed, one is extension of the previous algorithm, other is a new algorithm,
+ that combines the molecular 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation treatment of angular part with MDFT.
+ The output solvation properties is mainly the two: free energy, and solvent
+ structure.
+\end_layout
+
+\begin_layout Standard
+Chapter III takes note of all the implementation result, that divided into
+ two aspects, the 
+\begin_inset Quotes eld
+\end_inset
+
+accuracy
+\begin_inset Quotes erd
+\end_inset
+
+, which involves comparisons between algorithms, and with 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
+\end_inset
+
+ results; and the 
+\begin_inset Quotes eld
+\end_inset
+
+efficiency
+\begin_inset Quotes erd
+\end_inset
+
+, which evaluate the computing cost of the code, both in sequential and
+ parallelized version.
+\end_layout
+
+\begin_layout Standard
+Chapter VI gives some application to ions and molecules.
+\end_layout
+
+\end_body
+\end_document

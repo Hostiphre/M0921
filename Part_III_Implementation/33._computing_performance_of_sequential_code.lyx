@@ -1,0 +1,665 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass classicthesis
+\use_default_options true
+\maintain_unincluded_children false
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex8
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Computing Performance of sequential code
+\begin_inset CommandInset label
+LatexCommand label
+name "chpt:seq-code-performance"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This section evaluates the computing performance of the code without paralleliza
+tion.
+ Our goal is to show that the new algorithm of angular convolution is faster
+ than the old naive one, and the huge amount of simulation has shown that
+ it is absolutely the case.
+ But a raw result, where the implementation goes for an indefinite number
+ of iterations during minimization, cannot give a proper and systematic
+ performance evolution.
+ This gives the propose of this section.
+ 
+\end_layout
+
+\begin_layout Standard
+As discussed in appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:computing-performance"
+
+\end_inset
+
+, two main factors give influence to the performance of a sequential code:
+ the algorithm complexity, and the memory delay.
+ To study the algorithm complexity, testing with respect to parameters is
+ done to some simple but important components.
+ The result can match the theoretical algorithm complexity, or completely
+ different due to the overhead of function calling or the inhomogeneity
+ of memory access.
+ Etude of this small parts permits a further understanding of the entire
+ code.
+\end_layout
+
+\begin_layout Section
+FFT
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ play a great role in the implementation, which is used by the spatial convoluti
+on and the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+ process.
+ As shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:timing-FFT"
+
+\end_inset
+
+a, the dependance on 
+\begin_inset Formula $O(N\log_{2}N)$
+\end_inset
+
+ doesn't totally exist, due to the algorithm of FFT [ref dft].
+ To compare between the algorithms involved in this thesis, we are not really
+ interested in computing performance with respect to the number of spatial
+ grid, but the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ used in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+ process (figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:timing-FFT"
+
+\end_inset
+
+b).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/timing_fft_spatial.pdf
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+spatial+nlogn!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+angular
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+timing FFT
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:timing-FFT"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+FGSHT
+\end_layout
+
+\begin_layout Subsection
+Computing time of GSHT and FGSHT
+\end_layout
+
+\begin_layout Standard
+To serve as an alternative of FFT for angular grid, the algorithmic complicity
+ of GSHT should be at least less than 
+\begin_inset Formula $O(N_{\mathbf{\Omega}}^{2})$
+\end_inset
+
+, where 
+\begin_inset Formula $N_{\mathbf{\Omega}}$
+\end_inset
+
+ is the total number of Euler angles.
+ But to integrate eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gsht-fwd"
+
+\end_inset
+
+) in a direct way, 
+\begin_inset Formula $(n+1)(2n+1)(2\left\lfloor n/s\right\rfloor +1)=N_{\Theta}N_{\Phi\Psi}=N_{\mathbf{\Omega}}$
+\end_inset
+
+ function evaluations (FE) are needed for each 
+\begin_inset Formula $F_{\mu'\mu}^{m}$
+\end_inset
+
+ (
+\begin_inset Formula $s=1$
+\end_inset
+
+ or 2 according to the symmetry of axe 
+\begin_inset Formula $\mathrm{C}_{s}$
+\end_inset
+
+), an overall 
+\begin_inset Formula $O(N_{\mathbf{\Omega}}^{2})$
+\end_inset
+
+ process is needed and 
+\shape italic
+vice versa
+\shape default
+.
+ A faster algorithm proposed by Numerical Recipes 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Numerical_Recipes_3ed"
+
+\end_inset
+
+ suggests reducing this cost to 
+\begin_inset Formula $O(N_{\Theta}^{2}N_{\Phi\Psi}\ln N_{\Phi\Psi}\simeq N_{\mathbf{\Omega}}^{4/3})$
+\end_inset
+
+ by FFT.
+ The implementation is detailed in appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:fgsht-via-fft"
+
+\end_inset
+
+.
+ The computing time of GSHT and FGSHT are shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:time-gsht-fgsht"
+
+\end_inset
+
+, for the case that 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ possesses no symmetry.
+\end_layout
+
+\begin_layout Standard
+It is shown that the computing cost reduced by FFT is about ...
+ times of the original cost, which is agreed with the prediction.
+ ? 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Computing time of GSHT and FGSHT (per 1000 times)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:time-gsht-fgsht"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Performance with respect to 
+\begin_inset Formula $m_{\max}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Performance with respect to 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+psi treatment for mmax/nmax different
+\end_layout
+
+\begin_layout Section
+K-kernel
+\end_layout
+
+\begin_layout Subsection
+Comparison between paths
+\end_layout
+
+\begin_layout Standard
+Timing paths in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:k-kernel"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Formula $m_{\max}$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+ dependance of OZ equation
+\end_layout
+
+\begin_layout Standard
+Theoretical listed in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:FE-of-OZ"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+with respect to nmax
+\end_layout
+
+\begin_layout Section
+Entire iteration of 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ evaluation
+\end_layout
+
+\begin_layout Subsection
+Comparison between 
+\begin_inset Quotes eld
+\end_inset
+
+naive_standard
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+convolution_pure_angular
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+difference after FFT.
+\end_layout
+
+\begin_layout Standard
+verified the conclusion of k-kernel test.
+\end_layout
+
+\begin_layout Subsection
+Comparison between 
+\begin_inset Quotes eld
+\end_inset
+
+convolution_standard
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+convolution_asymm
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The symmetries, ideally the time should be reduced by two, but as shown
+ in 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+, convolution_standard need more 
+\begin_inset Quotes eld
+\end_inset
+
+decoration
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Comparison between 
+\begin_inset Quotes eld
+\end_inset
+
+convolution_standard
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+convolution_pure_angular
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The inversion of FFT and FGSHT
+\end_layout
+
+\begin_layout Standard
+we can see the other part is almost identical, but the implementation of
+ FFT takes different time.
+ Because in convolution_standard the number of FE we need for FFT is the
+ number of projections, and in convolution_pure_angular it is the number
+ of angular grid nodes.
+ As there is less projections than angular nodes, convolution_standard reasonabl
+y takes less time.
+\end_layout
+
+\begin_layout Section
+Global view of the sequential code performance
+\end_layout
+
+\begin_layout Standard
+Computing time and memory limits
+\end_layout
+
+\begin_layout Standard
+Hotspots and bottlenecks
+\end_layout
+
+\end_body
+\end_document

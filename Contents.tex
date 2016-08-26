@@ -1,0 +1,118 @@
+%*************************
+% Table of Contents
+%*************************
+%\phantomsection
+\refstepcounter{dummy}
+\pdfbookmark[1]{\contentsname}{tableofcontents} 
+\setcounter{tocdepth}{2} % <-- 2 includes up to subsections in the ToC 
+\setcounter{secnumdepth}{3} % <-- 3 section numbers up to subsubsections 
+\manualmark 
+\markboth{\spacedlowsmallcaps{\contentsname}}{\spacedlowsmallcaps{\contentsname}} 
+\tableofcontents  
+\automark[section]{chapter} 
+\renewcommand{\chaptermark}[1]{\markboth{\spacedlowsmallcaps{#1}}{\spacedlowsmallcaps{#1}}} \renewcommand{\sectionmark}[1]{\markright{\thesection\enspace\spacedlowsmallcaps{#1}}} 
+
+\clearpage{}
+
+\begingroup
+\let\clearpage\relax
+\let\cleardoublepage\relax
+
+%*************************
+% List of Figures     
+%*************************
+%\phantomsection
+\refstepcounter{dummy}
+%\addcontentsline{toc}{chapter}{\listfigurename}
+\pdfbookmark[1]{\listfigurename}{lof}
+\listoffigures
+
+\vspace{8ex}
+
+
+%*************************
+% List of Tables
+%*************************
+%\phantomsection
+\refstepcounter{dummy}
+%\addcontentsline{toc}{chapter}{\listtablename}
+\pdfbookmark[1]{\listtablename}{lot}
+\listoftables
+
+\vspace{8ex}
+
+
+%*************************
+% List of Listings
+%*************************
+%\phantomsection
+\refstepcounter{dummy}
+%\addcontentsline{toc}{chapter}{\lstlistlistingname}
+\pdfbookmark[1]{\lstlistlistingname}{lol}
+\lstlistoflistings 
+
+\vspace{8ex}
+
+
+%*************************
+% Notations
+%*************************
+%\phantomsection
+\refstepcounter{dummy}
+\pdfbookmark[1]{Notations}{notations}
+\markboth{\spacedlowsmallcaps{Notations}}{\spacedlowsmallcaps{Notations}}
+\chapter*{Notations} 
+
+\hspace{-0.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$\mathcal{F}[\rho]$ & solvation free energy functional \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$\mathcal{F}_{\mathrm{exc}}$ & excess free energy functional \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$\rho(\mathbf{r},\mathbf{\Omega})$ & density of solvent\tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$\gamma(\mathbf{r},\mathbf{\Omega})$ & gradient of excess free energy functional, \tabularnewline
+\end{tabular}
+
+\vspace{8ex}
+
+
+%*************************
+% Acronyms
+%*************************
+%\phantomsection
+\refstepcounter{dummy}
+\pdfbookmark[1]{Acronyms}{acronyms}
+\markboth{\spacedlowsmallcaps{Acronyms}}{\spacedlowsmallcaps{Acronyms}}
+\chapter*{Acronyms}
+\begin{acronym}[UML]
+  \acro{DCF}{direct correlation function}
+  \acro{DFT}{discret Fourier transform, also refer to density functional theory}
+  \acro{FE}{function evaluation}
+  \acro{FGSHT}{fast generalized spherical harmonic transform}
+  \acro{HNC}{hypernetted-chain (approximation)}
+  \acro{HRF}{homogeneous reference fluid (approximation)}
+  \acro{IET}{integral equation theory}
+  \acro{MC}{Monte Carlo}
+  \acro{MD}{molecular dynamics}
+  \acro{MDFT}{molecular density functional theory}
+  \acro{MOZ}{molecular Ornstein-Zernike (equation)}
+  \acro{OZ}{Ornstein-Zernike (equation)}
+  \acro{PCF}{pair correlation function}
+  \acro{PDF}{pair distribution function}
+  \acro{QM}{quantum mechanics} 
+  \acro{RISM}{reference interaction site model}
+\end{acronym}              
+
+\endgroup
+
+\cleardoublepage{}

@@ -1,0 +1,321 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass classicthesis
+\use_default_options true
+\maintain_unincluded_children false
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex8
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Error evaluation of interpolation strategies for DCF in local frame
+\begin_inset CommandInset label
+LatexCommand label
+name "chpt:error-evaluation-interpolation-DCF"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The error introduced by the two interpolation orders for a DCF of order
+ 
+\begin_inset Formula $n_{\mathrm{max}}=1$
+\end_inset
+
+ (for which the exact DCF can be computed directly; see details later) is
+ shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:error"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "110text%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/c_local_to_global_coordinates_32_96/absolute_error.ps
+	scale 30
+	rotateAngle -90
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../_figure/c_local_to_global_coordinates_32_96/log_absolute_error.ps
+	scale 30
+	rotateAngle -90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/c_local_to_global_coordinates_32_96/relative_error.ps
+	scale 30
+	rotateAngle -90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Error of finding 
+\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
+\end_inset
+
+ by interpolation compared to direct calculation
+\end_layout
+
+\end_inset
+
+Error of finding 
+\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
+\end_inset
+
+ by interpolation compared to direct calculation: Test 0.1-0.4 is zero order
+ interpolation with 
+\begin_inset Formula $\phi$
+\end_inset
+
+ tabulated as in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:diff_phi"
+
+\end_inset
+
+.
+ Test 1 is linear interpolation.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:error"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Absolute error
+\series default
+ is the histogram that counts the number of times that the calculated DCF
+ gives the corresponding absolute error 
+\begin_inset Formula $E_{\mathrm{a}}^{i}$
+\end_inset
+
+ with a resolution of 0.01, in range of 
+\begin_inset Formula $[0,10]$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+E_{\mathrm{a}}^{i}=\left|c_{k}^{i}-c_{k}\right|
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $c_{k}^{i}$
+\end_inset
+
+ is any element of 
+\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
+\end_inset
+
+ of unity 
+\begin_inset Formula $Å^{3}$
+\end_inset
+
+ calculated as described and 
+\begin_inset Formula $c_{k}$
+\end_inset
+
+ is the one calculated directly as reference.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Log absolute error
+\series default
+ is treated the same way as 
+\begin_inset Formula $E_{\mathrm{a}}^{i}$
+\end_inset
+
+, with 
+\begin_inset Formula $E_{\mathrm{l}}^{i}$
+\end_inset
+
+ defined as
+\begin_inset Formula 
+\begin{equation}
+E_{\mathrm{l}}^{i}=\log\left|c_{k}^{i}-c_{k}\right|
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Relative error
+\series default
+ is defined as
+\begin_inset Formula 
+\begin{equation}
+E_{r}^{i}=\left|c_{k}^{i}-c_{k}\right|/\left|c_{k}\right|\label{eq:Er}
+\end{equation}
+
+\end_inset
+
+with resolution of 0.1%, in range of [0, 1].
+\end_layout
+
+\begin_layout Standard
+In all three figures, the 4 curves given by zero order interpolation don't
+ divers a lot compared with the linear interpolation one.
+ The result of MDFT also shows that zero order interpolation gives large
+ energy error with a DCF of 
+\begin_inset Formula $n_{\max}=1$
+\end_inset
+
+, and has convergency problems in certain cases.
+ As a conclusion, the linear interpolation scheme is absolutely needed.
+ On the other hand, as seen in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:interpolation"
+
+\end_inset
+
+), it is computationally much more expensive than the simple histogram scheme
+ as it requires 
+\begin_inset Formula $2^{5}=32$
+\end_inset
+
+ times of operations.
+\end_layout
+
+\end_body
+\end_document

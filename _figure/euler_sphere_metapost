@@ -1,0 +1,155 @@
+% circle %
+
+r=5cm;
+draw fullcircle scaled 2r;
+let vector=color;
+let Xp=redpart; let Yp=greenpart; let Zp=bluepart;
+
+def dotproduct(expr Vi,Vj)= (Xp(Vi)*Xp(Vj)+Yp(Vi)*Yp(Vj)+Zp(Vi)*Zp(Vj)) enddef;
+def vecproduct(expr Vi,Vj)= (Yp(Vi)*Zp(Vj)-Zp(Vi)*Yp(Vj),
+    Zp(Vi)*Xp(Vj)-Xp(Vi)*Zp(Vj),
+    Xp(Vi)*Yp(Vj)-Yp(Vi)*Xp(Vj))
+enddef;
+def norm(expr V)= sqrt(dotproduct(V,V)) enddef;
+def normed(expr V)= (V/norm(V)) enddef;
+
+% vecteurs %
+
+vector V[]; 
+theta0=105;phi0=-15;
+theta=0;phi=-30;psi=0;
+theta1=30;phi1=0;psi1=0;
+theta2=30;phi2=0;psi2=45;
+
+V1=(cosd theta0,sind theta0,0);
+V2=(sind(phi0)*sind(theta0),-sind(phi0)*cosd(theta0),cosd(phi0));
+V3=vecproduct(V1,V2);
+
+V11=(cosd(theta)*cosd(phi)*cosd(psi) - sind(phi)*sind(psi),
+    cosd(theta)*sind(phi)*cosd(psi)+cosd(phi)*sind(psi),
+    -sind(theta)*cosd(psi));
+V12=(-cosd(theta)*cosd(phi)*sind(psi) - sind(phi)*cosd(psi),
+    -cosd(theta)*sind(phi)*sind(psi) + cosd(phi)*cosd(psi),
+    sind(theta)*sind(psi));
+V13=(sind(theta)*cosd(phi),
+    sind(theta)*sind(phi),
+    cosd(theta));
+
+V21=(cosd(theta1)*cosd(phi1)*cosd(psi1) - sind(phi1)*sind(psi1),
+    cosd(theta1)*sind(phi1)*cosd(psi1)+cosd(phi1)*sind(psi1),
+    -sind(theta1)*cosd(psi1));
+V22=(-cosd(theta1)*cosd(phi1)*sind(psi1) - sind(phi1)*cosd(psi1),
+    -cosd(theta1)*sind(phi1)*sind(psi1) + cosd(phi1)*cosd(psi1),
+    sind(theta1)*sind(psi1));
+V23=(sind(theta1)*cosd(phi1),
+    sind(theta1)*sind(phi1),
+    cosd(theta1));
+
+V31=(cosd(theta2)*cosd(phi2)*cosd(psi2) - sind(phi2)*sind(psi2),
+    cosd(theta2)*sind(phi2)*cosd(psi2)+cosd(phi2)*sind(psi2),
+    -sind(theta2)*cosd(psi2));
+V32=(-cosd(theta2)*cosd(phi2)*sind(psi2) - sind(phi2)*cosd(psi2),
+    -cosd(theta2)*sind(phi2)*sind(psi2) + cosd(phi2)*cosd(psi2),
+    sind(theta2)*sind(psi2));
+V33=(sind(theta2)*cosd(phi2),
+    sind(theta2)*sind(phi2),
+    cosd(theta2));
+
+def project(expr V,Va,Vb)=(dotproduct(V,Va),dotproduct(V,Vb)) enddef;
+z0=(0,0);
+z1=project((r,0,0),V1,V2);
+z2=project((0,r,0),V1,V2);
+z3=project((0,0,r),V1,V2);
+draw z0--z1 withcolor blue;
+draw z0--z2 withcolor blue;
+% draw z0--z3 withcolor blue;
+
+z11=project(r*V11,V1,V2);
+z12=project(r*V12,V1,V2);
+z13=project(r*V13,V1,V2);
+draw z0--z11;
+draw z0--z12;
+draw z0--z13;
+
+z21=project(r*V21,V1,V2);
+z22=project(r*V22,V1,V2);
+z23=project(r*V23,V1,V2);
+draw z0--z21 withcolor red;
+% draw z0--z22 withcolor red;
+draw z0--z23 withcolor red;
+
+z31=project(r*V31,V1,V2);
+z32=project(r*V32,V1,V2);
+z33=project(r*V33,V1,V2);
+draw z0--z31 withcolor green;
+draw z0--z32 withcolor green;
+% draw z0--z33 withcolor green;
+
+% equateur %
+def f_equ(expr r,t)=(r*cosd(t),r*sind(t),0) enddef;
+path equateur;
+equateur=
+    project(f_equ(r,0),V1,V2)
+    for t=10 step 10 until 350:
+    ..project(f_equ(r,t),V1,V2)
+    endfor ..cycle;
+% draw equateur withcolor blue;
+
+% ellipse %
+def ellipse(expr ra,rb,an)=
+  (fullcircle xscaled 2ra
+    yscaled 2rb
+    rotated an)
+enddef;
+
+ vardef ellipse_major_angle(expr p,a)=
+    save pa,pc,pi,ra,rb,rc,an;path pc[];pair pa,pi[];ra=.5a;rb=a;
+    forever: %================ dichotomie ===============
+    rc:=.5[ra,rb];pc0:=subpath(0,4) of fullcircle scaled 2rc;
+    pa:=pc0 intersectiontimes p;exitif pa<>(-1,-1);ra:=rc;
+    endfor;
+    %======= calcul de deux intersections ======
+    pi1=p intersectiontimes pc0;
+    pc1=subpath(0,ypart(pi1)-0.01) of pc0;
+    pc2=subpath(ypart(pi1)+0.01,length(pc0)) of pc0;
+    pi1:=p intersectionpoint pc0;pi2:=p intersectiontimes pc1;
+    if pi2=(-1,-1):pi2:=p intersectionpoint pc2;
+    else:pi2:=p intersectionpoint pc1;fi;
+    pi3=pi1 rotated 180;pi4=pi2 rotated 180; % autres intersections
+    %======= orientation ======
+    pi5=p intersectionpoint (origin--(unitvector(pi2-pi1)*2a));
+    pi6=p intersectionpoint (origin--(unitvector(pi1-pi4)*2a));
+    if arclength(origin--pi5)>arclength(origin--pi6):an=angle(pi1-pi2);
+    else:an=angle(pi1-pi4);fi;
+    an % résultat de la macro
+enddef;
+
+vardef ellipse_minor_axis(expr p,a,an)=
+    save pa;pair pa;
+    pa=p intersectionpoint (origin--(dir(an+90)*2a));
+    arclength(origin--pa) % résultat
+enddef;
+
+% path %
+
+path pa,pb,pc;
+    pa=ellipse(r,0.259r,0);
+    pb=subpath(0,4) of pa;
+    pc=subpath(4,8) of pa;
+    draw pb dashed evenly withcolor blue; % caché
+    draw pc withcolor blue; % visible
+
+path pa,pb,pc;
+    pa=ellipse(r,0.25r,-94);
+    pb=subpath(0,4) of pa;
+    pc=subpath(4,8) of pa;
+    draw pb dashed evenly withcolor red; % caché
+    draw pc withcolor red; % visible
+
+path pa,pb,pc;
+    pa=ellipse(r,0.69r,10);
+    pb=subpath(0,4) of pa;
+    pc=subpath(4,8) of pa;
+    draw pb dashed evenly withcolor green; % caché
+    draw pc withcolor green; % visible
+

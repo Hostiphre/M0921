@@ -1,0 +1,701 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass classicthesis
+\use_default_options true
+\maintain_unincluded_children false
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex8
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Basic Concepts about Computing Performance
+\begin_inset CommandInset label
+LatexCommand label
+name "chpt:computing-performance"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Besides the theory, the performance of the code being developed is also
+ an important aspect in this thesis.
+ It is always important to have a fast and accurate method.
+ To evaluate a code in a strict and systematic way, some basic concepts
+ of computing performance are list here.
+ 
+\end_layout
+
+\begin_layout Section
+Algorithm complexity
+\end_layout
+
+\begin_layout Standard
+The algorithm complexity is an important criteria for sequential code, whose
+ definition is as below.
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $f$
+\end_inset
+
+ and 
+\begin_inset Formula $g$
+\end_inset
+
+ be two real (or even complex) functions defined over the natural numbers
+ 
+\begin_inset Formula $\mathbb{N}$
+\end_inset
+
+.
+ We write
+\begin_inset Formula 
+\begin{equation}
+f=O(g)
+\end{equation}
+
+\end_inset
+
+if there is a constant 
+\begin_inset Formula $c>0$
+\end_inset
+
+ such that from certain number 
+\begin_inset Formula $n>n_{0}$
+\end_inset
+
+ we always have 
+\begin_inset Formula $\left|f(n)\right|\leq c\left|g(n)\right|.$
+\end_inset
+
+ The 
+\begin_inset Formula $O$
+\end_inset
+
+ is also named as the big-O notation 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Complexity"
+
+\end_inset
+
+, or order of growth.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:order-of-growth"
+
+\end_inset
+
+ shows the growth tendency of some frequent functions, we can conclude that
+ 
+\begin_inset Formula 
+\begin{equation}
+O(1)>O(\log_{2}n)>O(n)>O(n\log_{2}n)>O(n^{2})>O(2^{n})>O(n!)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/orders-of-growth.pdf
+	width 65text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Function growth
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:order-of-growth"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this thesis, the big-O notation is used to measure algorithm complexity.
+ Other notations can also be used in the same propose, such as 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $f=o(g)$
+\end_inset
+
+ if 
+\begin_inset Formula $f(n)/g(n)\rightarrow0$
+\end_inset
+
+, 
+\begin_inset Formula $n\rightarrow\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The inverse of big-O notation 
+\begin_inset Formula $f=\Omega(g)$
+\end_inset
+
+ if 
+\begin_inset Formula $g=O(f)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The notation 
+\begin_inset Formula $f=\Theta(g)$
+\end_inset
+
+ means that both 
+\begin_inset Formula $f=O(g)$
+\end_inset
+
+ and 
+\begin_inset Formula $g=O(f)$
+\end_inset
+
+ hold, and we can also say they are of the same order.
+\end_layout
+
+\begin_layout Standard
+In a code we always search algorithms with a lower algorithm complexity.
+ Ideally, the implementation of code matches the model and have the same
+ growth tendency as its complexity, but in the practical case, overheads
+ and memory delay can also limit the performance.
+ 
+\color red
+(part to be modified to adapt implementation results)
+\end_layout
+
+\begin_layout Section
+Roofline model and memory delay
+\end_layout
+
+\begin_layout Standard
+The simplest model aiming to distinguish whether a piece of code is limited
+ by the computing power (CPU) or the memory bandwidth (RAM to Caches) is
+ the roofline model 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Williams_2009_roofline"
+
+\end_inset
+
+ for single loop:
+\begin_inset Formula 
+\begin{equation}
+P=\min\left(P_{\max},\,I\cdot b_{\mathrm{S}}\right)\label{eq:roofline}
+\end{equation}
+
+\end_inset
+
+where
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top" width="90text%">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $P$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is the applicable peak performance of a loop, assuming that data comes from
+ the level 1 cache, of unity 
+\begin_inset Formula $\mathrm{GFlop/s}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $I$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is the computational intensity (“work” per byte transferred) over the slowest
+ data path utilized, of unity 
+\begin_inset Formula $\mathrm{Flop/Byte}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $b_{\mathrm{S}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is the applicable peak bandwidth of the slowest data path utilize, of unity
+ 
+\begin_inset Formula $\mathrm{GByte/s}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:The-roofline-model"
+
+\end_inset
+
+, the overall performance is limited by both the peak performance and the
+ memory bandwidth.
+ The computational intensity 
+\begin_inset Formula $I$
+\end_inset
+
+ depends on the code, and the other two terms in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:roofline"
+
+\end_inset
+
+) depends on hardware.
+ The optimal use of resources is at the intersection point.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/roofline.eps
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+The roofline model and performance pattern
+\end_layout
+
+\end_inset
+
+The roofline model and performance pattern.
+ (a) The roofline model.
+ (b) Performance pattern of a simple loop with respect to the loop length
+ in logarithm.
+ The blue part is limited by operation execution, and the yellow part is
+ limited by memory bottleneck.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:The-roofline-model"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The roofline model can give an idea, whether the diminution of algorithm
+ complexity is the most important optimization strategy, because it only
+ counts the number of operations.
+ In the most of cases, avoiding slow data paths is the key to performance
+ optimizations.
+\end_layout
+
+\begin_layout Standard
+As shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Memory"
+
+\end_inset
+
+, the memory hardware has hierarchical architectures.
+ The fastest ones are the registers included in the microprocessor, which
+ are used for temporary storage of data, instructions and addresses required
+ by the arithmetic logic unit (ALU) and the control unit (CU) in CPU during
+ execution of a program.
+ The lowest is normally the input/output (I/O) process.
+ The reading strategy of data (contiguous or not), the size and initialized
+ location of array, both plays an important role in the overall computing
+ performance.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/memory.eps
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Memory usage in hardware level
+\end_layout
+
+\end_inset
+
+Memory usage in hardware level 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "LRZ-cours"
+
+\end_inset
+
+.
+ (a) An example of array copy A(:)=C(:).
+ Caches are organized in cache lines (CL), only complete cache lines are
+ transferred between memory hierarchy levels (except registers).
+ HIT/MISS: Load or store instruction does/doesn't find the data in a cache
+ level.
+ (b) Computing latency and memory bandwidth vary by magnitudes, from the
+ fastest caches transfers to the lowest processes.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Memory"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Scalability of parallelized code
+\end_layout
+
+\begin_layout Standard
+For parallelized code, scalability is the key issue.
+ Highly scalable codes can take advantage of numerous nodes of HPC center,
+ so that single core performance no longer matters.
+ 
+\end_layout
+
+\begin_layout Standard
+The speed up is defined as
+\begin_inset Formula 
+\begin{equation}
+S(N)=\dfrac{t(1)}{t(N)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And the relative efficiency
+\begin_inset Formula 
+\begin{equation}
+E(N)=\dfrac{S(N)}{N}=\dfrac{t(1)}{Nt(N)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S(N)\sim N$
+\end_inset
+
+ or 
+\begin_inset Formula $E(N)\sim100\%$
+\end_inset
+
+ means the application scales.
+ On the contrary, 
+\begin_inset Formula $S(N)<N/2$
+\end_inset
+
+ or 
+\begin_inset Formula $E(N)<50\%$
+\end_inset
+
+ means the application does not scale.
+ 
+\end_layout
+
+\begin_layout Standard
+The Amdahl's law gives the theoretical speedup in latency of the execution
+ of a task at fixed workload:
+\begin_inset Formula 
+\begin{equation}
+S(N)=\dfrac{1}{\alpha_{\mathrm{s}}+\alpha_{\mathrm{p}}/N}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\alpha_{\mathrm{s}}$
+\end_inset
+
+ is the serial fraction and 
+\begin_inset Formula $\alpha_{\mathrm{p}}$
+\end_inset
+
+ the parallel fraction of the source code.
+ Therefore the overall computing speed is limited by the unscalable part:
+\begin_inset Formula 
+\begin{equation}
+\lim_{N\rightarrow\infty}S(N)=\frac{1}{\alpha_{\mathrm{s}}}
+\end{equation}
+
+\end_inset
+
+and it is the part to reduce.
+\end_layout
+
+\begin_layout Section
+Profiling and tracing toolkits
+\end_layout
+
+\begin_layout Standard
+There are several software and toolkits of performance evaluation.
+ They are of two type: profiling and tracing.
+ A trace is a collection of events or timestamps.
+ A profile is a collection of timings.
+ Profiling tools are usually more simple and rapid, but for subroutines
+ called by a large number of times, the overhead in time measurement is
+ ineligible.
+ 
+\end_layout
+
+\begin_layout Standard
+The tool using in this thesis is mainly VTune, where application execution
+ is interrupted every 
+\begin_inset Formula $\sim100\,\mathrm{\mu s}$
+\end_inset
+
+ and information is stored (call stack, hardware counters, etc.).
+ The execution time overhead is small.
+ 
+\color red
+(To be detailed.)
+\end_layout
+
+\end_body
+\end_document
