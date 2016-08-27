@@ -1,11 +1,11 @@
 
 \chapter{Classical Density Functional Theory\label{chpt:mdft}}
 
-Classical density functional theory provides a framework for determining
-thermodynamic properties and correlation functions of a wide variety
-of inhomogeneous (model) fluids starting from a microscopic basis,
+Classical density functional theory (DFT) provides a framework for determining
+thermodynamic properties and correlation functions over a wide variety
+of inhomogeneous (model) fluids beginning from a microscopic basis,
 i.e. the Hamiltonian describing interactions between particles. DFT
-is based on the result that the grand potential of a specified inhomogeneous
+is based on the principle that the grand potential of a specified inhomogeneous
 fluid is a functional of the average one-body density,
 
 \[
@@ -13,7 +13,7 @@ fluid is a functional of the average one-body density,
 \]
 where $\mathbf{r_{i}}$ is the position coordinate of particle $i$.
 
-This article describes all the fundamental theories behind MDFT different
+This article describes all the fundamental theories behind different Molecular Density Functional Theory (MDFT) 
 algorithms involved in this thesis to evaluate excess free energy
 functional $\mathcal{F}_{\mathrm{exc}}$ under HRF approximation.
 
@@ -27,7 +27,7 @@ The key idea is that $\mathcal{F}[\rho]$ is a unique functional of
 $\rho(\mathbf{r})$; its form does not depend on the external potential
 $V(\mathbf{r})$. \textcolor{red}{!!!!}
 
-variation principe: par minimization
+variation principle: pair minimization
 
 In \acf{MDFT}, the grand potential density functional corresponding
 to an inhomogeneous fluid density $\rho(\mathbf{r},\mathbf{\Omega})$
@@ -35,8 +35,8 @@ is given by
 \begin{equation}
 \Theta[\rho(\mathbf{r},\mathbf{\Omega})]=\Theta[\rho_{0}]+\mathcal{F}[\rho(\mathbf{r},\mathbf{\Omega})]
 \end{equation}
-Where $\Theta[\rho_{0}]$ is the correspondent reference bulk fluid
-grand potential. And $\rho$ is the fluid density function variable
+where $\Theta[\rho_{0}]$ is the correspondent reference bulk fluid
+grand potential and $\rho$ is the fluid density function variable
 of 3 to 6 dimensions, including 3 coordinations for the position part,
 and 0 to 3 for the angular part. For instance, in an isotropic fluid: 
 
@@ -49,15 +49,15 @@ n(\mathbf{r})/8\pi^{2} & \mbox{if non-linear, }\Omega\equiv(\theta,\phi,\psi)
 \end{equation}
 
 
-Here the $4\pi$ and $8\pi^{2}$ is the normalization factor who equals
+Here the $4\pi$ and $8\pi^{2}$ is the normalization factor which equals
 to $\int\mathrm{d}\mathbf{\Omega}$. The 6D definition of the latest
 case in eq. \ref{eq:rho} of $\rho(\mathbf{r},\mathbf{\Omega})$ is
-needed for arbitrary solvent, which results the most complex form
+needed for arbitrary solvents, which results in the most complex form
 of the functional. 
 
 According to the variation principle (c.f. Evans), the equilibrium
 density can be found by minimizing the free energy functional $\mathcal{F}[\rho]$
-regarding to $\rho(\mathbf{r},\mathbf{\Omega})$: 
+regarding $\rho(\mathbf{r},\mathbf{\Omega})$: 
 \begin{equation}
 \frac{\delta\mathcal{F}[\rho]}{\delta\rho(\mathbf{r},\mathbf{\Omega})}|_{\rho=\rho_{0}}=0
 \end{equation}
@@ -75,8 +75,8 @@ the particle interaction-free condition:
 \begin{equation}
 \mathcal{F}_{\mathrm{id}}[\rho]=\beta^{-1}\int\mathrm{d}\mathbf{r}\mathrm{d\Omega}\left[\mathbf{\mathbf{\ln\left(\frac{\rho(\mathbf{r},\mathbf{\mathbf{\mathbf{\mathbf{\Omega}}}})}{\rho_{0}}\right)}}-\rho(\mathbf{r},\mathbf{\mathbf{\mathbf{\Omega}}})+\rho_{0}\right]
 \end{equation}
-Where $\beta=\left(K_{\mathrm{B}}T\right)^{-1}$ and $\rho_{0}$ is
-the reference bulk density of pure solvent. 
+where $\beta=\left(K_{\mathrm{B}}T\right)^{-1}$ and $\rho_{0}$ are
+the reference bulk density of pure solvents. 
 
 The external potential term calculates the contribution of solute
 external potential $V_{\mathrm{ext}}$: 
@@ -88,14 +88,14 @@ external potential $V_{\mathrm{ext}}$:
 \begin{equation}
 V_{\mathrm{ext}}(\mathbf{r},\mathbf{\mathbf{\mathbf{\mathbf{\Omega}}}})=\sum_{j\in\mathrm{solvent}}\left\{ q_{j}V_{q}(\mathbf{r}_{j})+\sum_{i\in\mathrm{solute}}4\epsilon_{ij}\left[\left(\frac{\sigma_{ij}}{r_{ij}}\right)^{12}-\left(\frac{\sigma_{ij}}{r_{ij}}\right)^{6}\right]\right\} 
 \end{equation}
-Where $V_{\mathrm{ext}}$ is pre-calculated and stored as a 6-dimension
+where $V_{\mathrm{ext}}$ is pre-calculated and stored as a 6-dimension
 double precision (8 bytes per real value) table. It contains the contribution
 of Lennard-Jones interaction and electrostatic potential. 
 
-This two terms $\mathcal{F}_{\mathrm{id}}[\rho]$ and $\mathcal{F}_{\mathrm{ext}}[\rho]$
+These two terms, $\mathcal{F}_{\mathrm{id}}[\rho]$ and $\mathcal{F}_{\mathrm{ext}}[\rho]$,
 are physically exact. 
 
-The excess term $\mathcal{F}_{\mathrm{exc}}[\rho]$ depend on the
+The excess term $\mathcal{F}_{\mathrm{exc}}[\rho]$ depends on the
 exact correlation function, which is a priori unknown: 
 \begin{equation}
 C(\mathbf{r}_{1},\mathbf{r}_{2},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2};\rho)\equiv\frac{\beta\delta^{2}\mathcal{F}_{\mathrm{exc}}[\rho]}{\delta\rho(\mathbf{r}_{1},\mathbf{\Omega}_{1})\delta\rho(\mathbf{r}_{2},\mathbf{\Omega}_{2})}
@@ -103,7 +103,7 @@ C(\mathbf{r}_{1},\mathbf{r}_{2},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2};\rho)\eq
 
 
 The ideal term $\mathcal{F}_{id}[\rho]$ is deduced from the condition
-that the interaction potential of particles $\Phi=0$ 
+that the interaction potential of particles is $\Phi=0$ 
 \[
 Z_{N}(\beta,V)=\frac{\lambda^{-3N}}{N!}\int_{V}d\mathbf{r}^{N}e^{-\beta\Phi}=\frac{\lambda^{-3N}}{N!}V^{N}
 \]
@@ -112,11 +112,11 @@ F_{N}(\beta,V)=-\beta^{-1}\log{Z_{N}}=\beta^{-1}\log{(N!\lambda^{3N}V^{-N})}=\be
 \]
 
 
-(also available for the in homogenous case.) Since we define 
+(also available for the inhomogenous case.) Since we define 
 \[
 \mathcal{F}_{id}[\rho]=\int d\mathbf{X}f_{id}[\rho(\mathbf{X})]
 \]
-We have 
+we have 
 \[
 f_{id}[\rho(\mathbf{X})]=\beta^{-1}\Delta\rho(\log{\lambda^{3}\Delta\rho}-1)
 \]
@@ -126,13 +126,13 @@ and
 \]
 
 
-The external potential term 
+The external potential term is
 \[
 \mathcal{F}_{ext}[\rho]=\int d\mathbf{X}_{1}V_{ext}(\mathbf{X}_{1})\rho(\mathbf{X}_{1})
 \]
-Where $V_{ext}$ is given by table.
+where $V_{ext}$ is given by table.
 
-The exact (in an approximation that C do not depend on $\rho$) form
+The exact (in an approximation where C does not depend on $\rho$) form
 of the excess term $\mathcal{F}_{exc}$ is 
 \[
 \mathcal{F}_{exc}[\rho]=\beta^{-1}\int d\mathbf{X}_{1}d\mathbf{X}_{2}\Delta\rho(\mathbf{X}_{1})\Delta\rho(\mathbf{X}_{2})C(\mathbf{X}_{1},\mathbf{X}_{2};\rho)
@@ -140,16 +140,16 @@ of the excess term $\mathcal{F}_{exc}$ is
 
 
 where $C(\mathbf{X}_{1},\mathbf{X}_{2};\rho)$ is the correlation
-function, a priori unknown, which definition is: 
+function, a priori unknown, the definition of which is: 
 \[
 C(\mathbf{X}_{1},\mathbf{X}_{2};\rho)=\frac{\beta\delta^{2}\mathcal{F}_{exc}[\rho]}{\delta\rho(\mathbf{r}_{1})\delta\rho(\mathbf{r}_{2})}
 \]
 
 
-structure MDFT
+Structure MDFT
 
 The code MDFT is built for minimizing the free energy functional $\mathcal{F}[\rho]$
-by minimizer L-BFGS (ref). It's main structure is shown in fig. 
+by minimizer L-BFGS (ref). Its main structure is shown in fig. 
 
 \begin{figure}[h]
 \caption{\selectlanguage{english}%
@@ -159,8 +159,8 @@ Flowchart of code MDFT\selectlanguage{american}%
 
 
 The minimizer requires the functional and its gradient as input, and
-produce at each iteration a new fluid density $\text{\ensuremath{\rho}(\ensuremath{\mathbf{r}},\ensuremath{\mathbf{\mathbf{\mathbf{\Omega}}}})}$
-nearer to the equilibrium density. The objective for \textbf{branch
+at each iteration produces a new fluid density $\text{\ensuremath{\rho}(\ensuremath{\mathbf{r}},\ensuremath{\mathbf{\mathbf{\mathbf{\Omega}}}})}$
+closer to the equilibrium density. The objective for \textbf{branch
 hesper} is to calculate the excess term $\mathcal{F}_{\mathrm{exc}}[\rho]$
 of the functional in eq.\ref{eq:F_exc}, as well as its gradient: 
 
@@ -187,7 +187,7 @@ and $q_{i}$,$\bm{r}_{i}$ are the charge and position of particle
 $i$. The computation of equation \ref{eq:direct-coulomb-sum} is
 demanding because it requires a large number of distances $r_{ij}\equiv\left\Vert \bm{r}_{i}-\bm{r}_{j}\right\Vert $
 to be computed. In our case, we have $\textrm{nfft}_{1}\times\textrm{nfft}_{2}\times\textrm{nfft}_{3}\times N_{\bm{\Omega}}\times N_{\psi}\times N_{q_{v}}$,
-where $N_{q_{v}}$ is the number of point charges of the solvent molecule,
+where $N_{q_{v}}$ is the number of point charges of the solvent molecule
 to be computed per point charge of the solute. This is typically $10^{9}$
 distances for MDFT.
 
