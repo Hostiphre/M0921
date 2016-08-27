@@ -207,7 +207,7 @@ free energy.
 \subsection{Born/Onsager/Kirkwood models }
 
 For certain special cases, however, the Poisson equation (14.52) can
-be solved analytical, and this forms the basis for many approximate
+be solved analytically, and this forms the basis for many approximate
 models for estimating the electronic component in eq. (14.49).
 
 The simplest reaction field model is a spherical cavity, where only
@@ -266,13 +266,13 @@ position of all the atoms.
 
 The dipole in a spherical cavity is known as the Onsager model, which
 for a dipole moment of m leads to an energy stabilization given by
-eq. (14.61). (14.61) The Kirkwood model68 refers to a general multipole
+eq. (14.61). (14.61) The Kirkwood model 68 refers to a general multipole
 expansion in a spherical cavity, while the Kirkwood–Westheimer model
 arises for an ellipsoidal cavity.
 
-The Born/Onsager/Kirkwood models are widely used in for example Marcus
-theory fir electron-transfer reactions, solvatochromism, electronic
-structure in solution, bio-molecules i . e. protein as well as nucleic
+The Born/Onsager/Kirkwood models are widely used, for example in Marcus
+theory for electron-transfer reactions, solvatochromism, electronic
+structure in solution, and bio-molecules, i.e., proteins as well as nucleic
 acids in water. \citep{hirata_molecular_2004}
 
 Generalized Born. A pair-wise approximation to the PB theory
@@ -281,15 +281,15 @@ The Born formula generalized to a system of many atoms of arbitrary
 shape is called the generalized Born model. The generalized Born equation
 captures the physics of the Poisson-Boltzmann equation, while improving
 the speed of calculations. • For atoms in a molecule, they also interact
-with the solvent, but part of the solvent has no been replaced by
-the other atoms of the molecule. The basic idea is to assign, to each
-atom, an effective radius such that the solvation free energy can
-be calculated using the Born formula. • So, the most important thing
+with the solvent, but part of the solvent has now been replaced by
+the other atoms of the molecule. The basic idea is to assign to each
+atom an effective radius such that the solvation free energy can
+be calculated using the Born formula. • So, the most important consideration
 when using any GB-method is to accurately calculate effective Born
-radii
+radii.
 
-Accurate calculations of the Boir=n r1adii can be obtained from the
-Poisson- Boltzmann equation, since
+Accurate calculations of the Born radii can be obtained from the
+Poisson-Boltzmann equation, since
 
 Poisson-Boltzmann solvers (accurate but numerical and slow). • Generalized
 Born models (faster, can be analytical). 
@@ -299,63 +299,59 @@ distribution is also employed by the so-called generalized Born (GB)
 approach to continuum solvation. In this instance, however, only monopoles
 (i.e., atomic partial charges) are employed and instead of solving
 the Poisson equation with this charge distribution, one uses the generalized
-Born approxi- mation,41,44,88,96,211,214-226 whichs when used with
+Born approximation, 41,44,88,96,211,214-226 which when used with
 the dielectric descreening algorithm of {[}Still et al. 1990{]} has
 been demonstrated to give results very close to those obtained from
-solution of the Poisson equation227-232 or from explicit molecular
+solution of the Poisson equation 227-232 or from explicit molecular
 simulations.233 
 
-Density functional method based on the minimisation of polarisation
-density have been introdused too. \citep{Marchi_2001}
+Density functional methods based on the minimization of polarization
+density have been introduced as well. \citep{Marchi_2001}
 
 
-\subsection{Other models adopt widely in QM calculation}
+\subsection{Other models adopted widely in QM calculation}
 
 The critical physical concept for treating solute polarization in
 solution is the reaction field. The reaction field is the electric
 field exerted on the solute by the solvent that has polarized.
 
 The critical physical concept for treating solute polarization in
-solution is the reaction field. The reaction field is the electric
-field exerted on the solute by the solvent that it has polarized.Including
-this in the solute Hamiltonian predicts a new (“distorted”) solute
+solution is the reaction field. This is the electric
+field exerted on the solute by the solvent that it has polarized. Including
+this in the solute, Hamiltonian predicts a new (“distorted”) solute
 electronic structure, which further alters the polarization of the
-solvent. Iterating to self-consis- tency is called the self-consistent
+solvent. Iterating to self-consistency is called the self-consistent
 reaction field (SCRF) method. \citep{Cramer_1999_implicit_model}
 
 PCM. An alternative to the use of finite differences or finite elements
-to discretize the differential opera- tor is to use boundary element
+to discretize the differential operator is to use boundary element
 methods. The most popular of these is the polarized continuum model
 (PCM), developed primarily by the Pisa group of Tomasi and co-workers,3,142-145
-which casts the quan- tum mechanical SCRF equations into a boundary
+which casts the quantum mechanical SCRF equations into a boundary
 element problem with apparent surface charges (ASCs) on the solute
-cavity surface. There are cur- rently three different approaches for
-carrying out PCM calculations. The original method, called di- electric
-PCM142,143 (D-PCM), an alternative model in which the surrounding
+cavity surface. There are currently three different approaches for
+carrying out PCM calculations: the original method, called dielectric
+PCM142,143 (D-PCM); an alternative model in which the surrounding
 medium is modeled as a conductor instead of a dielectric146 (C-PCM,
-cf. the COSMO model below), and an implementation whereby the PCM
+cf. the COSMO model below); and an implementation whereby the PCM
 equations are recast in an integral equation formalism147,148 (IEF-PCM).
 The latter method has lent itself to the calculation of various molecular
-gradient and response properties, as de- tailed in section 4.2.
+gradient and response properties, as detailed in section 4.2.
 
-The self-consistent reaction field (SCRF) models \citep{Jensen,scrf}
+The SCRF models \citep{Jensen,scrf}
 are widely used by theoretical chemistry applications, owing to the
-popularity of Gaussian toolkit. 
+popularity of the Gaussian toolkit. 
 
 The Polarizable Continuum Model (PCM) using the integral equation
 formalism variant (IEFPCM) 
 
 Other available models are IPCM, which uses a static isodensity surface
-for the cavity
-
-the Self-Consistent Isodensity PCM (SCIPCM) model {[}Foresman96{]},
-and 
-
-the Onsager model {[}Kirkwood34, Onsager36, Wong91, Wong91a, Wong92,
+for the cavity, the Self-Consistent Isodensity PCM (SCIPCM) model {[}Foresman96{]},
+and the Onsager model {[}Kirkwood34, Onsager36, Wong91, Wong91a, Wong92,
 Wong92a{]}, which places the solute in a spherical cavity within the
 solvent reaction field.
 
-the term SCRF is quite generic and it does not by itself indicate
+The term SCRF is quite generic and it does not by itself indicate
 a specific model.
 
 PCM
@@ -375,20 +371,20 @@ isodensity surface.
 
 \section{Model potential of rigid molecule}
 
-First we define what we mean by classical fluids. These are fluids
+First let us define what we mean by classical fluids. These are fluids
 for which the thermal de Broglie wavelength...
 
-Here presents the model frequently used in theory of liquid \citep{Hensen-McDonald,Gray-Gubbins}.
+Here we present the model frequently used in the theory of liquids \citep{Hensen-McDonald,Gray-Gubbins}.
 
 This case is important only for little solvent of atom size, where
 quantum effect cannot be ignored.
 
 As there's no chemical interaction of solvent
 
-For water, most of publications have already shown... at the approximation
+For water, most of the publications have already shown... at the approximation
 level in this thesis, we have good reason to ignore quantum effect.
 
-It should be noticed that quantum effect appears at low temperature
+It should be noted that quantum effect appears at low temperatures
 and for atom-size molecules. Here we don't discuss...
 
 $u(\mathbf{r},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$ pair potential
@@ -398,8 +394,8 @@ The polyatomic solvent model used in this thesis is based on 3 approximations:
 Rigid molecule assumption, Classical treatment of translational and
 rotational motions, and pair
 
-However, for important solvent such as H20 and NH3, the rotational
-potential energy effects become none-negligible at room temperature.
+However, for important solvents such as H20 and NH3, the rotational
+potential energy effects become non-negligible at room temperature.
 P11
 
 quantum corrections 
@@ -407,7 +403,7 @@ quantum corrections
 for MD and IEM, we also use these approximation, 
 
 It is quite realistic for small solvent molecules, such as ... as
-their vibrational states is too huge compared to kT and ...
+their vibrational states are too huge compared to kT and ...
 
 This assumption implies that the solvent molecule stays in its ground
 vibrational state, which is quite realistic for some small solvents
@@ -425,15 +421,15 @@ vibrational motions energy to great \marginpar{margin}
 
 ignore quantum effets
 
-This assumption fits fir many small molecule solvents, such as H2O,
-N2,CO,CO2,etc. In these case, the characteristic vibrational temperature
-$\theta_{\mathrm{v}}$ is quite large compares to the temperature
-$T$, is to say that the molecules will stay in their ground vibrational
-state \citep{Gray-Gubbins}. And the internal rotational .... is too
+This assumption fits for many small molecule solvents, such as H2O,
+N2, CO, CO2, etc. In these cases, the characteristic vibrational temperature
+$\theta_{\mathrm{v}}$ is quite large compared to the temperature
+$T$; that is to say, the molecules will stay in their ground vibrational
+state \citep{Gray-Gubbins}. Also the internal rotational ... is too
 small can be averaged
 
 
-\subsection{Interaction of spherical particle}
+\subsection{Interaction of spherical particles}
 
 The simplest model of a fluid is the hard sphere model, with the pair
 potential
@@ -449,7 +445,7 @@ of attractive force \textcolor{red}{...} .
 
 More realistic neutral particle models, like Lenard-Jones model, have
 a potential energy curve that has the same shape as the real interaction
-of rare gas, as shown in figure .
+of rare gases, as shown in figure .
 
 \begin{figure}[h]
 \begin{centering}
