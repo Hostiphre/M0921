@@ -213,7 +213,7 @@ a l'orientation $\boldsymbol{\Omega}$.
 
 In the molecular density functional theory (MDFT), the excess free
 energy functional $\mathcal{F}_{\mathrm{exc}}$ can be developed via
-Taylor expansion 
+Taylor expansion: 
 \begin{equation}
 \mathcal{F}_{\mathrm{exc}}\left[\rho\right]\equiv\mathcal{F}_{\mathrm{exc}}\left[\rho_{0}\right]+\int\mathrm{d}\mathbf{X_{1}}\frac{\delta\mathcal{F}_{\mathrm{exc}}\left[\rho\right]}{\mathrm{\delta}\rho(\mathbf{X_{1}})}\Delta\rho(\mathbf{X_{1}})+\frac{1}{2}\int\mathrm{d}\mathbf{X_{1}}\mathrm{d}\mathbf{X_{2}}\frac{\mathrm{\delta}^{2}\mathcal{F}_{\mathrm{exc}}\left[\rho\right]}{\mathrm{\delta}\rho(\mathbf{X_{1}})\mathrm{\delta}\rho(\mathbf{X_{2}})}\Delta\rho(\mathbf{X_{1}})\Delta\rho(\mathbf{X_{2}})+\mathcal{O}(\Delta\rho^{3})\label{eq:Taylor-1}
 \end{equation}
@@ -231,8 +231,8 @@ According to the variation principle, the first derivative in eq.
 \end{equation}
 
 
-And $\mathcal{F}_{\mathrm{exc}}\left[\rho_{0}\right]$ can be compensated
-by the grand potential of bulk fluid (to be detailed), we can then
+and $\mathcal{F}_{\mathrm{exc}}\left[\rho_{0}\right]$ can be compensated
+by the grand potential of bulk fluid (to be detailed). We can then
 focus on only $\mathcal{O}(\Delta\rho^{2})$ and higher order terms.
 
 As $\mathcal{F}_{\mathrm{exc}}$ is a generating functional of $c^{(n)}(\mathbf{X}^{n})$,
@@ -248,12 +248,12 @@ eq. (\ref{eq:Taylor-1}) can be rewritten as
 \end{eqnarray}
 
 
-If we take further approximation, to assume that
+If we approximate further, to assume that
 \begin{equation}
 c^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})\simeq c_{0}^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})
 \end{equation}
 where $c_{0}^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})$ is the DCF of
-the bulk fluid, it's called the homogenous reference fluid (HRF) approximation.
+the bulk fluid, it is called the homogenous reference fluid (HRF) approximation.
 
 
 \subsection{nn\_cs}
@@ -270,9 +270,9 @@ F_{exc} & = & -\frac{1}{2}k_{B}T\iint\Delta n\left(\boldsymbol{r}\right)\Delta n
 \end{eqnarray}
 
 
-Now, we consider the convolution in the right hand side of the equation,
-$\gamma\equiv\left(\Delta n*c\right)$, that can be computed much
-efficiently than in $O\left(N^{2}\right)$ by fast Fourier transform
+Now, we consider the convolution in the right-hand side of the equation,
+$\gamma\equiv\left(\Delta n*c\right)$, which can be computed much more
+efficiently than in $O\left(N^{2}\right)$ by Fast Fourier Transform
 in $O\left(N\log N\right)$.
 
 \uline{Inputs:}
@@ -286,7 +286,7 @@ Transform (FFT$^{-1}$)
 \item $k_{B}$ the Boltzmann constant.
 \end{itemize}
 
-\subsection{polarisation}
+\subsection{Polarization}
 
 \begin{equation}
 \mathcal{F}_{exc}=-\frac{k_{B}T}{2}\iiint_{\mathcal{R}^{3}}\int_{\theta=0}^{\pi}\int_{\phi=0}^{2\pi}\int_{\psi=0}^{2\pi}\Delta\rho\left(\bm{r}_{1},\bm{\Omega}_{1}\right)c^{\left(2\right)}\left(\bm{r}_{1},\bm{r}_{2},\bm{\Omega}_{1},\bm{\Omega}_{2}\right)\Delta\rho\left(\bm{r}_{2},\bm{\Omega}_{2}\right)d\bm{r}_{1}d\bm{r}_{2}d\bm{\Omega}_{1}d\bm{\Omega}_{2}
@@ -295,14 +295,14 @@ where $\rho=n/\left(8\pi^{2}\right)$ and we define
 \begin{eqnarray}
 \bm{P}\left(\bm{r}\right) & = & \int\bm{p}\rho\left(\bm{r},\bm{\Omega}\right)d\bm{\Omega}
 \end{eqnarray}
-with $\bm{p}=p\bm{\Omega}$ the dipolar moment of a water molecule.
+with $\bm{p}=p\bm{\Omega}$, the dipolar moment of a water molecule.
 
 
 \section{OZ Equation in MDFT and IEM Formalism}
 
-Ornstein-Zernike (OZ) equation is a fundamental equation to the theory
-of liquids, which defined $c^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})$.
-Its most common form is as shown \citep{Hensen-McDonald}:
+Ornstein-Zernike equation is a fundamental equation to the theory
+of liquids, which defines $c^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})$.
+Its most common form is shown here\citep{Hensen-McDonald}:
 
 \begin{equation}
 h^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})=c^{(2)}(\mathbf{X_{1}},\mathbf{X_{2}})+\int c^{(2)}(\mathbf{X_{1}},\mathbf{X_{3}})\rho(\mathbf{X_{3}})h^{(2)}(\mathbf{X_{3}},\mathbf{X_{2}})\mathrm{d}\mathbf{X_{3}}\label{eq:oz-iem-2}
@@ -320,7 +320,7 @@ which gives
 \end{equation}
 
 
-If we take $\mathbf{X_{2}}$ as origin in the laboratory coordinate
+If we take $\mathbf{X_{2}}$ as the origin in the laboratory coordinate
 system, eq. (\ref{eq:gamma-oz-2}) becomes:
 \begin{equation}
 \gamma(\mathbf{X_{1}})=\int c^{(2)}(\mathbf{X}_{1},\mathbf{X_{3}})\Delta\rho(\mathbf{X_{3}})\mathrm{d}\mathbf{X_{3}}\label{eq:gamma-oz-1-1}
@@ -328,8 +328,8 @@ system, eq. (\ref{eq:gamma-oz-2}) becomes:
 which coincides with the gradient of $\mathcal{F}_{\mathrm{exc}}\left[\rho\right]$
 in eq. (\ref{eq:fexc-2nd-term-1}).
 
-It can be further proved that the homogenous reference fluid (HRF)
-approximation of molecular density functional theory (MDFT) is mathematically
+It can be further proven that the homogenous reference fluid (HRF)
+approximation of MDFT is mathematically
 equivalent to the hypernetted chain (HNC) approximation to integral
 equations method (IEM) if the fluid is homogenous. (To be detailed.)
 
@@ -337,7 +337,7 @@ equations method (IEM) if the fluid is homogenous. (To be detailed.)
 \section{Statistical mechanics}
 
 
-\section{Principe of Variation}
+\section{Principle of Variation}
 
 
 \section{Ideal free energy functional}
@@ -348,24 +348,24 @@ equations method (IEM) if the fluid is homogenous. (To be detailed.)
 
 \section{Homogenous Reference Fluid Approximation}
 
-In the molecular density functional theory (MDFT), the excess free
+In MDFT, the excess free
 energy functional $\mathcal{F}_{\mathrm{exc}}$ can be developed via
 Taylor expansion 
 \begin{equation}
 \mathcal{F}_{\mathrm{exc}}\left[\rho\right]\equiv\mathcal{F}_{\mathrm{exc}}\left[\rho_{0}\right]+\int\mathrm{d}\mathbf{X_{1}}\frac{\delta\mathcal{F}_{\mathrm{exc}}\left[\rho\right]}{\mathrm{\delta}\rho(\mathbf{X_{1}})}\Delta\rho(\mathbf{X_{1}})+\frac{1}{2}\int\mathrm{d}\mathbf{X_{1}}\mathrm{d}\mathbf{X_{2}}\frac{\mathrm{\delta}^{2}\mathcal{F}_{\mathrm{exc}}\left[\rho\right]}{\mathrm{\delta}\rho(\mathbf{X_{1}})\mathrm{\delta}\rho(\mathbf{X_{2}})}\Delta\rho(\mathbf{X_{1}})\Delta\rho(\mathbf{X_{2}})+\mathcal{O}(\Delta\rho^{3})\label{eq:Taylor}
 \end{equation}
 where $\mathbf{X}\equiv(\mathbf{r},\mathbf{\Omega})$, $\beta^{-1}=k_{\mathrm{B}}T$,
-$\Delta\rho=\rho-\rho_{0}$, and $\rho(\mathbf{X})$ the single-particle
+$\Delta\rho=\rho-\rho_{0}$, and $\rho(\mathbf{X})$ is the single-particle
 density of the fluid.
 
 According to the variation principle, the first derivative in eq.
-(\ref{eq:Taylor}) is zero
+(\ref{eq:Taylor}) is zero:
 \begin{equation}
 \left.\frac{\mathrm{\delta}\mathcal{F}_{\mathrm{exc}}\left[\rho\right]}{\mathrm{\delta}\rho(\mathbf{X_{1}})}\right|_{\rho=\rho_{\mathrm{eq}}}=0
 \end{equation}
 
 
-And $\mathcal{F}_{\mathrm{exc}}\left[\rho_{0}\right]$ can be compensated
+and $\mathcal{F}_{\mathrm{exc}}\left[\rho_{0}\right]$ can be compensated
 by the grand potential of bulk fluid (to be detailed), we can then
 focus on only $\mathcal{O}(\Delta\rho^{2})$ and higher order terms.
 
