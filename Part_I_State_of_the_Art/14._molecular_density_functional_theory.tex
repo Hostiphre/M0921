@@ -440,7 +440,7 @@ and regular quadrature for $\psi\in\left[0,\pi\right]$.
 
 This translates your solute to the center of the supercell: all solute
 coordinates are moved by \{Lx/2., Ly/2., Lz/2.\}, with \{Lx,Ly,Lz\}
-the length of the supercell.
+as the length of the supercell.
 
 
 \section{cg\_vect}
@@ -451,7 +451,7 @@ the length of the supercell.
 We define a charge density $\sigma\left(\bm{r},\bm{\Omega}\right)$
 and polarization density $\bm{p}\left(\bm{r},\bm{\Omega}\right)$
 of a molecule at the origin of the cartesian reference frame with
-orientation $\bm{\Omega}$.
+orientation $\bm{\Omega}$:
 \begin{equation}
 \sigma\left(\bm{r},\bm{\Omega}\right)=\sum_{m}q_{m}\delta\left(\bm{r}-\bm{s}_{m}\left(\bm{\Omega}\right)\right)
 \end{equation}
@@ -462,19 +462,19 @@ in the general case, and
 for a single SPC-type water molecule with oxygen at the origin.
 
 
-\section{Poisson solver : Iterative solvers for linear equations}
+\section{Poisson solver: Iterative solvers for linear equations}
 
 Given a square system of $n$ linear equations:
 
 \begin{equation}
 \bm{A}\bm{x}=\bm{b}.\label{eq:linsys}
 \end{equation}
- Some (very slow) direct techniques exist that involve algebra. We
-will solve this equation by an iterative (also called relaxation)
-method. We will use a sequence of $\bm{x}^{\left(k\right)}$ that
+Some (very slow) direct techniques exist that involve algebra. We
+propose to solve this equation by an iterative (also called relaxation)
+method using a sequence of $\bm{x}^{\left(k\right)}$ that
 converges toward the fixed point $\bm{x}$, solution of our problem.
 
-In conclusion, we want to write, for a given $\bm{x}^{\left(0\right)}$,
+In conclusion we want to write, for a given $\bm{x}^{\left(0\right)}$,
 a sequence $\bm{x}^{\left(k+1\right)}=F\left(\bm{x}^{\left(k\right)}\right)$
 with $k\in\mathbb{N}$.
 
@@ -491,7 +491,7 @@ We decompose $A=D-L-U$ where $D$ is an inversible matrix.
 \end{eqnarray}
 where $F$ is a linear function of $x$.
 
-It is shown that we can solve this equation by iteratively solving,
+It is shown that we can solve this equation iteratively,
 where $k$ indicates the iteration number
 \begin{equation}
 \bm{x}^{\left(k+1\right)}=\bm{D}^{-1}\left(\bm{L}+\bm{U}\right)\bm{x}^{\left(k\right)}+\bm{D}^{-1}\bm{b}.
@@ -499,7 +499,7 @@ where $k$ indicates the iteration number
 Since $\mbox{diag}\left(\left(\bm{L}+\bm{U}\right)\bm{x}^{\left(k\right)}\right)=\bm{0}$,
 each $x_{i}^{\left(k+1\right)}$ is independent of $x_{i}^{\left(k\right)}$.
 It is instead a weighted average of other $x_{j\neq i}$. Since we
-don't know the solution \emph{a priori}, we define the residual at
+do not know the solution \emph{a priori}, we define the residual at
 each step $k$ as $\bm{r}^{\left(k\right)}=\bm{b}-\bm{A}\bm{x}^{\left(k\right)}$.
 See algorithm~\ref{alg:Jacobi's-algorithm}.
 
@@ -521,7 +521,7 @@ or $\left\Vert \bm{r}^{\left(k\right)}-\bm{r}^{\left(k-1\right)}\right\Vert <\ep
 \end{itemize}
 \uline{Restrictions}
 \begin{itemize}
-\item $\bm{A}$ must be strictly diagonaly dominant, \emph{i.e.}, $\left|A_{i,i}\right|>\sum_{j=1,n;j\neq i}\left|A_{i,j}\right|$
+\item $\bm{A}$ must be strictly diagonally dominant, \emph{i.e.}, $\left|A_{i,i}\right|>\sum_{j=1,n;j\neq i}\left|A_{i,j}\right|$
 $\Rightarrow A_{i,i}\neq0$.
 \item $\epsilon>0$
 \end{itemize}
@@ -574,7 +574,7 @@ of solute and solvent as input, as well as necessary parameters like
 the temperature $T$, number density of solvent $n_{0}$, etc. It
 minimizes the functional {[}ref{]} and gives the equilibrium density
 $\rho(\mathbf{r},\mathbf{\Omega})$, then computes output properties.
-The main structure of code is shown in figure \ref{fig:code-mdft}.
+The main structure of the code is shown in figure \ref{fig:code-mdft}.
 
 \begin{figure}[h]
 \begin{centering}
@@ -597,8 +597,8 @@ function is not used.
 
 The functional $\mathcal{F}[x_{i}]$ and the gradient of functional
 $\nabla\mathcal{F}[x_{i}]=\dfrac{\delta\mathcal{F}}{\delta x}(x_{i})$
-is needed by L-BFGS to minimize the functional. It saves the variables
-$x_{i}$ and gradient of the past $m$ iterations, which is memory
+are required by L-BFGS to minimize the functional. It saves the variables
+$x_{i}$ and gradient of the past $m$ iterations, which is a memory
 eater.
 
 The functional in MDFT to be minimized is eq. (\textcolor{red}{ref}),
