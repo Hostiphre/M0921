@@ -1,30 +1,30 @@
 
 \chapter{Model of Solution System\label{chpt:models}}
 
-Computing models of solvent are broadly divided into two types: those
+Computing models of solvents are broadly divided into two types: those
 treating the solvent as a continuous medium (implicit models) and
 those describing the individual solvent molecules (explicit models).
-In the continuum model, the solvent is characterized only by the dielectric
-constant $\varepsilon$ and contains an artificial shaped cavity.
+In the implicit model, the solvent is characterized only by the dielectric
+constant $\varepsilon$ and contains an artificial-shaped cavity.
 The explicit models can have more specific scales. Within the scope
-of classical mechanics, the most expensive one can be the model explicit
-flexible and polarizable. While in computational chemistry, less precise
+of classical mechanics, the most expensive method can be the explicit model %Uncertain if these are the names of two explicit models
+which includes flexible and polarizable, while in computational chemistry, less precise
 models often have wider usage (for example, the proteins are treated
-in the unity of residues). As the theory of liquid was firstly established
+in the unity of residues). As the theory of liquids was firstly established
 for spherical atom-like solvent particles, the model adopted by the
-theory is a rigid molecule, who only depends on its position and orientation,
+theory is a rigid molecule, only depending on its position and orientation,
 i. e. there is no relative movement within the solvent particles.
-And this approximation is proved to be reasonable \citep{Gray-Gubbins}.
-In this section, we'll give a brief introduction of implicit model,
-which helps to understand some later discussion in solvation free
-energy corrections, then we'll focus on the rigid solvent model. The
-flexible and polarizable models will also be briefly mentioned, in
-the purpose to understand the limit of the rigid model. 
+This approximation has been proven reasonable \citep{Gray-Gubbins}.
+In this section, we will give a brief introduction of the implicit model in order
+to facilitate later discussion on solvation free
+energy corrections. We will then focus on the rigid solvent model. The
+flexible and polarizable models will also be briefly mentioned in
+order to understand the limits of the rigid model. 
 
 
 \section{Continuum Solvation Models}
 
-Continuum models, which is popular in QM calculations, consider the
+Continuum models, which are popular in QM calculations, consider the
 solvent as a uniform polarizable medium with dielectric constant $\varepsilon$,
 with the solute $M$ placed in the cavity within this medium \citep{Jensen}
 (figure \ref{fig:Reaction-field-model}) 
@@ -38,53 +38,52 @@ with the solute $M$ placed in the cavity within this medium \citep{Jensen}
 \end{figure}
 
 
-The solvation Gibbs free energy according to this model is
+The solvation Gibbs free energy according to this model is:
 \begin{equation}
 \Delta G_{\mathrm{solvation}}=\Delta G_{\mathrm{cavity}}+\Delta G_{\mathrm{dispersion}}+\Delta G_{\mathrm{elec}}\label{eq:cm}
 \end{equation}
-Where $\Delta G_{\mathrm{cavity}}>0$ is the energy costed to create
+where $\Delta G_{\mathrm{cavity}}>0$ is the energy needed to create
 a hole in the medium, and $\Delta G_{\mathrm{dispersion}}$ is the
-dispersion interactions, which is roughly the van der Waals energy
+dispersion interaction, which is roughly the van der Waals energy
 $\Delta G_{\mathrm{vdW}}<0$ between the solvent and solute. In principle,
-there may also be a repulsive component, and dispersion term is sometimes
-denoted dispersion / repulsion. $\Delta G_{\mathrm{elec}}<0$ is the
+there may also be a repulsive component, and the dispersion term is sometimes
+denoted as dispersion / repulsion. $\Delta G_{\mathrm{elec}}<0$ is the
 contribution of electrostatic interaction, introduced by electric
-charge distribution of $M$ who polarizes the medium, and the action
+charge distribution of $M$ which polarizes the medium, and the action
 back of the medium on the molecule (reaction field). 
 
-The first two terms in eq. (\ref{eq:cm}) is linked to the configuration
-of first-solvation shell. It's reasonable to be considered proportional
+The initial two terms in eq. (\ref{eq:cm}) are linked to the configuration
+of the first solvation shell. It is reasonable to consider this proportional
 to the number of solvent molecules in the first solvation shell.
 
-The magnitude of the free energy effect associated with any first-solvation-shell
-phenomenon can, to a first approximation, be considered proportional
+The magnitude of the free energy effect associated with any first solvation shell
+phenomenon can, in an initial approximation, be considered proportional
 to the number of solvent molecules in the first solvation shell. \citep{Cramer_1999_implicit_model}.
 The key to a continuum treatment of these effects is to recognize
 that this number, after averaging over solvent configurations, is
 a non-integer continuous function of solute geometry that is characteristic
 for a given solute in a given solvent at a given temperature. Furthermore,
 it can be calculated as the area of a hyper-surface that passes through
-the middle of the region occupied by the first shell of solvent when
-treated as a continuous medium. the “size” of the “first solvation
-shell” This is the essence of the concept of solvent-accessible surface
-area (SASA) \citep{SAS_1,SAS_2} This area is calculated as the area
+the middle of the region occupied by the first shell of the solvent when
+treated as a continuous medium. This is the essence of the concept of solvent-accessible surface
+area (SASA) \citep{SAS_1,SAS_2} which is calculated as the area
 traced out by the center of a ball rolling over the surface of a solute,
-where the radius of the ball is the effective half width of the first
+where the radius of the ball is the effective half-width of the first
 solvent shell (\textasciitilde{}1-2 A for water). 
 
 The van der Waals surface area is the surface of the union of the
 spherical atomic surfaces defined by the van der Waals radius of each
 component atom in the molecule. The solvent accessible surface area
-(SASA) is the surface area of a biomolecule that is accessible to
-a solvent. ASA is typically calculated using a sphere (of solvent)
+ is the surface area of a biomolecule that is accessible to
+a solvent. SASA is typically calculated using a sphere (of solvent)
 of a particular radius to 'probe' the surface of the molecule. 
 
-The reaction field models can differ in the size and shape of cavity,
+The reaction field models can differ in the size and shape of the cavity,
 the definition of dielectric constant $\varepsilon$, the description
 of solute $M$ (classical or ab initio), as well as the way to calculate
 the free energy contributions. The definition of cavity varies from
 the simplest sphere or ellipsoid to interlocking spheres located on
-each nucleus which together defines a van der Waals surface. The energy
+each nucleus which together define a van der Waals surface. The energy
 required to create the cavity and the stabilization due to van der
 Waals interactions between the solute and solvent together is usually
 assumed to be proportional to the surface area of the cavity
@@ -94,18 +93,18 @@ assumed to be proportional to the surface area of the cavity
 \end{equation}
 or parameterized by having a constant $\xi$ specific for each atom
 type, with the $\xi$ parameters being determined by fitting to experimental
-solvation data
+solvation data:
 \begin{equation}
 \Delta G_{\mathrm{cavity}}+\Delta G_{\mathrm{dispersion}}=\sum_{i}^{\mathrm{atoms}}\xi_{i}S_{i}
 \end{equation}
 
 
 The dielectric constant $\varepsilon$ is the only parameter characterizing
-the solvent, it is normally a constant value, but can for some purpose
+the solvent. It is normally a constant value, but for some purposes it can
 depend on the distance from the solute $M$. The models and methods
 to calculate the electrostatic contribution $\Delta G_{\mathrm{elec}}$
-have varied a lot according to its usage, here lists the most common
-ones.
+have varied greatly according to its usage. Here we list the most common
+examples.
 
 
 \subsection{Poisson–Boltzmann methods}
@@ -113,16 +112,16 @@ ones.
 The Poisson-Boltzmann equation
 
 A second order differential equation that gives an exact description
-of the 
+of the %Part of this sentence seems to be missing
 
 This equation cannot be solved analytically for complex geometries
-(such as a electrostatic interactions in a dielectric medium. cav
+(such as electrostatic interactions in a dielectric medium. cav
 pol vdw protein)
 
 Therefore, it is done numerically using numerical methods, such as
-finite differences
+finite differences.
 
-The Poisson equation is a second-order differential equation describing
+The Poisson-Boltzmann equation is a second-order differential equation describing
 the connection between the electrostatic potential $\Phi$, the charge
 distribution $\rho$ and the dielectric constant $\varepsilon$.
 
@@ -145,7 +144,7 @@ If the charge distribution is a point charge, the solution of eq.
 
 The Poisson equation can be modified by taking into account a (thermal)
 Boltzmann distribution of ions in the solvent. The negative ions will
-accumulate where the potential is positive, and vice versa, subject
+accumulate where the potential is positive (and vice versa) subject
 to a thermal fluctuation. The charge densities from a collection of
 ions with charges q and -q and concentration c are given by eq. (14.54).
 
@@ -157,7 +156,7 @@ ions with charges q and -q and concentration c are given by eq. (14.54).
 \end{equation}
 
 
-Addition of these contributions to eq. (14.52) leads to the Poisson–Boltzmann
+The addition of these contributions to eq. (14.52) leads to the Poisson–Boltzmann
 Equation (PBE).
 
 \begin{equation}
@@ -184,7 +183,7 @@ $u$ instead.
 All of these equations ((14.52)–(14.57)) are differential equations
 that must be solved numerically, typically by a grid representation,
 and the results give information about the electrostatic potential
-at any point in space, which is also used by later theory. It can
+at any point in space, which is also used by later theories. It can
 be mapped onto the surface of the solute where it may suggest regions
 for interaction with other polar molecules. It can also be used for
 generating the reaction field, defined as the difference between the
