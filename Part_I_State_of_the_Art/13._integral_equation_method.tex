@@ -1,14 +1,14 @@
 
 \chapter{Integral Equation Theory\label{chpt:iem}}
 
-density-density pair correlation function $\left\langle v(\mathbf{r})v(\mathbf{r'})\right\rangle \equiv\rho(\mathbf{r},\mathbf{r'})$,
+Density-density pair correlation function $\left\langle v(\mathbf{r})v(\mathbf{r'})\right\rangle \equiv\rho(\mathbf{r},\mathbf{r'})$,
 when the fluid is uniform, the quantity can be expressed by a function
-of only the distance between the two places , such that $\rho(\mathbf{r},\mathbf{r'})\rightarrow\rho(\left|\mathbf{r}-\mathbf{r'}\right|)$\citep{hirata_molecular_2004}
+of only the distance between the two places, such that $\rho(\mathbf{r},\mathbf{r'})\rightarrow\rho(\left|\mathbf{r}-\mathbf{r'}\right|)$\citep{hirata_molecular_2004}
 
 
 \section{Ornstein-Zernike equation}
 
-The Ornstein-Zernike equation for simple (atomic) liquid
+The Ornstein-Zernike (OZ) equation for simple (atomic) liquids
 \begin{equation}
 h(\mathbf{r},\mathbf{r'})=c(\mathbf{r},\mathbf{r'})+\int_{V}c(\mathbf{r},\mathbf{r''})\rho(\mathbf{r''})h(\mathbf{r''},\mathbf{r'})\mathrm{d}\mathbf{r''}
 \end{equation}
@@ -20,7 +20,7 @@ U'_{N}(\mathbf{r_{1}},\ldots,\mathbf{r_{N}})=\sum_{i=1}^{N}\varphi(\mathbf{r_{i}
 \end{equation}
 where $\varphi(\mathbf{r_{i}})$ is the interaction potential of $i$-th
 molecule of the system with an external field, and $U_{N}(\mathbf{r_{1}},\ldots,\mathbf{r_{N}})$
-is the intermolecular potential energy. the local activity $z(\mathbf{r})=z\exp\left[-\beta\varphi(\mathbf{r})\right]$,
+is the intermolecular potential energy. The local activity $z(\mathbf{r})=z\exp\left[-\beta\varphi(\mathbf{r})\right]$,
 where $z=\exp\left[\mu/k_{\mathrm{B}}T\right]$, $\beta=1/k_{\mathrm{B}}T$,
 $\mu$ is the chemical potential, and $k_{\mathrm{B}}$ is the Boltzmann
 constant.
@@ -31,7 +31,7 @@ The grand canonical partition function
 \end{equation}
 
 
-single particle and pair correlation functions of density
+Single particle and pair correlation functions of density
 \begin{equation}
 \rho(\mathbf{r})=\frac{z(\mathbf{r})}{\Xi}\frac{\delta\Xi}{\delta z(\mathbf{r})}
 \end{equation}
@@ -45,22 +45,22 @@ derivative
 \end{equation}
 
 
-the relation between
+The relation between
 \[
 \frac{\delta\rho(\mathbf{r})}{\delta\ln z(\mathbf{r}')}=\rho^{(2)}(\mathbf{r},\mathbf{r}')-\rho(\mathbf{r})\rho(\mathbf{r}')+\delta(\mathbf{r}-\mathbf{r}')\rho(\mathbf{r})
 \]
 
 
-we define the direct correlation function
+We define the direct correlation function
 \[
 \frac{\delta\ln z(\mathbf{r})}{\delta\rho(\mathbf{r}')}=\frac{\delta(\mathbf{r}-\mathbf{r}')}{\rho(\mathbf{r}')}-c(\mathbf{r}-\mathbf{r}')
 \]
 
 
-inserting eq... into the chain-rule theorem of functional derivatives
+Inserting eq... into the chain-rule theorem of functional derivatives
 \[
 \int\frac{\delta\rho(\mathbf{r})}{\delta\ln z(\mathbf{r}'')}\frac{\delta\ln z(\mathbf{r}'')}{\delta\rho(\mathbf{r}')}\mathrm{d}\mathbf{r}''=\delta(\mathbf{r}-\mathbf{r}')
-\]
+\],
 one obtains the Ornstein-Zernike equation.
 
 
@@ -87,7 +87,7 @@ g(\mathbf{r},\mathbf{r}')=\exp\left[-\beta u(\mathbf{r},\mathbf{r}')\right]\left
 \end{equation}
 
 
-suiteble...
+suitable...
 
 Another type of closure, used for 
 \[
