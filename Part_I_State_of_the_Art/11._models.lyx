@@ -237,16 +237,12 @@ reference "eq:cm"
 
 \end_inset
 
-) is linked to the configuration of first-solvation shell.
- It's reasonable to be considered proportional to the number of solvent
- molecules in the first solvation shell.
-\end_layout
-
-\begin_layout Standard
-The magnitude of the free energy effect associated with any first-solvation-shel
-l phenomenon can, to a first approximation, be considered proportional to
- the number of solvent molecules in the first solvation shell.
- 
+) is linked to the configuration of first-solvation shell (cavity).
+ The definition of cavity varies from the simplest sphere or ellipsoid to
+ the surface of the ensemble atomic surfaces defined by the van der Waals
+ radius in the solute.
+ It's somehow reasonable to consider the cavity area proportional to the
+ number of solvent molecules in the first solvation shell 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Cramer_1999_implicit_model"
@@ -254,62 +250,75 @@ key "Cramer_1999_implicit_model"
 \end_inset
 
 .
- The key to a continuum treatment of these effects is to recognize that
- this number, after averaging over solvent configurations, is a non-integer
- continuous function of solute geometry that is characteristic for a given
- solute in a given solvent at a given temperature.
- Furthermore, it can be calculated as the area of a hyper-surface that passes
- through the middle of the region occupied by the first shell of solvent
- when treated as a continuous medium.
- the “size” of the “first solvation shell” This is the essence of the concept
- of solvent-accessible surface area (SASA) 
+ This number can be calculated as the area passes through the middle region
+ of first shell solvent.
+ This area, named as the solvent-accessible surface area (SASA) 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "SAS_1,SAS_2"
 
 \end_inset
 
- This area is calculated as the area traced out by the center of a ball
- rolling over the surface of a solute, where the radius of the ball is the
- effective half width of the first solvent shell (~1-2 A for water).
- 
-\end_layout
+, is calculated by adding the radius of the probe solvent ball on the van
+ der Waals surface area (figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:sasa"
 
-\begin_layout Standard
-The van der Waals surface area is the surface of the union of the spherical
- atomic surfaces defined by the van der Waals radius of each component atom
- in the molecule.
- The solvent accessible surface area (SASA) is the surface area of a biomolecule
- that is accessible to a solvent.
- ASA is typically calculated using a sphere (of solvent) of a particular
- radius to 'probe' the surface of the molecule.
- 
-\end_layout
-
-\begin_layout Standard
-The reaction field models can differ in the size and shape of cavity, the
- definition of dielectric constant 
-\begin_inset Formula $\varepsilon$
 \end_inset
 
-, the description of solute 
-\begin_inset Formula $M$
-\end_inset
-
- (classical or ab initio), as well as the way to calculate the free energy
- contributions.
- The definition of cavity varies from the simplest sphere or ellipsoid to
- interlocking spheres located on each nucleus which together defines a van
- der Waals surface.
- The energy required to create the cavity and the stabilization due to van
- der Waals interactions between the solute and solvent together is usually
- assumed to be proportional to the surface area of the cavity
+).
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/SASA.pdf
+	width 55col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Solvent-accessible surface area
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:sasa"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The energy required to create such a cavity and the stabilization due to
+ van der Waals interactions between the solute and solvent, assumed to be
+ proportional to the surface area of the cavity, is expressed as
 \begin_inset Formula 
 \begin{equation}
-\Delta G_{\mathrm{cavity}}+\Delta G_{\mathrm{dispersion}}=\gamma S_{\mathrm{cavity}}+\beta
+\Delta G_{\mathrm{cavity}}+\Delta G_{\mathrm{dispersion}}=\gamma S_{\mathrm{SASA}}+\beta
 \end{equation}
 
 \end_inset
@@ -357,12 +366,122 @@ Poisson–Boltzmann methods
 \end_layout
 
 \begin_layout Standard
-The Poisson-Boltzmann equation
+The Poisson-Boltzmann equation (PBE) permits to calculate electrostatic
+ potential 
+\begin_inset Formula $V_{\mathrm{elec}}$
+\end_inset
+
+ for the continuum model, such that electrostatic component of the free
+ energy
+\begin_inset Formula 
+\begin{equation}
+\Delta G_{\mathrm{elec}}=\frac{1}{2}\int\mathrm{d}\mathbf{r}\rho_{q}(\mathbf{r})V_{\mathrm{elec}}(\mathbf{r})
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\Delta G_{\mathrm{elec}}=\frac{1}{2}\sum_{i}Q(\mathbf{r}_{i})V_{\mathrm{elec}}(\mathbf{r}_{i})
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\rho_{q}$
+\end_inset
+
+ is the charge distribution of the continuous medium, or in a discrete partial
+ charge description 
+\begin_inset Formula $Q$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-A second order differential equation that gives an exact description of
- the 
+The Maxwell-Gauss equation gives 
+\begin_inset Formula 
+\begin{equation}
+\nabla\cdot D(\mathbf{r})=\rho_{q}(\mathbf{r})
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $D(\mathbf{r})=\varepsilon_{0}E(\mathbf{r})+P(\mathbf{r})$
+\end_inset
+
+ is the electric displacement field, 
+\begin_inset Formula $P(\mathbf{r})$
+\end_inset
+
+ is the system polarization, 
+\begin_inset Formula $E(\mathbf{r})$
+\end_inset
+
+ the electric field, 
+\begin_inset Formula $\varepsilon_{0}$
+\end_inset
+
+ the vacuum permittivity.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+E(\mathbf{r})=-\overrightarrow{\nabla}V_{q}(\mathbf{r})
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $V_{q}(\mathbf{r})$
+\end_inset
+
+ is ...
+ of unity ...
+\end_layout
+
+\begin_layout Standard
+therefore
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\nabla^{2}V_{q}(\mathbf{r})=-\frac{\rho_{q}(\mathbf{r})}{\varepsilon_{0}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Poisson equation is a second-order differential equation, describing
+ the connection between the electrostatic potential 
+\begin_inset Formula $V_{\mathrm{elec}}$
+\end_inset
+
+, the charge distribution 
+\begin_inset Formula $\rho$
+\end_inset
+
+ and the dielectric constant 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\nabla\cdot(\varepsilon(\mathbf{r})\nabla V_{\mathrm{elec}}(\mathbf{r}))=-4\pi\rho(\mathbf{r})
+\end{equation}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -374,34 +493,6 @@ This equation cannot be solved analytically for complex geometries (such
 \begin_layout Standard
 Therefore, it is done numerically using numerical methods, such as finite
  differences
-\end_layout
-
-\begin_layout Standard
-The Poisson equation is a second-order differential equation describing
- the connection between the electrostatic potential 
-\begin_inset Formula $\Phi$
-\end_inset
-
-, the charge distribution 
-\begin_inset Formula $\rho$
-\end_inset
-
- and the dielectric constant 
-\begin_inset Formula $\varepsilon$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\nabla\cdot(\varepsilon(\mathbf{r})\nabla\phi(\mathbf{r}))=-4\pi\rho(\mathbf{r})
-\end{equation}
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -455,7 +546,7 @@ The Poisson equation can be modified by taking into account a (thermal)
 
 \begin_layout Standard
 Addition of these contributions to eq.
- (14.52) leads to the Poisson–Boltzmann Equation (PBE).
+ (14.52) leads to the Poisson-Boltzmann Equation (PBE).
 \end_layout
 
 \begin_layout Standard
@@ -481,8 +572,8 @@ Here
 \begin_inset Formula $\kappa^{2}$
 \end_inset
 
- factor is inversely related to the Debye-Hueckel length, measuring how
- far the electrostatic effects extend into the solution.
+ factor is inversely related to the Debye-Hückel length, measuring how far
+ the electrostatic effects extend into the solution.
  The 
 \begin_inset Formula $sinh(q\phi(\mathbf{r})/kT)$
 \end_inset
@@ -521,6 +612,20 @@ Here
 \end_layout
 
 \begin_layout Standard
+The Poisson Eq.
+ Ž43.
+ can be solved numerically by mapping the system onto a discrete grid and
+ using a finite-difference relaxation algorithm 72,73 .
+ Alternatively, a surface boundary element method can be used 74 76 .
+ The numerical prob- lem is made easier by making the approximation that
+ the surrounding solvent has an infinite di- electric constant corresponding
+ to that of a con- ductor 77,78 .
+ A different approach to incor- porate the influence of a polar solvent
+ has been proposed and developed by Warshel and co- workers 79 , in which
+ the solvent is modeled by a
+\end_layout
+
+\begin_layout Standard
 All of these equations ((14.52)–(14.57)) are differential equations that must
  be solved numerically, typically by a grid representation, and the results
  give information about the electrostatic potential at any point in space,
@@ -540,29 +645,7 @@ e between the potential in the presence of a solvent (e = 78) and in vacuum
 \begin_inset Formula $Q$
 \end_inset
 
-) description gives the electrostatic component of the free energy.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\Delta G_{\mathrm{elec}}=\frac{1}{2}\int\mathrm{d}\mathbf{r}\rho(\mathbf{r})\phi_{\mathrm{reac}}(\mathbf{r})
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\Delta G_{\mathrm{elec}}=\frac{1}{2}\sum_{i}Q(\mathbf{r}_{i})\phi_{\mathrm{reac}}(\mathbf{r}_{i})
-\end{equation}
-
-\end_inset
-
-
+) description gives the 
 \end_layout
 
 \begin_layout Subsection
@@ -1578,16 +1661,27 @@ SPC/E water and other water models
 \end_layout
 
 \begin_layout Standard
-As water is ...
-\end_layout
+There is a great work done by Martin Chaplin 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "water-model"
 
-\begin_layout Standard
-There are 
-\end_layout
+\end_inset
 
-\begin_layout Standard
-The sites can placed else than the center of atom.
- The more site number, the more precise.
+, which summarized all frequent water models.
+ As water can't be perfectly described by the pair potential due to multi-body
+ effects, quantum effects, hydrogen bond, etc., there develops various models
+ to fit certain properties.
+ The models contain several sites, which can placed else than the center
+ of atom 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Water-models"
+
+\end_inset
+
+.
+ The more site number the model has, the more precise it can be.
 \end_layout
 
 \begin_layout Standard
@@ -1630,14 +1724,6 @@ name "fig:Water-models"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Model all atom
-\end_layout
-
-\begin_layout Standard
-numerical density, dielectric constant vary with temperature
 \end_layout
 
 \begin_layout Standard
@@ -1699,6 +1785,14 @@ where
 \begin_layout Standard
 The SPC/E model is successful in ...
  
+\end_layout
+
+\begin_layout Standard
+Model all atom
+\end_layout
+
+\begin_layout Standard
+numerical density, dielectric constant vary with temperature
 \end_layout
 
 \begin_layout Standard

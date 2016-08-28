@@ -228,7 +228,7 @@ filename "Introduction.lyx"
 \begin_inset VSpace medskip
 \end_inset
 
-This chapter is summery of all the previous work that this thesis is based
+This chapter is a summery of all the previous work that this thesis is based
  on.
 \begin_inset Newline newline
 \end_inset
@@ -245,8 +245,8 @@ reference "chpt:models"
 \end_inset
 
 , we begin by introducing the models used in our study, as well as some
- other models in different scale of description, to make our choice of model
- reasonable.
+ others of different description scale, by way of comparison to illustrate
+ why we chose our models.
  
 \begin_inset Newline newline
 \end_inset
@@ -263,9 +263,9 @@ reference "chpt:statistical-mechanics"
 
 \end_inset
 
- reviews some basic concepts of statistical mechanics for liquid (liquid
+ reviews some basic concepts of statistical mechanics for liquids (liquid
  theory), which present the deduction of formalisms from the model of the
- system, without introducing any artificial term.
+ system, without introducing any artificial terms.
  The following two sections, section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -307,16 +307,16 @@ acs{MDFT}
 
 \end_inset
 
-) that this thesis works on.
- The mathematical equivalence between these two theories is therefore clear,
- presented in section 
+) that this thesis works upon.
+ The clear mathematical equivalence between these two theories is presented
+ in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chpt:mdft"
 
 \end_inset
 
-, which gives us the idea to use the expansion technics in 
+, which gave us the idea to use the expansion technics in 
 \begin_inset ERT
 status open
 
@@ -350,8 +350,16 @@ acs{MDFT}
 \begin_inset VSpace medskip
 \end_inset
 
-After all, a brief introduction of the simulations depending on micro configurat
-ion, here referring to molecular dynamics (
+Finally, a brief introduction of the simulations we used is made in section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:reference-method"
+
+\end_inset
+
+.
+ Depending on micro configuration, this includes molecular dynamics (
 \begin_inset ERT
 status open
 
@@ -377,14 +385,8 @@ acs{MC}
 
 \end_inset
 
-) method, is made in section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chpt:reference-method"
-
-\end_inset
-
-, to the purpose to explain how the direct correlation functions (
+) simulation methods, This is done to explain how the direct correlation
+ functions (
 \begin_inset ERT
 status open
 
@@ -397,7 +399,7 @@ acs{DCF}
 
 \end_inset
 
-) used by this thesis are obtained.
+) portrayed in this thesis are obtained.
 \end_layout
 
 \begin_layout Part

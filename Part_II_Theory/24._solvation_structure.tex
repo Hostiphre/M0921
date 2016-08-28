@@ -28,3 +28,87 @@ appendix \ref{chpt:rotational-invariant-expansion}
 \section{Rebuilt of density in a certain orientation}
 
 appendix \ref{chpt:rotational-invariant-expansion}
+
+
+\subsection{Radical distribution function of numeric density}
+
+Content.
+
+
+\subsection{Radical distribution function of polarization}
+
+\[
+F(\mathbf{r},\mathbf{\Omega})=\sum_{nl\nu}F_{0\nu}^{0nl}(r)\Phi_{0\nu}^{0nl}(\mathbf{r},\mathbf{\Omega})
+\]
+
+
+conversely
+
+\[
+F_{0\nu}^{0nl}(r)=\int\mathrm{d}\hat{\mathbf{r}}\mathrm{d}\mathbf{\Omega}F(\mathbf{r},\mathbf{\Omega})\Phi_{0\nu}^{0nl*}(\mathbf{r},\mathbf{\Omega})/\int\mathrm{d}\hat{\mathbf{r}}\mathrm{d}\mathbf{\Omega}\left\Vert \Phi_{0\nu}^{0nl}(\mathbf{r},\mathbf{\Omega})\right\Vert ^{2}
+\]
+with
+
+\[
+\Phi_{0\nu}^{0nl}(\mathbf{r},\mathbf{\Omega})=f_{n}\sum_{\nu'}\left(\begin{array}{ccc}
+0 & n & l\\
+0 & \nu' & -\nu'
+\end{array}\right)R_{\nu'\nu}^{n}(\mathbf{\Omega})R_{-\nu',0}^{l}(\mathbf{\hat{r}})
+\]
+
+
+in particular
+
+\begin{eqnarray*}
+\Phi_{00}^{011}(\mathbf{r},\mathbf{\Omega}) & = & \sqrt{3}\left(\begin{array}{ccc}
+0 & 1 & 1\\
+0 & 0 & 0
+\end{array}\right)R_{00}^{1}(\mathbf{\Omega})R_{00}^{1}(\mathbf{\hat{r}})\\
+ & + & \sqrt{3}\left(\begin{array}{ccc}
+0 & 1 & 1\\
+0 & 1 & -1
+\end{array}\right)R_{10}^{1}(\mathbf{\Omega})R_{-10}^{1}(\mathbf{\hat{r}})\\
+ & + & \sqrt{3}\left(\begin{array}{ccc}
+0 & 1 & 1\\
+0 & -1 & 1
+\end{array}\right)R_{-10}^{1}(\mathbf{\Omega})R_{10}^{1}(\mathbf{\hat{r}})
+\end{eqnarray*}
+or
+\begin{eqnarray*}
+\Phi_{00}^{011}(\mathbf{r},\mathbf{\Omega}) & = & -3R_{00}^{1}(\mathbf{\Omega})R_{00}^{1}(\mathbf{\hat{r}})\\
+ & + & 3R_{10}^{1}(\mathbf{\Omega})R_{-10}^{1}(\mathbf{\hat{r}})\\
+ & + & 3R_{-10}^{1}(\mathbf{\Omega})R_{10}^{1}(\mathbf{\hat{r}})
+\end{eqnarray*}
+noting 
+
+\[
+R_{00}^{1}(\mathbf{\Omega})=\cos\theta
+\]
+
+
+\[
+R_{10}^{1}(\mathbf{\Omega})=-\frac{1}{\sqrt{2}}\sin\theta e^{-i\phi}
+\]
+
+
+one finds
+\begin{eqnarray*}
+\Phi_{00}^{011}(\mathbf{r},\mathbf{\Omega}) & = & -3R_{00}^{1}(\mathbf{\Omega})R_{00}^{1}(\mathbf{\hat{r}})\\
+ & + & 3R_{10}^{1}(\mathbf{\Omega})R_{-10}^{1}(\mathbf{\hat{r}})\\
+ & + & 3R_{-10}^{1}(\mathbf{\Omega})R_{10}^{1}(\mathbf{\hat{r}})\\
+ & = & -3\mathbf{\Omega}\cdot\hat{\mathbf{r}}
+\end{eqnarray*}
+
+
+such that
+
+\begin{eqnarray*}
+F_{00}^{011}(r) & = & -\frac{1}{3}\int\\
+ & = & P(\mathbf{r})\cdot\hat{\mathbf{r}}\\
+\end{eqnarray*}
+
+
+proportionality coefficient to be determined precisely... One thus
+gets the radial projection of the polarization.
+
+Content.

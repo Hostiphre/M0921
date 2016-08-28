@@ -15,11 +15,11 @@ m & n & l\\
 \mu' & \nu' & \lambda'
 \end{array}\right)R_{\mu'\mu}^{m}(\mathbf{\Omega_{1}})R_{\nu'\nu}^{n}(\mathbf{\Omega_{2}})R_{\lambda'0}^{l}(\mathbf{\hat{r_{12}}})\label{eq:definition_rot_invar}
 \end{equation}
-where $R_{\mu'\mu}^{m}=D_{\mu'\mu}^{m*}$, $D_{\mu'\mu}^{m}$ being
-the Wigner generalized spherical harmonics \citep{Edmonds} or Wigner
-D-symbol. $f^{mnl}$ can be any arbitrary non-zero constant \citep{Fries_Patey_1985}.
-Here we define $f^{mnl}=f^{m}f^{n}=\sqrt{2m+1}\sqrt{2n+1}$ according
-to the definition of Belloni \citep{Luc_2014}.
+where $R_{\mu'\mu}^{m}$ is the Wigner generalized spherical harmonics
+or Wigner D-symbol defined in the same convention as Messiah \citep{Messiah}
+(different than Edmonds \citep{Edmonds}). $f^{mnl}$ can be any arbitrary
+non-zero constant \citep{Fries_Patey_1985}. Here we define $f^{mnl}=f^{m}f^{n}=\sqrt{2m+1}\sqrt{2n+1}$
+according to the definition of Belloni \citep{Luc_2014}.
 
 Two special cases are adopted in this thesis, which are the laboratory
 coordinate system with particle 1 at origin (fixed frame) and intermolecular
@@ -468,40 +468,18 @@ F(\theta_{1},\theta_{2},\phi,\psi_{1},\psi_{2})=F(\theta_{1},\theta_{2},\phi,\ps
 
 \subsection{Symmetric rules of rotational invariant projections}
 
-The direct correlation function of bulk solvent has symmetries, as
-shown in Figure \ref{fig:Symmetry-operations-of}. In intermolecular
-coordinate system, these rules can be easily presented:
-\begin{enumerate}
-\item Symmetry of vertical mirror: 
-\begin{equation}
-c(r,\theta_{1},\theta_{2},\phi_{12},\psi_{1},\psi_{2})=c(r,\theta_{1},\theta_{2},-\phi_{12},-\psi_{1},-\psi_{2})
-\end{equation}
+\textcolor{red}{The definition of rotational invariant on $\chi$-transform
+gives}
 
-\item Symmetry of inversion: 
-\begin{equation}
-c(r,\theta_{1},\theta_{2},\phi_{12},\psi_{1},\psi_{2})=c(r,\pi-\theta_{2},\pi-\theta_{1},\phi_{12},\psi_{2},\psi_{1})
-\end{equation}
-
-\end{enumerate}
-And the additive symmetry rule for water:
-\begin{enumerate}
-\item \selectlanguage{english}%
-[3.]\selectlanguage{american}%
-Symmetry axe $\mathrm{C_{2n}}$: 
-\begin{equation}
-c(r,\theta_{1},\theta_{2},\phi_{12},\psi_{1},\psi_{2})=c(r,\theta_{1},\theta_{2},\phi_{12},\psi_{1}+\pi,\psi_{2}+\pi)
-\end{equation}
-
-\end{enumerate}
-The definition of rotational invariant on $\chi$-transform gives
-
+\textcolor{red}{
 \begin{eqnarray*}
 c(\theta_{1},\theta_{2},\phi_{12},\psi_{1},\psi_{2}) & = & \frac{1}{2l+1}\sum_{mn\mu\nu\chi}c_{\mu\nu,\chi}^{mn}(r)d_{\chi\mu}^{m}(\theta_{1})d_{\underline{\chi}\nu}^{n}(\theta_{2})e^{-i\chi\phi_{12}}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}
 \end{eqnarray*}
+}
 
+\textcolor{red}{Thus}
 
-Thus
-
+\textcolor{red}{
 \begin{eqnarray*}
 c(\theta_{1},\theta_{2},-\phi_{12},-\psi_{1},-\psi_{2}) & = & \frac{1}{2l+1}\sum_{mn\mu\nu\chi}c_{\underline{\mu}\underline{\nu},\underline{\chi}}^{mn}(r)d_{\underline{\chi}\underline{\mu}}^{m}(\theta_{1})d_{\chi\underline{\nu}}^{n}(\theta_{2})e^{-i\chi\phi_{12}}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}\\
  & = & \frac{1}{2l+1}\sum_{mn\mu\nu\chi}\left(-\right)^{\mu+\nu}c_{\underline{\mu}\underline{\nu},\underline{\chi}}^{mn}(r)d_{\chi\mu}^{m}(\theta_{1})d_{\underline{\chi}\nu}^{n}(\theta_{2})e^{-i\chi\phi_{12}}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}
@@ -510,30 +488,30 @@ c(\theta_{1},\theta_{2},-\phi_{12},-\psi_{1},-\psi_{2}) & = & \frac{1}{2l+1}\sum
 c(\pi-\theta_{2},\pi-\theta_{1},\phi_{12},\psi_{2},\psi_{1}) & = & \frac{1}{2l+1}\sum_{mn\mu\nu\chi}c_{\mu\nu,\chi}^{mn}(r)d_{\chi\mu}^{m}(\pi-\theta_{2})d_{\underline{\chi}\nu}^{n}(\pi-\theta_{1})e^{-i\chi\phi_{12}}e^{-i\mu\psi_{2}}e^{-i\nu\psi_{1}}\\
  & = & \frac{1}{2l+1}\sum_{mn\mu\nu\chi}\left(-\right)^{m+n+\mu+\nu}c_{\nu\mu,\chi}^{nm}(r)d_{\chi\mu}^{m}(\theta_{1})d_{\underline{\chi}\nu}^{n}(\theta_{2})e^{-i\chi\phi_{12}}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}
 \end{eqnarray*}
-and $\mu$, $\nu$ are even.
+and $\mu$, $\nu$ are even.}
 
-Thus
+\textcolor{red}{Thus}
 
+\textcolor{red}{
 \[
 c_{\mu\nu,\chi}^{mn}(r)=c_{\underline{\mu}\underline{\nu},\underline{\chi}}^{mn}(r)=\left(-\right)^{m+n}c_{\nu\mu,\chi}^{nm}(r)
 \]
+}
 
+\textcolor{red}{(Need proof.)}
 
-
-\subsection{Invariants $c_{\mu\nu,\chi}^{mn}(k)$ }
-
-(Need proof.)
-
+\textcolor{red}{
 \[
 \hat{c}_{\mu\nu,\underline{\chi}}^{mn}(\mathbf{k})=\left(-\right)^{m+n}\hat{c}_{\mu\nu,\chi}^{*mn}(\mathbf{k})
 \]
+}
 
-
-In MDFT, rotational invariant projections is used to describe DCF.
-\textcolor{red}{The original $c_{\mu\nu}^{mnl}(\mathbf{r})$ collected
+\textcolor{red}{In MDFT, rotational invariant projections is used
+to describe DCF. The original $c_{\mu\nu}^{mnl}(\mathbf{r})$ collected
 by IEM is real.}
 \begin{enumerate}
-\item With $r$ and $l$: As $c_{\mu\nu}^{mnl}(\mathbf{r})$ is real
+\item \textcolor{red}{With $r$ and $l$: As $c_{\mu\nu}^{mnl}(\mathbf{r})$
+is real
 \begin{equation}
 F_{\underline{\mu}\underline{\nu}}^{mnl}(\mathbf{r})=\left(-\right)^{m+n+l}F_{\mu\nu}^{mnl}(\mathbf{r})
 \end{equation}
@@ -541,8 +519,8 @@ As the two molecules are interchangeable,
 \begin{equation}
 F_{\nu\mu}^{nml}(\mathbf{r})=\left(-\right)^{m+n}F_{\mu\nu}^{mnl}(\mathbf{r})
 \end{equation}
-
-\item \selectlanguage{english}%
+}
+\item \textcolor{red}{\selectlanguage{english}%
 [2.]\selectlanguage{american}%
 With $r$ and $\chi$:
 \begin{equation}
@@ -557,111 +535,25 @@ F_{\underline{\mu}\underline{\nu},\underline{\chi}}^{mn}(\mathbf{r})=F_{\mu\nu,\
 \begin{equation}
 F_{\nu\mu,\chi}^{nm}(\mathbf{r})=\left(-\right)^{m+n}F_{\mu\nu,\chi}^{mn}(\mathbf{r})
 \end{equation}
-
-\item \selectlanguage{english}%
+}
+\item \textcolor{red}{\selectlanguage{english}%
 [3.]\selectlanguage{american}%
 With $k$ and $l$:
 \begin{eqnarray}
 \mathrm{TF}(c_{\mu\nu}^{mnl}(\mathbf{r})) & = & \hat{c}_{\mu\nu}^{mnl}(\mathbf{k})
 \end{eqnarray}
- is real if $l$ is even, is pure imaginary if $l$ is odd.
-\item \selectlanguage{english}%
+ is real if $l$ is even, is pure imaginary if $l$ is odd.}
+\item \textcolor{red}{\selectlanguage{english}%
 [4.]\selectlanguage{american}%
 With $k$ and $\chi$:
 \begin{equation}
 F_{\mu\nu,\underline{\chi}}^{mn}(\mathbf{k})=\left(-\right)^{m+n}F_{\mu\nu,\chi}^{*mn}(\mathbf{k})
 \end{equation}
-
+}
 \end{enumerate}
-Finally, if the solvent molecule possesses a symmetric axe $\mathrm{C}_{2}$,
-$\mu$ and $\nu$ is even.
+\textcolor{red}{Finally, if the solvent molecule possesses a symmetric
+axe $\mathrm{C}_{2}$, $\mu$ and $\nu$ is even.}
 
-For spherical solute, the $\mathbf{\Omega_{1}}$-dependence vanishes
-so that $m=\mu=0$, only the terms $F_{0\nu}^{0nl}(r)$ is not-zero.
-
-
-\section{Compare to multipole expansion}
-
-
-\subsection{Radical distribution function of numeric density}
-
-Content.
-
-
-\subsection{Radical distribution function of polarization}
-
-\[
-F(\mathbf{r},\mathbf{\Omega})=\sum_{nl\nu}F_{0\nu}^{0nl}(r)\Phi_{0\nu}^{0nl}(\mathbf{r},\mathbf{\Omega})
-\]
-
-
-conversely
-
-\[
-F_{0\nu}^{0nl}(r)=\int\mathrm{d}\hat{\mathbf{r}}\mathrm{d}\mathbf{\Omega}F(\mathbf{r},\mathbf{\Omega})\Phi_{0\nu}^{0nl*}(\mathbf{r},\mathbf{\Omega})/\int\mathrm{d}\hat{\mathbf{r}}\mathrm{d}\mathbf{\Omega}\left\Vert \Phi_{0\nu}^{0nl}(\mathbf{r},\mathbf{\Omega})\right\Vert ^{2}
-\]
-with
-
-\[
-\Phi_{0\nu}^{0nl}(\mathbf{r},\mathbf{\Omega})=f_{n}\sum_{\nu'}\left(\begin{array}{ccc}
-0 & n & l\\
-0 & \nu' & -\nu'
-\end{array}\right)R_{\nu'\nu}^{n}(\mathbf{\Omega})R_{-\nu',0}^{l}(\mathbf{\hat{r}})
-\]
-
-
-in particular
-
-\begin{eqnarray*}
-\Phi_{00}^{011}(\mathbf{r},\mathbf{\Omega}) & = & \sqrt{3}\left(\begin{array}{ccc}
-0 & 1 & 1\\
-0 & 0 & 0
-\end{array}\right)R_{00}^{1}(\mathbf{\Omega})R_{00}^{1}(\mathbf{\hat{r}})\\
- & + & \sqrt{3}\left(\begin{array}{ccc}
-0 & 1 & 1\\
-0 & 1 & -1
-\end{array}\right)R_{10}^{1}(\mathbf{\Omega})R_{-10}^{1}(\mathbf{\hat{r}})\\
- & + & \sqrt{3}\left(\begin{array}{ccc}
-0 & 1 & 1\\
-0 & -1 & 1
-\end{array}\right)R_{-10}^{1}(\mathbf{\Omega})R_{10}^{1}(\mathbf{\hat{r}})
-\end{eqnarray*}
-or
-\begin{eqnarray*}
-\Phi_{00}^{011}(\mathbf{r},\mathbf{\Omega}) & = & -3R_{00}^{1}(\mathbf{\Omega})R_{00}^{1}(\mathbf{\hat{r}})\\
- & + & 3R_{10}^{1}(\mathbf{\Omega})R_{-10}^{1}(\mathbf{\hat{r}})\\
- & + & 3R_{-10}^{1}(\mathbf{\Omega})R_{10}^{1}(\mathbf{\hat{r}})
-\end{eqnarray*}
-noting 
-
-\[
-R_{00}^{1}(\mathbf{\Omega})=\cos\theta
-\]
-
-
-\[
-R_{10}^{1}(\mathbf{\Omega})=-\frac{1}{\sqrt{2}}\sin\theta e^{-i\phi}
-\]
-
-
-one finds
-\begin{eqnarray*}
-\Phi_{00}^{011}(\mathbf{r},\mathbf{\Omega}) & = & -3R_{00}^{1}(\mathbf{\Omega})R_{00}^{1}(\mathbf{\hat{r}})\\
- & + & 3R_{10}^{1}(\mathbf{\Omega})R_{-10}^{1}(\mathbf{\hat{r}})\\
- & + & 3R_{-10}^{1}(\mathbf{\Omega})R_{10}^{1}(\mathbf{\hat{r}})\\
- & = & -3\mathbf{\Omega}\cdot\hat{\mathbf{r}}
-\end{eqnarray*}
-
-
-such that
-
-\begin{eqnarray*}
-F_{00}^{011}(r) & = & -\frac{1}{3}\int\\
- & = & P(\mathbf{r})\cdot\hat{\mathbf{r}}\\
-\end{eqnarray*}
-
-
-proportionality coefficient to be determined precisely... One thus
-gets the radial projection of the polarization.
-
-Content.
+\textcolor{red}{For spherical solute, the $\mathbf{\Omega_{1}}$-dependence
+vanishes so that $m=\mu=0$, only the terms $F_{0\nu}^{0nl}(r)$ is
+not-zero.}
