@@ -1,81 +1,80 @@
 
 \chapter{Introduction\label{chpt:introduction}}
 
-This thesis is about to develop an original numerical toolkit for
+This thesis details the development of an original numerical toolkit for
 physical chemists and structural biologists, based on the molecular
 density functional theory (\acs{MDFT}), which makes it possible to
-predict efficiently, and with a microscopic accuracy, the solvation
-properties of arbitrary molecular objects in arbitrary molecular solvents
-(mainly water). This introduction will help to understand the objective
+predict the solvation properties of arbitrary molecular objects in arbitrary molecular solvents
+(mainly water) efficiently and with microscopic accuracy. This introduction will help to understand the objective
 of this thesis, it explains why people are interested in the nature
-of solvation, and where we are in the computing trends in solvation
-simulation.
+of solvation, and where we are in terms of the computing trends in solvation
+simulations.
 
 
 \section{Simulation of solvent effects}
 
 Solvation is a fundamental phenomenon in chemistry. The chemical behavior
-of lots of systems has a strong dependence on the nature of solvent.
-For example, for some popular issue as metal-organic reacting center
+of numerous systems strongly depends on the nature of solvency, including popular issues like metal-organic reacting centers
 \citep{Mn-oxo,PCET}, or pharmaceutical etudes \citep{drug_1_Perlovich,drug_2_Perlovich,drug_3}.
-The solvation properties required by etudes are very variable, such
+The solvation properties required by etudes %Etude? I only know this in terms of music. Does it have scientific applications?
+are highly variable, such
 as the Gibbs free energy of solvation, solubility, partition coefficient,
-saturated vapor pressure, pH value, as well as the 3D solvation structure,
-etc. Overall, the interest of these solvation properties comes from
-many domains, such as chemistry, biochemistry, pharmaceutics, medicine,
+saturated vapor pressure, pH value, the 3D solvation structure,
+etc. Overall, the interest in these solvation properties reaches into
+many domains such as chemistry, biochemistry, pharmaceuticals, medicine, and
 environmental and agrochemical industries. Unlike the well-studied
 quantum mechanics (\acs{QM}) for chemical interaction and macroscopic
-finite element model for physical process, the theories of solvation
-are very variable and still under developing, owing to the ambiguous
-compromise between the accuracy and the computing cost. In a word,
-the studies in this domain are quite important and vibrant.
+finite element model for physical processes, the theories of solvation
+are quite variable and still under development, owing to the ambiguous
+compromise between accuracy and computing cost. In a word,
+the studies in this domain are quite vibrant.
 
 \begin{figure}[h]
 \centering{}\textcolor{red}{}%
 \begin{minipage}[t]{1\textwidth}%
 \begin{center}
-\includegraphics[width=1\columnwidth]{_figure/solvation}\caption[The solvation process]{The solvation process.\label{fig:Process-of-solvation} To a thermodynamic
-system, whose properties only depends on the initial and final states,
-it can go through different paths. The physical process of solvation
-(left path)takes the solute from vacuum into bulk solvent, progressively
+\includegraphics[width=1\columnwidth]{_figure/solvation}\caption[The solvation process]{The solvation process.\label{fig:Process-of-solvation} A thermodynamic
+system, whose properties only depend on the initial and final states,
+can go through different paths. The physical process of solvation
+(left path) takes the solute from vacuum into bulk solvent, progressively
 passing through the vacuum-liquid interface. Theoretically, the solvation
-energy is defined as the energy consumed in such a progress. In theoretical
+energy is defined as the energy consumed in such a process. In theoretical
 studies, the process can be decomposed to some artificial unphysical
 process (right path), involving the growth of an uncharged solute-sized
 cavity within the bulk solvent, the transfer of the solute charge
-distribution from vacuum into the cavity, and the interaction between
-the solute and solvent, etc.}
+distribution from vacuum into cavity, and the interaction between
+the solute and solvent.}
 
 \par\end{center}%
 \end{minipage}
 \end{figure}
 
 
-To change a phenomenon to a model, we must understand its process.
+To change a phenomenon to a model, we must first understand its process.
 Solvation is defined as the process of moving a molecule from the
 gas phase (or vacuum) to a condensed phase (figure \ref{fig:Process-of-solvation}),
 which builds a stabilizing interaction with the solute (or solute
 moiety like protein residues, interfaces, etc.) \citep{iupac}. Such
-interactions are mostly classical, involving electrostatic forces
-and van der Waals forces, with also chemically more specific effects
+interactions are mostly classical, involving electrostatic
+and van der Waals forces, with additional more specific chemical effects
 such as hydrogen bond formation, and quantic effects for some small
-solvents whose vibrational or rotational energy states is at the same
+solvents whose vibrational or rotational energy states are at the same
 magnitude as $k_{\mathrm{B}}T$, etc. \citep{Gray-Gubbins}.
 
-As not all kinds of interactions is important in applications, according
-to the usage, different models and methods are developed.
+As not all kinds of interactions are important in applications, according
+to the usage, different models and methods have been developed.
 
-In the most of the 20th century \citep{Cramer_1999}, the study of
+For most of the 20th century \citep{Cramer_1999}, the study of
 solvation effects has been dominated by continuum (implicit) models,
-which is simply depending on the dielectric constants and not costly
-on computation resource. They provide an accurate way to treat the
+which depend upon the dielectric constants and are not costly
+in terms of computation resources. They provide an accurate way to treat the
 strong, long-range electrostatic interactions which dominate many
-solvation phenomena, but lack of detail informations in the first
-solvation shell. The later, which mainly includes the cavity formation
+solvation phenomena, but lack detailed information on the first
+solvation shell. The latter, which mainly includes the cavity formation
 energy and solute-solvent van der Waals interactions, is often rudely
-treat by introducing an artificial form of cavity, that links to the
-form of solute. And the methods for electrostatic interactions involves
-like generalized Born model, or through better estimates via Poisson-Boltzmann
+treated by introducing an artificial form of cavity that links to the
+form of solute. The methods for testing electrostatic interactions include
+generalized Born model, or for better estimates via Poisson-Boltzmann
 calculations. They are widely integrated within \acs{QM} simulations
 of the solvent, by add extra solvation terms onto the Fock or Kohn-Sham
 operator \citep{Jensen,scrf,Tomasi_1994_implicit_model}. However,
