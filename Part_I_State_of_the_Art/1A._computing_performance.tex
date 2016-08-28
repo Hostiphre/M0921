@@ -1,17 +1,30 @@
 
 \chapter{Basic Concepts about Computing Performance\label{chpt:computing-performance}}
 
+<<<<<<< HEAD
 In addition to the theory work, the performance of the code being
 developed is also an important aspect of this thesis. It is essential
 to have a fast and accurate method. To evaluate a code in a strict
 and systematic way, some basic concepts of computing performance are
 list here. 
+=======
+In addition to the theory, the performance of the code being developed is
+also an important aspect of this thesis. It is essential to
+have a fast and accurate method. To evaluate a code in a strict and
+systematic way, some basic concepts of computing performance are listed
+here. 
+>>>>>>> 6954f1f1fb095bf6dbfbd5c9ba01174d3ca46c2a
 
 
 \section{Algorithm complexity}
 
+<<<<<<< HEAD
 Algorithm complexity is a crucial criteria for sequential code. A
 definition is given below.
+=======
+Algorithm complexity is a crucial criteria for sequential code.
+A definition is given below.
+>>>>>>> 6954f1f1fb095bf6dbfbd5c9ba01174d3ca46c2a
 
 Let $f$ and $g$ be two real (or even complex) functions defined
 over the natural numbers $\mathbb{N}$. We write
@@ -22,7 +35,11 @@ if there is a constant $c>0$ such that from certain number $n>n_{0}$
 we always have $\left|f(n)\right|\leq c\left|g(n)\right|.$ The $O$
 is also named as the big-O notation \citep{Complexity}, or order
 of growth. Figure \ref{fig:order-of-growth} shows the growth tendency
+<<<<<<< HEAD
 of some frequent functions; from this we can conclude the following:
+=======
+of some frequent functions; from this we can conclude the following: 
+>>>>>>> 6954f1f1fb095bf6dbfbd5c9ba01174d3ca46c2a
 \begin{equation}
 O(1)>O(\log_{2}n)>O(n)>O(n\log_{2}n)>O(n^{2})>O(2^{n})>O(n!)
 \end{equation}
@@ -38,16 +55,20 @@ O(1)>O(\log_{2}n)>O(n)>O(n\log_{2}n)>O(n^{2})>O(2^{n})>O(n!)
 
 
 In this thesis, the big-O notation is used to measure algorithm complexity.
+<<<<<<< HEAD
 Other notations can also be used for the same purpose, such as:
+=======
+Other notations can also be used for the same purpose, such as: 
+>>>>>>> 6954f1f1fb095bf6dbfbd5c9ba01174d3ca46c2a
 \begin{itemize}
 \item $f=o(g)$ if $f(n)/g(n)\rightarrow0$, $n\rightarrow\infty$
 \item The inverse of big-O notation $f=\Omega(g)$ if $g=O(f)$
 \item The notation $f=\Theta(g)$ means that both $f=O(g)$ and $g=O(f)$
 hold, and we can also say they are of the same order.
 \end{itemize}
-In a code we always search algorithms with a lower algorithm complexity.
-Ideally, the implementation of code matches the model and have the
-same growth tendency as its complexity, but in the practical case,
+In a code, we always search algorithms with a lower algorithm complexity.
+Ideally, the implementation of code matches the model and has the
+same growth tendency as its complexity, but in terms of practicality,
 overheads and memory delay can also limit the performance. \textcolor{red}{(part
 to be modified to adapt implementation results)}
 
@@ -84,17 +105,24 @@ use of resources occurs at the intersection point.
 \includegraphics[width=1\columnwidth]{_figure/roofline}
 \par\end{centering}
 
-\caption[The roofline model and performance pattern]{The roofline model and performance pattern. (a) The roofline model.
+\caption [The roofline model and performance pattern]{The roofline model and performance pattern. (a) The roofline model.
 (b) Performance pattern of a simple loop with respect to the loop
 length in logarithm. The blue part is limited by operation execution,
-and the yellow part is limited by memory bottleneck. \label{fig:The-roofline-model}}
+and the yellow part by memory bottleneck. \label{fig:The-roofline-model}}
 \end{figure}
 
 
+<<<<<<< HEAD
 The roofline model can give an idea of whether the diminuition of
 algorithm complexity is the most important optimization strategy,
 because it only counts the number of operations. In most of cases,
 avoiding slow data paths is the key to performance optimization.
+=======
+The roofline model can give an idea of whether the diminuition of algorithm
+complexity is the most important optimization strategy, because it
+only counts the number of operations. In most of cases, avoiding
+slow data paths is the key to performance optimization.
+>>>>>>> 6954f1f1fb095bf6dbfbd5c9ba01174d3ca46c2a
 
 As shown in figure \ref{fig:Memory}, the memory hardware has hierarchical
 architectures. The fastest ones are the registers included in the
@@ -102,16 +130,21 @@ microprocessor, which are used for temporary storage of data, instructions
 and addresses required by the arithmetic logic unit (ALU) and the
 control unit (CU) in CPU during execution of a program. The lowest
 is normally the input/output (I/O) process. The reading strategy of
+<<<<<<< HEAD
 data (contiguous or not), as well as the size and initialized location
 of arrays, both play pivotal roles in the overall computing performance.
+=======
+data (contiguous or not), as well as the size and initialized location of arrays,
+both play pivotal roles in the overall computing performance. 
+>>>>>>> 6954f1f1fb095bf6dbfbd5c9ba01174d3ca46c2a
 
 \begin{figure}[h]
 \begin{centering}
 \includegraphics{_figure/memory}
 \par\end{centering}
 
-\caption[Memory usage in hardware level]{Memory usage in hardware level \citep{LRZ-cours}. (a) An example
-of array copy A(:)=C(:). Caches are organized in cache lines (CL),
+\caption [Memory usage in hardware level]{Memory usage in hardware level \citep{LRZ-cours}. (a) An example
+of array copy A(:)=C(:). Caches are organized in cache lines (CL);
 only complete cache lines are transferred between memory hierarchy
 levels (except registers). HIT/MISS: Load or store instruction does/doesn't
 find the data in a cache level. (b) Computing latency and memory bandwidth
@@ -133,15 +166,21 @@ S(N)=\dfrac{t(1)}{t(N)}
 \end{equation}
 
 
-And the relative efficiency
+And the relative efficiency is:
 \begin{equation}
 E(N)=\dfrac{S(N)}{N}=\dfrac{t(1)}{Nt(N)}
 \end{equation}
 
 
+<<<<<<< HEAD
 $S(N)\sim N$ or $E(N)\sim100\%$ means the application scales. By
 contrast, $S(N)<N/2$ or $E(N)<50\%$ means the application does not
 scale. 
+=======
+$S(N)\sim N$ or $E(N)\sim100\%$ means the application scales. 
+By contrast, $S(N)<N/2$ or $E(N)<50\%$ means the application does
+not scale. 
+>>>>>>> 6954f1f1fb095bf6dbfbd5c9ba01174d3ca46c2a
 
 Amdahl's Law gives the theoretical speedup in latency of the execution
 of a task at fixed workload:
@@ -162,9 +201,14 @@ making it the focus we wish to reduce.
 There are several types of software and toolkits for performance evaluation.
 They are of two categories: profiling and tracing. A trace is a collection
 of events or timestamps. A profile is a collection of timings. Profiling
+<<<<<<< HEAD
 tools are usually more simple and rapid, but for subroutines that
 are called by a large number of times, the overhead in time measurement
 is not negligible. 
+=======
+tools are usually more simple and rapid, but for subroutines that are called
+a large number of times, the overhead in time measurement is negligible. 
+>>>>>>> 6954f1f1fb095bf6dbfbd5c9ba01174d3ca46c2a
 
 The tool used in this thesis is mainly VTune, where application execution
 is interrupted every $\sim100\,\mathrm{\mu s}$ and information is
