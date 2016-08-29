@@ -2,10 +2,10 @@
 \chapter{Introduction\label{chpt:introduction}}
 
 This thesis details the development of an original numerical toolkit for
-physical chemists and structural biologists, based on the molecular
+physical chemists and structural biologists based on the molecular
 density functional theory (\acs{MDFT}), which makes it possible to
 predict the solvation properties of arbitrary molecular objects in arbitrary molecular solvents
-(mainly water) efficiently and with microscopic accuracy. This introduction will help to understand the objective
+(mainly water) efficiently and with microscopic accuracy. This introduction will aim to illuminate the objective
 of this thesis, it explains why people are interested in the nature
 of solvation, and where we are in terms of the computing trends in solvation
 simulations.
@@ -56,7 +56,7 @@ gas phase (or vacuum) to a condensed phase (figure \ref{fig:Process-of-solvation
 which builds a stabilizing interaction with the solute (or solute
 moiety like protein residues, interfaces, etc.) \citep{iupac}. Such
 interactions are mostly classical, involving electrostatic
-and van der Waals forces, with additional more specific chemical effects
+and van der Waals forces, with additional specific chemical effects
 such as hydrogen bond formation, and quantic effects for some small
 solvents whose vibrational or rotational energy states are at the same
 magnitude as $k_{\mathrm{B}}T$, etc. \citep{Gray-Gubbins}.
@@ -75,74 +75,73 @@ energy and solute-solvent van der Waals interactions, is often rudely
 treated by introducing an artificial form of cavity that links to the
 form of solute. The methods for testing electrostatic interactions include
 generalized Born model, or for better estimates via Poisson-Boltzmann
-calculations. They are widely integrated within \acs{QM} simulations
-of the solvent, by add extra solvation terms onto the Fock or Kohn-Sham
+calculations. These are widely integrated within \acs{QM} simulations
+of the solvent by adding extra solvation terms onto the Fock or Kohn-Sham
 operator \citep{Jensen,scrf,Tomasi_1994_implicit_model}. However,
-the improper treatment of the first-shell, where the microscopic interactions
-are primarily located, often introduce sometimes huge error in free
+the improper treatment of the first shell, where the microscopic interactions
+are primarily located, often introduce potentially huge errors in free
 energy evaluation, especially for polar solvents (like water), despite
 the accuracy that the \acs{QM} calculation alone can achieve. Therefore,
-classical molecular simulations, which describing the individual solvent
+classical molecular simulations, which describe the individual solvent
 molecules (explicit), particularly the molecular dynamics (\acs{MD})
 and Monte Carlo method (\acs{MC}), became the alternative solution
 during the last few decades. They generate trajectories and configurations,
-then estimate free energy changes by statistical mechanic technics,
+then estimate free energy changes by statistical mechanical techniques,
 such as free energy perturbation (FEP) theory or thermodynamic integration
-(TI) \citep{Jorgensen_1995_MC}. These calculation is very demanding
-on computing cost, due to the requirement of many (hundreds or thousands
-of) solvent molecules to form a realistic model.
+(TI) \citep{Jorgensen_1995_MC}. These calculations are very demanding
+on computing cost, due to the need for many (hundreds or thousands) solvent molecules to form a realistic model.
 
-Recently, a third domain of theory to describe solvent, based on the
-statistical mechanics of fluid, is growing rapidly. It is generally
-called liquid theory, involves mainly the integral equation theory
+Recently, a third domain of theory to describe solvents based on the
+statistical mechanics of fluids has been growing rapidly. It is generally
+called liquid theory, involving mainly the integral equation theory
 (\acs{IET}), and the classical density functional theory for liquids.
-These approaches are cope to give the molecular nature of the first-shell,
-but without calculate all the instantaneous micro-states with respect
-to time, which can be integrated over positions and momentums theoretically.
-Therefore, they are of magnitudes faster than those simulations by
+These approaches are capable of giving the molecular nature of the first-shell,
+but without calculating all the instantaneous micro-states with respect
+to time, which can be integrated over positions and momentum theoretically.
+Therefore, they are of faster magnitudes than those simulations done by
 micro-states.
 
-The integral equation theory (\acs{IET}) is about solving the Ornstein-Zernike
+The integral equation theory (\acs{IET}) focuses on solving the Ornstein-Zernike
 (\acs{OZ}) equation with a specific closure equation \citep{Hensen-McDonald,Gray-Gubbins}.
-It was firstly limited to so called ``simple liquid'' - a system
-of spherical particles. A part, Chandler and Andersen in 1971 \citep{Chandler_1972_RISM}
+It was firstly limited to so-called ``simple liquids'' - a system
+of spherical particles. Separately in 1971, Chandler and Andersen \citep{Chandler_1972_RISM}
 developed the reference interaction site model (\acs{RISM}), which
 discretizes the distribution and correlation functions into a site-site
-set of functions, and solve the \acs{OZ} equation in matrix \citep{hirata_molecular_2004}.
-Another part, Blum \citep{Blum_I,Blum_II}, Fries and Patey \citep{Fries_Patey_1985}
-extend the \acs{OZ} equation to molecular case, where the distribution
+set of functions, and solves the \acs{OZ} equation in a matrix \citep{hirata_molecular_2004}.
+Another party, Blum \citep{Blum_I,Blum_II}, Fries and Patey \citep{Fries_Patey_1985}
+extendrf the \acs{OZ} equation to molecular cased, where the distribution
 and correlation functions depend on both position and orientation.
-In their theory, the orientation part of \acs{OZ} equation is simplified
-by expending the distribution and correlation functions on Wigner
+In their theory, the orientation part of yjr \acs{OZ} equation is simplified
+by expanding the distribution and correlation functions on Wigner
 generalized spherical harmonics.
 
-The classical density functional theory approach deal with inhomogeneous
-liquids, which uses the same variation principle and minimization
+The classical density functional theory approach deals with inhomogeneous
+liquids, and uses the same variation principle and minimization
 strategy \citep{mermin_thermal_1965,Evans_1979,Hansen_1987} as electronic
 density functional theory \acs{DFT} that treats electric interactions
-and has a great success in computational chemistry. It gives the Helmholtz
-free energy and the equilibrium solvent density, by minimizing the
+and has great success in computational chemistry. It gives the Helmholtz
+free energy and the equilibrium solvent density by minimizing the
 free energy functional of the solvent density in the presence of a
 given external potential. Borgis and collaborators \textcolor{red}{{[}too
-many ref{]}} have recently generalized it into molecular case, named
+many ref{]}} have recently generalized it into a molecular case, named
 molecular density functional theory (\acs{MDFT}), where the solvent
 density depends on both position and orientation, $\rho(\mathbf{r},\mathbf{\Omega})$.
 The main theoretical difficulty lies in the definition of well-funded
 and reliable functionals of the excess free energy $\mathcal{F}_{\mathrm{exc}}\left[\rho\right]$,
 according to the geometric complexity of the solvent molecule. Some
-recent researches have shown that it is cope with linear solvents
-like acetonitrile, but still have little non-satisfaction with the
-most complex solvent, i. e. water. \acs{MDFT} can be proved to be
+recent research has shown that it is compatible with linear solvents
+like acetonitrile, but still have found little non-satisfaction with the
+most complex solvent, i. e. water. \acs{MDFT} can be proven to be
 mathematically equivalent to the two-component molecular \acs{IET}.
 
-The majority of work of all these theories have been focused on water,
+The majority of work of all these theories has been focused on water,
 since it is one of the most difficult systems to model due to its
 molecular geometry, ineligible multi-body interaction, quantum effect,
-hydrogen bond, etc. The importance of including instantaneous polarization
+and hydrogen bonds. The importance of including instantaneous polarization
 in potential functions is also an issue \citep{polarisable_1,polarisable_2}.
 However, since polarizable force fields are not yet in common use,
 the simulations by micro-states and the liquid theory which feed on
-force field also have their own limit, compared to the continuum model
+force fields also have their own limits compared to the continuum model,
 which can be polarizable. The advantages and disadvantages of each
 branch of theory are listed in table \ref{tab:Theories-of-solvation}.
 
@@ -163,7 +162,7 @@ Liquid theory & fast & yes & yes & partially\tabularnewline
 \end{table}
 
 
-This thesis consists in the development of the \acs{MDFT}, focusing
+This thesis consists of the development of the \acs{MDFT}, focusing
 on the generalization and algorithmic acceleration of the excess free
 energy functional $\mathcal{F}_{\mathrm{exc}}$ evaluation under homogenous
 reference fluid (\acs{HRF}) approximation, which will be discussed
@@ -173,7 +172,7 @@ in detail in later chapters.
 \section{Scope of this thesis}
 
 Chapter I reviews a selection of models and methods to the solvent
-effect. It includes the mainly used continuum model, the basic of
+effect. It includes the popular continuum model, the basics of
 liquid theory, as well as its two frontier research domains, \acs{IET}
 and \acs{MDFT}. The code structure of \acs{MDFT}, which all the
 development in this thesis is based on, is also presented. There is
@@ -182,16 +181,16 @@ generation of direct correlation function (\acs{DCF}) used in this
 thesis by such methods. 
 
 Chapter II presents all the theory developed and newly used in this
-thesis. In this thesis, two algorithms of excess energy functional
-evaluation are proposed, one is extension of the previous algorithm,
-other is a new algorithm, that combines the molecular \acs{OZ} equation
-treatment of angular part with MDFT. The output solvation properties
-is mainly the two: free energy, and solvent structure.
+thesis. Specifically, two algorithms of excess energy functional
+evaluation are proposed. One is an extension of the previous algorithm,
+while the other is a new algorithm that combines the molecular \acs{OZ} equation
+treatment of angular parts with MDFT. The output solvation properties
+are mainly free energy and solvent structure.
 
-Chapter III takes note of all the implementation result, that divided
-into two aspects, the ``accuracy'', which involves comparisons between
-algorithms, and with \acs{IET} and \acs{MD} results; and the ``efficiency'',
-which evaluate the computing cost of the code, both in sequential
-and parallelized version.
+Chapter III takes note of all the implementation results, then divides them
+into two aspects: the ``accuracy'', which involves comparisons between
+algorithms with \acs{IET} and \acs{MD} results; and the ``efficiency'',
+which evaluates the computing cost of the code, both in sequential
+and parallelized versions.
 
 Chapter VI gives some application to ions and molecules.
