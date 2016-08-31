@@ -4,13 +4,13 @@
 <<<<<<< HEAD
 In addition to the theory work, the performance of the code being
 developed is also an important aspect of this thesis. It is essential
-to have a fast and accurate method. To evaluate a code in a strict
+to have a fast and accurate method. To evaluate code in a strict
 and systematic way, some basic concepts of computing performance are
-list here. 
+listed here. 
 =======
 In addition to the theory, the performance of the code being developed is
 also an important aspect of this thesis. It is essential to
-have a fast and accurate method. To evaluate a code in a strict and
+have a fast and accurate method. To evaluate code in a strict and
 systematic way, some basic concepts of computing performance are listed
 here. 
 >>>>>>> 6954f1f1fb095bf6dbfbd5c9ba01174d3ca46c2a
@@ -89,7 +89,7 @@ $P$ & is the applicable peak performance of a loop, assuming that data comes
 from the level 1 cache, of unity $\mathrm{GFlop/s}$. \tabularnewline
 $I$ & is the computational intensity (“work” per byte transferred) over
 the slowest data path utilized, of unity $\mathrm{Flop/Byte}$. \tabularnewline
-$b_{\mathrm{S}}$ & is the applicable peak bandwidth of the slowest data path utilized,
+$b_{\mathrm{S}}$ is the applicable peak bandwidth of the slowest data path utilized,
 of unity $\mathrm{GByte/s}$.\tabularnewline
  & \tabularnewline
 \end{tabular}
@@ -115,12 +115,12 @@ and the yellow part by memory bottleneck. \label{fig:The-roofline-model}}
 <<<<<<< HEAD
 The roofline model can give an idea of whether the diminuition of
 algorithm complexity is the most important optimization strategy,
-because it only counts the number of operations. In most of cases,
+because it only counts the number of operations. In most cases,
 avoiding slow data paths is the key to performance optimization.
 =======
 The roofline model can give an idea of whether the diminuition of algorithm
 complexity is the most important optimization strategy, because it
-only counts the number of operations. In most of cases, avoiding
+only counts the number of operations. In most cases, avoiding
 slow data paths is the key to performance optimization.
 >>>>>>> 6954f1f1fb095bf6dbfbd5c9ba01174d3ca46c2a
 
@@ -173,8 +173,8 @@ E(N)=\dfrac{S(N)}{N}=\dfrac{t(1)}{Nt(N)}
 
 
 <<<<<<< HEAD
-$S(N)\sim N$ or $E(N)\sim100\%$ means the application scales. By
-contrast, $S(N)<N/2$ or $E(N)<50\%$ means the application does not
+$S(N)\sim N$ or $E(N)\sim100\%$ means the application scales. 
+By contrast, $S(N)<N/2$ or $E(N)<50\%$ means the application does not
 scale. 
 =======
 $S(N)\sim N$ or $E(N)\sim100\%$ means the application scales. 
@@ -199,11 +199,11 @@ making it the focus we wish to reduce.
 \section{Profiling and tracing toolkits}
 
 There are several types of software and toolkits for performance evaluation.
-They are of two categories: profiling and tracing. A trace is a collection
+They comprise two categories: profiling and tracing. A trace is a collection
 of events or timestamps. A profile is a collection of timings. Profiling
 <<<<<<< HEAD
 tools are usually more simple and rapid, but for subroutines that
-are called by a large number of times, the overhead in time measurement
+are called a large number of times, the overhead in time measurement
 is not negligible. 
 =======
 tools are usually more simple and rapid, but for subroutines that are called
