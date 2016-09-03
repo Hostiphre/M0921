@@ -14,9 +14,8 @@ as its gradient:
 
 To evaluate the gradient $\gamma$ for each $\mathbf{(r},\mathbf{\Omega})$,
 $N\equiv N_{\mathbf{r}}N_{\mathbf{\Omega}}$ function evaluations
-(FE) are needed, the total number of FE is thus $N^{2}=O(N^{2})$,
-which, with typically $N_{\mathbf{r}}=64^{3}$ and $N_{\mathbf{\Omega}}=50\sim100$,
-is too costly for current computing technology. For this reason, Fourier
+(FE) are required. The total number of FE is thus $N^{2}=O(N^{2})$; with typically $N_{\mathbf{r}}=64^{3}$ and $N_{\mathbf{\Omega}}=50\sim100$,
+this is far too costly for current computing technology. For this reason, Fourier
 transform is used to treat the spatial convolution in eq. (\ref{eq:gamma}).
 
 A convolution
@@ -36,7 +35,7 @@ eq. (\ref{eq:gamma}) is a 3D convolution, which leads to
 
 
 Thus the integral $\int\mathrm{d}\mathbf{r_{2}}$ in eq. (\ref{eq:gamma})
-is transformed to a simple product in eq. (\ref{eq:gamma-k}). To
+is transformed into a simple product in eq. (\ref{eq:gamma-k}). To
 get $\hat{\gamma}(\mathbf{k},\mathbf{\Omega_{1}})$ with given $\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega_{2}})$,
 only $N_{\mathbf{r}}N_{\mathbf{\Omega}}^{2}$ FE are needed. To this
 computational cost should be added the transform from $\Delta\rho(\mathbf{r},\mathbf{\Omega})$
@@ -54,13 +53,13 @@ in section \ref{chpt:introduction}).
 
 Once $\gamma(\mathbf{r},\mathbf{\Omega})$ is obtained by inverse
 Fourier transform of $\gamma(\mathbf{r},\mathbf{\Omega})$, the excess
-functional can be calculated as
+functional can be calculated as:
 \begin{equation}
 \mathcal{F}_{\mathrm{exc}}[\rho(\mathbf{r},\mathbf{\Omega})]=\frac{1}{2}\int\mathrm{d}\mathbf{r}\mathrm{d}\mathbf{\Omega}\Delta\rho(\mathbf{r},\mathbf{\Omega})\gamma(\mathbf{r},\mathbf{\Omega})
 \end{equation}
 
 
-It should be noticed that, the direct correlation function (DCF),
+It should be pointed out that the direct correlation function (DCF),
 $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$, used
 as an input data in eq. (\ref{eq:gamma-k}) is very memory-costly.
 For instance, with a normal setting with $64^{3}$ spatial grid and
@@ -81,18 +80,18 @@ done with $\mathbf{\Omega}\equiv(\Theta,\Phi)$. Here, we discuss
 the case of full 3 Euler angles $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$.
 : To be put somewhere else.)}
 
-The first strategy is to work in the so-called intermolecular frame
-described in Fig. \ref{fig:coordinate_systems} for which, in $\mathbf{r}$-space,
+The first strategy aims to work in the so-called intermolecular frame
+described in fig. \ref{fig:coordinate_systems} for which, in $\mathbf{r}$-space,
 the $z$ axis is oriented along the vector $\mathbf{r_{12}}=\mathbf{r_{2}}-\mathbf{r_{1}}$,
 or in $\mathbf{k}$-space is oriented along the vector $\mathbf{k}$.
-In the later case, an orientation $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$
+In the latter case, an orientation $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$
 in laboratory frame become $\boldsymbol{\omega}\equiv(\theta,\phi,\psi)$
 in intermolecular frame. 
 
 To store the DCF in the intermolecular coordinates system, it can
 be defined as $\hat{c}(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$,
 where $(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})\equiv(\cos\theta_{1},\cos\theta_{2},\phi,\psi_{1},\psi_{2})$
-and $k$ always oriented along the $z$ axis (figure \ref{fig:coordinate_systems})
+and $k$ is always oriented along the $z$ axis (figure \ref{fig:coordinate_systems})
 such that only 6 variables are needed instead of 9 for $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$,
 and the storage is considerably reduced. The transform from $\hat{c}(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
 to $\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
@@ -106,15 +105,15 @@ which can be pre-calculated as a table of data.
 \par\end{centering}
 
 \caption{\selectlanguage{american}%
-Molecule 1 and 2 in different coordinate systems\foreignlanguage{english}{\label{fig:coordinate_systems}}\selectlanguage{american}%
+Molecules 1 and 2 in different coordinate systems\foreignlanguage{english}{\label{fig:coordinate_systems}}\selectlanguage{american}%
 }
 \end{figure}
 
 
 \selectlanguage{american}%
-To find $\boldsymbol{\omega}$ from $\mathbf{\Omega}$ amounts to
-define the correspondence between the rotation matrices of the two
-coordinates systems. 
+Finding $\boldsymbol{\omega}$ from $\mathbf{\Omega}$ amounts to
+defining the correspondence between the rotation matrices of the two
+coordinate systems. 
 
 The rotation matrix $\mathbf{\hat{R}}_{\mathbf{\Omega}}$ rotates
 the solvent molecule from $\mathbf{I}$ to its orientation $\mathbf{\hat{R}}_{\mathbf{\Omega}}$:
@@ -123,9 +122,9 @@ the solvent molecule from $\mathbf{I}$ to its orientation $\mathbf{\hat{R}}_{\ma
 \end{equation}
 
 
-It can be expressed by 3 rotation operations $\mathbf{\hat{R}}_{\Phi}$,
-$\mathbf{\hat{R}}_{\Theta}$, and $\mathbf{\hat{R}}_{\Psi}$ which
-rotates along $z-y-z$ axes \textcolor{red}{(the same convention as
+It can be expressed by 3 rotation operations, $\mathbf{\hat{R}}_{\Phi}$,
+$\mathbf{\hat{R}}_{\Theta}$, and $\mathbf{\hat{R}}_{\Psi}$, which
+rotats along $z-y-z$ axes \textcolor{red}{(the same convention as
 defined in Messiah and Gray-Gubbins)}:
 \begin{align}
 \mathbf{\hat{R}}_{\mathbf{\Omega}} & =\left[\begin{array}{ccc}
@@ -171,8 +170,8 @@ R_{zx} & R_{zy} & R_{zz}
 \end{figure}
 
 
-As shown in figure \ref{fig:rotation-matrices}, the rotation matrix
-to transforming the DCF from the intermolecular coordinates to laboratory
+As shown in fig. \ref{fig:rotation-matrices}, the rotation matrix
+for transforming the DCF from the intermolecular coordinates to laboratory
 coordinates $\mathbf{\hat{R}}_{\boldsymbol{\omega}}$ can be written
 as:
 \begin{equation}
@@ -188,10 +187,10 @@ with the rotation matrix related to $\mathbf{k}$ vector:
 \end{equation}
 
 
-Here we fixe $\psi_{k}=0$. As $\theta_{k}$ and $\phi_{k}$ are calculated
+Here we fix $\psi_{k}=0$. As $\theta_{k}$ and $\phi_{k}$ are calculated
 from Cartesian coordinates ($k_{x}$, $k_{y}$, $k_{z}$), in the
 extreme cases that we cannot define $\theta_{k}$ (for $\left\Vert \mathbf{k}\right\Vert =0$)
-and $\phi_{k}$ (for $k_{x}^{2}+k_{y}^{2}=0$), we can fix arbitrarily
+and $\phi_{k}$ (for $k_{x}^{2}+k_{y}^{2}=0$), we can arbitrarily fix 
 those angles to zero.
 
 A faster way to find the rotation matrix of $\mathbf{k}$, avoiding
@@ -205,16 +204,16 @@ vectors from $z$ axis and $\mathbf{k}$ vector ($\mathbf{k}=\mathbf{e}_{3}^{''}$)
 \end{equation}
 
 
-The two ways to calculate $\mathbf{k}$ differs only in the case of
+The two ways to calculate $\mathbf{k}$ differ only in the case of
 $\hat{\mathbf{k}}=\left[\begin{array}{ccc}
 0 & 0 & -1\end{array}\right]^{T}$, where one is the inverse of the other. This is due to the different
 definitions of $\phi_{k}$ ($0$ or $\pi$ when $\overrightarrow{k'_{z}}$
 superposes with $\overrightarrow{k_{z}}$) in the two cases. Tests
-have shown that it has no influence to the final result of the excess
+have shown that it has no influence on the final result of the excess
 functional evaluation.
 
-Then, the elements of $\mathbf{\hat{R}}_{\boldsymbol{\omega}}$ can
-be calculated according to eq. (\ref{eq:rot-matrix})
+Therefore, the elements of $\mathbf{\hat{R}}_{\boldsymbol{\omega}}$ can
+be calculated according to eq. (\ref{eq:rot-matrix}).
 \begin{align}
 \mathbf{\hat{R}}_{\boldsymbol{\omega}} & =\left[\begin{array}{ccc}
 u_{x} & v_{x} & w_{x}\\
@@ -229,7 +228,7 @@ u_{z} & v_{z} & w_{z}
 \end{align}
 
 
-The angles $\boldsymbol{\omega}$ is thus found as
+The angles $\boldsymbol{\omega}$ are thus found as:
 \begin{eqnarray}
 \cos\theta & = & w_{z}\nonumber \\
 \phi & = & \arccos(w_{x}/(w_{x}^{2}+w_{y}^{2})^{\frac{1}{2}})\label{eq:omega}\\
@@ -246,8 +245,8 @@ de faire des interpolations: grille plus fine pour om dans c(k,om\_1,om\_2)
 et pour chaque (k,Omega) on doit trouver le om corerspondant.)}
 
 The interpolation of these found angles to the intermolecular grid
-can be done with different orders: zeroth order interpolation which
-takes directly the nearest point, or linear interpolation.
+can be done with different orders: zeroth order interpolation, which
+directly takes the nearest point, or linear interpolation.
 
 
 \subsection{Zero-order interpolation of DCF\label{sub:Zero-order-interpolation-of}}
@@ -255,7 +254,7 @@ takes directly the nearest point, or linear interpolation.
 At this order, for each possible value of $\mathbf{k}$ and $\mathbf{\Omega}$,
 the corresponding $\cos\theta$ and $\psi$ which relate to only one
 solvent molecule are stored as an index (single precision integer),
-which gives the nearest angle in a pre-defined table
+which gives the nearest angle in a pre-defined table.
 \begin{equation}
 \begin{array}{l}
 i_{\cos\theta}=\left\lfloor (\cos\theta+1)(n_{\cos\theta}/2)\right\rfloor +1\\
@@ -280,7 +279,7 @@ schema. In test 0.3-0.4, all $\phi$ or only $\phi_{2}$ is doubled.\label{fig:dif
 \end{figure}
 
 
-In the actual implementation, as an integer takes 4 bytes and a real
+In the actual implementation, as an integer takes 4 bytes and a real 
 takes 8 bytes, there is no profit to tabulate $\phi$ in integer two
 times, thus $\phi$ is stored directly in real.
 
@@ -289,7 +288,7 @@ times, thus $\phi$ is stored directly in real.
 
 At this order, $\boldsymbol{\omega}(\mathbf{k},\mathbf{\Omega})$
 is stored in double precision. All angles are stored in real type,
-and the correspondent DCF is calculated as
+and the corresponding DCF is calculated as:
 \begin{equation}
 c(\omega)=w_{0}c(\omega_{0})+w_{1}c(\omega_{1})
 \end{equation}
@@ -299,18 +298,18 @@ is one of the 5 dimensions in $\tilde{\boldsymbol{\omega}}(\mathbf{k},\mathbf{\O
 $\omega_{0}$ and $\omega_{1}$ are the 2 nearest value points, while
 other variables are fixed. If we express the weight for each dimension
 as $w_{n_{i}}^{i}$ where $i=1,2,3,4,5$ is the $i$th variable, the
-total equation with 5 variables is
+total equation with 5 variables is:
 \begin{equation}
 c(\tilde{\boldsymbol{\omega}})=\left[\sum_{n_{1}=0}^{1}\sum_{n_{2}=0}^{1}\sum_{n_{3}=0}^{1}\sum_{n_{4}=0}^{1}\sum_{n_{5}=0}^{1}\left(\prod_{i}^{5}w_{n_{i}}^{i}c(\tilde{\boldsymbol{\omega}}_{n_{1},n_{2},n_{3},n_{4},n_{5}})\right)\right]\label{eq:interpolation}
 \end{equation}
 
 
 These two equations are available for both interpolation and extrapolation,
-where the later applies e.g. for $\cos\theta_{1}$ and $\cos\theta_{2}$. 
+where the latter applies, e.g., for $\cos\theta_{1}$ and $\cos\theta_{2}$. 
 
 An error evaluation of these two strategies of interpolation is shown
 in appendix \ref{chpt:error-evaluation-interpolation-DCF}. Results
-show that the linear interpolation scheme is absolutely needed. On
+demonstrate that the linear interpolation scheme is absolutely essential. On
 the other hand, as seen in eq. (\ref{eq:interpolation}), it is computationally
 much more expensive than the simple histogram scheme as it requires
 $2^{5}=32$ times of operations.
@@ -326,8 +325,8 @@ to their angular independence and symmetric properties.
 
 \subsection{Using projections in form of $\hat{c}_{\mu\nu}^{mnl}(k)$\label{sub:Using-projections-in}}
 
-As described by Blum \citep{Blum_I,Blum_II}, $\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
-can be expanded as
+As described by Blum \citep{Blum_I, Blum_II}, $\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
+can be expanded as:
 \begin{equation}
 \hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})=\sum_{mnl\mu\nu}\hat{c}_{\mu\nu}^{mnl}(k)\Phi_{\mu\nu}^{mnl}(\mathbf{\hat{k}},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})
 \end{equation}
@@ -340,7 +339,7 @@ in very simple form. Only 4 projections $\hat{c}^{mnl}(k)$ are independent:
 $\hat{c}_{\mathrm{S}}\equiv\hat{c}^{000}$, $\hat{c}_{\mathrm{\Delta}}\equiv\hat{c}^{110}$,
 $\hat{c}_{\mathrm{D}}\equiv\hat{c}^{112}$ and $\hat{c}_{+}\equiv\hat{c}^{011}=-\hat{c}^{101}$,
 with the corresponding rotational invariants expressed below both
-in laboratory and intermolecular frame \textcolor{red}{(il faut définir
+in laboratory and intermolecular frames \textcolor{red}{(il faut définir
 ici OM\_1 et OM\_2 comme des vecteurs d'orientation !)}
 \begin{align}
 \Phi^{000} & =1\nonumber \\
@@ -362,12 +361,12 @@ as indicated above.
 Compared to the expression of $\Phi_{\mu\nu}^{mnl}(\mathbf{\hat{k}},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
 in laboratory frame (eq. (\ref{eq:definition_rot_invar}) in appendix
 \ref{chpt:rotational-invariant-expansion}), its intermolecular form
-has far less terms (eq. (\ref{eq:phi_local}) in appendix \ref{chpt:rotational-invariant-expansion}),
+has far fewer terms (eq. (\ref{eq:phi_local}) in appendix \ref{chpt:rotational-invariant-expansion}),
 such that
 \begin{equation}
 \hat{c}(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})=\frac{1}{2l+1}\sum_{mn\mu\nu\chi}\hat{c}_{\mu\nu,\chi}^{mn}(k)r_{\chi\mu}^{m}(\theta_{1})r_{-\chi\nu}^{n}(\theta_{2})e^{-i\chi(\phi_{12}\equiv\phi_{1}-\phi_{2})}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}\label{eq:dcf-exact}
 \end{equation}
-where $r$ is the generalized Legendre polynomial,$m,n\leq n{}_{\mathrm{max}}$,
+where $r$ is the generalized Legendre polynomial, $m,n\leq n{}_{\mathrm{max}}$,
 $\left|\mu\right|\leq m$, $\left|\nu\right|\leq n$, and $\chi\in\left[-\mathrm{min}(m,n),\mathrm{min}(m,n)\right]$.
 
 $r_{\chi\mu}^{m}(\theta)$, $e^{-i\chi\phi}(\phi)$ and $e^{-i\mu\psi}(\psi)$
@@ -375,9 +374,9 @@ can be separately pre-tabulated for each given $\mathbf{k}$, to avoid
 double evaluation of each term.
 
 E.q. (\ref{eq:dcf-exact}) replaces the interpolation of eq. (\ref{eq:interpolation})
-by an exact formula and it requires to have stored in memory the projections
+by an exact formula and requires the projections to be stored in memory 
 $\hat{c}_{\mu\nu,\chi}^{mn}(k)$ rather than the full angular representation
 $\hat{c}(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$. It
-requires also indeed the passage from orientations in laboratory frame
-to orientations in intermolecular frame, i.e. use of the formulas
+also requires the passage from orientations in laboratory frame
+to orientations in intermolecular frame, i.e. use of the formulae
 (\ref{eq:omega}) for each $\mathbf{k}$ vector.
