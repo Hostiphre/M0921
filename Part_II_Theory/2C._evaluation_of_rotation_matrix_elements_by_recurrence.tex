@@ -3,18 +3,30 @@
 
 $\mathbf{R}^{m}(\mathbf{\Omega})\equiv\left\{ R_{\mu'\chi}^{m}(\mathbf{\Omega})\right\} $
 is the rotation matrix of dimension $\left(2m+1\right)\times\left(2m+1\right)$,
+<<<<<<< HEAD
 definded in Messiah and other books \citep{Edmonds,Gray-Gubbins,Messiah}.
+=======
+defined in Messiah \citep{Edmonds,Gray-Gubbins,Messiah}.
+>>>>>>> ad9ea55e089e5d298a1fe1f029f87668816e4938
 
 In MDFT, evaluation of $R_{\mu'\chi}^{m}(\hat{\mathbf{k}})$ for each
 $m$, $\mu'$, $\chi$ and $\mathbf{k}$ by its definition:
 \begin{equation}
 R_{\mu'\chi}^{m}(\hat{\mathbf{k}})=r_{\mu'\chi}^{m}(\theta_{k})e^{-i\mu'\phi_{k}}\label{eq:r_definition}
 \end{equation}
+<<<<<<< HEAD
 is too costly to be done in iterations; on the other hand, to directly
 stock the value of every element is heavy in terms of memory. An algorithm
 of $R_{\mu\mu'}^{m}(\hat{\mathbf{k}})$ evaluation by recurrence described
 by Choi \textit{et al.} \citep{Choi_1999} suggests an acceptable
 cost during the computation, by generating the rotation matrix elements
+=======
+is too costly to be done in iterations; on the other hand, to directly stock
+the value of every element is heavy in terms of memory. An
+algorithm of $R_{\mu\mu'}^{m}(\hat{\mathbf{k}})$ evaluation by recurrence
+described by Choi \textit{et al.} \citep{Choi_1999} suggests an acceptable
+cost during the computation by generating the rotation matrix elements
+>>>>>>> ad9ea55e089e5d298a1fe1f029f87668816e4938
 from these of lower order to avoid extra calculation.
 
 
@@ -29,7 +41,11 @@ R_{00}^{0}=1
 
 For $m=1$, $\mathbf{R}^{1}(\hat{\mathbf{k}})$ depends only on the
 $3\times3$ orthogonal matrix $\mathbf{R}$ that defines the rotation
+<<<<<<< HEAD
 from the basis vectors of laboratory frame to those of $\mathbf{k}$-frame:
+=======
+from the basis vectors of laboratory frame to those of $\mathbf{k}$-frame.
+>>>>>>> ad9ea55e089e5d298a1fe1f029f87668816e4938
 \begin{equation}
 \mathbf{R}=\left[\begin{array}{ccc}
 R_{xx} & R_{yx} & R_{zx}\\
@@ -132,7 +148,11 @@ b_{\chi\chi'}^{m}=0 & \mathrm{for}\,\chi=\pm m\,\mathrm{and}\,\chi=\mp(m-1)
 
 \subsection{Recurrence relation for $-m+2\leq\chi'\leq m$}
 
+<<<<<<< HEAD
 For the case $\chi'=\pm m$ which are not covered in eq. (\ref{eq:relation_1}),
+=======
+For the case $\chi'=\pm m$ which is not covered in eq. (\ref{eq:relation_1}),
+>>>>>>> ad9ea55e089e5d298a1fe1f029f87668816e4938
 another recurrence relation supposes that:
 \begin{equation}
 R_{\chi\chi'}^{m}=c_{\chi\chi'}^{m}R_{0,1}^{1}R_{\chi,\chi'-1}^{m-1}+d_{\chi\chi'}^{m}R_{1,1}^{1}R_{\chi-1,\chi'-1}^{m-1}+d_{-\chi,\chi'}^{m}R_{\text{-1,}1}^{1}R_{\chi+1,\chi'-1}^{m-1}
@@ -163,7 +183,11 @@ which is available for $-m+2\leq\chi'\leq m$.
 \subsection{Symmetries}
 
 The symmetries of $R_{\chi\chi'}^{m}$ allow us to calculate only
+<<<<<<< HEAD
 a half of the elements: 
+=======
+half of the elements: 
+>>>>>>> ad9ea55e089e5d298a1fe1f029f87668816e4938
 
 \begin{equation}
 R_{-m,-m'}^{l}=\left(-1\right)^{m+m'}R_{mm'}^{l*}
