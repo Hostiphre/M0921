@@ -92,8 +92,7 @@ name "chpt:rotM-by-recurrence"
 \begin_inset Formula $\left(2m+1\right)\times\left(2m+1\right)$
 \end_inset
 
-, defined in Messiah, etc.
- 
+, definded in Messiah and other books 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Edmonds,Gray-Gubbins,Messiah"
@@ -132,7 +131,7 @@ R_{\mu'\chi}^{m}(\hat{\mathbf{k}})=r_{\mu'\chi}^{m}(\theta_{k})e^{-i\mu'\phi_{k}
 
 \end_inset
 
-is too costing to be done in iterations, on the other hand, to stock directly
+is too costly to be done in iterations; on the other hand, to directly stock
  the value of every element is heavy in terms of memory.
  An algorithm of 
 \begin_inset Formula $R_{\mu\mu'}^{m}(\hat{\mathbf{k}})$
@@ -171,7 +170,7 @@ reference "eq:r_definition"
 
 \end_inset
 
-), it's easy to find
+), it is easy to find
 \begin_inset Formula 
 \begin{equation}
 R_{00}^{0}=1
@@ -204,7 +203,7 @@ For
 \begin_inset Formula $\mathbf{k}$
 \end_inset
 
--frame
+-frame:
 \begin_inset Formula 
 \begin{equation}
 \mathbf{R}=\left[\begin{array}{ccc}
@@ -262,7 +261,7 @@ The rotation matrix
 \begin_inset Formula $\mathbf{G}^{m}$
 \end_inset
 
- part, which can be given by the relations
+ parts, which can be given by the relations
 \begin_inset Formula 
 \begin{equation}
 R_{\chi\chi'}^{m}=F_{\chi\chi'}^{m}+iG_{\chi\chi'}^{m}
@@ -330,7 +329,7 @@ The recurrence relation for
 \begin_inset Formula $-m+1\leq\chi'\leq m-1$
 \end_inset
 
- between matrix elements is
+ between matrix elements is:
 \begin_inset Formula 
 \begin{equation}
 R_{\chi\chi'}^{m}=a_{\chi\chi'}^{m}R_{00}^{1}R_{\chi\chi'}^{m-1}+b_{\chi\chi'}^{m}R_{10}^{1}R_{\chi-1,\chi'}^{m-1}+b_{-\chi,\chi'}^{m}R_{\text{-1,}0}^{1}R_{\chi+1,\chi'}^{m-1}\label{eq:relation_1}
@@ -353,7 +352,7 @@ b_{\chi\chi'}^{m}=\left[\dfrac{\left(m+\chi\right)\left(m+\chi-1\right)}{2\left(
 \end_layout
 
 \begin_layout Standard
-To separate the real and imaginary part, suppose
+To separate the real and imaginary parts, suppose
 \begin_inset Formula 
 \begin{equation}
 H_{\chi\chi'}^{m}(i,j)=F_{ij}^{1}F_{\chi\chi'}^{m-1}-G_{ij}^{1}G_{\chi\chi'}^{m-1}
@@ -401,7 +400,7 @@ reference "eq:relation_1"
 
 \end_inset
 
-) is out of definition.
+) are out of definition.
  They are supposed to be zero.
  Another way is to suppose that
 \begin_inset Formula 
@@ -438,7 +437,7 @@ reference "eq:relation_1"
 
 \end_inset
 
-), another recurrence relation supposes that
+), another recurrence relation supposes that:
 \begin_inset Formula 
 \begin{equation}
 R_{\chi\chi'}^{m}=c_{\chi\chi'}^{m}R_{0,1}^{1}R_{\chi,\chi'-1}^{m-1}+d_{\chi\chi'}^{m}R_{1,1}^{1}R_{\chi-1,\chi'-1}^{m-1}+d_{-\chi,\chi'}^{m}R_{\text{-1,}1}^{1}R_{\chi+1,\chi'-1}^{m-1}
@@ -500,7 +499,7 @@ The symmetries of
 \begin_inset Formula $R_{\chi\chi'}^{m}$
 \end_inset
 
- allow us to calculate only a half of elements: 
+ allow us to calculate only a half of the elements: 
 \end_layout
 
 \begin_layout Standard

@@ -85,7 +85,7 @@ The properties of Wigner 3j-symbol and Wigner generalized spherical harmonics
  (GSH, Winger D-symbol) play a huge role in the reduction of molecular Ornstein-
 Zernike equation as well as finding the relation between rotational invariant
  projections.
- Their main properties presented in Messiah 
+ Their main properties, presented in Messiah 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Messiah"
@@ -106,7 +106,7 @@ key "Edmonds"
 
 \end_inset
 
- are listed here.
+, are listed here.
 \end_layout
 
 \begin_layout Section
@@ -114,8 +114,8 @@ Properties of Wigner 3j-Symbol
 \end_layout
 
 \begin_layout Standard
-Wigner 3j-symbols are equivalent to Clebsch-Gordon (CG) coefficients with
- phase factor:
+Wigner 3j-symbols are equivalent to Clebsch-Gordon (CG) coefficients multiplied
+ by the phase factor:
 \begin_inset Formula 
 \begin{equation}
 \left(\begin{array}{ccc}
@@ -299,8 +299,8 @@ Properties of GSH
 \end_layout
 
 \begin_layout Standard
-There are many different definitions of GSH in the lectures, here we adopt
- the definition in Messiah
+There are many different definitions of GSH given in lectures.
+ Here we adopt the definition in Messiah:
 \begin_inset Formula 
 \begin{equation}
 R_{\mu'\mu}^{m}(\phi\theta\psi)=e^{-i\mu'\phi}r_{\mu'\mu}^{m}(\theta)e^{-i\mu\psi}
@@ -313,7 +313,7 @@ where
 \end_inset
 
  is the generalized Legendre polynomial (GLP), which is real, and can be
- evaluated using the Wigner formula
+ evaluated using the Wigner formula:
 \begin_inset Formula 
 \begin{eqnarray}
 r_{\mu'\mu}^{m}(\theta) & = & \left[\left(m+\mu'\right)!\left(m-\mu'\right)!\left(m+\mu\right)!\left(m-\mu\right)!\right]^{\frac{1}{2}}\times\nonumber \\
@@ -470,7 +470,7 @@ If
 \begin_inset Formula $r_{\mu'\mu}^{m}(\theta)$
 \end_inset
 
- is polynomial of degree 
+ is a polynomial of degree 
 \begin_inset Formula $m$
 \end_inset
 
@@ -490,7 +490,7 @@ If
 \begin_inset Formula $r_{\mu'\mu}^{m}(\theta)/\sin\theta$
 \end_inset
 
- is polynomial of degree 
+ is a polynomial of degree 
 \begin_inset Formula $(m-1)$
 \end_inset
 
@@ -544,6 +544,9 @@ where
 
 \begin_layout Subsubsection*
 Composition relation for GSHs
+\end_layout
+
+\begin_layout Subsubsection*
 \begin_inset Formula 
 \begin{equation}
 \sum_{\mu'\nu'\lambda'}\left(\begin{array}{ccc}

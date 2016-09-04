@@ -407,6 +407,16 @@ State of the Art: Solvation, Models and Methods
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_I_State_of_the_Art/11._models.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage cleardoublepage
 \end_inset
 

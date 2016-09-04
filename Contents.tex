@@ -65,22 +65,224 @@
 
 \hspace{-0.5em}%
 \begin{tabular}{>{\raggedright}p{3.3em}l}
-$\mathcal{F}[\rho]$ & solvation free energy functional \tabularnewline
+$\mathcal{F}[\rho]$ & Solvation free energy functional {[}$\mathrm{kJ\cdot mol^{-1}}${]}
+-\tabularnewline
 \end{tabular}
 
 \hspace{-1.5em}%
 \begin{tabular}{>{\raggedright}p{3.3em}l}
-$\mathcal{F}_{\mathrm{exc}}$ & excess free energy functional \tabularnewline
+$\rho(\mathbf{r},\mathbf{\Omega})$ & Density of solvent {[}$\textrm{\AA}^{-3}${]}-\tabularnewline
 \end{tabular}
 
 \hspace{-1.5em}%
 \begin{tabular}{>{\raggedright}p{3.3em}l}
-$\rho(\mathbf{r},\mathbf{\Omega})$ & density of solvent\tabularnewline
+$\mathcal{F}_{\mathrm{id}}[\rho]$ & Ideal free energy functional {[}$\mathrm{kJ\cdot mol^{-1}}${]} -\tabularnewline
 \end{tabular}
 
 \hspace{-1.5em}%
 \begin{tabular}{>{\raggedright}p{3.3em}l}
-$\gamma(\mathbf{r},\mathbf{\Omega})$ & gradient of excess free energy functional, \tabularnewline
+$\mathcal{F}_{\mathrm{ext}}[\rho]$ & External free energy functional {[}$\mathrm{kJ\cdot mol^{-1}}${]}
+-\tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$\mathcal{F}_{\mathrm{exc}}[\rho]$ & Excess free energy functional {[}$\mathrm{kJ\cdot mol^{-1}}${]}- \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$\gamma(\mathbf{r},\mathbf{\Omega})$ & Gradient of excess free energy functional, {[}$\mathrm{}${]}-\tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$q_{e}$ & Elementary charge, $q_{e}=1.602176565\cdot10^{-19}\,\mathrm{[C]}$\tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$\varepsilon_{0}$ & Vacuum permittivity, $\varepsilon_{0}=8.854187817\cdot10^{-12}\,\mathrm{[C^{2}\cdot J^{-1}\cdot m^{-1}]}$\tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$N_{\mathrm{A}}$ & Avogadro constant, $N_{\mathrm{A}}=6.02214129\cdot10^{23}\,\mathrm{[mol^{-1}]}$.\tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}>{\raggedright}p{0.87\columnwidth}}
+$f_{Q}$ & $f_{Q}=q_{e}^{2}10^{-3}N_{\mathrm{A}}/(4\pi\varepsilon_{0}10^{-10})$,
+electrostatic potential unit so that $f_{Q}\cdot q^{2}/r$ is in {[}$\mathrm{kJ\cdot mol^{-1}}${]},
+where $q$ is the number charge without unity, $r$ in {[}$\textrm{\AA}${]}.\tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$K_{\mathrm{B}}$ & Boltzmann constant, $K_{\mathrm{B}}=1.3806488\cdot10^{-23}\,[\mathrm{J\cdot K^{-1}}]$\tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}>{\raggedright}p{0.87\columnwidth}}
+$\rho_{0}$ & Bulk solvent angular density, $n_{0}=\int\mathrm{d}\mathbf{\Omega}\rho_{\text{0}}=8\pi^{2}\rho_{0}$
+is the bulk solvent number density, both of unity {[}$\mathrm{\textrm{\AA}^{-3}}${]}-\tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$\beta$ & $\beta=\left(K_{\mathrm{B}}T\right)^{-1}$, reciprocal of the thermodynamic
+temperature {[}$\mathrm{mol\cdot kJ^{-1}}${]}\tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+\hspace{-1.5em}%
+\begin{tabular}{>{\raggedright}p{3.3em}l}
+$ $ & \tabularnewline
+\end{tabular}
+
+The solute center is at $\left(\dfrac{L_{x}}{2},\dfrac{L_{y}}{2},\dfrac{L_{z}}{2}\right)$
+of the box, characterized by $\mathbf{r}_{T}$. Internal coordinates
+of solute $\mathbf{r}_{M}$, solute coordinates in the box $\mathbf{r}=\mathbf{r}_{M}+\mathbf{r}_{T}$.
+
+test solute
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline 
+\#  & $q$ & $\sigma$ & $\varepsilon$ & $r_{x}^{M}$ & $r_{y}^{M}$ & $r_{z}^{M}$ & atom name\tabularnewline
+\hline 
+\hline 
+ &  &  &  &  &  &  & \tabularnewline
+\hline 
+ &  &  &  &  &  &  & \tabularnewline
+\hline 
+ &  &  &  &  &  &  & \tabularnewline
+\hline 
+ &  &  &  &  &  &  & \tabularnewline
+\hline 
 \end{tabular}
 
 \vspace{8ex}

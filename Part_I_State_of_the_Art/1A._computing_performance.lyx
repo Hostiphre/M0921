@@ -84,8 +84,8 @@ name "chpt:computing-performance"
 In addition to the theory work, the performance of the code being developed
  is also an important aspect of this thesis.
  It is essential to have a fast and accurate method.
- To evaluate a code in a strict and systematic way, some basic concepts
- of computing performance are list here.
+ To evaluate code in a strict and systematic way, some basic concepts of
+ computing performance are listed here.
  
 \end_layout
 
@@ -495,8 +495,7 @@ name "fig:The-roofline-model"
 The roofline model can give an idea of whether the diminuition of algorithm
  complexity is the most important optimization strategy, because it only
  counts the number of operations.
- In most of cases, avoiding slow data paths is the key to performance optimizati
-on.
+ In most cases, avoiding slow data paths is the key to performance optimization.
 \end_layout
 
 \begin_layout Standard
@@ -674,11 +673,11 @@ Profiling and tracing toolkits
 
 \begin_layout Standard
 There are several types of software and toolkits for performance evaluation.
- They are of two categories: profiling and tracing.
+ They comprise two categories: profiling and tracing.
  A trace is a collection of events or timestamps.
  A profile is a collection of timings.
  Profiling tools are usually more simple and rapid, but for subroutines
- that are called by a large number of times, the overhead in time measurement
+ that are called a large number of times, the overhead in time measurement
  is not negligible.
  
 \end_layout

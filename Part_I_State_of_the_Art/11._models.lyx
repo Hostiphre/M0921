@@ -81,7 +81,7 @@ name "chpt:models"
 \end_layout
 
 \begin_layout Standard
-Computing models of solvent are broadly divided into two types: those treating
+Computing models of solvents are broadly divided into two types: those treating
  the solvent as a continuous medium (implicit models) and those describing
  the individual solvent molecules (explicit models).
  In the continuum model, the solvent is characterized only by the dielectric
@@ -89,18 +89,18 @@ Computing models of solvent are broadly divided into two types: those treating
 \begin_inset Formula $\varepsilon$
 \end_inset
 
- and contains an artificial shaped cavity.
+ and contains an artificial-shaped cavity.
  The explicit models can have more specific scales.
- Within the scope of classical mechanics, the most expensive one can be
- the model explicit flexible and polarizable.
- While in computational chemistry, less precise models often have wider
- usage (for example, the proteins are treated in the unity of residues).
- As the theory of liquid was firstly established for spherical atom-like
- solvent particles, the model adopted by the theory is a rigid molecule,
- who only depends on its position and orientation, i.
+ Within the scope of classical mechanics, the most expensive method can
+ be the flexible and polarizable explicit model, while in computational
+ chemistry, less precise models often have wider usage (for example, the
+ proteins are treated in the unity of residues).
+ As the theory of liquids was firstly established for spherical atom-like
+ solvent particles, the model adopted by the theory is a rigid molecule
+ model, only depending on its position and orientation, i.
  e.
  there is no relative movement within the solvent particles.
- And this approximation is proved to be reasonable 
+ This approximation has been proven reasonable 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Gray-Gubbins"
@@ -108,36 +108,70 @@ key "Gray-Gubbins"
 \end_inset
 
 .
- In this section, we'll give a brief introduction of implicit model, which
- helps to understand some later discussion in solvation free energy corrections,
- then we'll focus on the rigid solvent model.
- The flexible and polarizable models will also be briefly mentioned, in
- the purpose to understand the limit of the rigid model.
- 
+ In this section, we will give a brief introduction of the implicit model
+ in order to facilitate later discussion on solvation free energy corrections.
+ We will then focus on the rigid solvent models and give some 
+\color red
+(...)
+\color inherit
+ discussion on the limits of each approximation.
+ The flexible and polarizable models will also be briefly mentioned.
 \end_layout
 
 \begin_layout Section
-Continuum Solvation Models
+Continuum solvation models
 \end_layout
 
 \begin_layout Standard
-Continuum models, which is popular in QM calculations, consider the solvent
- as a uniform polarizable medium with dielectric constant 
+Continuum models 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Jensen,Cramer_1999,Tomasi_1994_implicit_model"
+
+\end_inset
+
+, which are popular in QM calculations, consider the solvent as a uniform
+ polarizable medium with dielectric constant 
 \begin_inset Formula $\varepsilon$
+\end_inset
+
+
+\begin_inset Marginal
+status collapsed
+
+\begin_layout Plain Layout
+The dielectric constant 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ is the only parameter characterizing the solvent.
+ It is normally a constant value, but it can depend on the distance from
+ the solute 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ (see 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Poisson–Boltzmann-methods"
+
+\end_inset
+
+)
+\end_layout
+
 \end_inset
 
 , with the solute 
 \begin_inset Formula $M$
 \end_inset
 
- placed in the cavity within this medium 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Jensen"
-
-\end_inset
-
- (figure 
+ placed in the cavity within this medium (figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Reaction-field-model"
@@ -158,7 +192,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../_figure/reaction-field-model_2.pdf
-	width 75col%
+	width 72col%
 
 \end_inset
 
@@ -169,7 +203,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Continuum model
+Continuum solvent model
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Reaction-field-model"
@@ -198,22 +232,22 @@ The solvation Gibbs free energy according to this model is
 
 \end_inset
 
-Where 
+where 
 \begin_inset Formula $\Delta G_{\mathrm{cavity}}>0$
 \end_inset
 
- is the energy costed to create a hole in the medium, and 
+ is the energy needed to create a hole in the medium, and 
 \begin_inset Formula $\Delta G_{\mathrm{dispersion}}$
 \end_inset
 
- is the dispersion interactions, which is roughly the van der Waals energy
+ is the dispersion interaction, which is roughly the van der Waals energy
  
 \begin_inset Formula $\Delta G_{\mathrm{vdW}}<0$
 \end_inset
 
  between the solvent and solute.
- In principle, there may also be a repulsive component, and dispersion term
- is sometimes denoted dispersion / repulsion.
+ In principle, there may also be a repulsive component, and the dispersion
+ term is sometimes denoted dispersion / repulsion.
  
 \begin_inset Formula $\Delta G_{\mathrm{elec}}<0$
 \end_inset
@@ -223,13 +257,13 @@ Where
 \begin_inset Formula $M$
 \end_inset
 
- who polarizes the medium, and the action back of the medium on the molecule
+ which polarizes the medium, and the action back of the medium on the molecule
  (reaction field).
  
 \end_layout
 
 \begin_layout Standard
-The first two terms in eq.
+The initial two terms in eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -237,19 +271,12 @@ reference "eq:cm"
 
 \end_inset
 
-) is linked to the configuration of first-solvation shell (cavity).
+) are linked to the configuration of the first solvation shell (cavity).
  The definition of cavity varies from the simplest sphere or ellipsoid to
  the surface of the ensemble atomic surfaces defined by the van der Waals
  radius in the solute.
  It's somehow reasonable to consider the cavity area proportional to the
- number of solvent molecules in the first solvation shell 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Cramer_1999_implicit_model"
-
-\end_inset
-
-.
+ number of solvent molecules in the first solvation shell.
  This number can be calculated as the area passes through the middle region
  of first shell solvent.
  This area, named as the solvent-accessible surface area (SASA) 
@@ -292,14 +319,27 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Solvent-accessible surface area
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Definition of cavity surfaces
+\end_layout
+
+\end_inset
+
+Definition of cavity surfaces
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:sasa"
 
 \end_inset
 
-
+.
+ The solvent accessible surface (SAS) traced out by the center of the probe
+ representing a solvent molecule.
+ The solvent excluded surface (SES) is the topological boundary of the union
+ of all possible probes that do not overlap with the molecule.
 \end_layout
 
 \end_inset
@@ -331,7 +371,7 @@ or parameterized by having a constant
 \begin_inset Formula $\xi$
 \end_inset
 
- parameters being determined by fitting to experimental solvation data
+ parameters being determined by fitting to experimental solvation data:
 \begin_inset Formula 
 \begin{equation}
 \Delta G_{\mathrm{cavity}}+\Delta G_{\mathrm{dispersion}}=\sum_{i}^{\mathrm{atoms}}\xi_{i}S_{i}
@@ -343,31 +383,74 @@ or parameterized by having a constant
 \end_layout
 
 \begin_layout Standard
-The dielectric constant 
-\begin_inset Formula $\varepsilon$
-\end_inset
-
- is the only parameter characterizing the solvent, it is normally a constant
- value, but can for some purpose depend on the distance from the solute
- 
-\begin_inset Formula $M$
-\end_inset
-
-.
- The models and methods to calculate the electrostatic contribution 
+The models and methods to calculate the electrostatic contribution 
 \begin_inset Formula $\Delta G_{\mathrm{elec}}$
 \end_inset
 
- have varied a lot according to its usage, here lists the most common ones.
+ have varied greatly according to its usage.
+ The sections below list the most common examples.
+ By the way, the integration of continuum models into 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{QM}
+\end_layout
+
+\end_inset
+
+ calculation is also important, which won't be detailed as it doesn't link
+ to our theory.
+ Such kind of methods are called the self-consistent reaction field (SCRF)
+ models, which treat the calculation of the solute-solvent interaction by
+ an iterative procedure.
+ Some examples are presented in the list of Gaussian keyword SCRF 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "scrf"
+
+\end_inset
+
+, and well reviewed by for example Tomasi 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Tomasi_1994_implicit_model,tomasi_quantum_2005"
+
+\end_inset
+
+ and Jensen 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Jensen"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
-Poisson–Boltzmann methods
+Poisson-Boltzmann methods
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Poisson–Boltzmann-methods"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-The Poisson-Boltzmann equation (PBE) permits to calculate electrostatic
- potential 
+The Poisson-Boltzmann equation (PBE) 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "holst_1994_poisson"
+
+\end_inset
+
+ permits to calculate electrostatic potential 
 \begin_inset Formula $V_{\mathrm{elec}}$
 \end_inset
 
@@ -401,10 +484,10 @@ where
 \end_layout
 
 \begin_layout Standard
-The Maxwell-Gauss equation gives 
+The Maxwell-Gauss equation in SI units convention gives 
 \begin_inset Formula 
 \begin{equation}
-\nabla\cdot D(\mathbf{r})=\rho_{q}(\mathbf{r})
+\nabla\cdot D(\mathbf{r})=\dfrac{\rho_{q}(\mathbf{r})}{\varepsilon_{0}}
 \end{equation}
 
 \end_inset
@@ -426,87 +509,93 @@ where
 \end_inset
 
  the vacuum permittivity.
-\end_layout
+ 
+\begin_inset Formula $D(\mathbf{r})$
+\end_inset
 
-\begin_layout Standard
+ can also be expressed in term of the position-dependent dielectric constant
+ 
+\begin_inset Formula $\varepsilon(\mathbf{r})$
+\end_inset
+
+, 
+\begin_inset Formula $D(\mathbf{r})=\varepsilon(\mathbf{r})E(\mathbf{r})$
+\end_inset
+
+, thus gives
 \begin_inset Formula 
 \begin{equation}
-E(\mathbf{r})=-\overrightarrow{\nabla}V_{q}(\mathbf{r})
+\nabla\cdot\varepsilon(\mathbf{r})E(\mathbf{r})=\dfrac{\rho_{q}(\mathbf{r})}{\varepsilon_{0}}
 \end{equation}
 
 \end_inset
 
-where 
-\begin_inset Formula $V_{q}(\mathbf{r})$
-\end_inset
-
- is ...
- of unity ...
-\end_layout
-
-\begin_layout Standard
-therefore
-\end_layout
-
-\begin_layout Standard
+or in terms of electrostatic potential 
 \begin_inset Formula 
 \begin{equation}
-\nabla^{2}V_{q}(\mathbf{r})=-\frac{\rho_{q}(\mathbf{r})}{\varepsilon_{0}}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The Poisson equation is a second-order differential equation, describing
- the connection between the electrostatic potential 
-\begin_inset Formula $V_{\mathrm{elec}}$
-\end_inset
-
-, the charge distribution 
-\begin_inset Formula $\rho$
-\end_inset
-
- and the dielectric constant 
-\begin_inset Formula $\varepsilon$
-\end_inset
-
-
-\begin_inset Formula 
-\begin{equation}
-\nabla\cdot(\varepsilon(\mathbf{r})\nabla V_{\mathrm{elec}}(\mathbf{r}))=-4\pi\rho(\mathbf{r})
+\nabla\cdot\left[\varepsilon(\mathbf{r})\nabla V_{\mathrm{elec}}(\mathbf{r})\right]=-\dfrac{\rho_{q}(\mathbf{r})}{\varepsilon_{0}}\label{eq:poisson}
 \end{equation}
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+This second-order differential equation (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:poisson"
+
+\end_inset
+
+) is called the Poisson equation.
+ 
 \end_layout
 
 \begin_layout Standard
 This equation cannot be solved analytically for complex geometries (such
- as a electrostatic interactions in a dielectric medium.
- cav pol vdw protein)
+ as protein), therefore, it is done numerically using numerical methods.
+ Such methods are mentioned in for example the article of Roux and Simonson
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "roux_implicit_1999"
+
+\end_inset
+
+ or Holst 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "holst_1994_poisson"
+
+\end_inset
+
+.
+ A density functional approach based on the minimization of polarization
+ density can be equally used to solve this equation 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Marchi_2001,Levy_2005"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-Therefore, it is done numerically using numerical methods, such as finite
- differences
-\end_layout
+When the dielectric constant is independent of the position, eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:poisson"
 
-\begin_layout Standard
-Note that the dielectric “constant” may depend on the position.
- When it is independent of the position (i.e.
- truly a constant), eq.
- (14.52) becomes eq.
- (14.53).
-\end_layout
+\end_inset
 
-\begin_layout Standard
+) becomes
 \begin_inset Formula 
 \begin{equation}
-\nabla^{2}\phi(\mathbf{r})=-\frac{4\pi}{\varepsilon}\rho(\mathbf{r})
+\nabla^{2}V_{\mathrm{elec}}(\mathbf{r})=-\dfrac{\rho_{q}(\mathbf{r})}{\varepsilon_{0}\varepsilon}\label{eq:poisson-simple}
 \end{equation}
 
 \end_inset
@@ -516,44 +605,27 @@ Note that the dielectric “constant” may depend on the position.
 
 \begin_layout Standard
 If the charge distribution is a point charge, the solution of eq.
- (14.53) reduces to the Coulomb interaction.
- 
-\end_layout
-
-\begin_layout Standard
-The Poisson equation can be modified by taking into account a (thermal)
- Boltzmann distribution of ions in the solvent.
- The negative ions will accumulate where the potential is positive, and
- vice versa, subject to a thermal fluctuation.
- The charge densities from a collection of ions with charges q and -q and
- concentration c are given by eq.
- (14.54).
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\begin{array}{c}
-\rho_{+}=qce^{-q\phi/kT}\\
-\rho_{-}=-qce^{-q\phi/kT}
-\end{array}
-\end{equation}
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:poisson-simple"
 
 \end_inset
 
-
+) reduces to the Coulomb interaction.
+ 
+\color red
+(How? Unity to be verified.)
 \end_layout
 
 \begin_layout Standard
-Addition of these contributions to eq.
- (14.52) leads to the Poisson-Boltzmann Equation (PBE).
-\end_layout
-
-\begin_layout Standard
+If the solvent is ionic, the Poisson equation can be modified by taking
+ into account a (thermal) Boltzmann distribution of ions in the solvent,
+ leading to the Poisson-Boltzmann Equation:
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{r}
-\nabla\cdot(\varepsilon(\mathbf{r})\nabla\phi(\mathbf{r}))-\kappa^{2}\left(\dfrac{kT}{q}\right)\sinh\left(\dfrac{q\phi(\mathbf{r})}{kT}\right)=-4\pi\rho(\mathbf{r})\\
+\nabla\cdot(\varepsilon(\mathbf{r})\nabla\phi(\mathbf{r}))-\kappa^{2}\left(\dfrac{kT}{q}\right)\sinh\left(\dfrac{qV_{\mathrm{elec}}(\mathbf{r})}{kT}\right)=-4\pi\rho(\mathbf{r})\\
 \kappa^{2}=\dfrac{8\pi q^{2}I}{kT}
 \end{array}
 \end{equation}
@@ -565,6 +637,10 @@ Addition of these contributions to eq.
 
 \begin_layout Standard
 Here 
+\begin_inset Formula $q$
+\end_inset
+
+ is the ion charge, 
 \begin_inset Formula $I$
 \end_inset
 
@@ -572,96 +648,34 @@ Here
 \begin_inset Formula $\kappa^{2}$
 \end_inset
 
- factor is inversely related to the Debye-Hückel length, measuring how far
- the electrostatic effects extend into the solution.
- The 
-\begin_inset Formula $sinh(q\phi(\mathbf{r})/kT)$
-\end_inset
-
- term only applies for the region corresponding to the solvent, i.e.
- for 
-\series bold
-
-\begin_inset Formula $\mathbf{r}$
-\end_inset
-
-
-\series default
- outside the cavity.
- Since 
-\begin_inset Formula $q\phi(\mathbf{r})/kT$
-\end_inset
-
- is dimensionless, the PBE is often written in terms of a reduced potential
+ factor is inversely related to the Debye-Hückel length.
  
-\begin_inset Formula $u$
-\end_inset
-
- instead.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\nabla\cdot(\varepsilon(\mathbf{r})\nabla\phi(\mathbf{r}))-\kappa^{2}\sinh\left(u(\mathbf{r})\right)=-4\pi\rho(\mathbf{r})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The Poisson Eq.
- Ž43.
- can be solved numerically by mapping the system onto a discrete grid and
- using a finite-difference relaxation algorithm 72,73 .
- Alternatively, a surface boundary element method can be used 74 76 .
- The numerical prob- lem is made easier by making the approximation that
- the surrounding solvent has an infinite di- electric constant corresponding
- to that of a con- ductor 77,78 .
- A different approach to incor- porate the influence of a polar solvent
- has been proposed and developed by Warshel and co- workers 79 , in which
- the solvent is modeled by a
-\end_layout
-
-\begin_layout Standard
-All of these equations ((14.52)–(14.57)) are differential equations that must
- be solved numerically, typically by a grid representation, and the results
- give information about the electrostatic potential at any point in space,
- which is also used by later theory.
- It can be mapped onto the surface of the solute where it may suggest regions
- for interaction with other polar molecules.
- It can also be used for generating the reaction field, defined as the differenc
-e between the potential in the presence of a solvent (e = 78) and in vacuum
- (e = 1), i.e.
- freac = fsolv - fvac.
- Multiplication of the reaction field with the solute charges in either
- a continuous (
-\begin_inset Formula $\rho$
-\end_inset
-
-) or partial charge (
-\begin_inset Formula $Q$
-\end_inset
-
-) description gives the 
 \end_layout
 
 \begin_layout Subsection
-Born/Onsager/Kirkwood models 
+Born / Onsager / Generalized Born models
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Born-/-Onsager"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-For certain special cases, however, the Poisson equation (14.52) can be solved
- analytical, and this forms the basis for many approximate models for estimating
- the electronic component in eq.
- (14.49).
+For simple geometries, the Poisson equation (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:poisson"
+
+\end_inset
+
+) can be solved analytically.
 \end_layout
 
 \begin_layout Standard
-The simplest reaction field model is a spherical cavity, where only the
- lowest order electric moment of the molecule is taken into account.
+The simplest model is a spherical cavity.
  For a net charge 
 \begin_inset Formula $q$
 \end_inset
@@ -670,18 +684,18 @@ The simplest reaction field model is a spherical cavity, where only the
 \begin_inset Formula $a$
 \end_inset
 
-, the difference in energy between a vacuum and a medium with a dielectric
- constant of 
+, the electrostatic free energy of a medium with a dielectric constant of
+ 
 \begin_inset Formula $\varepsilon$
 \end_inset
 
- is given by the Born model.
+ is given by the Born model: 
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\Delta G_{\mathrm{elec}}(q)=-\left(1-\frac{1}{\varepsilon}\right)\frac{q^{2}}{2a}
+\Delta G_{\mathrm{elec}}(q)=-\dfrac{1}{8\pi\varepsilon_{0}}\left(1-\frac{1}{\varepsilon}\right)\frac{q^{2}}{2a}
 \end{equation}
 
 \end_inset
@@ -690,48 +704,46 @@ The simplest reaction field model is a spherical cavity, where only the
 \end_layout
 
 \begin_layout Standard
-It can be noted that the Born model predicts equal solvation energies for
- positive and negative ions of the same size, which is not the observed
- behavior in solvents such as water.
- Furthermore, the reciprocal dependence on the dielectric constant means
- that the calculated solvent effect is sensitive to the variation of e in
- the low dielectric limit but virtually unaffected by large differences
- in the high dielectric limit.
- Changing e from 1 to 2 gives a factor of 1/2 in eq.
- (14.59) but there is virtually no difference between a solvent with a dielectric
- constant of 30 (e.g.
- acetonitrile) and one with a dielectric constant of 78 (e.g.
- water), although in actual experiments there may be a significant difference.
+However, the Born model is not fully capable to predict the solvent behavior
+ in a lot of cases 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Jensen"
+
+\end_inset
+
+.
+ Other similar models include Onsager model, in which a dipole point (characteri
+zed by momentum 
+\begin_inset Formula $\mu$
+\end_inset
+
+) is put in a spherical cavity; and the Kirkwood model refers to a general
+ multipole expansion in a spherical cavity; while the Kirkwood-Westheimer
+ model arises for an ellipsoidal cavity.
 \end_layout
 
 \begin_layout Standard
-The interaction between point charges is given by the Coulomb potential,
- with e being a dielectric constant.
-\end_layout
+The generalized Born (GB) model is the superposition of several net charges
+ in spherical cavities as Born model describes, with a similar formalism:
+ 
+\color red
+(Unity?)
+\color inherit
 
-\begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-E_{\mathrm{el}}(R^{AB})=\frac{Q^{A}Q^{B}}{\varepsilon R^{AB}}
+\Delta G_{\mathrm{elec}}=-\dfrac{1}{8\pi\varepsilon_{0}}\left(1-\frac{1}{\varepsilon}\right)\sum_{i}\sum_{j}\frac{q_{i}q_{j}}{f_{ij}}
 \end{equation}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Using partial atomic charges in eq.
- (14.59) is often called the generalized Born model, which has been used
- especially in connection with force field methods in the Generalized Born/Surfa
-ce Area (GB/SA) model.
- In this case, the Coulomb interaction between the partial charges (eq.
- (2.20)) is combined with the Born formula by means of a function 
+where the function 
 \begin_inset Formula $f_{ij}$
 \end_inset
 
- depending on the internuclear distance and Born radii for each of the two
- atoms, 
+ depends on the internuclear distance and Born radii for each pair of atoms,
+ 
 \begin_inset Formula $a_{i}$
 \end_inset
 
@@ -739,250 +751,43 @@ ce Area (GB/SA) model.
 \begin_inset Formula $a_{j}$
 \end_inset
 
+:
+\begin_inset Formula 
+\begin{equation}
+f_{ij}=\sqrt{r_{ij}^{2}-a_{i}a_{j}\exp\left(\frac{r_{ij}^{2}}{4a_{i}a_{j}}\right)}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula $r_{ij}$
+\end_inset
+
+ being the distance between the centers of atom 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\Delta G_{\mathrm{elec}}(Q_{i},Q_{j})=-\left(1-\frac{1}{\varepsilon}\right)\frac{Q_{i}Q_{j}}{f_{ij}}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-f_{ij}=\sqrt{r_{ij}^{2}-a_{ij}^{2}e^{-D}}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $a_{ij}^{2}=a_{i}a_{j}$
-\end_inset
-
-, 
-\begin_inset Formula $D=\frac{r_{ij}^{2}}{4a_{ij}^{2}}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The effective Born radius for a given atom depends on the nature and position
- of all the atoms.
-\end_layout
-
-\begin_layout Standard
-The dipole in a spherical cavity is known as the Onsager model, which for
- a dipole moment of m leads to an energy stabilization given by eq.
- (14.61).
- (14.61) The Kirkwood model68 refers to a general multipole expansion in
- a spherical cavity, while the Kirkwood–Westheimer model arises for an ellipsoid
-al cavity.
-\end_layout
-
-\begin_layout Standard
-The Born/Onsager/Kirkwood models are widely used in for example Marcus theory
- fir electron-transfer reactions, solvatochromism, electronic structure
- in solution, bio-molecules i .
- e.
- protein as well as nucleic acids in water.
- 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "hirata_molecular_2004"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Generalized Born.
- A pair-wise approximation to the PB theory
-\end_layout
-
-\begin_layout Standard
-The Born formula generalized to a system of many atoms of arbitrary shape
- is called the generalized Born model.
- The generalized Born equation captures the physics of the Poisson-Boltzmann
- equation, while improving the speed of calculations.
- • For atoms in a molecule, they also interact with the solvent, but part
- of the solvent has no been replaced by the other atoms of the molecule.
- The basic idea is to assign, to each atom, an effective radius such that
- the solvation free energy can be calculated using the Born formula.
- • So, the most important thing when using any GB-method is to accurately
- calculate effective Born radii
-\end_layout
-
-\begin_layout Standard
-Accurate calculations of the Boir=n r1adii can be obtained from the Poisson-
- Boltzmann equation, since
-\end_layout
-
-\begin_layout Standard
-Poisson-Boltzmann solvers (accurate but numerical and slow).
- • Generalized Born models (faster, can be analytical).
  
 \end_layout
 
 \begin_layout Standard
-The idea of a distributed multipole expansion to represent the charge distributi
-on is also employed by the so-called generalized Born (GB) approach to continuum
- solvation.
- In this instance, however, only monopoles (i.e., atomic partial charges)
- are employed and instead of solving the Poisson equation with this charge
- distribution, one uses the generalized Born approxi- mation,41,44,88,96,211,214
--226 whichs when used with the dielectric descreening algorithm of [Still
- et al.
- 1990] has been demonstrated to give results very close to those obtained
- from solution of the Poisson equation227-232 or from explicit molecular
- simulations.233 
-\end_layout
-
-\begin_layout Standard
-Density functional method based on the minimisation of polarisation density
- have been introdused too.
- 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Marchi_2001"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Other models adopt widely in QM calculation
-\end_layout
-
-\begin_layout Standard
-The critical physical concept for treating solute polarization in solution
- is the reaction field.
- The reaction field is the electric field exerted on the solute by the solvent
- that has polarized.
-\end_layout
-
-\begin_layout Standard
-The critical physical concept for treating solute polarization in solution
- is the reaction field.
- The reaction field is the electric field exerted on the solute by the solvent
- that it has polarized.Including this in the solute Hamiltonian predicts
- a new (“distorted”) solute electronic structure, which further alters the
- polarization of the solvent.
- Iterating to self-consis- tency is called the self-consistent reaction
- field (SCRF) method.
- 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Cramer_1999_implicit_model"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-PCM.
- An alternative to the use of finite differences or finite elements to discretiz
-e the differential opera- tor is to use boundary element methods.
- The most popular of these is the polarized continuum model (PCM), developed
- primarily by the Pisa group of Tomasi and co-workers,3,142-145 which casts
- the quan- tum mechanical SCRF equations into a boundary element problem
- with apparent surface charges (ASCs) on the solute cavity surface.
- There are cur- rently three different approaches for carrying out PCM calculati
-ons.
- The original method, called di- electric PCM142,143 (D-PCM), an alternative
- model in which the surrounding medium is modeled as a conductor instead
- of a dielectric146 (C-PCM, cf.
- the COSMO model below), and an implementation whereby the PCM equations
- are recast in an integral equation formalism147,148 (IEF-PCM).
- The latter method has lent itself to the calculation of various molecular
- gradient and response properties, as de- tailed in section 4.2.
-\end_layout
-
-\begin_layout Standard
-The self-consistent reaction field (SCRF) models 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Jensen,scrf"
-
-\end_inset
-
- are widely used by theoretical chemistry applications, owing to the popularity
- of Gaussian toolkit.
- 
-\end_layout
-
-\begin_layout Standard
-The Polarizable Continuum Model (PCM) using the integral equation formalism
- variant (IEFPCM) 
-\end_layout
-
-\begin_layout Standard
-Other available models are IPCM, which uses a static isodensity surface
- for the cavity
-\end_layout
-
-\begin_layout Standard
-the Self-Consistent Isodensity PCM (SCIPCM) model [Foresman96], and 
-\end_layout
-
-\begin_layout Standard
-the Onsager model [Kirkwood34, Onsager36, Wong91, Wong91a, Wong92, Wong92a],
- which places the solute in a spherical cavity within the solvent reaction
- field.
-\end_layout
-
-\begin_layout Standard
-the term SCRF is quite generic and it does not by itself indicate a specific
- model.
-\end_layout
-
-\begin_layout Standard
-PCM
-\end_layout
-
-\begin_layout Standard
-CPCM Performs a PCM calculation using the CPCM polarizable conductor calculation
- model [Barone98, Cossi03].
-\end_layout
-
-\begin_layout Standard
-Dipole Performs an Onsager model reaction field calculation.
-\end_layout
-
-\begin_layout Standard
-IPCM Performs an IPCM model reaction field calculation.
- Isodensity is a synonym for IPCM.
-\end_layout
-
-\begin_layout Standard
-SCIPCM Performs an SCIPCM model reaction field calculation, i.e.
- the SCRF calculation uses a cavity determined self-consistently from an
- isodensity surface.
+The GB model provides a very fast method, with rather the same accuracy
+ compared to Poisson-Boltzmann calculations.
+ That makes it widely used to perform optimization and simulations.
 \end_layout
 
 \begin_layout Section
-Model potential of rigid molecule
+Model potential of explicit molecules
 \end_layout
 
 \begin_layout Standard
-First we define what we mean by classical fluids.
- These are fluids for which the thermal de Broglie wavelength...
-\end_layout
-
-\begin_layout Standard
-Here presents the model frequently used in theory of liquid 
+The model potential frequently used in the theory of liquids is a classical,
+ rigid, pairwise additive model 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Hensen-McDonald,Gray-Gubbins"
@@ -990,416 +795,86 @@ key "Hensen-McDonald,Gray-Gubbins"
 \end_inset
 
 .
+ It is based on three assumptions.
+ 
 \end_layout
 
-\begin_layout Standard
-This case is important only for little solvent of atom size, where quantum
- effect cannot be ignored.
-\end_layout
-
-\begin_layout Standard
-As there's no chemical interaction of solvent
-\end_layout
-
-\begin_layout Standard
-For water, most of publications have already shown...
- at the approximation level in this thesis, we have good reason to ignore
- quantum effect.
-\end_layout
-
-\begin_layout Standard
-It should be noticed that quantum effect appears at low temperature and
- for atom-size molecules.
- Here we don't discuss...
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $u(\mathbf{r},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
-\end_inset
-
- pair potential of solvent model, depends on intermolecular separation and
- orientations.
- The polyatomic solvent model used in this thesis is based on 3 approximations:
-\end_layout
-
-\begin_layout Standard
-Rigid molecule assumption, Classical treatment of translational and rotational
- motions, and pair
-\end_layout
-
-\begin_layout Standard
-However, for important solvent such as H20 and NH3, the rotational potential
- energy effects become none-negligible at room temperature.
- P11
-\end_layout
-
-\begin_layout Standard
-quantum corrections 
-\end_layout
-
-\begin_layout Standard
-for MD and IEM, we also use these approximation, 
-\end_layout
-
-\begin_layout Standard
-It is quite realistic for small solvent molecules, such as ...
- as their vibrational states is too huge compared to kT and ...
-\end_layout
-
-\begin_layout Standard
-This assumption implies that the solvent molecule stays in its ground vibrationa
-l state, which is quite realistic for some small solvents that have large
- separation of vibrational states compared to 
+\begin_layout Enumerate
+Firstly, the quantum effect of solvent should have been ignored.
+ It is assumed that the rotational and transitional motion of solvent particles
+ are continuous and classical, that means the separation of both transitional
+ and rotational states are largely inferior of 
 \begin_inset Formula $k_{\mathrm{B}}T$
 \end_inset
 
 .
- For water, the ratio of 
-\begin_inset Formula $T/\theta_{\mathrm{v}}$
-\end_inset
-
- at 298K, where 
-\begin_inset Formula $\theta_{\mathrm{v}}=h\nu/k$
-\end_inset
-
- is the characteristic vibrational temperature, is 2290K 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Gray-Gubbins"
-
-\end_inset
-
-.
+ For light molecules, that is not always convincing.
+ Some molecules containing hydrogen (e.
+ g.
  
+\begin_inset Formula $\mathrm{H_{2}O}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathrm{NH_{3}}$
+\end_inset
+
+, and particularly 
+\begin_inset Formula $\mathrm{H_{2}}$
+\end_inset
+
+) exhibit obvious quantum effects at low temperature in liquid state.
+ Gaseous 
+\begin_inset Formula $\mathrm{H_{2}O}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathrm{NH_{3}}$
+\end_inset
+
+ also need quantum effect corrections.
+ However, in which we are interested the most, the liquid 
+\begin_inset Formula $\mathrm{H_{2}O}$
+\end_inset
+
+ at room temperature, the contribution of this effect is enough small.
+ And obviously, there should not be any chemical interaction of solvent
+ with the solute.
 \end_layout
 
-\begin_layout Standard
-rotational temperature 40.1K
-\end_layout
-
-\begin_layout Standard
-That diverges the huge amount of rigid water models [ref], and the non-rigidity
- [ref] and quantum effect [ref] are also well studied.
-\end_layout
-
-\begin_layout Standard
-vibrational motions energy to great 
+\begin_layout Enumerate
+Secondly,
 \begin_inset Marginal
-status open
+status collapsed
 
 \begin_layout Plain Layout
-margin
+Compared to atomic models that only depend on 
+\begin_inset Formula $\mathbf{r}^{N}$
+\end_inset
+
+, the angular correlations can give influence on both structural and thermodynam
+ics proprieties.
+ That is why our theory is extended to linear case (
+\begin_inset Formula $\mathbf{\Omega}\equiv(\Theta,\Phi)$
+\end_inset
+
+) then molecular case (
+\begin_inset Formula $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$
+\end_inset
+
+ ).
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-ignore quantum effets
-\end_layout
-
-\begin_layout Standard
-This assumption fits fir many small molecule solvents, such as H2O, N2,CO,CO2,et
-c.
- In these case, the characteristic vibrational temperature 
-\begin_inset Formula $\theta_{\mathrm{v}}$
-\end_inset
-
- is quite large compares to the temperature 
-\begin_inset Formula $T$
-\end_inset
-
-, is to say that the molecules will stay in their ground vibrational state
- 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Gray-Gubbins"
-
-\end_inset
-
-.
- And the internal rotational ....
- is too small can be averaged
-\end_layout
-
-\begin_layout Subsection
-Interaction of spherical particle
-\end_layout
-
-\begin_layout Standard
-The simplest model of a fluid is the hard sphere model, with the pair potential
-\begin_inset Formula 
-\begin{equation}
-u(r)=\begin{cases}
-\infty & r<d\\
-0 & r>d
-\end{cases}
-\end{equation}
-
-\end_inset
-
-where 
-\begin_inset Formula $d$
-\end_inset
-
- is the hard-sphere diameter.
- 
-\color red
-This model can represent some physical systems, such as ...
- 
-\color inherit
-However, the absence of attractive force 
-\color red
-...
-
-\color inherit
- .
-\end_layout
-
-\begin_layout Standard
-More realistic neutral particle models, like Lenard-Jones model, have a
- potential energy curve that has the same shape as the real interaction
- of rare gas, as shown in figure .
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement h
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../_figure/lj-centre.pdf
-	scale 82
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-LJ pair potential
-\end_layout
-
-\end_inset
-
-LJ pair potential A Plot of Potential Energy versus Internuclear Distance
- for the Interaction between Two Gaseous Hydrogen Atoms.
- At long distances, both attractive and repulsive interactions are small.
- As the distance between the atoms decreases, the attractive electron–proton
- interactions dominate, and the energy of the system decreases.
- At the observed bond distance, the repulsive electron–electron and proton–proto
-n interactions just balance the attractive interactions, preventing a further
- decrease in the internuclear distance.
- At very short internuclear distances, the repulsive interactions dominate,
- making the system less stable than the isolated atoms.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:LJ-pair-potential"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Lennard-Jones (LJ) interaction
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-u_{LJ}(r)=4\varepsilon\left[\left(\frac{\sigma}{r}\right)^{12}-\left(\frac{\sigma}{r}\right)^{6}\right]
-\end{equation}
-
-\end_inset
-
-
-\begin_inset Formula $r$
-\end_inset
-
- is the distance from central to central.
- all terms in the multipole series represent attractive contributions to
- the potential.
- the leading term, varying as 
-\begin_inset Formula $r^{-6}$
-\end_inset
-
-, describes the dipole-dipole interaction.
- Higher-order terms represent dipole-quadrupole (
-\begin_inset Formula $r^{-8}$
-\end_inset
-
-), quadrupole-quadrupole (
-\begin_inset Formula $r^{-10}$
-\end_inset
-
-) interactions, and so on, but these are negligible compares to 
-\begin_inset Formula $r^{-6}$
-\end_inset
-
-.
- The short-range interaction is difficult to calculate , and it's defined
- as 
-\begin_inset Formula $r^{12}$
-\end_inset
-
- in LJ model.
- The collision diameter 
-\begin_inset Formula $\sigma$
-\end_inset
-
- (of unity [
-\begin_inset Formula $\textrm{Å}$
-\end_inset
-
-]) is the separation of particles where 
-\begin_inset Formula $u(r)=0$
-\end_inset
-
-, and 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- is the well depth of the potential (of unity 
-\begin_inset Formula $\mathrm{kJ/mol}$
-\end_inset
-
-), where the minimum occurs at
-\begin_inset Formula $r_{\min}=2^{1/6}\sigma$
-\end_inset
-
- and 
-\begin_inset Formula $u(r_{\min})=-\epsilon$
-\end_inset
-
- ,
-\color red
- ...
-
-\color inherit
- These two parameters can be measured by experiment.
- 
-\end_layout
-
-\begin_layout Standard
-electrostatic interaction between charged particles coulomb
-\end_layout
-
-\begin_layout Standard
-three-body interaction
-\end_layout
-
-\begin_layout Standard
-polar liquids where dipole-dipole interaction is superposed on the spherically
- symmetric potential
-\begin_inset Formula 
-\begin{equation}
-u(1,2)=u_{0}(r)-\boldsymbol{\mu}_{1}\cdot\mathbf{T}(\mathbf{r})\cdot\boldsymbol{\mu}_{2}
-\end{equation}
-
-\end_inset
-
-where 
-\begin_inset Formula $\mathbf{r}$
-\end_inset
-
- is the vector separation of the molecular centers, 
-\begin_inset Formula $u_{0}(r)$
-\end_inset
-
- is the spherically symmetric term as discussed above, 
-\begin_inset Formula $\boldsymbol{\mu}_{i}$
-\end_inset
-
- is the dipole moment vector of particle 
-\begin_inset Formula $i$
-\end_inset
-
- and 
-\begin_inset Formula $\mathbf{T}(\mathbf{r})$
-\end_inset
-
- is the dipole-dipole interaction tensor:
-\begin_inset Formula 
-\begin{equation}
-T(\mathbf{r})=3\mathbf{r}\mathbf{r}/r^{5}-\mathbf{I}/r^{3}
-\end{equation}
-
-\end_inset
-
-where 
-\begin_inset Formula $\mathbf{I}$
-\end_inset
-
- is the unit tensor.
-\end_layout
-
-\begin_layout Standard
-models in which the molecule is represented by a set of discrete interaction
- sites.
- the total potential energy is a sum of spherical interaction potentials.
- let 
-\begin_inset Formula $\mathbf{r}_{i\alpha}$
-\end_inset
-
- the coordinates of site 
-\begin_inset Formula $\alpha$
-\end_inset
-
- in molecule 
-\begin_inset Formula $i$
-\end_inset
-
-.
- the total intermolecular potential energy is
-\begin_inset Formula 
-\begin{equation}
-u(1,2)=\frac{1}{2}\sum_{\alpha}\sum_{\beta}u_{\alpha\beta}(\left|\mathbf{r}_{2\beta}-\mathbf{r}_{1\alpha}\right|)
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-the full treatment of molecular fluid is below.
-\end_layout
-
-\begin_layout Subsection
-Rigid molecule model
-\end_layout
-
-\begin_layout Standard
-The rigid molecular approximation assumes that the intermolecular potential
+ the intramolecular movement (vibration and internal rotation) should be
+ either independent of transitional and rotational movement or absent.
+ This rigid molecule approximation assumes that the intermolecular potential
  
 \begin_inset Formula $\mathcal{U}(\mathbf{r}^{N},\mathbf{\Omega}^{N})$
 \end_inset
 
- depends only on the positions of the 
+ only depends on the positions of the 
 \begin_inset Formula $N$
 \end_inset
 
@@ -1425,6 +900,7 @@ reference "fig:Euler-angles"
 ).
 \end_layout
 
+\begin_deeper
 \begin_layout Standard
 \begin_inset Float figure
 placement h
@@ -1470,8 +946,14 @@ Euler angles.
 \begin_inset Formula $z$
 \end_inset
 
--axis, bringing the frame of axes from the initial position S into the position
- ...
+-axis, bringing the frame of axes from the initial position 
+\begin_inset Formula $\mathbf{S}$
+\end_inset
+
+ into the position 
+\begin_inset Formula $\mathbf{S}'$
+\end_inset
+
  (2) A rotation 
 \begin_inset Formula $\theta$
 \end_inset
@@ -1484,7 +966,15 @@ Euler angles.
 \begin_inset Formula $y$
 \end_inset
 
--axis of the frame S' (3) A rotation 
+-axis of the frame 
+\begin_inset Formula $\mathbf{S}'$
+\end_inset
+
+, which is transformed into 
+\begin_inset Formula $\mathbf{S}''$
+\end_inset
+
+ (3) A rotation 
 \begin_inset Formula $\psi$
 \end_inset
 
@@ -1496,7 +986,11 @@ Euler angles.
 \begin_inset Formula $z$
 \end_inset
 
--axis of the frame...
+-axis of the frame 
+\begin_inset Formula $\mathbf{S}''$
+\end_inset
+
+.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Euler-angles"
@@ -1517,48 +1011,56 @@ name "fig:Euler-angles"
 \end_layout
 
 \begin_layout Standard
-the choice of centre is often the LJ centre ...
- ?
+
+\color red
+(The choice of molecular centre?)
 \end_layout
 
 \begin_layout Standard
-Pairwise additivity of intermolecular forces
-\end_layout
-
-\begin_layout Standard
-The multi-body potential is often not ignorable, can be taken into account
- by an effective pair potential.
-\end_layout
-
-\begin_layout Standard
-The effective pair potential can be measured by experiments 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Gray-Gubbins"
-
+This approximation is quite realistic for molecules in which the separation
+ of vibrational states largely exceed 
+\begin_inset Formula $k_{\mathrm{B}}T$
 \end_inset
 
- or being semi-empirical with statistical mechanical calculations.
+, 
+\color red
+and
+\color inherit
+ implies that the solvent molecule stays in its ground vibrational state.
+ 
+\color red
+(Why?)
+\color inherit
+ For many small molecule solvents such as 
+\begin_inset Formula $\mathrm{N_{2}}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathrm{CO_{2}}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathrm{C_{6}H_{6}}$
+\end_inset
+
+, it is the case, expect of water.
+ 
+\color red
+(...) The non-rigidity of water should be studied in the cases of (...)
 \end_layout
 
-\begin_layout Standard
-We assume 
-\end_layout
-
-\begin_layout Standard
-According to the rigid particle approximation, the pair potential 
+\end_deeper
+\begin_layout Enumerate
+Finally, the intermolecular forces have been assumed to be pairwise additive:
 \begin_inset Formula 
-\[
-\mathcal{U}(\mathbf{r}^{N},\mathbf{\Omega}^{N})=\frac{1}{2}\sum_{i\neq j}u(\mathbf{r}_{ij},\mathbf{\Omega_{i}},\mathbf{\Omega_{j}})=\sum_{i<j}u(\mathbf{r}_{ij},\mathbf{\Omega_{i}},\mathbf{\Omega_{j}})
-\]
+\begin{equation}
+\mathcal{U}(\mathbf{r}^{N},\mathbf{\Omega}^{N})=\frac{1}{2}\sum_{i\neq j}u(\mathbf{r}_{ij},\mathbf{\Omega_{i}},\mathbf{\Omega_{j}})=\sum_{i<j}u(\mathbf{r}_{ij},\mathbf{\Omega_{i}},\mathbf{\Omega_{j}})\label{eq:pair-potential}
+\end{equation}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-only depends on the intermolecular separation 
+That means the model potential only depends on the intermolecular separation
+ 
 \begin_inset Formula $\mathbf{r}$
 \end_inset
 
@@ -1570,73 +1072,264 @@ only depends on the intermolecular separation
 \begin_inset Formula $\mathbf{\Omega}_{2}$
 \end_inset
 
-, 
-\begin_inset Marginal
-status open
-
-\begin_layout Plain Layout
-According to the rotational invariance, 
-\begin_inset Formula $u$
-\end_inset
-
- can also be reduced to 
-\begin_inset Formula $u(r,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
-\end_inset
-
-, when 
-\begin_inset Formula $\mathbf{r}$
-\end_inset
-
- is referred as polar axis.
-\end_layout
-
-\end_inset
-
-the dependence on orientations gives properties such as...P5
-\end_layout
-
-\begin_layout Standard
-this equation is quasi-exact for low density gas, the three and more body
- term decrease rapidly, but it is not exact for dense fluids.
-\end_layout
-
-\begin_layout Standard
-higher order corrections
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\mathcal{U}(\mathbf{r}^{N},\mathbf{\Omega}^{N})=\sum_{i<j}u(ij)+\sum_{i<j<k}u(ijk)+\sum_{i<j<k<l}u(ijkl)+...
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-three-body omission can cause surface tension problem, 
-\end_layout
-
-\begin_layout Standard
-other forces such as magnetic, multipolar, dispersion and induction intermolecul
-ar forces are usually negligible compares to the 
-\begin_inset Formula $u_{\mu\mu}$
-\end_inset
-
 .
- 
+ This approximation is quasi-exact for low density gas, the three and more
+ body term decrease rapidly, but for dense fluids, the multi-body potential
+ is often not ignorable, but is often taken into account by an effective
+ pair potential (measured by experiments or calculated by simulations) due
+ to computational cost.
+ Three-body omission can cause surface tension problem, 
+\color red
+(...)
 \end_layout
 
+\begin_deeper
 \begin_layout Standard
-Coulomb point charge interaction
+The complete model potential with higher order corrections can be written
+ in the form of
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-u(\mathbf{r},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})=\sum_{\alpha\beta}\frac{q_{\alpha}q_{\beta}}{r_{\alpha\beta}}
+\mathcal{U}(\mathbf{r}^{N},\mathbf{\Omega}^{N})=\sum_{i<j}u(ij)+\sum_{i<j<k}u(ijk)+\sum_{i<j<k<l}u(ijkl)+...
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $u(ijk)=u(\mathbf{r}_{ij},\mathbf{r}_{jk},\mathbf{r}_{ki},\mathbf{\Omega_{i}},\mathbf{\Omega_{j}},\mathbf{\Omega_{k}})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\color red
+For water, most of publications have already shown...
+ at the approximation level in this thesis...
+\end_layout
+
+\begin_layout Standard
+In the test below we will present some common models from the most simple
+ to the most complicate.
+\end_layout
+
+\begin_layout Subsection
+Interaction of spherical particle
+\end_layout
+
+\begin_layout Standard
+The simplest model of a fluid is the hard sphere model.
+ With 
+\begin_inset Formula $d$
+\end_inset
+
+ is the hard-sphere diameter, the pair potential
+\begin_inset Formula 
+\begin{equation}
+u(r)=\begin{cases}
+\infty & r<d\\
+0 & r>d
+\end{cases}
+\end{equation}
+
+\end_inset
+
+
+\color red
+This model can represent some physical systems, such as ...
+ 
+\color inherit
+However, the absence of attractive force 
+\color red
+...
+
+\color inherit
+ .
+\end_layout
+
+\begin_layout Standard
+More realistic neutral particle models, like Lenard-Jones (LJ) model, have
+ a potential energy curve that has the same shape as the real interaction
+ of rare gas, as shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:LJ-pair-potential"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/lj-centre.pdf
+	scale 82
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+LJ pair potential
+\end_layout
+
+\end_inset
+
+LJ pair potential.
+ The plot gives the potential energy 
+\begin_inset Formula $u(r)$
+\end_inset
+
+ versus internuclear distance 
+\begin_inset Formula $r$
+\end_inset
+
+ of two particles.
+ At long distances, both attractive and repulsive interactions are small.
+ As the distance between the atoms decreases, the attractive electron-proton
+ interactions dominate, and the energy of the system decreases.
+ At the observed bond distance, the repulsive electron-electron and proton-proto
+n interactions just balance the attractive interactions, preventing a further
+ decrease in the internuclear distance.
+ At very short internuclear distances, the repulsive interactions dominate,
+ making the system less stable than the isolated atoms.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:LJ-pair-potential"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Lennard-Jones (LJ) interaction gives
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+u_{LJ}(r)=4\varepsilon\left[\left(\frac{\sigma}{r}\right)^{12}-\left(\frac{\sigma}{r}\right)^{6}\right]
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $r$
+\end_inset
+
+ (of unity [
+\begin_inset Formula $\textrm{Å}$
+\end_inset
+
+]) is the distance from central to central, 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ (of unity [
+\begin_inset Formula $\textrm{Å}$
+\end_inset
+
+]) is the collision diameter is the separation of particles where 
+\begin_inset Formula $u(r)=0$
+\end_inset
+
+, and 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ is the well depth of the potential (of unity 
+\begin_inset Formula $\mathrm{kJ/mol}$
+\end_inset
+
+).
+ This well (the minimum) occurs at 
+\begin_inset Formula $r_{\min}=2^{1/6}\sigma$
+\end_inset
+
+ and 
+\begin_inset Formula $u(r_{\min})=-\epsilon$
+\end_inset
+
+.
+ The parameters 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ and 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ can be measured by experiment.
+ 
+\end_layout
+
+\begin_layout Standard
+Theoretically, all terms in the multipole series represent attractive contributi
+ons to the potential.
+ The leading term, varying as 
+\begin_inset Formula $r^{-6}$
+\end_inset
+
+, describes the dipole-dipole interaction.
+ Higher-order terms represent dipole-quadrupole (
+\begin_inset Formula $r^{-8}$
+\end_inset
+
+), quadrupole-quadrupole (
+\begin_inset Formula $r^{-10}$
+\end_inset
+
+) interactions, and so on, but these are negligible compares to 
+\begin_inset Formula $r^{-6}$
+\end_inset
+
+.
+ The short-range interaction is difficult to calculate, and it's defined
+ as 
+\begin_inset Formula $r^{-12}$
+\end_inset
+
+ in the LJ model.
+ 
+\end_layout
+
+\begin_layout Standard
+The electrostatic interaction between two charged particles 1 and 2 is described
+ by the Coulomb point charge interaction:
+\begin_inset Formula 
+\begin{equation}
+u_{\mathrm{Coul}}(r)=\frac{q_{1}q_{2}}{4\pi\varepsilon_{0}r}
 \end{equation}
 
 \end_inset
@@ -1645,23 +1338,235 @@ u(\mathbf{r},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})=\sum_{\alpha\beta}\frac{q_
 \end_layout
 
 \begin_layout Standard
-Lots of model calculated with LJ and coulomb interaction 
-\end_layout
+Generally, the pair potential for atomic particles 
+\begin_inset Formula $u(r)$
+\end_inset
 
-\begin_layout Standard
-site-site model
-\end_layout
-
-\begin_layout Standard
-Three-body interactions
+ used is a sum of LJ and Coulomb interactions.
 \end_layout
 
 \begin_layout Subsection
-SPC/E water and other water models
+Molecular fluid model
 \end_layout
 
 \begin_layout Standard
-There is a great work done by Martin Chaplin 
+As discussed before, atomic description of interactions is not sufficient
+ to well describe solvation properties.
+ For polar liquids, the dipole-dipole interaction should be mainly taken
+ into account.
+ It can be superposed onto the spherically symmetric potential:
+\begin_inset Formula 
+\begin{equation}
+u(1,2)=u_{0}(r)-\boldsymbol{\mu}_{1}\cdot\mathbf{T}(\mathbf{r})\cdot\boldsymbol{\mu}_{2}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbf{r}$
+\end_inset
+
+ is the vector separation of the molecular centers, 
+\begin_inset Formula $u_{0}(r)$
+\end_inset
+
+ is the spherically symmetric term as discussed above, 
+\begin_inset Formula $\boldsymbol{\mu}_{i}$
+\end_inset
+
+ is the dipole moment vector of particle 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{T}(\mathbf{r})$
+\end_inset
+
+ is the dipole-dipole interaction tensor:
+\begin_inset Formula 
+\begin{equation}
+T(\mathbf{r})=\nabla^{2}\left(\dfrac{1}{r}\right)=3\mathbf{r}\mathbf{r}/r^{5}-\mathbf{I}/r^{3}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbf{I}$
+\end_inset
+
+ is the unit tensor.
+\end_layout
+
+\begin_layout Standard
+The site-site model is a further extension of atomic model, in which the
+ solvent molecule is represented by a set of discrete interaction sites.
+ The total potential energy is a sum of spherical interaction potentials:
+ 
+\begin_inset Formula 
+\begin{equation}
+u(1,2)=\frac{1}{2}\sum_{\alpha}\sum_{\beta}u_{\alpha\beta}(\left|\mathbf{r}_{2\beta}-\mathbf{r}_{1\alpha}\right|)
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbf{r}_{is}$
+\end_inset
+
+ is the coordinates of site 
+\begin_inset Formula $s$
+\end_inset
+
+ in molecule 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $u_{\alpha\beta}(r)$
+\end_inset
+
+ the interatomic potential energy of pair of sites 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, 
+\begin_inset Formula $\beta$
+\end_inset
+
+, as discussed above.
+ This model is the mostly adopted, as well as in this thesis.
+\end_layout
+
+\begin_layout Standard
+The full formalism of molecular fluid is 
+\begin_inset Formula $u(\mathbf{r}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
+\end_inset
+
+ as in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pair-potential"
+
+\end_inset
+
+).
+ It can be without any supplementary approximation, with in the frame of
+ pair-additive assumption.
+ 
+\end_layout
+
+\begin_layout Subsection
+Multipole and spherical harmonic expansion
+\end_layout
+
+\begin_layout Standard
+The molecular model potential is often expanded to multipole, owing to the
+ fast convergence of 
+\begin_inset Formula $u$
+\end_inset
+
+ with respect to the expansion order:
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+In this thesis we use 
+\color red
+???
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{equation}
+u(1,2)=q\mathbf{T}^{(0)}(\mathbf{r})-\boldsymbol{\mu}\cdotp\mathbf{T}^{(1)}(\mathbf{r})+\dfrac{1}{2}\mathbf{Q}\colon\mathbf{T}^{(2)}(\mathbf{r})-\dfrac{1}{6}\mathbf{O}\vdots\mathbf{T}^{(3)}(\mathbf{r})+\ldots
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbf{T}^{(l)}(\mathbf{r})=\nabla^{l}\left(\frac{1}{r}\right)$
+\end_inset
+
+, and 
+\begin_inset Formula $q$
+\end_inset
+
+, 
+\begin_inset Formula $\boldsymbol{\mu}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{Q}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{O}$
+\end_inset
+
+ are the monopole, dipole, quadrupole and octopole moments.
+ 
+\color red
+(Physical meaning and magnitude of each term.)
+\color inherit
+ Other forces such as magnetic, multipolar, dispersion and induction intermolecu
+lar forces are usually negligible compares to the dipole interaction.
+\end_layout
+
+\begin_layout Standard
+The molecular model potential can also be expanded to spherical harmonics:
+ 
+\begin_inset Formula 
+\begin{equation}
+u(1,2)=\sum_{lm}u_{m}^{l}Y_{m}^{l}(\mathbf{\Omega})
+\end{equation}
+
+\end_inset
+
+ Potentials of the same order in multipole or 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+ are mathematically equivalent to each other.
+ 
+\color red
+(When 
+\begin_inset Formula $\psi=0$
+\end_inset
+
+?)
+\end_layout
+
+\begin_layout Subsection
+SPC/E water model
+\end_layout
+
+\begin_layout Standard
+As water can't be perfectly described by the pair potential due to multi-body
+ effects, quantum effects, hydrogen bond, etc., there develops various models
+ to fit certain properties.
+ The models contain several sites, which can placed else than the center
+ of atom (figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Water-models"
+
+\end_inset
+
+).
+ The more sites the model has, the more precise it can be.
+ There is a great work done by Martin Chaplin 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "water-model"
@@ -1669,19 +1574,7 @@ key "water-model"
 \end_inset
 
 , which summarized all frequent water models.
- As water can't be perfectly described by the pair potential due to multi-body
- effects, quantum effects, hydrogen bond, etc., there develops various models
- to fit certain properties.
- The models contain several sites, which can placed else than the center
- of atom 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Water-models"
-
-\end_inset
-
-.
- The more site number the model has, the more precise it can be.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1735,20 +1628,33 @@ key "SPC/E"
 
 \end_inset
 
- as solvent.
- It is a 3-site water model, The electrostatic interaction is modeled using
- Coulomb's law and the dispersion and repulsion forces using the Lennard-Jones
- potential.
- Any similar model possessing 
-\color red
-...
+ as the solvent though all this thesis.
+ 
+\begin_inset Marginal
+status collapsed
 
-\color inherit
- is compatible with this theory, as acetonitrile used in [ref].
+\begin_layout Plain Layout
+It should be noted that any rigid solvent model is compatible with the theory
+ of liquids, e.
+ g.
+ acetonitrile used in 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Zhao_2011"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ It is a 3-site model, the electrostatic interaction is modeled using Coulomb's
+ law and the dispersion and repulsion forces using the Lennard-Jones potential.
 \end_layout
 
 \begin_layout Standard
-The SPC/E model adds an average polarization correction to the potential
+The SPC/E model adds an polarization correction term to the SPC potential
  energy function:
 \end_layout
 
@@ -1764,35 +1670,27 @@ where
 \begin_inset Formula $\mu$
 \end_inset
 
- is the dipole of the effectively polarized water molecule (2.35 D for the
- SPC/E model), 
+ is the dipole of the effective pair model, 
 \begin_inset Formula $\mu^{0}$
 \end_inset
 
- is the dipole moment of an isolated water molecule (1.85 D from experiment),
- and 
+ is the dipole moment of an isolated water molecule, and 
 \begin_inset Formula $\alpha_{i}$
 \end_inset
 
- is an isotropic polarizability constant, with a value of 1.608 × 10-40 F
- m2.
- Since the charges in the model are constant, this correction just results
- in adding 1.25 kcal/mol (5.22 kJ/mol) to the total energy.
- The SPC/E model results in a better density and diffusion constant than
- the SPC model.
-\end_layout
+ is an isotropic scalar polarizability 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "SPC/E"
 
-\begin_layout Standard
-The SPC/E model is successful in ...
- 
-\end_layout
+\end_inset
 
-\begin_layout Standard
-Model all atom
-\end_layout
-
-\begin_layout Standard
-numerical density, dielectric constant vary with temperature
+.
+ The SPC/E model gives a better radial distribution function and diffusion
+ constant than the SPC model, 
+\color red
+and it is successful in ...
+ (applications)
 \end_layout
 
 \begin_layout Standard
@@ -1804,135 +1702,148 @@ reference "tab:SPC/E"
 \end_inset
 
 , compared with its relative SPC model.
+ As the numerical density, dielectric constant, etc.
+ vary with temperature, we fix the temperature at 298K.
+ 
+\color red
+(Which properties needed?)
 \end_layout
 
 \begin_layout Standard
-DC 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Kusalik_1994_dc_spc/e"
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status open
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Float table
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="11">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
+<lyxtabular version="3" rows="4" columns="7">
+<features rotate="0" booktabs="true" tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+Model
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $\sigma$
+\end_inset
+
+ 
+\begin_inset Formula $[Å^{6}]$
+\end_inset
+
 
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ 
+\begin_inset Formula $[\mathrm{kJ\cdot mol^{-1}}]$
+\end_inset
+
 
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $l_{1}$
+\end_inset
+
+ 
+\begin_inset Formula $[\text{Å}]$
+\end_inset
+
 
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $q_{1}$
+\end_inset
+
+ 
+\begin_inset Formula $[e]$
+\end_inset
+
 
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $q_{2}$
+\end_inset
+
+ 
+\begin_inset Formula $[e]$
+\end_inset
+
 
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
+\begin_inset Formula $\theta$
 \end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
 
-\begin_layout Plain Layout
-
-\end_layout
-
+ 
+\begin_inset Formula $[\text{°}]$
 \end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
 
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -1940,303 +1851,195 @@ status open
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-SPC
+SPC[94]
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+3.166
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.650
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1.0000
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
++0.410
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-0.8200
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+109.47
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-SPC/E
+SPC/E[3]
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+3.166
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.650
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1.0000
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
++0.4238
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-0.8476
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+109.47
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-experiment
+experiment[90]
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.991
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+105.5
 \end_layout
 
 \end_inset
@@ -2250,6 +2053,495 @@ experiment
 \end_layout
 
 \begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Structural parameters 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "SPC/E"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="6">
+<features rotate="0" booktabs="true" tabularvalignment="middle" tabularwidth="100col%">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top" width="0pt">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top" width="0pt">
+<row>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+Model
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Molar
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Number
+\size default
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Dielectric
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Dipole
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Vapor
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Volume [
+\begin_inset Formula $\mathrm{cm^{3}}$
+\end_inset
+
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Density
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Constant
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Moment [D]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Pressure
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SPC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+65 [185]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.274
+\begin_inset CommandInset citation
+LatexCommand citep
+key "SPC/E"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SPC/E
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+71 [3]
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Kusalik_1994_dc_spc/e"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.351
+\begin_inset CommandInset citation
+LatexCommand citep
+key "SPC/E"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+experiment
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18.0685 [1006]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+78.4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.95
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.165 kPa (25 C) [808];
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Calculated physical properties.
+ All the data is at 25 °C and 1 atm.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -2274,29 +2566,77 @@ name "tab:SPC/E"
 \end_layout
 
 \begin_layout Subsection
-Model flexible and polarizable
+Flexible and polarizable models
 \end_layout
 
 \begin_layout Standard
-Extra degrees of freedom
+Flexible models give extra degrees of freedom in vibration and internal
+ rotation.
+ The interaction potential can contain several terms, typically about 5
+ kind of force: the direct interactions (figure ), in addition to the indirect
+ interactions (LJ and Coulomb).
 \end_layout
 
 \begin_layout Standard
-interaction site can deal with non-rigidity of water
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/lding/Desktop/__M0921/_figure/flexible.eps
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Direct interactions
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-polarization
+The flexible model can deal with non-rigidity of solvent, and it partially
+ polarized owing to the vibration freedom.
+ 
+\color red
+(Interaction site model can also deal with non-rigidity of solvent?)
 \end_layout
 
 \begin_layout Standard
-the full force field in classical
+A rigid model can be polarized by amusing a modifiable charge distribution.
+ 
+\color red
+(What else to be added?)
 \end_layout
 
 \begin_layout Standard
-Many atoms--> expensive Long runs required to equilibrate solvent to solute
- Often solvent and solute are not polarizable.
- Large fluctuations due to use of small system size 
+Complex models require expensive computing cost, but still can have large
+ fluctuations due to use of small system size.
+ There is a compromise between the choice of model and the choice of system
+ size.
+ For this reason, rigid model is now the most popular.
+ On the other hand, computing technology has largely developed comparing
+ to the theories themselves, which allows more and more precise models to
+ be used in computation.
+ 
 \end_layout
 
 \begin_layout Section
@@ -2310,8 +2650,23 @@ The model of solute also give an influence to the energy and structure of
  it varies according to the application.
  For example, we never use a quantum solvent model in the case of an implicit
  solute, it won't be profitable even the solute is of simple geometry (wall).
+ On the other hand, Most of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{QM}
+\end_layout
+
+\end_inset
+
+ calculations in apolar solvents (toluene, etc.) uses implicit SCRF model,
+ or even without solvent correction, and is proved to be well working.
  In the case of molecular solute, we generally require the solute to have
- a model at the same scale of description or more precise (figure 
+ at least a model at the same scale of description (figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Hierarchy-of-models"
@@ -2330,7 +2685,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\align right
+\align center
 \begin_inset Box Frameless
 position "t"
 hor_pos "c"
@@ -2338,7 +2693,7 @@ has_inner_box 1
 inner_pos "t"
 use_parbox 0
 use_makebox 0
-width "110col%"
+width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
@@ -2382,39 +2737,17 @@ name "fig:Hierarchy-of-models"
 \end_layout
 
 \begin_layout Standard
-Most of 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{QM}
-\end_layout
-
-\end_inset
-
- calculations in apolar solvents (toluene, etc.) uses implicit SCRF model,
- or even without solvent correction, and is proved to be well working.
- The interaction between solute and the solvent is mainly the electrostatic
- interaction as described above.
- Therefore 
-\end_layout
-
-\begin_layout Standard
-The quantum interaction 
-\end_layout
-
-\begin_layout Standard
 In this thesis, we use also rigid model to describe solute to be coherent
  with IET, which can't treat the solvent and solute in different scale of
  description.
- 
+ Polarizable, flexible model of solute, and coupling with QM will be described
+ in perspective.
 \end_layout
 
 \begin_layout Standard
-Polarizable, flexible model, and coupling with QM is described in perspective.
+In a word, the choice of the model of system is a compromise between the
+ required precision according to application, and the computing cost that
+ the research can afford.
 \end_layout
 
 \end_body

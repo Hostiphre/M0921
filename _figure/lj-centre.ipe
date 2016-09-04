@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70107" creator="Ipe 7.1.7">
-<info created="D:20160813183428" modified="D:20160813192119"/>
+<info created="D:20160813183428" modified="D:20160829232128"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -253,5 +253,6 @@ h
 <text layer="alpha" transformations="translations" pos="128 704" stroke="black" type="label" width="109.469" height="11.453" depth="6.48" valign="baseline">$u(r)=4\epsilon\left [ \left ( \frac{\sigma}{r} \right )^{12}-\left ( \frac{\sigma}{r} \right )^{6} \right ]$</text>
 <text transformations="translations" pos="128 672" stroke="black" type="label" width="33.865" height="8.11" depth="2.49" valign="baseline">$+c_\mathrm{r}/r^{12}$</text>
 <text matrix="1 0 0 1 0 -32" transformations="translations" pos="128 672" stroke="black" type="label" width="30.752" height="8.11" depth="2.49" valign="baseline">$-c_\mathrm{a}/r^{6}$</text>
+<text matrix="1 0 0 1 0 -64" transformations="translations" pos="128 672" stroke="black" type="label" width="66.125" height="9.507" depth="1.49" valign="baseline">$\sigma$  $\varepsilon$  $r_{\min} = 2^{\frac{1}{6}}\sigma$</text>
 </page>
 </ipe>

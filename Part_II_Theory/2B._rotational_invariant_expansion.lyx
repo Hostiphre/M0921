@@ -89,7 +89,7 @@ If a function
 \begin_inset Formula $\mathbf{X_{i}}\equiv(\mathbf{r_{i}},\mathbf{\Omega_{i}})$
 \end_inset
 
- have transitional and rotational invariance 
+ has transitional and rotational invariance 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Blum_I"
@@ -166,9 +166,9 @@ key "Luc_2014"
 \end_layout
 
 \begin_layout Standard
-Two special cases are adopted in this thesis, which are the laboratory coordinat
-e system with particle 1 at origin (fixed frame) and intermolecular coordinate
- system (local frame) shown in figure 
+Two special cases are adopted in this thesis, these being the laboratory
+ coordinate system with particle 1 at origin (fixed frame) and intermolecular
+ coordinate system (local frame) shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:coordinate_systems"
@@ -200,7 +200,7 @@ reference "eq:definition_rot_invar"
 
 \end_inset
 
-) is orthogonal, proven as below
+) is orthogonal, as proven below:
 \begin_inset Formula 
 \begin{eqnarray}
 \left\langle \Phi\mid\Phi_{2}\right\rangle  & = & \int\mathrm{d}\mathbf{\Omega_{1}}\mathrm{d}\mathbf{\Omega_{2}}\mathrm{d}\hat{\mathbf{r}}\Phi_{\mu\nu}^{mnl}(\mathbf{\Omega_{1}},\mathbf{\Omega_{2}},\mathbf{\hat{r_{12}}})\Phi_{\mu_{2}\nu_{2}}^{m_{2}n_{2}l_{2}*}(\mathbf{\Omega_{1}},\mathbf{\Omega_{2}},\mathbf{\hat{r_{12}}})\nonumber \\
@@ -295,7 +295,7 @@ In any coordinate system, the value of
 \end_inset
 
  remains the same.
- Here is an example of demonstration with the fixed and local frame mentioned
+ Here is a partial demonstration with the fixed and local frame mentioned
  above, described in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -455,7 +455,7 @@ Therefore, the projections
 \begin_inset Formula $F_{\mu\nu}^{mnl}(r)$
 \end_inset
 
- also remains rotational invariant in this two coordinate system.
+ also remain rotational invariant in these two coordinate systems.
 \end_layout
 
 \begin_layout Section
@@ -464,7 +464,7 @@ Transform in local frame
 
 \begin_layout Standard
 In the intermolecular (local) coordinate system, the 2 molecules are both
- positioned along 
+ positioned along the 
 \begin_inset Formula $z$
 \end_inset
 
@@ -476,7 +476,7 @@ key "Edmonds,Gray-Gubbins,Messiah"
 
 \end_inset
 
- of generalized spherical harmonics
+ of generalized spherical harmonics:
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
@@ -485,7 +485,7 @@ R_{\mu'\mu}^{m}(\Theta,\Phi,\Psi)=\delta_{\mu'\mu} & \mathrm{if} & \Theta=\Phi=\
 
 \end_inset
 
- and 3j-symbol
+and 3j-symbol
 \begin_inset Formula 
 \begin{eqnarray}
 \left(\begin{array}{ccc}
@@ -568,7 +568,7 @@ The function
 \begin_inset Formula $F_{\mu\nu}^{mnl}(r)$
 \end_inset
 
- can be transformed to each other by 2 simple steps.
+ can be transformed into each other by 2 simple steps.
 \end_layout
 
 \begin_layout Subsection
@@ -731,7 +731,7 @@ F(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},r)=\sum_{mn\mu\nu\chi}F_{\mu\n
 
 \end_inset
 
-and be transformed with FFT-3D.
+and transformed with FFT-3D.
 \end_layout
 
 \begin_layout Subsection
@@ -799,7 +799,7 @@ F(r,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})=\sum_{\mu\nu\chi}F_{\mu\nu,
 
 \end_inset
 
-which can be treat as a normal FFT of 3 dimension.
+which can be treated as a normal FFT of 3 dimensions.
 \end_layout
 
 \begin_layout Section
@@ -807,7 +807,7 @@ Transform in fixed frame
 \end_layout
 
 \begin_layout Standard
-The same way, in the laboratory coordinate system
+Similarly, in the laboratory coordinate system
 \begin_inset Formula 
 \begin{equation}
 \Phi_{\mu\nu}^{mnl}(0,\mathbf{\Omega},\mathbf{\hat{r}})=\sum_{\eta}\left(\begin{array}{ccc}
@@ -822,7 +822,7 @@ m & n & l\\
 \end_layout
 
 \begin_layout Standard
-The rotational invariant doesn't take advantage of the 
+The rotational invariant does not take advantage of the 
 \begin_inset Formula $\chi$
 \end_inset
 
@@ -843,7 +843,7 @@ Expansion of
 \end_layout
 
 \begin_layout Standard
-The total equation of the forward transform is as shown
+The total equation of the forward transform is as shown below:
 \begin_inset Formula 
 \begin{equation}
 F_{\mu\nu}^{mnl}(r)=f^{m}f^{n}\sum_{\eta}\left(\begin{array}{ccc}
@@ -858,7 +858,7 @@ m & n & l\\
 \end_layout
 
 \begin_layout Standard
-Firstly, the FGSHT is performed
+Firstly, the FGSHT is performed:
 \begin_inset Formula 
 \begin{equation}
 F_{\eta\nu}^{n}(\mathbf{r})=\int\mathrm{d}\mathbf{\Omega}f^{n}F(\mathbf{r},\mathbf{\Omega})R_{\eta,\nu}^{n*}(\mathbf{\Omega})
@@ -887,7 +887,7 @@ As
 \end_inset
 
  values are tabulated in the Cartesian grid, we cannot use a quadrature
- approach without interpolation, so histogram approach is used.
+ approach without interpolation, so the histogram approach is used.
 \end_layout
 
 \begin_layout Standard
@@ -932,7 +932,7 @@ For complex numbers
 \begin_inset Formula $F_{\eta\nu}^{n}(\mathbf{r})$
 \end_inset
 
-, the real and imagine part can be calculated separately.
+, the real and imaginary parts can be calculated separately.
 \end_layout
 
 \begin_layout Standard
@@ -940,7 +940,7 @@ The rotational matrices
 \begin_inset Formula $R_{\lambda0}^{l*}(\mathbf{r})$
 \end_inset
 
- in Cartesian coordinate system can be pre-generate by recurrence as detailed
+ in Cartesian coordinate system can be pre-generated by recurrence as detailed
  in appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -953,7 +953,7 @@ reference "chpt:rotM-by-recurrence"
 \end_layout
 
 \begin_layout Standard
-Finally, the combination of projections gives
+Finally, the combination of projections gives:
 \begin_inset Formula 
 \begin{equation}
 F_{\mu\nu}^{mnl}(r)=f^{m}\sum_{\eta}\left(\begin{array}{ccc}
@@ -979,7 +979,7 @@ It should be noted that
 
 \begin_layout Subsection
 Rebuilt of 
-\begin_inset Formula $g(\mathbf{r},\mathbf{\Omega})$
+\begin_inset Formula $F(\mathbf{r},\mathbf{\Omega})$
 \end_inset
 
  from projections
@@ -1009,11 +1009,11 @@ Symmetry
 \end_layout
 
 \begin_layout Standard
-In IEM and MDFT, the rotational invariants is used to describe the solvent.
+In IEM and MDFT, the rotational invariants are used to describe the solvent.
  It possess symmetric rules, introduced by the indistinguishability of the
- two particles, symmetry properties of single particle and its real number
+ two particles, symmetry properties of single particle, and its real number
  property as a physical quantity.
- Here lists all the symmetric rules concerns the 2-molecule system.
+ Here we list all the symmetric rules concerning the 2-molecule system.
 \end_layout
 
 \begin_layout Subsection
@@ -1259,7 +1259,7 @@ c_{\mu\nu,\chi}^{mn}(r)=c_{\underline{\mu}\underline{\nu},\underline{\chi}}^{mn}
 \begin_layout Standard
 
 \color red
-In MDFT, rotational invariant projections is used to describe DCF.
+In MDFT, rotational invariant projections are used to describe DCF.
  The original 
 \begin_inset Formula $c_{\mu\nu}^{mnl}(\mathbf{r})$
 \end_inset
@@ -1425,7 +1425,7 @@ With
 \begin_inset Formula $l$
 \end_inset
 
- is even, is pure imaginary if 
+ is even, and is purely imaginary if 
 \begin_inset Formula $l$
 \end_inset
 
@@ -1487,7 +1487,7 @@ F_{\mu\nu,\underline{\chi}}^{mn}(\mathbf{k})=\left(-\right)^{m+n}F_{\mu\nu,\chi}
 \begin_layout Standard
 
 \color red
-Finally, if the solvent molecule possesses a symmetric axe 
+Finally, if the solvent molecule possesses a symmetry axe 
 \begin_inset Formula $\mathrm{C}_{2}$
 \end_inset
 
@@ -1505,7 +1505,7 @@ Finally, if the solvent molecule possesses a symmetric axe
 \begin_layout Standard
 
 \color red
-For spherical solute, the 
+For spherical solutes, the 
 \begin_inset Formula $\mathbf{\Omega_{1}}$
 \end_inset
 

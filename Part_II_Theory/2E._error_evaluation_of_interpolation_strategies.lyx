@@ -248,7 +248,7 @@ where
 \begin_inset Formula $c_{k}$
 \end_inset
 
- is the one calculated directly as reference.
+ is the one calculated directly as the reference.
 \end_layout
 
 \begin_layout Standard
@@ -292,15 +292,15 @@ with resolution of 0.1%, in range of [0, 1].
 \end_layout
 
 \begin_layout Standard
-In all three figures, the 4 curves given by zero order interpolation don't
- divers a lot compared with the linear interpolation one.
+In all three figures, the 4 curves given by zero order interpolation do
+ not diverge a great deal compared with the linear interpolation one.
  The result of MDFT also shows that zero order interpolation gives large
  energy error with a DCF of 
 \begin_inset Formula $n_{\max}=1$
 \end_inset
 
 , and has convergency problems in certain cases.
- As a conclusion, the linear interpolation scheme is absolutely needed.
+ We conclude that the linear interpolation scheme is absolutely necessary.
  On the other hand, as seen in eq.
  (
 \begin_inset CommandInset ref
@@ -309,7 +309,7 @@ reference "eq:interpolation"
 
 \end_inset
 
-), it is computationally much more expensive than the simple histogram scheme
+), it is computationally much more expensive than the simple histogram scheme,
  as it requires 
 \begin_inset Formula $2^{5}=32$
 \end_inset

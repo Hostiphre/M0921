@@ -608,6 +608,10 @@ Some related thermodynamic quantities
 \end_layout
 
 \begin_layout Standard
+"expansion work" term PV
+\end_layout
+
+\begin_layout Standard
 Thermodynamic quantities such as the internal energy, pressure, compressibility
  and heat capacity are obtained as derivatives of the classical partition
  function.

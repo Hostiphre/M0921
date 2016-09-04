@@ -108,7 +108,7 @@ Let
 \begin_inset Formula $n$
 \end_inset
 
-, 
+, and 
 \begin_inset Formula $w(x)$
 \end_inset
 
@@ -240,7 +240,7 @@ key "Numerical_Recipes_3ed"
 
 \end_inset
 
- p.118), thus exact for 
+ p.118), and thus exact for 
 \begin_inset Formula $f(x)$
 \end_inset
 
@@ -299,7 +299,7 @@ reference "eq:GSHT_forward"
 \end_inset
 
 .
- It should be noticed that the surface area element
+ It should be noted that the surface area element is:
 \begin_inset Formula 
 \begin{equation}
 \mathrm{d}\mathbf{\Omega}=\sin\Theta\mathrm{d}\Theta\mathrm{d}\Phi\mathrm{d}\Psi=\mathrm{d}\cos\Theta\mathrm{d}\Phi\mathrm{d}\Psi
@@ -360,7 +360,7 @@ For
 \begin_inset Formula $N=n+1$
 \end_inset
 
- roots of the Chebyshev polynomial of the first kind
+ roots of the Chebyshev polynomial of the first kind:
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{cccc}
@@ -369,7 +369,7 @@ T_{N}(x)=\cos(N\cos x) & \Rightarrow & x_{i}=\cos\left[\frac{(2i-1)\pi}{2N}\righ
 
 \end_inset
 
- with weight 
+with weight 
 \begin_inset Formula $w_{i}=\frac{\pi}{N}$
 \end_inset
 
@@ -382,7 +382,7 @@ T_{N}(x)=\cos(N\cos x) & \Rightarrow & x_{i}=\cos\left[\frac{(2i-1)\pi}{2N}\righ
 \begin_inset Formula $\Phi\in\left[0,2\pi\right]$
 \end_inset
 
-, two times of function evaluation should be calculated
+, two times of function evaluation should be calculated:
 \begin_inset Formula 
 \begin{align}
  & \int_{-1}^{1}f(\cos\Phi)\frac{1}{\sqrt{1-\cos^{2}\Phi}}\mathrm{d}\cos\Phi\nonumber \\

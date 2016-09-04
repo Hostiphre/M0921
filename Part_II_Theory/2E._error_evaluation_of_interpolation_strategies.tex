@@ -34,7 +34,7 @@ E_{\mathrm{a}}^{i}=\left|c_{k}^{i}-c_{k}\right|
 \end{equation}
 where $c_{k}^{i}$ is any element of $\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
 of unity $\lyxmathsym{\AA}^{3}$ calculated as described and $c_{k}$
-is the one calculated directly as reference.
+is the one calculated directly as the reference.
 
 \textbf{Log absolute error} is treated the same way as $E_{\mathrm{a}}^{i}$,
 with $E_{\mathrm{l}}^{i}$ defined as
@@ -50,10 +50,11 @@ E_{r}^{i}=\left|c_{k}^{i}-c_{k}\right|/\left|c_{k}\right|\label{eq:Er}
 with resolution of 0.1\%, in range of {[}0, 1{]}.
 
 In all three figures, the 4 curves given by zero order interpolation
-don't divers a lot compared with the linear interpolation one. The
-result of MDFT also shows that zero order interpolation gives large
-energy error with a DCF of $n_{\max}=1$, and has convergency problems
-in certain cases. As a conclusion, the linear interpolation scheme
-is absolutely needed. On the other hand, as seen in eq. (\ref{eq:interpolation}),
-it is computationally much more expensive than the simple histogram
-scheme as it requires $2^{5}=32$ times of operations.
+do not diverge a great deal compared with the linear interpolation
+one. The result of MDFT also shows that zero order interpolation gives
+large energy error with a DCF of $n_{\max}=1$, and has convergency
+problems in certain cases. We conclude that the linear interpolation
+scheme is absolutely necessary. On the other hand, as seen in eq.
+(\ref{eq:interpolation}), it is computationally much more expensive
+than the simple histogram scheme, as it requires $2^{5}=32$ times
+of operations.
