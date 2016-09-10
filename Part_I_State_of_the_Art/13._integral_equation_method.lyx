@@ -86,7 +86,7 @@ density-density pair correlation function
 \end_inset
 
 , when the fluid is uniform, the quantity can be expressed by a function
- of only the distance between the two places , such that 
+ of only the distance between the two places, such that 
 \begin_inset Formula $\rho(\mathbf{r},\mathbf{r'})\rightarrow\rho(\left|\mathbf{r}-\mathbf{r'}\right|)$
 \end_inset
 
@@ -105,7 +105,7 @@ Ornstein-Zernike equation
 \end_layout
 
 \begin_layout Standard
-The Ornstein-Zernike equation for simple (atomic) liquid
+The Ornstein-Zernike () equation for simple (atomic) liquids
 \begin_inset Formula 
 \begin{equation}
 h(\mathbf{r},\mathbf{r'})=c(\mathbf{r},\mathbf{r'})+\int_{V}c(\mathbf{r},\mathbf{r''})\rho(\mathbf{r''})h(\mathbf{r''},\mathbf{r'})\mathrm{d}\mathbf{r''}

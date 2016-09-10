@@ -1,0 +1,1049 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass classicthesis
+\begin_preamble
+\addbibresource{Bibliography.bib}
+\addbibresource[label=ownpubs]{AMiede_Publications.bib}
+
+\ExecuteBibliographyOptions{backref=true,isbn=false}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex8
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+frenchspacing
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+raggedbottom
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{roman}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagestyle{plain}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Front_Staff/Titlepage.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Front_Staff/Titleback.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Front_Staff/Abstract.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Front_Staff/Acknowledgments.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagestyle{scrheadings}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Contents.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{arabic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Introduction.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part Introduction (ClassicThesis)
+This chapter gives a brief review of all the basic concepts and previous
+ work that this thesis is based on.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+In section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:models"
+
+\end_inset
+
+, we begin by introducing the models used in our study, as well as some
+ other examples of different description scale, by way of comparison to
+ illustrate why we chose our models.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+Once the model is chosen, all the theories become mathematical problems.
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:statistical-mechanics"
+
+\end_inset
+
+ reviews some basic concepts of statistical mechanics for liquids (theory
+ of liquids), which present some brief formalisms deduced from the model
+ of the system.
+ The following two sections, section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:iem"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:mdft"
+
+\end_inset
+
+ give two frontier domains of the theory of liquids: the integral equation
+ theory (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+), and the molecular density functional theory (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+) that this thesis works upon.
+ The clear mathematical equivalence between these two theories is presented
+ in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:mdft"
+
+\end_inset
+
+, which gave us the idea to use the expansion technics in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+ to serve 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+Finally, we will give a brief introduction in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:reference-method"
+
+\end_inset
+
+ to the bulk solvent direct correlation functions (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+) we used in this thesis, which are generated by molecular dynamics (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
+\end_inset
+
+) and Monte Carlo (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MC}
+\end_layout
+
+\end_inset
+
+) simulations.
+\end_layout
+
+\begin_layout Part
+State of the Art: Solvation, Models and Methods
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_I_State_of_the_Art/11._models.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_I_State_of_the_Art/12._theory_of_liquids.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_I_State_of_the_Art/13._integral_equation_method.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_I_State_of_the_Art/14._molecular_density_functional_theory.lyx"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_I_State_of_the_Art/15._molecular_dynamics_simulation.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part Introduction (ClassicThesis)
+This chapter presents a complete theory of the 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ evaluation under HRF approximation: 
+\begin_inset Formula 
+\[
+\mathcal{F}_{\mathrm{exc}}=-\frac{\beta^{-1}}{2}\int\mathrm{d}\mathbf{r_{1}}\mathrm{d}\mathbf{r_{2}}\mathrm{d}\mathbf{\Omega_{1}}\mathrm{d}\mathbf{\Omega_{2}}\Delta\rho(\mathbf{r_{1}},\mathbf{\Omega_{1}})\Delta\rho(\mathbf{r_{2}},\mathbf{\Omega_{2}})c(r_{12},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})
+\]
+
+\end_inset
+
+which is based on previous work of Zhao et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Zhao_2011"
+
+\end_inset
+
+, where the HRF approximation bas been applied to linear molecules (
+\begin_inset Formula $\mathbf{\Omega}\equiv(\Theta,\Phi)$
+\end_inset
+
+).
+ In this thesis, the method is generated to molecular solvent, using 3 Euler
+ angles, i.
+ e.
+ 
+\begin_inset Formula $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$
+\end_inset
+
+, where the computing cost of the original algorithm is no longer reasonable.
+ Further approximation is therefore made, where the density variable 
+\begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+ is expended on generalized spherical harmonics.
+ Theoretically, this approximation gives little loss of accuracy, but makes
+ a great advantage in computing time and memory requirement.
+ The prove is shown in the implementation part.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:fft-spatial"
+
+\end_inset
+
+ describes the FFT treatment for the spatial convolution in the gradient
+ 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ of the excess functional 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+, which reduces the algorithm complexity from 
+\begin_inset Formula $O(N^{2})$
+\end_inset
+
+ to 
+\begin_inset Formula $O(N\log_{2}N)$
+\end_inset
+
+.
+ A DCF directly issue of Monte Carlo simulation and solution HNC is used,
+ in both intermolecular and projection form.
+ To use the intermolecular form, the matrix which does the transform from
+ laboratory to intermolecular coordinates system is generalized to molecular
+ case compared to previous work, then interpolation of zero and first order
+ is involved.
+ To use the projection from, DCF is reconstructed with all projections.
+ For order of projections 
+\begin_inset Formula $n_{\mathrm{max}}=1$
+\end_inset
+
+, the formula of each projections are written explicitly.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:angular-convolution"
+
+\end_inset
+
+ presents the treatment of angular convolution.
+ As IEM and MDFT have mathematical equivalence, an algorithm inspired by
+ the work of Fries 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Fries_Patey_1985"
+
+\end_inset
+
+ and Blum 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Blum_I,Blum_II"
+
+\end_inset
+
+ for IEM is built for MDFT.
+ In this algorithm, the density variable 
+\begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+ is expended on generalized spherical harmonics, then rotated onto intermolecula
+r frame.
+ It is shown that in this form, the OZ equation is largely simplified.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+The solvent properties involved in this thesis are presented in the next
+ two chapters.
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:thermodynamic-quantities"
+
+\end_inset
+
+ presents some thermodynamic quantities, including the solvation free energy
+ and its corrections, ...
+ and section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:solvation-structure"
+
+\end_inset
+
+ gives some forms of structure that can be preformed, such as the radical
+ distribution function, radical polarization functions, rotational invariants
+ expansion, etc.
+\end_layout
+
+\begin_layout Part
+Theory: HRF Approximation, For Molecular Solvent
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_II_Theory/21._reduction_of_spatial_convolution_by_fft.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_II_Theory/22._angular_convolution_a_better_algorithm.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_II_Theory/23._thermodynamic_quantities.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_II_Theory/24._solvation_structure.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part Introduction (ClassicThesis)
+The code MDFT developed in this thesis is based on the branch master of
+ Git project MDFT (
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/maxlevesque/MDFT/
+\end_layout
+
+\end_inset
+
+), version [Fri Jun 20 19:05:52 2014 +0200].
+ All the implementations are run on 
+\family sans
+\series bold
+POINCARE
+\family default
+\series default
+ machines of IDRIS, which involved two kinds of machines:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\family sans
+\series bold
+poincare[001-092]:
+\family default
+\series default
+ 2 processors Sandy Bridge E5-2670 (2.60GHz, 8 cores per processor, being
+ 16 cores per node); 32 GB of memory per node.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\family sans
+\series bold
+poincarebig[01-02]:
+\family default
+\series default
+ 4 processors AMD Opteron 6282 (2.60GHz, 16 cores per processor, being 64
+ cores per node); 128 GB of memory per node.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+The former is used for regular calculation, whose memory hierarchy is shown
+ in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:poincare"
+
+\end_inset
+
+.
+ The later is only used in the evaluation of accuracy, in case of memory
+ leak in the former.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename _figure/poincare.eps
+	width 90col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Structure of a POINCARE node
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:poincare"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:algorithms-and-branches"
+
+\end_inset
+
+,
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:accuracy"
+
+\end_inset
+
+ discussion on precision,
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:seq-code-performance"
+
+\end_inset
+
+ computing performance and memory limits,
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:parallelization"
+
+\end_inset
+
+ OpenMP, MPI giving the possibility to go beyond the memory limit.
+ Due to the complexity of minimizer L-BFGS, this process is only added on
+ the part of 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ evaluation.
+ Tests of performance stability with respect to both threads and nodes are
+ made.
+\end_layout
+
+\begin_layout Part
+Implementation
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_III_Implementation/31._algorithms_and_branches.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_III_Implementation/32._numerical_and_physical_accuracy.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_III_Implementation/33._computing_performance_of_sequential_code.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_III_Implementation/34._computing_performance_of_parallel_code.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part Introduction (ClassicThesis)
+Only a few applications are made due to the time limit of this thesis, concludin
+g
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+Section [ref] to show the capability of MDFT to calculate ions and small
+ molecules.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+Section [ref] to show a qualitative influence of polar solvent on the reaction
+ including metal-oxo centre.
+\end_layout
+
+\begin_layout Part
+Applications
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_IV_Applications/41._ions.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_IV_Applications/42._solutes.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part Introduction (ClassicThesis)
+The only one publication during this thesis
+\end_layout
+
+\begin_layout Part
+Conclusion and Perspectives
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_V_Conclusion_and_Perspectives/51._Conclusion.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_V_Conclusion_and_Perspectives/52._Perspectives.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+\start_of_appendix
+Appendix
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_I_State_of_the_Art/1A._computing_performance.lyx"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_II_Theory/2A._equivalence_of_quadrature_projection_order.lyx"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_II_Theory/2B._rotational_invariant_expansion.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_II_Theory/2C._evaluation_of_rotation_matrix_elements_by_recurrence.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_II_Theory/2D._symmetry-of-gsh-and-wigner-3j-symbol.lyx"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_II_Theory/2E._error_evaluation_of_interpolation_strategies.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_III_Implementation/3A._original_data.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Bibliography.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

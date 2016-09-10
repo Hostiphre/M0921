@@ -978,7 +978,7 @@ It should be noted that
 \end_layout
 
 \begin_layout Subsection
-Rebuilt of 
+Rebuilding of 
 \begin_inset Formula $F(\mathbf{r},\mathbf{\Omega})$
 \end_inset
 
@@ -986,7 +986,7 @@ Rebuilt of
 \end_layout
 
 \begin_layout Standard
-and the rebuilt of 
+and the rebuilding of 
 \begin_inset Formula $F(\mathbf{r},\mathbf{\Omega})$
 \end_inset
 
@@ -1487,7 +1487,7 @@ F_{\mu\nu,\underline{\chi}}^{mn}(\mathbf{k})=\left(-\right)^{m+n}F_{\mu\nu,\chi}
 \begin_layout Standard
 
 \color red
-Finally, if the solvent molecule possesses a symmetry axe 
+Finally, if the solvent molecule possesses an axe of symmetry 
 \begin_inset Formula $\mathrm{C}_{2}$
 \end_inset
 
@@ -1517,7 +1517,7 @@ For spherical solutes, the
 \begin_inset Formula $F_{0\nu}^{0nl}(r)$
 \end_inset
 
- is not-zero.
+ are not-zero.
 \end_layout
 
 \end_body

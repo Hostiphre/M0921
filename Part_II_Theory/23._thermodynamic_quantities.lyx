@@ -81,38 +81,38 @@ name "chpt:thermodynamic-quantities"
 \end_layout
 
 \begin_layout Standard
-The solvation free energy is the most important property that we seek, as
+The solvation free energy is the most important property that we seek; as
  shown in previous sections, it can be calculated by the minimization of
  free energy functional 
 \begin_inset Formula $\mathcal{F}[\rho]$
 \end_inset
 
 .
- Here is a discussion about some corrections needed for charged solute and
- some related thermodynamic quantities that can be obtained directly from
- the solvation free energy.
+ Here is a discussion about some corrections needed for charged solutes
+ and some related thermodynamic quantities that can be obtained directly
+ from the solvation free energy.
 \end_layout
 
 \begin_layout Standard
 The solvation properties often involve the three-dimensional microscopic
  structure of the solvent around the dissolved molecule, as well as thermodynami
-cs quantities such as the enthalpy, entropy, and free energy of solvation.
+c quantities such as the enthalpy, entropy, and free energy of solvation.
  [ref gubbins] pKa [ref]
 \end_layout
 
 \begin_layout Standard
-The solvation properties can be found if the two principle properties are
- accurately calculated, free energy and structure.
- In this thesis, we focus on this two aspect.
+The solvation properties can be determined if the two principle properties,
+ free energy and structure, are accurately calculated.
+ In this thesis, we focus on these two aspects.
 \end_layout
 
 \begin_layout Section
-Free energy correction for single ion
+Free energy correction for single ions
 \end_layout
 
 \begin_layout Standard
 In the calculation of external potential as well as the total solvation
- free energy, the use of different convention can lead to a charge-independent
+ free energy, the use of different conventions can lead to a charge-independent
  offset, which introduces error for charged solutes 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -121,18 +121,18 @@ key "Kastenholz_2006_I,Kastenholz_2006_II,Hunenberger_book"
 \end_inset
 
 .
- This offset is mainly built by two sources: (1) due to the use of a finite
- system size, in our case, is a system with cubic periodic boundary conditions,
- where presents artificial interactions between the ion and its own periodic
- copies, as well as between the solvent and the periodic copies of the ion
- (Type-B in 
+ This offset is mainly caused by two sources: (1) resulting from the use
+ of a finite system size; in our case, is a system with cubic periodic boundary
+ conditions, which presents artificial interactions between the ion and
+ its own periodic copies, as well as between the solvent and the periodic
+ copies of the ion (Type-B in 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Kastenholz_2006_II"
 
 \end_inset
 
-); (2) due to the choice of convention for summing up the contributions
+); (2) resulting from the choice of convention for summing up the contributions
  of solvent charges to the electrostatic potential in the sample system
  (Type-C in 
 \begin_inset CommandInset citation
@@ -161,7 +161,7 @@ Another way to evaluate this error is to make a numerical extrapolation
 \begin_inset Formula $\left(1/L\right)$
 \end_inset
 
-, it's more accurate, but asking for much more calculation.
+; it is more accurate, but demands much more calculation.
 \end_layout
 
 \end_inset
@@ -411,7 +411,7 @@ Correction of type C
 \end_layout
 
 \begin_layout Standard
-Type-C corrections is needed when the systems to be compared use different
+Type-C corrections are needed when the systems to be compared use different
  electrostatic summation schemes: on the basis of point charges within entire
  solvent molecules (M scheme) or on the basis of individual point charges
  (P scheme), shown in figure 
@@ -421,7 +421,7 @@ reference "fig:IQ-model-som-scheme"
 
 \end_inset
 
- (c) and (d), which brings an fixed free energy difference at the boundary.
+ (c) and (d), which brings a fixed free energy difference at the boundary.
 \end_layout
 
 \begin_layout Standard
@@ -506,13 +506,13 @@ reference "fig:IQ-model-som-scheme"
 
  
 \begin_inset Marginal
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Formula $\gamma$
 \end_inset
 
- is also somewhere called the spheropole moment 
+ is elsewhere referred to as the spheropole moment 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Saunders_1992,Maschio_2012"
@@ -553,9 +553,9 @@ key "Multipole"
 \end_layout
 
 \begin_layout Standard
-It can be shown that charge density of solvent located within the boundary
- of sample system vanishes everywhere, except at the boundary in the M scheme,
- which results in a uniform normal surface polarization.
+It can be shown that the charge density of the solvent located within the
+ boundary of the sample system vanishes everywhere, except at the boundary
+ in the M scheme, which results in a uniform normal surface polarization.
  The correction needed for
 \color red
  M scheme 
@@ -580,7 +580,7 @@ where
 \end_layout
 
 \begin_layout Standard
-The same way, when we consider 
+In the same way, when we consider 
 \begin_inset Formula $R_{\mathrm{I}}\ll L$
 \end_inset
 

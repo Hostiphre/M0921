@@ -7,13 +7,8 @@
 
 \subsection*{\uline{Theorem:} }
 
-<<<<<<< HEAD
 Let $P_{n}(x)$ be a nonzero polynomial of degree $n$, and $w(x)$
 a positive weight function so that
-=======
-Let $P_{n}(x)$ be a nonzero polynomial of degree $n$, and $w(x)$ a
-positive weight function so that
->>>>>>> ad9ea55e089e5d298a1fe1f029f87668816e4938
 \begin{equation}
 \int_{a}^{b}x^{k}P_{n}(x)w(x)\mathrm{d}x=0,(k=0,\ldots,n-1)
 \end{equation}
@@ -49,26 +44,17 @@ can easily find $f(x_{i})=r(x_{i}),(i=1,\ldots n)$, then
  & \simeq & \stackrel{=0}{\overbrace{\sum_{i=1}^{n}P_{n}(x_{i})p(x_{i})w_{i}}}+\sum_{i=1}^{n}A_{i}r(x_{i})
 \end{eqnarray}
 is exact for $r(x)$ of degree at most $n-1$ (c.f. Numerical Recipes
-<<<<<<< HEAD
 \citep{Numerical_Recipes_3ed} p.118), and thus exact for $f(x)$
 of degree at most $2n-1$.
-=======
-\citep{Numerical_Recipes_3ed} p.118), and thus exact for $f(x)$ of degree
-at most $2n-1$.
->>>>>>> ad9ea55e089e5d298a1fe1f029f87668816e4938
 
 
 \section{Angular integration in GSHT}
 
 To expand a function onto GSHs, as in eq. (\ref{eq:GSHT_forward}),
 quadrature is needed. Assume that $F(\mathbf{\Omega})$ is a polynomial
-of $\cos\Theta$, with $\cos\Phi$ and $\cos\Psi$ of order $n$. As $R_{\mu'\mu}^{m*}(\mathbf{\Omega})$
+of $\cos\Theta$, $\cos\Phi$ and $\cos\Psi$ of order $n$. As $R_{\mu'\mu}^{m*}(\mathbf{\Omega})$
 is also a polynomial of order $n$, the total degree of integrand
-<<<<<<< HEAD
 is $2n$. It should be noted that the surface area element is:
-=======
-is $2n$. It should be noted that the surface area element is derived from:
->>>>>>> ad9ea55e089e5d298a1fe1f029f87668816e4938
 \begin{equation}
 \mathrm{d}\mathbf{\Omega}=\sin\Theta\mathrm{d}\Theta\mathrm{d}\Phi\mathrm{d}\Psi=\mathrm{d}\cos\Theta\mathrm{d}\Phi\mathrm{d}\Psi
 \end{equation}
@@ -86,11 +72,7 @@ of the first kind:
 \begin{array}{cccc}
 T_{N}(x)=\cos(N\cos x) & \Rightarrow & x_{i}=\cos\left[\frac{(2i-1)\pi}{2N}\right], & i\in1,\ldots,N\end{array}
 \end{equation}
-<<<<<<< HEAD
 with weight $w_{i}=\frac{\pi}{N}$, it corresponds to points in $\Phi\in\left[0,\pi\right]$
-=======
-With weight $w_{i}=\frac{\pi}{N}$, it corresponds to points in $\Phi\in\left[0,\pi\right]$
->>>>>>> ad9ea55e089e5d298a1fe1f029f87668816e4938
 regularly distributed. However, for $\Phi\in\left[0,2\pi\right]$,
 two times of function evaluation should be calculated:
 \begin{align}

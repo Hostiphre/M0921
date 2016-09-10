@@ -91,12 +91,14 @@ Computing models of solvents are broadly divided into two types: those treating
 
  and contains an artificial-shaped cavity.
  The explicit models can have more specific scales.
- Within the scope of classical mechanics, the most expensive method can
- be the flexible and polarizable explicit model, while in computational
- chemistry, less precise models often have wider usage (for example, the
- proteins are treated in the unity of residues).
+ Within the scope of classical mechanics, the solvent molecules are often
+ described as rigid entities carrying distributed point charges; the most
+ expensive methods involves flexible and polarizable explicit models.
+ In computational chemistry, less precise models often have wider usage
+ (the so-called coarse-grained models; for example, the proteins are treated
+ in the unity of residues).
  As the theory of liquids was firstly established for spherical atom-like
- solvent particles, the model adopted by the theory is a rigid molecule
+ solvent particles, the model adopted by such theory is a rigid molecule
  model, only depending on its position and orientation, i.
  e.
  there is no relative movement within the solvent particles.
@@ -110,11 +112,12 @@ key "Gray-Gubbins"
 .
  In this section, we will give a brief introduction of the implicit model
  in order to facilitate later discussion on solvation free energy corrections.
- We will then focus on the rigid solvent models and give some 
+ 
 \color red
-(...)
+We will then focus on the rigid solvent models and discuss the limits of
+ each approximation.
+
 \color inherit
- discussion on the limits of each approximation.
  The flexible and polarizable models will also be briefly mentioned.
 \end_layout
 
@@ -137,7 +140,7 @@ key "Jensen,Cramer_1999,Tomasi_1994_implicit_model"
 
 
 \begin_inset Marginal
-status collapsed
+status open
 
 \begin_layout Plain Layout
 The dielectric constant 
@@ -252,7 +255,7 @@ where
 \begin_inset Formula $\Delta G_{\mathrm{elec}}<0$
 \end_inset
 
- is the contribution of electrostatic interaction, introduced by electric
+ is the contribution of electrostatic interactions, introduced by electric
  charge distribution of 
 \begin_inset Formula $M$
 \end_inset
@@ -271,13 +274,13 @@ reference "eq:cm"
 
 \end_inset
 
-) are linked to the configuration of the first solvation shell (cavity).
+) may be linked to the configuration of the first solvation shell (cavity).
  The definition of cavity varies from the simplest sphere or ellipsoid to
  the surface of the ensemble atomic surfaces defined by the van der Waals
- radius in the solute.
+ radii in the solute.
  It's somehow reasonable to consider the cavity area proportional to the
  number of solvent molecules in the first solvation shell.
- This number can be calculated as the area passes through the middle region
+ This number can be calculated as the area passing through the middle region
  of first shell solvent.
  This area, named as the solvent-accessible surface area (SASA) 
 \begin_inset CommandInset citation
@@ -286,8 +289,8 @@ key "SAS_1,SAS_2"
 
 \end_inset
 
-, is calculated by adding the radius of the probe solvent ball on the van
- der Waals surface area (figure 
+, can be calculated by adding the radius of the probe solvent ball on the
+ solvent excluded surface area (figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:sasa"
@@ -387,7 +390,7 @@ The models and methods to calculate the electrostatic contribution
 \begin_inset Formula $\Delta G_{\mathrm{elec}}$
 \end_inset
 
- have varied greatly according to its usage.
+ have varied greatly according to their usage.
  The sections below list the most common examples.
  By the way, the integration of continuum models into 
 \begin_inset ERT
@@ -402,11 +405,11 @@ acs{QM}
 
 \end_inset
 
- calculation is also important, which won't be detailed as it doesn't link
- to our theory.
+ calculations is also important, which will not be detailed as it does not
+ link to our theory.
  Such kind of methods are called the self-consistent reaction field (SCRF)
- models, which treat the calculation of the solute-solvent interaction by
- an iterative procedure.
+ models, which treat the calculation of the solute-solvent interaction in
+ addition to the solute wave function by an iterative procedure.
  Some examples are presented in the list of Gaussian keyword SCRF 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -450,23 +453,15 @@ key "holst_1994_poisson"
 
 \end_inset
 
- permits to calculate electrostatic potential 
+ permits to calculate the electrostatic potential 
 \begin_inset Formula $V_{\mathrm{elec}}$
 \end_inset
 
- for the continuum model, such that electrostatic component of the free
- energy
+ in the continuum model, such that the electrostatic component of the free
+ energy can be written as
 \begin_inset Formula 
 \begin{equation}
 \Delta G_{\mathrm{elec}}=\frac{1}{2}\int\mathrm{d}\mathbf{r}\rho_{q}(\mathbf{r})V_{\mathrm{elec}}(\mathbf{r})
-\end{equation}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{equation}
-\Delta G_{\mathrm{elec}}=\frac{1}{2}\sum_{i}Q(\mathbf{r}_{i})V_{\mathrm{elec}}(\mathbf{r}_{i})
 \end{equation}
 
 \end_inset
@@ -475,12 +470,7 @@ where
 \begin_inset Formula $\rho_{q}$
 \end_inset
 
- is the charge distribution of the continuous medium, or in a discrete partial
- charge description 
-\begin_inset Formula $Q$
-\end_inset
-
-.
+ is the charge distribution of the continuous medium.
 \end_layout
 
 \begin_layout Standard
@@ -556,7 +546,7 @@ reference "eq:poisson"
 \begin_layout Standard
 This equation cannot be solved analytically for complex geometries (such
  as protein), therefore, it is done numerically using numerical methods.
- Such methods are mentioned in for example the article of Roux and Simonson
+ Such methods are mentioned in, for example, the article of Roux and Simonson
  
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -572,7 +562,7 @@ key "holst_1994_poisson"
 \end_inset
 
 .
- A density functional approach based on the minimization of polarization
+ A density functional approach based on the minimization of the polarization
  density can be equally used to solve this equation 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -584,48 +574,13 @@ key "Marchi_2001,Levy_2005"
 \end_layout
 
 \begin_layout Standard
-When the dielectric constant is independent of the position, eq.
- (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:poisson"
-
-\end_inset
-
-) becomes
-\begin_inset Formula 
-\begin{equation}
-\nabla^{2}V_{\mathrm{elec}}(\mathbf{r})=-\dfrac{\rho_{q}(\mathbf{r})}{\varepsilon_{0}\varepsilon}\label{eq:poisson-simple}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-If the charge distribution is a point charge, the solution of eq.
- (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:poisson-simple"
-
-\end_inset
-
-) reduces to the Coulomb interaction.
- 
-\color red
-(How? Unity to be verified.)
-\end_layout
-
-\begin_layout Standard
 If the solvent is ionic, the Poisson equation can be modified by taking
  into account a (thermal) Boltzmann distribution of ions in the solvent,
  leading to the Poisson-Boltzmann Equation:
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{r}
-\nabla\cdot(\varepsilon(\mathbf{r})\nabla\phi(\mathbf{r}))-\kappa^{2}\left(\dfrac{kT}{q}\right)\sinh\left(\dfrac{qV_{\mathrm{elec}}(\mathbf{r})}{kT}\right)=-4\pi\rho(\mathbf{r})\\
+\nabla\cdot(\varepsilon(\mathbf{r})\nabla\phi(\mathbf{r}))-\kappa^{2}\left(\dfrac{kT}{q}\right)\sinh\left(\dfrac{qV_{\mathrm{elec}}(\mathbf{r})}{kT}\right)=-\dfrac{\rho(\mathbf{r})}{\varepsilon_{0}}\\
 \kappa^{2}=\dfrac{8\pi q^{2}I}{kT}
 \end{array}
 \end{equation}
@@ -644,12 +599,14 @@ Here
 \begin_inset Formula $I$
 \end_inset
 
- is the ion strength of the solution, and the 
+ is the ion strength of the solution, and 
+\color red
+the 
 \begin_inset Formula $\kappa^{2}$
 \end_inset
 
  factor is inversely related to the Debye-Hückel length.
- 
+ [Unity?]
 \end_layout
 
 \begin_layout Subsection
@@ -1073,11 +1030,11 @@ That means the model potential only depends on the intermolecular separation
 \end_inset
 
 .
- This approximation is quasi-exact for low density gas, the three and more
- body term decrease rapidly, but for dense fluids, the multi-body potential
- is often not ignorable, but is often taken into account by an effective
- pair potential (measured by experiments or calculated by simulations) due
- to computational cost.
+ This approximation is quasi-exact for low density gases, where the three
+ and more body terms decrease rapidly, but for dense fluids, in most of
+ cases the multi-body potential can not be ignored, but it is often taken
+ into account by an effective pair potential (measured by experiments or
+ calculated by simulations) due to computational cost.
  Three-body omission can cause surface tension problem, 
 \color red
 (...)
@@ -1108,7 +1065,7 @@ where
 \begin_layout Standard
 
 \color red
-For water, most of publications have already shown...
+For water, most of the publications have already shown...
  at the approximation level in this thesis...
 \end_layout
 
@@ -1205,7 +1162,7 @@ LJ pair potential.
 \end_inset
 
  of two particles.
- At long distances, both attractive and repulsive interactions are small.
+ At large distances, both attractive and repulsive interactions are small.
  As the distance between the atoms decreases, the attractive electron-proton
  interactions dominate, and the energy of the system decreases.
  At the observed bond distance, the repulsive electron-electron and proton-proto
@@ -1290,8 +1247,7 @@ where
 \begin_inset Formula $\epsilon$
 \end_inset
 
- can be measured by experiment.
- 
+ can be measured by experimentation.
 \end_layout
 
 \begin_layout Standard
@@ -1310,12 +1266,12 @@ ons to the potential.
 \begin_inset Formula $r^{-10}$
 \end_inset
 
-) interactions, and so on, but these are negligible compares to 
+) interactions, and so on, but these are negligible compared to 
 \begin_inset Formula $r^{-6}$
 \end_inset
 
 .
- The short-range interaction is difficult to calculate, and it's defined
+ The short-range interaction is difficult to calculate, and it is defined
  as 
 \begin_inset Formula $r^{-12}$
 \end_inset
@@ -1556,8 +1512,8 @@ SPC/E water model
 As water can't be perfectly described by the pair potential due to multi-body
  effects, quantum effects, hydrogen bond, etc., there develops various models
  to fit certain properties.
- The models contain several sites, which can placed else than the center
- of atom (figure 
+ The models contain several sites, which can be placed elsewhere other than
+ the center of atom (figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Water-models"
@@ -1650,7 +1606,7 @@ key "Zhao_2011"
 \end_inset
 
  It is a 3-site model, the electrostatic interaction is modeled using Coulomb's
- law and the dispersion and repulsion forces using the Lennard-Jones potential.
+ Law and the dispersion and repulsion forces using the Lennard-Jones potential.
 \end_layout
 
 \begin_layout Standard
@@ -2587,7 +2543,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /Users/lding/Desktop/__M0921/_figure/flexible.eps
+	filename ../_figure/flexible.eps
 	width 100col%
 
 \end_inset
@@ -2644,12 +2600,13 @@ Model of solute
 \end_layout
 
 \begin_layout Standard
-The model of solute also give an influence to the energy and structure of
- solvation.
- The compromise to have a better model of solvent or solute is discussable,
- it varies according to the application.
+The model of solute also gives an influence to the energy and structure
+ of solvation.
+ The compromise to have a better model of solvent or solute is debatable,
+ and it varies according to the application.
  For example, we never use a quantum solvent model in the case of an implicit
- solute, it won't be profitable even the solute is of simple geometry (wall).
+ solute, since this would not be profitable even if the solute is of simple
+ geometry (wall).
  On the other hand, Most of 
 \begin_inset ERT
 status open
@@ -2663,9 +2620,9 @@ acs{QM}
 
 \end_inset
 
- calculations in apolar solvents (toluene, etc.) uses implicit SCRF model,
- or even without solvent correction, and is proved to be well working.
- In the case of molecular solute, we generally require the solute to have
+ calculations in apolar solvents (toluene, etc.) use implicit SCRF model,
+ or even without solvent correction, and this has been proven to work well.
+ In the case of molecular solutes, we generally require the solute to have
  at least a model at the same scale of description (figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2738,8 +2695,8 @@ name "fig:Hierarchy-of-models"
 
 \begin_layout Standard
 In this thesis, we use also rigid model to describe solute to be coherent
- with IET, which can't treat the solvent and solute in different scale of
- description.
+ with IET, which cannot treat the solvent and solute in different scale
+ of description.
  Polarizable, flexible model of solute, and coupling with QM will be described
  in perspective.
 \end_layout

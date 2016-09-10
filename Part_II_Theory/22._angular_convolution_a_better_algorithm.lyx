@@ -116,8 +116,9 @@ reference "eq:convolution-2"
 \end_inset
 
 ).
- In other hand, these two-particle quantities also have rotational invariance.
- Proposed by Blum 
+ On the other hand, these two-particle quantities also have rotational invarianc
+e.
+ As proposed by Blum 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Blum_I,Blum_II"
@@ -131,9 +132,9 @@ key "Fries_Patey_1985"
 
 \end_inset
 
-, a rotational invariant expansion technic reduces the molecular Ornstein-Zernik
-e (MOZ) equation into smaller irreducible matrix equations.
- As there is an mathematical equivalence between IEM and MDFT (section 
+, a rotational invariant expansion technique reduces the molecular Ornstein-Zern
+ike (MOZ) equation into smaller irreducible matrix equations.
+ As there is a mathematical equivalence between IEM and MDFT (section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chpt:mdft"
@@ -148,8 +149,8 @@ reference "eq:gamma-k"
 
 \end_inset
 
-) can be regarded as the molecular OZ equation, this formalism can be also
- applied to MDFT.
+) can be regarded as the molecular OZ equation, this formalism can also
+ be applied to MDFT.
 \end_layout
 
 \begin_layout Section
@@ -167,7 +168,7 @@ reference "chpt:iem"
 
 ) 
 \begin_inset Marginal
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Here the projections 
@@ -250,14 +251,14 @@ where
 \end_layout
 
 \begin_layout Standard
-The DCF can also be expended on rotational invariants 
+The DCF can also be expanded on rotational invariants 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Blum_I"
 
 \end_inset
 
-, with the normalization factors according to Luc's definition:
+, with the normalization factors derived according to Luc's definition:
 \begin_inset Formula 
 \begin{equation}
 \hat{c}(k,\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})=\sum_{mnl\mu\nu}f_{m}f_{n}\hat{c}_{\mu\nu}^{mnl}(k)\sum_{\mu'\nu'\lambda'}\left(\begin{array}{ccc}
@@ -328,11 +329,11 @@ m & n & l\\
 
 \end_inset
 
-thus the OZ equation is expended on GSHs and rotational invariants.
+thus the OZ equation is expanded on GSHs and rotational invariants.
 \end_layout
 
 \begin_layout Standard
-It should be noticed that eq.
+Note that eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -371,7 +372,7 @@ status open
 \begin_inset Formula $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$
 \end_inset
 
- is well the invariant in eq.
+ is exactly the invariant in eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -403,11 +404,11 @@ Invariants of form
 \begin_inset Formula $F_{\mu\nu,\chi}^{mn}(k)$
 \end_inset
 
- have a very simple relation with its combined function 
+ have a very simple relation with their combined function 
 \begin_inset Formula $F(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
 \end_inset
 
- in intermolecular coordinate system (eq.
+ in the intermolecular coordinate system (eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -526,7 +527,7 @@ reference "eq:3j-orthogonality"
 
 \end_inset
 
-), we deduce that
+), we deduce that:
 \begin_inset Formula 
 \begin{equation}
 \hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})=\sum_{n\nu}\left(-\right){}^{\chi+\nu}\hat{c'}_{\mu\nu,\chi}^{mn}(k)\Delta\hat{\rho'}_{\chi\underline{\nu}}^{n}(\mathbf{k})\label{eq:gamma-blum}
@@ -599,7 +600,7 @@ reference "tab:FE-of-OZ"
 \end_inset
 
  shows some parameters linking to computing cost of different algorithms.
- It shows that the expansion en GSH (eq.
+ It shows that the expansion on GSH (eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -607,7 +608,7 @@ reference "eq:im"
 
 \end_inset
 
-)) projections doesn't gives an enormous reduction of FE comparing to its
+)) projections does not give an enormous reduction of FE compared to its
  6D function form (eq.
  (
 \begin_inset CommandInset ref
@@ -616,7 +617,7 @@ reference "eq:gamma-k"
 
 \end_inset
 
-)), but after the Blum's 
+)); but after the Blum's 
 \begin_inset Formula $\chi$
 \end_inset
 
@@ -1387,9 +1388,13 @@ Fast generalized spherical harmonic transform
 In the angular convolution algorithm above, the OZ equation is reduced to
  a few function evaluations by taking advantage of the orthogonality and
  symmetries of rotation invariants.
- It's analogue to the treatment of convolution with FFT for spatial grid,
- in which the generalized spherical harmonics transform (GSHT) is used as
- an alternative of FFT for inhomogeneous grid, and it 
+ It's analogous to the treatment of the convolution with FFT for spatial
+ grids, in which the 
+\color red
+generalized spherical harmonics transform
+\color inherit
+ (GSHT) is used as an alternative of FFT for inhomogeneous grids, and it
+ 
 \shape italic
 a priori 
 \shape default
@@ -1460,7 +1465,7 @@ Suppose that
 \begin_inset Formula $F(\mathbf{\Omega})$
 \end_inset
 
- is a polynomial of 
+ is a polynomial of both 
 \begin_inset Formula $\cos\Theta$
 \end_inset
 
@@ -1534,7 +1539,7 @@ reference "chpt:equivalence-of-quadrature-projection-order"
 \end_inset
 
 ).
- In the case of water who possesses a 
+ In the case of water which possesses a 
 \begin_inset Formula $\mathrm{C}_{2}$
 \end_inset
 
@@ -1546,7 +1551,7 @@ reference "chpt:equivalence-of-quadrature-projection-order"
 \begin_inset Formula $\mu$
 \end_inset
 
- is nonzero
+ are nonzero:
 \begin_inset Formula 
 \begin{equation}
 F_{\mu}=\int\mathrm{d}\Psi F(\Psi)e^{i\mu\Psi}=\int\mathrm{d}(\Psi+\pi)F(\Psi+\pi)e^{i\mu(\Psi+\pi)}=e^{i\mu\pi}\int\mathrm{d}\Psi F(\Psi)e^{i\mu\Psi}=e^{i\mu\pi}F_{\mu}
@@ -1605,7 +1610,7 @@ As
 \begin_inset Formula $\mathrm{floor}(n/2)\equiv\left\lfloor n/2\right\rfloor $
 \end_inset
 
-, thus in the forward transform
+, in the forward transform
 \begin_inset Formula 
 \begin{equation}
 F_{2\mu_{2}\equiv\mu}=\intop\mathrm{d}\Psi F(\Psi)e^{i\mu\Psi}=\frac{1}{2}\intop\mathrm{d}\Psi_{2}F(\Psi_{2}/2\equiv\Psi)e^{i\mu_{2}\Psi_{2}}
@@ -1633,12 +1638,12 @@ the total degree
 \begin_inset Formula $\Psi$
 \end_inset
 
-) is needed.
+) are needed.
  
 \end_layout
 
 \begin_layout Standard
-For further implementation, it's interesting to distinguish the order of
+For further implementation, it is interesting to distinguish the order of
  quadrature 
 \begin_inset Formula $m_{\mathrm{max}}$
 \end_inset
@@ -1704,11 +1709,11 @@ reference "eq:GSHT_forward"
 \begin_inset Formula $s=1$
 \end_inset
 
- or 2 according to the symmetry of axe 
+ or 2 according to the symmetry 
 \begin_inset Formula $\mathrm{C}_{s}$
 \end_inset
 
-), an overall 
+ of solvent), an overall 
 \begin_inset Formula $O(N_{FE}^{2})$
 \end_inset
 
@@ -1728,7 +1733,7 @@ key "Numerical_Recipes_3ed"
 \begin_inset Formula $O(N_{\Theta}^{2}N_{\Phi\Psi}\ln N_{\Phi\Psi}\simeq N_{FE}^{4/3})$
 \end_inset
 
- by fast Fourier transform.
+ by Fast Fourier Transform.
 \end_layout
 
 \begin_layout Standard
@@ -1740,7 +1745,7 @@ reference "eq:GSHT_forward"
 
 \end_inset
 
-) can be rewritten as
+) can be rewritten as:
 \begin_inset Formula 
 \begin{equation}
 F_{\mu'\mu}^{m}=\frac{f_{m}}{8\pi^{2}}\int\mathrm{d}\Theta r_{\mu'\mu}^{m}(\Theta)F_{\mu'\mu}(\Theta)\simeq\frac{f_{m}}{8\pi^{2}}\sum_{i=1}^{m_{\mathrm{max}}+1}w_{i}r_{\mu'\mu}^{m}(\Theta_{i})F_{\mu'\mu}(\Theta_{i})
@@ -1792,7 +1797,7 @@ reference "eq:GSHT_backward"
 
 \end_inset
 
-) can be rewritten as
+) can be rewritten as:
 \begin_inset Formula 
 \begin{eqnarray}
 F(\Theta,\Phi,\Psi) & = & \sum_{m=0}^{n_{\mathrm{max}}}\sum_{\mu'=-m}^{m}\sum_{\mu=-m}^{m}f_{m}F_{\mu'\mu}^{m}R_{\mu'\mu}^{m}(\mathbf{\Omega})\nonumber \\
@@ -1822,7 +1827,7 @@ key "FFTW3"
 \end_inset
 
  is used for implementation, which performs discrete Fourier Transform (DFT)
- as defined
+ as defined here:
 \begin_inset Formula 
 \begin{equation}
 Y_{k}=\sum_{j=0}^{n-1}X_{j}e^{-2\pi ijk/n}\begin{array}{c}
@@ -1844,8 +1849,8 @@ X_{j}=\sum_{k=0}^{n-1}Y_{k}e^{2\pi ijk/n}\begin{array}{c}
 \end_layout
 
 \begin_layout Standard
-It should be noticed that after a forward-backward Fourier transform, the
- original function is multiplied by a normalization factor 
+Note that after a forward-backward Fourier transform, the original function
+ is multiplied by a normalization factor 
 \begin_inset Formula $N_{k}$
 \end_inset
 
@@ -1865,7 +1870,7 @@ For real input function
 \begin_inset Formula $(k=0,\ldots,n-1)$
 \end_inset
 
-, FFTW3 only output elements 
+, FFTW3 only outputs elements 
 \begin_inset Formula $k=0,\ldots,\left\lfloor n/2\right\rfloor $
 \end_inset
 
@@ -1890,7 +1895,7 @@ used to regenerate elements of
 \end_inset
 
 .
- The result 
+ The resulting 
 \begin_inset Formula $X_{j}$
 \end_inset
 
@@ -1929,7 +1934,7 @@ F_{-\mu',-\mu}^{m}=\left(-1\right)^{\mu'+\mu}F_{\mu'\mu}^{m*}\label{eq:symm_f_m_
 \end_layout
 
 \begin_layout Standard
-Therefore only 
+Therefore only the projections of 
 \begin_inset Formula $\mu\geq0$
 \end_inset
 
@@ -2010,13 +2015,13 @@ Indices arrangement in a complete forward-backward process of FFT-2D.
 \begin_inset Formula $\mu'$
 \end_inset
 
-) are done consequentially and 
+) are done sequentially and 
 \emph on
 vice versa
 \emph default
 .
- Array index is the one of Fortran array, real index is the one shown in
- eq.
+ Array index is the one used by Fortran array, real index is the one shown
+ in eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2170,7 +2175,7 @@ name "fig:FFTW3-2D-mmax_to_nmax"
 \end_layout
 
 \begin_layout Standard
-As the output array of FFTW3 is periodic
+As the output array of FFTW3 is periodic,
 \begin_inset Formula 
 \begin{equation}
 e^{2\pi i\mu k/n}=e^{2\pi i(\mu-n)k/n}e^{2\pi ik}=e^{2\pi i(\mu-n)k/n}\label{eq:mu-periodicity}
@@ -2182,12 +2187,12 @@ the indices
 \begin_inset Formula $\mu=m_{\mathrm{max}}+1,\ldots,2m_{\mathrm{max}}$
 \end_inset
 
- actually corresponding to 
+ actually correspond to 
 \begin_inset Formula $\mu=-m_{\mathrm{max}},\ldots,-1$
 \end_inset
 
 .
- It should be noticed that eq.
+ Note that eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2202,7 +2207,7 @@ reference "eq:f_mup_mu_2"
 
 \end_inset
 
-) don't possess the periodicity of eq.
+) do not possess the periodicity of eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2210,7 +2215,7 @@ reference "eq:mu-periodicity"
 
 \end_inset
 
-), just in the domain of definition of 
+), only in the domain of definition of 
 \begin_inset Formula $\mu'$
 \end_inset
 
@@ -2244,7 +2249,7 @@ reference "eq:symm_f_m_mup_mu"
 
 \end_inset
 
-) we can verify that
+), we can verify that
 \begin_inset Formula 
 \begin{equation}
 F_{\mu'\mu}(\Theta)=F_{-\mu',-\mu}^{*}(\Theta)
@@ -2252,7 +2257,7 @@ F_{\mu'\mu}(\Theta)=F_{-\mu',-\mu}^{*}(\Theta)
 
 \end_inset
 
-The later is used in the code because according to the definition in eq.
+The latter is used in the code because according to the definition in eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2298,7 +2303,7 @@ As described above, the whole process of
 \begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
 \end_inset
 
- functional evaluation is as shown: 
+ functional evaluation is as shown below: 
 \end_layout
 
 \begin_layout Standard
@@ -2306,7 +2311,7 @@ Firstly, the solvent density variable
 \begin_inset Formula $\Delta\rho(\mathbf{r},\mathbf{\Omega})$
 \end_inset
 
- is expended on generalized spherical harmonics
+ is expanded on generalized spherical harmonics
 \begin_inset Formula 
 \begin{equation}
 \Delta\rho_{\mu'\mu}^{m}(\mathbf{r})=\frac{f_{m}}{8\pi^{2}}\int\mathrm{d}\mathbf{\Omega}\Delta\rho(\mathbf{r},\mathbf{\Omega})R_{\mu'\mu}^{m*}(\mathbf{\Omega})\label{eq:fgsht-fwd}
@@ -2318,7 +2323,7 @@ Firstly, the solvent density variable
 \end_layout
 
 \begin_layout Standard
-Then the Fourier transform of these projections are computed
+Then the Fourier transform of these projections is computed:
 \begin_inset Formula 
 \begin{equation}
 \Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})=\int\mathrm{d}\mathbf{r}\Delta\rho_{\mu'\mu}^{m}(\mathbf{r})e^{-i\mathbf{r}\cdot\mathbf{k}}\label{eq:fft3d-fwd}
@@ -2330,7 +2335,7 @@ Then the Fourier transform of these projections are computed
 \end_layout
 
 \begin_layout Standard
-Then the projections in k-frame are then rotated into local coordinates
+Afterwards the projections in k-frame are then rotated into the local coordinate
  system along the unit vector 
 \begin_inset Formula $\mathbf{\hat{k}}$
 \end_inset
@@ -2350,7 +2355,7 @@ in appendix.
 \end_layout
 
 \begin_layout Standard
-Then computing the OZ equation with Blum's reduction
+Next, computing the OZ equation with Blum's reduction:
 \begin_inset Formula 
 \begin{equation}
 \hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})=\sum_{n,\nu}(-1)^{\chi+\nu}\hat{c}_{\mu\nu,\chi}^{mn}(\mathbf{k})\Delta\hat{\rho'}_{\chi\underline{\nu}}^{n}(\mathbf{k})\label{eq:OZ-2}
@@ -2362,11 +2367,11 @@ Then computing the OZ equation with Blum's reduction
 \end_layout
 
 \begin_layout Standard
-Then the 
+The 
 \begin_inset Formula $\gamma$
 \end_inset
 
- projections are then transformed back to global coordinates system
+ projections are then transformed back to global coordinates system:
 \begin_inset Formula 
 \begin{equation}
 \hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})=\sum_{\chi}\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})R_{\mu'\chi}^{m*}(\mathbf{\hat{k}})
@@ -2378,7 +2383,7 @@ Then the
 \end_layout
 
 \begin_layout Standard
-Then the inverse Fourier transform of these projections
+From here the inverse Fourier transform of these projections is:
 \begin_inset Formula 
 \begin{equation}
 \gamma_{\mu'\mu}^{m}(\mathbf{r})=\int\mathrm{d}\mathbf{k}\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})e^{i\mathbf{r}\cdot\mathbf{k}}
@@ -2430,8 +2435,8 @@ name "sub:Reduction-by-symmetry"
 
 \begin_layout Standard
 A further reduction of computing cost can be made by performing approximately
- only a half of operations, thanks to the symmetric relations between the
- projections.
+ only half of the operations, thanks to the symmetric relations between
+ the projections.
 \end_layout
 
 \begin_layout Standard
@@ -2451,7 +2456,7 @@ reference "eq:fgsht-fwd"
  Thanks to the property of GSH 
 \color red
 (eq.
- (appendix))
+ (appendix)),
 \color inherit
 
 \begin_inset Formula 
@@ -2489,19 +2494,19 @@ When
 \begin_inset Formula $k$
 \end_inset
 
--space, replace eq.
- (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:0"
-
-\end_inset
-
-) into eq.
+-space, replacing eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:fft3d-fwd"
+
+\end_inset
+
+) with eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:0"
 
 \end_inset
 
@@ -2513,7 +2518,7 @@ reference "eq:fft3d-fwd"
 
 \end_inset
 
-thus only the projections of 
+Thus only the projections of 
 \begin_inset Formula $\mu'>0$
 \end_inset
 
@@ -2533,9 +2538,9 @@ thus only the projections of
 \end_layout
 
 \begin_layout Standard
-The rotation to local frame is reigned by the relation 
+The rotation to local frame is governed by the relation 
 \color red
-(prove?)
+(prove?):
 \color inherit
  
 \begin_inset Formula 
@@ -2587,7 +2592,7 @@ Thanks to the symmetry
 \end_inset
 
  possesses the same symmetry.
- Thus OZ equation can be reduced by a factor two.
+ Thus the OZ equation can be reduced by a factor of two.
 \end_layout
 
 \begin_layout Standard
@@ -2636,13 +2641,13 @@ name "sub:Commutativity-between-operations"
 \end_layout
 
 \begin_layout Standard
-As mentioned in the operational algorithm, three types of operation are
- being done before and after OZ equation.
+As mentioned in the operational algorithm, three types of operations are
+ being done before and after the OZ equation.
  They are
 \end_layout
 
 \begin_layout Enumerate
-Fast Fourier transform for 3-dimensional spatial grid (FFT3D): implemented
+Fast Fourier Transform for 3-dimensional spatial grid (FFT3D): implemented
  by package FFTW3 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -2654,7 +2659,7 @@ key "FFTW3"
 \end_layout
 
 \begin_layout Enumerate
-Fast generalized spherical harmonics transform (FGSHT): have real or complex
+Fast generalized spherical harmonics transform (FGSHT): has real or complex
  input, is exact if 
 \begin_inset Formula $F(\mathbf{\Omega})$
 \end_inset
@@ -2686,7 +2691,7 @@ Rotation between laboratory coordinate system and local system linked to
 
  (RotS): can be done for both function and projections.
  It introduces a minus error in accuracy at origin and border of the box,
- it will be discussed in next chapter.
+ which will be discussed in the next chapter.
 \end_layout
 
 \begin_layout Standard
@@ -2775,7 +2780,7 @@ f(\mathbf{r})=\int\hat{f}(\mathbf{k})e^{i\mathbf{k}\cdot\mathbf{r}}
 
 \end_inset
 
-does not depend on the angular part of function, and
+does not depend on the angular part of the function, and
 \begin_inset Formula 
 \[
 f(\mathbf{\Omega})=\sum_{m\mu'\mu}f_{m}f_{\mu'\mu}^{m}R_{\mu'\mu}^{m}(\mathbf{\Omega})
@@ -2791,7 +2796,7 @@ f_{\mu'\mu}^{m}=\int f_{m}f(\mathbf{\Omega})R_{\mu'\mu}^{m}(\mathbf{\Omega})
 
 \end_inset
 
-does not depend on the spatial part of function.
+does not depend on the spatial part of the function.
  The two operations are commutative.
 \end_layout
 
@@ -2816,7 +2821,7 @@ Function
 
 \end_inset
 
-where the two can both be expended on GSH
+where the two can both be expanded on GSH
 \end_layout
 
 \begin_layout Standard
@@ -2842,7 +2847,7 @@ where the two can both be expended on GSH
 \end_layout
 
 \begin_layout Standard
-And the relation between projections are simple
+And the relations between projections are simple
 \end_layout
 
 \begin_layout Standard
@@ -2861,7 +2866,7 @@ f_{\mu'\mu}^{m}(\mathbf{k})=\sum_{\chi}R_{\mu'\chi}^{m*}(\hat{\mathbf{k}})f'{}_{
 
 \end_inset
 
-The two operations are commutative.
+Thus the two operations are commutative.
 \end_layout
 
 \begin_layout Subsubsection
@@ -2894,8 +2899,7 @@ The rotation from
 \begin_inset Formula $\mathbf{k}$
 \end_inset
 
-, they are not the same rotation.
- Non-commutative.
+, they are not the same rotation, therefore non-commutative.
  
 \end_layout
 

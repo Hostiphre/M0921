@@ -122,7 +122,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../_figure/c_local_to_global_coordinates_32_96/absolute_error.ps
+	filename ../_figure/c_local_to_global_coordinates_32_96/absolute_error.eps
 	scale 30
 	rotateAngle -90
 
@@ -130,7 +130,7 @@ status open
 
 
 \begin_inset Graphics
-	filename ../_figure/c_local_to_global_coordinates_32_96/log_absolute_error.ps
+	filename ../_figure/c_local_to_global_coordinates_32_96/log_absolute_error.eps
 	scale 30
 	rotateAngle -90
 
@@ -142,7 +142,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../_figure/c_local_to_global_coordinates_32_96/relative_error.ps
+	filename ../_figure/c_local_to_global_coordinates_32_96/relative_error.eps
 	scale 30
 	rotateAngle -90
 

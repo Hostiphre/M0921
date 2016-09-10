@@ -121,7 +121,8 @@ To evaluate the gradient
 \begin_inset Formula $N\equiv N_{\mathbf{r}}N_{\mathbf{\Omega}}$
 \end_inset
 
- function evaluations (FE) are needed, the total number of FE is thus 
+ function evaluations (FE) are required, the total number of FE is thus
+ 
 \begin_inset Formula $N^{2}=O(N^{2})$
 \end_inset
 
@@ -133,7 +134,7 @@ To evaluate the gradient
 \begin_inset Formula $N_{\mathbf{\Omega}}=50\sim100$
 \end_inset
 
-, is too costly for current computing technology.
+, is far too costly for current computing technology.
  For this reason, Fourier transform is used to treat the spatial convolution
  in eq.
  (
@@ -208,7 +209,7 @@ reference "eq:gamma"
 
 \end_inset
 
-) is transformed to a simple product in eq.
+) is transformed into a simple product in eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -303,7 +304,7 @@ Once
 \begin_inset Formula $\gamma(\mathbf{r},\mathbf{\Omega})$
 \end_inset
 
-, the excess functional can be calculated as
+, the excess functional can be calculated as:
 \begin_inset Formula 
 \begin{equation}
 \mathcal{F}_{\mathrm{exc}}[\rho(\mathbf{r},\mathbf{\Omega})]=\frac{1}{2}\int\mathrm{d}\mathbf{r}\mathrm{d}\mathbf{\Omega}\Delta\rho(\mathbf{r},\mathbf{\Omega})\gamma(\mathbf{r},\mathbf{\Omega})
@@ -315,7 +316,7 @@ Once
 \end_layout
 
 \begin_layout Standard
-It should be noticed that, the direct correlation function (DCF), 
+It should be pointed out that the direct correlation function (DCF), 
 \begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 \end_inset
 
@@ -382,8 +383,8 @@ Using intermolecular DCF
 \end_layout
 
 \begin_layout Standard
-The first strategy is to work in the so-called intermolecular frame described
- in Fig.
+The first strategy aims to work in the so-called intermolecular frame described
+ in fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -412,7 +413,7 @@ reference "fig:coordinate_systems"
 \end_inset
 
 .
- In the later case, an orientation 
+ In the latter case, an orientation 
 \begin_inset Formula $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$
 \end_inset
 
@@ -438,7 +439,7 @@ To store the DCF in the intermolecular coordinates system, it can be defined
 \begin_inset Formula $k$
 \end_inset
 
- always oriented along the 
+ is always oriented along the 
 \begin_inset Formula $z$
 \end_inset
 
@@ -496,7 +497,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Molecule 1 and 2 in different coordinate systems
+Molecules 1 and 2 in different coordinate systems
 \lang english
 
 \begin_inset CommandInset label
@@ -519,7 +520,7 @@ name "fig:coordinate_systems"
 \end_layout
 
 \begin_layout Standard
-To find 
+Finding 
 \begin_inset Formula $\boldsymbol{\omega}$
 \end_inset
 
@@ -527,8 +528,12 @@ To find
 \begin_inset Formula $\mathbf{\Omega}$
 \end_inset
 
- amounts to define the correspondence between the rotation matrices of the
- two coordinates systems.
+ 
+\color red
+amounts to defining
+\color inherit
+ the correspondence between the rotation matrices of the two coordinate
+ systems.
  
 \end_layout
 
@@ -569,7 +574,7 @@ It can be expressed by 3 rotation operations
 \begin_inset Formula $\mathbf{\hat{R}}_{\Psi}$
 \end_inset
 
- which rotates along 
+ which rotate along 
 \begin_inset Formula $z-y-z$
 \end_inset
 
@@ -713,15 +718,16 @@ name "fig:rotation"
 \end_layout
 
 \begin_layout Standard
-As shown in figure 
+As shown in fig.
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:rotation-matrices"
 
 \end_inset
 
-, the rotation matrix to transforming the DCF from the intermolecular coordinate
-s to laboratory coordinates 
+, the rotation matrix for transforming the DCF from the intermolecular coordinat
+es to laboratory coordinates 
 \begin_inset Formula $\mathbf{\hat{R}}_{\boldsymbol{\omega}}$
 \end_inset
 
@@ -753,7 +759,7 @@ with the rotation matrix related to
 \end_layout
 
 \begin_layout Standard
-Here we fixe 
+Here we fix 
 \begin_inset Formula $\psi_{k}=0$
 \end_inset
 
@@ -794,7 +800,7 @@ Here we fixe
 \begin_inset Formula $k_{x}^{2}+k_{y}^{2}=0$
 \end_inset
 
-), we can fix arbitrarily those angles to zero.
+), we can arbitrarily fix those angles to zero.
 \end_layout
 
 \begin_layout Standard
@@ -841,7 +847,7 @@ The two ways to calculate
 \begin_inset Formula $\mathbf{k}$
 \end_inset
 
- differs only in the case of 
+ differ only in the case of 
 \begin_inset Formula $\hat{\mathbf{k}}=\left[\begin{array}{ccc}
 0 & 0 & -1\end{array}\right]^{T}$
 \end_inset
@@ -868,12 +874,12 @@ The two ways to calculate
 \end_inset
 
 ) in the two cases.
- Tests have shown that it has no influence to the final result of the excess
+ Tests have shown that it has no influence on the final result of the excess
  functional evaluation.
 \end_layout
 
 \begin_layout Standard
-Then, the elements of 
+Therefore, the elements of 
 \begin_inset Formula $\mathbf{\hat{R}}_{\boldsymbol{\omega}}$
 \end_inset
 
@@ -885,7 +891,7 @@ reference "eq:rot-matrix"
 
 \end_inset
 
-)
+):
 \begin_inset Formula 
 \begin{align}
 \mathbf{\hat{R}}_{\boldsymbol{\omega}} & =\left[\begin{array}{ccc}
@@ -910,7 +916,7 @@ The angles
 \begin_inset Formula $\boldsymbol{\omega}$
 \end_inset
 
- is thus found as
+ are thus found as:
 \begin_inset Formula 
 \begin{eqnarray}
 \cos\theta & = & w_{z}\nonumber \\
@@ -955,8 +961,8 @@ The resulting angles are between normal intervals,
 
 \begin_layout Standard
 The interpolation of these found angles to the intermolecular grid can be
- done with different orders: zeroth order interpolation which takes directly
- the nearest point, or linear interpolation.
+ done with different orders: zeroth order interpolation, which directly
+ takes the nearest point, or linear interpolation.
 \end_layout
 
 \begin_layout Subsection
@@ -988,7 +994,7 @@ At this order, for each possible value of
 \end_inset
 
  which relate to only one solvent molecule are stored as an index (single
- precision integer), which gives the nearest angle in a pre-defined table
+ precision integer), which gives the nearest angle in a pre-defined table:
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{l}
@@ -1136,7 +1142,7 @@ At this order,
 \end_inset
 
  is stored in double precision.
- All angles are stored in real type, and the correspondent DCF is calculated
+ All angles are stored in real type, and the corresponding DCF is calculated
  as
 \begin_inset Formula 
 \begin{equation}
@@ -1183,7 +1189,7 @@ where
 \begin_inset Formula $i$
 \end_inset
 
-th variable, the total equation with 5 variables is
+th variable, the total equation with 5 variables is:
 \begin_inset Formula 
 \begin{equation}
 c(\tilde{\boldsymbol{\omega}})=\left[\sum_{n_{1}=0}^{1}\sum_{n_{2}=0}^{1}\sum_{n_{3}=0}^{1}\sum_{n_{4}=0}^{1}\sum_{n_{5}=0}^{1}\left(\prod_{i}^{5}w_{n_{i}}^{i}c(\tilde{\boldsymbol{\omega}}_{n_{1},n_{2},n_{3},n_{4},n_{5}})\right)\right]\label{eq:interpolation}
@@ -1196,8 +1202,7 @@ c(\tilde{\boldsymbol{\omega}})=\left[\sum_{n_{1}=0}^{1}\sum_{n_{2}=0}^{1}\sum_{n
 
 \begin_layout Standard
 These two equations are available for both interpolation and extrapolation,
- where the later applies e.g.
- for 
+ where the latter applies, e.g., for 
 \begin_inset Formula $\cos\theta_{1}$
 \end_inset
 
@@ -1219,7 +1224,8 @@ reference "chpt:error-evaluation-interpolation-DCF"
 \end_inset
 
 .
- Results show that the linear interpolation scheme is absolutely needed.
+ Results demonstrate that the linear interpolation scheme is absolutely
+ essential.
  On the other hand, as seen in eq.
  (
 \begin_inset CommandInset ref
@@ -1328,7 +1334,7 @@ For projections of order
 \end_inset
 
 , with the corresponding rotational invariants expressed below both in laborator
-y and intermolecular frame 
+y and intermolecular frames 
 \color red
 (il faut définir ici OM_1 et OM_2 comme des vecteurs d'orientation !)
 \color inherit
@@ -1392,7 +1398,7 @@ reference "chpt:rotational-invariant-expansion"
 
 \end_inset
 
-), its intermolecular form has far less terms (eq.
+), its intermolecular form has far fewer terms (eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1474,18 +1480,17 @@ reference "eq:interpolation"
 
 \end_inset
 
-) by an exact formula and it requires to have stored in memory the projections
- 
+) by an exact formula and it requires the projections 
 \begin_inset Formula $\hat{c}_{\mu\nu,\chi}^{mn}(k)$
 \end_inset
 
- rather than the full angular representation 
+ to be stored in memory rather than the full angular representation 
 \begin_inset Formula $\hat{c}(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
 \end_inset
 
 .
- It requires also indeed the passage from orientations in laboratory frame
- to orientations in intermolecular frame, i.e.
+ It also requires the passage from orientations in laboratory frame to orientati
+ons in intermolecular frame, i.e.
  use of the formulas (
 \begin_inset CommandInset ref
 LatexCommand ref

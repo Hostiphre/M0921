@@ -81,19 +81,27 @@ name "chpt:statistical-mechanics"
 \end_layout
 
 \begin_layout Standard
-the link between statistical mechanics and thermodynamics
+
+\color red
+The link between statistical mechanics and thermodynamics
 \end_layout
 
 \begin_layout Standard
-From pair distribution functions and interaction potential we can derive
+
+\color red
+From pair distribution functions and interaction potential, we can derive
  information about solvent equilibrium state.
 \end_layout
 
 \begin_layout Standard
+
+\color red
 equilibrium statistical mechanics of classical fluids.
 \end_layout
 
 \begin_layout Standard
+
+\color red
 one component bulk fluids.
  thermodynamic state point is specified by 
 \begin_inset Formula $\rho$
@@ -101,6 +109,12 @@ one component bulk fluids.
 
  and temperature T.
  
+\end_layout
+
+\begin_layout Standard
+As the theory of liquid was firstly built for atom-like spherical particles,
+ the deduction of the theory departs from an atom-like spherical particles
+ model.
 \end_layout
 
 \begin_layout Section
@@ -135,7 +149,7 @@ In classical mechanics, the instantaneous state (phase point) of an
 \end_inset
 
 .
- The Hamiltonian os the system is
+ The Hamiltonian of the system is
 \end_layout
 
 \begin_layout Standard
@@ -206,7 +220,11 @@ where
 \end_inset
 
 , One then has a pairwise additive description of the total inter-particle
- potential which leads one to define a model or effective Hamiltonian as
+ potential which leads 
+\color red
+one
+\color inherit
+ to define a model or effective Hamiltonian as
 \end_layout
 
 \end_inset
@@ -267,7 +285,7 @@ where
 \end_layout
 
 \begin_layout Standard
-The distribution of phase points of systems of 
+The distribution of phase points of systems in 
 \color red
 the ensemble
 \color inherit
@@ -317,7 +335,7 @@ where
 \end_inset
 
  particles in the reduced phase space element....
- the factor is the number of ways of choosing a subset of size 
+ the factor is the number of ways one can choose a subset of size 
 \begin_inset Formula $n$
 \end_inset
 

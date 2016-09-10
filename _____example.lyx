@@ -103,6 +103,27 @@ http://
 
 \end_layout
 
+\begin_layout Standard
+TODO:
+\end_layout
+
+\begin_layout Standard
+
+\color red
+Rangement ACRO / Notation.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "/Users/lding/Desktop/__M0921/Bibliography"
+options "plainnat"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Itemize
 General: 
 \end_layout
@@ -842,7 +863,7 @@ The relevant inequalities and distributions are
 status collapsed
 
 \begin_layout Plain Layout
-aEnumerate environment
+Enumerate environment
 \end_layout
 
 \end_inset
@@ -860,10 +881,6 @@ aEnumerate (ClassicThesis)
 \end_layout
 
 \begin_deeper
-\begin_layout aEnumerate (ClassicThesis)
-Being the second list environment here, the depth of the aenumerate environment
-\end_layout
-
 \begin_layout aEnumerate (ClassicThesis)
 had to be increased by one
 \end_layout
@@ -1001,28 +1018,6 @@ Options{}
 
 \begin_deeper
 \begin_layout Itemize
-Authors and reference numbers, like 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "cormen:2001,dueck:trio"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-List of reference numbers, like 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "cormen:2001,dueck:trio"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
 List of authors, like 
 \begin_inset CommandInset citation
 LatexCommand citeauthor
@@ -1129,10 +1124,69 @@ end;
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset bibtex
-LatexCommand bibtex
-bibfiles "/Users/lding/Desktop/__M0921/Bibliography"
-options "plainnat"
+\begin_inset VSpace 8ex
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%*************************
+\end_layout
+
+\begin_layout Plain Layout
+
+% List of Listings
+\end_layout
+
+\begin_layout Plain Layout
+
+%*************************
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+phantomsection
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+refstepcounter{dummy}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+addcontentsline{toc}{chapter}{
+\backslash
+lstlistlistingname}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pdfbookmark[1]{
+\backslash
+lstlistlistingname}{lol}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstlistoflistings 
+\end_layout
 
 \end_inset
 

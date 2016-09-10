@@ -70,7 +70,7 @@
 \begin_body
 
 \begin_layout Chapter
-Molecular Dynamics & Monte Carlo Simulation
+Molecular Dynamics & Monte Carlo Simulations
 \begin_inset CommandInset label
 LatexCommand label
 name "chpt:reference-method"
@@ -167,7 +167,7 @@ acs{MC}
 
 \end_inset
 
-, the last two gives the detail of generation of the above two data.
+, the last two detail the generation of data for the first two.
 \end_layout
 
 \begin_layout Section
@@ -229,8 +229,8 @@ key "Luc_2012"
 
 \end_inset
 
- and is presented here briefly for understanding.
- first rotational invariant of the Fourier transform of the total correlation
+ and is presented here briefly for the purpose of clarification.
+ First rotational invariant of the Fourier transform of the total correlation
  function h
 \end_layout
 
