@@ -1,3 +1,41 @@
+%% LyX 2.1.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english,american,fontsize=11pt,paper=a4,twoside,openright,titlepage,numbers=noenddot,headinclude,BCOR=5mm,footinclude=true,cleardoublepage=empty]{scrreprt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\setcounter{secnumdepth}{2}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+% Classic Thesis Style loader
+\makeatother
+\input{classicthesis-config.tex}
+\makeatletter
+
+% \input@path is a list of paths where LaTeX should look for files
+% LyX defines it as a single element list with the path of the main document in it
+% Comes in two forms: {\string "/home/user/dir ectory/\string "/} or {/home/user/directory//}
+% This is a hack to extract the bare path from the above strings
+\ifcsname input@path\endcsname 
+  \edef\@basepath{\expandafter\@firstofone\input@path} %remove braces
+  \def\rm@quotes#1"#2"#3\@nul{\ifx\relax#2\relax #1\else #2\fi}
+  \edef\@basepath{\expandafter\rm@quotes\@basepath""\@nul} %remove quotes
+\else\edef\@basepath{./}\fi
+
+
+\let\orig@addbibresource\addbibresource
+\renewrobustcmd*{\addbibresource}[2][type=file]{\orig@addbibresource[#1]{\@basepath#2}}
+
+% use Latin Modern instead of Computer Modern sans serif
+\renewcommand{\sfdefault}{lmss}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
 
 \chapter{Rotational Invariant Expansion\label{chpt:rotational-invariant-expansion}}
 
@@ -433,7 +471,7 @@ in intermolecular form}
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics{_figure/symmetry_dcf}
+\includegraphics{../_figure/symmetry_dcf}
 \par\end{centering}
 
 \caption{Symmetry operations of a 2-molecule system\label{fig:Symmetry-operations}}
@@ -557,3 +595,4 @@ of symmetry $\mathrm{C}_{2}$, $\mu$ and $\nu$ is even.}
 \textcolor{red}{For spherical solutes, the $\mathbf{\Omega_{1}}$-dependence
 vanishes so that $m=\mu=0$, only the terms $F_{0\nu}^{0nl}(r)$ are
 not-zero.}
+\end{document}
