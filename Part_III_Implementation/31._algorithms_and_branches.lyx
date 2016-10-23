@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass classicthesis
 \use_default_options true
 \maintain_unincluded_children false
@@ -9,16 +11,16 @@
 \language_package default
 \inputencoding utf8
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -88,7 +90,7 @@ According to the commutativity of operations (see
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Commutativity-between-operations"
+reference "subsec:Commutativity-between-operations"
 
 \end_inset
 
@@ -167,7 +169,7 @@ reference "tab:Branch-option"
  and will be detailed in the following context.
  
 \begin_inset Marginal
-status open
+status collapsed
 
 \begin_layout Plain Layout
 These branches should give numerically the same result in certain conditions,
@@ -192,7 +194,7 @@ status open
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="10" columns="4">
-<features rotate="0" booktabs="true" tabularvalignment="middle" tabularwidth="100text%">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="100text%">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -371,7 +373,7 @@ use
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Using-projections-in-1"
+reference "subsec:Using-projections-in-1"
 
 \end_inset
 
@@ -423,7 +425,7 @@ use
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Zero-order-interpolation-of"
+reference "subsec:Zero-order-interpolation-of"
 
 \end_inset
 
@@ -475,7 +477,7 @@ use
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Linear-interpolation-of"
+reference "subsec:Linear-interpolation-of"
 
 \end_inset
 
@@ -537,7 +539,7 @@ use
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Using-projections-in"
+reference "subsec:Using-projections-in"
 
 \end_inset
 
@@ -603,7 +605,7 @@ use
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Using-projections-in"
+reference "subsec:Using-projections-in"
 
 \end_inset
 
@@ -651,7 +653,7 @@ algorithm with symmetry reduction
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Reduction-by-symmetry"
+reference "subsec:Reduction-by-symmetry"
 
 \end_inset
 
@@ -699,7 +701,7 @@ algorithm without symmetry reduction
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Reduction-by-symmetry"
+reference "subsec:Reduction-by-symmetry"
 
 \end_inset
 
@@ -889,28 +891,6 @@ reference "chpt:error-evaluation-interpolation-DCF"
 ).
 \end_layout
 
-\begin_layout Standard
-The discussion of the accuracy to transform c projection to c table is given
- in section ...
-\end_layout
-
-\begin_layout Standard
-As one is constant other has a 
-\begin_inset Formula $O(N^{3})$
-\end_inset
-
- dependence on 
-\begin_inset Formula $n_{\max}$
-\end_inset
-
-, the discussion between the computing performance and memory usage with
- respect to 
-\begin_inset Formula $n_{\max}$
-\end_inset
-
- and it will be given in section ...
-\end_layout
-
 \begin_layout Section
 Branches "convolution"
 \end_layout
@@ -973,7 +953,7 @@ reference "sec:Operational-algorithm"
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Reduction-by-symmetry"
+reference "subsec:Reduction-by-symmetry"
 
 \end_inset
 
@@ -983,7 +963,7 @@ reference "sub:Reduction-by-symmetry"
 convolution_standard
 \family default
 \series default
- without it.
+ with it.
  
 \end_layout
 
@@ -1006,16 +986,12 @@ which inverse the first and last two steps of the two algorithms mentioned
  above.
 \end_layout
 
-\begin_layout Standard
-mathematically 
-\end_layout
-
-\begin_layout Standard
-a discussion the comparison of computing speed in in section ...
-\end_layout
-
 \begin_layout Section
-Testing branches for nmax=1
+Testing branches for 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+=1
 \end_layout
 
 \begin_layout Standard
@@ -1035,7 +1011,7 @@ naive_nmax1
 \begin_inset Formula $\left(b\right)\shortrightarrow\left(h\right)\shortrightarrow\left(p\right)$
 \end_inset
 
- , using DCF separately in reference 
+ , using DCF separately of the references 
 \color red
 [ref]
 \color inherit
@@ -1050,7 +1026,7 @@ naive_nmax1
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Comparison-with-non-coupling"
+reference "subsec:Comparison-with-non-coupling"
 
 \end_inset
 
@@ -1077,12 +1053,8 @@ convolution_standard
 \family default
 \series default
 , which can also use the two DCF mentioned above, a test of validation can
- be performed (
-\begin_inset Formula $\mathsection$
-\end_inset
-
-), which should at any case exactly numerically the same if the same DCF
- is used.
+ be performed, which should at any case exactly numerically the same if
+ the same DCF is used.
 \end_layout
 
 \begin_layout Section
@@ -1090,8 +1062,7 @@ Other paths
 \end_layout
 
 \begin_layout Standard
-There will also be a discussion of other paths, such as those passes by
- 
+Considering the necessity, other paths such as those passing by 
 \begin_inset Formula $\left(i\right)$
 \end_inset
 
@@ -1099,15 +1070,9 @@ There will also be a discussion of other paths, such as those passes by
 \begin_inset Formula $\left(k\right)$
 \end_inset
 
-, of their accuracy (
-\begin_inset Formula $\mathsection$
-\end_inset
-
-), and of the computing cost (
-\begin_inset Formula $\mathsection$
-\end_inset
-
-).
+ are only built for local test usage (c.
+ f.
+ discussion in following sections).
 \end_layout
 
 \end_body

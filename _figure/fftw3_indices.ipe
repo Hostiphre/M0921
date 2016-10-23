@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70107" creator="Ipe 7.1.7">
-<info created="D:20151014141056" modified="D:20151014151458"/>
+<info created="D:20151014141056" modified="D:20160911132612"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -454,7 +454,7 @@ h
 <text matrix="1 0 0 1 -12 144" transformations="translations" pos="32 660" stroke="black" type="label" width="49.592" height="6.926" depth="1.93" valign="baseline">array index</text>
 <text matrix="1 0 0 1 -12 56" transformations="translations" pos="32 660" stroke="black" type="label" width="49.592" height="6.926" depth="1.93" valign="baseline">array index</text>
 <text matrix="1 0 0 1 -12 -32" transformations="translations" pos="32 724" stroke="black" type="label" width="42.922" height="6.918" depth="0" valign="baseline">real index</text>
-<text matrix="1 0 0 1 -12 -32" transformations="translations" pos="32 700" stroke="black" type="label" width="33.698" height="7.497" depth="1.93" valign="baseline">$k&apos;$ $\leftrightarrow$ $\mu&apos;$</text>
+<text matrix="1 0 0 1 -12 -32" transformations="translations" pos="32 700" stroke="black" type="label" width="30.075" height="7.497" depth="1.93" valign="baseline">$j$ $\leftrightarrow$ $\mu&apos;$</text>
 <text matrix="1 0 0 1 -12 56" transformations="translations" pos="32 724" stroke="black" type="label" width="42.922" height="6.918" depth="0" valign="baseline">real index</text>
 <text matrix="1 0 0 1 -12 56" transformations="translations" pos="32 700" stroke="black" type="label" width="28.108" height="6.926" depth="1.93" valign="baseline">$k$ $\leftrightarrow$ $\mu$</text>
 <text matrix="1.5 0 0 1 -100 -92" transformations="translations" pos="128 784" stroke="black" type="label" width="4.234" height="5.136" depth="0" halign="center" valign="baseline" size="footnote">0</text>

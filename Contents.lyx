@@ -1310,6 +1310,20 @@ acro{FGSHT}{fast generalized spherical harmonic transform}
 
   
 \backslash
+acro{GSH}{generalized spherical harmonic}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+acro{GSHT}{generalized spherical harmonic transform}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
 acro{HNC}{hypernetted-chain (approximation)}
 \end_layout
 

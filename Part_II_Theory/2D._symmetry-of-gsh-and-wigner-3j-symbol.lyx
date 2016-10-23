@@ -82,8 +82,21 @@ name "chpt:symmetry"
 
 \begin_layout Standard
 The properties of Wigner 3j-symbol and Wigner generalized spherical harmonics
- (GSH, Winger D-symbol) play a huge role in the reduction of molecular Ornstein-
-Zernike equation as well as finding the relation between rotational invariant
+ (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+, Winger D-symbol) play a huge role in the reduction of molecular Ornstein-Zerni
+ke equation as well as finding the relation between rotational invariant
  projections.
  Their main properties, presented in Messiah 
 \begin_inset CommandInset citation
@@ -303,7 +316,7 @@ There are many different definitions of GSH given in lectures.
  Here we adopt the definition in Messiah:
 \begin_inset Formula 
 \begin{equation}
-R_{\mu'\mu}^{m}(\phi\theta\psi)=e^{-i\mu'\phi}r_{\mu'\mu}^{m}(\theta)e^{-i\mu\psi}
+R_{\mu'\mu}^{m}(\phi\theta\psi)=e^{-i\mu'\phi}r_{\mu'\mu}^{m}(\theta)e^{-i\mu\psi}\label{eq:GSH-def}
 \end{equation}
 
 \end_inset
@@ -543,7 +556,20 @@ where
 \end_layout
 
 \begin_layout Subsubsection*
-Composition relation for GSHs
+Composition relation for 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+s
 \end_layout
 
 \begin_layout Subsubsection*
@@ -563,14 +589,113 @@ m & n & l\\
 
 \end_layout
 
-\begin_layout Subsubsection*
-\begin_inset Formula 
-\[
-\]
+\begin_layout Section
+Convention of GSH
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Convention-of-GSH"
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+The convention of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+ in books and articles used in this thesis are different.
+ In Messiah 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Messiah"
+
+\end_inset
+
+ and Gray & Gubbins 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Gray-Gubbins"
+
+\end_inset
+
+, it is defined as in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:GSH-def"
+
+\end_inset
+
+).
+ In Edmonds 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Edmonds"
+
+\end_inset
+
+, it is defined as:
+\begin_inset Formula 
+\begin{equation}
+D_{\mu'\mu}^{m}(\phi\theta\psi)=e^{i\mu'\psi}d_{\mu'\mu}^{m}(\theta)e^{i\mu\phi}\label{eq:GSH-def-1}
+\end{equation}
+
+\end_inset
+
+which can be seen as the inverse rotation matrix of 
+\begin_inset Formula $R_{\mu'\mu}^{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In Blum 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Blum_I,Blum_II"
+
+\end_inset
+
+, the equation 
+\begin_inset Formula 
+\begin{equation}
+D_{m0}^{l}(\phi\theta\psi)=\left(-\right)^{m}\left(\dfrac{4\pi}{2l+1}\right)^{\frac{1}{2}}Y_{m}^{l}(\theta\phi)
+\end{equation}
+
+\end_inset
+
+is adopted, that means it shares the same definition as Edmonds, where 
+\begin_inset Formula 
+\begin{equation}
+R_{\mu'\mu}^{m}(\phi\theta\psi)=D_{\mu\mu'}^{m*}(\phi\theta\psi)\label{eq:GSH-def-2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In Fries & Patey 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Fries_Patey_1985"
+
+\end_inset
+
+, the definition of Messiah is used.
 \end_layout
 
 \end_body

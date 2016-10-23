@@ -11,7 +11,6 @@ as its gradient:
 \gamma(\mathbf{r_{1}},\mathbf{\Omega_{1}})=-\beta^{-1}\int\mathrm{d}\mathbf{r_{2}}\mathrm{d}\mathbf{\Omega_{2}}\Delta\rho(\mathbf{r}_{2},\mathbf{\Omega}_{2})c(\mathbf{r}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\label{eq:gamma}
 \end{equation}
 
-
 To evaluate the gradient $\gamma$ for each $\mathbf{(r},\mathbf{\Omega})$,
 $N\equiv N_{\mathbf{r}}N_{\mathbf{\Omega}}$ function evaluations
 (FE) are required, the total number of FE is thus $N^{2}=O(N^{2})$,
@@ -34,7 +33,6 @@ eq. (\ref{eq:gamma}) is a 3D convolution, which leads to
 \begin{equation}
 \hat{\gamma}(\mathbf{k},\mathbf{\Omega_{1}})=-\beta^{-1}\int\mathrm{d}\mathbf{\Omega_{2}}\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega_{2}})\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})\label{eq:gamma-k}
 \end{equation}
-
 
 Thus the integral $\int\mathrm{d}\mathbf{r_{2}}$ in eq. (\ref{eq:gamma})
 is transformed into a simple product in eq. (\ref{eq:gamma-k}). To
@@ -60,7 +58,6 @@ functional can be calculated as:
 \mathcal{F}_{\mathrm{exc}}[\rho(\mathbf{r},\mathbf{\Omega})]=\frac{1}{2}\int\mathrm{d}\mathbf{r}\mathrm{d}\mathbf{\Omega}\Delta\rho(\mathbf{r},\mathbf{\Omega})\gamma(\mathbf{r},\mathbf{\Omega})
 \end{equation}
 
-
 It should be pointed out that the direct correlation function (DCF),
 $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$, used
 as an input data in eq. (\ref{eq:gamma-k}) is very memory-costly.
@@ -73,7 +70,6 @@ it takes $64^{3}\times250^{2}\times4\,\mathrm{bytes}=65.5\mathrm{GB}$.
 As a normal PC has only 4 to 16 GB of RAM, it can cause a memory leak.
 Therefore, two strategies are developed to reduce the storage of the
 DCF.
-
 
 \section{Using intermolecular DCF}
 
@@ -105,12 +101,8 @@ which can be pre-calculated as a table of data.
 \begin{centering}
 \includegraphics{_figure/coordinate_system}
 \par\end{centering}
-
-\caption{\selectlanguage{american}%
-Molecules 1 and 2 in different coordinate systems\foreignlanguage{english}{\label{fig:coordinate_systems}}\selectlanguage{american}%
-}
+\caption{\foreignlanguage{american}{Molecules 1 and 2 in different coordinate systems\foreignlanguage{english}{\label{fig:coordinate_systems}}}}
 \end{figure}
-
 
 \selectlanguage{american}%
 Finding $\boldsymbol{\omega}$ from $\mathbf{\Omega}$ \textcolor{red}{amounts
@@ -122,7 +114,6 @@ the solvent molecule from $\mathbf{I}$ to its orientation $\mathbf{\hat{R}}_{\ma
 \begin{equation}
 \mathbf{\hat{R}}_{\mathbf{\Omega}}\mathbf{I}=\mathbf{\hat{R}}_{\mathbf{\Omega}}
 \end{equation}
-
 
 It can be expressed by 3 rotation operations $\mathbf{\hat{R}}_{\Phi}$,
 $\mathbf{\hat{R}}_{\Theta}$, and $\mathbf{\hat{R}}_{\Psi}$ which
@@ -158,19 +149,16 @@ R_{zx} & R_{zy} & R_{zz}
 \begin{minipage}[b][1\totalheight][t]{0.55\columnwidth}%
 \begin{center}
 \includegraphics{_figure/rotation_matrix}\caption{Rotation matrices\label{fig:rotation-matrices}}
-
 \par\end{center}%
 \end{minipage}%
 \begin{minipage}[b][1\totalheight][t]{0.4\columnwidth}%
 \begin{center}
 \includegraphics{_figure/rotation_matrix_k}
 \par\end{center}
-
 \caption{Rotation to k-frame\foreignlanguage{english}{\label{fig:rotation}}}
 %
 \end{minipage}
 \end{figure}
-
 
 As shown in fig. \ref{fig:rotation-matrices}, the rotation matrix
 for transforming the DCF from the intermolecular coordinates to laboratory
@@ -188,7 +176,6 @@ with the rotation matrix related to $\mathbf{k}$ vector:
 \end{array}\right]
 \end{equation}
 
-
 Here we fix $\psi_{k}=0$. As $\theta_{k}$ and $\phi_{k}$ are calculated
 from Cartesian coordinates ($k_{x}$, $k_{y}$, $k_{z}$), in the
 extreme cases that we cannot define $\theta_{k}$ (for $\left\Vert \mathbf{k}\right\Vert =0$)
@@ -204,7 +191,6 @@ vectors from $z$ axis and $\mathbf{k}$ vector ($\mathbf{k}=\mathbf{e}_{3}^{''}$)
 \mathbf{e}_{1}^{''} & \mathbf{e}_{2}^{'} & \mathbf{e}_{3}^{''}\end{array}\right]=\left[\begin{array}{ccc}
 \mathbf{e}_{1} & \mathbf{e}_{2} & \mathbf{e}_{3}\end{array}\right]\mathbf{\hat{R}_{k}}=\mathbf{\hat{R}_{k}}
 \end{equation}
-
 
 The two ways to calculate $\mathbf{k}$ differ only in the case of
 $\hat{\mathbf{k}}=\left[\begin{array}{ccc}
@@ -229,7 +215,6 @@ u_{z} & v_{z} & w_{z}
 \end{array}\right]\nonumber 
 \end{align}
 
-
 The angles $\boldsymbol{\omega}$ are thus found as:
 \begin{eqnarray}
 \cos\theta & = & w_{z}\nonumber \\
@@ -237,21 +222,19 @@ The angles $\boldsymbol{\omega}$ are thus found as:
 \psi & = & \arccos(-u_{z}/(u_{z}^{2}+v_{z}^{2})^{\frac{1}{2}})\nonumber 
 \end{eqnarray}
 
-
 The resulting angles are between normal intervals, $\cos\theta\in\left[-1,1\right]$,
 $\phi\in\left[0,2\pi\right]$. As water possesses $\mathrm{C}_{2v}$
 symmetry, we take $\psi\in\left[0,\pi\right]$. 
 
-\textcolor{red}{(Expliquer ici -à noiveau-- pourquoi tu as besoin
-de faire des interpolations: grille plus fine pour om dans c(k,om\_1,om\_2)
+\textcolor{red}{(Expliquer ici -à noiveau– pourquoi tu as besoin de
+faire des interpolations: grille plus fine pour om dans c(k,om\_1,om\_2)
 et pour chaque (k,Omega) on doit trouver le om corerspondant.)}
 
 The interpolation of these found angles to the intermolecular grid
 can be done with different orders: zeroth order interpolation, which
 directly takes the nearest point, or linear interpolation.
 
-
-\subsection{Zero-order interpolation of DCF\label{sub:Zero-order-interpolation-of}}
+\subsection{Zero-order interpolation of DCF\label{subsec:Zero-order-interpolation-of}}
 
 At this order, for each possible value of $\mathbf{k}$ and $\mathbf{\Omega}$,
 the corresponding $\cos\theta$ and $\psi$ which relate to only one
@@ -272,7 +255,6 @@ are used, as shown in figure \ref{fig:diff_phi}.
 \begin{centering}
 \includegraphics{_figure/diff_phi}
 \par\end{centering}
-
 \caption[$\phi_{1}-\phi_{2}$ distribution]{$\phi_{1}-\phi_{2}$ distribution: Test 0.1 is the direct subtraction
 of $\phi$ established in the same way with $\theta$ and $\psi$,
 as shown in the top first schema. Test 0.2 tabulates $\phi_{2}$ by
@@ -280,13 +262,11 @@ taking the nearest point in another manner, as shown in the second
 schema. In test 0.3-0.4, all $\phi$ or only $\phi_{2}$ is doubled.\label{fig:diff_phi}}
 \end{figure}
 
-
 In the actual implementation, as an integer takes 4 bytes and a real
 takes 8 bytes, there is no profit to tabulate $\phi$ in integer two
 times, thus $\phi$ is stored directly in real.
 
-
-\subsection{Linear interpolation of DCF\label{sub:Linear-interpolation-of}}
+\subsection{Linear interpolation of DCF\label{subsec:Linear-interpolation-of}}
 
 At this order, $\boldsymbol{\omega}(\mathbf{k},\mathbf{\Omega})$
 is stored in double precision. All angles are stored in real type,
@@ -305,7 +285,6 @@ total equation with 5 variables is:
 c(\tilde{\boldsymbol{\omega}})=\left[\sum_{n_{1}=0}^{1}\sum_{n_{2}=0}^{1}\sum_{n_{3}=0}^{1}\sum_{n_{4}=0}^{1}\sum_{n_{5}=0}^{1}\left(\prod_{i}^{5}w_{n_{i}}^{i}c(\tilde{\boldsymbol{\omega}}_{n_{1},n_{2},n_{3},n_{4},n_{5}})\right)\right]\label{eq:interpolation}
 \end{equation}
 
-
 These two equations are available for both interpolation and extrapolation,
 where the latter applies, e.g., for $\cos\theta_{1}$ and $\cos\theta_{2}$. 
 
@@ -316,7 +295,6 @@ On the other hand, as seen in eq. (\ref{eq:interpolation}), it is
 computationally much more expensive than the simple histogram scheme
 as it requires $2^{5}=32$ times of operations.
 
-
 \section{Direct calculation of DCF from rotational invariant projections}
 
 Another strategy to calculate $\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
@@ -324,8 +302,7 @@ is to use the DCF expressed in terms of rotational invariant projections,
 which takes far less memory than in the intermolecular form thanks
 to their angular independence and symmetric properties. 
 
-
-\subsection{Using projections in form of $\hat{c}_{\mu\nu}^{mnl}(k)$\label{sub:Using-projections-in}}
+\subsection{Using projections in form of $\hat{c}_{\mu\nu}^{mnl}(k)$\label{subsec:Using-projections-in}}
 
 As described by Blum \citep{Blum_I,Blum_II}, $\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
 can be expanded as
@@ -336,7 +313,7 @@ where $\Phi_{\mu\nu}^{mnl}(\mathbf{\hat{k}},\mathbf{\Omega_{1}},\mathbf{\Omega_{
 is the rotational invariant that depends on both the spatial and angular
 coordinates of the two particles (detailed in appendix \ref{chpt:rotational-invariant-expansion}).
 
-For projections of order $n{}_{\mathrm{max}}=1$, the DCF can be expressed
+For projections of order $n_{\mathrm{max}}=1$, the DCF can be expressed
 in very simple form. Only 4 projections $\hat{c}^{mnl}(k)$ are independent:
 $\hat{c}_{\mathrm{S}}\equiv\hat{c}^{000}$, $\hat{c}_{\mathrm{\Delta}}\equiv\hat{c}^{110}$,
 $\hat{c}_{\mathrm{D}}\equiv\hat{c}^{112}$ and $\hat{c}_{+}\equiv\hat{c}^{011}=-\hat{c}^{101}$,
@@ -352,13 +329,11 @@ ici OM\_1 et OM\_2 comme des vecteurs d'orientation !)}
  & =\sqrt{\frac{3}{10}}\left(2\cos\theta_{1}\cos\theta_{2}-\sin\theta_{1}\sin\theta_{2}\cos\phi_{12}\right)\nonumber 
 \end{align}
 
-
 To express the DCF at higher orders, the number of FE needed for $\Phi_{\mu\nu}^{mnl}(\mathbf{\hat{k}},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
 becomes huge and the DCF should be calculated in intermolecular frame
 as indicated above.
 
-
-\subsection{Using projections in form of $\hat{c}_{\mu\nu,\chi}^{mn}(k)$\label{sub:Using-projections-in-1}}
+\subsection{Using projections in form of $\hat{c}_{\mu\nu,\chi}^{mn}(k)$\label{subsec:Using-projections-in-1}}
 
 Compared to the expression of $\Phi_{\mu\nu}^{mnl}(\mathbf{\hat{k}},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
 in laboratory frame (eq. (\ref{eq:definition_rot_invar}) in appendix

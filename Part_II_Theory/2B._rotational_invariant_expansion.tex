@@ -1,41 +1,3 @@
-%% LyX 2.1.4 created this file.  For more info, see http://www.lyx.org/.
-%% Do not edit unless you really know what you are doing.
-\documentclass[english,american,fontsize=11pt,paper=a4,twoside,openright,titlepage,numbers=noenddot,headinclude,BCOR=5mm,footinclude=true,cleardoublepage=empty]{scrreprt}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\setcounter{secnumdepth}{2}
-\usepackage{color}
-\usepackage{amsmath}
-\usepackage{graphicx}
-
-\makeatletter
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
-% Classic Thesis Style loader
-\makeatother
-\input{classicthesis-config.tex}
-\makeatletter
-
-% \input@path is a list of paths where LaTeX should look for files
-% LyX defines it as a single element list with the path of the main document in it
-% Comes in two forms: {\string "/home/user/dir ectory/\string "/} or {/home/user/directory//}
-% This is a hack to extract the bare path from the above strings
-\ifcsname input@path\endcsname 
-  \edef\@basepath{\expandafter\@firstofone\input@path} %remove braces
-  \def\rm@quotes#1"#2"#3\@nul{\ifx\relax#2\relax #1\else #2\fi}
-  \edef\@basepath{\expandafter\rm@quotes\@basepath""\@nul} %remove quotes
-\else\edef\@basepath{./}\fi
-
-
-\let\orig@addbibresource\addbibresource
-\renewrobustcmd*{\addbibresource}[2][type=file]{\orig@addbibresource[#1]{\@basepath#2}}
-
-% use Latin Modern instead of Computer Modern sans serif
-\renewcommand{\sfdefault}{lmss}
-
-\makeatother
-
-\usepackage{babel}
-\begin{document}
 
 \chapter{Rotational Invariant Expansion\label{chpt:rotational-invariant-expansion}}
 
@@ -63,7 +25,6 @@ Two special cases are adopted in this thesis, these being the laboratory
 coordinate system with particle 1 at origin (fixed frame) and intermolecular
 coordinate system (local frame) shown in figure \ref{fig:coordinate_systems}.
 Their formalism and symmetry properties are presented later.
-
 
 \section{Orthogonality of $\Phi$}
 
@@ -107,7 +68,6 @@ m & n & l\\
 \end{array}\right)=\delta_{\mu_{1}'\mu_{2}'}\delta_{\nu_{1}'\nu_{2}'}
 \end{equation}
 
-
 \begin{equation}
 \sum_{\mu'\nu'}\left(\begin{array}{ccc}
 m & n & l\\
@@ -121,7 +81,6 @@ it gives
 \begin{equation}
 \left\langle \Phi\mid\Phi_{2}\right\rangle =\left(2l+1\right)^{-1}
 \end{equation}
-
 
 
 \section{Rotational invariance of $\Phi$}
@@ -144,7 +103,6 @@ m & n & l\\
 \end{array}\right)R_{\mu'\mu}^{m}(0)R_{\nu'\nu}^{n}(\mathbf{\Omega})R_{\lambda'0}^{l}(\mathbf{\hat{r}})
 \end{equation}
 
-
 The spherical harmonics have property \citep{Edmonds,Messiah}
 \begin{equation}
 R_{\mu'\mu}^{m}(0)=\sum_{\mu''}R_{\mu'\mu''}^{m}(\mathbf{\hat{r}})R_{\mu''\mu}^{m}(\boldsymbol{\omega_{1}})
@@ -163,7 +121,6 @@ m & n & l\\
 \mu' & \nu' & \lambda'
 \end{array}\right)R_{\mu'\mu''}^{m}(\mathbf{\hat{r}})R_{\nu'\nu''}^{n}(\mathbf{\hat{r}})R_{\lambda'\lambda''}^{l}(\mathbf{\hat{r}})\right]
 \end{align}
-
 
 According to eq. (4.3.3) in Edmonds \citep{Edmonds} or (A.91) in
 Gray \& Gubbins \citep{Gray-Gubbins}
@@ -195,10 +152,8 @@ m & n & l\\
  & =\Phi_{\mu\nu}^{mnl}(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},0)
 \end{align}
 
-
 Therefore, the projections $F_{\mu\nu}^{mnl}(r)$ also remain rotational
 invariant in these two coordinate systems.
-
 
 \section{Transform in local frame}
 
@@ -225,7 +180,6 @@ m & n & l\\
 \end{array}\right)f^{m}f^{n}R_{\chi,\mu}^{m}(\boldsymbol{\omega_{1}})R_{-\chi,\nu}^{n}(\boldsymbol{\omega_{2}})\label{eq:phi_local}
 \end{equation}
 
-
 Thus eq. (\ref{eq:pdf_on_rot_invar}) becomes
 \begin{eqnarray}
 F(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},r) & = & \sum_{mnl\mu\nu}F_{\mu\nu}^{mnl}(r)\Phi_{\mu\nu}^{mnl}(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},0)\nonumber \\
@@ -244,11 +198,9 @@ m & n & l\\
  &  & \int\mathrm{d}\boldsymbol{\omega_{1}}R_{\chi\mu}^{m*}(\boldsymbol{\omega_{1}})\int\mathrm{d}\boldsymbol{\omega_{2}}R_{-\chi\nu}^{n*}(\boldsymbol{\omega_{2}})F(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},r)
 \end{eqnarray}
 
-
 The function $F(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},r)$
 and the projections $F_{\mu\nu}^{mnl}(r)$ can be transformed into
 each other by 2 simple steps.
-
 
 \subsection{Transform between $F_{\mu\nu}^{mnl}(r)$ and $F_{\mu\nu,\chi}^{mn}(r)$ }
 
@@ -259,7 +211,6 @@ m & n & l\\
 \chi & -\chi & 0
 \end{array}\right)F_{\mu\nu}^{mnl}(r)
 \end{equation}
-
 
 Using property of 3j-symbol \citep{Messiah}
 \begin{equation}
@@ -279,7 +230,6 @@ m & n & l\\
 \chi & -\chi & 0
 \end{array}\right)F_{\mu\nu,\chi}^{mn}(r)
 \end{equation}
-
 
 Thus Eq. (\ref{eq:eq_total_local}) becomes
 \begin{eqnarray}
@@ -301,7 +251,6 @@ m & n & l\\
 \end{array}\right)
 \end{eqnarray}
 
-
 As
 \begin{equation}
 \sum_{l}\left(2l+1\right)\left(\begin{array}{ccc}
@@ -321,7 +270,6 @@ and
 F_{\mu\nu,\chi}^{mn}(r)=\int\mathrm{d}\boldsymbol{\omega_{1}}\mathrm{d}\boldsymbol{\omega_{2}}F(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},r)f^{m}f^{n}R_{\chi\mu}^{m*}(\boldsymbol{\omega_{1}})R_{-\chi\nu}^{n*}(\boldsymbol{\omega_{2}})\label{eq:local_backward}
 \end{equation}
 
-
 Thus eq. (\ref{eq:local-forward}, \ref{eq:local_backward}) can be
 performed either by fast generalized spherical harmonic transform
 (FGSHT), or being developed into
@@ -329,7 +277,6 @@ performed either by fast generalized spherical harmonic transform
 F(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},r)=\sum_{mn\mu\nu\chi}F_{\mu\nu,\chi}^{mn}(r)f^{m}f^{n}r_{\chi\mu}^{m}(\theta_{1})r_{-\chi\nu}^{n}(\theta_{2})e^{-i\chi(\phi_{12}\equiv\phi_{1}-\phi_{2})}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}\label{eq:eq_s1_local}
 \end{equation}
 and transformed with FFT-3D.
-
 
 \subsection{Rotational invariant transform with FFT-3D}
 
@@ -342,12 +289,10 @@ then we have
 F(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},r)=\sum_{m\mu\nu\chi}F_{\mu\nu,\chi}^{m}(r,\theta_{2})f^{m}r_{\chi\mu}^{m}(\theta_{1})e^{-i\chi\phi_{12}}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}
 \end{equation}
 
-
 The inverse transform should be
 \begin{equation}
 F_{\mu\nu,\chi}^{mn}(r)=\frac{1}{2}\int\mathrm{d}(\cos\theta_{2})F_{\mu\nu,\chi}^{m}(r,\theta_{2})r_{-\chi\nu}^{n}(\theta_{2})
 \end{equation}
-
 
 In the same way, suppose
 \begin{equation}
@@ -358,13 +303,11 @@ and the inverse transform
 F_{\mu\nu,\chi}^{m}(r,\theta_{2})=\frac{1}{2}\int\mathrm{d}(\cos\theta_{1})F_{\mu\nu,\chi}(r,\theta_{1},\theta_{2})r_{\chi\mu}^{m}(\theta_{1})
 \end{equation}
 
-
 then we have
 \begin{equation}
 F(r,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})=\sum_{\mu\nu\chi}F_{\mu\nu,\chi}(r,\theta_{1},\theta_{2})e^{-i\chi\phi_{12}}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}\label{eq:eq_s3_local}
 \end{equation}
 which can be treated as a normal FFT of 3 dimensions.
-
 
 \section{Transform in fixed frame}
 
@@ -376,11 +319,9 @@ m & n & l\\
 \end{array}\right)f^{m}f^{n}R_{\eta,\nu}^{n}(\mathbf{\Omega})R_{-\mu-\eta,0}^{l}(\mathbf{\hat{r}})\label{eq:phi_global}
 \end{equation}
 
-
 The rotational invariant does not take advantage of the $\chi$ transform
 as $\mu\neq0$. The expansion on rotational invariants should be calculated
 directly.
-
 
 \subsection{Expansion of $F(\mathbf{r},\mathbf{\Omega})$ on rotational invariants}
 
@@ -392,18 +333,15 @@ m & n & l\\
 \end{array}\right)\int\mathrm{d}\hat{\mathbf{r}}R_{-\mu-\eta,0}^{l*}(\mathbf{\hat{r}})\int\mathrm{d}\mathbf{\Omega}F(r,\hat{\mathbf{r}},\mathbf{\Omega})R_{\eta,\nu}^{n*}(\mathbf{\Omega})
 \end{equation}
 
-
 Firstly, the FGSHT is performed:
 \begin{equation}
 F_{\eta\nu}^{n}(\mathbf{r})=\int\mathrm{d}\mathbf{\Omega}f^{n}F(\mathbf{r},\mathbf{\Omega})R_{\eta,\nu}^{n*}(\mathbf{\Omega})
 \end{equation}
 
-
 Then the spherical harmonic transform by histogram should give
 \begin{equation}
 F_{\eta\nu,\lambda}^{nl}(r)=\int\mathrm{d}\hat{\mathbf{r}}R_{\lambda0}^{l*}(\mathbf{\hat{r}})F_{\eta\nu}^{n}(r,\mathbf{\hat{r}})\label{eq:sht-1}
 \end{equation}
-
 
 As $F_{\eta\nu}^{n}(\mathbf{r})$ values are tabulated in the Cartesian
 grid, we cannot use a quadrature approach without interpolation, so
@@ -439,10 +377,8 @@ m & n & l\\
 \end{array}\right)F_{\eta\nu,-\mu-\eta}^{nl}(r)
 \end{equation}
 
-
 \textcolor{red}{It should be noted that $F_{\mu\nu}^{mnl}(r)$ is
 real?}
-
 
 \subsection{Rebuilding of $F(\mathbf{r},\mathbf{\Omega})$ from projections}
 
@@ -456,7 +392,6 @@ m & n & l\\
 \end{equation}
 
 
-
 \section{Symmetry}
 
 In IEM and MDFT, the rotational invariants are used to describe the
@@ -465,18 +400,15 @@ of the two particles, symmetry properties of single particle, and
 its real number property as a physical quantity. Here we list all
 the symmetric rules concerning the 2-molecule system.
 
-
 \subsection{Symmetric rules of $F(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
 in intermolecular form}
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics{../_figure/symmetry_dcf}
+\includegraphics{_figure/symmetry_dcf}
 \par\end{centering}
-
 \caption{Symmetry operations of a 2-molecule system\label{fig:Symmetry-operations}}
 \end{figure}
-
 
 As shown in figure \ref{fig:Symmetry-operations}, function in intermolecular
 coordinate system $F(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})\equiv F(\cos\theta_{1},\cos\theta_{2},\phi,\psi_{1},\psi_{2})$
@@ -486,12 +418,10 @@ possesses symmetry rules:
 \begin{equation}
 F(\theta_{1},\theta_{2},\phi,\psi_{1},\psi_{2})=F(\theta_{1},\theta_{2},-\phi,-\psi_{1},-\psi_{2})
 \end{equation}
-
 \item Symmetry of inversion: 
 \begin{equation}
 F(\theta_{1},\theta_{2},\phi,\psi_{1},\psi_{2})=F(\pi-\theta_{2},\pi-\theta_{1},\phi,\psi_{2},\psi_{1})
 \end{equation}
-
 \end{enumerate}
 And an additive symmetric rule is possessed by particles having 
 \begin{enumerate}
@@ -501,7 +431,6 @@ Symmetry axe $\mathrm{C_{2n}}$:
 \begin{equation}
 F(\theta_{1},\theta_{2},\phi,\psi_{1},\psi_{2})=F(\theta_{1},\theta_{2},\phi,\psi_{1}+\pi,\psi_{2}+\pi)
 \end{equation}
-
 \end{enumerate}
 
 \subsection{Symmetric rules of rotational invariant projections}
@@ -595,4 +524,3 @@ of symmetry $\mathrm{C}_{2}$, $\mu$ and $\nu$ is even.}
 \textcolor{red}{For spherical solutes, the $\mathbf{\Omega_{1}}$-dependence
 vanishes so that $m=\mu=0$, only the terms $F_{0\nu}^{0nl}(r)$ are
 not-zero.}
-\end{document}

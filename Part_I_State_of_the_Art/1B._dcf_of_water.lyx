@@ -1,0 +1,261 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass classicthesis
+\use_default_options true
+\maintain_unincluded_children false
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex8
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Direct Correlation Function of Water
+\begin_inset CommandInset label
+LatexCommand label
+name "chpt:dcf-water"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Two source of DCF is used in this thesis: (1) The 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ of bulk water produced by the work of Zhao et al.
+ using MD; (2) Belloni et al.
+ using MC [ref].
+\end_layout
+
+\begin_layout Section
+Dipole DCF from molecular dynamics simulation
+\end_layout
+
+\begin_layout Subsection
+Principle
+\end_layout
+
+\begin_layout Section
+DCF projections from bulk Monte Carlo simulation
+\end_layout
+
+\begin_layout Standard
+This DCF set is calculated by Belloni 
+\shape italic
+et al.
+
+\shape default
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Luc_2012"
+
+\end_inset
+
+ and is presented here briefly for the purpose of clarification.
+ 
+\begin_inset Formula $g$
+\end_inset
+
+ accumulated, solve the inverse OZ equation to find 
+\begin_inset Formula $c$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+First rotational invariant of the Fourier transform of the total correlation
+ function h
+\end_layout
+
+\begin_layout Standard
+example:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\hat{c}^{000}(k)=\frac{\hat{h}^{000}(k)}{1+n_{0}\hat{h}^{000}(k)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color red
+(question of 
+\begin_inset Formula $l$
+\end_inset
+
+ imaginary in 
+\begin_inset Formula $k$
+\end_inset
+
+-space)
+\end_layout
+
+\begin_layout Section
+Comparison
+\end_layout
+
+\begin_layout Standard
+the notation of Wertheim and Hansen, or in k-space
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\Phi^{000} & =1\nonumber \\
+\Phi^{011} & =\hat{\mathbf{k}}\cdot\mathbf{\Omega}_{1}\nonumber \\
+\Phi^{101} & =\hat{\mathbf{k}}\cdot\mathbf{\Omega}_{2}\nonumber \\
+\Phi^{110} & =\mathbf{\Omega}_{1}\cdot\mathbf{\Omega}_{2}\\
+\Phi^{112} & =3\mathbf{(\hat{\mathbf{k}}\cdot\mathbf{\Omega}_{1})(\hat{\mathbf{k}}\cdot\mathbf{\Omega}_{2})-\Omega}_{1}\cdot\mathbf{\Omega}_{2}\nonumber 
+\end{align}
+
+\end_inset
+
+Different rotational invariant projections from Luc’s c.
+ Luc defines (ac- cording to Blum)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\Phi^{000} & =1\nonumber \\
+\Phi^{011} & =i\mathbf{k}\cdot\mathbf{\Omega}_{1}=i\cos\theta_{1}\nonumber \\
+\Phi^{101} & =i\mathbf{k}\cdot\mathbf{\Omega}_{2}=i\cos\theta_{2}\nonumber \\
+\Phi^{110} & =-\sqrt{3}\mathbf{\Omega}_{1}\cdot\mathbf{\Omega}_{2}=-\sqrt{3}(\sin\theta_{1}\sin\theta_{2}\cos\phi_{12}+\cos\theta_{1}\cos\theta_{2})\\
+\Phi^{112} & =\sqrt{\frac{3}{10}}\left[3\mathbf{(\mathbf{k}\cdot\mathbf{\Omega}_{1})(\mathbf{k}\cdot\mathbf{\Omega}_{2})-\Omega}_{1}\cdot\mathbf{\Omega}_{2}\right]=\sqrt{\frac{3}{10}}\left(2\cos\theta_{1}\cos\theta_{2}-\sin\theta_{1}\sin\theta_{2}\cos\phi_{12}\right)\nonumber 
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Comparison with non-coupling dipole DCF in MDFT (
+\begin_inset Formula $n_{\max}=1$
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Comparison-with-non-coupling"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $c_{s}^{000},c_{\Delta}^{110},c_{d}^{112}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection
+Comparison with respect to 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+first rotational invariants 
+\begin_inset Formula $m_{\mathrm{max}}=1$
+\end_inset
+
+ (4 independent projections 
+\begin_inset Formula $c_{s}^{000},c_{\Delta}^{110},c_{d}^{112}$
+\end_inset
+
+ and 
+\begin_inset Formula $c_{+}^{011}=-c_{-}^{101}$
+\end_inset
+
+).
+\end_layout
+
+\end_body
+\end_document

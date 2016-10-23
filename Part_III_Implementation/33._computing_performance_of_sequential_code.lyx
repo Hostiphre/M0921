@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass classicthesis
 \use_default_options true
 \maintain_unincluded_children false
@@ -9,16 +11,16 @@
 \language_package default
 \inputencoding utf8
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -130,8 +132,8 @@ acs{FFT}
 
 \end_inset
 
- play a great role in the implementation, which is used by the spatial convoluti
-on and the 
+ play an important role in the implementation, which is used by the spatial
+ convolution and the 
 \begin_inset ERT
 status open
 
@@ -152,7 +154,7 @@ reference "fig:timing-FFT"
 
 \end_inset
 
-a, the dependance on 
+, the dependance on 
 \begin_inset Formula $O(N\log_{2}N)$
 \end_inset
 
@@ -197,6 +199,35 @@ b).
 \end_layout
 
 \begin_layout Standard
+The algorithmic complicity of FFT is about 
+\begin_inset Formula $\mathcal{O}(N_{k}\ln N_{k})$
+\end_inset
+
+ 
+\size scriptsize
+\color red
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Numerical_Recipes_3ed"
+
+\end_inset
+
+ 
+\size default
+\color inherit
+, and the computing time will be discussed in later sessions.
+\end_layout
+
+\begin_layout Standard
+We cannot count only the number of operation, 
+\end_layout
+
+\begin_layout Standard
+As we use real and complex FFT in difrent algorithms,
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement h
 wide false
@@ -204,6 +235,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -212,8 +244,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../_figure/timing_fft_spatial.pdf
-	width 50col%
+	filename ../_figure/results/fftw_timing.eps
+	width 100col%
 
 \end_inset
 
@@ -235,16 +267,31 @@ spatial+nlogn!
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/results/fftw_real_v_cmplx.eps
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-angular
+real to complex
 \end_layout
 
 \end_inset
@@ -381,10 +428,81 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/results/fgsht_perf.eps
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Computing time of GSHT and FGSHT (per 1000 times)
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/results/fgsht_real_v_cmplx.eps
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Computing time of GSHT and FGSHT (per 10000 times)
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:time-gsht-fgsht"
@@ -428,7 +546,7 @@ psi treatment for mmax/nmax different
 K-kernel
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Standard
 Comparison between paths
 \end_layout
 
@@ -443,7 +561,7 @@ reference "fig:k-kernel"
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Standard
 \begin_inset Formula $m_{\max}$
 \end_inset
 
@@ -480,6 +598,84 @@ Entire iteration of
 
 \begin_layout Subsection
 Comparison between 
+\begin_inset Quotes eld
+\end_inset
+
+naive_standard
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+naive_interpolation
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:error-evaluation-interpolation-DCF"
+
+\end_inset
+
+, we compared the error introduced by the interpolation strategy of 
+\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
+\end_inset
+
+ calculation from the intermolecular 
+\begin_inset Formula $\hat{c}(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
+\end_inset
+
+.
+ Here, we want to compare the error introduced by 
+\family typewriter
+\series bold
+naive_interpolation
+\family default
+\series default
+ and
+\series bold
+ 
+\family typewriter
+naive_standard
+\family default
+\series default
+ concerned both 
+\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
+\end_inset
+
+ and the free energy and structure issued from a single-k calculation.
+\end_layout
+
+\begin_layout Standard
+As one is constant other has a 
+\begin_inset Formula $O(N^{3})$
+\end_inset
+
+ dependence on 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+, the discussion between the computing performance and memory usage with
+ respect to 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+ and it will be given in section ...
+\end_layout
+
+\begin_layout Standard
+As shown in table , 
+\end_layout
+
+\begin_layout Subsection
+Comparison 
 \begin_inset Quotes eld
 \end_inset
 
@@ -531,7 +727,7 @@ verified the conclusion of k-kernel test.
 \end_layout
 
 \begin_layout Subsection
-Comparison between 
+Comparison 
 \begin_inset Quotes eld
 \end_inset
 
@@ -592,7 +788,7 @@ decoration
 \end_layout
 
 \begin_layout Subsection
-Comparison between 
+Comparison 
 \begin_inset Quotes eld
 \end_inset
 
@@ -649,8 +845,20 @@ we can see the other part is almost identical, but the implementation of
 y takes less time.
 \end_layout
 
+\begin_layout Subsection
+mmax and nmax
+\end_layout
+
+\begin_layout Subsection
+different computer
+\end_layout
+
 \begin_layout Section
 Global view of the sequential code performance
+\end_layout
+
+\begin_layout Standard
+memory limitss
 \end_layout
 
 \begin_layout Standard

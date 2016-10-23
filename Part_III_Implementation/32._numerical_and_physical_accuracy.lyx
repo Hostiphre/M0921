@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass classicthesis
 \use_default_options true
 \maintain_unincluded_children false
@@ -9,16 +11,16 @@
 \language_package default
 \inputencoding utf8
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -71,24 +73,50 @@
 
 \begin_layout Chapter
 Numerical and Physical Accuracy
-\end_layout
-
-\begin_layout Standard
 \begin_inset CommandInset label
 LatexCommand label
 name "chpt:accuracy"
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 This chapter gives a systematic comparison between algorithms for the evaluation
- of 
+ of the excess free energy 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ and its gradient 
 \begin_inset Formula $\gamma$
 \end_inset
 
  in terms of accuracy.
- The different methods should lead to mathematical equivalent results.
- The comparison for a series of CH4 with IEM and MD is done as validation
- of method.
+ As the theory does not contain any unpredictable random part, the comportment
+ of the code is mathematically predictable.
+ For example, certain algorithms should give the same result at machine
+ precision (
+\begin_inset Formula $10^{-13}$
+\end_inset
+
+ to 
+\begin_inset Formula $10^{-15}$
+\end_inset
+
+) in certain conditions.
+ A lost of accuracy comparing to the prediction can be classified as two
+ different kinds.
+ One is the theoretical lost, for example, certain equation is only valid
+ for an infinite order.
+ This kind of lost is unavoidable but should be worked out explicitly.
+ Another source is the unknown lost, contains all kinds of incompatibility
+ in the result that cannot explained mathematically.
+ This kind of lost can mainly due to a bug in the implementation that cannot
+ be find out, or it is a theoretical lost that haven't been worked out.
+ They also deserve a discussion.
+ All those comparisons aim to give a global view of the credibility of the
+ results given by this code.
 \end_layout
 
 \begin_layout Section
@@ -102,255 +130,149 @@ name "sec:gsh-imp"
 
 \end_layout
 
-\begin_layout Subsection
-FFT
+\begin_layout Standard
+As discussed in 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:fgsht"
+
+\end_inset
+
+, the function after a forward-backward 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSHT}
 \end_layout
 
-\begin_layout Standard
-FFT3D is implemented by package FFTW3 
+\end_inset
+
+ process 
+\begin_inset Formula 
+\begin{equation}
+F_{\mu'\mu}^{m}=\frac{f_{m}}{8\pi^{2}}\sum_{i=0}^{m_{\mathrm{max}}}w_{i}\sum_{j=0}^{2m_{\mathrm{max}}}\sum_{k=0}^{2\left\lfloor m_{\mathrm{max}}/s\right\rfloor }F(\Theta_{i},\Phi_{j},\Psi_{k})R_{\mu'\mu}^{m*}(\Theta_{i},\Phi_{j},\Psi_{k})
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+F(\Theta_{i},\Phi_{j},\Psi_{k})=\sum_{m=0}^{n_{\mathrm{max}}}f_{m}\sum_{\mu'=-m}^{m}\sum_{\underset{\mod(\mu,s)=0}{\mu=-m}}^{m}F_{\mu'\mu}^{m}R_{\mu'\mu}^{m}(\Theta_{i},\Phi_{j},\Psi_{k})
+\end{equation}
+
+\end_inset
+
+only remains the same when it is a polynomial of both 
+\begin_inset Formula $\cos\Theta$
+\end_inset
+
+, 
+\begin_inset Formula $\cos\Phi$
+\end_inset
+
+ and 
+\begin_inset Formula $\cos\Psi$
+\end_inset
+
+ of order 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+, where 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+ is the highest order of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+ in the expansion, and 
+\begin_inset Formula $m_{\max}=n_{\max}$
+\end_inset
+
+ the order of quadrature used.
+ However, as in the reality, the density variable 
+\begin_inset Formula $\rho$
+\end_inset
+
+ is not a simple polynomial, and the choice of 
+\begin_inset Formula $m_{\max}$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+ is tightly linked to the performance, it is important to know how much
+ these choices will affect the results.
+ The 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ process is implemented by package FFTW3 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "FFTW3"
 
 \end_inset
 
- with discrete Fourier transform (DFT) defined as: 
-\begin_inset Formula 
-\begin{equation}
-\begin{array}{ll}
-{\displaystyle Y_{k}=\sum_{j=0}^{n-1}X_{j}e^{-2\pi ijk/n}} & \mathrm{(forward)}\end{array}
-\end{equation}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{equation}
-\begin{array}{ll}
-{\displaystyle X_{j}=\sum_{k=0}^{n-1}Y_{k}e^{2\pi ijk/n}} & \mathrm{(backward)}\end{array}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Mathematically, these transforms lead to no accuracy lost.
- It should be noticed that after a forward-backward Fourier transform, the
- original function is multiplied by a normalization factor 
-\begin_inset Formula $N_{k}$
-\end_inset
-
-, which is the total number of nodes 
-\begin_inset Formula $k$
-\end_inset
-
-.
- The numerical tests for selected functions 
-\begin_inset Formula $f(x)\in\left[-5,5\right)$
-\end_inset
-
- (100 values) are shown in table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:error-dft1d-1"
-
-\end_inset
-
-.
- 
-\begin_inset Float table
-placement h
-wide false
-sideways false
+, which is verified to be leading to strictly no accuracy lost (at machine
+ precision).
+ That means the 
+\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="2" columns="5">
-<features rotate="0" booktabs="true" tabularvalignment="middle" tabularwidth="100line%">
-<column alignment="left" valignment="top" width="0pt">
-<column alignment="left" valignment="top">
-<column alignment="left" valignment="top">
-<column alignment="left" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+ process will have strictly with the 
+\begin_inset ERT
+status open
 
 \begin_layout Plain Layout
-\begin_inset Formula $f(x)$
-\end_inset
 
 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $x^{3}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $e^{x}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-random number
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $E_{a}^{\mathrm{max}}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $2.84\cdot10^{-14}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $3.32\cdot10^{-14}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="1" alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $1.80\cdot10^{-16}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Maximum absolute error introduced by a forward-backward (real-complex-real)
- DFT1D process on a 100-value double precision array using FFTW3 package
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:error-dft1d-1"
-
-\end_inset
-
-
+\backslash
+acs{GSHT}
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We can see that the errors are about machine precision.
- 
-\end_layout
-
-\begin_layout Standard
-The algorithmic complicity of FFT is about 
-\begin_inset Formula $\mathcal{O}(N_{k}\ln N_{k})$
-\end_inset
-
- 
-\size scriptsize
-\color red
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Numerical_Recipes_3ed"
-
-\end_inset
-
- 
-\size default
-\color inherit
-, and the computing time will be discussed in later sessions.
-\end_layout
-
-\begin_layout Standard
-mmax/nmax
+ process.
+ Here we do not need to distinguish the two.
 \end_layout
 
 \begin_layout Subsection
@@ -367,18 +289,14 @@ mmax/nmax
 \begin_layout Standard
 The numerical error tests of a forward-backward GSHT process with different
  order 
+\begin_inset Formula $n_{\mathrm{max}}$
+\end_inset
+
+ of GSH and 
 \begin_inset Formula $m_{\mathrm{max}}$
 \end_inset
 
- (
-\begin_inset Formula $m$
-\end_inset
-
- in table) of GSH and order 
-\begin_inset Formula $n$
-\end_inset
-
- of quadrature is shown in table 
+ of quadrature are shown in table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:error-gsh"
@@ -387,7 +305,7 @@ reference "tab:error-gsh"
 
 .
 \begin_inset Float table
-placement h
+placement H
 wide false
 sideways false
 status open
@@ -402,9 +320,10 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="6">
-<features rotate="0" booktabs="true" tabularvalignment="middle" tabularwidth="47line%">
+<lyxtabular version="3" rows="7" columns="7">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="100col%">
 <column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -415,6 +334,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $m$
 \end_inset
 
@@ -433,6 +354,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0
 \end_layout
 
@@ -442,15 +365,19 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 1
 \end_layout
 
 \end_inset
 </cell>
-<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 2
 \end_layout
 
@@ -460,6 +387,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 3
 \end_layout
 
@@ -469,7 +398,20 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 4
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+5
 \end_layout
 
 \end_inset
@@ -480,6 +422,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0
 \end_layout
 
@@ -490,6 +434,9 @@ status open
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -499,24 +446,8 @@ status open
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+\size footnotesize
+9.00 (3.00)
 \end_layout
 
 \end_inset
@@ -526,6 +457,41 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+34.00 (18.00)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+83.00 (39.00)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+164.00 (84.00)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+285.00 (139.00)
 \end_layout
 
 \end_inset
@@ -536,6 +502,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 1
 \end_layout
 
@@ -546,6 +514,9 @@ status open
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -555,6 +526,20 @@ status open
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0 (1.67)
 \end_layout
 
 \end_inset
@@ -564,6 +549,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+4.34 (6.07)
 \end_layout
 
 \end_inset
@@ -573,6 +560,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+7.06 (13.63)
 \end_layout
 
 \end_inset
@@ -582,6 +571,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+14.88 (17.30)
 \end_layout
 
 \end_inset
@@ -592,6 +583,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 2
 \end_layout
 
@@ -602,6 +595,9 @@ status open
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -611,6 +607,21 @@ status open
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -620,6 +631,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -629,6 +642,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -638,6 +653,91 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+5.65 (2.71)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+0 (0)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+0 (0)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+0 (0)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+0 (0)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0 (0)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -648,7 +748,9 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-3
+
+\size footnotesize
+4
 \end_layout
 
 \end_inset
@@ -658,6 +760,9 @@ status open
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -667,6 +772,21 @@ status open
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -676,6 +796,9 @@ status open
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -685,6 +808,9 @@ status open
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -694,6 +820,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -704,7 +832,9 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-4
+
+\size footnotesize
+5
 \end_layout
 
 \end_inset
@@ -714,6 +844,9 @@ status open
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -723,6 +856,21 @@ status open
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -732,6 +880,9 @@ status open
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -741,15 +892,21 @@ status open
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -780,6 +937,10 @@ status open
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Float table
 wide false
 sideways false
@@ -788,9 +949,10 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="6">
-<features rotate="0" booktabs="true" tabularvalignment="middle" tabularwidth="47line%">
+<lyxtabular version="3" rows="7" columns="7">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="100col%">
 <column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -801,6 +963,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $m$
 \end_inset
 
@@ -819,6 +983,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0
 \end_layout
 
@@ -828,15 +994,19 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 1
 \end_layout
 
 \end_inset
 </cell>
-<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 2
 \end_layout
 
@@ -846,6 +1016,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 3
 \end_layout
 
@@ -855,7 +1027,20 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 4
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+5
 \end_layout
 
 \end_inset
@@ -866,6 +1051,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0
 \end_layout
 
@@ -876,6 +1063,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -885,24 +1074,8 @@ status open
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -912,6 +1085,41 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0 (0)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0 (0)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0 (0)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -922,6 +1130,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 1
 \end_layout
 
@@ -932,6 +1142,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0.96 (0.96)
 \end_layout
 
 \end_inset
@@ -941,6 +1153,19 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0 (0)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -950,6 +1175,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+2.56 (6.99)
 \end_layout
 
 \end_inset
@@ -959,6 +1186,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+10.76 (14.15)
 \end_layout
 
 \end_inset
@@ -968,6 +1197,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+13.83 (21.21)
 \end_layout
 
 \end_inset
@@ -978,6 +1209,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 2
 \end_layout
 
@@ -988,6 +1221,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0.46 (0.46)
 \end_layout
 
 \end_inset
@@ -997,6 +1232,19 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0 (0)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -1006,6 +1254,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -1015,6 +1265,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -1024,6 +1276,88 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+1.36 (0.50)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0.86 (0.86)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0.66 (0.66)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0.66 (0.66)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+0 (0)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0 (0)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0.66 (0.66)
 \end_layout
 
 \end_inset
@@ -1034,7 +1368,9 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-3
+
+\size footnotesize
+4
 \end_layout
 
 \end_inset
@@ -1044,6 +1380,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0.99 (0.99)
 \end_layout
 
 \end_inset
@@ -1053,6 +1391,19 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0.80 (0.80)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0.80 (0.80)
 \end_layout
 
 \end_inset
@@ -1062,6 +1413,9 @@ status open
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -1071,6 +1425,9 @@ status open
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -1080,6 +1437,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -1090,7 +1449,9 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-4
+
+\size footnotesize
+5
 \end_layout
 
 \end_inset
@@ -1100,6 +1461,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0.83 (0.83)
 \end_layout
 
 \end_inset
@@ -1109,6 +1472,19 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+1.01 (1.01)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+1.01 (1.01)
 \end_layout
 
 \end_inset
@@ -1118,6 +1494,9 @@ status open
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -1127,15 +1506,21 @@ status open
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -1178,9 +1563,10 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="6">
-<features rotate="0" booktabs="true" tabularvalignment="middle" tabularwidth="47line%">
+<lyxtabular version="3" rows="7" columns="7">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="100col%">
 <column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1191,6 +1577,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $m$
 \end_inset
 
@@ -1209,6 +1597,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0
 \end_layout
 
@@ -1218,15 +1608,19 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 1
 \end_layout
 
 \end_inset
 </cell>
-<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 2
 \end_layout
 
@@ -1236,6 +1630,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 3
 \end_layout
 
@@ -1245,7 +1641,20 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 4
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+5
 \end_layout
 
 \end_inset
@@ -1256,6 +1665,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0
 \end_layout
 
@@ -1266,6 +1677,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -1275,24 +1688,8 @@ status open
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+\size footnotesize
+9.00 (3.00)
 \end_layout
 
 \end_inset
@@ -1302,6 +1699,41 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+34.00 (18.00)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+83.00 (39.00)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+164.00 (84.00)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+285.00 (139.00)
 \end_layout
 
 \end_inset
@@ -1312,6 +1744,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 1
 \end_layout
 
@@ -1322,6 +1756,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -1331,6 +1767,19 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0 (0)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0 (1.67)
 \end_layout
 
 \end_inset
@@ -1340,6 +1789,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+4.34 (6.07)
 \end_layout
 
 \end_inset
@@ -1349,6 +1800,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+7.06 (13.63)
 \end_layout
 
 \end_inset
@@ -1358,6 +1811,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+14.88 (17.30)
 \end_layout
 
 \end_inset
@@ -1368,6 +1823,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 2
 \end_layout
 
@@ -1378,6 +1835,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+1.00 (1.00)
 \end_layout
 
 \end_inset
@@ -1387,6 +1846,19 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+1.00 (1.00)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0.50 (0.50)
 \end_layout
 
 \end_inset
@@ -1396,6 +1868,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+1.53 (1.53)
 \end_layout
 
 \end_inset
@@ -1405,6 +1879,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+1.15 (1.15)
 \end_layout
 
 \end_inset
@@ -1414,6 +1890,87 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+3.65 (0.89)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+1.00 (1.00)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+1.00 (1.00)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+1.00 (1.00)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0.83 (0.83)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+1.10 (1.10)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+1.11 (1.11)
 \end_layout
 
 \end_inset
@@ -1424,7 +1981,9 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-3
+
+\size footnotesize
+4
 \end_layout
 
 \end_inset
@@ -1434,6 +1993,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+1.00 (1.00)
 \end_layout
 
 \end_inset
@@ -1443,6 +2004,19 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+1.00 (1.00)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+1.00 (1.00)
 \end_layout
 
 \end_inset
@@ -1452,6 +2026,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0.90 (0.90)
 \end_layout
 
 \end_inset
@@ -1461,6 +2037,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0.90 (0.90)
 \end_layout
 
 \end_inset
@@ -1470,6 +2048,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0.69 (0.69)
 \end_layout
 
 \end_inset
@@ -1480,7 +2060,9 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-4
+
+\size footnotesize
+5
 \end_layout
 
 \end_inset
@@ -1490,6 +2072,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+1.00 (1.00)
 \end_layout
 
 \end_inset
@@ -1499,6 +2083,19 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+1.00 (1.00)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+1.00 (1.00)
 \end_layout
 
 \end_inset
@@ -1508,6 +2105,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0.94 (0.94)
 \end_layout
 
 \end_inset
@@ -1517,15 +2116,19 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0.94 (0.94)
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0.80 (0.80)
 \end_layout
 
 \end_inset
@@ -1556,6 +2159,10 @@ status open
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Float table
 wide false
 sideways false
@@ -1564,9 +2171,10 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="6">
-<features rotate="0" booktabs="true" tabularvalignment="middle" tabularwidth="47line%">
+<lyxtabular version="3" rows="7" columns="7">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="100col%">
 <column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1577,6 +2185,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $m$
 \end_inset
 
@@ -1595,6 +2205,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0
 \end_layout
 
@@ -1604,15 +2216,19 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 1
 \end_layout
 
 \end_inset
 </cell>
-<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 2
 \end_layout
 
@@ -1622,6 +2238,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 3
 \end_layout
 
@@ -1631,7 +2249,20 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 4
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+5
 \end_layout
 
 \end_inset
@@ -1642,6 +2273,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0
 \end_layout
 
@@ -1652,6 +2285,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -1661,24 +2296,8 @@ status open
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+\size footnotesize
+5.03 (1.68)
 \end_layout
 
 \end_inset
@@ -1688,6 +2307,41 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+19.01 (10.06)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+46.40 (21.80)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+91.68 (46.96)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+- (77.70)
 \end_layout
 
 \end_inset
@@ -1698,6 +2352,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 1
 \end_layout
 
@@ -1708,6 +2364,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -1717,6 +2375,19 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0 (0)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0 (0.51)
 \end_layout
 
 \end_inset
@@ -1726,6 +2397,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+1.32 (1.85)
 \end_layout
 
 \end_inset
@@ -1735,6 +2408,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+2.15 (4.15)
 \end_layout
 
 \end_inset
@@ -1744,6 +2419,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+4.53 (5.26)
 \end_layout
 
 \end_inset
@@ -1754,6 +2431,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 2
 \end_layout
 
@@ -1764,6 +2443,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0.56 (0.56)
 \end_layout
 
 \end_inset
@@ -1773,6 +2454,19 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0.56 (0.56)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0.07 (0.07)
 \end_layout
 
 \end_inset
@@ -1782,6 +2476,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0.55 (0.55)
 \end_layout
 
 \end_inset
@@ -1791,6 +2487,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0.76 (0.76)
 \end_layout
 
 \end_inset
@@ -1800,6 +2498,88 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+2.05 (1.00)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0.47 (0.47)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0.47 (0.47)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0.47 (0.47)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+0 (0)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0.46 (0.46)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0.46 (0.46)
 \end_layout
 
 \end_inset
@@ -1810,7 +2590,9 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-3
+
+\size footnotesize
+4
 \end_layout
 
 \end_inset
@@ -1820,6 +2602,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0.56 (0.56)
 \end_layout
 
 \end_inset
@@ -1829,6 +2613,19 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0.56 (0.56)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0.56 (0.56)
 \end_layout
 
 \end_inset
@@ -1838,6 +2635,9 @@ status open
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -1847,6 +2647,9 @@ status open
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -1856,6 +2659,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -1866,7 +2671,9 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-4
+
+\size footnotesize
+5
 \end_layout
 
 \end_inset
@@ -1876,6 +2683,8 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0.51 (0.51)
 \end_layout
 
 \end_inset
@@ -1885,6 +2694,19 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+0.51 (0.51)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0.51 (0.51)
 \end_layout
 
 \end_inset
@@ -1894,6 +2716,9 @@ status open
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -1903,15 +2728,21 @@ status open
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+0 (0)
 \end_layout
 
 \end_inset
@@ -1928,7 +2759,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-\begin_inset Formula $f(\mathbf{\Omega})=\cos\frac{3}{2}\Psi$
+\begin_inset Formula $f(\mathbf{\Omega})=R_{30}^{3}(\mathbf{\Omega})$
 \end_inset
 
 
@@ -1948,11 +2779,38 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Logarithm of maximum absolute error 
-\begin_inset Formula $\lg\left(E_{a}^{\mathrm{max}}\right)$
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Maximum absolute error 
+\begin_inset Formula $E_{a}^{\mathrm{max}}$
 \end_inset
 
- introduced by a forward-backward GSHT process.
+ introduced by a forward-backward GSHT process
+\end_layout
+
+\end_inset
+
+Maximum absolute error 
+\begin_inset Formula $E_{a}^{\mathrm{max}}$
+\end_inset
+
+ introduced by a forward-backward GSHT process of function 
+\begin_inset Formula $f$
+\end_inset
+
+ (outside the parentheses) and the corresponding transform for function
+ with 
+\begin_inset Formula $\mathrm{C}_{2v}$
+\end_inset
+
+ symmetry (with two times less 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ points of quadrature, inside the parentheses).
+ Differences should be theoretically null in the table is in bold character.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -1974,17 +2832,86 @@ name "tab:error-gsh"
 \end_layout
 
 \begin_layout Standard
-It is shown that
-\end_layout
-
-\begin_layout Standard
-It should be noticed that the tested functions are theoretically the same
- if the order of quadrature / GSH is sufficient.
- The real case of 
-\begin_inset Formula $\rho$
+It conforms the theoretical prediction where should lead to no accuracy
+ lost (
+\begin_inset Formula $m_{\max}>n_{\max}$
 \end_inset
 
- is in later session.
+ and 
+\begin_inset Formula $f$
+\end_inset
+
+ the polynomial that can be expanded on 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+s of order at most 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+).
+ It should be noted, that as we do firstly a forward then a backward transform,
+ when 
+\begin_inset Formula $m_{\max}<n_{\max}$
+\end_inset
+
+, even the input function is of order at most 
+\begin_inset Formula $m_{\max}$
+\end_inset
+
+, the output function is of order 
+\begin_inset Formula $n_{\mathrm{max}}$
+\end_inset
+
+ in the presence of 
+\begin_inset Formula $R_{\mu'\mu}^{m}$
+\end_inset
+
+ which is of order 
+\begin_inset Formula $n_{\mathrm{max}}$
+\end_inset
+
+, thus the two functions are different.
+ The function in which the order of 
+\begin_inset Formula $\cos\Phi$
+\end_inset
+
+ and 
+\begin_inset Formula $\cos\Psi$
+\end_inset
+
+ is greater than 
+\begin_inset Formula $\cos\Theta$
+\end_inset
+
+ (case of 
+\begin_inset Formula $f(\mathbf{\Omega})=\cos3\Phi$
+\end_inset
+
+), the two functions are different too, because it cannot be expanded to
+ a finite number of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+s.
 \end_layout
 
 \begin_layout Subsection
@@ -2000,67 +2927,1010 @@ From
 \end_layout
 
 \begin_layout Standard
-Unphysical rho after transform, Gamma more smooth, Orientation 
+To conclude from above, the error for an arbitrary function like 
+\begin_inset Formula $\rho$
+\end_inset
+
+, which is not a combination of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+s, can be huge.
+ One evidence is the appearance of unphysical density 
+\begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})<0$
+\end_inset
+
+ at certain point after a forward-backward 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSHT}
+\end_layout
+
+\end_inset
+
+ process (figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:unphysical-rho"
+
+\end_inset
+
+).
+ 
+\color red
+(other better way?)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/results/min_delta_rho.eps
+	width 75col%
+	BoundingBox 0bp 10bp 454bp 160bp
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+The minimum value of 
+\begin_inset Formula $\Delta\rho(\mathbf{r},\mathbf{\Omega})/\rho_{0}$
+\end_inset
+
+ after a forward-backward 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSHT}
+\end_layout
+
+\end_inset
+
+ process
+\end_layout
+
+\end_inset
+
+The minimum value of 
+\begin_inset Formula $\Delta\rho(\mathbf{r},\mathbf{\Omega})/\rho_{0}$
+\end_inset
+
+ after a forward-backward 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSHT}
+\end_layout
+
+\end_inset
+
+ process with respect to 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+.
+ Computed for a 
+\begin_inset Formula $45^{3}$
+\end_inset
+
+ grid (
+\begin_inset Formula $L=25$
+\end_inset
+
+) for a converged density of an artificial charged LJ center 
+\begin_inset Formula $\mathrm{CH}_{4}^{+0.4}$
+\end_inset
+
+.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:unphysical-rho"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Theoretically, we expect this minimum value approach to zero when increasing
+ 
+\begin_inset Formula $m_{\max}$
+\end_inset
+
+ or 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+, which is not exactly the case.
+ That means perhaps the order of expansion is still far from to find a tendency.
+ Knowing that 
+\begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})/\rho_{0}\rightarrow1$
+\end_inset
+
+ far from the solute, the error can be said oblivious within the computing
+ capacity (
+\begin_inset Formula $n_{\max}<5$
+\end_inset
+
+), that means we cannot expand rightly the density 
+\begin_inset Formula $\rho$
+\end_inset
+
+ on 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+ projections, where.
+ But this have a much less effect on the functional gradient 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ that we evaluate, because in a convolution product, 
+\begin_inset Formula $\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega})$
+\end_inset
+
+ and the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\hat{c}(k,\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
+\end_inset
+
+ can be both expended, and product of higher order terms vanishes more easily.
+ Latter we will show that the profile of 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ and the free energy 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ can already converge within 
+\begin_inset Formula $n_{\max}<5$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
 Comparison between branches
 \end_layout
 
-\begin_layout Subsection
-Error evaluation in 
-\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
-\end_inset
-
- calculation
-\end_layout
-
 \begin_layout Standard
-In appendix 
+As shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "chpt:error-evaluation-interpolation-DCF"
+reference "fig:Possible-algorithms"
 
 \end_inset
 
-, we compared the error introduced by the interpolation strategy of 
-\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
+, if we fixe 
+\begin_inset Formula $\Delta\rho(\mathbf{r},\mathbf{\Omega})$
 \end_inset
 
- calculation from the intermolecular 
-\begin_inset Formula $\hat{c}(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
+ to a recombination of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+ projections, all methods using the same 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ should give mathematically identical results.
+ The most direct comparison is the free energy evaluated during 1 iteration.
+ And to be more strict, is also interesting to compare the profile of 
+\begin_inset Formula $\gamma$
 \end_inset
 
 .
- Here, we want to compare the error introduced by 
+\end_layout
+
+\begin_layout Subsection
+Difference in energy evaluation
+\end_layout
+
+\begin_layout Standard
+As shown in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:free-energy"
+
+\end_inset
+
+, the methods using the same 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ at the same 
+\begin_inset Formula $m_{\max}$
+\end_inset
+
+ which is mathematically identical in an infinite condition, give nearly
+ the same results.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="4">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="100line%">
+<column alignment="left" valignment="top" width="0pt">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+Method
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+DCF
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+Free Energy
+\end_layout
+
+\end_inset
+
+ 
+\size footnotesize
+(kJ/mol)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+\size footnotesize
+dipole
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+[ref mdft]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+13.1915264499904339
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+\size footnotesize
+naive_dipole
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+[ref mdft]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+13.1915269013357985
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+\size footnotesize
+naive_nmax1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+[ref Luc]*
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+18.6052247636086854
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+\size footnotesize
+convolution_standard
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+[ref Luc]*
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+18.6093390102806886
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+\size footnotesize
+naive_interpolation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+[ref Luc]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+26.8444355457069044
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+\size footnotesize
+naive_standard
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+[ref Luc]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+26.9897310488084479
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+\size footnotesize
+convolution_standard
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+[ref Luc]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+26.9163932581793155
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+\size footnotesize
+convolution_asymm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+[ref Luc]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+26.9163932581793155
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+\size footnotesize
+convolution_pure_angular
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+[ref Luc]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+26.9163932581793155
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Free energy calculated during 1 iteration
+\end_layout
+
+\end_inset
+
+Free energy calculated during 1 iteration for a 
+\begin_inset Formula $32^{3}$
+\end_inset
+
+ grid (
+\begin_inset Formula $L=20\textrm{Å}$
+\end_inset
+
+) for a fake LJ center 
+\begin_inset Formula $\mathrm{CH_{4}^{+0.33}}$
+\end_inset
+
+, using a converged density as input.
+ Here 
+\begin_inset Formula $m_{\max}=n_{\max}$
+\end_inset
+
+.
+ 
+\color red
+
+\begin_inset Quotes eld
+\end_inset
+
+*
+\begin_inset Quotes erd
+\end_inset
+
+ means without correction.
+\color inherit
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:free-energy"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+The light difference between 
+\family typewriter
+\series bold
+naive_nmax1
+\family default
+\series default
+ and 
+\family typewriter
+\series bold
+convolution_standard
+\family default
+\series default
+ at 
+\begin_inset Formula $m_{\max}=1$
+\end_inset
+
+ is due to the artificial decoration at 
+\begin_inset Formula $k$
+\end_inset
+
+-border showing in later section, and the difference between 
 \family typewriter
 \series bold
 naive_interpolation
 \family default
 \series default
- and
-\series bold
- 
+ and 
 \family typewriter
+\series bold
 naive_standard
 \family default
 \series default
- concerned both 
-\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
-\end_inset
+ and 
+\family typewriter
+\series bold
+convolution
+\family default
+\series default
+ methods are also acceptable, which is natural to be lightly different due
+ to the interpolation error and the 
+\begin_inset ERT
+status open
 
- and the free energy and structure issued from a single-k calculation.
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
 \end_layout
 
-\begin_layout Standard
-As shown in table , 
+\end_inset
+
+ expansion (the 
+\begin_inset Formula $\rho$
+\end_inset
+
+ recombination of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+ projections will be discussed later).
+ This supports by the way that we do not need the same order of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+ expansion for 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ than for 
+\begin_inset Formula $\Delta\rho$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
 A single k-kernel
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:A-single-k-kernel"
+name "subsec:A-single-k-kernel"
 
 \end_inset
 
@@ -2068,30 +3938,27 @@ name "sub:A-single-k-kernel"
 \end_layout
 
 \begin_layout Standard
-As shown in figure 
+Firstly, we are interested in the local paths from 
+\begin_inset Formula $\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})$
+\end_inset
+
+ to 
+\begin_inset Formula $\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})$
+\end_inset
+
+ , that can be tested independently for a certain 
+\begin_inset Formula $\mathbf{k}$
+\end_inset
+
+.
+ As shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:k-kernel"
 
 \end_inset
 
-, four paths are presented to be tested, 
-\begin_inset Formula $(1)$
-\end_inset
-
- 
-\begin_inset Formula $(2)$
-\end_inset
-
- 
-\begin_inset Formula $(3)$
-\end_inset
-
- 
-\begin_inset Formula $(4)$
-\end_inset
-
-
+, four algorithms are available to the purpose.
 \end_layout
 
 \begin_layout Standard
@@ -2136,354 +4003,50 @@ name "fig:k-kernel"
 \end_layout
 
 \begin_layout Standard
-The result of error in energy for the result 
+The program that compares each element of 
 \begin_inset Formula $\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})$
 \end_inset
 
- with certain 
-\begin_inset Formula $\mathbf{k}$
-\end_inset
-
- is presented in table.
- As shown, there is no accuracy lost for different paths in both 4 cases
- of 
-\begin_inset Formula $\mathbf{k}$
-\end_inset
-
-.
- This means, the final result of energy and structure is independent to
- the choice of path inside a k-kernel, if 
-\begin_inset Formula $\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega})$
-\end_inset
-
- is a polynomial of ...
- as discussed in 
-\begin_inset Formula $\mathsection$
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:gsh-imp"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement h
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="4">
-<features rotate="0" booktabs="true" tabularvalignment="middle" tabularwidth="100line%">
-<column alignment="left" valignment="top" width="0pt">
-<column alignment="left" valignment="top">
-<column alignment="left" valignment="top">
-<column alignment="left" valignment="top">
-<row>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\mathbf{k}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $E_{2}^{\max}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $E_{3}^{\max}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $E_{4}^{\max}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $(2,3,5)$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $(4,0,1)$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $(0,0,0)$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $(0,0,1)$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-Maximum absolute error introduced by paths of a k-kernel test
-\end_layout
-
-\end_inset
-
-Maximum absolute error introduced by paths 
-\begin_inset Formula $(1)\ldots(4)$
-\end_inset
-
- shown figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:k-kernel"
-
-\end_inset
-
-, using an input 
+ issued from these 4 algorithms for a given 
 \begin_inset Formula $\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})$
 \end_inset
 
- issue of MDFT minimization.
- 
-\begin_inset Formula $\mathbf{k}$
+ is done by Mr.
+ Luc Belloni, which shows that the 
+\begin_inset Formula $\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})$
 \end_inset
 
- is of unity 
-\begin_inset Formula $[\mathrm{\textrm{Å}^{-3}}]$
+ for the four algorithms are strictly identical.
+ This means, the final result of energy and structure is independent to
+ the choice of path inside a 
+\begin_inset Formula $k$
 \end_inset
 
-.
- For special case 
-\begin_inset Formula $\mathbf{k}=(0,0,0)$
+-kernel, if 
+\begin_inset Formula $\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega})$
 \end_inset
 
-, ...
- 
-\begin_inset Formula $E_{i}^{\max}$
-\end_inset
+ can be fully expended on 
+\begin_inset ERT
+status open
 
- is the absolute difference between path (1) and path (
-\begin_inset Formula $i$
-\end_inset
-
-).
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:error-k-kernel"
-
-\end_inset
+\begin_layout Plain Layout
 
 
+\backslash
+acs{GSH}
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\end_inset
-
-
+s.
 \end_layout
 
 \begin_layout Subsection
 k-border effect
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:k-border-effect"
+name "subsec:k-border-effect"
 
 \end_inset
 
@@ -2491,296 +4054,117 @@ name "sub:k-border-effect"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float table
-placement h
-wide false
-sideways false
+Here we test the whole process shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Possible-algorithms"
+
+\end_inset
+
+, with 
+\begin_inset Formula $\Delta\rho(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+ generated from a recombination of 
+\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="4">
-<features rotate="0" booktabs="true" tabularvalignment="middle" tabularwidth="100line%">
-<column alignment="left" valignment="top" width="0pt">
-<column alignment="left" valignment="top">
-<column alignment="left" valignment="top">
-<column alignment="left" valignment="top">
-<row>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
 
-\begin_layout Plain Layout
 
+\backslash
+acs{GSH}
 \end_layout
 
 \end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
 
-\begin_layout Plain Layout
-
+ projections.
+ Firstly, we compare the three 
 \family typewriter
 \series bold
-convolution_standard
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\series bold
-convolution_asymm
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\series bold
-convolution_pure_angular
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $E_{\gamma}^{\max}$
-\end_inset
-
-(64)
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
-\end_inset
-
- (64)
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $E_{\gamma}^{\max}$
-\end_inset
-
-(65)
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
-\end_inset
-
- (65)
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-Error in 
-\begin_inset Formula $\gamma(\mathbf{r},\mathbf{\Omega})$
-\end_inset
-
- and 
-\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
-\end_inset
-
- before border correction
-\end_layout
-
-\end_inset
-
-Maximum absolute error introduced by different branches in calculated 
-\begin_inset Formula $\gamma(\mathbf{r},\mathbf{\Omega})$
-\end_inset
-
- and the difference in 
-\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
-\end_inset
-
- from a given 
-\begin_inset Formula $\Delta\rho_{\mu'\mu}^{m}(\mathbf{r})$
-\end_inset
-
- compared to 
-\family typewriter
-\series bold
-naive_standard
+convolution
 \family default
 \series default
- before border correction for a 
+ algorithms passing by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+ expansion.
+ For a 
 \begin_inset Formula $64^{3}$
 \end_inset
 
- and 
+ grid, 
+\begin_inset Formula $n_{\max}=3$
+\end_inset
+
+, the three algorithms 
+\family typewriter
+\series bold
+convolution_standard
+\family default
+\series default
+, 
+\family typewriter
+\series bold
+convolution_asymm
+\family default
+\series default
+, and 
+\family typewriter
+\series bold
+convolution_pure_angular
+\family default
+\series default
+ gives the same free energy, but lightly different result when comparing
+ each element of 
+\begin_inset Formula $\gamma(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+, and this difference seems to decrease when increase the number of grid
+ points.
+ More, the projections 
+\begin_inset Formula $\gamma_{\mu'\mu}^{m}(\mathbf{r})$
+\end_inset
+
+ which should be purely real as explained in 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Reduction-by-symmetry"
+
+\end_inset
+
+, have a light imaginary part.
+ But surprisingly, for a 
 \begin_inset Formula $65^{3}$
 \end_inset
 
- spatial grid, 
-\begin_inset Formula $n_{\max}=5$
+ grid, it gives numerically the same result for both the three algorithms
+ at machine precision.* 
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+* The detailed value of 
+\begin_inset Formula $\gamma$
 \end_inset
 
-.
-\end_layout
-
-\end_inset
-
-
+ which the paragraph of description is based on haven't been noted, as it
+ was regarded as a bug in the code at that time, and the code had been then
+ modified; and to redo such a process takes a lot of time.
 \end_layout
 
 \end_inset
@@ -2789,11 +4173,15 @@ naive_standard
 \end_layout
 
 \begin_layout Standard
-standard, asymm and pure_angular different because...
+The difference between these methods is found to be a special 
+\begin_inset Formula $k$
+\end_inset
+
+-border effect linking to even number grids.
 \end_layout
 
 \begin_layout Standard
-In MDFT, the symmetry 
+As the symmetry
 \begin_inset Formula 
 \begin{equation}
 \Delta\hat{\rho'}_{\chi\mu}^{m}(\mathbf{k})=(-)^{m+\mu+\chi}\Delta\hat{\rho'}_{\chi,-\mu}^{m*}(-\mathbf{k})\label{eq:2-1}
@@ -2858,8 +4246,7 @@ at border
 
 \end_inset
 
-is naturally put in the same array by FFT for the grids having even number.
- 
+is naturally put in the same array by FFT for the grids having even number,
 \begin_inset Marginal
 status open
 
@@ -2871,22 +4258,95 @@ For example, for a grid 1D, the FFT having 6 points gives the values for
 
 \end_inset
 
+ as shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:k-border-effect"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/k-border.eps
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $k$
+\end_inset
+
+-border effect
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:k-border-effect"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
 \begin_layout Standard
-But
+As 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ possesses periodicity, the symmetry 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:1-1"
+
+\end_inset
+
+ can always be respected at border.
+ However, as
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
+\begin{equation}
 R_{-\mu',\chi}^{m}(-\hat{k}\equiv(-k_{1},-k_{2},-k_{3}))\neq R_{\mu',\chi}^{m}(k_{1}^{\mathrm{max}},-k_{2},-k_{3})
-\]
+\end{equation}
 
 \end_inset
 
-Thus the symmetries (
+the symmetries (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:3-1"
@@ -2900,11 +4360,8 @@ reference "eq:2-1"
 
 \end_inset
 
-) are not respected for these points 
-\end_layout
-
-\begin_layout Standard
-In the backward process, if we make sense of all the 
+) are not respected for these points.
+ In the backward process, if we make sense of all the 
 \begin_inset Formula $\gamma_{\mu'\mu}^{m}(\mathbf{k})$
 \end_inset
 
@@ -2935,16 +4392,184 @@ is not respected totally, and this imposes that
 \end_inset
 
  have a imaginary part.
- In the version FFTW3, we keep only the part of none-negative 
+ This imaginary part has been omitted implicitly in the 
+\begin_inset Quotes eld
+\end_inset
+
+real to complex
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ process of used in for example 
+\family typewriter
+\series bold
+convolution_standard
+\family default
+\series default
+, for 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+, or 
+\family typewriter
+\series bold
+convolution_pure_angular
+\family default
+\series default
+ for FFT3D process.
+ It is to say, we keep only the part of none-negative 
 \begin_inset Formula $\mathbf{k}$
 \end_inset
 
- or none-negative, supposing that the part we omit respects the symmetry.
+ or none-negative 
+\begin_inset Formula $\mu$
+\end_inset
+
+, supposing that the part we omit respects the symmetry.
+\end_layout
+
+\begin_layout Standard
+The right way to treat this issue is to artificially impose at the border:
+\begin_inset Formula 
+\begin{equation}
+R_{\mu',\chi}^{m}(k_{i}^{\mathrm{max}})=\frac{1}{2}\left[R_{\mu',\chi}^{m}(k_{i})+R_{\mu',\chi}^{m}(-k_{i})\right]
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $i$
+\end_inset
+
+ is the conflict index in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:k-border-effect"
+
+\end_inset
+
+.
+ If more than one dimensions are in conflict, this process can be done twice
+ (4 terms for 
+\begin_inset Quotes eld
+\end_inset
+
+edges
+\begin_inset Quotes erd
+\end_inset
+
+ of the cube) or three times (8 terms for 
+\begin_inset Quotes eld
+\end_inset
+
+vertices
+\begin_inset Quotes erd
+\end_inset
+
+).
+ The point 
+\begin_inset Formula $\mathbf{k}=\hat{0}$
+\end_inset
+
+ is different, as it was define along 
+\begin_inset Formula $z$
+\end_inset
+
+ axes to avoid implementation crash, it doesn't respect eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3-1"
+
+\end_inset
+
+) and (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2-1"
+
+\end_inset
+
+) neither.
+ But this point compared to hundreds thousands of total points is negligible.
+\end_layout
+
+\begin_layout Standard
+The energies given by 
+\family typewriter
+\series bold
+naive_standard
+\family default
+\series default
+ and the 
+\family typewriter
+\series bold
+convolution
+\family default
+\series default
+ algorithms are identical for a 
+\begin_inset Formula $65^{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{\max}=3$
+\end_inset
+
+ grid, but the element of 
+\begin_inset Formula $\gamma(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+ have a mysterious difference at order of 
+\begin_inset Formula $10^{-2}$
+\end_inset
+
+, seemed to be aleatory.
+ A test redone for a 
+\begin_inset Formula $45^{3}$
+\end_inset
+
+ grid is shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Difference-in-gamma"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
 wide false
 sideways false
 status open
@@ -2952,7 +4577,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../_figure/k-border.eps
+	filename ../_figure/results/diff_k_gamma.eps
+	width 75col%
 
 \end_inset
 
@@ -2963,9 +4589,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-k-border effet
-\end_layout
-
+\begin_inset Formula $\delta\hat{\gamma}(\mathbf{k},\mathbf{\Omega})$
 \end_inset
 
 
@@ -2976,152 +4600,47 @@ k-border effet
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Float table
-placement h
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="4">
-<features rotate="0" booktabs="true" tabularvalignment="middle" tabularwidth="100line%">
-<column alignment="left" valignment="top" width="0pt">
-<column alignment="left" valignment="top">
-<column alignment="left" valignment="top">
-<column alignment="left" valignment="top">
-<row>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
+\begin_inset Graphics
+	filename ../_figure/results/diff_gamma.eps
+	width 75col%
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta\gamma(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
 
 \end_layout
 
 \end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
 
-\begin_layout Plain Layout
-
-\family typewriter
-\series bold
-convolution_standard
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\series bold
-convolution_asymm
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\series bold
-convolution_pure_angular
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $E_{\gamma}^{\max}$
-\end_inset
-
-(65)
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 
 \end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
-\end_inset
-
- (65)
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
 
 \end_inset
 
@@ -3136,12 +4655,55 @@ convolution_pure_angular
 status open
 
 \begin_layout Plain Layout
+Maximum and average difference in 
+\begin_inset Formula $\hat{\gamma}(\mathbf{k},\mathbf{\Omega})$
+\end_inset
+
+ and 
+\begin_inset Formula $\gamma(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
 
 \end_layout
 
 \end_inset
 
-Maximum absolute error introduced by different branches after border correction
+Maximum and average difference in 
+\begin_inset Formula $\hat{\gamma}(\mathbf{k},\mathbf{\Omega})$
+\end_inset
+
+ and 
+\begin_inset Formula $\gamma(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+, for tests of different box length
+\begin_inset Formula $L$
+\end_inset
+
+, different number of grid nfft in one dimension, 
+\begin_inset Formula $n_{\max}=1,4$
+\end_inset
+
+ for 
+\begin_inset Formula $m_{\max}=n_{\max}$
+\end_inset
+
+, and 
+\begin_inset Formula $n_{\max}=1,4$
+\end_inset
+
+ for 
+\begin_inset Formula $m_{\max}=5$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Difference-in-gamma"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -3155,50 +4717,131 @@ Maximum absolute error introduced by different branches after border correction
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-structure of gamma in rotational invariants
-\end_layout
-
+We can conclude very rudely that this error depends on the angular quadrature
+ 
+\begin_inset Formula $m_{\max}$
 \end_inset
 
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-the mysterious error between 
+.
+ The dependence is natural, as the difference between algorithms 
 \family typewriter
 \series bold
-naive_standard
+naive
 \family default
 \series default
- and the 
+ and 
 \family typewriter
 \series bold
 convolution
 \family default
 \series default
- branches cannot explained, this implied that there is probably a bug in
- 
+ is the treatment of the angular part.
+ There is also a dependence on 
+\begin_inset Formula $L$
+\end_inset
+
+ in the 
+\begin_inset Formula $k$
+\end_inset
+
+-space, but after 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ it is mixed.
+ The augmentation of error in the 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+ chart is unnatural, implying there is perhaps a still bug in the code.
+\end_layout
+
+\begin_layout Standard
+In a word, this mysterious difference cannot be yet explained, as the 
 \family typewriter
 \series bold
-naive_standard
+naive
 \family default
 \series default
-.
- 
+ methods does not have the 
+\begin_inset Formula $k$
+\end_inset
+
+-border effect linked to symmetry, on the other hand we used a odd grid,
+ we could not yet distinguish that it is a bug in the implementation, in
+ the test or in the theory.
+ The projections 
+\begin_inset Formula $\gamma_{\mu\nu}^{mnl}(r)$
+\end_inset
+
+ of this two algorithms seems to be identical (figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:gamma-proj"
+
+\end_inset
+
+), it is to say, the global structure of this two algorithms are almost
+ the same, and the error would not be very decisive.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/results/gamma_proj.pdf
+	width 65col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A selection of rotational invariant projections 
+\begin_inset Formula $\gamma_{\mu\nu}^{mnl}(r)$
+\end_inset
+
+ for a 
+\begin_inset Formula $65^{3}$
+\end_inset
+
+ grid
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:gamma-proj"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -3207,15 +4850,150 @@ Intrinsic variation of free energy
 
 \begin_layout Standard
 Before study of free energy dependence on angular algorithms, we are interested
- in the grid dependance, with can have an influence in the follow tests.
+ in the grid dependance, with can have an influence to the tests later.
 \end_layout
 
-\begin_layout Subsection
-Spatial grid: length and resolution
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/results/grid_reso.eps
+	width 75col%
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Subsection
-Angular grid: effect of psi
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Space-grid and 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ dependence of code MDFT
+\end_layout
+
+\end_inset
+
+Space-grid and 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ dependence of code MDFT.
+ 
+\begin_inset Formula $L=32$
+\end_inset
+
+.(a) 
+\begin_inset Formula $\mathrm{CH_{4}^{+0.33}}$
+\end_inset
+
+ using dipole DCF with 
+\begin_inset Formula $m_{\max}=1$
+\end_inset
+
+; (b) 
+\begin_inset Formula $\mathrm{CH_{4}}$
+\end_inset
+
+ using DCF of 
+\begin_inset Formula $m_{\max}=5$
+\end_inset
+
+, Lebedev quadrature of order 1 and 2; (c) acetone using dipole DCF and
+ Lebedev quadrature, varying 
+\begin_inset Formula $\Psi$
+\end_inset
+
+, nfft=128.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Space-grid-and-psi-dependence"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Space-grid-and-psi-dependence"
+
+\end_inset
+
+ (a) and (b), there is a dependence of calculated free energy on the space
+ grid resolution.
+ for a charged solute, the energy has tendency to decrease when increasing
+ the resolution of grid (nfft).
+ And this decrease does not link to the border correction mentioned in 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+...
+ , as the box length and the charge remain the same for the whole set of
+ test.
+ From (b) we consider that at least 3 points grid in one dimension per Angstrom
+ is needed to reduce the uncertainty due to grid resolution.
+ Figure (c) fixed the Lebedev quadrature for 
+\begin_inset Formula $\Theta$
+\end_inset
+
+ and 
+\begin_inset Formula $\Phi$
+\end_inset
+
+, but leaved varying the 
+\begin_inset Formula $\Psi$
+\end_inset
+
+.
+ We can also see a dependence on 
+\begin_inset Formula $\Psi$
+\end_inset
+
+.
+ which does not vanish when increasing the resolution of grid.
+ As during the whole thesis the 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ is theoretically fixed in the same order with 
+\begin_inset Formula $\Theta$
+\end_inset
+
+ and 
+\begin_inset Formula $\Phi$
+\end_inset
+
+, this remains an issue for further verification.
+ We can roughly conclude that an error around 1 kJ/mol is common for this
+ code.
 \end_layout
 
 \begin_layout Section
@@ -3223,15 +5001,39 @@ Series of charged LJ centre
 \end_layout
 
 \begin_layout Standard
-charged 
+To valid the method, we chose a series of LJ centre, which possess the LJ
+ parameters of 
 \begin_inset Formula $\mathrm{C}\mathrm{H}_{4}$
 \end_inset
 
- centre
+ in ref [], and have a various charge from -1.0 to 1.0 (table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Parameters-of-charged-met"
+
+\end_inset
+
+).
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+Here we use 298K according to habitude instead of 303K recommended in reference
+ 
+\color red
+[ref]
+\color inherit
+, For both MDFT, IET, and DM results.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
+placement h
 wide false
 sideways false
 status open
@@ -3240,7 +5042,7 @@ status open
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="8">
-<features rotate="0" booktabs="true" tabularvalignment="middle" tabularwidth="100line%">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="100line%">
 <column alignment="left" valignment="top" width="0pt">
 <column alignment="left" valignment="top">
 <column alignment="left" valignment="top">
@@ -3254,7 +5056,16 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-charge 
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+Charge
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -3263,7 +5074,14 @@ charge
 \begin_inset Text
 
 \begin_layout Plain Layout
-sigma []
+\begin_inset Formula $\sigma$
+\end_inset
+
+ [
+\begin_inset Formula $\textrm{Å}$
+\end_inset
+
+]
 \end_layout
 
 \end_inset
@@ -3272,7 +5090,14 @@ sigma []
 \begin_inset Text
 
 \begin_layout Plain Layout
-epsilon []
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ [
+\begin_inset Formula $\mathrm{kJ\cdot mol^{-1}}$
+\end_inset
+
+]
 \end_layout
 
 \end_inset
@@ -3281,7 +5106,10 @@ epsilon []
 \begin_inset Text
 
 \begin_layout Plain Layout
-x [
+\begin_inset Formula $x$
+\end_inset
+
+ [
 \begin_inset Formula $\textrm{Å}$
 \end_inset
 
@@ -3294,7 +5122,10 @@ x [
 \begin_inset Text
 
 \begin_layout Plain Layout
-y [
+\begin_inset Formula $y$
+\end_inset
+
+  [
 \begin_inset Formula $\textrm{Å}$
 \end_inset
 
@@ -3307,7 +5138,10 @@ y [
 \begin_inset Text
 
 \begin_layout Plain Layout
-z [
+\begin_inset Formula $z$
+\end_inset
+
+ [
 \begin_inset Formula $\textrm{Å}$
 \end_inset
 
@@ -3320,7 +5154,10 @@ z [
 \begin_inset Text
 
 \begin_layout Plain Layout
-temperature [K]
+\begin_inset Formula $T$
+\end_inset
+
+ [K]
 \end_layout
 
 \end_inset
@@ -3329,7 +5166,20 @@ temperature [K]
 \begin_inset Text
 
 \begin_layout Plain Layout
-number density of solvent
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+Number Density
+\end_layout
+
+\end_inset
+
+ [
+\begin_inset Formula $Å^{-3}$
+\end_inset
+
+]
 \end_layout
 
 \end_inset
@@ -3425,7 +5275,9 @@ Parameters of charged Lenard-Jones centre (modified from
 \end_inset
 
 ) 
-\end_layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Parameters-of-charged-met"
 
 \end_inset
 
@@ -3437,13 +5289,9 @@ Parameters of charged Lenard-Jones centre (modified from
 
 \end_layout
 
-\begin_layout Standard
-here we use 298K according to habitude instead of 303K recommended in reference
- 
-\color red
-[ref]
-\color inherit
-.
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -3466,9 +5314,60 @@ reference "chpt:thermodynamic-quantities"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement h
 wide false
 sideways false
 status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/results/ch4_nmax1_lmn.eps
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+free energy (without correction) of charged 
+\begin_inset Formula $\mathrm{C}\mathrm{H}_{4}$
+\end_inset
+
+ centre (-1.0 to 1.0) with respect to the box length
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/results/ch4_nmax5_inter.eps
+	width 100col%
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3497,6 +5396,7 @@ Continuum model correction at boundary
 
 \begin_layout Standard
 \begin_inset Float figure
+placement h
 wide false
 sideways false
 status open
@@ -3536,6 +5436,7 @@ Comparison with IET
 
 \begin_layout Standard
 \begin_inset Float figure
+placement h
 wide false
 sideways false
 status open
@@ -3560,6 +5461,7 @@ Linear dependence of charge in the comparison to IET.
 
 \begin_layout Standard
 \begin_inset Float figure
+placement h
 wide false
 sideways false
 status open
@@ -3605,6 +5507,11 @@ Premier conclusion
 \begin_layout Standard
 Capable to produce the same result with IEM, but have more ability to calculate
  3D molecules which is not suitable for spherical coordinates.
+\end_layout
+
+\begin_layout Standard
+Interpolation is more stable compared to convolution and use less angles
+ compared to naive_standard
 \end_layout
 
 \end_body

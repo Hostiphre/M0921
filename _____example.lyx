@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass classicthesis
 \use_default_options true
 \maintain_unincluded_children false
@@ -9,16 +11,16 @@
 \language_package default
 \inputencoding utf8
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -116,7 +118,7 @@ Rangement ACRO / Notation.
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
-bibfiles "/Users/lding/Desktop/__M0921/Bibliography"
+bibfiles "Bibliography"
 options "plainnat"
 
 \end_inset
@@ -126,6 +128,10 @@ options "plainnat"
 
 \begin_layout Itemize
 General: 
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -140,6 +146,10 @@ drafting
 \end_deeper
 \begin_layout Itemize
 Parts and Chapters: 
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -149,6 +159,10 @@ Parts and Chapters:
 parts
 \family default
 : if you 
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -158,6 +172,10 @@ parts
 nochapters
 \family default
 : allows 
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -290,7 +308,7 @@ acs{UML}
 
 \end_inset
 
- -- 
+ – 
 \begin_inset ERT
 status open
 
@@ -303,7 +321,7 @@ acf{UML}
 
 \end_inset
 
- -- 
+ – 
 \begin_inset ERT
 status open
 
@@ -358,7 +376,7 @@ status open
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="3">
-<features rotate="0" booktabs="true" tabularvalignment="middle">
+<features booktabs="true" tabularvalignment="middle">
 <column alignment="left" valignment="top">
 <column alignment="left" valignment="top">
 <column alignment="left" valignment="top">
@@ -667,7 +685,7 @@ end{addmargin}
 \begin_layout Standard
 \begin_inset Tabular
 <lyxtabular version="3" rows="6" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top">
 <column alignment="left" valignment="top">
 <row>
@@ -818,6 +836,10 @@ thickness of the material
 \begin_layout Enumerate
 A large number of collisions involving the loss of all or most of the incident
  particle energy during the traversal of an absorber.
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -841,6 +863,10 @@ e., when the mean energy loss in the absorber is greater than the maximum
 \end_deeper
 \begin_layout Enumerate
 Particles traversing thin counters and incident electrons under any conditions.
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -878,6 +904,10 @@ aEnumerate (ClassicThesis)
 \end_inset
 
  from the Standard toolbar menu.
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -898,7 +928,8 @@ Bibliography & Citations
 
  This template has switched to 
 \family typewriter
-BibLaTeX
+Bib\SpecialChar LaTeX
+
 \family default
  and 
 \family typewriter
@@ -929,7 +960,8 @@ UTF-8
 
 \family default
  for processing citations and bibliographies.
- Due to lacking support in LyX, a 
+ Due to lacking support in \SpecialChar LyX
+, a 
 \begin_inset CommandInset href
 LatexCommand href
 name "few hacks"
@@ -946,7 +978,7 @@ status open
 \begin_layout Plain Layout
 check the new hacks in
 \family typewriter
- classic\SpecialChar \-
+ classic\SpecialChar softhyphen
 thesis.layout
 \end_layout
 
@@ -956,7 +988,7 @@ thesis.layout
 \family default
  so that the citations can be added through 
 \family typewriter
-the Insert\SpecialChar \menuseparator
+the Insert\SpecialChar menuseparator
 Citation
 \family default
  dialog (however, only in 
@@ -965,26 +997,29 @@ natbib
 \family default
  
 \family typewriter
-compati\SpecialChar \-
+compati\SpecialChar softhyphen
 bility
 \family default
  
 \family typewriter
 mode
 \family default
-) and that the bibliography databases can be found during LaTeX compilation.
+) and that the bibliography databases can be found during \SpecialChar LaTeX
+ compilation.
  The .
 \family typewriter
 bib
 \family default
  files have to be loaded from 
 \family typewriter
-Document\SpecialChar \menuseparator
-Settings\SpecialChar \menuseparator
-LaTeX preamble
+Document\SpecialChar menuseparator
+Settings\SpecialChar menuseparator
+\SpecialChar LaTeX
+ preamble
 \family default
  of the main thesis file.
- Note that the references will only show up in LyX dialogs when the .
+ Note that the references will only show up in \SpecialChar LyX
+ dialogs when the .
 \family typewriter
 bib
 \family default
@@ -993,27 +1028,34 @@ bib
 status open
 
 \begin_layout Plain Layout
-BibTeX Generated Bibliography
+Bib\SpecialChar TeX
+ Generated Bibliography
 \end_layout
 
 \end_inset
 
  button in the main thesis file.
- Additional options to BibLaTeX can be set either in 
+ Additional options to Bib\SpecialChar LaTeX
+ can be set either in 
 \family typewriter
-classicthesis\SpecialChar \-
+classicthesis\SpecialChar softhyphen
 -config.tex
 \family default
  or in the preamble, by adding them to 
 \family typewriter
 
 \backslash
-Execute\SpecialChar \-
-Bibliography\SpecialChar \-
+Execute\SpecialChar softhyphen
+Bibliography\SpecialChar softhyphen
 Options{}
 \family default
 .
- A few examples of citations generated by BibLaTeX:
+ A few examples of citations generated by Bib\SpecialChar LaTeX
+:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -1029,8 +1071,11 @@ key "dueck:trio,cormen:2001"
 \end_layout
 
 \begin_layout Standard
-BibLaTeX has many other citation commands that can only be called from a
- TeX code insert in LyX, like this superscript citation 
+Bib\SpecialChar LaTeX
+ has many other citation commands that can only be called from a \SpecialChar TeX
+ code
+ insert in \SpecialChar LyX
+, like this superscript citation 
 \begin_inset ERT
 status open
 
@@ -1057,7 +1102,8 @@ footfullcite{bringhurst:2002}
 \end_inset
 
  in the footnote.
- Refer to BibLaTeX 
+ Refer to Bib\SpecialChar LaTeX
+ 
 \begin_inset CommandInset href
 LatexCommand href
 name "documentation"

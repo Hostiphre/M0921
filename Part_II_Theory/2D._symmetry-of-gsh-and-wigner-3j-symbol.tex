@@ -2,12 +2,11 @@
 \chapter{Properties of Wigner 3j-Symbol and GSH \label{chpt:symmetry}}
 
 The properties of Wigner 3j-symbol and Wigner generalized spherical
-harmonics (GSH, Winger D-symbol) play a huge role in the reduction
+harmonics (\acs{GSH}, Winger D-symbol) play a huge role in the reduction
 of molecular Ornstein-Zernike equation as well as finding the relation
 between rotational invariant projections. Their main properties, presented
 in Messiah \citep{Messiah}, Gray \& Gubbins \citep{Gray-Gubbins}
 and Edmonds \citep{Edmonds}, are listed here.
-
 
 \section{Properties of Wigner 3j-Symbol}
 
@@ -20,7 +19,6 @@ m & n & l\\
 \end{array}\right)=\frac{\left(-\right)^{m-n+\lambda}}{\sqrt{2l+1}}<mn\mu\nu\mid l\lambda>
 \end{equation}
 and can be calculated with the Racah formula \citep{Messiah}.
-
 
 \subsubsection*{Reality}
 
@@ -36,7 +34,6 @@ m & n & l\\
 \end{equation}
 
 
-
 \subsubsection*{Selection rules}
 
 \begin{equation}
@@ -48,7 +45,6 @@ m & n & l\\
 \underset{\mathrm{(triangular\,inequalities)}}{\left|m-n\right|<l<m+n}
 \end{array}\right.\,\mathrm{are\,not\,meet.}\,
 \end{equation}
-
 
 
 \subsubsection*{Permutation }
@@ -66,7 +62,6 @@ l & m & n\\
 \lambda & \mu & \nu
 \end{array}\right)
 \end{equation}
-
 \item Odd permutation
 \begin{eqnarray}
 \left(-\right)^{m+n+l}\left(\begin{array}{ccc}
@@ -84,7 +79,6 @@ l & n & m\\
 \lambda & \nu & \mu
 \end{array}\right)
 \end{eqnarray}
-
 \item Simultaneous change of signs of $\mu$, $\nu$ and $\lambda$
 \begin{equation}
 \left(\begin{array}{ccc}
@@ -95,7 +89,6 @@ m & n & l\\
 -\mu & -\nu & -\lambda
 \end{array}\right)
 \end{equation}
-
 \end{enumerate}
 
 \subsubsection*{Orthogonality}
@@ -120,13 +113,12 @@ m & n & l'\\
 \end{equation}
 
 
-
 \section{Properties of GSH}
 
 There are many different definitions of GSH given in lectures. Here
 we adopt the definition in Messiah:
 \begin{equation}
-R_{\mu'\mu}^{m}(\phi\theta\psi)=e^{-i\mu'\phi}r_{\mu'\mu}^{m}(\theta)e^{-i\mu\psi}
+R_{\mu'\mu}^{m}(\phi\theta\psi)=e^{-i\mu'\phi}r_{\mu'\mu}^{m}(\theta)e^{-i\mu\psi}\label{eq:GSH-def}
 \end{equation}
 where $r_{\mu\mu'}^{m}$ is the generalized Legendre polynomial (GLP),
 which is real, and can be evaluated using the Wigner formula:
@@ -134,7 +126,6 @@ which is real, and can be evaluated using the Wigner formula:
 r_{\mu'\mu}^{m}(\theta) & = & \left[\left(m+\mu'\right)!\left(m-\mu'\right)!\left(m+\mu\right)!\left(m-\mu\right)!\right]^{\frac{1}{2}}\times\nonumber \\
  &  & \sum_{i}\frac{\left(-\right)^{i}\left(\cos\theta/2\right)^{2m+\mu'-\mu-2i}\left(\sin\theta/2\right)^{2i-\mu'+\mu}}{\left(m+\mu'-i\right)!\left(m-\mu-i\right)!i!\left(i-\mu'+\mu\right)!}
 \end{eqnarray}
-
 
 
 \subsubsection*{Symmetries of $r_{\mu'\mu}^{m}(\theta)$}
@@ -153,7 +144,6 @@ r_{\mu'\mu}^{m}(\theta+\pi)=(-)^{m+\mu}r_{\mu'\underline{\mu}}^{m}(\theta)
 \end{equation}
 where $\underline{\mu}\equiv-\mu$.
 
-
 \subsubsection*{Symmetries of $R_{\mu'\mu}^{m}(\phi\theta\psi)$}
 
 \begin{equation}
@@ -165,7 +155,6 @@ R_{\mu'\mu}^{m}(\phi\theta\psi)=\left(-\right)^{\mu'-\mu}R_{\mu\mu'}^{m*}(\phi\t
 \begin{equation}
 R_{\mu'\mu}^{m}(\phi\theta\psi)=(-)^{m+\mu'}R_{\underline{\mu'}\mu}^{m}(-\phi,\theta+\pi,\psi)=(-)^{m+\mu}R_{\mu'\underline{\mu}}^{m}(\phi,\theta+\pi,-\psi)
 \end{equation}
-
 
 
 \subsubsection*{Unitarity and orthogonality}
@@ -182,7 +171,6 @@ R_{\mu'\mu}^{m}(\phi\theta\psi)=(-)^{m+\mu'}R_{\underline{\mu'}\mu}^{m}(-\phi,\t
 \begin{equation}
 \frac{1}{8\pi^{2}}\int\mathrm{d}\cos\theta\mathrm{d}\phi\mathrm{d}\psi R_{\mu'\mu}^{m}(\phi\theta\psi)R_{\nu'\nu}^{n*}(\phi\theta\psi)=\frac{\delta_{mn}\delta_{\mu'\nu'}\delta_{\mu\nu}}{2n+1}\label{eq:gsh-orthogonality}
 \end{equation}
-
 
 
 \subsubsection*{$r_{\mu'\mu}^{m}(\theta)$ in terms of $\cos\theta$ and $\sin\theta$}
@@ -209,9 +197,7 @@ of $\boldsymbol{\omega}_{1}$ and $\boldsymbol{\omega_{2}}$ in order.
 \end{equation}
 
 
-
-\subsubsection*{Composition relation for GSHs}
-
+\subsubsection*{Composition relation for \acs{GSH}s}
 
 \subsubsection*{
 \begin{equation}
@@ -225,8 +211,25 @@ m & n & l\protect\\
 \end{equation}
 }
 
+\section{Convention of GSH\label{sec:Convention-of-GSH}}
 
-\subsubsection*{
-\[
-\]
-}
+The convention of \acs{GSH} in books and articles used in this thesis
+are different. In Messiah \citep{Messiah} and Gray \& Gubbins \citep{Gray-Gubbins},
+it is defined as in eq. (\ref{eq:GSH-def}). In Edmonds \citep{Edmonds},
+it is defined as:
+\begin{equation}
+D_{\mu'\mu}^{m}(\phi\theta\psi)=e^{i\mu'\psi}d_{\mu'\mu}^{m}(\theta)e^{i\mu\phi}\label{eq:GSH-def-1}
+\end{equation}
+which can be seen as the inverse rotation matrix of $R_{\mu'\mu}^{m}$.
+
+In Blum \citep{Blum_I,Blum_II}, the equation 
+\begin{equation}
+D_{m0}^{l}(\phi\theta\psi)=\left(-\right)^{m}\left(\dfrac{4\pi}{2l+1}\right)^{\frac{1}{2}}Y_{m}^{l}(\theta\phi)
+\end{equation}
+is adopted, that means it shares the same definition as Edmonds, where
+\begin{equation}
+R_{\mu'\mu}^{m}(\phi\theta\psi)=D_{\mu\mu'}^{m*}(\phi\theta\psi)\label{eq:GSH-def-2}
+\end{equation}
+
+In Fries \& Patey \citep{Fries_Patey_1985}, the definition of Messiah
+is used.

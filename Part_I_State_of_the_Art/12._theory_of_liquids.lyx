@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass classicthesis
 \use_default_options true
 \maintain_unincluded_children false
@@ -9,16 +11,16 @@
 \language_package default
 \inputencoding utf8
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -70,7 +72,7 @@
 \begin_body
 
 \begin_layout Chapter
-Statistical Mechanics of Classical Fluids 
+Statistical Mechanics of Atomic Fluids
 \begin_inset CommandInset label
 LatexCommand label
 name "chpt:statistical-mechanics"
@@ -81,54 +83,80 @@ name "chpt:statistical-mechanics"
 \end_layout
 
 \begin_layout Standard
-
-\color red
-The link between statistical mechanics and thermodynamics
-\end_layout
-
-\begin_layout Standard
-
-\color red
-From pair distribution functions and interaction potential, we can derive
- information about solvent equilibrium state.
-\end_layout
-
-\begin_layout Standard
-
-\color red
-equilibrium statistical mechanics of classical fluids.
-\end_layout
-
-\begin_layout Standard
-
-\color red
-one component bulk fluids.
- thermodynamic state point is specified by 
-\begin_inset Formula $\rho$
+Statistical mechanics serves to deduce thermodynamic quantities from the
+ Hamiltonian of any given system.
+ In this section, we present some basic formalism for a classical atom-like
+ spherical solvent model in grand canonical ensemble (
+\begin_inset Formula $\mu$
 \end_inset
 
- and temperature T.
- 
+,
+\begin_inset Formula $V$
+\end_inset
+
+,
+\begin_inset Formula $T$
+\end_inset
+
+).
+ Firstly, we introduce the relations between the statistical mechanics and
+ thermodynamic quantities.
+ Then, we change the view to the structure of the solvent.
+ The two theories we use in this thesis, here refers to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
 \end_layout
 
-\begin_layout Standard
-As the theory of liquid was firstly built for atom-like spherical particles,
- the deduction of the theory departs from an atom-like spherical particles
- model.
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+, as well as their equivalency are proven in the following sections.
+ The most of this sections is based on the book of Hansen & McDonald 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "HANSEN_2ed,Hensen-McDonald"
+
+\end_inset
+
+, and the articles and notes of Evans 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Evans_1979,Evans_1984,Evans_1992"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
-Hamiltonian of a micro-state
+Hamiltonian and ensemble properties
 \end_layout
 
 \begin_layout Standard
-effective Hamiltonian, i.e.
- the theorist constructs a model fluid.
- 
-\end_layout
+Once we defined a spherical solvent model, of which the movement only depends
+ on its position and momentum 
+\begin_inset Formula $(\mathbf{r},\mathbf{p})$
+\end_inset
 
-\begin_layout Standard
-In classical mechanics, the instantaneous state (phase point) of an 
+, the instantaneous state (phase point, micro-state) of an 
 \begin_inset Formula $N$
 \end_inset
 
@@ -149,10 +177,8 @@ In classical mechanics, the instantaneous state (phase point) of an
 \end_inset
 
 .
- The Hamiltonian of the system is
-\end_layout
-
-\begin_layout Standard
+ The internal energy of particles in a system is characterized by its Hamiltonia
+n:
 \begin_inset Formula 
 \begin{equation}
 H_{N}(\mathbf{r}^{N},\mathbf{p}^{N})=K_{N}(\mathbf{p}^{N})+V_{N}(\mathbf{r}^{N})+V_{N}^{\mathrm{ext}}(\mathbf{r}^{N})
@@ -166,9 +192,9 @@ where
 \begin_layout Standard
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle" tabularwidth="100col%">
 <column alignment="left" valignment="top">
-<column alignment="left" valignment="top">
+<column alignment="left" valignment="top" width="90col%">
 <row>
 <cell alignment="left" valignment="top" usebox="none">
 \begin_inset Text
@@ -189,7 +215,7 @@ where
 \begin_inset Formula $={\displaystyle \sum_{i=1}^{N}\frac{\mathbf{p}_{i}^{2}}{2m}}$
 \end_inset
 
- is the kinetic energy 
+ is the kinetic energy;
 \end_layout
 
 \end_inset
@@ -219,19 +245,14 @@ where
 \begin_inset Formula $\mathcal{U}(\mathbf{r}^{N})$
 \end_inset
 
-, One then has a pairwise additive description of the total inter-particle
- potential which leads 
-\color red
-one
-\color inherit
- to define a model or effective Hamiltonian as
+;
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="left" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -243,7 +264,7 @@ one
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="left" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -251,7 +272,9 @@ one
 \end_inset
 
  is the potential energy arising from the interaction of the particles with
- the external field
+ the external field (e.
+ g.
+ a solute).
 \end_layout
 
 \end_inset
@@ -285,353 +308,1172 @@ one
 \end_layout
 
 \begin_layout Standard
-The distribution of phase points of systems in 
-\color red
-the ensemble
-\color inherit
- is described by a phase space probability density 
-\begin_inset Formula $f^{[N]}(\mathbf{r}^{N},\mathbf{p}^{N};t)$
+The grand potential, characteristic thermodynamic state function for the
+ grand canonical ensemble, which depends on the chemical potential 
+\begin_inset Formula $\mu$
 \end_inset
 
-, such that 
+, the volume 
+\begin_inset Formula $V$
+\end_inset
+
+ and the temperature 
+\begin_inset Formula $T$
+\end_inset
+
+, is linked with the statistical mechanics quantities with the relation:
 \begin_inset Formula 
 \begin{equation}
-\int f^{[N]}(\mathbf{r}^{N},\mathbf{p}^{N};t)\mathrm{d}\mathbf{r}^{N}\mathrm{d}\mathbf{p}^{N}=1
+\Omega(\mu,V,T)=-k_{\mathrm{B}}T\ln\Xi\label{eq:2}
 \end{equation}
 
 \end_inset
 
-for all 
-\begin_inset Formula $t$
+where
+\begin_inset Formula 
+\begin{eqnarray}
+\Xi & = & \sum_{N=0}^{\infty}\frac{e^{\beta\mu N}}{h^{3N}N!}\int\mathrm{d}\mathbf{r}^{N}\mathrm{d}\mathbf{p}^{N}e^{-\beta H_{N}(\mathbf{r}^{N},\mathbf{p}^{N})}\\
+ & = & \sum_{N=0}^{\infty}\dfrac{\text{1}}{N!}\int\mathrm{d}\mathbf{r}^{N}e^{-\beta V_{N}(\mathbf{r}^{N})}\left(\prod_{i=1}^{N}\frac{e^{\beta V_{\mathrm{int}}(\mathbf{r}_{i})}}{\Lambda^{3}}\right)
+\end{eqnarray}
+
 \end_inset
 
-.
+ is the grand partition function, with 
+\begin_inset Formula $\Lambda=\left(2\pi\beta\hbar^{2}/m\right)^{-\frac{1}{2}}$
+\end_inset
+
+ the de Broglie thermal wavelength, and
+\begin_inset Formula 
+\begin{equation}
+V_{\mathrm{int}}(\mathbf{r}_{i})=\mu-V_{\mathrm{ext}}(\mathbf{r}_{i})\label{eq:5}
+\end{equation}
+
+\end_inset
+
+the intrinsic chemical potential.
+ 
 \end_layout
 
 \begin_layout Standard
-subset of particles of size 
-\begin_inset Formula $n$
+We can also define the intrinsic free energy: 
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $N=\int\mathrm{d}\mathbf{r}\rho(\mathbf{r})$
 \end_inset
 
-, reduced phase space distribution function 
+ is the number of particles in canonical ensemble, but the formula (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:f-int"
+
+\end_inset
+
+) and (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:delta-f-int"
+
+\end_inset
+
+) are also available for grand canonical ensemble.
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula 
-\begin{equation}
-f^{[n]}(\mathbf{r}^{n},\mathbf{p}^{n};t)=\dfrac{N!}{(N-n)!}\int f^{[N]}(\mathbf{r}^{N},\mathbf{p}^{N};t)\mathrm{d}\mathbf{r}^{N-n}\mathrm{d}\mathbf{p}^{N-n}=1
-\end{equation}
+\begin{eqnarray}
+\mathcal{F}_{\mathrm{int}} & = & F-\int\mathrm{d}\mathbf{r}\rho(\mathbf{r})V_{\mathrm{ext}}(\mathbf{r})\nonumber \\
+ & = & \Omega+\mu N-\int\mathrm{d}\mathbf{r}\rho(\mathbf{r})V_{\mathrm{ext}}(\mathbf{r})\nonumber \\
+ & = & \Omega+\int\mathrm{d}\mathbf{r}\rho(\mathbf{r})V_{\mathrm{int}}(\mathbf{r})\label{eq:f-int}
+\end{eqnarray}
 
 \end_inset
 
 where 
-\begin_inset Formula $\mathbf{r}^{n}\equiv\mathbf{r}_{1},\ldots,\mathbf{r}_{n}$
-\end_inset
-
- and 
-\begin_inset Formula $\mathbf{r}^{N-n}\equiv\mathbf{r}_{n+1},\ldots,\mathbf{r}_{N}$
-\end_inset
-
-.
- the probability of finding a subset of 
-\begin_inset Formula $n$
-\end_inset
-
- particles in the reduced phase space element....
- the factor is the number of ways one can choose a subset of size 
-\begin_inset Formula $n$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-The Liouville theorem shows that the probability density is independent
- of time.
-\end_layout
-
-\begin_layout Standard
-The Bogoliubov–Born–Green–Kirkwood–Yvon hierarchy express 
-\begin_inset Formula $f^{(n)}$
-\end_inset
-
- in terms of 
-\begin_inset Formula $f^{(n+1)}$
-\end_inset
-
-, approximation closure
-\end_layout
-
-\begin_layout Section
-Time averages and ensemble averages / Partition functions and Thermodynamics
-\end_layout
-
-\begin_layout Standard
-The classical canonical partition function for a one component fluid is
- given by,
 \begin_inset Formula 
 \begin{equation}
-Z_{N}(\beta,V)=\dfrac{h^{-dN}}{N!}\int\mathrm{d}\mathbf{r}^{N}\mathrm{d}\mathbf{p}^{N}e^{-\beta H_{N}}
+\rho(\mathbf{r})=\left\langle \varrho(\mathbf{r})\right\rangle =\left\langle \sum_{i=1}^{N}\delta(\mathbf{r}-\mathbf{r}_{1})\right\rangle 
 \end{equation}
 
 \end_inset
 
-
-\begin_inset Formula $d$
+is the density profile of instantaneous density 
+\begin_inset Formula $\varrho(\mathbf{r})$
 \end_inset
 
- is the dimensionality and 
-\begin_inset Formula $V$
+ distribution.
+\end_layout
+
+\begin_layout Standard
+The differential form of 
+\begin_inset Formula $\mathcal{F}_{\mathrm{int}}$
 \end_inset
 
- is the volume of the system.
- We can integrate over the momenta to obtain
+ is
 \begin_inset Formula 
 \begin{equation}
-Z_{N}(\beta,V)=\Lambda^{-dN}Q_{N}
-\end{equation}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{equation}
-Q_{N}=\dfrac{1}{N!}\int\mathrm{d}\mathbf{r}^{N}e^{-\beta\mathcal{U}(\mathbf{r}_{1},\ldots,\mathbf{r}_{n})}
-\end{equation}
-
-\end_inset
-
-is the configurational partition function.
- Note that the potential energy 
-\begin_inset Formula $\mathcal{U}(\mathbf{r}_{1},\ldots,\mathbf{r}_{n})$
-\end_inset
-
- may still include an external field contribution.
-\end_layout
-
-\begin_layout Standard
-The Helmholtz free energy is simply
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-F_{N}(\beta,V)=-\beta^{-1}\ln Z_{N}
-\]
-
-\end_inset
-
-which leads to entropy 
-\begin_inset Formula 
-\[
-S=\left(\dfrac{\partial F_{N}}{\partial T}\right)_{V}
-\]
-
-\end_inset
-
-pressure
-\begin_inset Formula 
-\[
-p=\left(\dfrac{\partial F_{N}}{\partial V}\right)_{T}
-\]
-
-\end_inset
-
-for bulk fluid
-\end_layout
-
-\begin_layout Standard
-For an ideal (non-interacting) gas, where 
-\begin_inset Formula $\Phi\rightarrow0$
-\end_inset
-
-, in 
-\begin_inset Formula $d=3$
-\end_inset
-
-???
-\begin_inset Formula 
-\[
-\beta F_{N}=\ln(N!\Lambda^{3N}V^{-N})=N\ln(\Lambda^{3}\rho)-N
-\]
-
-\end_inset
-
-Stering equation...
- number density 
-\begin_inset Formula $\rho=N/V$
-\end_inset
-
- (a uniform ideal classical gas.)
-\end_layout
-
-\begin_layout Standard
-Th grand function We consider open systems with fixed temperature 
-\begin_inset Formula $T$
-\end_inset
-
- and chemical potential 
-\begin_inset Formula $\mu$
-\end_inset
-
-.
- The partition function for the grand canonical ensemble is
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\Xi(\beta???,\mu,T)=\sum_{N=0}^{\infty}\frac{e^{\beta\mu N}}{h^{3N}N!}\iint\mathrm{d}\mathbf{r}^{N}\mathrm{d}\mathbf{p}^{N}e^{-\beta H_{N}(\mathbf{r}^{N},\mathbf{p}^{N})}=\sum_{N=0}^{\infty}\frac{1}{N!}\int\mathrm{d}\mathbf{r}^{N}e^{-\beta V_{N}(\mathbf{r}^{N})}\left(\prod_{i=1}^{N}\frac{e^{\beta u(\mathbf{r}_{i})}}{\Lambda^{3N}}\right)
+\delta\mathcal{F}_{\mathrm{int}}=-S\delta T+\int\mathrm{d}\mathbf{r}\delta\rho(\mathbf{r})V_{\mathrm{int}}(\mathbf{r})\label{eq:delta-f-int}
 \end{equation}
 
 \end_inset
 
 with 
-\begin_inset Formula $\Lambda=(2\pi\hbar^{2}/m)^{\frac{1}{2}}$
+\begin_inset Formula $S$
 \end_inset
 
- and 
-\begin_inset Formula $u(\mathbf{r})=\mu-V_{\mathrm{ext}}(\mathbf{r})$
+ the entropy.
+\end_layout
+
+\begin_layout Standard
+The internal energy of the solvent contains two contributions, one due to
+ the kinetic energy of the particles, 
+\begin_inset Formula $K_{N}(\mathbf{p}^{N})$
+\end_inset
+
+, and the other part linked to the interaction between particles, 
+\begin_inset Formula $V_{N}(\mathbf{r}^{N})$
+\end_inset
+
+.
+ When the fluid is a perfect gas, which means 
+\begin_inset Formula $V_{N}=0$
+\end_inset
+
+, it can be easily derived from eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:5"
+
+\end_inset
+
+) that 
+\begin_inset Formula $\mathcal{F}_{\mathrm{int}}$
+\end_inset
+
+ has the following expression:
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}_{\mathrm{id}}=\beta^{-1}\int\mathrm{d}\mathbf{r}\rho(\mathbf{r})\left(\ln\left[\Lambda^{3}\rho(\mathbf{r})\right]-1\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When interactions are accounted for, the total expression of 
+\begin_inset Formula $\mathcal{F}_{\mathrm{int}}$
+\end_inset
+
+ can be
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}_{\mathrm{int}}=\mathcal{F}_{\mathrm{id}}+\mathcal{F}_{\mathrm{exc}}\label{eq:f-int-def}
+\end{equation}
+
+\end_inset
+
+and the form of 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ will be detailed in latter sections.
+\end_layout
+
+\begin_layout Section
+Functional derivatives and distribution functions
+\end_layout
+
+\begin_layout Standard
+The structure of the solvent in the grand canonical ensemble can be characterize
+d by its 
+\begin_inset Formula $n$
+\end_inset
+
+-particle density 
+\begin_inset Formula 
+\begin{equation}
+\rho^{(n)}(\mathbf{r}^{n})=\dfrac{1}{\Xi}\sum_{N=n}^{\infty}\dfrac{1}{(N-n)!}\int\mathrm{d}\mathbf{r}^{\left(N-n\right)}e^{-\beta V_{N}(\mathbf{r}^{N})}\left(\prod_{i=1}^{N}\frac{e^{\beta V_{\mathrm{int}}(\mathbf{r}_{i})}}{\Lambda^{3}}\right)\label{eq:def-rho}
+\end{equation}
+
+\end_inset
+
+which means the probability to find 
+\begin_inset Formula $n$
+\end_inset
+
+ particles in an volume element 
+\begin_inset Formula $\mathrm{d}\mathbf{r}^{n}$
+\end_inset
+
+.
+ In particular, the probability to find one particle in an volume element
+ is the solvent density 
+\begin_inset Formula $\rho^{(1)}(\mathbf{r})=\rho(\mathbf{r})$
+\end_inset
+
+, that 
+\begin_inset Formula 
+\begin{equation}
+\rho^{(1)}(\mathbf{r})\mathrm{d}\mathbf{r}=\left\langle N\right\rangle 
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\left\langle N\right\rangle $
+\end_inset
+
+ is the ensemble average of the number of particle, 
+\color red
+that is to say the average number of particle at equilibrium.
+
+\color inherit
+ 
+\begin_inset Formula $\rho^{(n)}(\mathbf{r}^{n})$
+\end_inset
+
+ becomes 
+\begin_inset Formula $\rho^{n}$
+\end_inset
+
+ if the system is homogeneous.
+ It can be proven that
+\begin_inset Formula 
+\begin{equation}
+\dfrac{\delta\Omega}{\delta V_{\mathrm{int}}(\mathbf{r})}=-\rho^{(1)}(\mathbf{r})
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The corresponding 
+\begin_inset Formula $n$
+\end_inset
+
+-particle distribution function is defined as:
+\begin_inset Formula 
+\begin{equation}
+g^{(n)}(\mathbf{r}^{n})=\dfrac{\rho^{(n)}(\mathbf{r}^{n})}{\prod_{i=1}^{n}\rho^{(1)}(\mathbf{r}_{i})}
+\end{equation}
+
+\end_inset
+
+such that 
+\begin_inset Formula $g^{(n)}(\mathbf{r}^{n})\rightarrow1$
+\end_inset
+
+ when all pairs of particles becomes sufficiently large.
+\end_layout
+
+\begin_layout Standard
+The two-particle pair distribution function (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{PDF}
+\end_layout
+
+\end_inset
+
+), 
+\begin_inset Formula $g^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})$
+\end_inset
+
+, is one of the most important quantity in the theory of liquids.
+ And its corresponding pair correlation function (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{PCF}
+\end_layout
+
+\end_inset
+
+) is defined as:
+\begin_inset Formula 
+\begin{equation}
+h^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})=g^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})-1
+\end{equation}
+
+\end_inset
+
+and it vanishes when 
+\begin_inset Formula $\left|\mathbf{r}_{1}-\mathbf{r}_{2}\right|\rightarrow\infty$
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Standard
-The equilibrium density of probability 
-\begin_inset Formula 
-\[
-f(\mathbf{r}^{N},\mathbf{p}^{N};N)=\frac{1}{h^{3N}N!}\frac{1}{\Xi}e^{-\beta\left[H_{N}(\mathbf{r}^{N},\mathbf{p}^{N})-\mu N\right]}
-\]
+If we define the density-density correlation function as: 
+\begin_inset Marginal
+status open
 
-\end_inset
-
-
+\begin_layout Plain Layout
+For any ensemble.
 \end_layout
-
-\begin_layout Standard
-and the grand potential
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\Omega=-\beta^{-1}\ln\Xi(\beta???,\mu,T)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-which for the case of a uniform fluid, reduces to 
-\begin_inset Formula $\Omega=-pV$
-\end_inset
-
- .
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\Omega\left[u\right]=\beta^{-1}\left\langle \ln\left(h^{3N}N!f(\mathbf{r}^{N},\mathbf{p}^{N};N)\right)+K_{N}(\mathbf{p}^{N})+V_{N}(\mathbf{r}^{N})-\sum_{i=0}^{N}u(\mathbf{r}_{i})\right\rangle 
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-u(\mathbf{r}_{i})=\int\delta(\mathbf{r}-\mathbf{r}_{i})u(\mathbf{r})\mathrm{d}\mathbf{r}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\rho(\mathbf{r})=\left\langle \sum_{i=1}^{N}\delta(\mathbf{r}-\mathbf{r}_{i})\right\rangle 
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\Omega\left[u\right]=\beta^{-1}\left\langle \ln\left(h^{3N}N!f(\mathbf{r}^{N},\mathbf{p}^{N};N)\right)+K_{N}(\mathbf{p}^{N})+V_{N}(\mathbf{r}^{N})\right\rangle -\int\rho(\mathbf{r})u(\mathbf{r})\mathrm{d}\mathbf{r}
-\]
-
-\end_inset
-
-free energy of Helmholtz
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\Omega\left[u\right]=F+\mu\left\langle N\right\rangle =F+\mu\int\rho(\mathbf{r})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Distribution functions
-\end_layout
-
-\begin_layout Standard
-the direct correlation function hierarchy:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-c^{(1)}(\mathbf{r})=-\dfrac{\delta(\beta\mathcal{F}_{\mathrm{exc}}[\rho])}{\delta\rho(\mathbf{r})}
-\]
 
 \end_inset
 
 
 \begin_inset Formula 
-\[
-c^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})=\dfrac{\delta c^{(1)}(\mathbf{r}_{1})}{\delta\rho(\mathbf{r}_{2})}=-\dfrac{\delta^{2}(\beta\mathcal{F}_{\mathrm{exc}}[\rho])}{\delta\rho(\mathbf{r}_{1})\delta\rho(\mathbf{r}_{2})}=c^{(2)}(\mathbf{r}_{2},\mathbf{r}_{1})
-\]
+\begin{equation}
+H^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})=\rho^{(1)}(\mathbf{r}_{1})\rho^{(1)}(\mathbf{r}_{2})h^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})-\rho^{(1)}(\mathbf{r}_{1})\delta(\mathbf{r}_{1}-\mathbf{r}_{2})\label{eq:H-definition}
+\end{equation}
 
 \end_inset
 
+which means the correlation 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Correlation_function_wiki"
 
-\end_layout
+\end_inset
 
-\begin_layout Standard
+ between the instantaneous fluctuation of particle density from its ensemble
+ average, it can be proven that
 \begin_inset Formula 
-\[
-c^{(n)}(\mathbf{r}_{1},\ldots,\mathbf{r}_{n})=\dfrac{\delta c^{(n-1)}(\mathbf{r}_{1},\ldots,\mathbf{r}_{n-1})}{\delta\rho(\mathbf{r}_{n})}
-\]
+\begin{equation}
+\dfrac{\delta\Omega^{2}}{\delta V_{\mathrm{int}}(\mathbf{r}_{1})\delta V_{\mathrm{int}}(\mathbf{r}_{2})}=-\beta H^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})=-\dfrac{\delta\rho^{(1)}(\mathbf{r}_{1})}{\delta V_{\mathrm{int}}(\mathbf{r}_{2})}
+\end{equation}
 
 \end_inset
 
-for bulk solvent
+
 \end_layout
 
 \begin_layout Standard
+As an analogue, the direct correlation function (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+) is defined as the derivative of the excess free energy functional 
 \begin_inset Formula $\mathcal{F}_{\mathrm{exc}}[\rho]$
 \end_inset
 
- is the excess (over ideal) 
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+c^{(1)}(\mathbf{r})=-\dfrac{\delta(\beta\mathcal{F}_{\mathrm{exc}}[\rho^{(1)}])}{\delta\rho^{(1)}(\mathbf{r})}\label{eq:def-dcf}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+c^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})=\dfrac{\delta c^{(1)}(\mathbf{r}_{1})}{\delta\rho^{(1)}(\mathbf{r}_{2})}=-\dfrac{\delta^{2}(\beta\mathcal{F}_{\mathrm{exc}}[\rho^{(1)}])}{\delta\rho^{(1)}(\mathbf{r}_{1})\delta\rho^{(1)}(\mathbf{r}_{2})}=c^{(2)}(\mathbf{r}_{2},\mathbf{r}_{1})
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+c^{(n)}(\mathbf{r}_{1},\ldots,\mathbf{r}_{n})=\dfrac{\delta c^{(n-1)}(\mathbf{r}_{1},\ldots,\mathbf{r}_{n-1})}{\delta\rho^{(1)}(\mathbf{r}_{n})}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+According to the definition of 
+\begin_inset Formula $F_{\mathrm{int}}$
+\end_inset
+
+, as well as the expression of 
+\begin_inset Formula $\delta F_{\mathrm{int}}$
+\end_inset
+
+ in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:delta-f-int"
+
+\end_inset
+
+), we have
+\begin_inset Formula 
+\begin{eqnarray}
+\beta V_{\mathrm{int}}(\mathbf{r}) & = & \beta\dfrac{\delta F_{\mathrm{int}}[\rho^{(1)}]}{\delta\rho^{(1)}(\mathbf{r})}=\beta\dfrac{\delta F_{\mathrm{id}}[\rho^{(1)}]}{\delta\rho^{(1)}(\mathbf{r})}+\beta\dfrac{\delta F_{\mathrm{exc}}[\rho^{(1)}]}{\delta\rho^{(1)}(\mathbf{r})}\nonumber \\
+ & = & \ln\left[\Lambda^{3}\rho^{(1)}(\mathbf{r})\right]+c^{(1)}(\mathbf{r})
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The functional derivative chain rule leads to
+\begin_inset Formula 
+\begin{eqnarray}
+\int\mathrm{d}\mathbf{r}_{3}\dfrac{\delta V_{\mathrm{int}}(\mathbf{r}_{1})}{\delta\rho^{(1)}(\mathbf{r}_{3})}\cdot\dfrac{\delta\rho^{(1)}(\mathbf{r}_{3})}{\delta V_{\mathrm{int}}(\mathbf{r}_{2})} & = & \int\mathrm{d}\mathbf{r}_{3}\dfrac{\delta V_{\mathrm{int}}[\rho^{(1)}(\mathbf{r}_{1})]}{\delta\rho^{(1)}(\mathbf{r}_{3})}\cdot\beta H^{(2)}(\mathbf{r}_{3},\mathbf{r}_{2})\nonumber \\
+ & = & \delta(\mathbf{r}_{1}-\mathbf{r}_{2})
+\end{eqnarray}
+
+\end_inset
+
+which in addition to the definition of 
+\begin_inset Formula $H$
+\end_inset
+
+ in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:H-definition"
+
+\end_inset
+
+) gives
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+h^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})=c^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})+\int\mathrm{d}\mathbf{r}_{3}\left(c^{(2)}(\mathbf{r}_{1},\mathbf{r}_{3})\rho^{(1)}(\mathbf{r}_{3})h^{(2)}(\mathbf{r}_{3},\mathbf{r}_{2})\right)\label{eq:oz-origine}
+\end{equation}
+
+\end_inset
+
+which is called the Ornstein-Zernike (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+) equation.
+ 
+\end_layout
+
+\begin_layout Section
+Classical density functional theory
+\end_layout
+
+\begin_layout Standard
+The density functional theory is based on two theorems :
+\end_layout
+
+\begin_layout Enumerate
+For a given choices 
+\begin_inset Formula $V_{N}$
+\end_inset
+
+, 
+\begin_inset Formula $T$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu$
+\end_inset
+
+, the intrinsic free energy functional 
+\begin_inset Formula $\mathcal{F}_{\mathrm{int}}$
+\end_inset
+
+ is a unique functional of the equilibrium one-particle density 
+\begin_inset Formula $\rho^{(1)}(\mathbf{r})$
+\end_inset
+
+, expressed by 
+\begin_inset Formula $\mathcal{F}_{\mathrm{int}}[\rho^{(1)}]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $n(\mathbf{r})$
+\end_inset
+
+ be some arbitrary one-particle microscopic density, and define the grand-potent
+ial 
+\begin_inset Formula $\Omega[n]$
+\end_inset
+
+ as
+\begin_inset Formula 
+\begin{equation}
+\Omega[n]=\mathcal{F}_{\mathrm{int}}[n]-\int\mathrm{d}\mathbf{r}n(\mathbf{r})V_{\mathrm{int}}(\mathbf{r})\label{eq:omega-p}
+\end{equation}
+
+\end_inset
+
+for a fixed external potential 
+\begin_inset Formula $V_{\mathrm{ext}}$
+\end_inset
+
+ (or intrinsic chemical potential 
+\begin_inset Formula $V_{\mathrm{int}}$
+\end_inset
+
+), then the variational principle states that
+\begin_inset Formula 
+\begin{equation}
+\Omega[n]\geq\Omega[\rho^{(1)}]
+\end{equation}
+
+\end_inset
+
+with the equal sign takes at 
+\begin_inset Formula $n(\mathbf{r})=\rho^{(1)}(\mathbf{r})$
+\end_inset
+
+.
+ The differentiation of eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:omega-p"
+
+\end_inset
+
+) with respect to 
+\begin_inset Formula $n(\mathbf{r})$
+\end_inset
+
+ gives
+\begin_inset Formula 
+\begin{equation}
+\left.\frac{\delta\Omega[n]}{\delta n(\mathbf{r})}\right|_{n=\rho^{(1)}}=\left.\frac{\delta\mathcal{F}_{\mathrm{int}}[n]}{\delta n(\mathbf{r})}\right|_{n=\rho^{(1)}}-V_{\mathrm{int}}(\mathbf{r})=0\label{eq:26}
+\end{equation}
+
+\end_inset
+
+with the right hand vanishes as eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:delta-f-int"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+These theorems build an approach, that for a given choices 
+\begin_inset Formula $V_{N}$
+\end_inset
+
+, 
+\begin_inset Formula $T$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and an external potential 
+\begin_inset Formula $V_{\mathrm{ext}}$
+\end_inset
+
+, amounts to minimize the total Helmholtz free energy functional of the
+ solvent
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}[n(\mathbf{r})]=\mathcal{F}_{\mathrm{int}}+\mathcal{F}_{\mathrm{ext}}=\mathcal{F}_{\mathrm{id}}+\mathcal{F}_{\mathrm{exc}}+\mathcal{F}_{\mathrm{ext}}
+\end{equation}
+
+\end_inset
+
+gives the equilibrium density of solvent 
+\begin_inset Formula $\rho^{(1)}(\mathbf{r})$
+\end_inset
+
+, 
+\begin_inset Formula $\mathcal{F}_{\mathrm{ext}}=\int\mathrm{d}\mathbf{r}n(\mathbf{r})V_{\mathrm{ext}}(\mathbf{r})$
+\end_inset
+
+ defined the external functional.
+ Noted that eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:26"
+
+\end_inset
+
+) is then equivalent to
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\left.\frac{\delta\mathcal{F}[n]}{\delta n(\mathbf{r})}\right|_{n=\rho^{(1)}}-\mu=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The external term 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ of the Helmholtz free energy functional can be given by defining a reference
+ homogeneous single-particle density 
+\begin_inset Formula $\rho_{0}$
+\end_inset
+
+ of bulk solvent at equilibrium, and the corresponding bulk 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+/acs{DCF}
+\end_layout
+
+\end_inset
+
+ defined as in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:def-dcf"
+
+\end_inset
+
+) via Taylor expansion:
+\begin_inset Formula 
+\begin{eqnarray}
+\mathcal{F}_{\mathrm{exc}}\left[\rho^{(1)}\right] & \equiv & \mathcal{F}_{\mathrm{exc}}\left[\rho_{0}\right]+\int\mathrm{d}\mathbf{r}_{1}\left.\frac{\delta\mathcal{F}_{\mathrm{exc}}\left[\rho^{(1)}\right]}{\delta\rho^{(1)}(\mathbf{r}_{1})}\right|_{\rho^{(1)}=\rho_{0}}\Delta\rho(\mathbf{r}_{1})\nonumber \\
+ &  & +\frac{1}{2}\int\mathrm{d}\mathbf{\mathbf{r}}_{1}\mathrm{d}\mathbf{r}_{2}\left.\frac{\delta^{2}\mathcal{F}_{\mathrm{exc}}\left[\rho^{(1)}\right]}{\delta\rho^{(1)}(\mathbf{r}_{1})\mathrm{\delta}\rho^{(1)}(\mathbf{r}_{2})}\right|_{\rho^{(1)}=\rho_{0}}\Delta\rho(\mathbf{r}_{1})\Delta\rho(\mathbf{r}_{2})+\mathcal{O}(\Delta\rho^{3})\\
+ & = & \mathcal{F}_{\mathrm{exc}}\left[\rho_{0}\right]-\beta^{-1}\int\mathrm{d}\mathbf{r}_{1}c^{(1)}(\mathbf{r})\Delta\rho^{(1)}(\mathbf{r}_{1})\nonumber \\
+ &  & -\frac{\beta^{-1}}{2}\int\mathrm{d}\mathbf{\mathbf{r}}_{1}\mathrm{d}\mathbf{r}_{2}c^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})\Delta\rho^{(1)}(\mathbf{r}_{1})\Delta\rho^{(1)}(\mathbf{r}_{2})+\mathcal{O}(\Delta\rho{}^{3})
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $\Delta\rho=\rho^{(1)}-\rho_{0}$
+\end_inset
+
+.....
+
 \color red
-Helmholtz free energy
+ (how to remove the 
+\begin_inset Formula $\rho_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $c^{(1)}(\mathbf{r})$
+\end_inset
+
+ term ?)
+\end_layout
+
+\begin_layout Standard
+If the reference fluid is homogeneous, the DCF only depends on the relative
+ distance, i.e.
+ 
+\begin_inset Formula $c^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})=c(r_{12})$
+\end_inset
+
+, so that
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}_{\mathrm{exc}}\left[\rho^{(1)}\right]\simeq-\frac{\beta^{-1}}{2}\int\mathrm{d}\mathbf{\mathbf{r}}_{1}\mathrm{d}\mathbf{r}_{2}c(r_{12})\Delta\rho(\mathbf{r}_{1})\Delta\rho(\mathbf{r}_{2})
+\end{equation}
+
+\end_inset
+
+This was called the homogenous reference fluid (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HRF}
+\end_layout
+
+\end_inset
+
+) approximation.
+ The generalization to a molecular, non-spherical solvent for which orientations
+ matter is described in 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:iem-mdft"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Integral equation theory
+\end_layout
+
+\begin_layout Standard
+Different with 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ which aims to find the equilibrium solvent density 
+\begin_inset Formula $\rho$
+\end_inset
+
+ and the Helmholtz free energy 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+, the integral equation theory (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+) aims to find the pair distribution function 
+\begin_inset Formula $g$
+\end_inset
+
+ and the 
+\color red
+gradient of energy 
+\begin_inset Formula $\gamma$
+\end_inset
+
+.
+
 \color inherit
- functional arising from the interactions.
+ Both theories give complete information of solvation energy and structure.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+ is about to solve a pair of integral equations of 
+\begin_inset Formula $h^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})$
+\end_inset
+
+ and 
+\begin_inset Formula $c^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})$
+\end_inset
+
+.
+ One of these equations is the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation shown as eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:oz-origine"
+
+\end_inset
+
+).
+ The other one is a closure equation, which can be deduced from eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:26"
+
+\end_inset
+
+), giving the minimum density 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\rho^{(1)}(\mathbf{r}_{1})=\rho_{0}\exp\left(-\beta V_{\mathrm{ext}}(\mathbf{r}_{1})+\int\mathrm{d}\mathbf{\mathbf{r}}_{2}\Delta\rho^{(1)}(\mathbf{r}_{2})c_{0}^{(2)}(\mathbf{r}_{12})\right)\label{eq:minimize-anal}
+\end{equation}
+
+\end_inset
+
+
+\color red
+(where is 
+\begin_inset Formula $\mu$
+\end_inset
+
+? external potential?)
+\color inherit
+ which gives for example, one of the simplest closure equation, the hypernetted-
+chain 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HNC}
+\end_layout
+
+\end_inset
+
+ approximation.
+ In the uniform case we can deduce
+\begin_inset Formula 
+\begin{equation}
+g(1,2)=\exp\left[-\beta u(1,2)+h(1,2)-c(1,2)\right]
+\end{equation}
+
+\end_inset
+
+
+\color red
+(u?) 
+\end_layout
+
+\begin_layout Standard
+The general relation to close the OZ equation is
+\begin_inset Formula 
+\begin{equation}
+g(1,2)=\exp\left[-\beta u(1,2)+h(1,2)-c(1,2)+b(1,2)\right]
+\end{equation}
+
+\end_inset
+
+where the 
+\begin_inset Formula $b$
+\end_inset
+
+ is the bridge function.
+ Other closure are also possible, such as Percus-Yevick (PY) approximation
+ or mean-spherical approximation (MSA).
+\end_layout
+
+\begin_layout Section
+Equivalence between c
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DFT}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+ for a dilute solution system
+\end_layout
+
+\begin_layout Standard
+The generalization of the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:oz-origine"
+
+\end_inset
+
+) to 
+\begin_inset Formula $n$
+\end_inset
+
+ components can be written as
+\begin_inset Formula 
+\begin{equation}
+h_{\mathrm{\nu\mu}}(1,2)=c_{\mathrm{\nu\mu}}(1,2)+\rho\sum_{\lambda}x_{\lambda}\int c_{\mathrm{\nu\lambda}}(2,3)h_{\mathrm{\lambda\mu}}(1,3)\mathrm{d}3
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $x_{\nu}=N_{\nu}/N$
+\end_inset
+
+ is the number concentration of species 
+\begin_inset Formula $\nu\in\left[1,n\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For a two-component homogeneous solute-solvent mixture, where the solute
+ (M) is infinitely diluted in the solvent (S) (
+\begin_inset Formula $x_{S}\rightarrow1$
+\end_inset
+
+), the coupled 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ relations is written as
+\begin_inset Formula 
+\begin{equation}
+h_{\mathrm{SS}}(1,2)=c_{\mathrm{SS}}(1,2)+\rho\int h_{\mathrm{SS}}(1,3)c_{\mathrm{SS}}(2,3)\mathrm{d}3\label{eq:2oz1}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+h_{\mathrm{SM}}(1,2)=c_{\mathrm{SM}}(1,2)+\rho\int h_{\mathrm{SS}}(1,3)c_{\mathrm{SM}}(2,3)\mathrm{d}3\label{eq:2oz2}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+h_{\mathrm{MS}}(1,2)=c_{\mathrm{MS}}(1,2)+\rho\int h_{\mathrm{MS}}(1,3)c_{\mathrm{SS}}(2,3)\mathrm{d}3\label{eq:2oz3}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+h_{\mathrm{MM}}(1,2)=c_{\mathrm{MM}}(1,2)+\rho\int h_{\mathrm{MS}}(1,3)c_{\mathrm{SM}}(2,3)\mathrm{d}3\label{eq:2oz4}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2oz1"
+
+\end_inset
+
+) is the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation for bulk solvent, and eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2oz4"
+
+\end_inset
+
+) has no physical interest as 
+\begin_inset Formula $r_{MM}\rightarrow\infty$
+\end_inset
+
+.
+ Eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2oz2"
+
+\end_inset
+
+) and (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2oz3"
+
+\end_inset
+
+) describe the correlations between the solute and solvents, which are equivalen
+t.
+ From eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2oz3"
+
+\end_inset
+
+) we can deduce eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:minimize-anal"
+
+\end_inset
+
+) which is the analytical result of eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:26"
+
+\end_inset
+
+) in the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+.
+ And in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+, eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2oz3"
+
+\end_inset
+
+) is normally used for two-component solution.
 \end_layout
 
 \end_body

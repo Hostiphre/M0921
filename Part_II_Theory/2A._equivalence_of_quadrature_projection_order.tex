@@ -1,9 +1,7 @@
 
 \chapter{Equivalence of Quadrature-Projection Order\label{chpt:equivalence-of-quadrature-projection-order}}
 
-
 \section{Gaussian quadrature\label{sec:Gaussian-quadrature}}
-
 
 \subsection*{\uline{Theorem:} }
 
@@ -12,7 +10,6 @@ a positive weight function so that
 \begin{equation}
 \int_{a}^{b}x^{k}P_{n}(x)w(x)\mathrm{d}x=0,(k=0,\ldots,n-1)
 \end{equation}
-
 
 If $\left\{ x_{i}\right\} (i=1,\ldots n)$ are the zeros of $P_{n}(x)$,
 then
@@ -25,7 +22,6 @@ A_{i}=\int_{a}^{b}l_{i-1}(x)w(x)\mathrm{d}x
 \end{equation}
 is exact for all polynomials $f(x)$ of degree at most $2n-1$, where
 $\left\{ l_{i}\right\} $ are the usual Lagrange interpolating polynomials.
-
 
 \subsection*{\uline{Proof: }}
 
@@ -47,7 +43,6 @@ is exact for $r(x)$ of degree at most $n-1$ (c.f. Numerical Recipes
 \citep{Numerical_Recipes_3ed} p.118), and thus exact for $f(x)$
 of degree at most $2n-1$.
 
-
 \section{Angular integration in GSHT}
 
 To expand a function onto GSHs, as in eq. (\ref{eq:GSHT_forward}),
@@ -58,7 +53,6 @@ is $2n$. It should be noted that the surface area element is:
 \begin{equation}
 \mathrm{d}\mathbf{\Omega}=\sin\Theta\mathrm{d}\Theta\mathrm{d}\Phi\mathrm{d}\Psi=\mathrm{d}\cos\Theta\mathrm{d}\Phi\mathrm{d}\Psi
 \end{equation}
-
 
 For $\cos\Theta$ integration, considering $w(x)=1$ and $x=\cos\Theta$,
 Gauss-Legendre quadrature should be used. Thus $n+1$ points on $x$
@@ -87,14 +81,12 @@ so that
 \int_{0}^{2\pi}f(\cos\Phi)\mathrm{d}\Phi=\int_{-\pi}^{\pi}f(\cos\Phi)\mathrm{d}\Phi=\int_{0}^{\pi}\left[f(\cos(-\Phi))-f(\cos\Phi)\right]\mathrm{d}\Phi
 \end{equation}
 
-
 It corresponds to $2n+2$ points in $\Phi\in\left[0,2\pi\right]$
 regularly distributed. However, it's not the minimal number of points
 necessary to do the exact integration. Suppose that $\Phi_{2}\equiv\Phi/2$,
 \begin{equation}
 \int_{0}^{2\pi}f(\cos\Phi)\mathrm{d}\Phi=\int_{0}^{\pi}f(\cos(2\Phi_{2}))\mathrm{d}\Phi_{2}=\int_{0}^{\pi}\left[f(2\cos^{2}\Phi_{2}-1)\right]\mathrm{d}\Phi_{2}
 \end{equation}
-
 
 As $f(2\cos^{2}\Phi_{2}-1)$ is a polynomial of $\Phi$ of degree
 $2n$, it's a polynomial of $\Phi_{2}$ of degree $4n$. Thus only

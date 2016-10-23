@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass classicthesis
 \use_default_options true
 \maintain_unincluded_children false
@@ -9,16 +11,16 @@
 \language_package default
 \inputencoding utf8
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -128,18 +130,89 @@ Abstract
 \end_layout
 
 \begin_layout Standard
-In this thesis, two algorithms of excess energy functional evaluation are
- proposed, one is extension of the previous work, one is ...
- The new algorithm combines the molecular Ornstein-Zernike equation method
- with MDFT
+Solvation properties often play an important role in chemical and bio-chemical
+ issues.
+ The molecular density functional theory (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
 \end_layout
 
-\begin_layout Standard
-It is shown that ...
+\end_inset
+
+) is one of the frontier domains to evaluate these properties, in which
+ the free energy functional is minimized for an arbitrary solute in a periodic
+ cubic solvent box.
+ In this thesis, we work on the evaluation of the excess term of the free
+ energy functional under the homogeneous reference fluid (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HRF}
 \end_layout
 
-\begin_layout Standard
-The new method is able to calculate ...
+\end_inset
+
+) approximation.
+ Two algorithms are proposed: the first one is an extension of the previous
+ algorithm, which allows to calculate full 3D molecular solvent (depending
+ on three Euler angles) instead of linear solvent (depending on two angles);
+ the other one is a new algorithm that integrates the molecular 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation treatment of angular convolution into 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+, which in fact expands the solvent density and the functional gradient
+ on generalized spherical harmonics (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+s).
+ It is shown that the new algorithm is much more rapid than the previous
+ one, while the latter is more stable in terms of convergency, specially
+ for negative charged solutes.
+ Both algorithms are successful to predict free energy and structure of
+ ions and small molecules.
+ 
 \end_layout
 
 \begin_layout Standard

@@ -18,32 +18,43 @@ complexity, or completely different due to the overhead of function
 calling or the inhomogeneity of memory access. Etude of this small
 parts permits a further understanding of the entire code.
 
-
 \section{FFT}
 
-The \acs{FFT} play a great role in the implementation, which is used
-by the spatial convolution and the \acs{FGSHT} process. As shown
-in figure \ref{fig:timing-FFT}a, the dependance on $O(N\log_{2}N)$
+The \acs{FFT} play an important role in the implementation, which
+is used by the spatial convolution and the \acs{FGSHT} process. As
+shown in figure \ref{fig:timing-FFT}, the dependance on $O(N\log_{2}N)$
 doesn't totally exist, due to the algorithm of FFT {[}ref dft{]}.
 To compare between the algorithms involved in this thesis, we are
 not really interested in computing performance with respect to the
 number of spatial grid, but the \acs{FFT} used in \acs{FGSHT} process
 (figure \ref{fig:timing-FFT}b). 
 
+The algorithmic complicity of FFT is about $\mathcal{O}(N_{k}\ln N_{k})$
+\textcolor{red}{\scriptsize{}\citep{Numerical_Recipes_3ed} }, and
+the computing time will be discussed in later sessions.
+
+We cannot count only the number of operation, 
+
+As we use real and complex FFT in difrent algorithms,
+
 \begin{figure}[h]
+\begin{centering}
 \subfloat[spatial+nlogn!]{\begin{centering}
-\includegraphics[width=0.5\columnwidth]{_figure/timing_fft_spatial}
+\includegraphics[width=1\columnwidth]{_figure/results/fftw_timing}
 \par\end{centering}
-
-}\subfloat[angular]{}
-
+}
+\par\end{centering}
+\begin{centering}
+\subfloat[real to complex]{\begin{centering}
+\includegraphics[width=0.5\columnwidth]{_figure/results/fftw_real_v_cmplx}
+\par\end{centering}
+}
+\par\end{centering}
 \caption{timing FFT\label{fig:timing-FFT}}
 \end{figure}
 
 
-
 \section{FGSHT}
-
 
 \subsection{Computing time of GSHT and FGSHT}
 
@@ -64,66 +75,81 @@ It is shown that the computing cost reduced by FFT is about ... times
 of the original cost, which is agreed with the prediction. ? 
 
 \begin{figure}[h]
-\caption{Computing time of GSHT and FGSHT (per 1000 times)\label{fig:time-gsht-fgsht}}
+\begin{centering}
+\subfloat[]{\begin{centering}
+\includegraphics[width=1\columnwidth]{_figure/results/fgsht_perf}
+\par\end{centering}
+}
+\par\end{centering}
+\begin{centering}
+\subfloat[]{\begin{centering}
+\includegraphics[width=1\columnwidth]{_figure/results/fgsht_real_v_cmplx}
+\par\end{centering}
+}
+\par\end{centering}
+\centering{}\caption{Computing time of GSHT and FGSHT (per 10000 times)\label{fig:time-gsht-fgsht}}
 \end{figure}
 
 
-
 \subsection{Performance with respect to $m_{\max}$}
-
 
 \subsection{Performance with respect to $n_{\max}$}
 
 psi treatment for mmax/nmax different
 
-
 \section{K-kernel}
 
-
-\subsection{Comparison between paths}
+Comparison between paths
 
 Timing paths in figure \ref{fig:k-kernel}
 
-
-\subsection{$m_{\max}$ and $n_{\max}$ dependance of OZ equation}
+$m_{\max}$ and $n_{\max}$ dependance of OZ equation
 
 Theoretical listed in table \ref{tab:FE-of-OZ}. 
 
 with respect to nmax
 
-
 \section{Entire iteration of $\mathcal{F}_{\mathrm{exc}}$ evaluation}
 
+\subsection{Comparison between ``naive\_standard'' and ``naive\_interpolation''}
 
-\subsection{Comparison between ``naive\_standard'' and ``convolution\_pure\_angular''}
+In appendix \ref{chpt:error-evaluation-interpolation-DCF}, we compared
+the error introduced by the interpolation strategy of $\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
+calculation from the intermolecular $\hat{c}(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$.
+Here, we want to compare the error introduced by \texttt{\textbf{naive\_interpolation}}
+and\textbf{ }\texttt{\textbf{naive\_standard}} concerned both $\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
+and the free energy and structure issued from a single-k calculation.
+
+As one is constant other has a $O(N^{3})$ dependence on $n_{\max}$,
+the discussion between the computing performance and memory usage
+with respect to $n_{\max}$ and it will be given in section ...
+
+As shown in table , 
+
+\subsection{Comparison ``naive\_standard'' and ``convolution\_pure\_angular''}
 
 \begin{figure}[h]
 \caption{}
 \end{figure}
-
 
 difference after FFT.
 
 verified the conclusion of k-kernel test.
 
-
-\subsection{Comparison between ``convolution\_standard'' and ``convolution\_asymm''}
+\subsection{Comparison ``convolution\_standard'' and ``convolution\_asymm''}
 
 \begin{figure}[h]
 \caption{}
 \end{figure}
-
 
 The symmetries, ideally the time should be reduced by two, but as
 shown in $\mathsection$, convolution\_standard need more ``decoration''.
 
-
-\subsection{Comparison between ``convolution\_standard'' and ``convolution\_pure\_angular''}
+\subsection{Comparison ``convolution\_standard'' and ``convolution\_pure\_angular''}
 
 \begin{figure}[h]
 \caption{}
 \end{figure}
-
 
 The inversion of FFT and FGSHT
 
@@ -134,8 +160,13 @@ convolution\_pure\_angular it is the number of angular grid nodes.
 As there is less projections than angular nodes, convolution\_standard
 reasonably takes less time.
 
+\subsection{mmax and nmax}
+
+\subsection{different computer}
 
 \section{Global view of the sequential code performance}
+
+memory limitss
 
 Computing time and memory limits
 

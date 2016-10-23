@@ -12,7 +12,6 @@ nature of solvation, what are the present computing trends in solvation
 simulations, and where our work situates in this frame of solvation
 theories.
 
-
 \section{Simulation of solvent effects}
 
 Solvation is a fundamental phenomenon in chemistry. The chemical behavior
@@ -20,7 +19,7 @@ of numerous systems strongly depends on the nature of solvation; this
 is the case for example for the reaction mechanisms in metal-organic
 reacting centers \citep{Mn-oxo,PCET}, or pharmaceutical studies \citep{drug_1_Perlovich,drug_2_Perlovich,drug_3}.
 The solvation properties demanded by scientific studies are highly
-diverse; they include such as the Gibbs free energy of solvation,
+diverse; these include for example the Gibbs free energy of solvation,
 solubility, concentration, partition coefficient, saturated vapor
 pressure, pH value, the 3D solvation structure, etc. Overall, the
 interest in these solvation properties touches many fields of study
@@ -28,7 +27,7 @@ such as chemistry, biochemistry, as well as pharmaceutical, environmental,
 and agrochemical industries. Unlike the well-studied quantum mechanics
 (\acs{QM}) for chemical interactions at a microscopic scale, and
 the finite element models for macroscopic physical processes, the
-theories of solvation are in between these description scales and
+theories of solvation lie in between these description scales and
 are still under development, owing to the ambiguous compromise between
 accuracy and computing cost, and the rapid development of computer
 hardware which makes complicated calculations more and more accessible.
@@ -41,13 +40,14 @@ which builds a stabilizing interaction with the solute (or solute
 moiety, e. g., residues, interfaces, etc.) \citep{iupac}. Such interactions
 are mostly classical interactions, involving electrostatic and van
 der Waals forces; but also with additional more specific chemical
-effects such as hydrogen bond formation, and quantic effects for some
+effects such as hydrogen bond formation, and quantum effects for some
 small solvent molecules whose vibrational or rotational energy states
-are at the same magnitude as $k_{\mathrm{B}}T$, etc.
+are at the same magnitude as $k_{\mathrm{B}}T$, and maybe other effects
+etc.
 
 \begin{figure}[h]
 \centering{}\textcolor{red}{}%
-\begin{minipage}[t]{1\textwidth}%
+\noindent\begin{minipage}[t]{1\textwidth}%
 \begin{center}
 \includegraphics[width=1\columnwidth]{_figure/solvation}\caption[The solvation process]{The solvation process.\label{fig:Process-of-solvation} A thermodynamic
 system, whose properties only depend on the initial and final states,
@@ -60,11 +60,9 @@ process (right path), involving the growth of an uncharged solute-sized
 cavity within the bulk solvent, the transfer of the solute charge
 distribution from vacuum into cavity, and the interaction between
 the solute and solvent.}
-
 \par\end{center}%
 \end{minipage}
 \end{figure}
-
 
 As not all kinds of interactions are important in applications, different
 models and methods have been developed according to the usage.
@@ -81,7 +79,7 @@ that are often rudely treated by introducing an artificial form of
 cavity that links to the form of solute. The methods for testing electrostatic
 interactions include the Generalized Born (GB) approximation or, for
 better estimates, Poisson-Boltzmann (PB) calculations. These are widely
-integrated within \acs{QM} simulations by adding extra solvation
+integrated within \acs{QM} calculations by adding extra solvation
 terms onto the Fock or Kohn-Sham operator \citep{Tomasi_1994_implicit_model,tomasi_quantum_2005}.
 However, the improper treatment of the first shell, where the microscopic
 interactions are primarily located, often introduces potentially huge
@@ -118,13 +116,13 @@ different directions. On one hand, Chandler and Andersen in 1971 \citep{Chandler
 developed the reference interaction site model (\acs{RISM}), which
 discretizes the distribution and correlation functions into site-site
 functions, and solves the \acs{OZ} equation and the closure in a
-matrix \citep{hirata_molecular_2004}. On the other hand, Blum \citep{Blum_I,Blum_II},
-Fries and Patey \citep{Fries_Patey_1985} extend the \acs{OZ} equation
-into a full molecular form, where the distribution and correlation
-functions depend on both position and orientation. In their theory,
-the orientation part of \acs{OZ} equation is simplified by expanding
-the distribution and correlation functions onto Wigner generalized
-spherical harmonics.
+matrix form \citep{hirata_molecular_2004}. On the other hand, Blum
+\citep{Blum_I,Blum_II}, Fries and Patey \citep{Fries_Patey_1985}
+extend the \acs{OZ} equation into a full molecular form, where the
+distribution and correlation functions depend on both position and
+orientation. In their theory, the orientation part of \acs{OZ} equation
+is simplified by expanding the distribution and correlation functions
+onto Wigner generalized spherical harmonics.
 
 The classical density functional theory approach deals with inhomogeneous
 liquids, and uses the same variation principle and minimization strategy
@@ -155,8 +153,8 @@ polarization in potential functions is also an issue \citep{polarisable_1,polari
 However, since polarizable force fields are not yet in common use,
 the simulations by micro-states and the liquid theory which feed on
 force fields also have their own limits, compared to the continuum
-model which can be polarizable. The advantages and disadvantages of
-each branch of theory are listed in table \ref{tab:Theories-of-solvation}.
+model which can be totally polarizable. The advantages and disadvantages
+of each branch of theory are listed in table \ref{tab:Theories-of-solvation}.
 
 \begin{table}[h]
 \begin{centering}
@@ -170,44 +168,41 @@ Theory of liquids & fast & yes & yes & partially\tabularnewline
 \bottomrule
 \end{tabular}
 \par\end{centering}
-
 \caption{Different solvation theories\label{tab:Theories-of-solvation}}
 \end{table}
 
 
-
 \section{Scope of this thesis}
 
-This thesis aims to develop \acs{MDFT}, focusing on the generalization
-and algorithmic acceleration of the excess free energy functional
-$\mathcal{F}_{\mathrm{exc}}$ evaluation under homogenous reference
-fluid (\acs{HRF}) approximation, which will be discussed in detail
-in latter chapters. 
+This thesis aims at developing the theory and the code of \acs{MDFT},
+focusing on the generalization and algorithmic acceleration of the
+excess free energy functional $\mathcal{F}_{\mathrm{exc}}$ evaluation
+under homogenous reference fluid (\acs{HRF}) approximation, which
+will be discussed in detail in latter chapters. 
 
 Chapter I reviews a selection of models and methods to describe solvent
 effects. It includes the implicit and explicit models, the basics
 of liquid-state theory, as well as its two frontier research domains,
-\acs{IET} and \acs{MDFT}. The structure of the code named \acs{MDFT},
+\acs{IET} and \acs{MDFT}. Some details of the code \acs{MDFT},
 associated to the \acs{MDFT} approach, on which all the developments
-of this thesis are based, is also presented. There is also a brief
-introduction on how \acs{MD} and \acs{MC} simulations methods are
-used to generate the direct correlation functions (\acs{DCF}) used
-in this thesis.
+of this thesis are based, are also presented.
 
 Chapter II presents all the theory developed and newly used in this
 thesis. Two algorithms for the excess energy functional evaluation
 are proposed. One is an extension of the previous algorithm which
-can be only applied to linear solvent, to a full 3D molecular solvent
-case; while the other is a new algorithm, that combines the molecular
-\acs{OZ} equation treatment of angular convolution with MDFT. The
-solvation properties that the actual code generates are also presented,
-mainly containing the free energy and solvent structure.
+can be only applied to linear solvent (using only two spherical coordinate
+angles $\Theta$ and $\Phi$ as orientation of the solvent particle,
+instead of three Euler angles), to a full 3D molecular solvent case;
+while the other is a new algorithm, that combines the molecular \acs{OZ}
+equation treatment of angular convolution with \acs{MDFT}. The solvation
+properties that the code generates are also presented, mainly containing
+the free energy and solvent structure.
 
 Chapter III reports all the implementation results, which are divided
-into two aspects: the ``accuracy'', involves the error evaluations,
+into two aspects: the ``accuracy'', which involves the error evaluations,
 comparisons between algorithms and with \acs{IET} and \acs{MD} results;
-and the ``efficiency'', evaluates the computing cost of the code,
-of both in sequential and parallelized versions.
+and the ``efficiency'', which evaluates the computing cost, from
+the parts of the code to the entire branches.
 
-Chapter VI gives applications to ions and molecules. And some work
-undone due to the limit of time are put in the perspective.
+Chapter VI gives applications to ions and molecules. Some works that
+remain unachieved due to the time limit are put in the perspectives.
