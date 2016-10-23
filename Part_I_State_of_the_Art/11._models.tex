@@ -132,7 +132,7 @@ gives
 \begin{equation}
 \nabla\cdot\varepsilon(\mathbf{r})E(\mathbf{r})=\dfrac{\rho_{q}(\mathbf{r})}{\varepsilon_{0}}
 \end{equation}
-or in terms of electrostatic potential 
+or in terms of electrostatic potential:
 \begin{equation}
 \nabla\cdot\left[\varepsilon(\mathbf{r})\nabla V_{\mathrm{elec}}(\mathbf{r})\right]=-\dfrac{\rho_{q}(\mathbf{r})}{\varepsilon_{0}}\label{eq:poisson}
 \end{equation}
@@ -141,11 +141,11 @@ This second-order differential equation (\ref{eq:poisson}) is called
 the Poisson equation. 
 
 This equation cannot be solved analytically for complex geometries
-(such as a protein), therefore, it is done numerically using appropriate
-methods. Such methods are mentioned in, for example, the article of
+(such as a protein). Therefore it is done numerically using appropriate
+methods; for example, the article of
 Roux and Simonson \citep{roux_implicit_1999} or Holst \citep{holst_1994_poisson}.
 A density functional approach based on the minimization of the polarization
-density can be equally used to solve this equation \citep{Marchi_2001,Levy_2005}.
+density can also be used to solve this equation \citep{Marchi_2001,Levy_2005}.
 
 If the solvent is ionic, the Poisson equation can be modified by taking
 into account a (thermal) Boltzmann distribution of ions in the solvent,
@@ -179,7 +179,7 @@ Other similar models include the Onsager model, in which a point dipole
 (characterized by the dipole moment $\mu$) is put in a spherical
 cavity. The Kirkwood model refers to a general multipole expansion
 in a spherical cavity, while the Kirkwood-Westheimer model arises
-for an ellipsoidal cavity. Those simplified models are not fully capable
+for an ellipsoidal cavity. Those simplified models are not fully able
 to predict the solvent behavior in many realistic cases \citep{Jensen}. 
 
 The generalized Born (GB) model is an empirical model based on the
@@ -189,7 +189,7 @@ Born model describes, with a similar formula:
 \Delta G_{\mathrm{elec}}=-\dfrac{1}{8\pi\varepsilon_{0}}\left(1-\frac{1}{\varepsilon}\right)\sum_{i}\sum_{j}\frac{q_{i}q_{j}}{f_{ij}}
 \end{equation}
 where the function $f_{ij}$ depends on the internuclear distance
-$r_{ij}$ between the centers of atom $i$ and $j$ and on the Born
+$r_{ij}$ between the centers of atoms $i$ and $j$ and on the Born
 radii for each pair of atoms $a_{i}$ and $a_{j}$:
 \begin{equation}
 f_{ij}=\sqrt{r_{ij}^{2}-a_{i}a_{j}\exp\left(\frac{r_{ij}^{2}}{4a_{i}a_{j}}\right)}
@@ -197,7 +197,7 @@ f_{ij}=\sqrt{r_{ij}^{2}-a_{i}a_{j}\exp\left(\frac{r_{ij}^{2}}{4a_{i}a_{j}}\right
 
 The key (empirical) point is to be able to attribute an effective
 Born radius $a_{i}$ to each atom inside the complex, non-spherical
-cavity formed by the solute. This accomplished, the GB model provides
+cavity formed by the solute. Once this is accomplished, the GB model provides
 a very fast method, with an overall accuracy comparable to that of
 Poisson-Boltzmann calculations. That makes it widely used in computational
 structural biology to perform structure optimization and molecular
@@ -209,7 +209,7 @@ The model potential frequently used in the theory of liquids is a
 classical, rigid, pairwise additive model \citep{Hensen-McDonald,Gray-Gubbins}.
 It is based on three assumptions. 
 \begin{enumerate}
-\item Firstly, the quantum effects of should be ignored. It is assumed that
+\item Firstly, the quantum effects of <!-- Something missing here --> should be ignored. It is assumed that
 the rotational and transitional motion of solvent particles are continuous
 and classical, which means the separation of both transitional and
 rotational states are largely inferior of $k_{\mathrm{B}}T$. For
@@ -219,12 +219,12 @@ $\mathrm{H_{2}}$) exhibit obvious quantum effects at low temperature
 in the liquid state. Gaseous $\mathrm{H_{2}O}$ and $\mathrm{NH_{3}}$
 also need quantum effect corrections. However, for the liquid of most
 interest to us, $\mathrm{H_{2}O}$ at room temperature, the contribution
-of this effect is small enough to be neglected. And obviously, there
+of this effect is small enough to be neglected. Obviously, there
 should not be any chemical interaction of the solvent with the solute.
-\item Secondly,\marginpar{Compared to atomic models that only depend on $\mathbf{r}^{N}$, the
-angular correlations can give influence on both structural and thermodynamics
+\item Secondly,\marginpar compared to atomic models that only depend on $\mathbf{r}^{N}$, the
+angular correlations can give influence on both structural and thermodynamic
 proprieties. That is why our theory is extended to linear case ($\mathbf{\Omega}\equiv(\Theta,\Phi)$)
-then molecular case ($\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$ ).} the intramolecular movement (vibration and internal rotation) should
+then molecular case ($\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$ ).} The intramolecular movement (vibration and internal rotation) should
 be either independent of transitional and rotational movement or absent.
 This rigid molecule approximation assumes that the intermolecular
 potential $\mathcal{U}(\mathbf{r}^{N},\mathbf{\Omega}^{N})$ for $N$
@@ -233,14 +233,14 @@ $\mathbf{r}^{N}\equiv(\mathbf{r}_{1},\mathbf{r}_{2},\ldots,\mathbf{r}_{N})$
 and on their orientations $\mathbf{\Omega}^{N}\equiv(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2},\cdots,\mathbf{\Omega}_{N})$,
 where $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$ represents the Euler
 angles (figure \ref{fig:Euler-angles}). The natural choice for the
-molecular center is the center of mass. This choice is however arbitrary
+molecular center is the center of mass. This is, however, arbitrary
 if only equilibrium properties are considered.
 
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[scale=0.7]{_figure/euler_sphere}
 \par\end{centering}
-\caption[Euler angles]{Euler angles. The basis vectors of the new orientation are obtained
+\caption[Euler angles] The basis vectors of the new orientation are obtained
 by 3 sequential operations: (1) A rotation $\phi$ $(0<\phi<2\pi)$
 about the $z$-axis, bringing the frame of axes from the initial position
 $\mathbf{S}$ into the position $\mathbf{S}'$ (2) A rotation $\theta$
@@ -250,7 +250,7 @@ about the $z$-axis of the frame $\mathbf{S}''$.\label{fig:Euler-angles}}
 \end{figure}
 
 The rigid approximation is quite realistic for molecules in which
-the separation of vibrational states largely exceed $k_{\mathrm{B}}T$,
+the separation of vibrational states largely exceeds $k_{\mathrm{B}}T$,
 implying that the molecule stays in its ground vibrational state.
 This is the case for many small solvent molecules such as $\mathrm{N_{2}}$,
 $\mathrm{CO_{2}}$, $\mathrm{C_{6}H_{6}}$, and indeed for the bending
@@ -265,28 +265,27 @@ separation $\mathbf{r}$ and on the molecular orientations $\mathbf{\Omega}_{1}$
 and $\mathbf{\Omega}_{2}$. This approximation is quasi-exact for
 low density gases, where the contribution of the three and more body
 terms decreases rapidly. But for dense fluids, in most of the cases
-the multi-body potential can not be ignored. The complete model potential
+the multi-body potential cannot be ignored. The complete model potential
 with higher-order corrections can be written in the form of
 \begin{equation}
 \mathcal{U}(\mathbf{r}^{N},\mathbf{\Omega}^{N})=\sum_{i<j}u(ij)+\sum_{i<j<k}u(ijk)+\sum_{i<j<k<l}u(ijkl)+...
 \end{equation}
 where $u(ij)=u(\mathbf{r}_{ij},\mathbf{\Omega_{i}},\mathbf{\Omega_{j}})$
 and $u(ijk)=u(\mathbf{r}_{ij},\mathbf{r}_{jk},\mathbf{r}_{ki},\mathbf{\Omega_{i}},\mathbf{\Omega_{j}},\mathbf{\Omega_{k}})$,
-etc. The omission of the three-body and higher-order terms can cause
-for example error in surface tension and surface energy calculation
+etc. The omission of the three-body and higher-order terms can cause errors in surface tension and surface energy calculation
 \citep{Miyazaki_1975}. However the higher-order terms are often accounted
 for by an effective pair potential (measured by experiments or calculated
 by simulations), which reduces considerably the computational cost
 for simulations, or the degree of theory needed. Such models are presented
 below going from simple to molecular liquids. For the molecular solvent
-considered in this thesis, water, most publications have staid at
+considered in this thesis, water, most publications have stayed at
 this two-body level of description. 
 \end{enumerate}
 
 \subsection{Interaction of spherical particle}
 
 The simplest model of a fluid is the hard sphere model. With $d$
-is the hard-sphere diameter, the pair potential is defined as
+as the hard-sphere diameter, the pair potential is defined as:
 \begin{equation}
 u(r)=\begin{cases}
 \infty & r<d\\
@@ -294,9 +293,9 @@ u(r)=\begin{cases}
 \end{cases}
 \end{equation}
 This model is indeed a fundamental reference model in statistical
-mechanics and it can represent some physical systems, such as neutral
+mechanics, and it can represent some physical systems such as neutral
 colloidal suspensions. However, the absence of attractive force, which
-precludes the existence of a liquid-Gas transition, makes it too simple
+precludes the existence of a liquid-gas transition, makes it too simple
 for realistic fluids. More realistic neutral particle models, like
 the Lenard-Jones (LJ) model, exhibit a potential energy curve that
 has the same shape as the real interaction of rare gas, as shown in
@@ -306,7 +305,7 @@ figure \ref{fig:LJ-pair-potential}.
 \begin{centering}
 \includegraphics[scale=0.82]{_figure/lj-centre}
 \par\end{centering}
-\caption[LJ pair potential]{LJ pair potential. The plot gives the potential energy $u(r)$ versus
+\caption[LJ pair potential] The plot gives the potential energy $u(r)$ versus
 internuclear distance $r$ of two particles. At large distances, both
 attractive and repulsive interactions are small. As the distance between
 the atoms decreases, the attractive electron-proton interactions dominate,
@@ -335,7 +334,7 @@ describes the \textcolor{red}{(quantum?)} dipole-dipole interaction.
 Higher-order terms represent dipole-quadrupole ($r^{-8}$), quadrupole-quadrupole
 ($r^{-10}$) interactions, and so on, but these are negligible compared
 to $r^{-6}$. The short-range interaction is difficult to define properly,
-and, for simplicity and numerical efficiency, it is defined as $r^{-12}$
+and for the sake of simplicity and numerical efficiency, it is defined as $r^{-12}$
 in the LJ model. 
 
 If the spherical particles are charged (as in molten salts), the electrostatic
