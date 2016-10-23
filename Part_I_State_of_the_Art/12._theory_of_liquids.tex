@@ -6,16 +6,16 @@ the Hamiltonian of any given system. In this section, we present some
 basic formalism for a classical atom-like spherical solvent model
 in grand canonical ensemble ($\mu$,$V$,$T$). Firstly, we introduce
 the relations between the statistical mechanics and thermodynamic
-quantities. Then, we change the view to the structure of the solvent.
-The two theories we use in this thesis, here refers to \acs{IET}
-and \acs{MDFT}, as well as their equivalency are proven in the following
-sections. The most of this sections is based on the book of Hansen
+quantities. Then we change the view to the structure of the solvent.
+The two theories we use in this thesis, here refered to as \acs{IET}
+and \acs{MDFT}, as well as their equivalency, are proven in the following
+sections. The majority of these sections is based on the book by Hansen
 \& McDonald \citep{HANSEN_2ed,Hensen-McDonald}, and the articles
 and notes of Evans \citep{Evans_1979,Evans_1984,Evans_1992}.
 
 \section{Hamiltonian and ensemble properties}
 
-Once we defined a spherical solvent model, of which the movement only
+Once we define a spherical solvent model, of which the movement only
 depends on its position and momentum $(\mathbf{r},\mathbf{p})$, the
 instantaneous state (phase point, micro-state) of an $N$-particle
 solvent system is specified by $3N$ coordinates $\mathbf{r}^{N}\equiv\mathbf{r}_{1},\ldots,\mathbf{r}_{N}$
@@ -58,7 +58,7 @@ V_{\mathrm{int}}(\mathbf{r}_{i})=\mu-V_{\mathrm{ext}}(\mathbf{r}_{i})\label{eq:5
 the intrinsic chemical potential. 
 
 We can also define the intrinsic free energy: \marginpar{$N=\int\mathrm{d}\mathbf{r}\rho(\mathbf{r})$ is the number of particles
-in canonical ensemble, but the formula (\ref{eq:f-int}) and (\ref{eq:delta-f-int})
+in canonical ensemble, but the formulae (\ref{eq:f-int}) and (\ref{eq:delta-f-int})
 are also available for grand canonical ensemble.}
 \begin{eqnarray}
 \mathcal{F}_{\mathrm{int}} & = & F-\int\mathrm{d}\mathbf{r}\rho(\mathbf{r})V_{\mathrm{ext}}(\mathbf{r})\nonumber \\
@@ -80,7 +80,7 @@ with $S$ the entropy.
 
 The internal energy of the solvent contains two contributions, one
 due to the kinetic energy of the particles, $K_{N}(\mathbf{p}^{N})$,
-and the other part linked to the interaction between particles, $V_{N}(\mathbf{r}^{N})$.
+and the other linked to the interaction between particles, $V_{N}(\mathbf{r}^{N})$.
 When the fluid is a perfect gas, which means $V_{N}=0$, it can be
 easily derived from eq. (\ref{eq:2}-\ref{eq:5}) that $\mathcal{F}_{\mathrm{int}}$
 has the following expression:
@@ -94,7 +94,7 @@ can be
 \mathcal{F}_{\mathrm{int}}=\mathcal{F}_{\mathrm{id}}+\mathcal{F}_{\mathrm{exc}}\label{eq:f-int-def}
 \end{equation}
 and the form of $\mathcal{F}_{\mathrm{exc}}$ will be detailed in
-latter sections.
+later sections.
 
 \section{Functional derivatives and distribution functions}
 
@@ -103,16 +103,16 @@ characterized by its $n$-particle density
 \begin{equation}
 \rho^{(n)}(\mathbf{r}^{n})=\dfrac{1}{\Xi}\sum_{N=n}^{\infty}\dfrac{1}{(N-n)!}\int\mathrm{d}\mathbf{r}^{\left(N-n\right)}e^{-\beta V_{N}(\mathbf{r}^{N})}\left(\prod_{i=1}^{N}\frac{e^{\beta V_{\mathrm{int}}(\mathbf{r}_{i})}}{\Lambda^{3}}\right)\label{eq:def-rho}
 \end{equation}
-which means the probability to find $n$ particles in an volume element
+which means the probability to find $n$ particles in a volume element
 $\mathrm{d}\mathbf{r}^{n}$. In particular, the probability to find
-one particle in an volume element is the solvent density $\rho^{(1)}(\mathbf{r})=\rho(\mathbf{r})$,
+one particle in a volume element is the solvent density $\rho^{(1)}(\mathbf{r})=\rho(\mathbf{r})$,
 that 
 \begin{equation}
 \rho^{(1)}(\mathbf{r})\mathrm{d}\mathbf{r}=\left\langle N\right\rangle 
 \end{equation}
 where $\left\langle N\right\rangle $ is the ensemble average of the
-number of particle, \textcolor{red}{that is to say the average number
-of particle at equilibrium.} $\rho^{(n)}(\mathbf{r}^{n})$ becomes
+number of particles, \textcolor{red}{that is to say the average number
+of particles at equilibrium.} $\rho^{(n)}(\mathbf{r}^{n})$ becomes
 $\rho^{n}$ if the system is homogeneous. It can be proven that
 \begin{equation}
 \dfrac{\delta\Omega}{\delta V_{\mathrm{int}}(\mathbf{r})}=-\rho^{(1)}(\mathbf{r})
@@ -126,13 +126,12 @@ such that $g^{(n)}(\mathbf{r}^{n})\rightarrow1$ when all pairs of
 particles becomes sufficiently large.
 
 The two-particle pair distribution function (\acs{PDF}), $g^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})$,
-is one of the most important quantity in the theory of liquids. And
-its corresponding pair correlation function (\acs{PCF}) is defined
+is one of the most important quantities in the theory of liquids. Its corresponding pair correlation function (\acs{PCF}) is defined
 as:
 \begin{equation}
 h^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})=g^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})-1
 \end{equation}
-and it vanishes when $\left|\mathbf{r}_{1}-\mathbf{r}_{2}\right|\rightarrow\infty$.
+which vanishes when $\left|\mathbf{r}_{1}-\mathbf{r}_{2}\right|\rightarrow\infty$.
 
 If we define the density-density correlation function as: \marginpar{For any ensemble.}
 \begin{equation}
@@ -182,9 +181,9 @@ which is called the Ornstein-Zernike (\acs{OZ}) equation.
 
 \section{Classical density functional theory}
 
-The density functional theory is based on two theorems :
+The density functional theory is based on two theorems:
 \begin{enumerate}
-\item For a given choices $V_{N}$, $T$ and $\mu$, the intrinsic free
+\item For a given choice $V_{N}$, $T$ and $\mu$, the intrinsic free
 energy functional $\mathcal{F}_{\mathrm{int}}$ is a unique functional
 of the equilibrium one-particle density $\rho^{(1)}(\mathbf{r})$,
 expressed by $\mathcal{F}_{\mathrm{int}}[\rho^{(1)}]$.
@@ -199,23 +198,23 @@ that
 \begin{equation}
 \Omega[n]\geq\Omega[\rho^{(1)}]
 \end{equation}
-with the equal sign takes at $n(\mathbf{r})=\rho^{(1)}(\mathbf{r})$.
+with the equal sign takes at $n(\mathbf{r})=\rho^{(1)}(\mathbf{r})$. <!-- Not sure about "equal sign takes". What is it saying? -->
 The differentiation of eq. (\ref{eq:omega-p}) with respect to $n(\mathbf{r})$
 gives
 \begin{equation}
 \left.\frac{\delta\Omega[n]}{\delta n(\mathbf{r})}\right|_{n=\rho^{(1)}}=\left.\frac{\delta\mathcal{F}_{\mathrm{int}}[n]}{\delta n(\mathbf{r})}\right|_{n=\rho^{(1)}}-V_{\mathrm{int}}(\mathbf{r})=0\label{eq:26}
 \end{equation}
-with the right hand vanishes as eq. (\ref{eq:delta-f-int}).
+with the right hand vanishes as eq. (\ref{eq:delta-f-int}). <!-- Same problem as above with "right hand vanishes" -->
 \end{enumerate}
-These theorems build an approach, that for a given choices $V_{N}$,
+These theorems build an approach that, for a given choice $V_{N}$,
 $T$ and $\mu$ and an external potential $V_{\mathrm{ext}}$, amounts
-to minimize the total Helmholtz free energy functional of the solvent
+to minimize the total Helmholtz free energy functional of the solvent:
 \begin{equation}
 \mathcal{F}[n(\mathbf{r})]=\mathcal{F}_{\mathrm{int}}+\mathcal{F}_{\mathrm{ext}}=\mathcal{F}_{\mathrm{id}}+\mathcal{F}_{\mathrm{exc}}+\mathcal{F}_{\mathrm{ext}}
 \end{equation}
-gives the equilibrium density of solvent $\rho^{(1)}(\mathbf{r})$,
+This gives the equilibrium density of solvent $\rho^{(1)}(\mathbf{r})$,
 $\mathcal{F}_{\mathrm{ext}}=\int\mathrm{d}\mathbf{r}n(\mathbf{r})V_{\mathrm{ext}}(\mathbf{r})$
-defined the external functional. Noted that eq. (\ref{eq:26}) is
+defined as the external functional. Note that eq. (\ref{eq:26}) is
 then equivalent to
 
 \begin{equation}
@@ -225,7 +224,7 @@ then equivalent to
 The external term $\mathcal{F}_{\mathrm{exc}}$ of the Helmholtz free
 energy functional can be given by defining a reference homogeneous
 single-particle density $\rho_{0}$ of bulk solvent at equilibrium,
-and the corresponding bulk /acs{DCF} defined as in eq. (\ref{eq:def-dcf})
+and the corresponding bulk /acs{DCF} defined in eq. (\ref{eq:def-dcf})
 via Taylor expansion:
 \begin{eqnarray}
 \mathcal{F}_{\mathrm{exc}}\left[\rho^{(1)}\right] & \equiv & \mathcal{F}_{\mathrm{exc}}\left[\rho_{0}\right]+\int\mathrm{d}\mathbf{r}_{1}\left.\frac{\delta\mathcal{F}_{\mathrm{exc}}\left[\rho^{(1)}\right]}{\delta\rho^{(1)}(\mathbf{r}_{1})}\right|_{\rho^{(1)}=\rho_{0}}\Delta\rho(\mathbf{r}_{1})\nonumber \\
@@ -248,7 +247,7 @@ orientations matter is described in $\mathsection$\ref{chpt:iem-mdft}.
 
 \section{Integral equation theory}
 
-Different with \acs{MDFT} which aims to find the equilibrium solvent
+As opposed to \acs{MDFT} which aims to find the equilibrium solvent
 density $\rho$ and the Helmholtz free energy $\mathcal{F}$, the
 integral equation theory (\acs{IET}) aims to find the pair distribution
 function $g$ and the \textcolor{red}{gradient of energy $\gamma$.}
@@ -257,7 +256,7 @@ Both theories give complete information of solvation energy and structure.
 \acs{IET} is about to solve a pair of integral equations of $h^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})$
 and $c^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})$. One of these equations
 is the \acs{OZ} equation shown as eq. (\ref{eq:oz-origine}). The
-other one is a closure equation, which can be deduced from eq. (\ref{eq:26}),
+other is a closure equation, which can be deduced from eq. (\ref{eq:26}),
 giving the minimum density 
 
 \begin{equation}
@@ -275,7 +274,7 @@ The general relation to close the OZ equation is
 \begin{equation}
 g(1,2)=\exp\left[-\beta u(1,2)+h(1,2)-c(1,2)+b(1,2)\right]
 \end{equation}
-where the $b$ is the bridge function. Other closure are also possible,
+where the $b$ is the bridge function. Further closure is also possible,
 such as Percus-Yevick (PY) approximation or mean-spherical approximation
 (MSA).
 
@@ -292,7 +291,7 @@ $\nu\in\left[1,n\right]$.
 
 For a two-component homogeneous solute-solvent mixture, where the
 solute (M) is infinitely diluted in the solvent (S) ($x_{S}\rightarrow1$),
-the coupled \acs{OZ} relations is written as
+the coupled \acs{OZ} relations are written as
 \begin{equation}
 h_{\mathrm{SS}}(1,2)=c_{\mathrm{SS}}(1,2)+\rho\int h_{\mathrm{SS}}(1,3)c_{\mathrm{SS}}(2,3)\mathrm{d}3\label{eq:2oz1}
 \end{equation}
@@ -308,7 +307,7 @@ h_{\mathrm{MM}}(1,2)=c_{\mathrm{MM}}(1,2)+\rho\int h_{\mathrm{MS}}(1,3)c_{\mathr
 
 Eq. (\ref{eq:2oz1}) is the \acs{OZ} equation for bulk solvent, and
 eq. (\ref{eq:2oz4}) has no physical interest as $r_{MM}\rightarrow\infty$.
-Eq. (\ref{eq:2oz2}) and (\ref{eq:2oz3}) describe the correlations
+Eqs. (\ref{eq:2oz2}) and (\ref{eq:2oz3}) describe the correlations
 between the solute and solvents, which are equivalent. From eq. (\ref{eq:2oz3})
 we can deduce eq. (\ref{eq:minimize-anal}) which is the analytical
 result of eq. (\ref{eq:26}) in the \acs{MDFT}. And in \acs{IET},
