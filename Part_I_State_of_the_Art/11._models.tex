@@ -346,13 +346,13 @@ u_{\mathrm{Coul}}(r)=\frac{q_{1}q_{2}}{4\pi\varepsilon_{0}r}
 
 For such charged simple fluids, the overall pair $u(r)$ is a sum
 of LJ and Coulomb interactions. Such \textcolor{red}{decomposition}
-can be extended to molecular fluids in terms site-site interactions,
+can be extended to molecular fluids in terms of site-site interactions,
 which are discussed in the following section.
 
 \subsection{Site-site interactions}
 
 Indeed, a spherical description of interactions is not sufficient
-to well describe molecular fluids. The site-site model is a further
+to fully describe molecular fluids. The site-site model is a further
 extension of atomic models, in which the solvent molecule is represented
 by a set of discrete interaction sites. The total potential energy
 is a sum of spherical interaction potentials:
@@ -361,7 +361,7 @@ u(1,2)=\frac{1}{2}\sum_{\alpha}\sum_{\beta}u_{\alpha\beta}(\left|\mathbf{r}_{2\b
 \end{equation}
 \textcolor{red}{(the $1/2$ ?) }where $\mathbf{r}_{is}$ is the coordinates
 of site $s$ in molecule $i$, $u_{\alpha\beta}(r)$ the interatomic
-potential energy of pair of sites $\alpha$, $\beta$, as discussed
+potential energy of pairs of sites $\alpha$ and $\beta$, as discussed
 above. More specifically, it is generally decomposed into a Lennard-Jones
 and a Coulombic contribution:
 \begin{equation}
@@ -374,7 +374,7 @@ model is the most commonly adopted, and it will be so in this thesis.
 
 \subsection{Multipole and spherical harmonic expansion}
 
-To obtain less terms in the calculation, the model potential can be
+To obtain fewer terms in the calculation, the model potential can be
 presented in convergent series via multipole or spherical harmonic
 expansion.
 
@@ -394,7 +394,7 @@ T(\mathbf{r})=\nabla^{2}\left(\dfrac{1}{r}\right)=3\mathbf{r}\mathbf{r}/r^{5}-\m
 and $\mathbf{I}$ is the unit tensor. Note that this model can be
 made more realistic by including higher-order electrostatic interactions,
 such as dipole-quadrupole, quadrupole-quadrupole, etc. Such a systematic
-multipolar approach has been proposed for water \citep{Chowdhuri_2006}.
+multipolar approach has been proposed before for water \citep{Chowdhuri_2006}.
 
 Alternatively, the intermolecular potential can be expanded onto rotational
 invariants in the form:
@@ -404,12 +404,12 @@ u(\mathbf{r}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})=\sum_{mnl\mu\nu}u_{\m
 where the angular basis functions $\Phi_{\mu\nu}^{mnl}(\hat{\mathbf{r}}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 can be expressed in terms of generalized spherical harmonics (\acs{GSH}s)
 \citep{Gray-Gubbins}. A detailed description of rotational invariant
-transform is in appendix \ref{chpt:rotational-invariant-expansion}.
+transform is in the appendix \ref{chpt:rotational-invariant-expansion}.
 
 \subsection{SPC/E water model}
 
-As water cannot be perfectly described by a pair potential due to
-multi-body effects, quantum effects, hydrogen bond, etc., various
+As water cannot be perfectly described by a pair potential (due to
+multi-body effects, quantum effects, hydrogen bond, etc.), various
 models have been developed to fit a maximum number of properties.
 Those models contain several sites, which can be placed possibly elsewhere
 than at the center of atoms (figure \ref{fig:Water-models}). The
@@ -425,13 +425,13 @@ most widely used water models.
 \end{figure}
 
 In this thesis, we use the extended simple point charge model (SPC/E)
-of water \citep{SPC/E} as our solvent model though all this thesis.
+of water \citep{SPC/E} as our solvent model through all this thesis.
 \marginpar{It should be noted that any rigid solvent model is compatible with
 the theory of liquids, e. g. acetonitrile used in \citep{Zhao_2011}.} It is a 3-site model, the electrostatic interaction being modeled
 using Coulomb's Law and the dispersion and repulsion forces using
 the Lennard-Jones potential, as described above.
 
-With respect to the original SPC model, the SPC/E model adds an polarization
+With respect to the original SPC model, the SPC/E model adds a polarization
 correction term to the SPC potential energy in order to better match
 the experiment:
 
@@ -485,8 +485,8 @@ experiment & 18.0685 {[}1006{]} &  & 78.4 & 2.95\tabularnewline
 Up to this point, molecules were considered as rigid bodies. Flexible
 models give extra degrees of freedom in vibration and internal rotation.
 In that case, the interaction potential contains several extra terms,
-yielding typically five kinds of forces: three for the direct interactions,
-in addition to the indirect interactions (LJ and Coulomb).
+yielding typically five kinds of forces: three for the direct interactions
+in addition to the two indirect interactions (LJ and Coulomb).
 
 \begin{figure}[h]
 \begin{centering}
@@ -503,7 +503,7 @@ the action of the external electric field) can be taken into account
 even in a rigid model. This polarizability can be described by introducing
 a modifiable charge distribution, for example by adding an induced
 dipole at the molecular center of the molecule, or even on each of
-its atomic site, and by solving the set of induced dipoles self-consistently.
+its atomic sites, and by solving the set of induced dipoles self-consistently.
 Introducing variable atomic charges is possible too \textcolor{red}{{[}ref{]}}.
 Optimizing the induced charges/dipoles has a large computational overhead
 compared to fixed charges.
@@ -512,7 +512,7 @@ Complex models require expensive computing cost, but still can have
 large fluctuations due to use of imposed small system size. There
 is a compromise between the choice of model and the choice of system
 size. For this reason, the rigid models are still nowadays the most
-popular. On the other hand, computing technologies have largely developed
+popular. On the other hand, computing technologies have greatly developed
 compared to the theories themselves, which makes it possible to use
 more and more precise models in computation. 
 
@@ -522,12 +522,12 @@ The model of solute also have a substantial influence on the predicted
 energy and structure of solvation. The solute can eventually be treated
 by \acs{QM} calculations in terms of wave function and electron density.
 This is the case for the implicit SCRF method, which for apolar solvents
-(toluene, etc.) has been proven to work well. There is a clear mismatch
+(i.e. toluene) has been proven to work well. There is a clear mismatch
 , however, between the very refined description of the solute and
 the rather primitive continuous-medium treatment of the solvent. The
 compromise to have a better model of solvent or solute is debatable,
 and should vary according to the applications. On the other extreme,
-for example, one never uses a quantum solvent model with an implicit
+ one never uses a quantum solvent model with an implicit
 solute; this would not be profitable even if the solute is of simple
 geometry (wall). In the case of molecular solutes, it is consistent
 to require the solute and solvent to have at least the same scale
@@ -542,12 +542,12 @@ of potential models described in figure (\ref{fig:Hierarchy-of-models}).
 \end{minipage}\caption{Hierarchy of models\label{fig:Hierarchy-of-models}}
 \end{figure}
 
-In this thesis, we will use as a first step a rigid molecular model
+In this thesis, our first step will be to use a rigid molecular model
 to describe the solute. This is coherent with IET, which cannot treat
 the solvent and solute at different scales of description. Polarizable
 and/or flexible models of solute, and the coupling of a QM solute
-to the molecular solvent will be described in perspective.
+to the molecular solvent, will be described in perspective.
 
-In a word of conclusion, the choice of model for the solute/solvent
+In conclusion, the choice of model for the solute/solvent
 system is a compromise between the required precision according to
 the application, and the computing cost that the research can afford.
