@@ -5,34 +5,34 @@ Computing models of solvents are broadly divided into two types: those
 treating the solvent as a continuous medium (implicit models) and
 those describing the individual solvent molecules (explicit models).
 In the continuum model, the solvent is characterized by the dielectric
-constant $\varepsilon$ and contains an artificially-shaped cavity.
+constant $\varepsilon$ and contains an artificially shaped cavity.
 The explicit models can have more specific microscopic scales. Within
-the scope of classical mechanics, the most detailed thus the most
-expensive methods involve flexible and polarizable explicit models.
+the scope of classical mechanics, the most detailed (and thus the most
+expensive) methods involve flexible and polarizable explicit models,
 while in computational chemistry, less detailed models often have
 wider usage (for example, the proteins are treated in the unity of
-residues). As the theory of liquids was firstly established for spherical
-atom-like solvent particles, the model adopted by such theory is a
-rigid entity carrying distributed point charges, characterized by
+residues). As the theory of liquids was initially established for spherical
+atom-like solvent particles, the model adopted by such a theory is a
+rigid entity carrying distributed point charges characterized by
 their position and orientation, i. e. there is no internal movement
 considered. This approximation has been proven reasonable \citep{Gray-Gubbins}.
-There also exist models of which the scale lies in between the implicit
-and explicit models, for example the so-called coarse-grained models,
-which involve to gather groups of atoms into a single interaction
+There also exist models in which the scale lies somewhere between the implicit
+and explicit models; for example, so-called coarse-grained models,
+which gather groups of atoms into a single interaction
 site.
 
 In this section, we will give a brief introduction of the implicit
 model in order to facilitate later discussion on solvation free energy
 corrections. We will then focus on the rigid solvent models and discuss
-the limits of such approximation. The flexible and polarizable models
+the limits of such approximations. The flexible and polarizable models
 will also be briefly mentioned. 
 
 \section{Continuum solvation models}
 
 Continuum models \citep{Jensen,Cramer_1999,Tomasi_1994_implicit_model},
 which are popular in QM calculations, consider the solvent as a uniform
-polarizable medium with dielectric constant $\varepsilon$\marginpar{The dielectric constant $\varepsilon$ is the key parameter characterizing
-the solvent. It is normally a constant value, but it can depend on
+polarizable medium with dielectric constant $\varepsilon$\marginpar. The dielectric constant $\varepsilon$ is the key parameter characterizing
+the solvent. It is normally a constant value, but that can depend on
 the distance from the solute $M$. (see $\mathsection$\ref{subsec:Poisson=002013Boltzmann-methods})}, with the solute $M$ placed in the cavity within this medium (figure
 \ref{fig:Reaction-field-model}) 
 
@@ -52,19 +52,19 @@ a hole in the medium, and $\Delta G_{\mathrm{dispersion}}$ is the
 dispersion interaction, which is roughly the van der Waals energy
 $\Delta G_{\mathrm{vdW}}<0$ between the solvent and solute. In principle,
 there may also be a repulsive component, and the dispersion term is
-sometimes denoted dispersion / repulsion. $\Delta G_{\mathrm{elec}}<0$
+sometimes denoted dispersion/repulsion. $\Delta G_{\mathrm{elec}}<0$
 is the contribution of electrostatic interactions, introduced by electric
 charge distribution of $M$ which polarizes the medium, and the action
 back of the medium on the molecule (reaction field). 
 
 The initial two terms in eq. (\ref{eq:cm}) are linked to the configuration
-of the first solvation shell (cavity). The definition of cavity varies
+of the first solvation shell (cavity). The definition of cavity varies,
 from the simplest sphere or ellipsoid to the ensemble of atomic surfaces
-defined by the van der Waals radii in the solute. It is somehow reasonable
-to consider the cavity area proportional to the number of solvent
+defined by the van der Waals radii in the solute. It is somewhat reasonable
+to consider the cavity area as proportional to the number of solvent
 molecules in the first solvation shell. This number can be calculated
-as the area passing through the middle region of first shell solvent.
-This area, named as the solvent-accessible surface area (SASA) \citep{SAS_1,SAS_2},
+as the area passing through the middle region of the first shell solvent.
+This area, named the solvent-accessible surface area (SASA) \citep{SAS_1,SAS_2},
 can be calculated by adding the radius of the probe solvent ball on
 the solvent excluded surface area (figure \ref{fig:sasa}).
 
@@ -93,17 +93,17 @@ solvation data:
 \Delta G_{\mathrm{cavity}}+\Delta G_{\mathrm{dispersion}}=\sum_{i}^{\mathrm{atoms}}\xi_{i}S_{i}
 \end{equation}
 
-The models and methods to calculate the electrostatic contribution
+The models and methods employed to calculate the electrostatic contribution
 $\Delta G_{\mathrm{elec}}$ have varied greatly according to their
-usage. The sections below list the most common examples. By the way,
+usage. The sections below list the most common examples. On another topic,
 the integration of continuum models into \acs{QM} calculations is
 also a very important field; these developments will not be detailed
-here as they do not connect yet to our work. Such kinds of method
+here as they do not connect yet to our work. Such kinds of methods
 are called the self-consistent reaction field (SCRF) models, which
 integrate the calculation of the solute-solvent interaction in addition
 to that of the solute wave function by an iterative procedure. Some
 examples are presented in the list of Gaussian keyword SCRF \citep{scrf},
-and the field is well reviewed by for example Tomasi \citep{Tomasi_1994_implicit_model,tomasi_quantum_2005}
+and the field is well reviewed by, for example, Tomasi \citep{Tomasi_1994_implicit_model,tomasi_quantum_2005}
 and Jensen \citep{Jensen}.
 
 \subsection{Poisson-Boltzmann methods\label{subsec:Poisson=002013Boltzmann-methods}}
@@ -116,7 +116,7 @@ the electrostatic component of the free energy can be written as
 \Delta G_{\mathrm{elec}}=\frac{1}{2}\int\mathrm{d}\mathbf{r}\rho_{q}(\mathbf{r})V_{\mathrm{elec}}(\mathbf{r})
 \end{equation}
 where $\rho_{q}$ is the charge distribution \textcolor{red}{(of the
-solute?)}
+solute?)}.
 
 The Maxwell-Gauss equation in SI units convention gives
 \begin{equation}
@@ -124,9 +124,9 @@ The Maxwell-Gauss equation in SI units convention gives
 \end{equation}
 where $D(\mathbf{r})=\varepsilon_{0}E(\mathbf{r})+P(\mathbf{r})$
 is the electric displacement field, $P(\mathbf{r})$ is the system
-polarization, $E(\mathbf{r})$ the electric field, $\varepsilon_{0}$
+polarization, $E(\mathbf{r})$ the electric field, and $\varepsilon_{0}$
 the vacuum permittivity. $D(\mathbf{r})$ can also be expressed in
-term of the position-dependent dielectric constant $\varepsilon(\mathbf{r})$,
+terms of the position-dependent dielectric constant $\varepsilon(\mathbf{r})$,
 $D(\mathbf{r})=\varepsilon(\mathbf{r})E(\mathbf{r})$, which thus
 gives
 \begin{equation}
