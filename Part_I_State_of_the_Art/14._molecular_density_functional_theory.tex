@@ -1,8 +1,7 @@
 
 \chapter{Code MDFT\label{chpt:mdft}}
 
-The code MDFT, which all the development during this thesis is based
-on, is a Fortran 95 sequential code developed by Maximilien Levesque,
+The code MDFT upon which all the development during this thesis is based is a Fortran 95 sequential code developed by Maximilien Levesque,
 Daniel Borgis \textit{et al.} \textcolor{red}{{[}ref{]}}, which implement
 the \acs{MDFT} theory. It reads the force field (pair potential)
 $u(\mathbf{r},\mathbf{\Omega})$ describing the solute and the solvent
@@ -25,7 +24,7 @@ shown in figure \ref{fig:code-mdft}.
 $L_{x}\times L_{y}\times L_{z}$ Å$^{3}$ space is discretized on
 a regular grid of $\textrm{nfft}_{1}\times\textrm{nfft}_{2}\times\textrm{nfft}_{3}$
 nodes. Angular grid is discretized with Lebedev (L) or Gauss-Legendre
-(GL) quadrature for $\bm{\Omega}\equiv\left\{ \theta,\phi\right\} ,\theta\in\left[0,\pi\right],\phi\in\left[0,2\pi\right]$,
+(GL) quadrature for $\bm{\Omega}\equiv\left\{ \theta,\phi\right\},\theta\in\left[0,\pi\right],\phi\in\left[0,2\pi\right]$,
 and regular quadrature for $\psi\in\left[0,\pi\right]$.
 
 The solute center is at $\left(\dfrac{L_{x}}{2},\dfrac{L_{y}}{2},\dfrac{L_{z}}{2}\right)$
@@ -38,7 +37,7 @@ The minimizer adopted by MDFT is the L-BFGS-B \citep{Zhu_1994_bfgs,Zhu_bfgs_1997
 package version 3.0 written in Fortran 77, implementing the limited-memory
 Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm with constraints
 of the form $l\leq x\leq u$ to the variable $x$. \textcolor{red}{During
-the evaluation of the initial code which use L-BFGS,} the constraint
+the evaluation of the initial code which uses L-BFGS,} the constraint
 function is not used.
 
 The functional $\mathcal{F}[x_{i}]$ and the gradient of functional
@@ -77,8 +76,8 @@ so that
 According to the definition (\ref{eq:cg_vect}), we see
 \begin{equation}
 \frac{\delta\rho(\mathbf{r},\mathbf{\Omega})}{\delta\varphi}=2\rho_{0}\varphi(\mathbf{r},\mathbf{\Omega})
-\end{equation}
-Therefore the gradient to feed the L-BFGS minimizer
+\end{equation}.
+Therefore the gradient to feed the L-BFGS minimizer is
 \begin{equation}
 \frac{\delta\mathcal{F}}{\delta\varphi}=\frac{\delta\mathcal{F}}{\delta\rho}\cdot\frac{\delta\rho}{\delta\varphi}=2\rho_{0}\varphi(\mathbf{r},\mathbf{\Omega})\cdot\left[\beta^{-1}\ln\varphi^{2}+V_{\mathrm{ext}}+V_{\mathrm{exc}}\right]
 \end{equation}
