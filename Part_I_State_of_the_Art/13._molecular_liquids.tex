@@ -1,19 +1,19 @@
 
 \chapter{Approach to Molecular Solvents\label{chpt:iem-mdft}}
 
-We now consider the case of a non-spherical, molecular solvent, like
+We now consider the case of a non-spherical molecular solvent, like
 water. The solvent molecules now carry a molecular structure that
 is described by a collection of distributed atomic interaction sites
 (LJ and Coulombic). The two theories mentioned in the previous section
 are formulated in the molecular picture in which each solvent molecule
 is considered as a rigid body and characterized by its position, $\mathbf{r}$
-(e. g. the position of center of mass), and by its orientation, $\mathbf{\Omega}$,
+(e. g. the position of center of mass), and its orientation, $\mathbf{\Omega}$,
 defined by the three Euler angles $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$.
 In \acs{MDFT}, the solvent is characterized by an inhomogeneous position
 and orientation density $\rho(\mathbf{r},\mathbf{\Omega})$. In \acs{IET},
 an angular dependent form of the pair distribution function $g(\mathbf{X}_{1},\mathbf{X}_{2})$
 ($X\equiv(\mathbf{r},\mathbf{\Omega})$) is proposed, and the molecular
-\acs{OZ} equation is expended on rotational invariants. Another way
+\acs{OZ} equation is expanded on rotational invariants. Another way
 to extend the IET is the RISM \citep{hirata_molecular_2004} which
 will not be discussed in this thesis.
 
@@ -28,11 +28,11 @@ of the grand potential with that of the orientations):
 \begin{equation}
 \Theta[\rho(\mathbf{r},\mathbf{\Omega})]=\Theta[\rho_{0}]+\mathcal{F}[\rho(\mathbf{r},\mathbf{\Omega})]
 \end{equation}
-Where $\Theta[\rho_{0}]$ is the correspondent reference bulk fluid
-grand potential. And $\rho$ is the fluid density function depending
+where $\Theta[\rho_{0}]$ is the correspondent reference bulk fluid
+grand potential and $\rho$ is the fluid density function depending
 now on 5 or 6 variables, 3 coordinates of the positions, and 2 or
-3 for the angular part depending if the molecule is linear or not.
-The homogeneous density is equal to $n_{0}/4\pi$for a linear solvent,
+3 for the angular part depending on whether the molecule is linear or not.
+The homogeneous density is equal to $n_{0}/4\pi$for a linear solvent, and
 $n_{0}/8\pi^{2}$ for the general case.
 
 According to the variation principle described above, the equilibrium
@@ -42,7 +42,7 @@ regarding to $\rho(\mathbf{r},\mathbf{\Omega})$:
 \left.\frac{\delta\mathcal{F}[\rho]}{\delta\rho(\mathbf{r},\mathbf{\Omega})}\right|_{\rho=\rho_{0}}=0
 \end{equation}
 
-And this functional is defined as a sum of functional contributions:
+This functional is defined as a sum of functional contributions:
 \begin{equation}
 \mathcal{F}[\rho]=\mathcal{F}_{\mathrm{id}}[\rho]+\mathcal{F}_{\mathrm{ext}}[\rho]+\mathcal{F}_{\mathrm{exc}}[\rho]\label{eq:fff}
 \end{equation}
@@ -55,9 +55,9 @@ the particle interaction-free condition:
 \begin{equation}
 \mathcal{F}_{\mathrm{id}}[\rho]=\beta^{-1}\int\mathrm{d}\mathbf{r}\mathrm{d\Omega}\left[\mathbf{\mathbf{\ln\left(\frac{\rho(\mathbf{r},\mathbf{\mathbf{\mathbf{\mathbf{\Omega}}}})}{\rho_{0}}\right)}}-\rho(\mathbf{r},\mathbf{\mathbf{\mathbf{\Omega}}})+\rho_{0}\right]
 \end{equation}
-Where $\rho_{0}$ is the reference bulk density of pure solvent. The
+where $\rho_{0}$ is the reference bulk density of pure solvents. The
 differentiation of $\mathcal{F}_{\mathrm{id}}[\rho]$ will be used
-for the minimization, discussed later, has form
+for the minimization, discussed later, which has form
 \begin{equation}
 \frac{\delta\mathcal{F}_{\mathrm{id}}[\rho]}{\delta\rho(\mathbf{r},\mathbf{\Omega})}=\beta^{-1}\ln\left(\dfrac{\rho(\mathbf{r},\mathbf{\Omega})}{\rho_{0}}\right)
 \end{equation}
@@ -65,10 +65,10 @@ for the minimization, discussed later, has form
 
 \subsection{The external term}
 
-The solute, as the solvent, is described in microscopic details by
+The solute, like the solvent, is described in microscopic detail by
 a molecular non-polarizable force field involving atomic Lennard-Jones
-and partial charges parameters, creating at each point in space an
-external potential $V_{\mathrm{ext}}(\mathbf{r},\mathbf{\mathbf{\mathbf{\mathbf{\Omega}}}})$,
+and partial charge parameters, creating at each point in space an
+external potential ($V_{\mathrm{ext}}(\mathbf{r},\mathbf{\mathbf{\mathbf{\mathbf{\Omega}}}})$),
 containing two components:
 \begin{equation}
 V_{\mathrm{ext}}(\mathbf{r},\mathbf{\Omega})=V_{\mathrm{LJ}}(\mathbf{r})+V_{\mathrm{coul}}(\mathbf{r},\mathbf{\Omega})
@@ -84,7 +84,7 @@ The Lennard-Jones potential is given by
 V_{\mathrm{LJ}}(\mathbf{r})=\sum_{u}\sum_{v}4\epsilon_{uv}\left[\left(\dfrac{\sigma_{uv}}{r_{uv}}\right)^{12}-\left(\dfrac{\sigma_{uv}}{r_{uv}}\right)^{6}\right]\label{eq:LJ}
 \end{equation}
 
-where $u$ stands for solute, and $v$ stands for solvent, $\epsilon_{uv}=\sqrt{\epsilon_{u}\epsilon_{v}}$
+where $u$ stands for solute, $v$ stands for solvent, $\epsilon_{uv}=\sqrt{\epsilon_{u}\epsilon_{v}}$
 and $\sigma_{uv}=\left(\sigma_{u}+\sigma_{v}\right)$ are the geometric
 and arithmetic average Lennard-Jones parameters between solute and
 solvent, according to the Lorentz-Berthelot mixing rules. $r_{ij}$
@@ -162,7 +162,7 @@ where $\gamma$ is the normalized gradient of the excess functional:
 
 To evaluate the gradient $\gamma$ for each $\mathbf{(r},\mathbf{\Omega})$,
 $N\equiv N_{\mathbf{r}}N_{\mathbf{\Omega}}$ function evaluations
-(\acs{FE}) are required, the total number of \acs{FE} is thus $N^{2}=O(N^{2})$,
+(\acs{FE}) are required. The total number of \acs{FE} is thus $N^{2}=O(N^{2})$,
 which, with typically $N_{\mathbf{r}}=64^{3}$ and $N_{\mathbf{\Omega}}=50\sim100$,
 is far too costly for current computing technology. For this reason,
 Fourier transform is used to treat the spatial convolution in eq.
@@ -189,13 +189,13 @@ only $N_{\mathbf{r}}N_{\mathbf{\Omega}}^{2}$\acs{FE} are needed.
 To this computational cost should be added the transform from $\Delta\rho(\mathbf{r},\mathbf{\Omega})$
 to $\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega})$ and the backward
 transform from $\hat{\gamma}(\mathbf{k},\mathbf{\Omega})$ to $\gamma(\mathbf{r},\mathbf{\Omega})$
-which are both of order $N_{\mathbf{\Omega}}\cdot O(N_{\mathbf{r}}\log_{2}N_{\mathbf{r}})$,
+which are both of order $N_{\mathbf{\Omega}}\cdot O(N_{\mathbf{r}}\log_{2}N_{\mathbf{r}})$
 due to the properties of Fast Fourier Transforms (\acs{FFT}). The
 total number of \acs{FE} is thus reduced from quadratic complexity
 $O(N_{\mathbf{r}}^{2}N_{\mathbf{\Omega}}^{2})$ to $N_{\mathbf{r}}N_{\mathbf{\Omega}}^{2}+2N_{\mathbf{\Omega}}\cdot O(N_{\mathbf{r}}\log_{2}N_{\mathbf{r}})=O(N_{\mathbf{r}}\log_{2}N_{\mathbf{r}}N_{\mathbf{\Omega}}^{2})$.
 As the total number of spatial grid $N_{\mathbf{r}}$ is of magnitude
 $10^{5}\sim10^{6}$, this procedure, which is mathematically equivalent
-to the direct evaluation (\ref{eq:gamma}), gives a great advantage
+to the direct evaluation (\ref{eq:gamma}), offers a great advantage
 in terms of computational efficiency (figure \ref{fig:order-of-growth}
 in section \ref{chpt:introduction}).
 
@@ -205,17 +205,17 @@ functional can be calculated as eq. (\ref{eq:fexc}).
 
 The input $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 is an angular-dependent \acs{DCF} of the homogeneous solvent which
-depends on the relative position of two molecule $r_{12}$ and their
+depends on the relative position of two molecules $r_{12}$ and their
 orientations (two in the initial code \citep{Zhao_2011}, and three
-developed in this thesis). This quantity is be provided with high
+developed in this thesis). This quantity is provided with high
 precision and in different representations by Luc Belloni, using a
 mixture of Monte-Carlo simulations and inversion of the angular-dependent
 \acs{MOZ} equation within a rotational invariant expansion \citep{puibasset_bridge_2012}.
-A detailed comparison of some \acs{DCF}s are in appendix \textcolor{red}{{[}ref{]}}.
+A detailed comparison of some \acs{DCF}s is in appendix \textcolor{red}{{[}ref{]}}.
 
 \section{Angular dependent integral equation theory}
 
-To extend the \acs{IET} formalism to molecular case, Blum \citep{Blum_I,Blum_II}
+To extend the \acs{IET} formalism to molecular cases, Blum \citep{Blum_I,Blum_II}
 proposed an angular-dependent form of the pair distribution function,
 which is then used in the \acs{IET} formalism. Fries \& Patey \citep{Fries_Patey_1985}
 proposed the numerical solution of the full \acs{HNC} theory using
@@ -235,7 +235,7 @@ and the rotational invariance \textcolor{red}{(attention indices)}:
 g(\mathbf{X}_{1},\mathbf{X}_{2})=\sum_{m,n,l=0}^{\infty}\sum_{\left|\mu,\mu'\right|\leq m,\left|\nu,\nu'\right|\leq m,\left|\lambda\right|\leq l}g_{\mu,\mu'\nu\nu'\lambda}^{mnl}(\left\Vert \mathbf{r}_{12}\right\Vert )R_{\mu\mu'}^{m}(\mathbf{\Omega}_{1})R_{\nu\nu'}^{m}(\mathbf{\Omega}_{2})R_{\lambda0}^{l}(\hat{\mathbf{r}}_{12})
 \end{equation}
 
-The suggestion of Wigner gives an set of rotation invariant:
+The suggestion of Wigner gives a set of rotation invariant:
 \begin{equation}
 \Phi_{\mu'\nu'}^{mnl}(\hat{\mathbf{r}}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})=f^{mnl}\sum_{\mu\nu\lambda}\left(\begin{array}{ccc}
 m & n & l\\
@@ -291,13 +291,13 @@ m & n & l\\
 \chi & -\chi & 0
 \end{array}\right)\hat{\eta}_{\mu\nu}^{mnl}(k)
 \end{equation}
-if $\Phi_{\mu'\nu'}^{mnl}(\hat{\mathbf{r}}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
+If $\Phi_{\mu'\nu'}^{mnl}(\hat{\mathbf{r}}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 is defined with the factor $f^{mnl}=\left[(2m+1)(2n+1)\right]^{1/2},$
 the \acs{MOZ} equation can be reduced by Blum's reduction such that
 \begin{equation}
 \hat{\eta'}_{\mu\nu,\chi}^{mn}(k)=\rho\sum_{n_{1}}\sum_{\nu_{1}=-n_{1}}^{n_{1}}(-)^{\chi+\nu_{1}}\left[\hat{\eta'}_{\mu\nu_{1},\chi}^{mn_{1}}(k)+\hat{c'}_{\mu\nu_{1},\chi}^{mn_{1}}(k)\right]\hat{c'}_{\underline{\nu_{1}}\nu,\chi}^{n_{1}n}(k)
 \end{equation}
-which reduce the calculation of $(\mathbf{X}_{1},\mathbf{X}_{3})$
+which reduces the calculation of $(\mathbf{X}_{1},\mathbf{X}_{3})$
 for $(\mathbf{X}_{3},\mathbf{X}_{2})$ to a sum of $n_{1}$, $\nu_{1}$.
 
 \textcolor{red}{(The part of HNC has non need in this thesis.)}
