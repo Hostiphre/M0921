@@ -1,7 +1,7 @@
 
 \chapter{Basic Concepts about Computing Performance\label{chpt:computing-performance}}
 
-In addition to the theory work, the performance of the code being
+In addition to theory work, the performance of the code being
 developed is also an important aspect of this thesis. It is essential
 to have a fast and accurate method. To evaluate code in a strict and
 systematic way, some basic concepts of computing performance are listed
@@ -17,8 +17,8 @@ over the natural numbers $\mathbb{N}$. We write
 \begin{equation}
 f=O(g)
 \end{equation}
-if there is a constant $c>0$ such that from certain number $n>n_{0}$
-we always have $\left|f(n)\right|\leq c\left|g(n)\right|.$ The $O$
+if there is a constant $c>0$ such that from a certain number $n>n_{0}$
+we always have $\left|f(n)\right|\leq c\left|g(n)\right|$. The $O$
 is also named as the big-O notation \citep{Complexity}, or order
 of growth. Figure \ref{fig:order-of-growth} shows the growth tendency
 of some frequent functions; from this we can conclude the following:
@@ -41,9 +41,9 @@ Other notations can also be used for the same purpose, such as:
 \item The notation $f=\Theta(g)$ means that both $f=O(g)$ and $g=O(f)$
 hold, and we can also say they are of the same order.
 \end{itemize}
-In a code we always search algorithms with a lower algorithm complexity.
-Ideally, the implementation of code matches the model and have the
-same growth tendency as its complexity, but in the practical case,
+In developing code we always search for algorithms with a lower algorithm complexity.
+Ideally, the implementation of code matches the model and has the
+same growth tendency as its complexity. But in the practical case,
 overheads and memory delay can also limit the performance. \textcolor{red}{(part
 to be modified to adapt implementation results)}
 
@@ -103,7 +103,7 @@ of arrays, both play pivotal roles in the overall computing performance.
 \includegraphics{_figure/memory}
 \par\end{centering}
 \caption[Memory usage in hardware level]{Memory usage in hardware level \citep{LRZ-cours}. (a) An example
-of array copy A(:)=C(:). Caches are organized in cache lines (CL),
+of array copy A(:)=C(:). Caches are organized in cache lines (CL);
 only complete cache lines are transferred between memory hierarchy
 levels (except registers). HIT/MISS: Load or store instruction does/doesn't
 find the data in a cache level. (b) Computing latency and memory bandwidth
@@ -115,7 +115,7 @@ processes.\label{fig:Memory}}
 \section{Scalability of parallelized code}
 
 For parallelized code, scalability is the key issue. Highly scalable
-codes can take advantage of numerous nodes of HPC centers, so that
+code can take advantage of numerous nodes of HPC centers, so that
 single core performance no longer matters. 
 
 The speed-up is defined as:
@@ -123,7 +123,7 @@ The speed-up is defined as:
 S(N)=\dfrac{t(1)}{t(N)}
 \end{equation}
 
-And the relative efficiency
+and the relative efficiency is:
 \begin{equation}
 E(N)=\dfrac{S(N)}{N}=\dfrac{t(1)}{Nt(N)}
 \end{equation}
