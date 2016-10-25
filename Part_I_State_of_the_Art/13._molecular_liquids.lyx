@@ -83,18 +83,18 @@ name "chpt:iem-mdft"
 \end_layout
 
 \begin_layout Standard
-We now consider the case of a non-spherical, molecular solvent, like water.
+We now consider the case of a non-spherical molecular solvent, like water.
  The solvent molecules now carry a molecular structure that is described
  by a collection of distributed atomic interaction sites (LJ and Coulombic).
  The two theories mentioned in the previous section are formulated in the
  molecular picture in which each solvent molecule is considered as a rigid
- body and characterized by its position, 
+ body and characterized by its position 
 \begin_inset Formula $\mathbf{r}$
 \end_inset
 
  (e.
  g.
- the position of center of mass), and by its orientation, 
+ the position of center of mass), and its orientation 
 \begin_inset Formula $\mathbf{\Omega}$
 \end_inset
 
@@ -156,7 +156,7 @@ acs{OZ}
 
 \end_inset
 
- equation is expended on rotational invariants.
+ equation is expanded on rotational invariants.
  Another way to extend the IET is the RISM 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -201,23 +201,22 @@ acf{MDFT}
 
 \end_inset
 
-Where 
+where 
 \begin_inset Formula $\Theta[\rho_{0}]$
 \end_inset
 
- is the correspondent reference bulk fluid grand potential.
- And 
+ is the correspondent reference bulk fluid grand potential, and 
 \begin_inset Formula $\rho$
 \end_inset
 
  is the fluid density function depending now on 5 or 6 variables, 3 coordinates
- of the positions, and 2 or 3 for the angular part depending if the molecule
- is linear or not.
+ of the positions, and 2 or 3 for the angular part depending on whether
+ the molecule is linear or not.
  The homogeneous density is equal to 
 \begin_inset Formula $n_{0}/4\pi$
 \end_inset
 
-for a linear solvent, 
+ for a linear solvent, and 
 \begin_inset Formula $n_{0}/8\pi^{2}$
 \end_inset
 
@@ -246,7 +245,7 @@ According to the variation principle described above, the equilibrium density
 \end_layout
 
 \begin_layout Standard
-And this functional is defined as a sum of functional contributions:
+This functional is defined as a sum of functional contributions:
 \begin_inset Formula 
 \begin{equation}
 \mathcal{F}[\rho]=\mathcal{F}_{\mathrm{id}}[\rho]+\mathcal{F}_{\mathrm{ext}}[\rho]+\mathcal{F}_{\mathrm{exc}}[\rho]\label{eq:fff}
@@ -274,16 +273,16 @@ The ideal term
 
 \end_inset
 
-Where 
+where 
 \begin_inset Formula $\rho_{0}$
 \end_inset
 
- is the reference bulk density of pure solvent.
+ is the reference bulk density of the pure solvent.
  The differentiation of 
 \begin_inset Formula $\mathcal{F}_{\mathrm{id}}[\rho]$
 \end_inset
 
- will be used for the minimization, discussed later, has form
+ will be used for the minimization, discussed later, which has form
 \begin_inset Formula 
 \begin{equation}
 \frac{\delta\mathcal{F}_{\mathrm{id}}[\rho]}{\delta\rho(\mathbf{r},\mathbf{\Omega})}=\beta^{-1}\ln\left(\dfrac{\rho(\mathbf{r},\mathbf{\Omega})}{\rho_{0}}\right)
@@ -299,9 +298,9 @@ The external term
 \end_layout
 
 \begin_layout Standard
-The solute, as the solvent, is described in microscopic details by a molecular
+The solute, like the solvent, is described in microscopic detail by a molecular
  non-polarizable force field involving atomic Lennard-Jones and partial
- charges parameters, creating at each point in space an external potential
+ charge parameters, creating at each point in space an external potential
  
 \begin_inset Formula $V_{\mathrm{ext}}(\mathbf{r},\mathbf{\mathbf{\mathbf{\mathbf{\Omega}}}})$
 \end_inset
@@ -350,7 +349,7 @@ where
 \begin_inset Formula $u$
 \end_inset
 
- stands for solute, and 
+ stands for solute, 
 \begin_inset Formula $v$
 \end_inset
 
@@ -575,6 +574,13 @@ where
 
 \begin_layout Subsection
 The excess term
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:The-excess-term"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -658,7 +664,8 @@ acs{FE}
 
 \end_inset
 
-) are required, the total number of 
+) are required.
+ The total number of 
 \begin_inset ERT
 status open
 
@@ -809,7 +816,7 @@ acs{FE}
 \begin_inset Formula $N_{\mathbf{\Omega}}\cdot O(N_{\mathbf{r}}\log_{2}N_{\mathbf{r}})$
 \end_inset
 
-, due to the properties of Fast Fourier Transforms (
+ due to the properties of Fast Fourier Transforms (
 \begin_inset ERT
 status open
 
@@ -861,7 +868,7 @@ reference "eq:gamma"
 
 \end_inset
 
-), gives a great advantage in terms of computational efficiency (figure
+), offers a great advantage in terms of computational efficiency (figure
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -918,7 +925,7 @@ acs{DCF}
 \end_inset
 
  of the homogeneous solvent which depends on the relative position of two
- molecule 
+ molecules 
 \begin_inset Formula $r_{12}$
 \end_inset
 
@@ -966,7 +973,7 @@ acs{DCF}
 
 \end_inset
 
-s are in appendix 
+s is in appendix 
 \color red
 [ref]
 \color inherit
@@ -975,6 +982,13 @@ s are in appendix
 
 \begin_layout Section
 Angular dependent integral equation theory
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Angular-dependent-iem"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -991,7 +1005,7 @@ acs{IET}
 
 \end_inset
 
- formalism to molecular case, Blum 
+ formalism to molecular cases, Blum 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Blum_I,Blum_II"
@@ -1035,6 +1049,10 @@ acs{HNC}
 
  theory using angle-dependent pair potentials.
  The description below is based on these articles.
+\end_layout
+
+\begin_layout Subsection
+Expansion of angular-dependent distribution functions
 \end_layout
 
 \begin_layout Standard
@@ -1083,7 +1101,7 @@ g(\mathbf{X}_{1},\mathbf{X}_{2})=\sum_{m,n,l=0}^{\infty}\sum_{\left|\mu,\mu'\rig
 \end_layout
 
 \begin_layout Standard
-The suggestion of Wigner gives an set of rotation invariant:
+The suggestion of Wigner gives a set of rotation invariant:
 \begin_inset Formula 
 \begin{equation}
 \Phi_{\mu'\nu'}^{mnl}(\hat{\mathbf{r}}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})=f^{mnl}\sum_{\mu\nu\lambda}\left(\begin{array}{ccc}
@@ -1114,6 +1132,10 @@ m & n & l\\
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Blum's reduction of molecular OZ equation
 \end_layout
 
 \begin_layout Standard
@@ -1230,7 +1252,11 @@ m & n & l\\
 
 \end_inset
 
-if 
+
+\end_layout
+
+\begin_layout Standard
+If 
 \begin_inset Formula $\Phi_{\mu'\nu'}^{mnl}(\hat{\mathbf{r}}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 \end_inset
 
@@ -1259,7 +1285,7 @@ acs{MOZ}
 
 \end_inset
 
-which reduce the calculation of 
+which reduces the calculation of 
 \begin_inset Formula $(\mathbf{X}_{1},\mathbf{X}_{3})$
 \end_inset
 

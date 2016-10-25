@@ -589,8 +589,15 @@ use
 \end_inset
 
  issue from 
-\color red
-[ref]
+\size footnotesize
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "puibasset_bridge_2012"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1016,9 +1023,16 @@ naive_nmax1
 [ref]
 \color inherit
  and 
-\color red
-[ref]
-\color inherit
+\size footnotesize
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "puibasset_bridge_2012"
+
+\end_inset
+
+
+\size default
 , whose slight difference is shown in 
 \begin_inset Formula $\mathsection$
 \end_inset

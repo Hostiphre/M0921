@@ -274,28 +274,8 @@ reference "chpt:statistical-mechanics"
  reviews some basic concepts of statistical mechanics for liquids (theory
  of liquids), which present some brief formalisms deduced for an atomic
  solvent model.
- The following section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chpt:iem-mdft"
-
-\end_inset
-
- gives the extension of the theory to molecular solvent in two frontier
- approaches: the integral equation theory (
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{IET}
-\end_layout
-
-\end_inset
-
-), and the molecular density functional theory (
+ Two frontier approaches are then introduced with a few deductions: the
+ molecular density functional theory (
 \begin_inset ERT
 status open
 
@@ -308,9 +288,22 @@ acs{MDFT}
 
 \end_inset
 
-) that this thesis works upon.
- A clear mathematical equivalence between these two theories is also presented,
- which gave us the idea to use the expansion technics in 
+) that this thesis works upon, and the integral equation theory (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+).
+ A mathematical equivalence between these two theories is also presented,
+ which gave us later the idea to use the expansion technics in 
 \begin_inset ERT
 status open
 
@@ -337,7 +330,14 @@ acs{MDFT}
 \end_inset
 
 .
- 
+ The following section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:iem-mdft"
+
+\end_inset
+
+ gives the extension of these theory to molecular solvent case.
 \begin_inset Newline newline
 \end_inset
 
@@ -737,7 +737,8 @@ reference "chpt:algorithms-and-branches"
 
 \end_inset
 
-,
+, gives a brief introduction of all the implementation algorithms built
+ in this thesis.
 \begin_inset Newline newline
 \end_inset
 
@@ -752,7 +753,8 @@ reference "chpt:accuracy"
 
 \end_inset
 
- discussion on precision,
+ compares the accuracy of each algorithm, from parts of the code to entire
+ branches.
 \begin_inset Newline newline
 \end_inset
 
@@ -767,30 +769,10 @@ reference "chpt:seq-code-performance"
 
 \end_inset
 
- computing performance and memory limits,
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset VSpace medskip
-\end_inset
-
-Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chpt:parallelization"
-
-\end_inset
-
- OpenMP, MPI giving the possibility to go beyond the memory limit.
- Due to the complexity of minimizer L-BFGS, this process is only added on
- the part of 
-\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
-\end_inset
-
- evaluation.
- Tests of performance stability with respect to both threads and nodes are
- made.
+ computing performance and memory limits for the sequential code.
+ Due to the time limit, the parallelized version has not been totally built,
+ it is put in the perspectives.
+ 
 \end_layout
 
 \begin_layout Part
@@ -821,16 +803,6 @@ filename "Part_III_Implementation/32._numerical_and_physical_accuracy.lyx"
 \begin_inset CommandInset include
 LatexCommand include
 filename "Part_III_Implementation/33._computing_performance_of_sequential_code.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "Part_III_Implementation/34._computing_performance_of_parallel_code.lyx"
 
 \end_inset
 

@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass classicthesis
 \use_default_options true
 \maintain_unincluded_children false
@@ -9,16 +11,16 @@
 \language_package default
 \inputencoding utf8
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -70,7 +72,7 @@
 \begin_body
 
 \begin_layout Chapter
-Free Energy and Related Thermodynamic Quantities
+Free energy correction for single ions
 \begin_inset CommandInset label
 LatexCommand label
 name "chpt:thermodynamic-quantities"
@@ -91,23 +93,6 @@ The solvation free energy is the most important property that we seek; as
  Here is a discussion about some corrections needed for charged solutes
  and some related thermodynamic quantities that can be obtained directly
  from the solvation free energy.
-\end_layout
-
-\begin_layout Standard
-The solvation properties often involve the three-dimensional microscopic
- structure of the solvent around the dissolved molecule, as well as thermodynami
-c quantities such as the enthalpy, entropy, and free energy of solvation.
- [ref gubbins] pKa [ref]
-\end_layout
-
-\begin_layout Standard
-The solvation properties can be determined if the two principle properties,
- free energy and structure, are accurately calculated.
- In this thesis, we focus on these two aspects.
-\end_layout
-
-\begin_layout Section
-Free energy correction for single ions
 \end_layout
 
 \begin_layout Standard
@@ -144,7 +129,7 @@ key "Kastenholz_2006_II"
 ).
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Correction of type B
 \end_layout
 
@@ -180,7 +165,7 @@ where
 \begin_layout Standard
 \begin_inset Tabular
 <lyxtabular version="3" rows="7" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="left" valignment="top">
 <row>
@@ -406,7 +391,7 @@ It links to Born correction
 .
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Correction of type C
 \end_layout
 
@@ -601,60 +586,6 @@ reference "eq:corr-C"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Section
-Some related thermodynamic quantities
-\end_layout
-
-\begin_layout Standard
-"expansion work" term PV
-\end_layout
-
-\begin_layout Standard
-Thermodynamic quantities such as the internal energy, pressure, compressibility
- and heat capacity are obtained as derivatives of the classical partition
- function.
- [Evans poly]
-\end_layout
-
-\begin_layout Standard
-Structure and Thermodynamic Properties of Bulk Liquids
-\end_layout
-
-\begin_layout Standard
-pressure is (virial pressure equation) 
-\begin_inset Formula 
-\begin{equation}
-p=\rho k_{\mathrm{B}}T-\dfrac{\rho^{2}}{2}\int\mathrm{d}\mathbf{r}g(r)\frac{r}{3}\frac{\mathrm{d}u(r)}{\mathrm{d}r}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-the The Gibbs free energy G is simply [Evans 1979]
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $G=\mu\int\mathrm{d}\mathbf{r}\rho(\mathbf{r})$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Solubility
-\end_layout
-
-\begin_layout Subsection
-Pressure
-\end_layout
-
-\begin_layout Standard
-enthalpy, entropy [3] pH
 \end_layout
 
 \end_body

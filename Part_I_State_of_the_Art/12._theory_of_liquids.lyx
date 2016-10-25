@@ -101,8 +101,8 @@ Statistical mechanics serves to deduce thermodynamic quantities from the
 ).
  Firstly, we introduce the relations between the statistical mechanics and
  thermodynamic quantities.
- Then, we change the view to the structure of the solvent.
- The two theories we use in this thesis, here refers to 
+ Then we change the view to the structure of the solvent.
+ The two theories we use in this thesis, here referred to as 
 \begin_inset ERT
 status open
 
@@ -128,8 +128,9 @@ acs{MDFT}
 
 \end_inset
 
-, as well as their equivalency are proven in the following sections.
- The most of this sections is based on the book of Hansen & McDonald 
+, as well as their equivalency, are proven in the following sections.
+ The majority of these sections is based on the book by Hansen & McDonald
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "HANSEN_2ed,Hensen-McDonald"
@@ -151,7 +152,7 @@ Hamiltonian and ensemble properties
 \end_layout
 
 \begin_layout Standard
-Once we defined a spherical solvent model, of which the movement only depends
+Once we define a spherical solvent model, of which the movement only depends
  on its position and momentum 
 \begin_inset Formula $(\mathbf{r},\mathbf{p})$
 \end_inset
@@ -363,7 +364,7 @@ status open
 \begin_inset Formula $N=\int\mathrm{d}\mathbf{r}\rho(\mathbf{r})$
 \end_inset
 
- is the number of particles in canonical ensemble, but the formula (
+ is the number of particles in canonical ensemble, but the formulae (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:f-int"
@@ -433,7 +434,7 @@ The internal energy of the solvent contains two contributions, one due to
 \begin_inset Formula $K_{N}(\mathbf{p}^{N})$
 \end_inset
 
-, and the other part linked to the interaction between particles, 
+, and the other linked to the interaction between particles, 
 \begin_inset Formula $V_{N}(\mathbf{r}^{N})$
 \end_inset
 
@@ -489,7 +490,7 @@ and the form of
 \begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
 \end_inset
 
- will be detailed in latter sections.
+ will be detailed in later sections.
 \end_layout
 
 \begin_layout Section
@@ -514,12 +515,12 @@ which means the probability to find
 \begin_inset Formula $n$
 \end_inset
 
- particles in an volume element 
+ particles in a volume element 
 \begin_inset Formula $\mathrm{d}\mathbf{r}^{n}$
 \end_inset
 
 .
- In particular, the probability to find one particle in an volume element
+ In particular, the probability to find one particle in a volume element
  is the solvent density 
 \begin_inset Formula $\rho^{(1)}(\mathbf{r})=\rho(\mathbf{r})$
 \end_inset
@@ -536,9 +537,9 @@ where
 \begin_inset Formula $\left\langle N\right\rangle $
 \end_inset
 
- is the ensemble average of the number of particle, 
+ is the ensemble average of the number of particles, 
 \color red
-that is to say the average number of particle at equilibrium.
+that is to say the average number of particles at equilibrium.
 
 \color inherit
  
@@ -599,8 +600,8 @@ acs{PDF}
 \begin_inset Formula $g^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})$
 \end_inset
 
-, is one of the most important quantity in the theory of liquids.
- And its corresponding pair correlation function (
+, is one of the most important quantities in the theory of liquids.
+ Its corresponding pair correlation function (
 \begin_inset ERT
 status open
 
@@ -621,7 +622,7 @@ h^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})=g^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})-1
 
 \end_inset
 
-and it vanishes when 
+which vanishes when 
 \begin_inset Formula $\left|\mathbf{r}_{1}-\mathbf{r}_{2}\right|\rightarrow\infty$
 \end_inset
 
@@ -805,7 +806,7 @@ The density functional theory is based on two theorems :
 \end_layout
 
 \begin_layout Enumerate
-For a given choices 
+For a given choice of 
 \begin_inset Formula $V_{N}$
 \end_inset
 
@@ -900,10 +901,13 @@ reference "eq:delta-f-int"
 \end_inset
 
 ).
+ 
+\color red
+(it is the reason or the result?)
 \end_layout
 
 \begin_layout Standard
-These theorems build an approach, that for a given choices 
+These theorems build an approach that, for a given choice 
 \begin_inset Formula $V_{N}$
 \end_inset
 
@@ -919,8 +923,11 @@ These theorems build an approach, that for a given choices
 \begin_inset Formula $V_{\mathrm{ext}}$
 \end_inset
 
-, amounts to minimize the total Helmholtz free energy functional of the
- solvent
+, 
+\color red
+amounts to
+\color inherit
+ minimize the total Helmholtz free energy functional of the solvent
 \begin_inset Formula 
 \begin{equation}
 \mathcal{F}[n(\mathbf{r})]=\mathcal{F}_{\mathrm{int}}+\mathcal{F}_{\mathrm{ext}}=\mathcal{F}_{\mathrm{id}}+\mathcal{F}_{\mathrm{exc}}+\mathcal{F}_{\mathrm{ext}}
@@ -936,8 +943,8 @@ gives the equilibrium density of solvent
 \begin_inset Formula $\mathcal{F}_{\mathrm{ext}}=\int\mathrm{d}\mathbf{r}n(\mathbf{r})V_{\mathrm{ext}}(\mathbf{r})$
 \end_inset
 
- defined the external functional.
- Noted that eq.
+ defined as the external functional.
+ Note that eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -975,12 +982,14 @@ status open
 
 \begin_layout Plain Layout
 
-/acs{DCF}
+
+\backslash
+acs{DCF}
 \end_layout
 
 \end_inset
 
- defined as in eq.
+ defined in eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1066,7 +1075,7 @@ Integral equation theory
 \end_layout
 
 \begin_layout Standard
-Different with 
+As opposed to 
 \begin_inset ERT
 status open
 
@@ -1160,7 +1169,7 @@ reference "eq:oz-origine"
 \end_inset
 
 ).
- The other one is a closure equation, which can be deduced from eq.
+ Other is a closure equation, which can be deduced from eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1229,38 +1238,19 @@ where the
 \end_inset
 
  is the bridge function.
- Other closure are also possible, such as Percus-Yevick (PY) approximation
+ Other closures are also possible, such as Percus-Yevick (PY) approximation
  or mean-spherical approximation (MSA).
 \end_layout
 
 \begin_layout Section
-Equivalence between c
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{DFT}
-\end_layout
+Equivalence between cDFT and IET for a dilute solution system
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Equivalence-iet-mdft"
 
 \end_inset
 
- and 
-\begin_inset ERT
-status open
 
-\begin_layout Plain Layout
-
-
-\backslash
-acs{IET}
-\end_layout
-
-\end_inset
-
- for a dilute solution system
 \end_layout
 
 \begin_layout Standard
@@ -1327,7 +1317,7 @@ acs{OZ}
 
 \end_inset
 
- relations is written as
+ relations are written as
 \begin_inset Formula 
 \begin{equation}
 h_{\mathrm{SS}}(1,2)=c_{\mathrm{SS}}(1,2)+\rho\int h_{\mathrm{SS}}(1,3)c_{\mathrm{SS}}(2,3)\mathrm{d}3\label{eq:2oz1}
@@ -1397,7 +1387,7 @@ reference "eq:2oz4"
 \end_inset
 
 .
- Eq.
+ Eqs.
  (
 \begin_inset CommandInset ref
 LatexCommand ref

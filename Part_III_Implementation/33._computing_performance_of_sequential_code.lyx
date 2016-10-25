@@ -83,8 +83,7 @@ name "chpt:seq-code-performance"
 \end_layout
 
 \begin_layout Standard
-This section evaluates the computing performance of the code without paralleliza
-tion.
+This section evaluates the computing performance of the code.
  Our goal is to show that the new algorithm of angular convolution is faster
  than the old naive one, and the huge amount of simulation has shown that
  it is absolutely the case.
@@ -147,96 +146,12 @@ acs{FGSHT}
 \end_inset
 
  process.
- As shown in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:timing-FFT"
-
-\end_inset
-
-, the dependance on 
-\begin_inset Formula $O(N\log_{2}N)$
-\end_inset
-
- doesn't totally exist, due to the algorithm of FFT [ref dft].
- To compare between the algorithms involved in this thesis, we are not really
- interested in computing performance with respect to the number of spatial
- grid, but the 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{FFT}
-\end_layout
-
-\end_inset
-
- used in 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{FGSHT}
-\end_layout
-
-\end_inset
-
- process (figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:timing-FFT"
-
-\end_inset
-
-b).
  
-\end_layout
-
-\begin_layout Standard
-The algorithmic complicity of FFT is about 
-\begin_inset Formula $\mathcal{O}(N_{k}\ln N_{k})$
-\end_inset
-
- 
-\size scriptsize
-\color red
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Numerical_Recipes_3ed"
-
-\end_inset
-
- 
-\size default
-\color inherit
-, and the computing time will be discussed in later sessions.
-\end_layout
-
-\begin_layout Standard
-We cannot count only the number of operation, 
-\end_layout
-
-\begin_layout Standard
-As we use real and complex FFT in difrent algorithms,
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -246,58 +161,7 @@ status open
 \begin_inset Graphics
 	filename ../_figure/results/fftw_timing.eps
 	width 100col%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-spatial+nlogn!
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../_figure/results/fftw_real_v_cmplx.eps
-	width 50col%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-real to complex
-\end_layout
-
-\end_inset
-
-
-\end_layout
+	BoundingBox 0bp 20bp 567bp 310bp
 
 \end_inset
 
@@ -312,6 +176,117 @@ timing FFT
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:timing-FFT"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:timing-FFT"
+
+\end_inset
+
+, the dependance on 
+\begin_inset Formula $O(N\log_{2}N)$
+\end_inset
+
+ 
+\size scriptsize
+\color red
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Numerical_Recipes_3ed"
+
+\end_inset
+
+
+\size default
+\color inherit
+ doesn't totally exist, but of the same form, depending the algorithm of
+ FFT [ref dft].
+ To compare between the algorithms involved in this thesis, we are not really
+ interested in computing performance with respect to the number of spatial
+ grid.
+ However, the ratio of real and complex FFT timing is important, as shown
+ in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fft-real-to-complex"
+
+\end_inset
+
+ (b), which is near the theoretical ratio 0.5.
+ For example, we process 
+\begin_inset Formula $n_{\mathrm{angle}}$
+\end_inset
+
+ real to complex FFT, then 
+\begin_inset Formula $n_{\mathrm{spatial}}/2$
+\end_inset
+
+ complex to complex FGSHT, or we process 
+\begin_inset Formula $n_{\mathrm{spatial}}$
+\end_inset
+
+ real to complex FGSHT, then 
+\begin_inset Formula $n_{\mathrm{proj}}/2$
+\end_inset
+
+ complex to complex FFT, should not give a great difference if 
+\begin_inset Formula $n_{\mathrm{angle}}\sim n_{\mathrm{proj}}$
+\end_inset
+
+ for small 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+.
+ If it is not the case, it will have an influence to the choice of algorithm.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/results/fftw_real_v_cmplx.eps
+	width 50col%
+	BoundingBox 0bp 20bp 340bp 235bp
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+FFT real to complex
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fft-real-to-complex"
 
 \end_inset
 
@@ -547,33 +522,67 @@ K-kernel
 \end_layout
 
 \begin_layout Standard
-Comparison between paths
-\end_layout
+As discussed in the previous section, the final result of energy and structure
+ is independent to the choice of path inside a 
+\begin_inset Formula $k$
+\end_inset
 
-\begin_layout Standard
-Timing paths in figure 
+-kernel.
+ That means, it is free in precision cost to choose the fast path.
+ As path (1) and (2) in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:k-kernel"
 
 \end_inset
 
+introduce the transform from 
+\begin_inset Formula $\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})$
+\end_inset
 
+ to 
+\begin_inset Formula $\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega})$
+\end_inset
+
+ that has no interest in timing, and the entire branches will be compared
+ in later implementation, here we only compare the path (3) and (4), which
+ correspond to eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:im"
+
+\end_inset
+
+) and (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gamma-blum"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $m_{\max}$
+The theoretical predictions of the computing time of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
 \end_inset
 
- and 
+ equation with respect to 
 \begin_inset Formula $n_{\max}$
 \end_inset
 
- dependance of OZ equation
-\end_layout
-
-\begin_layout Standard
-Theoretical listed in table 
+ are listed in table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:FE-of-OZ"
@@ -581,11 +590,65 @@ reference "tab:FE-of-OZ"
 \end_inset
 
 .
- 
+ If the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation is the most time demanding part, the result should have the same
+ proposal.
+ figure [] shows the experimental timing of the whole path (3) and (4) in
+ figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:k-kernel"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-with respect to nmax
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+there's a problem of code
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Timing k-kernel
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It is shown that
 \end_layout
 
 \begin_layout Section
@@ -702,6 +765,13 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+
+\color red
+(figures in processing...)
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -752,6 +822,13 @@ placement h
 wide false
 sideways false
 status open
+
+\begin_layout Plain Layout
+\align center
+
+\color red
+(figures in processing...)
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -815,6 +892,13 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+
+\color red
+(figures in processing...)
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -849,8 +933,35 @@ y takes less time.
 mmax and nmax
 \end_layout
 
-\begin_layout Subsection
-different computer
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\color red
+(figures in processing...)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

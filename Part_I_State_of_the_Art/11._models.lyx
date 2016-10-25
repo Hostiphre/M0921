@@ -91,16 +91,16 @@ Computing models of solvents are broadly divided into two types: those treating
 \begin_inset Formula $\varepsilon$
 \end_inset
 
- and contains an artificially-shaped cavity.
+ and contains an artificially shaped cavity.
  The explicit models can have more specific microscopic scales.
- Within the scope of classical mechanics, the most detailed thus the most
- expensive methods involve flexible and polarizable explicit models.
+ Within the scope of classical mechanics, the most detailed (and thus the
+ most expensive) methods involve flexible and polarizable explicit models,
  while in computational chemistry, less detailed models often have wider
  usage (for example, the proteins are treated in the unity of residues).
- As the theory of liquids was firstly established for spherical atom-like
- solvent particles, the model adopted by such theory is a rigid entity carrying
- distributed point charges, characterized by their position and orientation,
- i.
+ As the theory of liquids was initially established for spherical atom-like
+ solvent particles, the model adopted by such a theory is a rigid entity
+ carrying distributed point charges, characterized by their position and
+ orientation, i.
  e.
  there is no internal movement considered.
  This approximation has been proven reasonable 
@@ -111,16 +111,16 @@ key "Gray-Gubbins"
 \end_inset
 
 .
- There also exist models of which the scale lies in between the implicit
- and explicit models, for example the so-called coarse-grained models, which
- involve to gather groups of atoms into a single interaction site.
+ There also exist models in which the scale lies somewhere between the implicit
+ and explicit models; for example, so-called coarse-grained models, which
+ gather groups of atoms into a single interaction site.
 \end_layout
 
 \begin_layout Standard
 In this section, we will give a brief introduction of the implicit model
  in order to facilitate later discussion on solvation free energy corrections.
  We will then focus on the rigid solvent models and discuss the limits of
- such approximation.
+ such approximations.
  The flexible and polarizable models will also be briefly mentioned.
  
 \end_layout
@@ -152,7 +152,7 @@ The dielectric constant
 \end_inset
 
  is the key parameter characterizing the solvent.
- It is normally a constant value, but it can depend on the distance from
+ It is normally a constant value, but that can depend on the distance from
  the solute 
 \begin_inset Formula $M$
 \end_inset
@@ -254,7 +254,7 @@ where
 
  between the solvent and solute.
  In principle, there may also be a repulsive component, and the dispersion
- term is sometimes denoted dispersion / repulsion.
+ term is sometimes denoted dispersion/repulsion.
  
 \begin_inset Formula $\Delta G_{\mathrm{elec}}<0$
 \end_inset
@@ -282,11 +282,11 @@ reference "eq:cm"
  The definition of cavity varies from the simplest sphere or ellipsoid to
  the ensemble of atomic surfaces defined by the van der Waals radii in the
  solute.
- It is somehow reasonable to consider the cavity area proportional to the
- number of solvent molecules in the first solvation shell.
+ It is somewhat reasonable to consider the cavity area as proportional to
+ the number of solvent molecules in the first solvation shell.
  This number can be calculated as the area passing through the middle region
  of first shell solvent.
- This area, named as the solvent-accessible surface area (SASA) 
+ This area, named the solvent-accessible surface area (SASA) 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "SAS_1,SAS_2"
@@ -390,13 +390,14 @@ or parameterized by having a constant
 \end_layout
 
 \begin_layout Standard
-The models and methods to calculate the electrostatic contribution 
+The models and methods employed to calculate the electrostatic contribution
+ 
 \begin_inset Formula $\Delta G_{\mathrm{elec}}$
 \end_inset
 
  have varied greatly according to their usage.
  The sections below list the most common examples.
- By the way, the integration of continuum models into 
+ On another topic, the integration of continuum models into 
 \begin_inset ERT
 status open
 
@@ -411,7 +412,7 @@ acs{QM}
 
  calculations is also a very important field; these developments will not
  be detailed here as they do not connect yet to our work.
- Such kinds of method are called the self-consistent reaction field (SCRF)
+ Such kinds of methods are called the self-consistent reaction field (SCRF)
  models, which integrate the calculation of the solute-solvent interaction
  in addition to that of the solute wave function by an iterative procedure.
  Some examples are presented in the list of Gaussian keyword SCRF 
@@ -421,7 +422,7 @@ key "scrf"
 
 \end_inset
 
-, and the field is well reviewed by for example Tomasi 
+, and the field is well reviewed by, for example, Tomasi 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Tomasi_1994_implicit_model,tomasi_quantum_2005"
@@ -477,7 +478,7 @@ where
 
  is the charge distribution 
 \color red
-(of the solute?)
+(of the solute?).
 \end_layout
 
 \begin_layout Standard
@@ -501,7 +502,7 @@ where
 \begin_inset Formula $E(\mathbf{r})$
 \end_inset
 
- the electric field, 
+ the electric field, and 
 \begin_inset Formula $\varepsilon_{0}$
 \end_inset
 
@@ -510,7 +511,7 @@ where
 \begin_inset Formula $D(\mathbf{r})$
 \end_inset
 
- can also be expressed in term of the position-dependent dielectric constant
+ can also be expressed in terms of the position-dependent dielectric constant
  
 \begin_inset Formula $\varepsilon(\mathbf{r})$
 \end_inset
@@ -527,7 +528,7 @@ where
 
 \end_inset
 
-or in terms of electrostatic potential 
+or in terms of electrostatic potential:
 \begin_inset Formula 
 \begin{equation}
 \nabla\cdot\left[\varepsilon(\mathbf{r})\nabla V_{\mathrm{elec}}(\mathbf{r})\right]=-\dfrac{\rho_{q}(\mathbf{r})}{\varepsilon_{0}}\label{eq:poisson}
@@ -552,9 +553,9 @@ reference "eq:poisson"
 
 \begin_layout Standard
 This equation cannot be solved analytically for complex geometries (such
- as a protein), therefore, it is done numerically using appropriate methods.
- Such methods are mentioned in, for example, the article of Roux and Simonson
- 
+ as a protein).
+ Therefore it is done numerically using appropriate methods; for example,
+ mentioned in the article of Roux and Simonson 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "roux_implicit_1999"
@@ -570,7 +571,7 @@ key "holst_1994_poisson"
 
 .
  A density functional approach based on the minimization of the polarization
- density can be equally used to solve this equation 
+ density can also be used to solve this equation 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Marchi_2001,Levy_2005"
@@ -685,7 +686,7 @@ Other similar models include the Onsager model, in which a point dipole
 ) is put in a spherical cavity.
  The Kirkwood model refers to a general multipole expansion in a spherical
  cavity, while the Kirkwood-Westheimer model arises for an ellipsoidal cavity.
- Those simplified models are not fully capable to predict the solvent behavior
+ Those simplified models are not fully able to predict the solvent behavior
  in many realistic cases 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -716,7 +717,7 @@ where the function
 \begin_inset Formula $r_{ij}$
 \end_inset
 
- between the centers of atom 
+ between the centers of atoms 
 \begin_inset Formula $i$
 \end_inset
 
@@ -750,8 +751,8 @@ The key (empirical) point is to be able to attribute an effective Born radius
 \end_inset
 
  to each atom inside the complex, non-spherical cavity formed by the solute.
- This accomplished, the GB model provides a very fast method, with an overall
- accuracy comparable to that of Poisson-Boltzmann calculations.
+ Once this is accomplished, the GB model provides a very fast method, with
+ an overall accuracy comparable to that of Poisson-Boltzmann calculations.
  That makes it widely used in computational structural biology to perform
  structure optimization and molecular dynamics simulations.
 \end_layout
@@ -775,7 +776,7 @@ key "Hensen-McDonald,Gray-Gubbins"
 \end_layout
 
 \begin_layout Enumerate
-Firstly, the quantum effects of should be ignored.
+Firstly, the quantum effects should be ignored.
  It is assumed that the rotational and transitional motion of solvent particles
  are continuous and classical, which means the separation of both transitional
  and rotational states are largely inferior of 
@@ -821,7 +822,7 @@ Firstly, the quantum effects of should be ignored.
 \begin_layout Enumerate
 Secondly,
 \begin_inset Marginal
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Compared to atomic models that only depend on 
@@ -829,7 +830,7 @@ Compared to atomic models that only depend on
 \end_inset
 
 , the angular correlations can give influence on both structural and thermodynam
-ics proprieties.
+ic proprieties.
  That is why our theory is extended to linear case (
 \begin_inset Formula $\mathbf{\Omega}\equiv(\Theta,\Phi)$
 \end_inset
@@ -879,7 +880,7 @@ reference "fig:Euler-angles"
 
 ).
  The natural choice for the molecular center is the center of mass.
- This choice is however arbitrary if only equilibrium properties are considered.
+ This is, however, arbitrary if only equilibrium properties are considered.
 \begin_inset Separator latexpar
 \end_inset
 
@@ -998,7 +999,7 @@ name "fig:Euler-angles"
 
 \begin_layout Standard
 The rigid approximation is quite realistic for molecules in which the separation
- of vibrational states largely exceed 
+ of vibrational states largely exceeds 
 \begin_inset Formula $k_{\mathrm{B}}T$
 \end_inset
 
@@ -1045,8 +1046,8 @@ n
 .
  This approximation is quasi-exact for low density gases, where the contribution
  of the three and more body terms decreases rapidly.
- But for dense fluids, in most of the cases the multi-body potential can
- not be ignored.
+ But for dense fluids, in most of the cases the multi-body potential cannot
+ be ignored.
  The complete model potential with higher-order corrections can be written
  in the form of
 \begin_inset Formula 
@@ -1065,8 +1066,8 @@ where
 \end_inset
 
 , etc.
- The omission of the three-body and higher-order terms can cause for example
- error in surface tension and surface energy calculation 
+ The omission of the three-body and higher-order terms can cause error,
+ for example, in surface tension and surface energy calculation 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Miyazaki_1975"
@@ -1080,7 +1081,7 @@ key "Miyazaki_1975"
  degree of theory needed.
  Such models are presented below going from simple to molecular liquids.
  For the molecular solvent considered in this thesis, water, most publications
- have staid at this two-body level of description.
+ have stayed at this two-body level of description.
  
 \end_layout
 
@@ -1094,7 +1095,7 @@ The simplest model of a fluid is the hard sphere model.
 \begin_inset Formula $d$
 \end_inset
 
- is the hard-sphere diameter, the pair potential is defined as
+ the hard-sphere diameter, the pair potential is defined as:
 \begin_inset Formula 
 \begin{equation}
 u(r)=\begin{cases}
@@ -1105,11 +1106,11 @@ u(r)=\begin{cases}
 
 \end_inset
 
-This model is indeed a fundamental reference model in statistical mechanics
+This model is indeed a fundamental reference model in statistical mechanics,
  and it can represent some physical systems, such as neutral colloidal suspensio
 ns.
  However, the absence of attractive force, which precludes the existence
- of a liquid-Gas transition, makes it too simple for realistic fluids.
+ of a liquid-gas transition, makes it too simple for realistic fluids.
  More realistic neutral particle models, like the Lenard-Jones (LJ) model,
  exhibit a potential energy curve that has the same shape as the real interactio
 n of rare gas, as shown in figure 
@@ -1268,8 +1269,8 @@ ons to the potential.
 \end_inset
 
 .
- The short-range interaction is difficult to define properly, and, for simplicit
-y and numerical efficiency, it is defined as 
+ The short-range interaction is difficult to define properly, and for the
+ sake of simplicity and numerical efficiency, it is defined as 
 \begin_inset Formula $r^{-12}$
 \end_inset
 
@@ -1300,8 +1301,8 @@ For such charged simple fluids, the overall pair
 \color red
 decomposition
 \color inherit
- can be extended to molecular fluids in terms site-site interactions, which
- are discussed in the following section.
+ can be extended to molecular fluids in terms of site-site interactions,
+ which are discussed in the following section.
 \end_layout
 
 \begin_layout Subsection
@@ -1309,7 +1310,7 @@ Site-site interactions
 \end_layout
 
 \begin_layout Standard
-Indeed, a spherical description of interactions is not sufficient to well
+Indeed, a spherical description of interactions is not sufficient to fully
  describe molecular fluids.
  The site-site model is a further extension of atomic models, in which the
  solvent molecule is represented by a set of discrete interaction sites.
@@ -1345,11 +1346,11 @@ where
 \begin_inset Formula $u_{\alpha\beta}(r)$
 \end_inset
 
- the interatomic potential energy of pair of sites 
+ the interatomic potential energy of pairs of sites 
 \begin_inset Formula $\alpha$
 \end_inset
 
-, 
+ and 
 \begin_inset Formula $\beta$
 \end_inset
 
@@ -1379,7 +1380,7 @@ where
 \begin_inset Formula $q_{\alpha}$
 \end_inset
 
-the partial charge on each site.
+ the partial charge on each site.
  This model is the most commonly adopted, and it will be so in this thesis.
 \end_layout
 
@@ -1388,7 +1389,7 @@ Multipole and spherical harmonic expansion
 \end_layout
 
 \begin_layout Standard
-To obtain less terms in the calculation, the model potential can be presented
+To obtain fewer terms in the calculation, the model potential can be presented
  in convergent series via multipole or spherical harmonic expansion.
 \end_layout
 
@@ -1501,8 +1502,8 @@ SPC/E water model
 \end_layout
 
 \begin_layout Standard
-As water cannot be perfectly described by a pair potential due to multi-body
- effects, quantum effects, hydrogen bond, etc., various models have been
+As water cannot be perfectly described by a pair potential (due to multi-body
+ effects, quantum effects, hydrogen bond, etc.), various models have been
  developed to fit a maximum number of properties.
  Those models contain several sites, which can be placed possibly elsewhere
  than at the center of atoms (figure 
@@ -1575,7 +1576,7 @@ key "SPC/E"
 
 \end_inset
 
- as our solvent model though all this thesis.
+ as our solvent model through all this thesis.
  
 \begin_inset Marginal
 status collapsed
@@ -1602,7 +1603,7 @@ key "Zhao_2011"
 \end_layout
 
 \begin_layout Standard
-With respect to the original SPC model, the SPC/E model adds an polarization
+With respect to the original SPC model, the SPC/E model adds a polarization
  correction term to the SPC potential energy in order to better match the
  experiment:
 \end_layout
@@ -2471,8 +2472,8 @@ Up to this point, molecules were considered as rigid bodies.
  Flexible models give extra degrees of freedom in vibration and internal
  rotation.
  In that case, the interaction potential contains several extra terms, yielding
- typically five kinds of forces: three for the direct interactions, in addition
- to the indirect interactions (LJ and Coulomb).
+ typically five kinds of forces: three for the direct interactions in addition
+ to the two indirect interactions (LJ and Coulomb).
 \end_layout
 
 \begin_layout Standard
@@ -2519,7 +2520,7 @@ The flexible yielding can deal with the non-rigidity of the solvent, which
  taken into account even in a rigid model.
  This polarizability can be described by introducing a modifiable charge
  distribution, for example by adding an induced dipole at the molecular
- center of the molecule, or even on each of its atomic site, and by solving
+ center of the molecule, or even on each of its atomic sites, and by solving
  the set of induced dipoles self-consistently.
  Introducing variable atomic charges is possible too 
 \color red
@@ -2536,7 +2537,7 @@ Complex models require expensive computing cost, but still can have large
  There is a compromise between the choice of model and the choice of system
  size.
  For this reason, the rigid models are still nowadays the most popular.
- On the other hand, computing technologies have largely developed compared
+ On the other hand, computing technologies have greatly developed compared
  to the theories themselves, which makes it possible to use more and more
  precise models in computation.
  
@@ -2564,15 +2565,16 @@ acs{QM}
 
  calculations in terms of wave function and electron density.
  This is the case for the implicit SCRF method, which for apolar solvents
- (toluene, etc.) has been proven to work well.
+ (i.e.
+ toluene) has been proven to work well.
  There is a clear mismatch , however, between the very refined description
  of the solute and the rather primitive continuous-medium treatment of the
  solvent.
  The compromise to have a better model of solvent or solute is debatable,
  and should vary according to the applications.
- On the other extreme, for example, one never uses a quantum solvent model
- with an implicit solute; this would not be profitable even if the solute
- is of simple geometry (wall).
+ On the other extreme, one never uses a quantum solvent model with an implicit
+ solute; this would not be profitable even if the solute is of simple geometry
+ (wall).
  In the case of molecular solutes, it is consistent to require the solute
  and solvent to have at least the same scale of description.
  Within molecular force fields, this leads to the hierarchy of potential
@@ -2648,18 +2650,18 @@ name "fig:Hierarchy-of-models"
 \end_layout
 
 \begin_layout Standard
-In this thesis, we will use as a first step a rigid molecular model to describe
- the solute.
+In this thesis, our first step will be to use a rigid molecular model to
+ describe the solute.
  This is coherent with IET, which cannot treat the solvent and solute at
  different scales of description.
  Polarizable and/or flexible models of solute, and the coupling of a QM
- solute to the molecular solvent will be described in perspective.
+ solute to the molecular solvent, will be described in perspective.
 \end_layout
 
 \begin_layout Standard
-In a word of conclusion, the choice of model for the solute/solvent system
- is a compromise between the required precision according to the application,
- and the computing cost that the research can afford.
+In conclusion, the choice of model for the solute/solvent system is a compromise
+ between the required precision according to the application, and the computing
+ cost that the research can afford.
 \end_layout
 
 \end_body

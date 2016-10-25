@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
-<ipe version="70107" creator="Ipe 7.1.7">
-<info created="D:20160904122830" modified="D:20160904130619"/>
+<ipe version="70107" creator="Ipe 7.2.3">
+<info created="D:20160904122830" modified="D:20161024190544"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -301,10 +301,10 @@ h
 h
 </path>
 </group>
-<text matrix="1 0 0 1 -20 0" transformations="translations" pos="128 656" stroke="red" type="label" width="57.451" height="6.918" depth="0" valign="baseline">stretch terms</text>
-<text matrix="1 0 0 1 -4 0" transformations="translations" pos="208 656" stroke="red" type="label" width="49.066" height="6.918" depth="0" valign="baseline">bend terms</text>
-<text matrix="1 0 0 1 -12 0" transformations="translations" pos="320 656" stroke="red" type="label" width="65.477" height="6.918" depth="0" valign="baseline">torsional terms</text>
-<text matrix="1 0 0 1 -12 0" transformations="translations" pos="420 656" stroke="red" type="label" width="105.244" height="6.918" depth="0" valign="baseline">non-bonded interactions</text>
+<text matrix="1 0 0 1 -20 0" transformations="translations" pos="128 656" stroke="black" type="label" width="57.451" height="6.918" depth="0" valign="baseline">stretch terms</text>
+<text matrix="1 0 0 1 -4 0" transformations="translations" pos="208 656" stroke="black" type="label" width="49.066" height="6.918" depth="0" valign="baseline">bend terms</text>
+<text matrix="1 0 0 1 -12 0" transformations="translations" pos="320 656" stroke="black" type="label" width="65.477" height="6.918" depth="0" valign="baseline">torsional terms</text>
+<text matrix="1 0 0 1 -12 0" transformations="translations" pos="420 656" stroke="black" type="label" width="105.244" height="6.918" depth="0" valign="baseline">non-bonded interactions</text>
 <text matrix="1 0 0 1 -116 48" transformations="translations" pos="192 640" stroke="black" type="label" width="441.198" height="17.42" depth="14.35" valign="baseline">$U=\displaystyle
 \sum_{\mathrm{bonds}}K_r(r-r_{\mathrm{eq}})^2
 +\sum_{\mathrm{angles}}K_{\theta}(\theta-\theta_{\mathrm{eq}})^2

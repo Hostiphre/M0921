@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass classicthesis
 \use_default_options true
 \maintain_unincluded_children false
@@ -9,16 +11,16 @@
 \language_package default
 \inputencoding utf8
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -88,8 +90,20 @@ reference "chpt:mdft"
 
 \end_inset
 
-, to complete the minimization process of MDFT, we need to evaluate the
- excess functional as well as its gradient:
+, to complete the minimization process of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+, we need to evaluate the excess functional as well as its gradient:
 \begin_inset Formula 
 \begin{equation}
 \mathcal{F}_{\mathrm{exc}}=-\frac{\beta^{-1}}{2}\int\mathrm{d}\mathbf{r_{1}}\mathrm{d}\mathbf{r_{2}}\mathrm{d}\mathbf{\Omega_{1}}\mathrm{d}\mathbf{\Omega_{2}}\Delta\rho(\mathbf{r_{1}},\mathbf{\Omega_{1}})\Delta\rho(\mathbf{r_{2}},\mathbf{\Omega_{2}})c(\mathbf{r}_{12},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})\label{eq:fexc}
@@ -109,34 +123,18 @@ reference "chpt:mdft"
 \end_layout
 
 \begin_layout Standard
-To evaluate the gradient 
-\begin_inset Formula $\gamma$
+As discussed in 
+\begin_inset Formula $\mathsection$
 \end_inset
 
- for each 
-\begin_inset Formula $\mathbf{(r},\mathbf{\Omega})$
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:The-excess-term"
+
 \end_inset
 
-, 
-\begin_inset Formula $N\equiv N_{\mathbf{r}}N_{\mathbf{\Omega}}$
-\end_inset
-
- function evaluations (FE) are required, the total number of FE is thus
- 
-\begin_inset Formula $N^{2}=O(N^{2})$
-\end_inset
-
-, which, with typically 
-\begin_inset Formula $N_{\mathbf{r}}=64^{3}$
-\end_inset
-
- and 
-\begin_inset Formula $N_{\mathbf{\Omega}}=50\sim100$
-\end_inset
-
-, is far too costly for current computing technology.
- For this reason, Fourier transform is used to treat the spatial convolution
- in eq.
+ eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -144,48 +142,7 @@ reference "eq:gamma"
 
 \end_inset
 
-).
-\end_layout
-
-\begin_layout Standard
-A convolution
-\begin_inset Formula 
-\begin{equation}
-h(x_{1})\equiv f(x_{2})\otimes g(x_{2})\equiv\int_{a}^{b}f(x_{2})g(x_{1}-x_{2})dx_{2}\label{eq:convolution-1}
-\end{equation}
-
-\end_inset
-
-has the property that
-\begin_inset Formula 
-\begin{equation}
-\mathfrak{F}[h(x_{1})]=\mathfrak{F}[f(x_{2})]\mathfrak{F}[g(x_{2})]\label{eq:convolution-2}
-\end{equation}
-
-\end_inset
-
-
-\begin_inset Formula $\mathfrak{F}$
-\end_inset
-
- being the Fourier transform (FT) operation 
-\color red
-(Attention d'avoir bien défini les FFT 3D avant)
-\color inherit
-.
- As 
-\begin_inset Formula $\mathbf{r_{12}}=\mathbf{r_{1}}-\mathbf{r_{2}}$
-\end_inset
-
-, eq.
- (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:gamma"
-
-\end_inset
-
-) is a 3D convolution, which leads to 
+) is a 3D convolution, which leads to
 \begin_inset Formula 
 \begin{equation}
 \hat{\gamma}(\mathbf{k},\mathbf{\Omega_{1}})=-\beta^{-1}\int\mathrm{d}\mathbf{\Omega_{2}}\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega_{2}})\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})\label{eq:gamma-k}
@@ -193,11 +150,7 @@ reference "eq:gamma"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Thus the integral 
+such that the integral 
 \begin_inset Formula $\int\mathrm{d}\mathbf{r_{2}}$
 \end_inset
 
@@ -217,106 +170,26 @@ reference "eq:gamma-k"
 
 \end_inset
 
-).
- To get 
-\begin_inset Formula $\hat{\gamma}(\mathbf{k},\mathbf{\Omega_{1}})$
-\end_inset
-
- with given 
-\begin_inset Formula $\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega_{2}})$
-\end_inset
-
-, only 
-\begin_inset Formula $N_{\mathbf{r}}N_{\mathbf{\Omega}}^{2}$
-\end_inset
-
- FE are needed.
- To this computational cost should be added the transform from 
-\begin_inset Formula $\Delta\rho(\mathbf{r},\mathbf{\Omega})$
-\end_inset
-
- to 
-\begin_inset Formula $\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega})$
-\end_inset
-
- and the backward transform from 
-\begin_inset Formula $\hat{\gamma}(\mathbf{k},\mathbf{\Omega})$
-\end_inset
-
- to 
-\begin_inset Formula $\gamma(\mathbf{r},\mathbf{\Omega})$
-\end_inset
-
- which are both of order 
-\begin_inset Formula $N_{\mathbf{\Omega}}\cdot O(N_{\mathbf{r}}\log_{2}N_{\mathbf{r}})$
-\end_inset
-
-, due to the properties of Fast Fourier Transforms (FFT).
- The total number of FE is thus reduced from quadratic complexity 
-\begin_inset Formula $O(N_{\mathbf{r}}^{2}N_{\mathbf{\Omega}}^{2})$
-\end_inset
-
- to 
-\begin_inset Formula $N_{\mathbf{r}}N_{\mathbf{\Omega}}^{2}+2N_{\mathbf{\Omega}}\cdot O(N_{\mathbf{r}}\log_{2}N_{\mathbf{r}})=O(N_{\mathbf{r}}\log_{2}N_{\mathbf{r}}N_{\mathbf{\Omega}}^{2})$
-\end_inset
-
-.
- As the total number of spatial grid 
-\begin_inset Formula $N_{\mathbf{r}}$
-\end_inset
-
- is of magnitude 
-\begin_inset Formula $10^{5}\sim10^{6}$
-\end_inset
-
-, this procedure, which is mathematically equivalent to the direct evaluation
- (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:gamma"
-
-\end_inset
-
-), gives a great advantage in terms of computational efficiency (figure
+), giving a great advantage in terms of computational efficiency for huge
+ spatial grid.
  
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:order-of-growth"
-
-\end_inset
-
- in section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chpt:introduction"
-
-\end_inset
-
-).
 \end_layout
 
 \begin_layout Standard
-Once 
-\begin_inset Formula $\gamma(\mathbf{r},\mathbf{\Omega})$
-\end_inset
+It should be pointed out that the direct correlation function (
+\begin_inset ERT
+status open
 
- is obtained by inverse Fourier transform of 
-\begin_inset Formula $\gamma(\mathbf{r},\mathbf{\Omega})$
-\end_inset
-
-, the excess functional can be calculated as:
-\begin_inset Formula 
-\begin{equation}
-\mathcal{F}_{\mathrm{exc}}[\rho(\mathbf{r},\mathbf{\Omega})]=\frac{1}{2}\int\mathrm{d}\mathbf{r}\mathrm{d}\mathbf{\Omega}\Delta\rho(\mathbf{r},\mathbf{\Omega})\gamma(\mathbf{r},\mathbf{\Omega})
-\end{equation}
-
-\end_inset
+\begin_layout Plain Layout
 
 
+\backslash
+acs{DCF}
 \end_layout
 
-\begin_layout Standard
-It should be pointed out that the direct correlation function (DCF), 
+\end_inset
+
+), 
 \begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 \end_inset
 
@@ -329,6 +202,55 @@ reference "eq:gamma-k"
 \end_inset
 
 ) is very memory-costly.
+ In the previous work, the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ bas been stocked in the intermolecular form 
+\begin_inset Formula $\hat{c}(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
+\end_inset
+
+ to profit an economy of memory, where 
+\begin_inset Formula $(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})\equiv(\cos\theta_{1},\cos\theta_{2},\phi_{12})$
+\end_inset
+
+, and the correspondence of 
+\begin_inset Formula $(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
+\end_inset
+
+ to 
+\begin_inset Formula $(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
+\end_inset
+
+ is calculated directly in the code.
+ However, in the case of full 3 Euler angles 
+\begin_inset Formula $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$
+\end_inset
+
+, neither the storage of 
+\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
+\end_inset
+
+ which is definitively impossible, nor the direct calculation of correspondence
+ 
+\begin_inset Formula $(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
+\end_inset
+
+ to 
+\begin_inset Formula $(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
+\end_inset
+
+ due to the increased complexity that makes it too costly, can be regard
+ as a possible solution.
  For instance, with a normal setting with 
 \begin_inset Formula $64^{3}$
 \end_inset
@@ -345,7 +267,20 @@ reference "eq:gamma-k"
 \begin_inset Formula $\Psi$
 \end_inset
 
--angles, even if the DCF is stocked in simple precision, it takes 
+-angles, even if the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ is stocked in simple precision, it takes 
 \begin_inset Formula $64^{3}\times42^{2}\times4\,\mathrm{bytes}=1.76\mathrm{GB}$
 \end_inset
 
@@ -359,27 +294,51 @@ reference "eq:gamma-k"
 
 .
  As a normal PC has only 4 to 16 GB of RAM, it can cause a memory leak.
- Therefore, two strategies are developed to reduce the storage of the DCF.
+ 
+\end_layout
+
+\begin_layout Standard
+Two strategies are developed treat this 3 Euler angles 
+\begin_inset Formula $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$
+\end_inset
+
+ case.
+ The first one is a direct extension of the previous work [
+\color red
+gendre_CPL_2009, zhao_JCP_2011, borgis_JPC_2012
+\color inherit
+], which reduces the storage using intermolecular 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+, with the more complicate angle correspondence calculation pre-tabulated
+ in the beginning of the implementation, the other calculates the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ directly from rotational invariant projections, as shown below.
 \end_layout
 
 \begin_layout Section
 Using intermolecular DCF
-\end_layout
-
-\begin_layout Standard
-
-\color red
-(In the previous work, the interpolation has been done with 
-\begin_inset Formula $\mathbf{\Omega}\equiv(\Theta,\Phi)$
-\end_inset
-
-.
- Here, we discuss the case of full 3 Euler angles 
-\begin_inset Formula $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$
-\end_inset
-
-.
- : To be put somewhere else.)
 \end_layout
 
 \begin_layout Standard
@@ -426,8 +385,20 @@ reference "fig:coordinate_systems"
 \end_layout
 
 \begin_layout Standard
-To store the DCF in the intermolecular coordinates system, it can be defined
- as 
+To store the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ in the intermolecular coordinates system, it can be defined as 
 \begin_inset Formula $\hat{c}(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
 \end_inset
 
@@ -467,12 +438,10 @@ reference "fig:coordinate_systems"
 \begin_inset Formula $\boldsymbol{\omega}(\mathbf{k},\mathbf{\Omega})\equiv(\cos\theta,\phi,\psi)$
 \end_inset
 
-, which can be pre-calculated as a table of data.
+, which is pre-calculated as a table of data.
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 \begin_inset Float figure
 placement h
 wide false
@@ -481,8 +450,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\lang english
 \begin_inset Graphics
 	filename ../_figure/coordinate_system.eps
 
@@ -492,8 +459,6 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -578,11 +543,21 @@ It can be expressed by 3 rotation operations
 \begin_inset Formula $z-y-z$
 \end_inset
 
- axes 
-\color red
-(the same convention as defined in Messiah and Gray-Gubbins)
-\color inherit
-:
+ axes (the same convention as defined in Messiah 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Messiah"
+
+\end_inset
+
+ and Gray-Gubbins 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Gray-Gubbins"
+
+\end_inset
+
+):
 \begin_inset Formula 
 \begin{align}
 \mathbf{\hat{R}}_{\mathbf{\Omega}} & =\left[\begin{array}{ccc}
@@ -632,6 +607,11 @@ width "55col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status open
 
 \begin_layout Plain Layout
@@ -674,6 +654,11 @@ width "40col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status open
 
 \begin_layout Plain Layout
@@ -784,7 +769,7 @@ Here we fix
 \begin_inset Formula $k_{z}$
 \end_inset
 
-), in the extreme cases that we cannot define 
+), in the extreme cases where we cannot define 
 \begin_inset Formula $\theta_{k}$
 \end_inset
 
@@ -952,24 +937,55 @@ The resulting angles are between normal intervals,
 \end_layout
 
 \begin_layout Standard
+Here the DCF 
+\begin_inset Formula $c(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})\equiv c(k,\cos\theta_{1},\cos\theta_{2},\phi_{12},\psi_{1},\psi_{2})$
+\end_inset
 
-\color red
-(Expliquer ici -à noiveau-- pourquoi tu as besoin de faire des interpolations:
- grille plus fine pour om dans c(k,om_1,om_2) et pour chaque (k,Omega) on
- doit trouver le om corerspondant.)
-\end_layout
+ is stored in a discrete set of angles for each value of 
+\begin_inset Formula $k$
+\end_inset
 
-\begin_layout Standard
-The interpolation of these found angles to the intermolecular grid can be
- done with different orders: zeroth order interpolation, which directly
- takes the nearest point, or linear interpolation.
+ (typically 
+\begin_inset Formula $(8,8,8,8,8)$
+\end_inset
+
+ in the case of water, which uses the symmetries in 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Symmetric-dcf"
+
+\end_inset
+
+ to reduce the number of 
+\begin_inset Formula $\phi$
+\end_inset
+
+ and 
+\begin_inset Formula $\psi$
+\end_inset
+
+ by two) such that the correspondence from 
+\begin_inset Formula $\mathbf{(\Omega}_{1},\mathbf{\Omega}_{2})$
+\end_inset
+
+ to 
+\begin_inset Formula $(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
+\end_inset
+
+ usually falls in between angular grid points of the intermolecular grid.
+ An interpolation can be done at different orders: zeroth order interpolation,
+ which directly takes the nearest point, or linear interpolation.
 \end_layout
 
 \begin_layout Subsection
 Zero-order interpolation of DCF
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Zero-order-interpolation-of"
+name "subsec:Zero-order-interpolation-of"
 
 \end_inset
 
@@ -993,7 +1009,7 @@ At this order, for each possible value of
 \begin_inset Formula $\psi$
 \end_inset
 
- which relate to only one solvent molecule are stored as an index (single
+ which relate to a single solvent molecule are stored as an index (single
  precision integer), which gives the nearest angle in a pre-defined table:
 \begin_inset Formula 
 \begin{equation}
@@ -1129,7 +1145,7 @@ In the actual implementation, as an integer takes 4 bytes and a real takes
 Linear interpolation of DCF
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Linear-interpolation-of"
+name "subsec:Linear-interpolation-of"
 
 \end_inset
 
@@ -1265,7 +1281,7 @@ Using projections in form of
 
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Using-projections-in"
+name "subsec:Using-projections-in"
 
 \end_inset
 
@@ -1296,7 +1312,7 @@ where
 \begin_inset Formula $\Phi_{\mu\nu}^{mnl}(\mathbf{\hat{k}},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
 \end_inset
 
- is the rotational invariant that depends on both the spatial and angular
+ are rotational invariants that depends on both the spatial and angular
  coordinates of the two particles (detailed in appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1309,10 +1325,14 @@ reference "chpt:rotational-invariant-expansion"
 
 \begin_layout Standard
 For projections of order 
-\begin_inset Formula $n{}_{\mathrm{max}}=1$
+\begin_inset Formula $n_{\mathrm{max}}=1$
 \end_inset
 
-, the DCF can be expressed in very simple form.
+ (
+\begin_inset Formula $n,m\leq1$
+\end_inset
+
+), the DCF can be expressed in very simple form.
  Only 4 projections 
 \begin_inset Formula $\hat{c}^{mnl}(k)$
 \end_inset
@@ -1334,11 +1354,7 @@ For projections of order
 \end_inset
 
 , with the corresponding rotational invariants expressed below both in laborator
-y and intermolecular frames 
-\color red
-(il faut définir ici OM_1 et OM_2 comme des vecteurs d'orientation !)
-\color inherit
-
+y and intermolecular frames:
 \begin_inset Formula 
 \begin{align}
 \Phi^{000} & =1\nonumber \\
@@ -1351,11 +1367,16 @@ y and intermolecular frames
 
 \end_inset
 
+where the orientations in laboratory frame 
+\begin_inset Formula $\mathbf{\Omega}$
+\end_inset
 
-\end_layout
+ are here expressed as an orientational vector 
+\begin_inset Formula $\mathbf{\Omega}=(\sin\Theta\cos\Phi,\sin\Theta\sin\Phi,\cos\Theta)$
+\end_inset
 
-\begin_layout Standard
-To express the DCF at higher orders, the number of FE needed for 
+ in the cartesian coordinate system.
+ To express the DCF at higher orders, the number of FE needed for 
 \begin_inset Formula $\Phi_{\mu\nu}^{mnl}(\mathbf{\hat{k}},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
 \end_inset
 
@@ -1371,7 +1392,7 @@ Using projections in form of
 
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Using-projections-in-1"
+name "subsec:Using-projections-in-1"
 
 \end_inset
 
@@ -1425,7 +1446,7 @@ where
 \begin_inset Formula $r$
 \end_inset
 
- is the generalized Legendre polynomial,
+ is the generalized Legendre polynomial, 
 \begin_inset Formula $m,n\leq n{}_{\mathrm{max}}$
 \end_inset
 

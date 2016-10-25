@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass classicthesis
 \use_default_options true
 \maintain_unincluded_children false
@@ -9,16 +11,16 @@
 \language_package default
 \inputencoding utf8
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -87,7 +89,39 @@ Due to the difficulty of this thesis and my mental state, there are a lot
 \end_layout
 
 \begin_layout Section
+Bug report
+\end_layout
+
+\begin_layout Standard
+bug in gamma test
+\end_layout
+
+\begin_layout Standard
+rotational invariant projection
+\end_layout
+
+\begin_layout Section
 Reduce memory use in MDFT
+\end_layout
+
+\begin_layout Standard
+Computing performance of parallel code
+\end_layout
+
+\begin_layout Standard
+Node-level Parallelization
+\end_layout
+
+\begin_layout Standard
+OpenMP, scalability with respect to the number of thread
+\end_layout
+
+\begin_layout Standard
+Parallelization on Several Nodes
+\end_layout
+
+\begin_layout Standard
+MPI, scalability with respect to the number of node
 \end_layout
 
 \begin_layout Standard
@@ -112,8 +146,20 @@ As the code is a blackbox, in Fortran 77, it is difficult to parallelize
  
 \end_layout
 
+\begin_layout Standard
+OpenMP, MPI giving the possibility to go beyond the memory limit.
+ Due to the complexity of minimizer L-BFGS, this process is only added on
+ the part of 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ evaluation.
+ Tests of performance stability with respect to both threads and nodes are
+ made.
+\end_layout
+
 \begin_layout Section
-Polarisable solute
+Polarizable solute
 \end_layout
 
 \begin_layout Standard

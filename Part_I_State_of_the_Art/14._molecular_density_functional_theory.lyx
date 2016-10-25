@@ -83,7 +83,7 @@ name "chpt:mdft"
 \end_layout
 
 \begin_layout Standard
-The code MDFT, which all the development during this thesis is based on,
+The code MDFT upon which all the development during this thesis is based
  is a Fortran 95 sequential code developed by Maximilien Levesque, Daniel
  Borgis 
 \shape italic
@@ -198,14 +198,28 @@ Supercell discretization
  nodes.
  Angular grid is discretized with Lebedev (L) or Gauss-Legendre (GL) quadrature
  for 
-\begin_inset Formula $\bm{\Omega}\equiv\left\{ \theta,\phi\right\} ,\theta\in\left[0,\pi\right],\phi\in\left[0,2\pi\right]$
+\begin_inset Formula $\mathbf{\Omega}\equiv\left(\Theta,\Phi\right)$
 \end_inset
 
-, and regular quadrature for 
-\begin_inset Formula $\psi\in\left[0,\pi\right]$
+, 
+\begin_inset Formula $\Theta\in\left[0,\pi\right]$
 \end_inset
 
-.
+, 
+\begin_inset Formula $\Phi\in\left[0,2\pi\right]$
+\end_inset
+
+ and regular quadrature for 
+\begin_inset Formula $\Psi\in\left[0,\pi\right]$
+\end_inset
+
+ as we used the code mainly for water.
+ The number of each angular dimension is linked to the order of quadrature,
+ 
+\begin_inset Formula $m_{\max}$
+\end_inset
+
+, which is discussed mainly in the chapter of theory.
 \end_layout
 
 \begin_layout Standard
@@ -254,7 +268,7 @@ key "Zhu_1994_bfgs,Zhu_bfgs_1997_algorithm"
 .
  
 \color red
-During the evaluation of the initial code which use L-BFGS,
+During the evaluation of the initial code which uses L-BFGS,
 \color inherit
  the constraint function is not used.
 \end_layout
@@ -338,7 +352,7 @@ which also cause the divergence of the minimization.
 \begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
 \end_inset
 
-, so that
+, so that:
 \begin_inset Formula 
 \begin{equation}
 \rho(\mathbf{r},\mathbf{\Omega})=\rho_{0}\varphi^{2}(\mathbf{r},\mathbf{\Omega})\label{eq:cg_vect}
@@ -357,7 +371,7 @@ reference "eq:cg_vect"
 
 \end_inset
 
-), we see
+), we see:
 \begin_inset Formula 
 \begin{equation}
 \frac{\delta\rho(\mathbf{r},\mathbf{\Omega})}{\delta\varphi}=2\rho_{0}\varphi(\mathbf{r},\mathbf{\Omega})
@@ -365,7 +379,7 @@ reference "eq:cg_vect"
 
 \end_inset
 
-Therefore the gradient to feed the L-BFGS minimizer
+Therefore the gradient to feed the L-BFGS minimizer is:
 \begin_inset Formula 
 \begin{equation}
 \frac{\delta\mathcal{F}}{\delta\varphi}=\frac{\delta\mathcal{F}}{\delta\rho}\cdot\frac{\delta\rho}{\delta\varphi}=2\rho_{0}\varphi(\mathbf{r},\mathbf{\Omega})\cdot\left[\beta^{-1}\ln\varphi^{2}+V_{\mathrm{ext}}+V_{\mathrm{exc}}\right]

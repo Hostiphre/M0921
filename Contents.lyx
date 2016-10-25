@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass classicthesis
 \use_default_options true
 \maintain_unincluded_children false
@@ -9,16 +11,16 @@
 \language_package default
 \inputencoding utf8
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -458,7 +460,7 @@ hspace{-0.5em}
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="1" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="3.3em">
 <column alignment="left" valignment="top">
 <row>
@@ -511,7 +513,7 @@ hspace{-1.5em}
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="1" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="3.3em">
 <column alignment="left" valignment="top">
 <row>
@@ -564,7 +566,7 @@ hspace{-1.5em}
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="1" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="3.3em">
 <column alignment="left" valignment="top">
 <row>
@@ -617,7 +619,7 @@ hspace{-1.5em}
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="1" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="3.3em">
 <column alignment="left" valignment="top">
 <row>
@@ -670,7 +672,7 @@ hspace{-1.5em}
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="1" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="3.3em">
 <column alignment="left" valignment="top">
 <row>
@@ -723,7 +725,7 @@ hspace{-1.5em}
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="1" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="3.3em">
 <column alignment="left" valignment="top">
 <row>
@@ -776,7 +778,7 @@ hspace{-1.5em}
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="1" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="3.3em">
 <column alignment="left" valignment="top">
 <row>
@@ -829,7 +831,7 @@ hspace{-1.5em}
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="1" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="3.3em">
 <column alignment="left" valignment="top" width="0pt">
 <row>
@@ -882,7 +884,7 @@ hspace{-1.5em}
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="1" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="3.3em">
 <column alignment="left" valignment="top">
 <row>
@@ -935,7 +937,7 @@ hspace{-1.5em}
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="1" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="3.3em">
 <column alignment="left" valignment="top" width="87col%">
 <row>
@@ -1007,7 +1009,7 @@ hspace{-1.5em}
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="1" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="3.3em">
 <column alignment="left" valignment="top">
 <row>
@@ -1060,7 +1062,7 @@ hspace{-1.5em}
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="1" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="3.3em">
 <column alignment="left" valignment="top" width="87col%">
 <row>
@@ -1117,7 +1119,7 @@ hspace{-1.5em}
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="1" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="3.3em">
 <column alignment="left" valignment="top">
 <row>
@@ -1173,7 +1175,7 @@ hspace{-1.5em}
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="1" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="3.3em">
 <column alignment="left" valignment="top">
 <row>
@@ -1303,6 +1305,13 @@ acro{FE}{function evaluation}
 
   
 \backslash
+acro{FFT}{fast Fourier transform}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
 acro{FGSHT}{fast generalized spherical harmonic transform}
 \end_layout
 
@@ -1395,13 +1404,6 @@ acro{PDF}{pair distribution function}
   
 \backslash
 acro{QM}{quantum mechanics} 
-\end_layout
-
-\begin_layout Plain Layout
-
-  
-\backslash
-acro{RISM}{reference interaction site model}
 \end_layout
 
 \begin_layout Plain Layout
