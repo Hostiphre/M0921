@@ -6130,8 +6130,15 @@ reference "fig:Comparison-to-IET.rot_invar"
 \end_inset
 
  corresponds well the result of IEM, but the -0.6 one have a lot of noise.
- (In fact, negative charge is difficult to converge.) The the profiles of
- go much better 
+ (In fact, this configuration had difficulty to converge, and the given
+ energy is not good, thus it is deleted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparison-to-IET,nmax0-5"
+
+\end_inset
+
+.) The the profiles of go much better 
 \begin_inset Formula $m_{\max}=2,3$
 \end_inset
 
@@ -6155,14 +6162,12 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../_figure/results/iet-mdft_gr.pdf
-	scale 50
+	filename /Users/Hostiphre/Desktop/_M1102/_figure/results/ch4_iet_struct.pdf
+	width 100col%
 
 \end_inset
 
 
-\color red
-(other figures are in processing...)
 \end_layout
 
 \begin_layout Plain Layout
@@ -6207,6 +6212,11 @@ reference "fig:Comparison-to-MD"
 \end_inset
 
 .
+ We can see that for negative charges, there are a lot of shifts.
+\end_layout
+
+\begin_layout Standard
+Discussion...
 \end_layout
 
 \begin_layout Standard
@@ -6218,9 +6228,13 @@ status open
 
 \begin_layout Plain Layout
 \align center
+\begin_inset Graphics
+	filename /Users/Hostiphre/Desktop/_M1102/_figure/results/ch4_md.pdf
+	width 100col%
 
-\color red
-(figures in processing...)
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -6305,7 +6319,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../_figure/results/ch4_nmax1_lmn.eps
-	width 100col%
+	width 95col%
 
 \end_inset
 
@@ -6361,7 +6375,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../_figure/results/ch4_nmax5_inter.eps
-	width 100col%
+	width 95col%
 
 \end_inset
 
@@ -6429,7 +6443,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../_figure/results/ch4_nmax1_new.eps
-	width 100col%
+	width 95col%
 
 \end_inset
 
