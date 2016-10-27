@@ -9,9 +9,9 @@ chapters.
 \section{Radial distribution function and site-site distribution function}
 
 When the solvent is homogeneous, the \acs{PDF} can be reduced to
-$g(r_{12})$, which is somewhere referred to as the radial distribution
+$g(r_{12})$, which is sometimes referred to as the radial distribution
 function (\acs{RDF}). However, it is also used as a key character
-of the structure for inhomogeneous fluid, which can be calculated
+of the structure for inhomogeneous fluids, which can be calculated
 equivalently as:
 \begin{equation}
 g(r)=\left\langle \rho(r,\hat{\mathbf{r}})\right\rangle =\dfrac{\int\rho(r,\hat{\mathbf{r}})\mathrm{d}s_{r}}{\int\mathrm{d}s_{r}}
@@ -23,10 +23,10 @@ in the code is a $N$-point discrete space grid:
 \begin{equation}
 \rho(\mathbf{r})=\int\mathrm{d}\mathbf{\Omega}\rho(\mathbf{r},\mathbf{\Omega})=\sum_{i=1}^{N}\rho_{i}\delta(\mathbf{r}-\mathbf{r}_{i})
 \end{equation}
-The better way to do the integration is to use a histogram approach.
+The best way to do the integration is to use a histogram approach.
 
-The grid points is assumed to be homogenous in space, such that the
-number of point entering in an arbitrary volume $v$ is proportional
+The grid points are assumed to be homogenous in space, such that the
+number of points entering in an arbitrary volume $v$ is proportional
 to this volume. Obviously the grid of $\rho(\mathbf{r},\mathbf{\Omega})$
 satisfies this assumption.
 
@@ -46,19 +46,19 @@ The total function is
 \begin{equation}
 g(r_{i})=\dfrac{\int_{v_{i}}\sum_{i=1}^{N}\rho_{i}\delta(\mathbf{r}-\mathbf{r}_{i})\mathrm{d}v_{i}}{\int_{v_{i}}\delta(\mathbf{r}-\mathbf{r}_{i})\mathrm{d}v_{i}}
 \end{equation}
-and it becomes to sum up the point values $\rho_{i}$ in the interval
+and it becomes necessary to sum up the point values $\rho_{i}$ in the interval
 $\delta v=\delta r\cdot S_{r}$, and divide it by the number of points
 in this interval.
 
-A site-site distribution function is the same type with the \acs{RDF},
+A site-site distribution function is the same type as \acs{RDF},
 but the origin for the calculation of $\mathbf{r}$ is no longer at
-the center of solute, but the site coordinate $\mathbf{r}_{u}$, such
-that the new coordinates are calculate as $\mathbf{r}'=\mathbf{r}-\mathbf{r}_{u}$.
+the center of the solute, but is now at the site coordinate $\mathbf{r}_{u}$, such
+that the new coordinates are calculated as $\mathbf{r}'=\mathbf{r}-\mathbf{r}_{u}$.
 Calculation of solvent site outside the solvent center requires more
-comlicated calculation, invoving the rotation of solvent coordinate
+complicated calculations, involving the rotation of solvent coordinate
 to $\mathbf{\Omega}$-frame. It has equivant information of the structure
-than the rotational invariant projections of higher order, here we
-haven't done the implementation.
+to the rotational invariant projections of higher order, the implementation of which
+we have not done here.
 
 \section{Radial polarization functions}
 
@@ -67,7 +67,7 @@ Radial polarization function (RPF) is defined as
 p(r)=\left\langle P(r,\hat{\mathbf{r}})\right\rangle 
 \end{equation}
 where $P(\mathbf{r})$ is the polarization $P(\mathbf{r})=\int\mathbf{\Omega}\cdot\rho(\mathbf{r},\mathbf{\Omega})\mathrm{d}\mathbf{\Omega}$.
-It can be calculate in the same way as $g(r)$.
+It can be calculated in the same way as $g(r)$.
 
 \section{Rotational invariant expansion}
 
@@ -80,7 +80,7 @@ m & n & l\\
 \end{array}\right)R_{\eta\nu}^{n}(\mathbf{\Omega})R_{-\mu-\eta,0}^{l}(\mathbf{\hat{r}})
 \end{eqnarray}
 
-And the forward transform is as shown below:
+The forward transform is shown below:
 \begin{equation}
 \rho_{\mu\nu}^{mnl}(r)=f^{m}f^{n}\sum_{\eta}\left(\begin{array}{ccc}
 m & n & l\\
@@ -92,14 +92,14 @@ A detailed deduction for this generalized formula is in appendix \ref{chpt:rotat
 
 \section{Equivalence between the curves}
 
-It can be proven mathematically the relation between this curves.
+The relation between these curves can be proven mathematically.
 
 Firstly, as
 \begin{equation}
 \Phi_{00}^{000}(\mathbf{r},\mathbf{\Omega})=1
 \end{equation}
 there is only one expansion term in eq. (\ref{eq:rot_invar_expansion}).
-The projection
+The projection is
 \begin{equation}
 \rho_{00}^{000}(r)=\rho(\mathbf{r},\mathbf{\Omega})=g(r)
 \end{equation}
