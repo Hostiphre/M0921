@@ -161,7 +161,7 @@ $\mathrm{C}_{2v}$ symmetry (inside the parentheses)\label{tab:FE-of-OZ}}
 In the angular convolution algorithm above, the \acs{OZ} equation
 is reduced to a few function evaluations by taking advantage of the
 orthogonality and symmetries of \acs{GSH}s. To use this algorithm
-as an analogous to the treatment of the convolution with \acs{FFT}
+as analogous to the treatment of the convolution with \acs{FFT}
 for spatial grids, it \textit{a priori }should be fast. This is exactly
 possible owing to the exponential components in the definition of
 \acs{GSH}, and a detailed discussion will be given later.
@@ -284,8 +284,8 @@ $n_{\max}\leq m_{\max}$, the double sum in eq. (\ref{eq:f_mup_mu_2})
 is included in the \acs{FFT}-2D process of $\left(2m_{\mathrm{max}}+1\right)\left(2\left\lfloor m_{\mathrm{max}}/s\right\rfloor +1\right)$
 elements. However, if $n_{\max}>m_{\max}$, the \acs{FFT}-2D process
 only gives a partial sum of $\left|\mu'\right|,\left|\mu\right|\leq m_{\max}$,
-the other terms in eq. (\ref{eq:f_mup_mu_2}) can only calculated
-by a \acs{GSHT} process as $F_{\mu'\mu}(\Theta_{i})$ is not periodic
+the other terms in eq. (\ref{eq:f_mup_mu_2}) can only be calculated
+by a \acs{GSHT} process, as $F_{\mu'\mu}(\Theta_{i})$ is not periodic
 for $\mu'$ and $\mu$. There can be further approximations to treat
 this problem, but for practical usage, we only consider the case of
 $n_{\max}\leq m_{\max}$.
@@ -518,7 +518,7 @@ The rotation from $f(\mathbf{r},\mathbf{\Omega})$ to $f(\mathbf{r},\boldsymbol{\
 depends on the vector $\mathbf{r}$, of which the information is totally
 lost after FFT3D. The rotation from $f(\mathbf{k},\mathbf{\Omega})$
 to $f(\mathbf{k},\boldsymbol{\omega})$ can only depend on the vector
-$\mathbf{k}$, they are not the same rotation, therefore non-commutative. 
+$\mathbf{k}$; they are not the same rotation, therefore non-commutative. 
 
 \subsection{aa}
 
