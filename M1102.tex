@@ -11,7 +11,6 @@
 \usepackage{booktabs}
 \usepackage{textcomp}
 \usepackage{url}
-\usepackage{bm}
 \usepackage{multirow}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -106,13 +105,14 @@ study, as well as its limits.\\
 Once the model is chosen, all the theories become mathematical problems.
 Section \ref{chpt:statistical-mechanics} reviews some basic concepts
 of statistical mechanics for liquids (theory of liquids), which present
-some brief formalisms deduced for an atomic solvent model. The following
-section \ref{chpt:iem-mdft} gives the extension of the theory to
-molecular solvent in two frontier approaches: the integral equation
-theory (\acs{IET}), and the molecular density functional theory (\acs{MDFT})
-that this thesis works upon. A clear mathematical equivalence between
-these two theories is also presented, which gave us the idea to use
-the expansion technics in \acs{IET} to serve \acs{MDFT}. \\
+some brief formalisms deduced for an atomic solvent model. Two frontier
+approaches are then introduced with a few deductions: the molecular
+density functional theory (\acs{MDFT}) that this thesis works upon,
+and the integral equation theory (\acs{IET}). A mathematical equivalence
+between these two theories is also presented, which gave us later
+the idea to use the expansion technics in \acs{IET} to serve \acs{MDFT}.
+The following section \ref{chpt:iem-mdft} gives the extension of
+these theory to molecular solvent case.\\
 \medskip{}
 Section \ref{chpt:mdft} gives a detailed presentation of the initial
 code \acs{MDFT}, which the development in this thesis is based on.}
@@ -207,18 +207,16 @@ the evaluation of accuracy, in case of memory leak in the former.\\
 \caption{Structure of a POINCARE node\label{fig:poincare}}
 \end{figure}
 \medskip{}
-Section \ref{chpt:algorithms-and-branches},\\
+Section \ref{chpt:algorithms-and-branches}, gives a brief introduction
+of all the implementation algorithms built in this thesis.\\
 \medskip{}
-Section \ref{chpt:accuracy} discussion on precision,\\
+Section \ref{chpt:accuracy} compares the accuracy of each algorithm,
+from parts of the code to entire branches.\\
 \medskip{}
 Section \ref{chpt:seq-code-performance} computing performance and
-memory limits,\\
-\medskip{}
-Section \ref{chpt:parallelization} OpenMP, MPI giving the possibility
-to go beyond the memory limit. Due to the complexity of minimizer
-L-BFGS, this process is only added on the part of $\mathcal{F}_{\mathrm{exc}}$
-evaluation. Tests of performance stability with respect to both threads
-and nodes are made.}
+memory limits for the sequential code. Due to the time limit, the
+parallelized version has not been totally built, it is put in the
+perspectives. }
 
 \part{Implementation}
 
@@ -227,8 +225,6 @@ and nodes are made.}
 \include{Part_III_Implementation/32._numerical_and_physical_accuracy}
 
 \include{Part_III_Implementation/33._computing_performance_of_sequential_code}
-
-\include{Part_III_Implementation/34._computing_performance_of_parallel_code}
 
 \ctparttext{Only a few applications are made due to the time limit of this thesis,
 concluding\\

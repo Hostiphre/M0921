@@ -1820,7 +1820,7 @@ acs{GSH}
 \end_inset
 
 s.
- To use this algorithm as an analogous to the treatment of the convolution
+ To use this algorithm as analogous to the treatment of the convolution
  with 
 \begin_inset ERT
 status open
@@ -2462,7 +2462,7 @@ reference "eq:f_mup_mu_2"
 
 \end_inset
 
-) can only calculated by a 
+) can only be calculated by a 
 \begin_inset ERT
 status open
 
@@ -2475,7 +2475,7 @@ acs{GSHT}
 
 \end_inset
 
- process as 
+ process, as 
 \begin_inset Formula $F_{\mu'\mu}(\Theta_{i})$
 \end_inset
 
@@ -3471,7 +3471,7 @@ The rotation from
 \begin_inset Formula $\mathbf{k}$
 \end_inset
 
-, they are not the same rotation, therefore non-commutative.
+; they are not the same rotation, therefore non-commutative.
  
 \end_layout
 

@@ -1,11 +1,10 @@
 
 \chapter{Basic Concepts about Computing Performance\label{chpt:computing-performance}}
 
-In addition to theory work, the performance of the code being
-developed is also an important aspect of this thesis. It is essential
-to have a fast and accurate method. To evaluate code in a strict and
-systematic way, some basic concepts of computing performance are listed
-here. 
+In addition to theory work, the performance of the code being developed
+is also an important aspect of this thesis. It is essential to have
+a fast and accurate method. To evaluate code in a strict and systematic
+way, some basic concepts of computing performance are listed here. 
 
 \section{Algorithm complexity}
 
@@ -41,10 +40,10 @@ Other notations can also be used for the same purpose, such as:
 \item The notation $f=\Theta(g)$ means that both $f=O(g)$ and $g=O(f)$
 hold, and we can also say they are of the same order.
 \end{itemize}
-In developing code we always search for algorithms with a lower algorithm complexity.
-Ideally, the implementation of code matches the model and has the
-same growth tendency as its complexity. But in the practical case,
-overheads and memory delay can also limit the performance. \textcolor{red}{(part
+In developing code we always search for algorithms with a lower algorithm
+complexity. Ideally, the implementation of code matches the model
+and has the same growth tendency as its complexity. But in the practical
+case, overheads and memory delay can also limit the performance. \textcolor{red}{(part
 to be modified to adapt implementation results)}
 
 \section{Roofline model and memory delay}
@@ -122,7 +121,6 @@ The speed-up is defined as:
 \begin{equation}
 S(N)=\dfrac{t(1)}{t(N)}
 \end{equation}
-
 and the relative efficiency is:
 \begin{equation}
 E(N)=\dfrac{S(N)}{N}=\dfrac{t(1)}{Nt(N)}

@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass classicthesis
 \use_default_options true
 \maintain_unincluded_children false
@@ -9,16 +11,16 @@
 \language_package default
 \inputencoding utf8
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -81,7 +83,7 @@ name "chpt:computing-performance"
 \end_layout
 
 \begin_layout Standard
-In addition to the theory work, the performance of the code being developed
+In addition to theory work, the performance of the code being developed
  is also an important aspect of this thesis.
  It is essential to have a fast and accurate method.
  To evaluate code in a strict and systematic way, some basic concepts of
@@ -125,14 +127,15 @@ if there is a constant
 \begin_inset Formula $c>0$
 \end_inset
 
- such that from certain number 
+ such that from a certain number 
 \begin_inset Formula $n>n_{0}$
 \end_inset
 
  we always have 
-\begin_inset Formula $\left|f(n)\right|\leq c\left|g(n)\right|.$
+\begin_inset Formula $\left|f(n)\right|\leq c\left|g(n)\right|$
 \end_inset
 
+.
  The 
 \begin_inset Formula $O$
 \end_inset
@@ -255,10 +258,12 @@ The notation
 \end_layout
 
 \begin_layout Standard
-In a code we always search algorithms with a lower algorithm complexity.
- Ideally, the implementation of code matches the model and have the same
- growth tendency as its complexity, but in the practical case, overheads
- and memory delay can also limit the performance.
+In developing code we always search for algorithms with a lower algorithm
+ complexity.
+ Ideally, the implementation of code matches the model and has the same
+ growth tendency as its complexity.
+ But in the practical case, overheads and memory delay can also limit the
+ performance.
  
 \color red
 (part to be modified to adapt implementation results)
@@ -292,7 +297,7 @@ where
 \begin_layout Standard
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top">
 <column alignment="left" valignment="top" width="90text%">
 <row>
@@ -556,7 +561,7 @@ key "LRZ-cours"
 
 .
  (a) An example of array copy A(:)=C(:).
- Caches are organized in cache lines (CL), only complete cache lines are
+ Caches are organized in cache lines (CL); only complete cache lines are
  transferred between memory hierarchy levels (except registers).
  HIT/MISS: Load or store instruction does/doesn't find the data in a cache
  level.
@@ -587,7 +592,7 @@ Scalability of parallelized code
 
 \begin_layout Standard
 For parallelized code, scalability is the key issue.
- Highly scalable codes can take advantage of numerous nodes of HPC centers,
+ Highly scalable code can take advantage of numerous nodes of HPC centers,
  so that single core performance no longer matters.
  
 \end_layout
@@ -601,11 +606,7 @@ S(N)=\dfrac{t(1)}{t(N)}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-And the relative efficiency
+and the relative efficiency is:
 \begin_inset Formula 
 \begin{equation}
 E(N)=\dfrac{S(N)}{N}=\dfrac{t(1)}{Nt(N)}

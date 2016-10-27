@@ -1255,7 +1255,7 @@ reference "eq:interpolation"
 \begin_inset Formula $2^{5}=32$
 \end_inset
 
- times of operations.
+ times the number of operations.
 \end_layout
 
 \begin_layout Section
@@ -1512,7 +1512,7 @@ reference "eq:interpolation"
 .
  It also requires the passage from orientations in laboratory frame to orientati
 ons in intermolecular frame, i.e.
- use of the formulas (
+ use of the formulae (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:omega"

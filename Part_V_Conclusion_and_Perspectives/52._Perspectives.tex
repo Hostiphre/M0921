@@ -4,7 +4,23 @@
 Due to the difficulty of this thesis and my mental state, there are
 a lot of un finished work and theory. Here lists some to give un idea.
 
+\section{Bug report}
+
+bug in gamma test
+
+rotational invariant projection
+
 \section{Reduce memory use in MDFT}
+
+Computing performance of parallel code
+
+Node-level Parallelization
+
+OpenMP, scalability with respect to the number of thread
+
+Parallelization on Several Nodes
+
+MPI, scalability with respect to the number of node
 
 As shown in chapter III, memory leak can cause divergence and other
 problem.
@@ -18,7 +34,12 @@ L-BFGS-B is in double precision
 As the code is a blackbox, in Fortran 77, it is difficult to parallelize
 it. 
 
-\section{Polarisable solute}
+OpenMP, MPI giving the possibility to go beyond the memory limit.
+Due to the complexity of minimizer L-BFGS, this process is only added
+on the part of $\mathcal{F}_{\mathrm{exc}}$ evaluation. Tests of
+performance stability with respect to both threads and nodes are made.
+
+\section{Polarizable solute}
 
 Vext variable
 

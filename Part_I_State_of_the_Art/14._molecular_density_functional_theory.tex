@@ -1,7 +1,8 @@
 
 \chapter{Code MDFT\label{chpt:mdft}}
 
-The code MDFT upon which all the development during this thesis is based is a Fortran 95 sequential code developed by Maximilien Levesque,
+The code MDFT upon which all the development during this thesis is
+based is a Fortran 95 sequential code developed by Maximilien Levesque,
 Daniel Borgis \textit{et al.} \textcolor{red}{{[}ref{]}}, which implement
 the \acs{MDFT} theory. It reads the force field (pair potential)
 $u(\mathbf{r},\mathbf{\Omega})$ describing the solute and the solvent
@@ -24,8 +25,12 @@ shown in figure \ref{fig:code-mdft}.
 $L_{x}\times L_{y}\times L_{z}$ Å$^{3}$ space is discretized on
 a regular grid of $\textrm{nfft}_{1}\times\textrm{nfft}_{2}\times\textrm{nfft}_{3}$
 nodes. Angular grid is discretized with Lebedev (L) or Gauss-Legendre
-(GL) quadrature for $\bm{\Omega}\equiv\left\{ \theta,\phi\right\},\theta\in\left[0,\pi\right],\phi\in\left[0,2\pi\right]$,
-and regular quadrature for $\psi\in\left[0,\pi\right]$.
+(GL) quadrature for $\mathbf{\Omega}\equiv\left(\Theta,\Phi\right)$,
+$\Theta\in\left[0,\pi\right]$, $\Phi\in\left[0,2\pi\right]$ and
+regular quadrature for $\Psi\in\left[0,\pi\right]$ as we used the
+code mainly for water. The number of each angular dimension is linked
+to the order of quadrature, $m_{\max}$, which is discussed mainly
+in the chapter of theory.
 
 The solute center is at $\left(\dfrac{L_{x}}{2},\dfrac{L_{y}}{2},\dfrac{L_{z}}{2}\right)$
 of the box, characterized by $\mathbf{r}_{T}$. If the internal coordinates
@@ -68,16 +73,16 @@ can have unphysical negative numbers, \textcolor{red}{which also cause
 the divergence of the minimization.} To avoid this phenomenon, a normalized
 $\varphi(\mathbf{r},\mathbf{\Omega})$ is used as the variable during
 the minimization in place of $\rho(\mathbf{r},\mathbf{\Omega})$,
-so that
+so that:
 \begin{equation}
 \rho(\mathbf{r},\mathbf{\Omega})=\rho_{0}\varphi^{2}(\mathbf{r},\mathbf{\Omega})\label{eq:cg_vect}
 \end{equation}
 
-According to the definition (\ref{eq:cg_vect}), we see
+According to the definition (\ref{eq:cg_vect}), we see:
 \begin{equation}
 \frac{\delta\rho(\mathbf{r},\mathbf{\Omega})}{\delta\varphi}=2\rho_{0}\varphi(\mathbf{r},\mathbf{\Omega})
-\end{equation}.
-Therefore the gradient to feed the L-BFGS minimizer is
+\end{equation}
+Therefore the gradient to feed the L-BFGS minimizer is:
 \begin{equation}
 \frac{\delta\mathcal{F}}{\delta\varphi}=\frac{\delta\mathcal{F}}{\delta\rho}\cdot\frac{\delta\rho}{\delta\varphi}=2\rho_{0}\varphi(\mathbf{r},\mathbf{\Omega})\cdot\left[\beta^{-1}\ln\varphi^{2}+V_{\mathrm{ext}}+V_{\mathrm{exc}}\right]
 \end{equation}

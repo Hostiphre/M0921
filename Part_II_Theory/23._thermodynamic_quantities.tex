@@ -1,5 +1,5 @@
 
-\chapter{Free Energy and Related Thermodynamic Quantities\label{chpt:thermodynamic-quantities}}
+\chapter{Free energy correction for single ions\label{chpt:thermodynamic-quantities}}
 
 The solvation free energy is the most important property that we seek;
 as shown in previous sections, it can be calculated by the minimization
@@ -7,17 +7,6 @@ of free energy functional $\mathcal{F}[\rho]$. Here is a discussion
 about some corrections needed for charged solutes and some related
 thermodynamic quantities that can be obtained directly from the solvation
 free energy.
-
-The solvation properties often involve the three-dimensional microscopic
-structure of the solvent around the dissolved molecule, as well as
-thermodynamic quantities such as the enthalpy, entropy, and free energy
-of solvation. {[}ref gubbins{]} pKa {[}ref{]}
-
-The solvation properties can be determined if the two principle properties,
-free energy and structure, are accurately calculated. In this thesis,
-we focus on these two aspects.
-
-\section{Free energy correction for single ions}
 
 In the calculation of external potential as well as the total solvation
 free energy, the use of different conventions can lead to a charge-independent
@@ -31,7 +20,7 @@ and the periodic copies of the ion (Type-B in \citep{Kastenholz_2006_II});
 of solvent charges to the electrostatic potential in the sample system
 (Type-C in \citep{Kastenholz_2006_II}).
 
-\subsection{Correction of type B}
+\section{Correction of type B}
 
 Type B correction should be added for systems with finite size or
 periodic boundary conditions, accounting for the error in the solvent
@@ -63,7 +52,7 @@ negligible, thus eq. (\ref{eq:corr-B}) becomes
 \end{equation}
 \textcolor{red}{It links to Born correction}.
 
-\subsection{Correction of type C}
+\section{Correction of type C}
 
 Type-C corrections are needed when the systems to be compared use
 different electrostatic summation schemes: on the basis of point charges
@@ -115,28 +104,3 @@ becomes
 \Delta G_{\mathrm{C}}=-\left(6\varepsilon_{0}\right)^{-1}\eta\gamma q
 \end{equation}
 
-
-\section{Some related thermodynamic quantities}
-
-\textquotedbl{}expansion work\textquotedbl{} term PV
-
-Thermodynamic quantities such as the internal energy, pressure, compressibility
-and heat capacity are obtained as derivatives of the classical partition
-function. {[}Evans poly{]}
-
-Structure and Thermodynamic Properties of Bulk Liquids
-
-pressure is (virial pressure equation) 
-\begin{equation}
-p=\rho k_{\mathrm{B}}T-\dfrac{\rho^{2}}{2}\int\mathrm{d}\mathbf{r}g(r)\frac{r}{3}\frac{\mathrm{d}u(r)}{\mathrm{d}r}
-\end{equation}
-
-the The Gibbs free energy G is simply {[}Evans 1979{]}
-
-$G=\mu\int\mathrm{d}\mathbf{r}\rho(\mathbf{r})$
-
-\subsection{Solubility}
-
-\subsection{Pressure}
-
-enthalpy, entropy {[}3{]} pH

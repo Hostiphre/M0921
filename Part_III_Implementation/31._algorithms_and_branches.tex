@@ -34,7 +34,7 @@ and take the nearest point & $\mathsection$\ref{subsec:Zero-order-interpolation-
  & interpolation & use $\hat{c}(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
 with linear interpolation  & $\mathsection$\ref{subsec:Linear-interpolation-of}\tabularnewline
  & dipole & use $c_{S}$, $c_{\Delta}$, $c_{D}$ issue from \textcolor{red}{{[}ref{]}} & $\mathsection$\ref{subsec:Using-projections-in}\tabularnewline
- & nmax1 & use $c_{S}$, $c_{\Delta}$, $c_{D}$, $c_{\pm}$ issue from \textcolor{red}{{[}ref{]}} & $\mathsection$\ref{subsec:Using-projections-in}\tabularnewline
+ & nmax1 & use $c_{S}$, $c_{\Delta}$, $c_{D}$, $c_{\pm}$ issue from {\footnotesize{}\citep{puibasset_bridge_2012}} & $\mathsection$\ref{subsec:Using-projections-in}\tabularnewline
 \midrule
 convolution & standard & algorithm with symmetry reduction & $\mathsection$\ref{subsec:Reduction-by-symmetry}\tabularnewline
  & asymm  & algorithm without symmetry reduction & $\mathsection$\ref{subsec:Reduction-by-symmetry}\tabularnewline
@@ -91,9 +91,9 @@ above.
 Branches \texttt{\textbf{naive\_dipole}}, \texttt{\textbf{naive\_nmax1}}
 pass by $\left(b\right)\shortrightarrow\left(h\right)\shortrightarrow\left(p\right)$
 , using DCF separately of the references \textcolor{red}{{[}ref{]}}
-and \textcolor{red}{{[}ref{]}}, whose slight difference is shown in
-$\mathsection$\ref{subsec:Comparison-with-non-coupling}. Branch
-\texttt{\textbf{reference\_dipole}} use DCF in \textcolor{red}{{[}ref{]}},
+and {\footnotesize{}\citep{puibasset_bridge_2012}}, whose slight
+difference is shown in $\mathsection$\ref{subsec:Comparison-with-non-coupling}.
+Branch \texttt{\textbf{reference\_dipole}} use DCF in \textcolor{red}{{[}ref{]}},
 which is the original method in MDFT to calculate $\mathcal{F}_{\mathrm{exc}}$
 via multipole expansion. In addition with branch \texttt{\textbf{convolution\_standard}},
 which can also use the two DCF mentioned above, a test of validation

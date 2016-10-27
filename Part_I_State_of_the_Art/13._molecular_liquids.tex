@@ -6,8 +6,8 @@ water. The solvent molecules now carry a molecular structure that
 is described by a collection of distributed atomic interaction sites
 (LJ and Coulombic). The two theories mentioned in the previous section
 are formulated in the molecular picture in which each solvent molecule
-is considered as a rigid body and characterized by its position, $\mathbf{r}$
-(e. g. the position of center of mass), and its orientation, $\mathbf{\Omega}$,
+is considered as a rigid body and characterized by its position $\mathbf{r}$
+(e. g. the position of center of mass), and its orientation $\mathbf{\Omega}$,
 defined by the three Euler angles $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$.
 In \acs{MDFT}, the solvent is characterized by an inhomogeneous position
 and orientation density $\rho(\mathbf{r},\mathbf{\Omega})$. In \acs{IET},
@@ -29,11 +29,11 @@ of the grand potential with that of the orientations):
 \Theta[\rho(\mathbf{r},\mathbf{\Omega})]=\Theta[\rho_{0}]+\mathcal{F}[\rho(\mathbf{r},\mathbf{\Omega})]
 \end{equation}
 where $\Theta[\rho_{0}]$ is the correspondent reference bulk fluid
-grand potential and $\rho$ is the fluid density function depending
+grand potential, and $\rho$ is the fluid density function depending
 now on 5 or 6 variables, 3 coordinates of the positions, and 2 or
-3 for the angular part depending on whether the molecule is linear or not.
-The homogeneous density is equal to $n_{0}/4\pi$for a linear solvent, and
-$n_{0}/8\pi^{2}$ for the general case.
+3 for the angular part depending on whether the molecule is linear
+or not. The homogeneous density is equal to $n_{0}/4\pi$ for a linear
+solvent, and $n_{0}/8\pi^{2}$ for the general case.
 
 According to the variation principle described above, the equilibrium
 density can be found by minimizing the free energy functional $\mathcal{F}[\rho]$
@@ -55,9 +55,9 @@ the particle interaction-free condition:
 \begin{equation}
 \mathcal{F}_{\mathrm{id}}[\rho]=\beta^{-1}\int\mathrm{d}\mathbf{r}\mathrm{d\Omega}\left[\mathbf{\mathbf{\ln\left(\frac{\rho(\mathbf{r},\mathbf{\mathbf{\mathbf{\mathbf{\Omega}}}})}{\rho_{0}}\right)}}-\rho(\mathbf{r},\mathbf{\mathbf{\mathbf{\Omega}}})+\rho_{0}\right]
 \end{equation}
-where $\rho_{0}$ is the reference bulk density of pure solvents. The
-differentiation of $\mathcal{F}_{\mathrm{id}}[\rho]$ will be used
-for the minimization, discussed later, which has form
+where $\rho_{0}$ is the reference bulk density of the pure solvent.
+The differentiation of $\mathcal{F}_{\mathrm{id}}[\rho]$ will be
+used for the minimization, discussed later, which has form
 \begin{equation}
 \frac{\delta\mathcal{F}_{\mathrm{id}}[\rho]}{\delta\rho(\mathbf{r},\mathbf{\Omega})}=\beta^{-1}\ln\left(\dfrac{\rho(\mathbf{r},\mathbf{\Omega})}{\rho_{0}}\right)
 \end{equation}
@@ -68,7 +68,7 @@ for the minimization, discussed later, which has form
 The solute, like the solvent, is described in microscopic detail by
 a molecular non-polarizable force field involving atomic Lennard-Jones
 and partial charge parameters, creating at each point in space an
-external potential ($V_{\mathrm{ext}}(\mathbf{r},\mathbf{\mathbf{\mathbf{\mathbf{\Omega}}}})$),
+external potential $V_{\mathrm{ext}}(\mathbf{r},\mathbf{\mathbf{\mathbf{\mathbf{\Omega}}}})$,
 containing two components:
 \begin{equation}
 V_{\mathrm{ext}}(\mathbf{r},\mathbf{\Omega})=V_{\mathrm{LJ}}(\mathbf{r})+V_{\mathrm{coul}}(\mathbf{r},\mathbf{\Omega})
@@ -144,7 +144,7 @@ respectively. $\rho_{q}(\mathbf{r})$ is transformed forward, $\hat{V}_{q}(\mathb
 is computed and transformed backward. $V_{q}(\mathbf{r}_{u})$ is
 then obtained by interpolation. 
 
-\subsection{The excess term}
+\subsection{The excess term\label{subsec:The-excess-term}}
 
 The two terms $\mathcal{F}_{\mathrm{id}}[\rho]$ and $\mathcal{F}_{\mathrm{ext}}[\rho]$
 are physically exact, while the excess term $\mathcal{F}_{\mathrm{exc}}[\rho]$
@@ -207,13 +207,13 @@ The input $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 is an angular-dependent \acs{DCF} of the homogeneous solvent which
 depends on the relative position of two molecules $r_{12}$ and their
 orientations (two in the initial code \citep{Zhao_2011}, and three
-developed in this thesis). This quantity is provided with high
+developed in this thesis). This quantity is be provided with high
 precision and in different representations by Luc Belloni, using a
 mixture of Monte-Carlo simulations and inversion of the angular-dependent
 \acs{MOZ} equation within a rotational invariant expansion \citep{puibasset_bridge_2012}.
 A detailed comparison of some \acs{DCF}s is in appendix \textcolor{red}{{[}ref{]}}.
 
-\section{Angular dependent integral equation theory}
+\section{Angular dependent integral equation theory\label{sec:Angular-dependent-iem}}
 
 To extend the \acs{IET} formalism to molecular cases, Blum \citep{Blum_I,Blum_II}
 proposed an angular-dependent form of the pair distribution function,
@@ -221,6 +221,8 @@ which is then used in the \acs{IET} formalism. Fries \& Patey \citep{Fries_Patey
 proposed the numerical solution of the full \acs{HNC} theory using
 angle-dependent pair potentials. The description below is based on
 these articles.
+
+\subsection{Expansion of angular-dependent distribution functions}
 
 The angular-dependent \acs{PDF} is defined as 
 \begin{equation}
@@ -253,6 +255,9 @@ m & n & l\\
 \mu & \nu & \lambda
 \end{array}\right)g_{\mu,\mu'\nu\nu'\lambda}^{mnl}
 \end{equation}
+
+
+\subsection{Blum's reduction of molecular OZ equation}
 
 The molecular Ornstein-Zernike \acs{MOZ} equation is defined as
 \begin{equation}
@@ -291,6 +296,7 @@ m & n & l\\
 \chi & -\chi & 0
 \end{array}\right)\hat{\eta}_{\mu\nu}^{mnl}(k)
 \end{equation}
+
 If $\Phi_{\mu'\nu'}^{mnl}(\hat{\mathbf{r}}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 is defined with the factor $f^{mnl}=\left[(2m+1)(2n+1)\right]^{1/2},$
 the \acs{MOZ} equation can be reduced by Blum's reduction such that

@@ -7,7 +7,7 @@ basic formalism for a classical atom-like spherical solvent model
 in grand canonical ensemble ($\mu$,$V$,$T$). Firstly, we introduce
 the relations between the statistical mechanics and thermodynamic
 quantities. Then we change the view to the structure of the solvent.
-The two theories we use in this thesis, here refered to as \acs{IET}
+The two theories we use in this thesis, here referred to as \acs{IET}
 and \acs{MDFT}, as well as their equivalency, are proven in the following
 sections. The majority of these sections is based on the book by Hansen
 \& McDonald \citep{HANSEN_2ed,Hensen-McDonald}, and the articles
@@ -126,7 +126,8 @@ such that $g^{(n)}(\mathbf{r}^{n})\rightarrow1$ when all pairs of
 particles becomes sufficiently large.
 
 The two-particle pair distribution function (\acs{PDF}), $g^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})$,
-is one of the most important quantities in the theory of liquids. Its corresponding pair correlation function (\acs{PCF}) is defined
+is one of the most important quantities in the theory of liquids.
+Its corresponding pair correlation function (\acs{PCF}) is defined
 as:
 \begin{equation}
 h^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})=g^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})-1
@@ -181,9 +182,9 @@ which is called the Ornstein-Zernike (\acs{OZ}) equation.
 
 \section{Classical density functional theory}
 
-The density functional theory is based on two theorems:
+The density functional theory is based on two theorems :
 \begin{enumerate}
-\item For a given choice $V_{N}$, $T$ and $\mu$, the intrinsic free
+\item For a given choice of $V_{N}$, $T$ and $\mu$, the intrinsic free
 energy functional $\mathcal{F}_{\mathrm{int}}$ is a unique functional
 of the equilibrium one-particle density $\rho^{(1)}(\mathbf{r})$,
 expressed by $\mathcal{F}_{\mathrm{int}}[\rho^{(1)}]$.
@@ -198,21 +199,22 @@ that
 \begin{equation}
 \Omega[n]\geq\Omega[\rho^{(1)}]
 \end{equation}
-with the equal sign takes at $n(\mathbf{r})=\rho^{(1)}(\mathbf{r})$. <!-- Not sure about "equal sign takes". What is it saying? -->
+with the equal sign takes at $n(\mathbf{r})=\rho^{(1)}(\mathbf{r})$.
 The differentiation of eq. (\ref{eq:omega-p}) with respect to $n(\mathbf{r})$
 gives
 \begin{equation}
 \left.\frac{\delta\Omega[n]}{\delta n(\mathbf{r})}\right|_{n=\rho^{(1)}}=\left.\frac{\delta\mathcal{F}_{\mathrm{int}}[n]}{\delta n(\mathbf{r})}\right|_{n=\rho^{(1)}}-V_{\mathrm{int}}(\mathbf{r})=0\label{eq:26}
 \end{equation}
-with the right hand vanishes as eq. (\ref{eq:delta-f-int}). <!-- Same problem as above with "right hand vanishes" -->
+with the right hand vanishes as eq. (\ref{eq:delta-f-int}). \textcolor{red}{(it
+is the reason or the result?)}
 \end{enumerate}
 These theorems build an approach that, for a given choice $V_{N}$,
-$T$ and $\mu$ and an external potential $V_{\mathrm{ext}}$, amounts
-to minimize the total Helmholtz free energy functional of the solvent:
+$T$ and $\mu$ and an external potential $V_{\mathrm{ext}}$, \textcolor{red}{amounts
+to} minimize the total Helmholtz free energy functional of the solvent
 \begin{equation}
 \mathcal{F}[n(\mathbf{r})]=\mathcal{F}_{\mathrm{int}}+\mathcal{F}_{\mathrm{ext}}=\mathcal{F}_{\mathrm{id}}+\mathcal{F}_{\mathrm{exc}}+\mathcal{F}_{\mathrm{ext}}
 \end{equation}
-This gives the equilibrium density of solvent $\rho^{(1)}(\mathbf{r})$,
+gives the equilibrium density of solvent $\rho^{(1)}(\mathbf{r})$,
 $\mathcal{F}_{\mathrm{ext}}=\int\mathrm{d}\mathbf{r}n(\mathbf{r})V_{\mathrm{ext}}(\mathbf{r})$
 defined as the external functional. Note that eq. (\ref{eq:26}) is
 then equivalent to
@@ -224,7 +226,7 @@ then equivalent to
 The external term $\mathcal{F}_{\mathrm{exc}}$ of the Helmholtz free
 energy functional can be given by defining a reference homogeneous
 single-particle density $\rho_{0}$ of bulk solvent at equilibrium,
-and the corresponding bulk /acs{DCF} defined in eq. (\ref{eq:def-dcf})
+and the corresponding bulk \acs{DCF} defined in eq. (\ref{eq:def-dcf})
 via Taylor expansion:
 \begin{eqnarray}
 \mathcal{F}_{\mathrm{exc}}\left[\rho^{(1)}\right] & \equiv & \mathcal{F}_{\mathrm{exc}}\left[\rho_{0}\right]+\int\mathrm{d}\mathbf{r}_{1}\left.\frac{\delta\mathcal{F}_{\mathrm{exc}}\left[\rho^{(1)}\right]}{\delta\rho^{(1)}(\mathbf{r}_{1})}\right|_{\rho^{(1)}=\rho_{0}}\Delta\rho(\mathbf{r}_{1})\nonumber \\
@@ -255,8 +257,8 @@ Both theories give complete information of solvation energy and structure.
 
 \acs{IET} is about to solve a pair of integral equations of $h^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})$
 and $c^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})$. One of these equations
-is the \acs{OZ} equation shown as eq. (\ref{eq:oz-origine}). The
-other is a closure equation, which can be deduced from eq. (\ref{eq:26}),
+is the \acs{OZ} equation shown as eq. (\ref{eq:oz-origine}). Other
+is a closure equation, which can be deduced from eq. (\ref{eq:26}),
 giving the minimum density 
 
 \begin{equation}
@@ -274,12 +276,11 @@ The general relation to close the OZ equation is
 \begin{equation}
 g(1,2)=\exp\left[-\beta u(1,2)+h(1,2)-c(1,2)+b(1,2)\right]
 \end{equation}
-where the $b$ is the bridge function. Further closure is also possible,
+where the $b$ is the bridge function. Other closures are also possible,
 such as Percus-Yevick (PY) approximation or mean-spherical approximation
 (MSA).
 
-\section{Equivalence between c\acs{DFT} and \acs{IET} for a dilute solution
-system}
+\section{Equivalence between cDFT and IET for a dilute solution system\label{sec:Equivalence-iet-mdft}}
 
 The generalization of the \acs{OZ} equation in eq. (\ref{eq:oz-origine})
 to $n$ components can be written as
