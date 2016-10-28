@@ -16,7 +16,7 @@ from $\Delta\rho(\mathbf{r},\mathbf{\Omega})$ are shown in the figure
 Several branches are built to test and compare between algorithms,
 which are shown below in table \ref{tab:Branch-option} and will be
 detailed in the following context. \marginpar{These branches should give numerically the same result in certain
-conditions, that will be discussed in later sections.}
+conditions that will be discussed in later sections.}
 
 \selectlanguage{english}%
 \begin{table}[h]
@@ -60,7 +60,7 @@ from $\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega})$. The difference
 between branches is the way to calculate $\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$.
 Branch\textbf{ }\texttt{\textbf{naive\_standard}} use $c_{\mu\nu,\chi}^{mn}(k)$
 as input \acs{DCF}. Branch \texttt{\textbf{naive\_zero-order}} and
-\texttt{\textbf{naive\_interpolation}} using $\hat{c}(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
+\texttt{\textbf{naive\_interpolation}} use $\hat{c}(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
 with zero-order and linear interpolation, where the former is rejected
 in the implementation due to a lack of precision (appendix \ref{chpt:error-evaluation-interpolation-DCF}).
 
@@ -83,7 +83,7 @@ path
 \[
 \left(b\right)\shortrightarrow\left(d\right)\shortrightarrow\left(f\right)\shortrightarrow\left(j\right)\shortrightarrow\left(n\right)\shortrightarrow\left(o\right)\shortrightarrow\left(p\right)
 \]
-which inverse the first and last two steps of the two algorithms mentioned
+which invert the first and last two steps of the two algorithms mentioned
 above.
 
 \section{Testing branches for $n_{\max}$=1}
@@ -97,8 +97,8 @@ Branch \texttt{\textbf{reference\_dipole}} use DCF in \textcolor{red}{{[}ref{]}}
 which is the original method in MDFT to calculate $\mathcal{F}_{\mathrm{exc}}$
 via multipole expansion. In addition with branch \texttt{\textbf{convolution\_standard}},
 which can also use the two DCF mentioned above, a test of validation
-can be performed, which should at any case exactly numerically the
-same if the same DCF is used.
+can be performed, which should in any case be exactly the
+same numerically if the same DCF is used.
 
 \section{Other paths}
 
