@@ -3,8 +3,8 @@
 
 This section evaluates the computing performance of the code. Our
 goal is to show that the new algorithm of angular convolution is faster
-than the old naive one, and the huge amount of simulation has shown
-that is absolutely the case. But a raw result, where the implementation
+than the old naive one, and the huge amount of simulation has proven
+that to be the case. But a raw result, where the implementation
 goes for an indefinite number of iterations during minimization, cannot %'evolution' or 'evaluation'?
 give a proper and systematic performance evolution. That is the 
 purpose of this section. 
@@ -32,23 +32,23 @@ is used by the spatial convolution and the \acs{FGSHT} process.
 
 Referring to figure \ref{fig:timing-FFT}, the dependance on $O(N\log_{2}N)$
 \textcolor{red}{\scriptsize{}\citep{Numerical_Recipes_3ed}} doesn't
-totally exist, but of the same form, depending on the algorithm of FFT
+totally exist, but of the same form, depending on the algorithm of FFT %Is this sentence trying to say there is a dependence on the FFT algorithm?
 {[}ref dft{]}. It should be noted that a grid of prime number is always
-at the peaks in the figure, which means il can be 2 or more time longer
-than that of the composite number around. That means we should use
-a even number grid, where the $k$-border correction in $\mathsection$\ref{subsec:k-border-effect}
+at the peaks in the figure, which means il can be 2 or more times longer %il? What is il?
+than that of the composite number around. Therefore we should use
+an even number grid, where the $k$-border correction in $\mathsection$\ref{subsec:k-border-effect}
 is absolutely needed. Apart from this conclusion, to compare between
 the algorithms for angular part involved in this thesis, we are not
 really interested in computing performance with respect to the number
 of spatial grid. However, the ratio of real and complex FFT timing
-is important, as shown in figure \ref{fig:fft-real-to-complex}, which
+is important, illustrated in figure \ref{fig:fft-real-to-complex}, which
 is near the theoretical ratio 0.5. For example, we process $n_{\mathrm{angle}}$
 real to complex FFT, then $n_{\mathrm{spatial}}/2$ complex to complex
-FGSHT, or we process $n_{\mathrm{spatial}}$ real to complex FGSHT,
-then $n_{\mathrm{proj}}/2$ complex to complex FFT, should not give
+FGSHT. Or we process $n_{\mathrm{spatial}}$ real to complex FGSHT,
+then $n_{\mathrm{proj}}/2$ complex to complex FFT. This should not give
 a great difference if $n_{\mathrm{angle}}\sim n_{\mathrm{proj}}$
-for small $n_{\max}$. If it is not the case, it will have an influence
-to the choice of algorithm.
+for small $n_{\max}$. If that is not the case, it will have an influence
+on the choice of algorithm.
 \begin{center}
 \begin{figure}[h]
 \begin{centering}
@@ -61,11 +61,11 @@ to the choice of algorithm.
 \section{FGSHT}
 
 The computing times of GSHT and FGSHT are shown in figure \ref{fig:time-gsht-fgsht}.
-There is no interest to see in detail how much FFT have accelerate
+There is no reason to see in detail how much FFT has accelerated
 the GSHT process, but clearly FGSHT can be 100 times faster than GSHT,
-and GSHT for the symmetry of $\Psi$, $s=1$ is in average 5 times
-longer than $s=2$. As accuracy test shows that GSHT and FGSHT gives
-exactly the same result, it is free to utilize FGSHT in all the case
+and GSHT for the symmetry of $\Psi$, $s=1$ is on average 5 times
+longer than $s=2$. As accuracy test shows that GSHT and FGSHT give
+exactly the same result, therefore it is possible to utilize FGSHT in all the cases
 to have a faster performance.
 \begin{center}
 \begin{figure}[H]
@@ -78,15 +78,15 @@ is the order of symmetry axes $s$\label{fig:time-gsht-fgsht}}
 \par\end{center}
 
 However, it is important to know the ratio between real and complex
-FGSHT process for the same reason as FFT. it is shown that this number
+FGSHT processes for the same reason as FFT. It is demonstrated that this number
 is 0.3 in all cases, and it does not depend on $n_{\max}$. The difference
 between these two is that the real one performs real-to-complex FFT
-for the $\Phi,\Psi$ grid and calculate only a half plus a bit of
+for the $\Phi,\Psi$ grid and calculates only slightly more than half of
 projections ($\mu\geq0$) than the complex one. Normally, the ratio
-should be greater than 0.5. This means there maybe an extra process
-in the complex one or it is controlled by the memory. In a word, the
-final result 0.3 means, that doing $n_{\mathrm{spatial}}$ real to
-complex FGSHT takes only 0.6 times of doing $n_{\mathrm{spatial}}/2$
+should be greater than 0.5. This could mean there may be an extra process
+in the complex one, or it is controlled by the memory. Ultimately, the
+final result 0.3 means that doing $n_{\mathrm{spatial}}$ real to
+complex FGSHT takes only 0.6 the time of doing $n_{\mathrm{spatial}}/2$
 complex to complex FGSHT, which means in \texttt{\textbf{convolution\_standard}}
 we use less time to compute FGSHT than in \texttt{\textbf{convolution\_pure\_angular}}.
 \begin{center}
@@ -101,18 +101,18 @@ we use less time to compute FGSHT than in \texttt{\textbf{convolution\_pure\_ang
 \section{$k$-kernel}
 
 As discussed in the previous section, the final result of energy and
-structure is independent to the choice of path inside a $k$-kernel.
-That means, it is free in precision cost to choose the fast path.
-As path (1) and (2) in figure \ref{fig:k-kernel}introduce the transform
+structure is independent of the choice of path inside a $k$-kernel.
+That means we are free in terms of precision cost to choose the fast path.
+As path (1) and (2) in figure \ref{fig:k-kernel} introduce the transform
 from $\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})$ to $\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega})$
-that has no interest in timing, and the entire branches will be compared
-in later implementation, here we only compare the path (3) and (4),
+which has no interest in timing, and the entire set of branches will be compared
+in later implementations, here we only compare paths (3) and (4),
 which correspond to eq. (\ref{eq:im}) and (\ref{eq:gamma-blum}).
 
 The theoretical predictions of the computing time of \acs{OZ} equation
 with respect to $n_{\max}$ are listed in table \ref{tab:FE-of-OZ}.
-If the \acs{OZ} equation is the most time demanding part, the result
-should have the same proposal. figure \ref{fig:k-kernel} shows the
+If the \acs{OZ} equation is the most time-consuming part, the result
+should have the same proposal. Figure \ref{fig:k-kernel} shows the
 experimental timing of the whole path (3) and (4).
 
 It is shown that... \textcolor{red}{(There is a problem of code that
@@ -126,7 +126,7 @@ figure \ref{fig:Entire-iteration} shows all the comparable \texttt{\textbf{convo
 timing data. We can see \texttt{\textbf{convolution\_standard}} is
 the fastest algorithm, and OZ equation is not the longest part in
 the iteration. All the tests are performed for a $L=24$, $\mathrm{nfft}=72$
-grid, with 4 series: the three \texttt{\textbf{convolution}} methods
+grid with 4 series: the three \texttt{\textbf{convolution}} methods
 with$m_{\max}=n_{\max}$, and \texttt{\textbf{convolution\_standard}}
 with $m_{\max}=5$, varying $n_{\max}$.
 
@@ -144,16 +144,16 @@ overall \label{fig:Entire-iteration}}
 The \texttt{\textbf{naive\_standard}}, \texttt{\textbf{naive\_interpolation}},
 and \texttt{\textbf{convolution\_pure\_angular}} methods share the
 same processes out of the $k$-kernel. Table \ref{tab:Timing-loop-k}
-shows the timing of loop $k$ of these three methods. It is shown
+shows the timing of loop $k$ of these three methods. It indicates
 that \texttt{\textbf{convolution\_pure\_angular}} takes far less time
-than other two methods, of which the loop $k$ takes time in the same
-order of magnitude than the rest of iteration. And once $m_{\max}\geq2$,
+than the other two methods, of which the loop $k$ takes time in the same
+order of magnitude as the rest of iteration. And once $m_{\max}\geq2$,
 \texttt{\textbf{naive\_interpolation}} is faster than \texttt{\textbf{naive\_standard}}.
 Note that order 2 of \texttt{\textbf{naive\_interpolation}} can give
-already good result for a DCF of $n_{\max}=5$. So in every case of
+good results for a DCF of $n_{\max}=5$. So in every case of
 \texttt{\textbf{naive}} methods, \texttt{\textbf{naive\_interpolation}}
-should be used. This verified the conclusion of $k$-kernel test,
-that the path (4) in figure \ref{fig:k-kernel} is the fastest.
+should be used. This verifies the conclusion of $k$-kernel test
+in that the path (4) in figure \ref{fig:k-kernel} is the fastest.
 
 \begin{table}[H]
 \begin{centering}
@@ -175,12 +175,12 @@ and ``convolution\_pure\_angular'', and the rest of iteration\label{tab:Timing-l
 \subsection{Comparison ``convolution\_standard'' and ``convolution\_pure\_angular''}
 
 The comparison of \texttt{\textbf{convolution\_standard}} and \texttt{\textbf{convolution\_pure\_angular}}
-is shown in figure \ref{fig:comparison-pure_angular}. Their difference
-is the inversion of FFT and FGSHT. We can see the other parts are
-almost identical, but the implementation of FFT takes different time.
+appears in figure \ref{fig:comparison-pure_angular}. Their difference
+lies in the inversion of FFT and FGSHT. We can see the other parts are
+almost identical, but the implementation of FFT is different in terms of time.
 Because in \texttt{\textbf{convolution\_standard}} the number of FE
 we need for FFT is the number of projections, and in \texttt{\textbf{convolution\_pure\_angular}}
-it is the number of angular grid nodes. As there is less projections
+it is the number of angular grid nodes. As there are fewer projections
 than angular nodes, \texttt{\textbf{convolution\_standard}} reasonably
 takes less time.
 
@@ -194,15 +194,15 @@ takes less time.
 
 \subsection{Comparison ``convolution\_standard'' and ``convolution\_asymm''}
 
-The comparison of \texttt{\textbf{convolution\_standard}} and \texttt{\textbf{convolution\_asymm}}
-is shown in figure \ref{fig:comparison-asymm}. Their difference is
-that \texttt{\textbf{standard}} calculate a half $k$ in the $k$loop
-and \texttt{\textbf{asymm}} calculate all $k$ in the $k$loop. They
+We compare \texttt{\textbf{convolution\_standard}} and \texttt{\textbf{convolution\_asymm}}
+ in figure \ref{fig:comparison-asymm}. The difference is
+that \texttt{\textbf{standard}} calculates a half $k$ in the $k$loop
+and \texttt{\textbf{asymm}} calculates all $k$ in the $k$loop. They
 share the same process of FGSHT; for the processes in a $k$ loop
-(rotM, OZ) \texttt{\textbf{asymm}} takes always longer time. As in
-\texttt{\textbf{asymm}} we calculate the FFT for all the projections;
-and in \texttt{\textbf{standard}} we calculate only a half projections
-with $\mu\geq0$, it is also different.
+(rotM, OZ) \texttt{\textbf{asymm}} always takes longer time. In
+\texttt{\textbf{asymm}} we calculate the FFT for all the projections
+and in \texttt{\textbf{standard}} we calculate only half the projections
+with $\mu\geq0$, it is also different. %'it is also different' makes no sense.
 
 \begin{figure}[H]
 \begin{centering}
@@ -216,7 +216,7 @@ with $\mu\geq0$, it is also different.
 
 The comparison of $m_{\max}=n_{\max}$ and $m_{\max}=5$ for\texttt{\textbf{
 convolution\_standard}} is shown in figure \ref{fig:comparison-nmax}.
-We see that the choice of quadrature order $m_{\max}$ only affect
+We see that the choice of quadrature order $m_{\max}$ only affects
 the FGSHT process and the lecture/storage of density variable (other).
 
 \begin{figure}[H]
@@ -231,5 +231,5 @@ and $m_{\max}=5$\label{fig:comparison-nmax}}
 \section{Global view of the sequential code performance}
 
 We can see that \texttt{\textbf{convolution\_standard}} is the fastest.
-The \texttt{\textbf{convolution}} methods are of magnitude faster
+The \texttt{\textbf{convolution}} methods are orders of magnitude faster
 than \texttt{\textbf{naive}} methods.
