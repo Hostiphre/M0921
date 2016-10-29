@@ -520,32 +520,32 @@ of point at the -1 side.
 
 The figure \ref{fig:Comparison-to-IET, without-correction} after correction
 with eq. (\ref{eq:eta-gamma}) gives figure \ref{fig:Comparison-to-IET, with-corr}.
-It is shown that they are not perfectly in agreement with each other. The
+Note that they are not perfectly in agreement with each other. The
 $n_{\max}=1$ methods have a larger difference when the charge increases,
 especially the \texttt{\textbf{convolution\_standard}} using GSH expansion.
-Knowing that during 1 iteration, the \texttt{\textbf{naive\_nmax1}}
+We see that during one iteration, the \texttt{\textbf{naive\_nmax1}}
 and the \texttt{\textbf{convolution\_standard}} only give a slight
 difference in free energy (table \ref{tab:free-energy}). The $n_{\max}=5$
-have an energy shift about 2 $\mathrm{kJ}\cdot\mathrm{mol^{-1}}$,
-which cannot have an explanation. but overall, to have 2 $\mathrm{kJ}\cdot\mathrm{mol^{-1}}$
+has an energy shift of about 2 $\mathrm{kJ}\cdot\mathrm{mol^{-1}}$,
+which cannot be explained. But overall, to have 2 $\mathrm{kJ}\cdot\mathrm{mol^{-1}}$
 per 100 $\mathrm{kJ}\cdot\mathrm{mol^{-1}}$ is already a good result.
 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[bb=0bp 20bp 510bp 263bp,scale=0.6]{_figure/results/ch4_diff_inter}
 \par\end{centering}
-\caption{Comparison to IET, with P-scheme correction\label{fig:Comparison-to-IET,with-corr}}
+\caption{Comparison to IET, with P-scheme correction\label{fig:Comparison-to-IET, with-corr}}
 \end{figure}
 
 The case of $m_{\max}=5$ , $n_{\max}=0,\ldots,5$ with \texttt{\textbf{convolution\_standard}}
 is shown in figure \ref{fig:Comparison-to-IET,nmax0-5}. It is interesting
-to see how energy evaluate with $n_{\max}$ while fixing $m_{\max}$.
-As we said, $\gamma$ is more smooth than $\rho$, that means we can
-have $n_{\max}<m_{\max}$ to economize computing cost. Results shows
+to see how energy evaluates with $n_{\max}$ while fixing $m_{\max}$.
+As we said, $\gamma$ is smoother than $\rho$; that means we can
+have $n_{\max}<m_{\max}$ to economize computing cost. Results show
 that within $n_{\max}\geq3$ for $n_{\max}=5$, the error is acceptable.
-But again, the dependence on $q$ after correction is in incomprehensible.
-And compared to \texttt{\textbf{naive\_interpolation}} in figure \ref{fig:Comparison-to-IET,with-corr},
-we see that these error for $n_{\max}=5$ is different.
+Yet again, the dependence on $q$ after correction is incomprehensible.
+And compared to \texttt{\textbf{naive\_interpolation}} in figure \ref{fig:Comparison-to-IET, with-corr},
+we see that the error for $n_{\max}=5$ is different.
 
 \begin{figure}[H]
 \begin{centering}
@@ -555,17 +555,17 @@ we see that these error for $n_{\max}=5$ is different.
 \label{fig:Comparison-to-IET,nmax0-5}}
 \end{figure}
 
-The profile of $\rho$ can expended on rotational invariants which
-is discussed in $\mathsection$\ref{chpt:solvation-structure}. The
-comparison with IET is done for three charges, 0, -0.6 and +1. Shown
-in figure \ref{fig:Comparison-to-IET.rot_invar}. Watch that the 0
-and -1 one of $m_{\max}=5$ corresponds well the result of IEM, but
-the -0.6 one have a lot of noise. (In fact, this configuration had
-difficulty to converge, and the given energy is not good, thus it
-is deleted in figure \ref{fig:Comparison-to-IET,nmax0-5}.) The the
-profiles of go much better $m_{\max}=2,3$. Normally, more points
-means more precision. It may means that with $m_{\max}=5$ , there
-is perhaps a bug of integer overflow that prevent the convergence
+The profile of $\rho$ can be expanded on rotational invariants as 
+discussed in $\mathsection$\ref{chpt:solvation-structure}. The
+comparison with IET is done for three charges, 0, -0.6 and +1, shown %Is this +1 or -1? You have both in this paragraph.
+in figure \ref{fig:Comparison-to-IET.rot_invar}. Observe that the 0
+and -1 charges of $m_{\max}=5$ corresponds well the result of IEM, but
+the -0.6 charge has a lot of noise. (In fact, this configuration had
+difficulty in converging, and the given energy is not good, thus it
+is deleted in figure \ref{fig:Comparison-to-IET,nmax0-5}.) The
+profiles appear much better for $m_{\max}=2,3$. Normally, more points
+means more precision. It may indicate that with $m_{\max}=5$, there
+is perhaps a bug of integer overflow that prevents the convergence
 for high charges.
 
 \begin{figure}[H]
@@ -594,13 +594,13 @@ Discussion...
 
 \section{Premier conclusion}
 
-From the results, we see that MDFT ... ``capable'' to produce the
+From the results, we see that MDFT ... ``capable'' to produce the %Is this paragraph unfinished?
 same result with IEM for single ions. (but have more ability to calculate
 3D molecules which is not suitable for spherical coordinates...)
 
 \texttt{\textbf{naive\_interpolation}} is more stable compared to
-\texttt{\textbf{convolution}} methods and can use less angles for
-convergence, although in the computing time it cannot compare with
+\texttt{\textbf{convolution}} methods and can use fewer angles for
+convergence, although in terms of computing time it cannot compare with
 \texttt{\textbf{convolution}} methods, which will be discussed later.
 
 \begin{figure}[h]
