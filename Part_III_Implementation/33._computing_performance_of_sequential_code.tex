@@ -4,18 +4,18 @@
 This section evaluates the computing performance of the code. Our
 goal is to show that the new algorithm of angular convolution is faster
 than the old naive one, and the huge amount of simulation has shown
-that it is absolutely the case. But a raw result, where the implementation
-goes for an indefinite number of iterations during minimization, cannot
-give a proper and systematic performance evolution. This gives the
-propose of this section. 
+that is absolutely the case. But a raw result, where the implementation
+goes for an indefinite number of iterations during minimization, cannot %'evolution' or 'evaluation'?
+give a proper and systematic performance evolution. That is the 
+purpose of this section. 
 
 As discussed in appendix \ref{chpt:computing-performance}, two main
-factors give influence to the performance of a sequential code: the
+factors influence the performance of a sequential code: the
 algorithm complexity, and the memory delay. To study the algorithm
-complexity, testing with respect to parameters is done to some simple
+complexity, testing with respect to parameters is done on some simple
 but important components. The result can match the theoretical algorithm
-complexity, or completely different due to the overhead of function
-calling or the inhomogeneity of memory access. Etude of this small
+complexity, or be completely different due to the overhead of function
+calling or the inhomogeneity of memory access. Study of these small %Slipped in a bit of French, I see.
 parts permits a further understanding of the entire code.
 
 \section{FFT}
@@ -30,11 +30,11 @@ is used by the spatial convolution and the \acs{FGSHT} process.
 \caption{timing FFT\label{fig:timing-FFT}}
 \end{figure}
 
-As shown in figure \ref{fig:timing-FFT}, the dependance on $O(N\log_{2}N)$
+Referring to figure \ref{fig:timing-FFT}, the dependance on $O(N\log_{2}N)$
 \textcolor{red}{\scriptsize{}\citep{Numerical_Recipes_3ed}} doesn't
-totally exist, but of the same form, depending the algorithm of FFT
+totally exist, but of the same form, depending on the algorithm of FFT
 {[}ref dft{]}. It should be noted that a grid of prime number is always
-at the peakes in the figure, that means il can be 2 or more time longer
+at the peaks in the figure, which means il can be 2 or more time longer
 than that of the composite number around. That means we should use
 a even number grid, where the $k$-border correction in $\mathsection$\ref{subsec:k-border-effect}
 is absolutely needed. Apart from this conclusion, to compare between
