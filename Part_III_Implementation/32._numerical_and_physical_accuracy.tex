@@ -358,22 +358,22 @@ box length$L$, different number of grid nfft in one dimension, $n_{\max}=1,4$
 for $m_{\max}=n_{\max}$, and $n_{\max}=1,4$ for $m_{\max}=5$.\label{fig:Difference-in-gamma}}
 \end{figure}
 
-We can conclude very rudely that this error depends on the angular
+We can hypothesize that this error depends on the angular
 quadrature $m_{\max}$. The dependence is natural, as the difference
 between algorithms \texttt{\textbf{naive}} and \texttt{\textbf{convolution}}
 is the treatment of the angular part. There is also a dependence on
 $L$ in the $k$-space, but after \acs{FFT} it is mixed. The augmentation
 of error in the $n_{\max}$ chart is unnatural, implying there is
-perhaps a still bug in the code.
+perhaps still a bug in the code.
 
-In a word, this mysterious difference cannot be yet explained, as
-the \texttt{\textbf{naive}} methods does not have the $k$-border
-effect linked to symmetry, on the other hand we used a odd grid, we
-could not yet distinguish that it is a bug in the implementation,
-in the test or in the theory. The projections $\gamma_{\mu\nu}^{mnl}(r)$
-of this two algorithms seems to be identical (figure \ref{fig:gamma-proj}),
-it is to say, the global structure of this two algorithms are almost
-the same, and the error would not be very decisive.
+In short, this mysterious difference cannot be yet explained, as
+the \texttt{\textbf{naive}} methods do not have the $k$-border
+effect linked to symmetry. On the other hand we used an odd grid, and
+cannot yet distinguish that it is a bug in the implementation,
+whether in test or in theory. The projections $\gamma_{\mu\nu}^{mnl}(r)$
+of these two algorithms seem to be identical (figure \ref{fig:gamma-proj}),
+which is to say the global structures of the two are almost
+the same, and thus the error would not be very decisive.
 
 \begin{figure}[h]
 \begin{centering}
@@ -386,8 +386,8 @@ for a $65^{3}$ grid\label{fig:gamma-proj}}
 
 \section{Intrinsic variation of free energy\label{sec:Intrinsic-variation-of}}
 
-Before study of free energy dependence on angular algorithms, we are
-interested in the grid dependance, with can have an influence to the
+Before the study of free energy dependence on angular algorithms, we are
+interested in the grid dependance, which can have an influence on the
 tests later.
 
 \begin{figure}[H]
@@ -401,17 +401,17 @@ using dipole DCF and Lebedev quadrature, varying $\Psi$, nfft=128.
 \label{fig:Space-grid-and-psi-dependence}}
 \end{figure}
 
-As shown in figure \ref{fig:Space-grid-and-psi-dependence} (a) and
+Looking at figure \ref{fig:Space-grid-and-psi-dependence} (a) and
 (b), there is a dependence of calculated free energy on the space
-grid resolution. for a charged solute, the energy has tendency to
-decrease when increasing the resolution of grid (nfft). And this decrease
+grid resolution. For a charged solute, the energy has a tendency to
+decrease when increasing the resolution of grid (nfft). This decrease
 does not link to the border correction mentioned in $\mathsection$\ref{chpt:thermodynamic-quantities},
-as the box length and the charge remain the same for the whole set
-of test. From (b) we consider that at least 3 points grid in one dimension
+as both the box length and the charge remain the same for the whole set
+of tests. From (b) we consider that at least a 3 points grid in 1 dimension
 per Angstrom is needed to reduce the uncertainty due to grid resolution.
 Figure (c) fixed the Lebedev quadrature for $\Theta$ and $\Phi$,
-but leaved varying the $\Psi$. We can also see a dependence on $\Psi$.
-which does not vanish when increasing the resolution of grid. As during
+but left varying the $\Psi$. We can also see a dependence on $\Psi$.
+which does not vanish when increasing the resolution of grid. Since during
 the whole thesis the $\Psi$ is theoretically fixed in the same order
 with $\Theta$ and $\Phi$, this remains an issue for further verification.
 We can roughly conclude that an error around 1 kJ/mol is common for
@@ -419,9 +419,9 @@ this code.
 
 \section{Series of charged LJ centre}
 
-To valid the method, we chose a series of LJ centre, which possess
+To validate the method, we chose a series of LJ centres, which possess
 the LJ parameters of $\mathrm{C}\mathrm{H}_{4}$ in \textcolor{red}{{[}ref{]}},
-and have a various charge from -1.0 to 1.0 (table \ref{tab:Parameters-of-charged-met}).\marginpar{For both IET, and DM results, 298K is used according to habitude instead
+and have a various charge from -1.0 to 1.0 (table \ref{tab:Parameters-of-charged-met}).\marginpar{For both IET and DM results, 298K is used according to habitude instead
 of 303K recommended in reference \citep{SPC/E}. For MDFT, 300K and
 298K are used.}
 
@@ -444,15 +444,15 @@ of 303K recommended in reference \citep{SPC/E}. For MDFT, 300K and
 
 As discussed in section \ref{chpt:thermodynamic-quantities}, for
 single ions, two types of corrections need to be added on the free
-energy, which depend on the box length and and charge of the ion.
-To verify these dependence, we implement a systematic calculation
-from charge, using 3 different methods, where the parameters are shown
-in table \ref{tab:parameters-ch4}. It should be noted that, the \texttt{\textbf{naive\_interpolation}}
+energy, which depend on the box length and charge of the ion.
+To verify these dependencies, we implement a systematic calculation
+from charge using 3 different methods, the parameters of which are shown
+in table \ref{tab:parameters-ch4}. It should be noted that the \texttt{\textbf{naive\_interpolation}}
 only used 14 Lebedev and 3 $\Psi$ angles to converge, which gives
-exactly the same result with 26 Lebedev and 4 $\Psi$ angles, that
-means, the \texttt{\textbf{naive}} methods do not need an order of
+exactly the same result with 26 Lebedev and 4 $\Psi$ angles. That
+means the \texttt{\textbf{naive}} methods do not need an order of
 quadrature $m_{\max}$ to be greater than the order of DCF $n_{\max}$.
-The -1 side has problem of convergence, and all the converged results
+The -1 side has a problem of convergence, and all the converged results
 are presented.
 
 \begin{table}[h]
@@ -468,20 +468,20 @@ are presented.
 \end{tabular*}
 \par\end{centering}
 \caption{Methods and parameters for $\mathrm{C}\mathrm{H}_{4}$ series test.
-{*} Leb is Lebedev quadrature, with is mathematically equivalent with
+{*} Leb is Lebedev quadrature, which is mathematically equivalent with
 Gauss-Legendre quadrature but only ˜2/3 angles.\label{tab:parameters-ch4}}
 \end{table}
 
-The direct results collection are shown in figure \ref{fig:ch4_nmax1_lmn},
+The direct results collections are shown in figure \ref{fig:ch4_nmax1_lmn},
 \ref{fig:ch4_nmax5_inter} and \ref{fig:ch4_nmax1_new} at the end
 of this section. We can see that the dependence of box length for
-each charge is almost linear, except the charge between $\left[-0.2,0.2\right]$.
-This means, the influence of box length is much greater than the intrinsic
-variation of result that mentioned in \ref{sec:Intrinsic-variation-of}.
+each charge is almost linear, except for the charge between $\left[-0.2,0.2\right]$.
+This means the influence of box length is much greater than the intrinsic
+variation of result mentioned in \ref{sec:Intrinsic-variation-of}.
 The charge dependency is traced in figure \ref{fig:Quadratic-charge-dependence},
 using all the number of slopes with respect to the square of their
 charge ($q^{2}$). A linear regression is done to give the slope 1937.8
-$\mathrm{kJ}\cdot\mathrm{mol^{-1}}\cdot\textrm{Å}$. This slope correspond
+$\mathrm{kJ}\cdot\mathrm{mol^{-1}}\cdot\textrm{Å}$. This slope corresponds
 to the correction of type-B (normalized to give the right unity):
 \begin{equation}
 \dfrac{\xi}{2}\left(1-\dfrac{1}{\varepsilon}\right)=1943.2\,\mathrm{kJ}\cdot\mathrm{mol^{-1}}\cdot\textrm{Å}
@@ -494,14 +494,13 @@ to the correction of type-B (normalized to give the right unity):
 \caption{Quadratic charge dependence of free energy of $\mathrm{C}\mathrm{H}_{4}$
 centre series\label{fig:Quadratic-charge-dependence}}
 \end{figure}
-The intercept values in each of figure \ref{fig:ch4_nmax1_lmn} to
+The intercept values in each of figures \ref{fig:ch4_nmax1_lmn} to
 \ref{fig:ch4_nmax1_new} correspond to the free energy of an infinite
 box. The \acs{IET} results are done with $R_{\max}=102.4\textrm{Å}$,
 and need a correction of $-2.556k_{\mathrm{B}}T$. \textcolor{red}{(need
-more details.)} The differences in free energy between MDFT and IET
+more details.)} The difference in free energy between MDFT and IET
 are given in figure \ref{fig:Comparison-to-IET,without-correction}.
-The linear regression is done with all existing points in this figure.
-The slope 87.653 $\mathrm{kJ}\cdot\mathrm{mol^{-1}}$ corresponds
+Linear regression is done with all existing points in this figure, and the slope 87.653 $\mathrm{kJ}\cdot\mathrm{mol^{-1}}$ corresponds
 to the correction of type-C (normalized to give the right unity):
 \begin{equation}
 \eta\gamma=82.104\mathrm{kJ}\cdot\mathrm{mol^{-1}}\label{eq:eta-gamma}
@@ -519,10 +518,10 @@ of point at the -1 side.
 
 \subsection{Comparison with IET after corrections}
 
-The figure \ref{fig:Comparison-to-IET,without-correction} after correction
-with eq. (\ref{eq:eta-gamma}) gives figure \ref{fig:Comparison-to-IET,with-corr}.
-It is shown that they are not perfectly agreed with each other. The
-$n_{\max}=1$ methods have large difference when the charge increased,
+The figure \ref{fig:Comparison-to-IET, without-correction} after correction
+with eq. (\ref{eq:eta-gamma}) gives figure \ref{fig:Comparison-to-IET, with-corr}.
+It is shown that they are not perfectly in agreement with each other. The
+$n_{\max}=1$ methods have a larger difference when the charge increases,
 especially the \texttt{\textbf{convolution\_standard}} using GSH expansion.
 Knowing that during 1 iteration, the \texttt{\textbf{naive\_nmax1}}
 and the \texttt{\textbf{convolution\_standard}} only give a slight
