@@ -7,16 +7,12 @@ and its gradient $\gamma$ in terms of accuracy. As the theory does
 not contain any unpredictable random part, the comportment of the
 code is mathematically predictable. For example, certain algorithms
 should give the same result at machine precision ($10^{-13}$ to $10^{-15}$)
-in certain conditions. A lost of accuracy comparing to the prediction
-can be classified as two different kinds. One is the theoretical lost,
-for example, certain equation is only valid for an infinite order.
-This kind of lost is unavoidable but should be worked out explicitly.
-Another source is the unknown lost, contains all kinds of incompatibility
-in the result that cannot explained mathematically. This kind of lost
-can mainly due to a bug in the implementation that cannot be find
-out, or it is a theoretical lost that haven't been worked out. They
-also deserve a discussion. All those comparisons aim to give a global
-view of the credibility of the results given by this code.
+in certain conditions. A loss of accuracy comparing to the prediction
+can be classified as two different types. One is the theoretical loss;
+for instance, a certain equation is only valid for an infinite order.
+This kind of loss is unavoidable but should be worked out explicitly.
+Another source is the unknown loss, containing all kinds of incompatibility
+in the result that cannot be explained mathematically. It is mainly attributable to a bug in the implementation that cannot be located. There is also the possibility that it is a theoretical loss which has not been worked out. All these comparisons aim to give a global view of the credibility for the results given by this code.
 
 \section{Generalized spherical harmonics transform\label{sec:gsh-imp}}
 
@@ -31,13 +27,13 @@ F(\Theta_{i},\Phi_{j},\Psi_{k})=\sum_{m=0}^{n_{\mathrm{max}}}f_{m}\sum_{\mu'=-m}
 only remains the same when it is a polynomial of both $\cos\Theta$,
 $\cos\Phi$ and $\cos\Psi$ of order $n_{\max}$, where $n_{\max}$
 is the highest order of \acs{GSH} in the expansion, and $m_{\max}=n_{\max}$
-the order of quadrature used. However, as in the reality, the density
+the order of quadrature used. However, as in reality, the density
 variable $\rho$ is not a simple polynomial, and the choice of $m_{\max}$
-and $n_{\max}$ is tightly linked to the performance, it is important
+and $n_{\max}$ is tightly linked to the performance. It is important
 to know how much these choices will affect the results. The \acs{FFT}
 process is implemented by package FFTW3 \citep{FFTW3}, which is verified
 to be leading to strictly no accuracy lost (at machine precision).
-That means the \acs{FGSHT} process will have strictly with the \acs{GSHT}
+That means the \acs{FGSHT} process will have strictly with the \acs{GSHT} %'will have strictly'? Something is missing.
 process. Here we do not need to distinguish the two.
 
 \subsection{$m_{\mathrm{max}}$ and $n_{\mathrm{max}}$ of projections}
@@ -123,25 +119,25 @@ Differences should be theoretically null in the table is in bold character.
 \label{tab:error-gsh}}
 \end{table}
 
-It conforms the theoretical prediction where should lead to no accuracy
-lost ($m_{\max}>n_{\max}$ and $f$ the polynomial that can be expanded
-on \acs{GSH}s of order at most $n_{\max}$). It should be noted,
-that as we do firstly a forward then a backward transform, when $m_{\max}<n_{\max}$,
-even the input function is of order at most $m_{\max}$, the output
+This confirms the theoretical prediction, which is that it should lead to no accuracy
+lost ($m_{\max}>n_{\max}$ and $f$ the polynomial can be expanded
+on \acs{GSH}s of order at most $n_{\max}$). It should be noted
+that as we do first a forward then a backward transform, when $m_{\max}<n_{\max}$,
+even the input function is of order at most $m_{\max}$; the output
 function is of order $n_{\mathrm{max}}$ in the presence of $R_{\mu'\mu}^{m}$
-which is of order $n_{\mathrm{max}}$, thus the two functions are
-different. The function in which the order of $\cos\Phi$ and $\cos\Psi$
+which is of order $n_{\mathrm{max}}$. Thus the two functions are
+different. For the function in which the order of $\cos\Phi$ and $\cos\Psi$
 is greater than $\cos\Theta$ (case of $f(\mathbf{\Omega})=\cos3\Phi$),
 the two functions are different too, because it cannot be expanded
 to a finite number of \acs{GSH}s.
 
 \subsection{From $\rho$ to $\gamma$}
 
-To conclude from above, the error for an arbitrary function like $\rho$,
-which is not a combination of \acs{GSH}s, can be huge. One evidence
+To conclude, the error for an arbitrary function like $\rho$,
+which is not a combination of \acs{GSH}s, can be huge. One piece of supporting evidence
 is the appearance of unphysical density $\rho(\mathbf{r},\mathbf{\Omega})<0$
 ($\Delta\rho(\mathbf{r},\mathbf{\Omega})/\rho_{0}<-1$) at certain
-point after a forward-backward \acs{GSHT} process (figure \ref{fig:unphysical-rho}).
+points after a forward-backward \acs{GSHT} process (figure \ref{fig:unphysical-rho}).
 \textcolor{red}{(other better way?)}
 
 \begin{figure}[h]
