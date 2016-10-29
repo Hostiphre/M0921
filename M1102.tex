@@ -110,12 +110,12 @@ approaches are then introduced with a few deductions: the molecular
 density functional theory (\acs{MDFT}) that this thesis works upon,
 and the integral equation theory (\acs{IET}). A mathematical equivalence
 between these two theories is also presented, which gave us later
-the idea to use the expansion technics in \acs{IET} to serve \acs{MDFT}.
+the idea to use the expansion techniques in \acs{IET} to serve \acs{MDFT}.
 The following section \ref{chpt:iem-mdft} gives the extension of
-these theory to molecular solvent case.\\
+these theories to the molecular solvent case.\\
 \medskip{}
 Section \ref{chpt:mdft} gives a detailed presentation of the initial
-code \acs{MDFT}, which the development in this thesis is based on.}
+code \acs{MDFT}, which the development of this thesis is based on.}
 
 \part{State of the Art: Solvation, Models and Methods}
 
@@ -134,26 +134,26 @@ evaluation under HRF approximation:
 \]
 which is based on previous work of Zhao et al. \citep{Zhao_2011},
 where the HRF approximation bas been applied to linear molecules ($\mathbf{\Omega}\equiv(\Theta,\Phi)$).
-In this thesis, the method is generated to molecular solvent, using
+In this thesis, the method is generated to molecular solvent, using %'generated' or 'generalized'?
 3 Euler angles, i. e. $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$,
 where the computing cost of the original algorithm is no longer reasonable.
 Further approximation is therefore made, where the density variable
-$\rho(\mathbf{r},\mathbf{\Omega})$ is expended on generalized spherical
+$\rho(\mathbf{r},\mathbf{\Omega})$ is expanded on generalized spherical
 harmonics. Theoretically, this approximation gives little loss of
-accuracy, but makes a great advantage in computing time and memory
-requirement. The prove is shown in the implementation part.\\
+accuracy, but has a great advantage in computing time and memory
+requirement. Proof of this is shown in the implementation part.\\
 \medskip{}
 Section \ref{chpt:fft-spatial} describes the FFT treatment for the
 spatial convolution in the gradient $\gamma$ of the excess functional
 $\mathcal{F}_{\mathrm{exc}}$, which reduces the algorithm complexity
-from $O(N^{2})$ to $O(N\log_{2}N)$. A DCF directly issue of Monte
+from $O(N^{2})$ to $O(N\log_{2}N)$. A DCF direct issue of Monte
 Carlo simulation and solution HNC is used, in both intermolecular
 and projection form. To use the intermolecular form, the matrix which
 does the transform from laboratory to intermolecular coordinates system
-is generalized to molecular case compared to previous work, then interpolation
-of zero and first order is involved. To use the projection from, DCF
+is generalized to a molecular case compared to previous work, then interpolation
+of zero and first order is involved. To use the projection form, DCF
 is reconstructed with all projections. For order of projections $n_{\mathrm{max}}=1$,
-the formula of each projections are written explicitly. \\
+the formula of each projection is written explicitly. \\
 \medskip{}
 Section \ref{chpt:angular-convolution} presents the treatment of
 angular convolution. As IEM and MDFT have mathematical equivalence,
@@ -167,7 +167,7 @@ is largely simplified.\\
 The solvent properties involved in this thesis are presented in the
 next two chapters. Section \ref{chpt:thermodynamic-quantities} presents
 some thermodynamic quantities, including the solvation free energy
-and its corrections, ... and section \ref{chpt:solvation-structure}
+and its corrections, and section \ref{chpt:solvation-structure}
 gives some forms of structure that can be preformed, such as the radical
 distribution function, radical polarization functions, rotational
 invariants expansion, etc.}
@@ -189,16 +189,16 @@ are run on \textsf{\textbf{POINCARE}} machines of IDRIS, which involved
 two kinds of machines:\\
 \medskip{}
 \textsf{\textbf{poincare{[}001-092{]}:}} 2 processors Sandy Bridge
-E5-2670 (2.60GHz, 8 cores per processor, being 16 cores per node);
+E5-2670 (2.60GHz, 8 cores per processor, with 16 cores per node);
 32 GB of memory per node.\\
 \medskip{}
 \textsf{\textbf{poincarebig{[}01-02{]}:}} 4 processors AMD Opteron
-6282 (2.60GHz, 16 cores per processor, being 64 cores per node); 128
+6282 (2.60GHz, 16 cores per processor, with 64 cores per node); 128
 GB of memory per node.\\
 \medskip{}
 The former is used for regular calculation, whose memory hierarchy
-is shown in figure \ref{fig:poincare}. The later is only used in
-the evaluation of accuracy, in case of memory leak in the former.\\
+is shown in figure \ref{fig:poincare}. The latter is only used in
+the evaluation of accuracy, in case of memory leaks in the former.\\
 \medskip{}
 \begin{figure}[h]
 \begin{centering}
@@ -213,10 +213,10 @@ of all the implementation algorithms built in this thesis.\\
 Section \ref{chpt:accuracy} compares the accuracy of each algorithm,
 from parts of the code to entire branches.\\
 \medskip{}
-Section \ref{chpt:seq-code-performance} computing performance and
+Section \ref{chpt:seq-code-performance} evaluates computing performance and
 memory limits for the sequential code. Due to the time limit, the
-parallelized version has not been totally built, it is put in the
-perspectives. }
+parallelized version has not been totally built, and is included in the
+perspective. }
 
 \part{Implementation}
 
