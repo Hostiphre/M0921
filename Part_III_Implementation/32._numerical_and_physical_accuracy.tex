@@ -151,35 +151,35 @@ Computed for a $45^{3}$ grid ($L=25$) for a converged density of
 an artificial charged LJ center $\mathrm{CH}_{4}^{+0.4}$. \label{fig:unphysical-rho} }
 \end{figure}
 
-Theoretically, we expect this minimum value approach to zero when
-increasing $m_{\max}$ or $n_{\max}$, which is not exactly the case.
-That means perhaps the order of expansion is still far from to find
+Theoretically, we expect this minimum value to approach zero when
+increasing $m_{\max}$ or $n_{\max}$. This is not exactly the case.
+That means the order of expansion is still far from finding
 a tendency. Knowing that $\rho(\mathbf{r},\mathbf{\Omega})/\rho_{0}\rightarrow0$
-at center of the solute and $\rho(\mathbf{r},\mathbf{\Omega})/\rho_{0}\rightarrow1$
-far from the solute, the error can be said oblivious within the computing
-capacity ($n_{\max}<5$), that means we cannot expand rightly the
-density $\rho$ on \acs{GSH} projections, where. But this have a
-much less effect on the functional gradient $\gamma$ that we evaluate,
+is at the center of the solute and $\rho(\mathbf{r},\mathbf{\Omega})/\rho_{0}\rightarrow1$
+is far from the solute, the error can be termed oblivious within the computing %Oblivious? Is that a scientific term?
+capacity ($n_{\max}<5$). That means we cannot rightly expand the
+density $\rho$ on \acs{GSH} projections. But this has
+much lesser effect on the functional gradient $\gamma$ that we evaluate,
 because in a convolution product, $\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega})$
 and the \acs{DCF} $\hat{c}(k,\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
-can be both expended, and product of higher order terms vanishes more
-easily. Latter we will show that the profile of $\gamma$ and the
+can both be expanded, and the product of higher order terms vanishes more %'expended' or 'expanded'? Hmmm....
+easily. Later we will show that the profile of $\gamma$ and the
 free energy $\mathcal{F}_{\mathrm{exc}}$ can already converge within
 $n_{\max}<5$.
 
 \section{Comparison between branches}
 
-As shown in figure \ref{fig:Possible-algorithms}, if we fixe $\Delta\rho(\mathbf{r},\mathbf{\Omega})$
+As shown in figure \ref{fig:Possible-algorithms}, if we fix $\Delta\rho(\mathbf{r},\mathbf{\Omega})$
 to a recombination of \acs{GSH} projections, all methods using the
 same \acs{DCF} should give mathematically identical results. The
-most direct comparison is the free energy evaluated during 1 iteration.
-And to be more strict, is also interesting to compare the profile
+most direct comparison is the free energy evaluated during one iteration.
+To be more strict, it is also worthwhile to compare the profile
 of $\gamma$.
 
 \subsection{Difference in energy evaluation}
 
-As shown in table \ref{tab:free-energy}, the methods using the same
-\acs{DCF} at the same $m_{\max}$ which is mathematically identical
+Illustrated in table \ref{tab:free-energy}, the methods using the same
+\acs{DCF} at the same $m_{\max}$, which is mathematically identical
 in an infinite condition, give nearly the same results.
 
 \begin{table}[H]
@@ -209,22 +209,22 @@ means ancient DCF, not so much difference.}\label{tab:free-energy}}
 \end{table}
  
 
-The light difference between \texttt{\textbf{naive\_nmax1}} and \texttt{\textbf{convolution\_standard}}
+The slight difference between \texttt{\textbf{naive\_nmax1}} and \texttt{\textbf{convolution\_standard}}
 at $m_{\max}=1$ is due to the artificial decoration at $k$-border
-showing in later section, and the difference between \texttt{\textbf{naive\_interpolation}}
+shown in later sections, and the difference between \texttt{\textbf{naive\_interpolation}}
 and \texttt{\textbf{naive\_standard}} and \texttt{\textbf{convolution}}
-methods are also acceptable, which is natural to be lightly different
+methods are also acceptable, as it is natural to be slightly different
 due to the interpolation error and the \acs{GSH} expansion (the $\rho$
 recombination of \acs{GSH} projections will be discussed later).
-This supports by the way that we do not need the same order of \acs{GSH}
-expansion for $\gamma$ than for $\Delta\rho$.
+This supports the theory that we do not need the same order of \acs{GSH}
+expansion for $\gamma$ as for $\Delta\rho$.
 
 \subsection{A single k-kernel\label{subsec:A-single-k-kernel}}
 
 Firstly, we are interested in the local paths from $\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})$
-to $\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})$ , that can be tested
-independently for a certain $\mathbf{k}$. As shown in figure \ref{fig:k-kernel},
-four algorithms are available to the purpose.
+to $\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})$ that can be tested
+independently for a certain $\mathbf{k}$. Referring to figure \ref{fig:k-kernel},
+four algorithms are available for such a purpose.
 
 \begin{figure}[h]
 \begin{centering}
@@ -234,31 +234,31 @@ four algorithms are available to the purpose.
 \end{figure}
 
 The program that compares each element of $\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})$
-issued from these 4 algorithms for a given $\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})$
-is done by Mr. Luc Belloni, which shows that the $\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})$
-for the four algorithms are strictly identical. This means, the final
-result of energy and structure is independent to the choice of path
+issued from these four algorithms for a given $\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})$
+is done by Mr. Luc Belloni. He shows that the $\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})$
+for the four algorithms are strictly identical. This means the final
+result of energy and structure is independent of the choice of path
 inside a $k$-kernel, if $\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega})$
-can be fully expended on \acs{GSH}s.
+can be fully expanded on \acs{GSH}s.
 
 \subsection{k-border effect\label{subsec:k-border-effect}}
 
 Here we test the whole process shown in figure \ref{fig:Possible-algorithms},
 with $\Delta\rho(\mathbf{r},\mathbf{\Omega})$ generated from a recombination
-of \acs{GSH} projections. Firstly, we compare the three \texttt{\textbf{convolution}}
+of \acs{GSH} projections. First off, we compare the three \texttt{\textbf{convolution}}
 algorithms passing by \acs{GSH} expansion. For a $64^{3}$ grid,
 $n_{\max}=3$, the three algorithms \texttt{\textbf{convolution\_standard}},
 \texttt{\textbf{convolution\_asymm}}, and \texttt{\textbf{convolution\_pure\_angular}}
-gives the same free energy, but lightly different result when comparing
-each element of $\gamma(\mathbf{r},\mathbf{\Omega})$, and this difference
-seems to decrease when increase the number of grid points. More, the
+give the same free energy but somewhat different results when comparing
+each element of $\gamma(\mathbf{r},\mathbf{\Omega})$. The perceived difference
+seems to decrease when we increase the number of grid points. Moreover, the
 projections $\gamma_{\mu'\mu}^{m}(\mathbf{r})$ which should be purely
 real as explained in $\mathsection$\ref{subsec:Reduction-by-symmetry},
-have a light imaginary part. But surprisingly, for a $65^{3}$ grid,
-it gives numerically the same result for both the three algorithms
+have a slight imaginary part. Surprisingly, for a $65^{3}$ grid,
+it gives numerically the same result for all three algorithms
 at machine precision.{*} \marginpar{{*} The detailed value of $\gamma$ which the paragraph of description
-is based on haven't been noted, as it was regarded as a bug in the
-code at that time, and the code had been then modified; and to redo
+is based on has not been noted, as it was regarded as a bug in the
+code at that time, and the code has since been modified. To redo
 such a process takes a lot of time.}
 
 The difference between these methods is found to be a special $k$-border
@@ -276,14 +276,14 @@ As the symmetry
 R_{\mu'\chi}^{m}(\hat{k})=(-)^{m+\mu'+\chi}R_{-\mu',\chi}^{m}(-\hat{k})\label{eq:3-1}
 \end{equation}
 
-For the points ``at border'', it's to say that after the FFT where
+For the points ``at border'', it's safe to say that after the FFT where %This sentence makes no sense to me. Not sure if this helped.
 the point having $\pm k_{i}=k_{i}^{\mathrm{max}}$, $i=1,2,3$, for
 example for $k_{1},$
 
 \[
 \Delta\hat{\rho}_{\mu'\mu}^{m}(\pm k_{1},k_{2},k_{3})=\Delta\hat{\rho}_{\mu'\mu}^{m}(k_{1}^{\mathrm{max}},k_{2},k_{3})
 \]
-is naturally put in the same array by FFT for the grids having even
+is naturally put in the same array by FFT for the grids of an even
 number,\marginpar{For example, for a grid 1D, the FFT having 6 points gives the values
 for indices 0,1,2,3,-2,-1, and the FFT having 7 points gives the values
 for 0,1,2,3,-3,-2,-1.} as shown in figure \ref{fig:k-border-effect}. 
@@ -296,7 +296,7 @@ for 0,1,2,3,-3,-2,-1.} as shown in figure \ref{fig:k-border-effect}.
 \end{figure}
 
 As \acs{FFT} possesses periodicity, the symmetry \ref{eq:1-1} can
-always be respected at border. However, as
+always be respected at the border. However, as
 \begin{equation}
 R_{-\mu',\chi}^{m}(-\hat{k}\equiv(-k_{1},-k_{2},-k_{3}))\neq R_{\mu',\chi}^{m}(k_{1}^{\mathrm{max}},-k_{2},-k_{3})
 \end{equation}
@@ -311,30 +311,30 @@ the symmetry
 \gamma_{\mu'\mu}^{m}(\mathbf{k})=(-)^{\mu'+\mu}\gamma_{-\mu',-\mu}^{m*}(-\mathbf{k})\label{eq:1-1}
 \end{equation}
 is not respected totally, and this imposes that $\gamma_{\mu'\mu}^{m}(\mathbf{r})$
-have a imaginary part. This imaginary part has been omitted implicitly
-in the ``real to complex'' \acs{FFT} process of used in for example
+has an imaginary part. This imaginary part has been omitted implicitly
+in the ``real to complex'' \acs{FFT} process used in, for example,
 \texttt{\textbf{convolution\_standard}}, for \acs{FGSHT}, or \texttt{\textbf{convolution\_pure\_angular}}
-for FFT3D process. It is to say, we keep only the part of none-negative
-$\mathbf{k}$ or none-negative $\mu$, supposing that the part we
+for FFT3D process. That is to say, we keep only the part of nonnegative
+$\mathbf{k}$ or nonnegative $\mu$, supposing that the part we
 omit respects the symmetry.
 
-The right way to treat this issue is to artificially impose at the
+The correct way to treat this issue is to artificially impose at the
 border:
 \begin{equation}
 R_{\mu',\chi}^{m}(k_{i}^{\mathrm{max}})=\frac{1}{2}\left[R_{\mu',\chi}^{m}(k_{i})+R_{\mu',\chi}^{m}(-k_{i})\right]
 \end{equation}
 where $i$ is the conflict index in figure \ref{fig:k-border-effect}.
-If more than one dimensions are in conflict, this process can be done
+If more than one dimension is in conflict, this process can be done
 twice (4 terms for ``edges'' of the cube) or three times (8 terms
-for ``vertices''). The point $\mathbf{k}=\hat{0}$ is different,
-as it was define along $z$ axes to avoid implementation crash, it
-doesn't respect eq. (\ref{eq:3-1}) and (\ref{eq:2-1}) neither. But
-this point compared to hundreds thousands of total points is negligible.
+for ``vertices''). The point $\mathbf{k}=\hat{0}$ is different;
+as it was defined along $z$ axes to avoid implementation crash, it
+doesn't respect eq. (\ref{eq:3-1}) or (\ref{eq:2-1}). But
+this is negligible when compared to hundreds of thousands of total points.
 
 The energies given by \texttt{\textbf{naive\_standard}} and the \texttt{\textbf{convolution}}
 algorithms are identical for a $65^{3}$ and $n_{\max}=3$ grid, but
-the element of $\gamma(\mathbf{r},\mathbf{\Omega})$ have a mysterious
-difference at order of $10^{-2}$, seemed to be aleatory. A test redone
+the element of $\gamma(\mathbf{r},\mathbf{\Omega})$ has a mysterious
+difference at order of $10^{-2}$ which seems to be aleatory. A test redone %Nice word, 'aleatory', but is it appropriate for a scientific work?
 for a $45^{3}$ grid is shown in figure \ref{fig:Difference-in-gamma}.
 
 \begin{figure}[H]
