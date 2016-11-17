@@ -72,7 +72,7 @@
 \begin_body
 
 \begin_layout Chapter
-Reduction of Spatial Convolution by FFT
+Angular Integration in Excess Functional 
 \begin_inset CommandInset label
 LatexCommand label
 name "chpt:fft-spatial"
@@ -83,96 +83,16 @@ name "chpt:fft-spatial"
 \end_layout
 
 \begin_layout Standard
-As presented in section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chpt:mdft"
-
-\end_inset
-
-, to complete the minimization process of 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{MDFT}
-\end_layout
-
-\end_inset
-
-, we need to evaluate the excess functional as well as its gradient:
+As discussed in last chapter, the Fourier transform of the excess functional
+ gradient is:
 \begin_inset Formula 
 \begin{equation}
-\mathcal{F}_{\mathrm{exc}}=-\frac{\beta^{-1}}{2}\int\mathrm{d}\mathbf{r_{1}}\mathrm{d}\mathbf{r_{2}}\mathrm{d}\mathbf{\Omega_{1}}\mathrm{d}\mathbf{\Omega_{2}}\Delta\rho(\mathbf{r_{1}},\mathbf{\Omega_{1}})\Delta\rho(\mathbf{r_{2}},\mathbf{\Omega_{2}})c(\mathbf{r}_{12},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})\label{eq:fexc}
+\hat{\gamma}(\mathbf{k},\mathbf{\Omega}_{1})=\int\mathrm{d}\mathbf{\Omega}_{2}\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega}_{2})\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\label{eq:gamma-k}
 \end{equation}
 
 \end_inset
 
 
-\begin_inset Formula 
-\begin{equation}
-\gamma(\mathbf{r_{1}},\mathbf{\Omega_{1}})=-\beta^{-1}\int\mathrm{d}\mathbf{r_{2}}\mathrm{d}\mathbf{\Omega_{2}}\Delta\rho(\mathbf{r}_{2},\mathbf{\Omega}_{2})c(\mathbf{r}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\label{eq:gamma}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-As discussed in 
-\begin_inset Formula $\mathsection$
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:The-excess-term"
-
-\end_inset
-
- eq.
- (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:gamma"
-
-\end_inset
-
-) is a 3D convolution, which leads to
-\begin_inset Formula 
-\begin{equation}
-\hat{\gamma}(\mathbf{k},\mathbf{\Omega_{1}})=-\beta^{-1}\int\mathrm{d}\mathbf{\Omega_{2}}\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega_{2}})\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})\label{eq:gamma-k}
-\end{equation}
-
-\end_inset
-
-such that the integral 
-\begin_inset Formula $\int\mathrm{d}\mathbf{r_{2}}$
-\end_inset
-
- in eq.
- (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:gamma"
-
-\end_inset
-
-) is transformed into a simple product in eq.
- (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:gamma-k"
-
-\end_inset
-
-), giving a great advantage in terms of computational efficiency for huge
- spatial grid.
- 
 \end_layout
 
 \begin_layout Standard
@@ -202,7 +122,14 @@ reference "eq:gamma-k"
 \end_inset
 
 ) is very memory-costly.
- In the previous work, the 
+ In the previous work 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "gendre_classical_2009,Zhao_2011,borgis_molecular_2012"
+
+\end_inset
+
+, the 
 \begin_inset ERT
 status open
 
@@ -216,11 +143,11 @@ acs{DCF}
 \end_inset
 
  bas been stocked in the intermolecular form 
-\begin_inset Formula $\hat{c}(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
+\begin_inset Formula $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
 \end_inset
 
  to profit an economy of memory, where 
-\begin_inset Formula $(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})\equiv(\cos\theta_{1},\cos\theta_{2},\phi_{12})$
+\begin_inset Formula $(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})\equiv(\cos\theta_{1},\cos\theta_{2},\phi_{12})$
 \end_inset
 
 , and the correspondence of 
@@ -228,15 +155,42 @@ acs{DCF}
 \end_inset
 
  to 
-\begin_inset Formula $(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
+\begin_inset Formula $(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
 \end_inset
 
  is calculated directly in the code.
- However, in the case of full 3 Euler angles 
-\begin_inset Formula $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$
+ These works adapt well with linear solvents, but are proved less powerful
+ for molecular solvent such as water.
+ However, in the case of full Euler angles intermolecular 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
 \end_inset
 
-, neither the storage of 
+ (fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:coordinate_systems"
+
+\end_inset
+
+), 
+\begin_inset Formula 
+\begin{equation}
+\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})\equiv\hat{c}(k,\cos\theta_{1},\cos\theta_{2},\phi,\psi_{1},\psi_{2})
+\end{equation}
+
+\end_inset
+
+neither the storage of 
 \begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 \end_inset
 
@@ -246,12 +200,12 @@ acs{DCF}
 \end_inset
 
  to 
-\begin_inset Formula $(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
+\begin_inset Formula $(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
 \end_inset
 
  due to the increased complexity that makes it too costly, can be regard
  as a possible solution.
- For instance, with a normal setting with 
+ For instance, with a normal setting of 
 \begin_inset Formula $64^{3}$
 \end_inset
 
@@ -298,16 +252,22 @@ acs{DCF}
 \end_layout
 
 \begin_layout Standard
-Two strategies are developed treat this 3 Euler angles 
-\begin_inset Formula $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$
+Therefore, two strategies are developed treat the full 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
 \end_inset
 
  case.
- The first one is a direct extension of the previous work [
-\color red
-gendre_CPL_2009, zhao_JCP_2011, borgis_JPC_2012
-\color inherit
-], which reduces the storage using intermolecular 
+ The first one is a direct extension of the previous work, which uses the
+ full intermolecular 
 \begin_inset ERT
 status open
 
@@ -320,8 +280,9 @@ acs{DCF}
 
 \end_inset
 
-, with the more complicate angle correspondence calculation pre-tabulated
- in the beginning of the implementation, the other calculates the 
+ with a more complicate angle correspondence pre-tabulated in the beginning
+ of the implementation.
+ The other calculates the 
 \begin_inset ERT
 status open
 
@@ -334,116 +295,13 @@ acs{DCF}
 
 \end_inset
 
- directly from rotational invariant projections, as shown below.
-\end_layout
-
-\begin_layout Section
-Using intermolecular DCF
-\end_layout
-
-\begin_layout Standard
-The first strategy aims to work in the so-called intermolecular frame described
- in fig.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:coordinate_systems"
-
-\end_inset
-
- for which, in 
-\begin_inset Formula $\mathbf{r}$
-\end_inset
-
--space, the 
-\begin_inset Formula $z$
-\end_inset
-
- axis is oriented along the vector 
-\begin_inset Formula $\mathbf{r_{12}}=\mathbf{r_{2}}-\mathbf{r_{1}}$
-\end_inset
-
-, or in 
-\begin_inset Formula $\mathbf{k}$
-\end_inset
-
--space is oriented along the vector 
-\begin_inset Formula $\mathbf{k}$
-\end_inset
-
-.
- In the latter case, an orientation 
-\begin_inset Formula $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$
-\end_inset
-
- in laboratory frame become 
-\begin_inset Formula $\boldsymbol{\omega}\equiv(\theta,\phi,\psi)$
-\end_inset
-
- in intermolecular frame.
- 
-\end_layout
-
-\begin_layout Standard
-To store the 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{DCF}
-\end_layout
-
-\end_inset
-
- in the intermolecular coordinates system, it can be defined as 
-\begin_inset Formula $\hat{c}(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
-\end_inset
-
-, where 
-\begin_inset Formula $(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})\equiv(\cos\theta_{1},\cos\theta_{2},\phi,\psi_{1},\psi_{2})$
-\end_inset
-
- and 
-\begin_inset Formula $k$
-\end_inset
-
- is always oriented along the 
-\begin_inset Formula $z$
-\end_inset
-
- axis (figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:coordinate_systems"
-
-\end_inset
-
-) such that only 6 variables are needed instead of 9 for 
-\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
-\end_inset
-
-, and the storage is considerably reduced.
- The transform from 
-\begin_inset Formula $\hat{c}(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
-\end_inset
-
- to 
-\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
-\end_inset
-
- relies on the correspondence 
-\begin_inset Formula $\boldsymbol{\omega}(\mathbf{k},\mathbf{\Omega})\equiv(\cos\theta,\phi,\psi)$
-\end_inset
-
-, which is pre-calculated as a table of data.
+ directly from rotational invariant projections.
+ The test below gives a complete discussion of these two strategies.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement H
 wide false
 sideways false
 status open
@@ -462,9 +320,58 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Molecules 1 and 2 in different coordinate systems
-\lang english
+\begin_inset Argument 1
+status open
 
+\begin_layout Plain Layout
+Molecules 1 and 2 in different coordinate systems
+\end_layout
+
+\end_inset
+
+Molecules 1 and 2 in different coordinate systems.
+ The laboratory coordinate system is the system of our grid with a fixed
+ reference view.
+ When one of the molecules is considered as the reference, e.g.
+ the solute in the case of 
+\begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+, only one 
+\begin_inset Formula $\mathbf{\Omega}$
+\end_inset
+
+ needs to be described.
+ For the intermolecular frame, in 
+\begin_inset Formula $\mathbf{r}$
+\end_inset
+
+-space, the 
+\begin_inset Formula $z$
+\end_inset
+
+ axis is oriented along the vector 
+\begin_inset Formula $\mathbf{r}_{12}=\mathbf{r}_{2}-\mathbf{r}_{1}$
+\end_inset
+
+, or in 
+\begin_inset Formula $\mathbf{k}$
+\end_inset
+
+-space along the vector 
+\begin_inset Formula $\mathbf{k}$
+\end_inset
+
+.
+ An orientation 
+\begin_inset Formula $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$
+\end_inset
+
+ in laboratory frame corresponds to 
+\begin_inset Formula $\boldsymbol{\omega}\equiv(\theta,\phi,\psi)$
+\end_inset
+
+ in intermolecular frame.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:coordinate_systems"
@@ -484,6 +391,48 @@ name "fig:coordinate_systems"
 
 \end_layout
 
+\begin_layout Section
+Using full intermolecular DCF
+\end_layout
+
+\begin_layout Standard
+For the full 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ in intermolecular coordinates system, 
+\begin_inset Formula $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
+\end_inset
+
+, only 6 variables are needed instead of 9 for 
+\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
+\end_inset
+
+, and the storage is considerably reduced.
+ The transform from 
+\begin_inset Formula $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
+\end_inset
+
+ to 
+\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
+\end_inset
+
+ relies on the correspondence 
+\begin_inset Formula $\boldsymbol{\omega}(\mathbf{k},\mathbf{\Omega})\equiv(\cos\theta,\phi,\psi)$
+\end_inset
+
+, which is here pre-calculated as a table of data.
+\end_layout
+
 \begin_layout Standard
 Finding 
 \begin_inset Formula $\boldsymbol{\omega}$
@@ -493,17 +442,9 @@ Finding
 \begin_inset Formula $\mathbf{\Omega}$
 \end_inset
 
- 
-\color red
-amounts to defining
-\color inherit
- the correspondence between the rotation matrices of the two coordinate
- systems.
- 
-\end_layout
-
-\begin_layout Standard
-The rotation matrix 
+ amounts to defining the correspondence between the rotation matrices of
+ the two coordinate systems.
+ The rotation matrix 
 \begin_inset Formula $\mathbf{\hat{R}}_{\mathbf{\Omega}}$
 \end_inset
 
@@ -515,7 +456,7 @@ The rotation matrix
 \begin_inset Formula $\mathbf{\hat{R}}_{\mathbf{\Omega}}$
 \end_inset
 
-:
+
 \begin_inset Formula 
 \begin{equation}
 \mathbf{\hat{R}}_{\mathbf{\Omega}}\mathbf{I}=\mathbf{\hat{R}}_{\mathbf{\Omega}}
@@ -523,11 +464,7 @@ The rotation matrix
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-It can be expressed by 3 rotation operations 
+can be expressed by 3 rotation operations 
 \begin_inset Formula $\mathbf{\hat{R}}_{\Phi}$
 \end_inset
 
@@ -540,7 +477,15 @@ It can be expressed by 3 rotation operations
 \end_inset
 
  which rotate along 
-\begin_inset Formula $z-y-z$
+\begin_inset Formula $z$
+\end_inset
+
+-
+\begin_inset Formula $y$
+\end_inset
+
+-
+\begin_inset Formula $z$
 \end_inset
 
  axes (the same convention as defined in Messiah 
@@ -589,7 +534,7 @@ R_{zx} & R_{zy} & R_{zz}
 
 
 \begin_inset Float figure
-placement h
+placement b
 wide false
 sideways false
 status open
@@ -711,8 +656,20 @@ reference "fig:rotation-matrices"
 
 \end_inset
 
-, the rotation matrix for transforming the DCF from the intermolecular coordinat
-es to laboratory coordinates 
+, the rotation matrix to transform the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ from the intermolecular coordinates to laboratory coordinates 
 \begin_inset Formula $\mathbf{\hat{R}}_{\boldsymbol{\omega}}$
 \end_inset
 
@@ -749,7 +706,7 @@ Here we fix
 \end_inset
 
 .
- As 
+ 
 \begin_inset Formula $\theta_{k}$
 \end_inset
 
@@ -769,7 +726,8 @@ Here we fix
 \begin_inset Formula $k_{z}$
 \end_inset
 
-), in the extreme cases where we cannot define 
+).
+ In the extreme cases where we cannot define 
 \begin_inset Formula $\theta_{k}$
 \end_inset
 
@@ -864,7 +822,7 @@ The two ways to calculate
 \end_layout
 
 \begin_layout Standard
-Therefore, the elements of 
+The elements of 
 \begin_inset Formula $\mathbf{\hat{R}}_{\boldsymbol{\omega}}$
 \end_inset
 
@@ -876,7 +834,7 @@ reference "eq:rot-matrix"
 
 \end_inset
 
-):
+), which possesses the form:
 \begin_inset Formula 
 \begin{align}
 \mathbf{\hat{R}}_{\boldsymbol{\omega}} & =\left[\begin{array}{ccc}
@@ -937,7 +895,20 @@ The resulting angles are between normal intervals,
 \end_layout
 
 \begin_layout Standard
-Here the DCF 
+Here the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ 
 \begin_inset Formula $c(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})\equiv c(k,\cos\theta_{1},\cos\theta_{2},\phi_{12},\psi_{1},\psi_{2})$
 \end_inset
 
@@ -969,7 +940,7 @@ reference "subsec:Symmetric-dcf"
 \end_inset
 
  by two) such that the correspondence from 
-\begin_inset Formula $\mathbf{(\Omega}_{1},\mathbf{\Omega}_{2})$
+\begin_inset Formula $(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 \end_inset
 
  to 
@@ -1158,8 +1129,20 @@ At this order,
 \end_inset
 
  is stored in double precision.
- All angles are stored in real type, and the corresponding DCF is calculated
- as
+ All angles are stored in real number, and the corresponding 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ is calculated as
 \begin_inset Formula 
 \begin{equation}
 c(\omega)=w_{0}c(\omega_{0})+w_{1}c(\omega_{1})
@@ -1181,7 +1164,7 @@ where
 \end_inset
 
  is one of the 5 dimensions in 
-\begin_inset Formula $\tilde{\boldsymbol{\omega}}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})\equiv(\cos\theta_{1},\cos\theta_{2},\phi,\psi_{1},\psi_{2})$
+\begin_inset Formula $\tilde{\boldsymbol{\omega}}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\equiv(\cos\theta_{1},\cos\theta_{2},\phi,\psi_{1},\psi_{2})$
 \end_inset
 
 , 
@@ -1231,8 +1214,30 @@ These two equations are available for both interpolation and extrapolation,
 \end_layout
 
 \begin_layout Standard
-An error evaluation of these two strategies of interpolation is shown in
- appendix 
+An error evaluation of the two strategies of interpolation presented in
+ 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Zero-order-interpolation-of"
+
+\end_inset
+
+ and 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Linear-interpolation-of"
+
+\end_inset
+
+ is shown in appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chpt:error-evaluation-interpolation-DCF"
@@ -1264,12 +1269,25 @@ Direct calculation of DCF from rotational invariant projections
 
 \begin_layout Standard
 Another strategy to calculate 
-\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
+\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 \end_inset
 
- is to use the DCF expressed in terms of rotational invariant projections,
- which takes far less memory than in the intermolecular form thanks to their
- angular independence and symmetric properties.
+ is to use the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ expressed in terms of rotational invariant projections, which takes far
+ less memory than in the intermolecular function form thanks to their angular
+ independence and symmetric properties.
  
 \end_layout
 
@@ -1297,19 +1315,19 @@ key "Blum_I,Blum_II"
 \end_inset
 
 , 
-\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
+\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 \end_inset
 
  can be expanded as
 \begin_inset Formula 
 \begin{equation}
-\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})=\sum_{mnl\mu\nu}\hat{c}_{\mu\nu}^{mnl}(k)\Phi_{\mu\nu}^{mnl}(\mathbf{\hat{k}},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})
+\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})=\sum_{mnl\mu\nu}\hat{c}_{\mu\nu}^{mnl}(k)\Phi_{\mu\nu}^{mnl}(\mathbf{\hat{k}},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})
 \end{equation}
 
 \end_inset
 
 where 
-\begin_inset Formula $\Phi_{\mu\nu}^{mnl}(\mathbf{\hat{k}},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
+\begin_inset Formula $\Phi_{\mu\nu}^{mnl}(\mathbf{\hat{k}},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 \end_inset
 
  are rotational invariants that depends on both the spatial and angular
@@ -1332,7 +1350,20 @@ For projections of order
 \begin_inset Formula $n,m\leq1$
 \end_inset
 
-), the DCF can be expressed in very simple form.
+), the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ can be expressed in very simple form.
  Only 4 projections 
 \begin_inset Formula $\hat{c}^{mnl}(k)$
 \end_inset
@@ -1361,7 +1392,7 @@ y and intermolecular frames:
 \Phi^{011} & =i\mathbf{k}\cdot\mathbf{\Omega}_{1}=i\cos\theta_{1}\nonumber \\
 \Phi^{101} & =i\mathbf{k}\cdot\mathbf{\Omega}_{2}=i\cos\theta_{2}\nonumber \\
 \Phi^{110} & =-\sqrt{3}\mathbf{\Omega}_{1}\cdot\mathbf{\Omega}_{2}=-\sqrt{3}(\sin\theta_{1}\sin\theta_{2}\cos\phi_{12}+\cos\theta_{1}\cos\theta_{2})\nonumber \\
-\Phi^{112} & =\sqrt{\frac{3}{10}}\left[3\mathbf{(\mathbf{k}\cdot\mathbf{\Omega}_{1})(\mathbf{k}\cdot\mathbf{\Omega}_{2})-\Omega}_{1}\cdot\mathbf{\Omega}_{2}\right]\\
+\Phi^{112} & =\sqrt{\frac{3}{10}}\left[3(\mathbf{k}\cdot\mathbf{\Omega}_{1})(\mathbf{k}\cdot\mathbf{\Omega}_{2})-\mathbf{\Omega}_{1}\cdot\mathbf{\Omega}_{2}\right]\\
  & =\sqrt{\frac{3}{10}}\left(2\cos\theta_{1}\cos\theta_{2}-\sin\theta_{1}\sin\theta_{2}\cos\phi_{12}\right)\nonumber 
 \end{align}
 
@@ -1376,17 +1407,59 @@ where the orientations in laboratory frame
 \end_inset
 
  in the cartesian coordinate system.
- To express the DCF at higher orders, the number of FE needed for 
-\begin_inset Formula $\Phi_{\mu\nu}^{mnl}(\mathbf{\hat{k}},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
+ 
+\end_layout
+
+\begin_layout Standard
+To express the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
 \end_inset
 
- becomes huge and the DCF should be calculated in intermolecular frame as
- indicated above.
+ at higher orders, the number of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FE}
+\end_layout
+
+\end_inset
+
+ needed for 
+\begin_inset Formula $\Phi_{\mu\nu}^{mnl}(\mathbf{\hat{k}},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
+\end_inset
+
+ becomes huge and the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ should be calculated in intermolecular frame as indicated below.
 \end_layout
 
 \begin_layout Subsection
 Using projections in form of 
-\begin_inset Formula $\hat{c}_{\mu\nu,\chi}^{mn}(k)$
+\begin_inset Formula $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$
 \end_inset
 
 
@@ -1401,7 +1474,7 @@ name "subsec:Using-projections-in-1"
 
 \begin_layout Standard
 Compared to the expression of 
-\begin_inset Formula $\Phi_{\mu\nu}^{mnl}(\mathbf{\hat{k}},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
+\begin_inset Formula $\Phi_{\mu\nu}^{mnl}(\mathbf{\hat{k}},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 \end_inset
 
  in laboratory frame (eq.
@@ -1412,14 +1485,7 @@ reference "eq:definition_rot_invar"
 
 \end_inset
 
-) in appendix 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chpt:rotational-invariant-expansion"
-
-\end_inset
-
-), its intermolecular form has far fewer terms (eq.
+)), its intermolecular form has far fewer terms (eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1427,17 +1493,10 @@ reference "eq:phi_local"
 
 \end_inset
 
-) in appendix 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chpt:rotational-invariant-expansion"
-
-\end_inset
-
-), such that
+)), such that
 \begin_inset Formula 
 \begin{equation}
-\hat{c}(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})=\frac{1}{2l+1}\sum_{mn\mu\nu\chi}\hat{c}_{\mu\nu,\chi}^{mn}(k)r_{\chi\mu}^{m}(\theta_{1})r_{-\chi\nu}^{n}(\theta_{2})e^{-i\chi(\phi_{12}\equiv\phi_{1}-\phi_{2})}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}\label{eq:dcf-exact}
+\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})=\frac{1}{2l+1}\sum_{mn\mu\nu\chi}\hat{c'}_{\mu\nu,\chi}^{mn}(k)r_{\chi\mu}^{m}(\theta_{1})r_{-\chi\nu}^{n}(\theta_{2})e^{-i\chi(\phi_{12}\equiv\phi_{1}-\phi_{2})}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}\label{eq:dcf-exact}
 \end{equation}
 
 \end_inset
@@ -1481,11 +1540,11 @@ where
 \begin_inset Formula $\mathbf{k}$
 \end_inset
 
-, to avoid double evaluation of each term.
+, to avoid repetitive evaluation of each term.
 \end_layout
 
 \begin_layout Standard
-E.q.
+Eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1506,7 +1565,7 @@ reference "eq:interpolation"
 \end_inset
 
  to be stored in memory rather than the full angular representation 
-\begin_inset Formula $\hat{c}(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
+\begin_inset Formula $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
 \end_inset
 
 .

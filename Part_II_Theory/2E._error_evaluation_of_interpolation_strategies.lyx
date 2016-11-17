@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass classicthesis
 \use_default_options true
 \maintain_unincluded_children false
@@ -9,16 +11,16 @@
 \language_package default
 \inputencoding utf8
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -81,13 +83,37 @@ name "chpt:error-evaluation-interpolation-DCF"
 \end_layout
 
 \begin_layout Standard
-The error introduced by the two interpolation orders for a DCF of order
- 
+The error introduced by the two interpolation orders for a 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ of order 
 \begin_inset Formula $n_{\mathrm{max}}=1$
 \end_inset
 
- (for which the exact DCF can be computed directly; see details later) is
- shown in figure 
+ (for which the exact 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ can be computed directly; see details later) is shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:error"
@@ -95,6 +121,10 @@ reference "fig:error"
 \end_inset
 
 .
+\begin_inset VSpace 8ex
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -113,25 +143,34 @@ has_inner_box 1
 inner_pos "t"
 use_parbox 0
 use_makebox 0
-width "110text%"
+width "100text%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename ../_figure/c_local_to_global_coordinates_32_96/absolute_error.eps
-	scale 30
+	scale 35
 	rotateAngle -90
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename ../_figure/c_local_to_global_coordinates_32_96/log_absolute_error.eps
-	scale 30
+	scale 35
 	rotateAngle -90
 
 \end_inset
@@ -143,7 +182,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../_figure/c_local_to_global_coordinates_32_96/relative_error.eps
-	scale 30
+	scale 35
 	rotateAngle -90
 
 \end_inset
@@ -160,7 +199,7 @@ status open
 
 \begin_layout Plain Layout
 Error of finding 
-\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
+\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 \end_inset
 
  by interpolation compared to direct calculation
@@ -169,7 +208,7 @@ Error of finding
 \end_inset
 
 Error of finding 
-\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
+\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 \end_inset
 
  by interpolation compared to direct calculation: Test 0.1-0.4 is zero order
@@ -215,7 +254,19 @@ name "fig:error"
 \series bold
 Absolute error
 \series default
- is the histogram that counts the number of times that the calculated DCF
+ is the histogram that counts the number of times that the calculated 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
  gives the corresponding absolute error 
 \begin_inset Formula $E_{\mathrm{a}}^{i}$
 \end_inset
@@ -264,7 +315,7 @@ Log absolute error
 \begin_inset Formula $E_{\mathrm{l}}^{i}$
 \end_inset
 
- defined as
+ defined as:
 \begin_inset Formula 
 \begin{equation}
 E_{\mathrm{l}}^{i}=\log\left|c_{k}^{i}-c_{k}\right|
@@ -280,7 +331,7 @@ E_{\mathrm{l}}^{i}=\log\left|c_{k}^{i}-c_{k}\right|
 \series bold
 Relative error
 \series default
- is defined as
+ is defined as:
 \begin_inset Formula 
 \begin{equation}
 E_{r}^{i}=\left|c_{k}^{i}-c_{k}\right|/\left|c_{k}\right|\label{eq:Er}
@@ -294,8 +345,34 @@ with resolution of 0.1%, in range of [0, 1].
 \begin_layout Standard
 In all three figures, the 4 curves given by zero order interpolation do
  not diverge a great deal compared with the linear interpolation one.
- The result of MDFT also shows that zero order interpolation gives large
- energy error with a DCF of 
+ The result of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ also shows that zero order interpolation gives large energy error with
+ a 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ of 
 \begin_inset Formula $n_{\max}=1$
 \end_inset
 
@@ -314,7 +391,7 @@ reference "eq:interpolation"
 \begin_inset Formula $2^{5}=32$
 \end_inset
 
- times of operations.
+ times the number of operations.
 \end_layout
 
 \end_body

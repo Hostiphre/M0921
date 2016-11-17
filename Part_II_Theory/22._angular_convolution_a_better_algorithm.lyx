@@ -83,14 +83,8 @@ name "chpt:angular-convolution"
 \end_layout
 
 \begin_layout Standard
-In section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chpt:fft-spatial"
-
-\end_inset
-
-, the spatial convolution is treated by 
+In previous sections, the spatial convolution in the excess functional gradient
+ is treated by 
 \begin_inset ERT
 status open
 
@@ -113,8 +107,8 @@ acs{FFT}
 \begin_inset Formula $\mathbf{\Omega}_{12}=\mathbf{\Omega}_{1}-\mathbf{\Omega}_{2}$
 \end_inset
 
-, therefore we cannot take advantage of the convolution property shown in
- eq.
+, therefore for the angles we cannot take advantage of the convolution property
+ shown in eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -129,7 +123,7 @@ reference "eq:convolution-2"
 
 \end_inset
 
-) for the angles.
+).
  On the other hand, these two-particle quantities have rotational invariance.
  As proposed by Blum 
 \begin_inset CommandInset citation
@@ -138,15 +132,8 @@ key "Blum_I,Blum_II"
 
 \end_inset
 
- and used by Fries and Patey 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Fries_Patey_1985"
-
-\end_inset
-
-, a rotational invariant expansion technique reduces the molecular Ornstein-Zern
-ike (
+, a rotational invariant expansion technique is used to reduce the molecular
+ Ornstein-Zernike (
 \begin_inset ERT
 status open
 
@@ -171,7 +158,7 @@ reference "sec:Angular-dependent-iem"
 \end_inset
 
 ).
- As there is a mathematical equivalence between 
+ Owing to the mathematical equivalence between 
 \begin_inset ERT
 status open
 
@@ -192,12 +179,12 @@ status open
 
 
 \backslash
-acs{MDFT}
+acs{DFT}
 \end_layout
 
 \end_inset
 
- (
+ approach (
 \begin_inset Formula $\mathsection$
 \end_inset
 
@@ -216,7 +203,8 @@ reference "eq:gamma-k"
 
 \end_inset
 
-) can be regarded as the 
+) about the Fourier transform of the excess functional gradient can be regarded
+ as the 
 \begin_inset ERT
 status open
 
@@ -229,7 +217,7 @@ acs{MOZ}
 
 \end_inset
 
- equation, this formalism can also be applied to 
+ equation, the formalism of Blum can also be applied to 
 \begin_inset ERT
 status open
 
@@ -278,7 +266,7 @@ reference "eq:Blum-reduced-OZ"
 
 \end_inset
 
-) is mathematically identical with 
+) is mathematically identical with those in 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Blum_I,Blum_II"
@@ -332,8 +320,7 @@ acs{MOZ}
 
 \end_inset
 
- equation deduced by Blum (in the definition of Fries & Patey, detailed
- in 
+ equation for homogeneous fluid deduced by Blum (detailed in 
 \begin_inset Formula $\mathsection$
 \end_inset
 
@@ -344,10 +331,14 @@ reference "sec:Angular-dependent-iem"
 
 \end_inset
 
-, with the symmetry 
+, with the symmetry
+\color red
+ 
 \begin_inset Formula $\hat{c'}_{\nu\mu,\chi}^{nm}(k)=\hat{c'}_{\mu\nu,\underline{\chi}}^{mn*}(k)$
 \end_inset
 
+
+\color inherit
 )
 \begin_inset Formula 
 \begin{equation}
@@ -382,8 +373,7 @@ acs{GSHT}
 
 \end_inset
 
-) treatment is proposed by Luc Belloni, developing the functional gradient
- 
+) treatment is proposed by developing the functional gradient 
 \begin_inset Formula $\hat{\gamma}$
 \end_inset
 
@@ -433,11 +423,11 @@ where
 \end_inset
 
 , 
-\begin_inset Formula $\left|\mu'\right|,\left|\mu\right|<m$
+\begin_inset Formula $\left|\mu'\right|,\left|\mu\right|\leq m$
 \end_inset
 
  and 
-\begin_inset Formula $\left|\nu'\right|,\left|\nu\right|<n$
+\begin_inset Formula $\left|\nu'\right|,\left|\nu\right|\leq n$
 \end_inset
 
 .
@@ -445,7 +435,7 @@ where
 \begin_inset Formula $f_{m}=\left(2m+1\right)^{\frac{1}{2}}=\left\Vert R_{\mu'\mu}^{m}\right\Vert ^{-1}$
 \end_inset
 
- is the normalization factor (according to Luc's definition).
+ is the normalization factor.
 \end_layout
 
 \begin_layout Standard
@@ -462,14 +452,7 @@ acs{DCF}
 
 \end_inset
 
- can also be expanded on rotational invariants 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Fries_Patey_1985"
-
-\end_inset
-
-:
+ can also be expanded on rotational invariants:
 \begin_inset Formula 
 \begin{equation}
 \hat{c}(k,\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})=\sum_{mnl\mu\nu}f_{m}f_{n}\hat{c}_{\mu\nu}^{mnl}(k)\sum_{\mu'\nu'\lambda'}\left(\begin{array}{ccc}
@@ -603,12 +586,36 @@ key "Blum_II"
 
 \end_inset
 
- defines: 
+ defines:
+\begin_inset Formula 
+\begin{equation}
+\hat{c'}_{\mu\nu,\chi}^{mn}(k)=\sum_{l=\left|m-n\right|}^{m+n}\left(\begin{array}{ccc}
+m & n & l\\
+\chi & -\chi & 0
+\end{array}\right)\hat{c}_{\mu\nu}^{mnl}(k)
+\end{equation}
+
+\end_inset
+
+
 \begin_inset Marginal
 status open
 
 \begin_layout Plain Layout
-In fact, 
+In fact, in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+, 
 \begin_inset Formula $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$
 \end_inset
 
@@ -622,17 +629,6 @@ reference "eq:Blum-reduced-OZ"
 
 ).
 \end_layout
-
-\end_inset
-
- 
-\begin_inset Formula 
-\begin{equation}
-\hat{c'}_{\mu\nu,\chi}^{mn}(k)=\sum_{l=\left|m-n\right|}^{m+n}\left(\begin{array}{ccc}
-m & n & l\\
-\chi & -\chi & 0
-\end{array}\right)\hat{c}_{\mu\nu}^{mnl}(k)
-\end{equation}
 
 \end_inset
 
@@ -659,7 +655,14 @@ Invariants of form
 \begin_inset Formula $F(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
 \end_inset
 
- in the intermolecular coordinate system (eq.
+ in intermolecular coordinate system (see appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:rotational-invariant-expansion"
+
+\end_inset
+
+, eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -674,7 +677,20 @@ reference "eq:local_backward"
 
 \end_inset
 
-)).
+)), that is how the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation can be reduced.
  In 
 \begin_inset ERT
 status open
@@ -688,7 +704,8 @@ acs{MDFT}
 
 \end_inset
 
- formalism, the projections of 
+, we can also take advantage of this quantity by defining the projections
+ of 
 \begin_inset Formula $\hat{\gamma}$
 \end_inset
 
@@ -700,7 +717,7 @@ acs{MDFT}
 \begin_inset Formula $\boldsymbol{\omega}_{i}=\hat{\mathbf{k}}\mathbf{\Omega}_{i}$
 \end_inset
 
-) are
+):
 \begin_inset Formula 
 \begin{equation}
 \hat{\gamma'}(\mathbf{k},\boldsymbol{\omega}_{1})=\sum_{m\chi\mu}f_{m}\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})\label{eq:gamma-projection-local}
@@ -829,6 +846,74 @@ reference "eq:3j-orthogonality"
 \end_layout
 
 \begin_layout Standard
+Eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gamma-blum"
+
+\end_inset
+
+) is essential to the new algorithm.
+ It makes that, for the terms with the same index 
+\begin_inset Formula $\chi$
+\end_inset
+
+, the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation is a simple product of matrix:
+\begin_inset Formula 
+\begin{equation}
+\tilde{\gamma'}_{\chi}=\left[\left(-\right){}^{\chi+\nu}\tilde{c'}_{\chi}\right]\tilde{\rho'}_{\chi}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The index 
+\begin_inset Formula $\chi$
+\end_inset
+
+ shares the same role with 
+\begin_inset Formula $\mathbf{k}$
+\end_inset
+
+ in the treatment of spatial convolution, where the recombination of projections
+ on exponential orthogonal bases gives for each 
+\begin_inset Formula $\mathbf{k}$
+\end_inset
+
+, a simple product form of the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation.
+\end_layout
+
+\begin_layout Standard
 If we take the conjugate of 
 \begin_inset Formula $\hat{c'}_{\mu\nu,\chi}^{mn*}(k)$
 \end_inset
@@ -874,10 +959,78 @@ reference "eq:local_backward"
 \end_inset
 
 ).
+ 
+\color red
+The conjugate comes from that we take particle 2-1 formalism for 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+, and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+ takes the 1-2 formalism.
+ The same issue arrives in the comparison of 
+\begin_inset Formula $g_{\mu\nu}^{mnl}$
+\end_inset
+
+ of the two approaches, where in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ the 
+\begin_inset Formula $g_{\mu\nu}^{mnl}$
+\end_inset
+
+ corresponds to the 
+\begin_inset Formula $g_{\nu\mu}^{nml}$
+\end_inset
+
+ in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-In this way, the integral of the angular part in eq.
+With the approach described above, the integral of the angular part in eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -967,9 +1120,9 @@ acs{OZ}
 
 \end_inset
 
- function is largely reduced.
- As the spatial convolution takes advantage of the transitional invariance
- 
+ equation is largely reduced.
+ The fact is that as the treatment of spatial convolution takes advantage
+ of the transitional invariance 
 \begin_inset Formula $r_{12}$
 \end_inset
 
@@ -977,7 +1130,7 @@ acs{OZ}
 \begin_inset Formula $\chi$
 \end_inset
 
--transform in fact makes use of the rotational invariance.
+-transform makes use of the rotational invariance.
 \end_layout
 
 \begin_layout Standard
@@ -989,19 +1142,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hspace{-4em}
-\end_layout
-
-\end_inset
-
-
 \begin_inset Box Frameless
 position "t"
 hor_pos "c"
@@ -1792,21 +1932,8 @@ name "sec:fgsht"
 \end_layout
 
 \begin_layout Standard
-In the angular convolution algorithm above, the 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{OZ}
-\end_layout
-
-\end_inset
-
- equation is reduced to a few function evaluations by taking advantage of
- the orthogonality and symmetries of 
+The algorithm above for angular convolution takes advantage of the orthogonality
+ and symmetries of 
 \begin_inset ERT
 status open
 
@@ -1834,12 +1961,40 @@ acs{FFT}
 
 \end_inset
 
- for spatial grids, it 
+ for spatial grids, the transform described in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gamma-projection"
+
+\end_inset
+
+) and (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:delta-rho-projection"
+
+\end_inset
+
+), here defined as the generalized spherical harmonic transform (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSHT}
+\end_layout
+
+\end_inset
+
+), 
 \shape italic
 a priori 
 \shape default
 should be fast.
- This is exactly possible owing to the exponential components in the definition
+ This is possible owing to the exponential components in the definition
  of 
 \begin_inset ERT
 status open
@@ -1853,11 +2008,8 @@ acs{GSH}
 
 \end_inset
 
-, and a detailed discussion will be given later.
-\end_layout
-
-\begin_layout Standard
-The 
+, that will be discussed later as the fast generalized spherical harmonic
+ transform (
 \begin_inset ERT
 status open
 
@@ -1866,6 +2018,22 @@ status open
 
 \backslash
 acs{FGSHT}
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSHT}
 \end_layout
 
 \end_inset
@@ -1902,10 +2070,10 @@ F(\mathbf{\Omega})=\sum_{m,\mu',\mu}f_{m}F_{\mu'\mu}^{m}R_{\mu'\mu}^{m}(\mathbf{
 \end_inset
 
 where 
-\begin_inset Formula $R_{\mu'\mu}^{m}(\mathbf{\Omega})$
+\begin_inset Formula $\left\{ R_{\mu'\mu}^{m}(\mathbf{\Omega})\right\} $
 \end_inset
 
- is the Wigner generalized spherical harmonics (Appendix 
+ are the Wigner generalized spherical harmonics (Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chpt:symmetry"
@@ -1953,7 +2121,7 @@ Suppose that
 \end_inset
 
  polynomial terms).
- To expand completely this function as shown in equation (
+ To completely expand this function as shown in equation (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:GSHT_backward"
@@ -1973,7 +2141,31 @@ reference "eq:GSHT_backward"
 \end_inset
 
  in the expansion.
- Then to evaluate exactly the integration in equation (
+ Note that 
+\begin_inset Formula $m_{\mathrm{max}}=n$
+\end_inset
+
+ is not always sufficient to completely expand 
+\begin_inset Formula $F(\mathbf{\Omega})$
+\end_inset
+
+, a discussion to this issue will be given in 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:gsh-imp"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+To evaluate exactly the integration in equation (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:GSHT_forward"
@@ -2004,8 +2196,7 @@ reference "eq:GSHT_forward"
 \begin_inset Formula $\Psi$
 \end_inset
 
- (equal-spaced grid) points of angular grid are needed (c.
- f.
+ (equal-spaced grid) points of angular grid are needed (c.f.
  appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2026,12 +2217,7 @@ reference "chpt:equivalence-of-quadrature-projection-order"
 \begin_inset Formula $\mu$
 \end_inset
 
- are nonzero: 
-\color red
-(Vérifier les facteurs 2p*i ci-dessous; a priori 1/2*pi dans la première
- + mettre des bornes 0-2*pi aux intégrales) (What???)
-\color inherit
-
+ are nonzero:
 \begin_inset Formula 
 \begin{eqnarray}
 F_{\mu} & = & \int\mathrm{d}\Psi F(\Psi)e^{i\mu\Psi}=\int\mathrm{d}(\Psi+\pi)F(\Psi+\pi)e^{i\mu(\Psi+\pi)}\nonumber \\
@@ -2209,6 +2395,27 @@ where
 \end_inset
 
 ), normalized to the total angular integration; and 
+\begin_inset Formula $s$
+\end_inset
+
+ is the 
+\color red
+molecule rotation symmetry order
+\color inherit
+ (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MRSO}
+\end_layout
+
+\end_inset
+
+), 
 \begin_inset Formula $s=1$
 \end_inset
 
@@ -2709,12 +2916,38 @@ m elements
 
 \end_inset
 
-Indices arrangement in a complete forward-backward FFT-2D process of m'
+Indices arrangement in a complete forward-backward 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+-2D process of m'
 \begin_inset Formula $\times$
 \end_inset
 
 m elements.
- The DFT of dim 1 (
+ The 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DFT}
+\end_layout
+
+\end_inset
+
+ of dim 1 (
 \begin_inset Formula $k$
 \end_inset
 
@@ -2980,7 +3213,20 @@ Then
 \begin_inset Formula $\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega})$
 \end_inset
 
- is expanded on generalized spherical harmonics
+ is expanded on 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+s:
 \begin_inset Formula 
 \begin{equation}
 \Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})=\frac{f_{m}}{8\pi^{2}}\int\mathrm{d}\mathbf{\Omega}\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega})R_{\mu'\mu}^{m*}(\mathbf{\Omega})\label{eq:fgsht-fwd}
@@ -2998,7 +3244,7 @@ Afterwards the projections in k-frame are then rotated into the local coordinate
 \begin_inset Formula $\mathbf{\hat{k}}$
 \end_inset
 
-
+:
 \begin_inset Formula 
 \begin{equation}
 \Delta\hat{\rho'}_{\chi\mu}^{m}(\mathbf{k})=\sum_{\mu'}\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})R_{\mu'\chi}^{m}(\mathbf{\hat{k}})
@@ -3006,8 +3252,17 @@ Afterwards the projections in k-frame are then rotated into the local coordinate
 
 \end_inset
 
-where the evaluation of rotation matrix elements by recurrence is detailed
- in appendix 
+where the rotation matrix elements 
+\begin_inset Formula $R_{\mu'\chi}^{m}(\mathbf{\hat{k}})$
+\end_inset
+
+ should be calculated directly because of the huge memory required by its
+ storage.
+ The algorithm by recurrence used to evaluate 
+\begin_inset Formula $R_{\mu'\chi}^{m}(\mathbf{\hat{k}})$
+\end_inset
+
+ in this thesis is detailed in appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chpt:rotM-by-recurrence"
@@ -3046,7 +3301,7 @@ The
 \end_layout
 
 \begin_layout Enumerate
-From here the function in angular frame can thus be rebuilt
+From here the function in angular frame can thus be rebuilt:
 \begin_inset Formula 
 \begin{equation}
 \hat{\gamma}(\mathbf{k},\mathbf{\Omega})=\sum_{m,\mu',\mu}f_{m}\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})R_{\mu'\mu}^{m}(\mathbf{\Omega})\label{eq:fgsht-bwd}
@@ -3074,10 +3329,10 @@ Finally, the functional
 \begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
 \end_inset
 
- is computed by
+ is computed by:
 \begin_inset Formula 
 \begin{equation}
-\mathcal{F}_{\mathrm{exc}}=\frac{1}{2}\int\mathrm{d}\mathbf{r}\mathrm{d}\mathbf{\Omega}\Delta\rho(\mathbf{r},\mathbf{\Omega})\gamma(\mathbf{r},\mathbf{\Omega})
+\mathcal{F}_{\mathrm{exc}}=-\frac{k_{\mathrm{B}}T}{2}\int\mathrm{d}\mathbf{r}\mathrm{d}\mathbf{\Omega}\Delta\rho(\mathbf{r},\mathbf{\Omega})\gamma(\mathbf{r},\mathbf{\Omega})
 \end{equation}
 
 \end_inset
@@ -3112,12 +3367,24 @@ acs{OZ}
 \end_inset
 
  equation.
- They are
+ They are:
 \end_layout
 
 \begin_layout Enumerate
-Fast Fourier Transform for 3-dimensional spatial grid (FFT3D): implemented
- by package FFTW3 
+Fast Fourier transform for 3-dimensional spatial grid (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+3D): implemented by package FFTW3 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "FFTW3"
@@ -3173,7 +3440,18 @@ Rotation between laboratory coordinate system and local system linked to
 
  (RotS): can be done for both function and projections.
  It introduces a minus error in accuracy at origin and border of the box,
- which will be discussed in the next chapter.
+ which will be discussed in 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:k-border-effect"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -3185,83 +3463,6 @@ reference "fig:Commutativity-of-operations"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-
-\color red
-(All those operations have commutativity properties that are illustrated
- in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Commutativity-of-operations"
-
-\end_inset
-
-.
- Going from 
-\begin_inset Formula $f(\mathbf{r},\mathbf{\Omega})$
-\end_inset
-
- to 
-\begin_inset Formula $f_{\mu'\mu}^{m}(\mathbf{k})$
-\end_inset
-
-can be done either by either spatial 3D-FFT for each oriention and FGSHT
- transform for each value 
-\begin_inset Formula $\boldsymbol{k}$
-\end_inset
-
- or by transforming first to angular projections 
-\begin_inset Formula $f_{\mu'\mu}^{m}(\mathbf{r})$
-\end_inset
-
- for each 
-\begin_inset Formula $\mathbf{r}$
-\end_inset
-
- and then transforming each projection to 
-\begin_inset Formula $\boldsymbol{k}$
-\end_inset
-
--space.
- In the same way, the passage from 
-\begin_inset Formula $f(\mathbf{k},\mathbf{\Omega})$
-\end_inset
-
- to in laboratory frame to projections 
-\begin_inset Formula $f'_{\mu'\mu}^{m}(\mathbf{k})$
-\end_inset
-
- in local frame can obtained by rotation then projections or projections
- then rotation.
- Finally, going from 
-\begin_inset Formula $f(\mathbf{r},\mathbf{\Omega})$
-\end_inset
-
- in 
-\begin_inset Formula $\mathbf{r}$
-\end_inset
-
--space and laboratory frame to 
-\begin_inset Formula $\hat{f}'(\mathbf{k},\boldsymbol{\omega}_{k})$
-\end_inset
-
- in 
-\begin_inset Formula $\mathbf{k}$
-\end_inset
-
--space and local frame can be done by 3D-FFT/rotation or rotation/3D-FFT.
- These commutation properties are due to the fact that all operations are
- linear so that the order of sums or integrals can be interchanged.
- See Appendix xx for details.)
-\end_layout
-
-\begin_layout Standard
-
-\color blue
-(But coordinate rotation and FFT3D are not commutative.
- I'd rather prove it here than put it in appendix.)
 \end_layout
 
 \begin_layout Standard
@@ -3295,7 +3496,7 @@ Commutativity of operations
 \end_inset
 
 Commutativity of operations.
- (a) FFT3D and FGSHT; (b) RotS and FGSHT; (c) FFT3D and RotS
+ (a) FFT3D and FGSHT; (b) RotS and FGSHT; (c) FFT3D and RotS.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Commutativity-of-operations"
@@ -3315,72 +3516,63 @@ name "fig:Commutativity-of-operations"
 
 \end_layout
 
-\begin_layout Subsubsection
-FFT3D and FGSHT
+\begin_layout Standard
+As shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Commutativity-of-operations"
+
+\end_inset
+
+, the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
 \end_layout
 
-\begin_layout Standard
-The FFT3D
+\end_inset
+
+3D does not depend on the angular part of the function, and the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
 \end_layout
 
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-f(\mathbf{r})=\int\hat{f}(\mathbf{k})e^{i\mathbf{k}\cdot\mathbf{r}}
-\end{equation}
-
 \end_inset
 
-
-\begin_inset Formula 
-\begin{equation}
-\hat{f}(\mathbf{k})=\int f(\mathbf{r})e^{-i\mathbf{k}\cdot\mathbf{r}}
-\end{equation}
-
-\end_inset
-
-does not depend on the angular part of the function, and
-\begin_inset Formula 
-\begin{equation}
-f(\mathbf{\Omega})=\sum_{m\mu'\mu}f_{m}f_{\mu'\mu}^{m}R_{\mu'\mu}^{m}(\mathbf{\Omega})
-\end{equation}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{equation}
-f_{\mu'\mu}^{m}=\int f_{m}f(\mathbf{\Omega})R_{\mu'\mu}^{m}(\mathbf{\Omega})
-\end{equation}
-
-\end_inset
-
-does not depend on the spatial part of the function.
+ does not depend on the spatial part of the function.
  The two operations are commutative.
-\end_layout
-
-\begin_layout Subsubsection
-FGSHT and coordinate rotation
+ 
 \end_layout
 
 \begin_layout Standard
-Function 
-\begin_inset Formula $\hat{f'}$
-\end_inset
-
- intermolecular frame can be deduced from the function 
+It can be also proven that the passage from the function 
 \begin_inset Formula $\hat{f}$
 \end_inset
 
  in laboratory frame 
-\begin_inset Formula 
-\[
-\hat{f}(\mathbf{k},\mathbf{\Omega})=\hat{f'}(\mathbf{k},\boldsymbol{\omega}_{k})
-\]
-
+\begin_inset Formula $\hat{f}(\mathbf{k},\mathbf{\Omega})$
 \end_inset
 
-where the two can both be expanded on 
+ to the projections in local frame 
+\begin_inset Formula $f'_{\chi\mu}^{m}(\mathbf{k})$
+\end_inset
+
+ can be achieved either by a rotation to the function 
+\begin_inset Formula $\hat{f'}(\mathbf{k},\boldsymbol{\omega}_{k})$
+\end_inset
+
+ in intermolecular frame following by an 
 \begin_inset ERT
 status open
 
@@ -3393,60 +3585,44 @@ acs{GSH}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\hat{f}(\mathbf{k},\mathbf{\Omega})=\sum_{m\mu'\mu}f_{m}\hat{f}_{\mu'\mu}^{m}(\mathbf{k})R_{\mu'\mu}^{m}(\mathbf{\Omega})
-\]
+ expansion as eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gamma-projection-local"
 
 \end_inset
 
+), or an 
+\begin_inset ERT
+status open
 
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
 \end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\hat{f'}(\mathbf{k},\boldsymbol{\omega}_{k})=\sum_{m\chi\mu}f_{m}\hat{f'}_{\chi\mu}^{m}(\mathbf{k})R_{\chi\mu}^{m}(\boldsymbol{\omega}_{k})
-\]
 
 \end_inset
 
+ expansion that gives the projections 
+\begin_inset Formula $f_{\mu'\mu}^{m}(\mathbf{k})$
+\end_inset
 
-\end_layout
-
-\begin_layout Standard
-And the relations between projections are simple
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-f'_{\chi\mu}^{m}(\mathbf{k})=\sum_{\mu'}R_{\mu'\chi}^{m}(\hat{\mathbf{k}})f_{\mu'\mu}^{m}(\mathbf{k})
-\]
+ following by a rotation as eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gamma-p"
 
 \end_inset
 
-
-\begin_inset Formula 
-\[
-f_{\mu'\mu}^{m}(\mathbf{k})=\sum_{\chi}R_{\mu'\chi}^{m*}(\hat{\mathbf{k}})f'{}_{\chi\mu}^{m}(\mathbf{k})
-\]
-
-\end_inset
-
-Thus the two operations are commutative.
-\end_layout
-
-\begin_layout Subsubsection
-Coordinate rotation and FFT3D
+).
 \end_layout
 
 \begin_layout Standard
-The rotation from 
+However, the rotation from 
 \begin_inset Formula $f(\mathbf{r},\mathbf{\Omega})$
 \end_inset
 
@@ -3458,7 +3634,20 @@ The rotation from
 \begin_inset Formula $\mathbf{r}$
 \end_inset
 
-, of which the information is totally lost after FFT3D.
+, of which the information is totally lost after 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+3D.
  The rotation from 
 \begin_inset Formula $f(\mathbf{k},\mathbf{\Omega})$
 \end_inset
@@ -3487,9 +3676,9 @@ name "subsec:Reduction-by-symmetry"
 \end_layout
 
 \begin_layout Standard
-A further reduction of computing cost can be made by performing approximately
- only half of the operations, thanks to the symmetric relations between
- the projections.
+A further reduction of computing cost can be made by performing about only
+ half of the operations, thanks to the symmetric relations between the projectio
+ns.
 \end_layout
 
 \begin_layout Standard
@@ -3506,7 +3695,7 @@ reference "eq:fgsht-fwd"
 \end_inset
 
  is real.
- Thanks to the property of 
+ With the property of 
 \begin_inset ERT
 status open
 
@@ -3527,7 +3716,7 @@ reference "eq:symm-gsh-1"
 
 \end_inset
 
-)),
+)):
 \begin_inset Formula 
 \begin{equation}
 R_{\mu'\mu}^{m}(\mathbf{\Omega})=(-)^{\mu'+\mu}R_{-\mu'-\mu}^{m*}(\mathbf{\Omega})
@@ -3538,20 +3727,20 @@ R_{\mu'\mu}^{m}(\mathbf{\Omega})=(-)^{\mu'+\mu}R_{-\mu'-\mu}^{m*}(\mathbf{\Omega
 we find
 \begin_inset Formula 
 \begin{equation}
-\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{r})=(-)^{\mu'+\mu}\Delta\hat{\rho}_{-\mu',-\mu}^{m*}(\mathbf{r})\label{eq:0}
+\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{r})=(-)^{\mu'+\mu}\Delta\hat{\rho}_{-\mu',-\mu}^{m*}(\mathbf{r})\label{eq:2.2.symm-rho-r}
 \end{equation}
 
 \end_inset
 
-therefore only 
-\begin_inset Formula $\mu'>0$
+Therefore only the projections of 
+\begin_inset Formula $\mu'\geq0$
 \end_inset
 
  or 
-\begin_inset Formula $\mu>0$
+\begin_inset Formula $\mu\geq0$
 \end_inset
 
- is needed to generate all information.
+ are needed to generate all information.
 \end_layout
 
 \begin_layout Standard
@@ -3563,7 +3752,7 @@ When
 \begin_inset Formula $k$
 \end_inset
 
--space, replacing 
+-space, replacing
 \begin_inset Formula 
 \begin{equation}
 \Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})=\int\mathrm{d}\mathbf{r}\Delta\rho_{\mu'\mu}^{m}(\mathbf{r})e^{-i\mathbf{r}\cdot\mathbf{k}}
@@ -3575,132 +3764,80 @@ When
  (
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:0"
+reference "eq:2.2.symm-rho-r"
 
 \end_inset
 
 ) gives
 \begin_inset Formula 
 \begin{equation}
-\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})=(-)^{\mu'+\mu}\Delta\hat{\rho}_{-\mu'-\mu}^{m*}(-\mathbf{k})\label{eq:1}
+\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})=(-)^{\mu'+\mu}\Delta\hat{\rho}_{-\mu'-\mu}^{m*}(-\mathbf{k})\label{eq:2.2.symm-rho-k}
 \end{equation}
 
 \end_inset
 
-Thus only the projections of 
-\begin_inset Formula $\mu'>0$
+Therefore only the projections of 
+\begin_inset Formula $\mu'\geq0$
 \end_inset
 
 , 
-\begin_inset Formula $\mu>0$
+\begin_inset Formula $\mu\geq0$
 \end_inset
 
- or 
+, or a half of 
 \begin_inset Formula $\mathbf{k}$
 \end_inset
 
  where one of the dimensions 
-\begin_inset Formula $k_{i}>0$
+\begin_inset Formula $k_{i}\geq0$
 \end_inset
 
  are independent.
+ 
 \end_layout
 
 \begin_layout Standard
-The rotation to local frame is governed by the relation deduced from the
- symmetries in appendix 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chpt:symmetry"
-
+In the implementation, it is a natural choice to keep only a half of projections
+ 
+\begin_inset Formula $\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})$
 \end_inset
 
-, where
-\color red
+, as either the real-to-complex 
+\begin_inset ERT
+status open
 
-\begin_inset Formula 
-\begin{equation}
-r_{\mu'\chi}^{m}(\theta)=(-)^{m+\chi}r_{\underline{\mu'}\chi}^{m}(\pi-\theta)
-\end{equation}
-
-\end_inset
+\begin_layout Plain Layout
 
 
-\begin_inset Formula 
-\begin{equation}
-R_{\mu'\chi}^{m}(\phi,\theta,\psi)=(-)^{m+\chi}R_{\underline{\mu'}\chi}^{m}(-\phi,\pi-\theta,\psi)=
-\end{equation}
-
-\end_inset
-
-
+\backslash
+acs{FFT}
 \end_layout
 
-\begin_layout Standard
+\end_inset
 
-\color red
-(prove?): 
+3D (
+\begin_inset Formula $k_{3}\geq0$
+\end_inset
+
+) or the real-to-complex 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
 \end_layout
 
-\begin_layout Standard
-
-\color red
-(proof: should refer to eq (1.6) in Luc's notes.
- So add this set of equations):
-\end_layout
-
-\begin_layout Standard
-
-\color blue
-(But I just can't deduce it !!!!! )
-\color red
-
-\begin_inset Formula 
-\begin{equation}
-R_{\mu'\chi}^{m}(\hat{\mathbf{k}})=(-)^{m}R_{\mu',-\chi}^{m}(-\hat{\mathbf{k}})=(-)^{m+\mu'+\chi}R_{-\mu',\chi}^{m}(-\hat{\mathbf{k}})\label{eq:3}
-\end{equation}
-
 \end_inset
 
-which gives
-\begin_inset Formula 
-\begin{equation}
-\Delta\hat{\rho'}_{\chi\mu}^{m}(\mathbf{k})=(-)^{m+\mu+\chi}\Delta\hat{\rho'}_{\chi,-\mu}^{m*}(-\mathbf{k})\label{eq:2}
-\end{equation}
-
+ (
+\begin_inset Formula $\mu\geq0$
 \end_inset
 
-Thanks to the symmetry (eq.
- (appendix)) 
-\begin_inset Formula 
-\begin{equation}
-\hat{c'}_{\mu\nu,\chi}^{mn}(k)=(-)^{m+n+\mu+\nu}\hat{c'}_{\underline{\mu}\underline{\nu},\chi}^{mn*}(k)
-\end{equation}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{equation}
-\hat{c'}_{\mu\nu,\chi}^{mn}(k)=(-)^{m+n}\hat{c'}_{\nu\mu,\chi}^{nm}(k)
-\end{equation}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{equation}
-\hat{c'}_{\mu\nu,\underline{\chi}}^{mn}(k)=\hat{c'}_{\underline{\mu}\underline{\nu},\chi}^{mn}(k)=(-)^{m+n}\hat{c'}_{\mu\nu,\chi}^{mn*}(k)
-\end{equation}
-
-\end_inset
-
-
-\begin_inset Formula $\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})$
-\end_inset
-
- possesses the same symmetry.
- Thus the
+) gives implicitly a half of information.
+ As the 
 \begin_inset ERT
 status open
 
@@ -3713,35 +3850,244 @@ acs{OZ}
 
 \end_inset
 
- equation can be reduced by a factor of two.
- THIS IS NOT EXPLICIT ENOUGH; there are several choices to exploit
-\end_layout
-
-\begin_layout Standard
-
-\color red
-the symmetry.
- You should explain at least your choice and how YOU personnaly DID in your
- code
-\end_layout
-
-\begin_layout Standard
-
-\color blue
-(In the code I did only the first step 
+ equation (
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:1"
+reference "eq:gamma-blum"
 
 \end_inset
 
- and the last step)
+) is separable for each 
+\begin_inset Formula $\mathbf{k}$
+\end_inset
+
+, but not on 
+\begin_inset Formula $\mu$
+\end_inset
+
+ (
+\begin_inset Formula $\nu$
+\end_inset
+
+ in equation), it is more natural compute a half of 
+\begin_inset Formula $\mathbf{k}$
+\end_inset
+
+, which is actually the choice in our code.
+ All the rest we should prove is that the 
+\begin_inset Formula $\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})$
+\end_inset
+
+ calculated from this half of known density is still able to generate all
+ the informations.
 \end_layout
 
 \begin_layout Standard
-In the implementation, it should be noted that not exactly the half of points
- are calculated.
- As shown in figure 
+The relation deduced from the symmetries of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+ (appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:symmetry"
+
+\end_inset
+
+):
+\begin_inset Formula 
+\begin{equation}
+r_{\mu'\mu}^{m}(\theta)=(-)^{m+\mu'}r_{\mu'\underline{\mu}}^{m}(\pi-\theta)
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray}
+R_{\mu'\mu}^{m}(\phi\theta\psi) & = & (-)^{m+\mu'}e^{i\mu'\pi}R_{\mu'\underline{\mu}}^{m}(\pi+\phi,\pi-\theta,-\psi)\\
+ & = & (-)^{m}R_{\mu'\underline{\mu}}^{m}(\pi+\phi,\pi-\theta,-\psi)
+\end{eqnarray}
+
+\end_inset
+
+gives that
+\begin_inset Formula 
+\begin{equation}
+R_{\lambda'0}^{l}(\hat{\mathbf{k}})=(-)^{l}R_{\lambda'0}^{l}(-\hat{\mathbf{k}})=(-)^{l+\lambda'}R_{\underline{\lambda'}0}^{l*}(-\hat{\mathbf{k}})\label{eq:2.2.symm-lambda}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If we replace eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:im"
+
+\end_inset
+
+) by eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2.2.symm-rho-k"
+
+\end_inset
+
+) and (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2.2.symm-lambda"
+
+\end_inset
+
+), with symmetry of 3j-symbol (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:symm-3j-symbol"
+
+\end_inset
+
+) and symmetry of 
+\begin_inset Formula $\hat{c}$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Blum_I"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\hat{c}_{\mu\nu}^{mnl}(k)=\left(-\right)^{m+n+\mu+\nu}\hat{c}_{\underline{\mu}\underline{\nu}}^{mnl*}(k)
+\]
+
+\end_inset
+
+we have the same symmetry property for 
+\begin_inset Formula $\hat{\gamma}$
+\end_inset
+
+ as for 
+\begin_inset Formula $\Delta\hat{\rho}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})=\left(-\right)^{\mu'+\mu}\hat{\gamma}_{\underline{\mu'}\underline{\mu}}^{m*}(-\mathbf{k})
+\end{equation}
+
+\end_inset
+
+which means the half 
+\begin_inset Formula $\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})$
+\end_inset
+
+ is sufficient to generate 
+\begin_inset Formula $\hat{\gamma}(\mathbf{k},\mathbf{\Omega})$
+\end_inset
+
+ or 
+\begin_inset Formula $\gamma(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+.
+ Thus the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation can be safely reduced by a factor of two.
+ 
+\end_layout
+
+\begin_layout Standard
+We can also find
+\begin_inset Formula 
+\begin{equation}
+R_{\mu'\chi}^{m}(\hat{\mathbf{k}})=(-)^{m}R_{\mu',\underline{\chi}}^{m}(-\hat{\mathbf{k}})=(-)^{m+\mu'+\chi}R_{\underline{\mu'},\chi}^{m}(-\hat{\mathbf{k}})\label{eq:3}
+\end{equation}
+
+\end_inset
+
+which gives
+\begin_inset Formula 
+\begin{equation}
+\Delta\hat{\rho'}_{\chi\mu}^{m}(\mathbf{k})=(-)^{m+\mu+\chi}\Delta\hat{\rho'}_{\chi,-\mu}^{m*}(-\mathbf{k})
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})=(-)^{m+\mu+\chi}\hat{\gamma'}_{\chi,-\mu}^{m*}(-\mathbf{k})
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If we replaced the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation by these two equations, we can find the symmetries of 
+\begin_inset Formula $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$
+\end_inset
+
+ in eq.
+ (
+\color red
+ref
+\color inherit
+).
+\end_layout
+
+\begin_layout Standard
+It should be noted that not exactly the half of points are calculated.
+ If we choose to calculate a half of 
+\begin_inset Formula $\mathbf{k}$
+\end_inset
+
+, as shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:points-symm"
@@ -3757,7 +4103,7 @@ reference "fig:points-symm"
  (
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:1"
+reference "eq:2.2.symm-rho-k"
 
 \end_inset
 

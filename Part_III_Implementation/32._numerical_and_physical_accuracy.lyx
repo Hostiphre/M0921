@@ -105,18 +105,19 @@ This chapter gives a systematic comparison between algorithms for the evaluation
 \end_inset
 
 ) in certain conditions.
- A lost of accuracy comparing to the prediction can be classified as two
- different kinds.
- One is the theoretical lost, for example, certain equation is only valid
+ A loss of accuracy comparing to the prediction can be classified as two
+ different types.
+ One is the theoretical loss; for instance, a certain equation is only valid
  for an infinite order.
- This kind of lost is unavoidable but should be worked out explicitly.
- Another source is the unknown lost, contains all kinds of incompatibility
- in the result that cannot explained mathematically.
- This kind of lost can mainly due to a bug in the implementation that cannot
- be find out, or it is a theoretical lost that haven't been worked out.
- They also deserve a discussion.
- All those comparisons aim to give a global view of the credibility of the
- results given by this code.
+ This kind of loss is unavoidable but should be worked out explicitly.
+ Another source is the unknown loss, containing all kinds of incompatibility
+ in the result that cannot be explained mathematically.
+ It is mainly attributable to a bug in the implementation that cannot be
+ located.
+ There is also the possibility that it is a theoretical loss which has not
+ been worked out.
+ All these comparisons aim to give a global view of the credibility for
+ the results given by this code.
 \end_layout
 
 \begin_layout Section
@@ -209,7 +210,7 @@ acs{GSH}
 \end_inset
 
  the order of quadrature used.
- However, as in the reality, the density variable 
+ However, as in reality, the density variable 
 \begin_inset Formula $\rho$
 \end_inset
 
@@ -221,8 +222,8 @@ acs{GSH}
 \begin_inset Formula $n_{\max}$
 \end_inset
 
- is tightly linked to the performance, it is important to know how much
- these choices will affect the results.
+ is tightly linked to the performance.
+ Tt is important to know how much these choices will affect the results.
  The 
 \begin_inset ERT
 status open
@@ -258,7 +259,7 @@ acs{FGSHT}
 
 \end_inset
 
- process will have strictly with the 
+ process will have strictly the same result with the 
 \begin_inset ERT
 status open
 
@@ -287,12 +288,37 @@ acs{GSHT}
 \end_layout
 
 \begin_layout Standard
-The numerical error tests of a forward-backward GSHT process with different
- order 
+The numerical error tests of a forward-backward 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSHT}
+\end_layout
+
+\end_inset
+
+ process with different order 
 \begin_inset Formula $n_{\mathrm{max}}$
 \end_inset
 
- of GSH and 
+ of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+ and 
 \begin_inset Formula $m_{\mathrm{max}}$
 \end_inset
 
@@ -2796,7 +2822,20 @@ Maximum absolute error
 \begin_inset Formula $E_{a}^{\mathrm{max}}$
 \end_inset
 
- introduced by a forward-backward GSHT process of function 
+ introduced by a forward-backward 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSHT}
+\end_layout
+
+\end_inset
+
+ process of function 
 \begin_inset Formula $f$
 \end_inset
 
@@ -2832,8 +2871,8 @@ name "tab:error-gsh"
 \end_layout
 
 \begin_layout Standard
-It conforms the theoretical prediction where should lead to no accuracy
- lost (
+This confirms the theoretical prediction, which is that it should lead to
+ no accuracy lost (
 \begin_inset Formula $m_{\max}>n_{\max}$
 \end_inset
 
@@ -2841,7 +2880,7 @@ It conforms the theoretical prediction where should lead to no accuracy
 \begin_inset Formula $f$
 \end_inset
 
- the polynomial that can be expanded on 
+ the polynomial can be expanded on 
 \begin_inset ERT
 status open
 
@@ -2859,7 +2898,7 @@ s of order at most
 \end_inset
 
 ).
- It should be noted, that as we do firstly a forward then a backward transform,
+ It should be noted that as we do first a forward then a backward transform,
  when 
 \begin_inset Formula $m_{\max}<n_{\max}$
 \end_inset
@@ -2868,7 +2907,7 @@ s of order at most
 \begin_inset Formula $m_{\max}$
 \end_inset
 
-, the output function is of order 
+; the output function is of order 
 \begin_inset Formula $n_{\mathrm{max}}$
 \end_inset
 
@@ -2880,8 +2919,9 @@ s of order at most
 \begin_inset Formula $n_{\mathrm{max}}$
 \end_inset
 
-, thus the two functions are different.
- The function in which the order of 
+.
+ Thus the two functions are different.
+ For the function in which the order of 
 \begin_inset Formula $\cos\Phi$
 \end_inset
 
@@ -2927,7 +2967,7 @@ From
 \end_layout
 
 \begin_layout Standard
-To conclude from above, the error for an arbitrary function like 
+To conclude, the error for an arbitrary function like 
 \begin_inset Formula $\rho$
 \end_inset
 
@@ -2945,7 +2985,8 @@ acs{GSH}
 \end_inset
 
 s, can be huge.
- One evidence is the appearance of unphysical density 
+ One piece of supporting evidence is the appearance of unphysical density
+ 
 \begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})<0$
 \end_inset
 
@@ -2953,7 +2994,7 @@ s, can be huge.
 \begin_inset Formula $\Delta\rho(\mathbf{r},\mathbf{\Omega})/\rho_{0}<-1$
 \end_inset
 
-) at certain point after a forward-backward 
+) at certain points after a forward-backward 
 \begin_inset ERT
 status open
 
@@ -3084,7 +3125,12 @@ name "fig:unphysical-rho"
 \end_layout
 
 \begin_layout Standard
-Theoretically, we expect this minimum value approach to zero when increasing
+
+\color red
+(c'est inquiétant! on est en train d'illustrer la faible convergence de
+ la méthode ou l'existence d'erreurs cachées dans la mise en œuvre?)
+\color inherit
+ Theoretically, we expect this minimum value to approach zero when increasing
  
 \begin_inset Formula $m_{\max}$
 \end_inset
@@ -3093,22 +3139,24 @@ Theoretically, we expect this minimum value approach to zero when increasing
 \begin_inset Formula $n_{\max}$
 \end_inset
 
-, which is not exactly the case.
- That means perhaps the order of expansion is still far from to find a tendency.
+.
+ This is not exactly the case.
+ That means perhaps the order of expansion is still far from finding a tendency.
  Knowing that 
 \begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})/\rho_{0}\rightarrow0$
 \end_inset
 
- at center of the solute and 
+ is at the center of the solute and 
 \begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})/\rho_{0}\rightarrow1$
 \end_inset
 
- far from the solute, the error can be said oblivious within the computing
+ is far from the solute, the error can be termed obvious within the computing
  capacity (
 \begin_inset Formula $n_{\max}<5$
 \end_inset
 
-), that means we cannot expand rightly the density 
+).
+ That means we cannot rightly expand the density 
 \begin_inset Formula $\rho$
 \end_inset
 
@@ -3125,8 +3173,8 @@ acs{GSH}
 
 \end_inset
 
- projections, where.
- But this have a much less effect on the functional gradient 
+ projections.
+ But this has much lesser effect on the functional gradient 
 \begin_inset Formula $\gamma$
 \end_inset
 
@@ -3151,8 +3199,9 @@ acs{DCF}
 \begin_inset Formula $\hat{c}(k,\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 \end_inset
 
- can be both expended, and product of higher order terms vanishes more easily.
- Latter we will show that the profile of 
+ can be both expanded, and the product of higher order terms vanishes more
+ easily.
+ Later we will show that the profile of 
 \begin_inset Formula $\gamma$
 \end_inset
 
@@ -3165,6 +3214,19 @@ acs{DCF}
 \end_inset
 
 .
+ And the 
+\begin_inset Formula $\rho$
+\end_inset
+
+ given by the minimizer according to 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathrm{d}\mathcal{F}$
+\end_inset
+
+ will be OK...
 \end_layout
 
 \begin_layout Section
@@ -3179,7 +3241,7 @@ reference "fig:Possible-algorithms"
 
 \end_inset
 
-, if we fixe 
+, if we fix 
 \begin_inset Formula $\Delta\rho(\mathbf{r},\mathbf{\Omega})$
 \end_inset
 
@@ -3210,8 +3272,8 @@ acs{DCF}
 \end_inset
 
  should give mathematically identical results.
- The most direct comparison is the free energy evaluated during 1 iteration.
- And to be more strict, is also interesting to compare the profile of 
+ The most direct comparison is the free energy evaluated during one iteration.
+ To be more strict, it is also worthwhile to compare the profile of 
 \begin_inset Formula $\gamma$
 \end_inset
 
@@ -3223,7 +3285,7 @@ Difference in energy evaluation
 \end_layout
 
 \begin_layout Standard
-As shown in table 
+Illustrated in table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:free-energy"
@@ -3247,7 +3309,7 @@ acs{DCF}
 \begin_inset Formula $m_{\max}$
 \end_inset
 
- which is mathematically identical in an infinite condition, give nearly
+, which is mathematically identical in an infinite condition, give nearly
  the same results.
 \end_layout
 
@@ -3882,7 +3944,7 @@ name "tab:free-energy"
 \end_layout
 
 \begin_layout Standard
-The light difference between 
+The slight difference between 
 \family typewriter
 \series bold
 naive_nmax1
@@ -3902,7 +3964,7 @@ convolution_standard
 \begin_inset Formula $k$
 \end_inset
 
--border showing in later section, and the difference between 
+-border shown later sections, and the difference between 
 \family typewriter
 \series bold
 naive_interpolation
@@ -3920,8 +3982,8 @@ naive_standard
 convolution
 \family default
 \series default
- methods are also acceptable, which is natural to be lightly different due
- to the interpolation error and the 
+ methods are also acceptable, as it is natural to be slightly different
+ due to the interpolation error and the 
 \begin_inset ERT
 status open
 
@@ -3952,7 +4014,7 @@ acs{GSH}
 \end_inset
 
  projections will be discussed later).
- This supports by the way that we do not need the same order of 
+ This also supports the theory that we do not need the same order of 
 \begin_inset ERT
 status open
 
@@ -3965,7 +4027,7 @@ acs{GSH}
 
 \end_inset
 
- expansion for 
+ expansion as for 
 \begin_inset Formula $\gamma$
 \end_inset
 
@@ -3973,7 +4035,9 @@ acs{GSH}
 \begin_inset Formula $\Delta\rho$
 \end_inset
 
-.
+, 
+\color red
+as it gives the same result....
 \end_layout
 
 \begin_layout Subsection
@@ -3996,19 +4060,19 @@ Firstly, we are interested in the local paths from
 \begin_inset Formula $\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})$
 \end_inset
 
- , that can be tested independently for a certain 
+ that can be tested independently for a certain 
 \begin_inset Formula $\mathbf{k}$
 \end_inset
 
 .
- As shown in figure 
+ Referring to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:k-kernel"
 
 \end_inset
 
-, four algorithms are available to the purpose.
+, four algorithms are available for such a purpose.
 \end_layout
 
 \begin_layout Standard
@@ -4057,18 +4121,18 @@ The program that compares each element of
 \begin_inset Formula $\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})$
 \end_inset
 
- issued from these 4 algorithms for a given 
+ issued from these four algorithms for a given 
 \begin_inset Formula $\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})$
 \end_inset
 
  is done by Mr.
- Luc Belloni, which shows that the 
+ Luc Belloni, showing that the 
 \begin_inset Formula $\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})$
 \end_inset
 
  for the four algorithms are strictly identical.
- This means, the final result of energy and structure is independent to
- the choice of path inside a 
+ This means the final result of energy and structure is independent to the
+ choice of path inside a 
 \begin_inset Formula $k$
 \end_inset
 
@@ -4076,7 +4140,7 @@ The program that compares each element of
 \begin_inset Formula $\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega})$
 \end_inset
 
- can be fully expended on 
+ can be fully expanded on 
 \begin_inset ERT
 status open
 
@@ -4129,7 +4193,7 @@ acs{GSH}
 \end_inset
 
  projections.
- Firstly, we compare the three 
+ First off, we compare the three 
 \family typewriter
 \series bold
 convolution
@@ -4175,14 +4239,16 @@ convolution_asymm
 convolution_pure_angular
 \family default
 \series default
- gives the same free energy, but lightly different result when comparing
+ give the same free energy, but somewhat different results when comparing
  each element of 
 \begin_inset Formula $\gamma(\mathbf{r},\mathbf{\Omega})$
 \end_inset
 
-, and this difference seems to decrease when increase the number of grid
- points.
- More, the projections 
+.
+ .
+ The perceived difference seems to decrease when increasing the number of
+ grid points.
+ Moreover, the projections 
 \begin_inset Formula $\gamma_{\mu'\mu}^{m}(\mathbf{r})$
 \end_inset
 
@@ -4197,13 +4263,13 @@ reference "subsec:Reduction-by-symmetry"
 
 \end_inset
 
-, have a light imaginary part.
- But surprisingly, for a 
+, have a slight imaginary part.
+ Surprisingly, for a 
 \begin_inset Formula $65^{3}$
 \end_inset
 
- grid, it gives numerically the same result for both the three algorithms
- at machine precision.* 
+ grid, it gives numerically the same result for all three algorithms at
+ machine precision.* 
 \begin_inset Marginal
 status open
 
@@ -4212,9 +4278,10 @@ status open
 \begin_inset Formula $\gamma$
 \end_inset
 
- which the paragraph of description is based on haven't been noted, as it
- was regarded as a bug in the code at that time, and the code had been then
- modified; and to redo such a process takes a lot of time.
+ which the paragraph of description is based on has not been noted, as it
+ was regarded as a bug in the code at that time, and the code has since
+ been modified.
+ To redo such a process takes a lot of time.
 \end_layout
 
 \end_inset
@@ -4267,7 +4334,24 @@ at border
 \begin_inset Quotes erd
 \end_inset
 
-, it's to say that after the FFT where the point having 
+, 
+\color red
+it is to say
+\color inherit
+ that after the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ where the point having 
 \begin_inset Formula $\pm k_{i}=k_{i}^{\mathrm{max}}$
 \end_inset
 
@@ -4290,7 +4374,7 @@ at border
 
 \end_inset
 
-is naturally put in the same array by FFT for the grids having even number,
+is naturally put in the same array by FFT for the grids of an even number,
 \begin_inset Marginal
 status open
 
@@ -4378,7 +4462,7 @@ reference "eq:1-1"
 
 \end_inset
 
- can always be respected at border.
+ can always be respected at the border.
  However, as
 \begin_inset Formula 
 \begin{equation}
@@ -4426,7 +4510,7 @@ is not respected totally, and this imposes that
 \begin_inset Formula $\gamma_{\mu'\mu}^{m}(\mathbf{r})$
 \end_inset
 
- have a imaginary part.
+ has a imaginary part.
  This imaginary part has been omitted implicitly in the 
 \begin_inset Quotes eld
 \end_inset
@@ -4448,7 +4532,7 @@ acs{FFT}
 
 \end_inset
 
- process of used in for example 
+ process used in, for example, 
 \family typewriter
 \series bold
 convolution_standard
@@ -4473,12 +4557,25 @@ acs{FGSHT}
 convolution_pure_angular
 \family default
 \series default
- for FFT3D process.
- It is to say, we keep only the part of none-negative 
+ for 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+3D process.
+ That is to say, we keep only the part of nonnegative 
 \begin_inset Formula $\mathbf{k}$
 \end_inset
 
- or none-negative 
+ or nonnegative 
 \begin_inset Formula $\mu$
 \end_inset
 
@@ -4486,7 +4583,7 @@ convolution_pure_angular
 \end_layout
 
 \begin_layout Standard
-The right way to treat this issue is to artificially impose at the border:
+The correct way to treat this issue is to artificially impose at the border:
 \begin_inset Formula 
 \begin{equation}
 R_{\mu',\chi}^{m}(k_{i}^{\mathrm{max}})=\frac{1}{2}\left[R_{\mu',\chi}^{m}(k_{i})+R_{\mu',\chi}^{m}(-k_{i})\right]
@@ -4506,7 +4603,7 @@ reference "fig:k-border-effect"
 \end_inset
 
 .
- If more than one dimensions are in conflict, this process can be done twice
+ If more than one dimension is in conflict, this process can be done twice
  (4 terms for 
 \begin_inset Quotes eld
 \end_inset
@@ -4528,11 +4625,11 @@ vertices
 \begin_inset Formula $\mathbf{k}=\hat{0}$
 \end_inset
 
- is different, as it was define along 
+ is different; as it was defined along 
 \begin_inset Formula $z$
 \end_inset
 
- axes to avoid implementation crash, it doesn't respect eq.
+ axes to avoid implementation crash, it does neither respect eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4540,15 +4637,16 @@ reference "eq:3-1"
 
 \end_inset
 
-) and (
+) nor (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:2-1"
 
 \end_inset
 
-) neither.
- But this point compared to hundreds thousands of total points is negligible.
+).
+ But this is negligible when compared to hundreds of thousands of total
+ points.
 \end_layout
 
 \begin_layout Standard
@@ -4572,7 +4670,7 @@ convolution
 \begin_inset Formula $n_{\max}=3$
 \end_inset
 
- grid, but the element of 
+ grid, but the elements of 
 \begin_inset Formula $\gamma(\mathbf{r},\mathbf{\Omega})$
 \end_inset
 
@@ -4580,7 +4678,7 @@ convolution
 \begin_inset Formula $10^{-2}$
 \end_inset
 
-, seemed to be aleatory.
+ which seems to be random.
  A test redone for a 
 \begin_inset Formula $45^{3}$
 \end_inset
@@ -4752,8 +4850,7 @@ name "fig:Difference-in-gamma"
 \end_layout
 
 \begin_layout Standard
-We can conclude very rudely that this error depends on the angular quadrature
- 
+We can hypothesize that this error depends on the angular quadrature 
 \begin_inset Formula $m_{\max}$
 \end_inset
 
@@ -4797,36 +4894,36 @@ acs{FFT}
 \begin_inset Formula $n_{\max}$
 \end_inset
 
- chart is unnatural, implying there is perhaps a still bug in the code.
+ chart is unnatural, implying there is perhaps still a bug in the code.
 \end_layout
 
 \begin_layout Standard
-In a word, this mysterious difference cannot be yet explained, as the 
+In short, this mysterious difference cannot be yet explained, as the 
 \family typewriter
 \series bold
 naive
 \family default
 \series default
- methods does not have the 
+ methods do not have the 
 \begin_inset Formula $k$
 \end_inset
 
--border effect linked to symmetry, on the other hand we used a odd grid,
- we could not yet distinguish that it is a bug in the implementation, in
- the test or in the theory.
+-border effect linked to symmetry.
+ On the other hand we used an odd grid, and cannot yet distinguish that
+ it is a bug in the implementation, whether in test or in the theory.
  The projections 
 \begin_inset Formula $\gamma_{\mu\nu}^{mnl}(r)$
 \end_inset
 
- of this two algorithms seems to be identical (figure 
+ of these two algorithms seem to be identical (figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:gamma-proj"
 
 \end_inset
 
-), it is to say, the global structure of this two algorithms are almost
- the same, and the error would not be very decisive.
+), which is to say the global structures of the two are almost the same,
+ and thus the error would not be very decisive.
 \end_layout
 
 \begin_layout Standard
@@ -4891,8 +4988,9 @@ name "sec:Intrinsic-variation-of"
 \end_layout
 
 \begin_layout Standard
-Before study of free energy dependence on angular algorithms, we are interested
- in the grid dependance, with can have an influence to the tests later.
+Before the study of free energy dependence on angular algorithms, we are
+ interested in the grid dependance, which can have an influence on the tests
+ later.
 \end_layout
 
 \begin_layout Standard
@@ -4935,7 +5033,20 @@ Space-grid and
 \begin_inset Formula $\Psi$
 \end_inset
 
- dependence of code MDFT.
+ dependence of code 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+.
  
 \begin_inset Formula $L=32$
 \end_inset
@@ -4945,7 +5056,20 @@ Space-grid and
 \begin_inset Formula $\mathrm{CH_{4}^{+0.33}}$
 \end_inset
 
- using dipole DCF with 
+ using dipole 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ with 
 \begin_inset Formula $m_{\max}=1$
 \end_inset
 
@@ -4953,12 +5077,37 @@ Space-grid and
 \begin_inset Formula $\mathrm{CH_{4}}$
 \end_inset
 
- using DCF of 
+ using 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ of 
 \begin_inset Formula $m_{\max}=5$
 \end_inset
 
-, Lebedev quadrature of order 1 and 2; (c) acetone using dipole DCF and
- Lebedev quadrature, varying 
+, Lebedev quadrature of order 1 and 2; (c) acetone using dipole 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ and Lebedev quadrature, varying 
 \begin_inset Formula $\Psi$
 \end_inset
 
@@ -4984,7 +5133,7 @@ name "fig:Space-grid-and-psi-dependence"
 \end_layout
 
 \begin_layout Standard
-As shown in figure 
+Looking at figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Space-grid-and-psi-dependence"
@@ -4993,9 +5142,9 @@ reference "fig:Space-grid-and-psi-dependence"
 
  (a) and (b), there is a dependence of calculated free energy on the space
  grid resolution.
- for a charged solute, the energy has tendency to decrease when increasing
+ For a charged solute, the energy has a tendency to decrease when increasing
  the resolution of grid (nfft).
- And this decrease does not link to the border correction mentioned in 
+ This decrease does not link to the border correction mentioned in 
 \begin_inset Formula $\mathsection$
 \end_inset
 
@@ -5006,9 +5155,9 @@ reference "chpt:thermodynamic-quantities"
 
 \end_inset
 
-, as the box length and the charge remain the same for the whole set of
- test.
- From (b) we consider that at least 3 points grid in one dimension per Angstrom
+, as both the box length and the charge remain the same for the whole set
+ of test.
+ From (b) we consider that at least a 3 points grid in 1 dimension per Angstrom
  is needed to reduce the uncertainty due to grid resolution.
  Figure (c) fixed the Lebedev quadrature for 
 \begin_inset Formula $\Theta$
@@ -5018,7 +5167,7 @@ reference "chpt:thermodynamic-quantities"
 \begin_inset Formula $\Phi$
 \end_inset
 
-, but leaved varying the 
+, but left varying the 
 \begin_inset Formula $\Psi$
 \end_inset
 
@@ -5029,7 +5178,7 @@ reference "chpt:thermodynamic-quantities"
 
 .
  which does not vanish when increasing the resolution of grid.
- As during the whole thesis the 
+ Since during the whole thesis the 
 \begin_inset Formula $\Psi$
 \end_inset
 
@@ -5051,8 +5200,8 @@ Series of charged LJ centre
 \end_layout
 
 \begin_layout Standard
-To valid the method, we chose a series of LJ centre, which possess the LJ
- parameters of 
+To validate the method, we chose a series of LJ centres, which possess the
+ LJ parameters of 
 \begin_inset Formula $\mathrm{C}\mathrm{H}_{4}$
 \end_inset
 
@@ -5072,7 +5221,7 @@ reference "tab:Parameters-of-charged-met"
 status open
 
 \begin_layout Plain Layout
-For both IET, and DM results, 298K is used according to habitude instead
+For both IET and DM results, 298K is used according to habitude instead
  of 303K recommended in reference 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -5345,10 +5494,10 @@ reference "chpt:thermodynamic-quantities"
 \end_inset
 
 , for single ions, two types of corrections need to be added on the free
- energy, which depend on the box length and and charge of the ion.
- To verify these dependence, we implement a systematic calculation from
- charge, using 3 different methods, where the parameters are shown in table
- 
+ energy, which depend on the box length and charge of the ion.
+ To verify these dependencies, we implement a systematic calculation from
+ charge using 3 different methods, the parameters of which are shown in
+ table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:parameters-ch4"
@@ -5371,7 +5520,8 @@ naive_interpolation
 \begin_inset Formula $\Psi$
 \end_inset
 
- angles, that means, the 
+ angles.
+ That means the 
 \family typewriter
 \series bold
 naive
@@ -5381,13 +5531,26 @@ naive
 \begin_inset Formula $m_{\max}$
 \end_inset
 
- to be greater than the order of DCF 
+ to be greater than the order of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ 
 \begin_inset Formula $n_{\max}$
 \end_inset
 
 .
- The -1 side has problem of convergence, and all the converged results are
- presented.
+ The -1 side has a problem of convergence, and all the converged results
+ are presented.
 \end_layout
 
 \begin_layout Standard
@@ -5602,8 +5765,8 @@ Methods and parameters for
 \end_inset
 
  series test.
- * Leb is Lebedev quadrature, with is mathematically equivalent with Gauss-Legen
-dre quadrature but only ˜2/3 angles.
+ * Leb is Lebedev quadrature, which is mathematically equivalent with Gauss-Lege
+ndre quadrature but only ˜2/3 angles.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:parameters-ch4"
@@ -5624,7 +5787,7 @@ name "tab:parameters-ch4"
 \end_layout
 
 \begin_layout Standard
-The direct results collection are shown in figure 
+The direct results collections are shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:ch4_nmax1_lmn"
@@ -5647,13 +5810,13 @@ reference "fig:ch4_nmax1_new"
 
  at the end of this section.
  We can see that the dependence of box length for each charge is almost
- linear, except the charge between 
+ linear, except for the charge between 
 \begin_inset Formula $\left[-0.2,0.2\right]$
 \end_inset
 
 .
- This means, the influence of box length is much greater than the intrinsic
- variation of result that mentioned in 
+ This means the influence of box length is much greater than the intrinsic
+ variation of result mentioned in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Intrinsic-variation-of"
@@ -5679,8 +5842,8 @@ reference "fig:Quadratic-charge-dependence"
 \end_inset
 
 .
- This slope correspond to the correction of type-B (normalized to give the
- right unity):
+ This slope corresponds to the correction of type-B (normalized to give
+ the right unity):
 \begin_inset Formula 
 \begin{equation}
 \dfrac{\xi}{2}\left(1-\dfrac{1}{\varepsilon}\right)=1943.2\,\mathrm{kJ}\cdot\mathrm{mol^{-1}}\cdot\textrm{Å}
@@ -5735,7 +5898,7 @@ name "fig:Quadratic-charge-dependence"
 
 \end_inset
 
-The intercept values in each of figure 
+The intercept values in each of figures 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:ch4_nmax1_lmn"
@@ -5774,10 +5937,35 @@ acs{IET}
 .
  
 \color red
-(need more details.)
+(oui! préciser qu'il s'agit de calculs HNC "1D" 1 distance +5 angles.)
 \color inherit
- The differences in free energy between MDFT and IET are given in figure
- 
+ The difference in free energy between 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+ are given in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Comparison-to-IET,without-correction"
@@ -5785,8 +5973,8 @@ reference "fig:Comparison-to-IET,without-correction"
 \end_inset
 
 .
- The linear regression is done with all existing points in this figure.
- The slope 87.653 
+ The linear regression is done with all existing points in this figure,
+ and the slope 87.653 
 \begin_inset Formula $\mathrm{kJ}\cdot\mathrm{mol^{-1}}$
 \end_inset
 
@@ -5873,20 +6061,33 @@ reference "fig:Comparison-to-IET,with-corr"
 \end_inset
 
 .
- It is shown that they are not perfectly agreed with each other.
+ Note that they are not perfectly in agreement with each other.
  The 
 \begin_inset Formula $n_{\max}=1$
 \end_inset
 
- methods have large difference when the charge increased, especially the
- 
+ methods have a larger difference when the charge increases, especially
+ the 
 \family typewriter
 \series bold
 convolution_standard
 \family default
 \series default
- using GSH expansion.
- Knowing that during 1 iteration, the 
+ using 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+ expansion.
+ We see that during one iteration, the 
 \family typewriter
 \series bold
 naive_nmax1
@@ -5910,12 +6111,12 @@ reference "tab:free-energy"
 \begin_inset Formula $n_{\max}=5$
 \end_inset
 
- have an energy shift about 2 
+ has an energy shift of about 2 
 \begin_inset Formula $\mathrm{kJ}\cdot\mathrm{mol^{-1}}$
 \end_inset
 
-, which cannot have an explanation.
- but overall, to have 2 
+, which cannot be explained.
+ But overall, to have 2 
 \begin_inset Formula $\mathrm{kJ}\cdot\mathrm{mol^{-1}}$
 \end_inset
 
@@ -5992,7 +6193,7 @@ reference "fig:Comparison-to-IET,nmax0-5"
 \end_inset
 
 .
- It is interesting to see how energy evaluate with 
+ It is interesting to see how energy evaluates with 
 \begin_inset Formula $n_{\max}$
 \end_inset
 
@@ -6005,16 +6206,16 @@ reference "fig:Comparison-to-IET,nmax0-5"
 \begin_inset Formula $\gamma$
 \end_inset
 
- is more smooth than 
+ is smoother than 
 \begin_inset Formula $\rho$
 \end_inset
 
-, that means we can have 
+; that means we can have 
 \begin_inset Formula $n_{\max}<m_{\max}$
 \end_inset
 
  to economize computing cost.
- Results shows that within 
+ Results show that within 
 \begin_inset Formula $n_{\max}\geq3$
 \end_inset
 
@@ -6023,11 +6224,11 @@ reference "fig:Comparison-to-IET,nmax0-5"
 \end_inset
 
 , the error is acceptable.
- But again, the dependence on 
+ Yet again, the dependence on 
 \begin_inset Formula $q$
 \end_inset
 
- after correction is in incomprehensible.
+ after correction is incomprehensible.
  And compared to 
 \family typewriter
 \series bold
@@ -6041,7 +6242,7 @@ reference "fig:Comparison-to-IET,with-corr"
 
 \end_inset
 
-, we see that these error for 
+, we see that the error for 
 \begin_inset Formula $n_{\max}=5$
 \end_inset
 
@@ -6104,7 +6305,7 @@ The profile of
 \begin_inset Formula $\rho$
 \end_inset
 
- can expended on rotational invariants which is discussed in 
+ can be expanded on rotational invariants as discussed in 
 \begin_inset Formula $\mathsection$
 \end_inset
 
@@ -6116,7 +6317,20 @@ reference "chpt:solvation-structure"
 \end_inset
 
 .
- The comparison with IET is done for three charges, 0, -0.6 and +1.
+ The comparison with 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+ is done for three charges, 0, -0.6 and +1.
  Shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -6125,30 +6339,44 @@ reference "fig:Comparison-to-IET.rot_invar"
 \end_inset
 
 .
- Watch that the 0 and -1 one of 
+ Observe that the 0 and +1 charges of 
 \begin_inset Formula $m_{\max}=5$
 \end_inset
 
- corresponds well the result of IEM, but the -0.6 one have a lot of noise.
- (In fact, this configuration had difficulty to converge, and the given
- energy is not good, thus it is deleted in figure 
+ corresponds well the result of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+, but the -0.6 charge has a lot of noise.
+ (In fact, this configuration had difficulty in converging, and the given
+ energy is not good, neither.
+ Thus it is deleted in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Comparison-to-IET,nmax0-5"
 
 \end_inset
 
-.) The the profiles of go much better 
+.) The profiles appear much better for 
 \begin_inset Formula $m_{\max}=2,3$
 \end_inset
 
 .
  Normally, more points means more precision.
- It may means that with 
+ It may means indicate that with 
 \begin_inset Formula $m_{\max}=5$
 \end_inset
 
- , there is perhaps a bug of integer overflow that prevent the convergence
+ , there is perhaps a bug of integer overflow that prevents the convergence
  for high charges.
 \end_layout
 
@@ -6204,7 +6432,33 @@ Comparison with MD
 \end_layout
 
 \begin_layout Standard
-The comparison of RDF with MD results are shown in figure 
+The comparison of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{RDF}
+\end_layout
+
+\end_inset
+
+ with 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
+\end_inset
+
+ results are shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Comparison-to-MD"
@@ -6271,7 +6525,20 @@ Premier conclusion
 \end_layout
 
 \begin_layout Standard
-From the results, we see that MDFT ...
+From the results, we see that 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ ...
  
 \begin_inset Quotes eld
 \end_inset
@@ -6280,7 +6547,20 @@ capable
 \begin_inset Quotes erd
 \end_inset
 
- to produce the same result with IEM for single ions.
+ to produce the same result with 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+ for single ions.
  (but have more ability to calculate 3D molecules which is not suitable
  for spherical coordinates...)
 \end_layout
@@ -6298,8 +6578,8 @@ naive_interpolation
 convolution
 \family default
 \series default
- methods and can use less angles for convergence, although in the computing
- time it cannot compare with 
+ methods and can use fewer angles for convergence, although in terms of
+ computing time it cannot compare with 
 \family typewriter
 \series bold
 convolution

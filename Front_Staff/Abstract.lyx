@@ -146,8 +146,8 @@ acs{MDFT}
 \end_inset
 
 ) is one of the frontier domains to evaluate these properties, in which
- the free energy functional is minimized for an arbitrary solute in a periodic
- cubic solvent box.
+ the solvation free energy functional is minimized for an arbitrary solute
+ in a periodic cubic solvent box.
  In this thesis, we work on the evaluation of the excess term of the free
  energy functional under the homogeneous reference fluid (
 \begin_inset ERT
@@ -213,6 +213,8 @@ s).
  Both algorithms are successful to predict free energy and structure of
  ions and small molecules.
  
+\color red
+(Here to add an application of large molecule.)
 \end_layout
 
 \begin_layout Standard
@@ -235,11 +237,103 @@ pdfbookmark[1]{Zusammenfassung}{Zusammenfassung}
 
 \end_inset
 
- 
+
 \end_layout
 
 \begin_layout Chapter*
 Résumé
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Les propriétés de solvatation jouent souvent un rôle important dans les
+ problèmes chimiques et biochimiques.
+ La théorie fonctionnelle de la densité moléculaire (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+) est l'un des domaines frontières pour évaluer ces propriétés, dans lesquelles
+ la fonctionnelle d'énergie libre de solvatation est minimisée pour un soluté
+ arbitraire dans une boîte de solvant cubique périodique.
+ Dans cette thèse, nous travaillons sur l'évaluation du terme d'excès de
+ la fonctionnelle d'énergie libre sous l'approximation homogène du fluide
+ de référence (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HRF}
+\end_layout
+
+\end_inset
+
+).
+ Deux algorithmes sont proposés : le premier est une extension de l'algorithme
+ précédent, qui permet de calculer le solvant moléculaire 3D complet (selon
+ trois angles d'Euler) au lieu du solvant linéaire (selon deux angles);
+ L'autre est un nouvel algorithme qui intègre le traitement de la convolution
+ angulaire d'équation 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ moléculaire dans 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+, qui en fait développe la densité du solvant et le gradient fonctionnel
+ en harmoniques sphériques généralisées (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+s).
+ On montre que le nouvel algorithme est beaucoup plus rapide que le précédent,
+ tandis que le second est plus stable en termes de convergence, spécialement
+ pour les solutés chargés négatifs.
+ Les deux algorithmes réussissent à prédire l'énergie libre et la structure
+ des ions et des petites molécules.
+ 
+\color red
+(Ici pour ajouter une application de grosse molécule.)
 \end_layout
 
 \begin_layout Standard

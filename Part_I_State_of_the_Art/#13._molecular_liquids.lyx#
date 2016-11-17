@@ -1,0 +1,1559 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass classicthesis
+\use_default_options true
+\maintain_unincluded_children false
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex8
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Approach to Molecular Solvents
+\begin_inset CommandInset label
+LatexCommand label
+name "chpt:iem-mdft"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the case of non-spherical solvent like water, the solvent particle carries
+ a molecular structure described by a collection of distributed atomic interacti
+on sites (LJ and Coulombic).
+ The two theories mentioned in the previous section are now formulated in
+ the molecular picture in which each solvent molecule is considered as a
+ rigid body and characterized by its position 
+\begin_inset Formula $\mathbf{r}$
+\end_inset
+
+ (e.g.
+ the position of center of mass), and its orientation 
+\begin_inset Formula $\mathbf{\Omega}$
+\end_inset
+
+.
+ In 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+, the solvent is characterized by an angle-dependent inhomogeneous density,
+ 
+\begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+; in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+, an angle-dependent form of the pair distribution function 
+\begin_inset Formula $g(\mathbf{X}_{1},\mathbf{X}_{2})$
+\end_inset
+
+ (
+\begin_inset Formula $X\equiv(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+) is proposed, while the molecular 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation is expanded on rotational invariants.
+ The reference interaction site model (RISM) 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "hirata_molecular_2004"
+
+\end_inset
+
+, which provides another way for 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+ to treat molecular solvent, will not be discussed in this thesis.
+\end_layout
+
+\begin_layout Section
+Molecular density functional theory
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acf{MDFT}
+\end_layout
+
+\end_inset
+
+, the grand potential is rewritten as:
+\begin_inset Formula 
+\begin{equation}
+\varOmega[\rho(\mathbf{r},\mathbf{\Omega})]=\varOmega[\rho_{0}]+\mathcal{F}[\rho(\mathbf{r},\mathbf{\Omega})]\label{eq:4.grand-pot}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\varOmega[\rho_{0}]$
+\end_inset
+
+ is the correspondent reference bulk fluid grand potential (with 
+\begin_inset Formula $\rho=\rho_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $V_{\mathrm{int}}=0$
+\end_inset
+
+).
+ 
+\begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+ is the angle-dependent fluid density function, depending on 3 variables
+ for spatial coordinates 
+\begin_inset Formula $\mathbf{r}$
+\end_inset
+
+, and also 3 for orientation 
+\begin_inset Formula $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$
+\end_inset
+
+.
+ In case of linear solvent, this number can reduce to 2, i.e.
+ 
+\begin_inset Formula $\mathbf{\Omega}\equiv(\Theta,\Phi)$
+\end_inset
+
+.
+ The homogeneous bulk density 
+\begin_inset Formula $\rho_{0}$
+\end_inset
+
+ is normalized to 
+\begin_inset Formula $n_{0}/\int\mathrm{d}\mathbf{\Omega}$
+\end_inset
+
+, to keep coherent with the relation
+\begin_inset Formula 
+\begin{equation}
+\int\mathrm{d}\mathbf{\Omega}\rho(\mathbf{r},\mathbf{\Omega})=\int\mathrm{d}\cos\Theta\mathrm{d}\Phi\mathrm{d}\Psi\rho(\mathbf{r},\mathbf{\Omega})=n(\mathbf{r})
+\end{equation}
+
+\end_inset
+
+which reduces eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:4.grand-pot"
+
+\end_inset
+
+) to eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:1.omega-p"
+
+\end_inset
+
+) in 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Classical-density-functional"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+According to the variation principle described in 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Classical-density-functional"
+
+\end_inset
+
+, the equilibrium density can be found by minimizing the free energy functional
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}[\rho]=\mathcal{F}_{\mathrm{id}}[\rho]+\mathcal{F}_{\mathrm{ext}}[\rho]+\mathcal{F}_{\mathrm{exc}}[\rho]\label{eq:4.fff}
+\end{equation}
+
+\end_inset
+
+regarding to 
+\begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+\left.\frac{\delta\mathcal{F}[\rho]}{\delta\rho(\mathbf{r},\mathbf{\Omega})}\right|_{\rho=\rho_{0}}=0
+\end{equation}
+
+\end_inset
+
+which remains exactly the same formalism with those in 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Classical-density-functional"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+The ideal term
+\end_layout
+
+\begin_layout Standard
+The ideal term 
+\begin_inset Formula $\mathcal{F}_{\mathrm{id}}[\rho]$
+\end_inset
+
+ deduced from the particle interaction-free condition is:
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}_{\mathrm{id}}[\rho]=k_{\mathrm{B}}T\int\mathrm{d}\mathbf{r}\mathrm{d}\mathbf{\Omega}\left[\rho(\mathbf{r},\mathbf{\mathbf{\mathbf{\Omega}}})\ln\left(\frac{\rho(\mathbf{r},\mathbf{\mathbf{\mathbf{\mathbf{\Omega}}}})}{\rho_{0}}\right)-\rho(\mathbf{r},\mathbf{\mathbf{\mathbf{\Omega}}})+\rho_{0}\right]
+\end{equation}
+
+\end_inset
+
+
+\color red
+(incoherent with 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Classical-density-functional"
+
+\end_inset
+
+ with an additional term 
+\begin_inset Formula $\rho_{0}$
+\end_inset
+
+, and disappeared 
+\begin_inset Formula $\Lambda^{3}$
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Standard
+The differentiation of 
+\begin_inset Formula $\mathcal{F}_{\mathrm{id}}[\rho]$
+\end_inset
+
+ used for the minimization, which will be discussed later, has form:
+\begin_inset Formula 
+\begin{equation}
+\frac{\delta\mathcal{F}_{\mathrm{id}}[\rho]}{\delta\rho(\mathbf{r},\mathbf{\Omega})}=\beta^{-1}\ln\left(\dfrac{\rho(\mathbf{r},\mathbf{\Omega})}{\rho_{0}}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+The external term
+\end_layout
+
+\begin_layout Standard
+The solute, like the solvent, is described in microscopic detail by a molecular
+ non-polarizable force field involving atomic Lennard-Jones and partial
+ charge parameters, creating at each point in space an external potential
+ 
+\begin_inset Formula $V_{\mathrm{ext}}(\mathbf{r},\mathbf{\mathbf{\mathbf{\mathbf{\Omega}}}})$
+\end_inset
+
+, containing two components:
+\begin_inset Formula 
+\begin{equation}
+V_{\mathrm{ext}}(\mathbf{r},\mathbf{\Omega})=V_{\mathrm{LJ}}(\mathbf{r})+V_{\mathrm{coul}}(\mathbf{r},\mathbf{\Omega})
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The external potential term calculates the contribution of 
+\begin_inset Formula $V_{\mathrm{ext}}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}_{\mathrm{ext}}[\rho]=\int\mathrm{d}\mathbf{r}\mathrm{d}\mathbf{\mathbf{\Omega}}\rho(\mathbf{r},\mathbf{\mathbf{\mathbf{\mathbf{\Omega}}}})(V_{\mathrm{ext}}(\mathbf{r},\mathbf{\mathbf{\mathbf{\mathbf{\Omega}}}})-\mu)
+\end{equation}
+
+\end_inset
+
+with 
+\begin_inset Formula $\mu$
+\end_inset
+
+ the chemical potential.
+\end_layout
+
+\begin_layout Standard
+The Lennard-Jones potential is given by:
+\begin_inset Formula 
+\begin{equation}
+V_{\mathrm{LJ}}(\mathbf{r})=\sum_{u}\sum_{v}4\epsilon_{uv}\left[\left(\dfrac{\sigma_{uv}}{r_{uv}}\right)^{12}-\left(\dfrac{\sigma_{uv}}{r_{uv}}\right)^{6}\right]\label{eq:4.LJ}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $u$
+\end_inset
+
+ stands for solute, 
+\begin_inset Formula $v$
+\end_inset
+
+ stands for solvent, 
+\begin_inset Formula $\epsilon_{uv}=\sqrt{\epsilon_{u}\epsilon_{v}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{uv}=\left(\sigma_{u}+\sigma_{v}\right)$
+\end_inset
+
+ are the geometric and arithmetic average Lennard-Jones parameters between
+ solute and solvent, according to the Lorentz-Berthelot mixing rules.
+ 
+\begin_inset Formula $r_{ij}$
+\end_inset
+
+ is the norm of relative site-site vector
+\begin_inset Formula 
+\begin{equation}
+\mathbf{r}_{uv}=\mathbf{r}+\mathbf{R}(\mathbf{\Omega})\mathbf{s}_{v}-\mathbf{r}_{u}\label{eq:4.ruv}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbf{r}_{u}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{s}_{v}$
+\end_inset
+
+ are the coordinates of solute/solvent molecules in the molecular frame,
+ and 
+\begin_inset Formula $\mathbf{R}(\mathbf{\Omega})$
+\end_inset
+
+ is the rotation matrix of the Euler angles 
+\begin_inset Formula $\mathbf{\Omega}$
+\end_inset
+
+.
+ In cases where the solvent site wears only one LJ centre, eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:4.ruv"
+
+\end_inset
+
+) reduces to
+\begin_inset Formula 
+\begin{equation}
+\mathbf{r}_{uv}=\mathbf{r}-\mathbf{r}_{u}
+\end{equation}
+
+\end_inset
+
+which is actually what we use in the code as the solvent is SPC/E water.
+\end_layout
+
+\begin_layout Standard
+The Coulomb interaction is calculated by solving the Poisson equation.
+ The charge density of the solute is projected onto a space grid 
+\begin_inset Formula $\mathbf{r}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+\rho_{q}(\mathbf{r})=\sum_{u}q_{ijk}/\Delta v
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $q_{ijk}$
+\end_inset
+
+ is the charge on the space grid distributed by its nearby point charge
+ as shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Charge-density-projected"
+
+\end_inset
+
+, and 
+\begin_inset Formula $\Delta v$
+\end_inset
+
+ the volume of the unit cube that this point charge situates in.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/charge_int_2.eps
+	scale 150
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Solute charge density projected onto grids
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Charge-density-projected"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The electrostatic potential created by the charge distribution 
+\begin_inset Formula $\rho_{q}(\mathbf{r})$
+\end_inset
+
+, 
+\begin_inset Formula $V_{q}(\mathbf{r})$
+\end_inset
+
+, can be thus computed using a periodic Poisson Solver.
+ The Poisson equation (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:poisson"
+
+\end_inset
+
+)
+\begin_inset Formula 
+\begin{equation}
+\nabla^{2}V_{q}(\mathbf{r})=-\frac{\rho_{q}(\mathbf{r})}{\varepsilon_{0}}
+\end{equation}
+
+\end_inset
+
+
+\color red
+(where is the 
+\begin_inset Formula $\varepsilon(\mathbf{r})$
+\end_inset
+
+?)
+\color inherit
+ gives in Fourier space
+\begin_inset Formula 
+\begin{equation}
+\hat{V}_{q}(\mathbf{k})=\frac{\hat{\rho}_{q}(\mathbf{k})}{\varepsilon_{0}k^{2}}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\hat{V}_{q}(\mathbf{k})$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{\rho}_{q}(\mathbf{k})$
+\end_inset
+
+ are the Fourier transform of 
+\begin_inset Formula $V_{q}(\mathbf{r})$
+\end_inset
+
+ and 
+\begin_inset Formula $\rho_{q}(\mathbf{r})$
+\end_inset
+
+ respectively.
+ These two equations provide a fast way to calculate 
+\begin_inset Formula $V_{q}(\mathbf{r})$
+\end_inset
+
+ from 
+\begin_inset Formula $\rho_{q}(\mathbf{r})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The Coulomb potential is expressed as a sum of solvent partial charge contributi
+ons at each grid node:
+\begin_inset Formula 
+\begin{equation}
+V_{\mathrm{coul}}(\mathbf{r},\mathbf{\Omega})=\sum_{v}q_{v}V_{q}(\mathbf{r}_{v})
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $q_{v}$
+\end_inset
+
+ is the point charge of solvent, and
+\begin_inset Formula 
+\begin{equation}
+\mathbf{r}_{v}=\mathbf{r}+\mathbf{R}(\mathbf{\Omega})\mathbf{s}_{v}
+\end{equation}
+
+\end_inset
+
+is the cartesian coordinate of a solvent site 
+\begin_inset Formula $v$
+\end_inset
+
+; 
+\begin_inset Formula $V_{q}(\mathbf{r}_{u})$
+\end_inset
+
+ is the electrostatic potential, given by a linear interpolation of the
+ nearby point of 
+\begin_inset Formula $V_{q}(\mathbf{r})$
+\end_inset
+
+ obtained in the last step from the Poisson solver.
+ 
+\end_layout
+
+\begin_layout Subsection
+The excess term
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:The-excess-term"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The two terms 
+\begin_inset Formula $\mathcal{F}_{\mathrm{id}}[\rho]$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{F}_{\mathrm{ext}}[\rho]$
+\end_inset
+
+ are physically exact, while the excess term 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}[\rho]$
+\end_inset
+
+ depends on the exact correlation function, which is a priori unknown.
+ As shown in 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Classical-density-functional"
+
+\end_inset
+
+, we invoke here the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HRF}
+\end_layout
+
+\end_inset
+
+ approximation which amounts to a second-order Taylor expansion around the
+ homogeneous fluid at density 
+\begin_inset Formula $\rho_{0}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}_{\mathrm{exc}}[\rho]=-\frac{k_{B}T}{2}\int\mathrm{d}\mathbf{r}_{1}\mathrm{d}\mathbf{\mathbf{\Omega}}\gamma(\mathbf{r}_{1},\mathbf{\mathbf{\mathbf{\mathbf{\Omega}}}})\rho(\mathbf{r}_{1},\mathbf{\mathbf{\mathbf{\mathbf{\Omega}}}})\label{eq:4.fexc}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ is the normalized gradient of the excess functional:
+\begin_inset Formula 
+\begin{equation}
+\gamma(\mathbf{r}_{1},\mathbf{\Omega}_{1})=-\frac{\delta\beta F_{\mathrm{exc}}}{\delta\rho}=\int\mathrm{d}\mathbf{r}_{2}\mathrm{d}\mathbf{\Omega}_{2}\Delta\rho(\mathbf{r}_{2},\mathbf{\Omega}_{2})c(\mathbf{r}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\label{eq:4.gamma}
+\end{equation}
+
+\end_inset
+
+
+\color red
+(attention the negative sign)
+\color inherit
+ which can be related to the solute-solvent 2-component 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acf{IET}
+\end_layout
+
+\end_inset
+
+ with its definition:
+\begin_inset Formula 
+\begin{equation}
+\gamma_{\mathrm{MS}}(1,2)=h_{\mathrm{MS}}(1,2)-c_{\mathrm{MS}}(1,2)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To evaluate the integration 
+\begin_inset Formula $\int\mathrm{d}\mathbf{r}_{2}\mathrm{d}\mathbf{\Omega}_{2}$
+\end_inset
+
+ for each gradient 
+\begin_inset Formula $\gamma(\mathbf{r}_{1},\mathbf{\Omega}_{1})$
+\end_inset
+
+ in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:4.gamma"
+
+\end_inset
+
+), a total number of 
+\begin_inset Formula $N^{2}\equiv N_{\mathbf{r}}^{2}N_{\mathbf{\Omega}}^{2}=O(N^{2})$
+\end_inset
+
+ function evaluations (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FE}
+\end_layout
+
+\end_inset
+
+) are required, which, with typically 
+\begin_inset Formula $N_{\mathbf{r}}=64^{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $N_{\mathbf{\Omega}}=50\sim100$
+\end_inset
+
+, is far too costly for current computing technology.
+ For this reason, Fourier transform is used to treat the spatial convolution.
+\end_layout
+
+\begin_layout Standard
+A convolution
+\begin_inset Formula 
+\begin{equation}
+h(x_{1})\equiv f(x_{2})\otimes g(x_{2})\equiv\int_{a}^{b}f(x_{2})g(x_{1}-x_{2})dx_{2}\label{eq:convolution-1}
+\end{equation}
+
+\end_inset
+
+has the property that
+\begin_inset Formula 
+\begin{equation}
+\mathfrak{F}[h(x_{1})]=\mathfrak{F}[f(x_{2})]\mathfrak{F}[g(x_{2})]\label{eq:convolution-2}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula $\mathfrak{F}$
+\end_inset
+
+ being the Fourier transform operation.
+ As 
+\begin_inset Formula $\mathbf{r}_{12}=\mathbf{r}_{1}-\mathbf{r}_{2}$
+\end_inset
+
+, eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:4.gamma"
+
+\end_inset
+
+) is a 3D convolution, which leads to
+\begin_inset Formula 
+\begin{equation}
+\hat{\gamma}(\mathbf{k},\mathbf{\Omega}_{1})=\int\mathrm{d}\mathbf{\Omega}_{2}\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega}_{2})\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\label{eq:4.gamma-k}
+\end{equation}
+
+\end_inset
+
+Here we put the hat symbol on the physical quantities to represented the
+ Fourier transform of their original function.
+\end_layout
+
+\begin_layout Standard
+In eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:4.gamma-k"
+
+\end_inset
+
+), the integral 
+\begin_inset Formula $\int\mathrm{d}\mathbf{r}_{2}$
+\end_inset
+
+ of eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:4.gamma"
+
+\end_inset
+
+) is transformed into a simple product, only 
+\begin_inset Formula $N_{\mathbf{r}}N_{\mathbf{\Omega}}^{2}$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FE}
+\end_layout
+
+\end_inset
+
+ are needed to obtain 
+\begin_inset Formula $\hat{\gamma}(\mathbf{k},\mathbf{\Omega}_{1})$
+\end_inset
+
+ with given 
+\begin_inset Formula $\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega}_{2})$
+\end_inset
+
+.
+ To this computational cost should be added the transform from 
+\begin_inset Formula $\Delta\rho(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+ to 
+\begin_inset Formula $\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega})$
+\end_inset
+
+ and the backward transform from 
+\begin_inset Formula $\hat{\gamma}(\mathbf{k},\mathbf{\Omega})$
+\end_inset
+
+ to 
+\begin_inset Formula $\gamma(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+ which are both of order 
+\begin_inset Formula $N_{\mathbf{\Omega}}\cdot O(N_{\mathbf{r}}\log_{2}N_{\mathbf{r}})$
+\end_inset
+
+ due to the properties of Fast Fourier Transforms (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+).
+ The total number of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FE}
+\end_layout
+
+\end_inset
+
+ is thus reduced from quadratic complexity 
+\begin_inset Formula $O(N_{\mathbf{r}}^{2}N_{\mathbf{\Omega}}^{2})$
+\end_inset
+
+ to 
+\begin_inset Formula $N_{\mathbf{r}}N_{\mathbf{\Omega}}^{2}+2N_{\mathbf{\Omega}}\cdot O(N_{\mathbf{r}}\log_{2}N_{\mathbf{r}})=O(N_{\mathbf{r}}\log_{2}N_{\mathbf{r}}N_{\mathbf{\Omega}}^{2})$
+\end_inset
+
+.
+ As the total number of spatial grid 
+\begin_inset Formula $N_{\mathbf{r}}$
+\end_inset
+
+ is of magnitude 
+\begin_inset Formula $10^{5}\sim10^{6}$
+\end_inset
+
+, this procedure, which is mathematically equivalent to the direct evaluation
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:4.gamma"
+
+\end_inset
+
+), offers a great advantage in terms of computational efficiency (figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:order-of-growth"
+
+\end_inset
+
+ in appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:computing-performance"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+The angular-dependent 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ of the homogeneous solvent, 
+\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
+\end_inset
+
+, is an input data which can be obtained from 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
+\end_inset
+
+ or 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MC}
+\end_layout
+
+\end_inset
+
+ simulations.
+ A detailed presentation of the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+s used in this thesis is available in appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:dcf-water"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Molecular integral equation theory
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Angular-dependent-iem"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To adapt the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+ formalism to non-spherical solvent, Blum 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Blum_I,Blum_II"
+
+\end_inset
+
+ proposed to expand the angle-dependent correlation functions 
+\begin_inset Formula $F(\mathbf{X}_{1},\mathbf{X}_{2})\equiv F(\mathbf{r}_{1},\mathbf{r}_{2},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
+\end_inset
+
+ onto rotational invariants, such that the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation can be reduced to only a few 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FE}
+\end_layout
+
+\end_inset
+
+.
+ This theory is then adopted by Fries & Patey 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Fries_Patey_1985"
+
+\end_inset
+
+, who proposed a numerical solution for full 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HNC}
+\end_layout
+
+\end_inset
+
+ closure.
+ The test below describes the theory of Blum, but based on the convention
+ of Fries & Patey, where Messiah's definition of generalized spherical harmonics
+ (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+s) is used.
+ A detailed explication of different conventions of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+ is given in appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:symmetry"
+
+\end_inset
+
+.
+ 
+\color red
+(I have a lot of difficulty to write this paragraph...)
+\end_layout
+
+\begin_layout Subsection
+Translational and rotational invariance
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $F$
+\end_inset
+
+ describes a homogeneous fluid, the translational invariance (
+\begin_inset Formula $\mathbf{r}_{12}\equiv\mathbf{r}_{1}-\mathbf{r}_{2}$
+\end_inset
+
+) should be presented, then the number of independent variables is reduced
+ from 12 to 9:
+\begin_inset Formula 
+\begin{equation}
+F(\mathbf{X}_{1},\mathbf{X}_{2})=F(\mathbf{r}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})=F(r,\hat{\mathbf{r}}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\label{eq:miet-def-func}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can further expand 
+\begin_inset Formula $F$
+\end_inset
+
+ on Wigner 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+s of the three orientations, then 
+\begin_inset Formula $F$
+\end_inset
+
+ becomes a sum of infinite number of projections that depending on 
+\begin_inset Formula $r$
+\end_inset
+
+ and 8 indices:
+\begin_inset Formula 
+\begin{equation}
+F(\mathbf{X}_{1},\mathbf{X}_{2})=\sum_{m,n,l=0}^{\infty}\sum_{\left|\mu',\mu\right|\leq m,\left|\nu',\nu\right|\leq n,\left|\lambda'\right|\leq l}F_{\mu'\mu\nu'\nu\lambda}^{mnl}(r)R_{\mu'\mu}^{m}(\mathbf{\Omega}_{1})R_{\nu'\nu}^{m}(\mathbf{\Omega}_{2})R_{\lambda'0}^{l}(\hat{\mathbf{r}}_{12})
+\end{equation}
+
+\end_inset
+
+Assuming that this expansion converges, which is normally the case for correlati
+on functions, the expansion can be expressed in limit number of projections.
+ If we also take into account the rotational invariance by recombine some
+ terms, only 
+\begin_inset Formula $r$
+\end_inset
+
+ and 5 independent indices are necessary to describe all the projections:
+\begin_inset Formula 
+\begin{equation}
+F_{\mu\nu}^{mnl}(r)=\sum_{\mu'\nu'\lambda'}\left(\begin{array}{ccc}
+m & n & l\\
+\mu & \nu & \lambda
+\end{array}\right)F_{\mu'\mu\nu'\nu\lambda}^{mnl}(r)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The projections 
+\begin_inset Formula $F_{\mu\nu}^{mnl}(r)$
+\end_inset
+
+ with a finite order of expansion have much fewer of terms compared to the
+ angular form in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:miet-def-func"
+
+\end_inset
+
+) within the same precision of description.
+ They provide a better way to describe the molecular structure by taking
+ advantage of these invariance.
+ To summery the relationship of the projections and the original function,
+ the rotational invariant is defined as:
+\begin_inset Formula 
+\begin{equation}
+\Phi_{\mu\nu}^{mnl}(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2},\mathbf{\hat{r}}_{12})=f^{mnl}\sum_{\mu'\nu'\lambda'}\left(\begin{array}{ccc}
+m & n & l\\
+\mu' & \nu' & \lambda'
+\end{array}\right)R_{\mu'\mu}^{m}(\mathbf{\Omega}_{1})R_{\nu'\nu}^{n}(\mathbf{\Omega}_{2})R_{\lambda'0}^{l}(\mathbf{\hat{r}}_{12})
+\end{equation}
+
+\end_inset
+
+where the normalisation factor
+\end_layout
+
+\begin_layout Standard
+and the rotational invariance 
+\color red
+(attention indices)
+\color inherit
+: 
+\color red
+(Non, cette équation mélange tous les R possibles et n'a pas encore imposé
+ l'invariance par rotation de l'ensemble.
+ C'est la condition d'invariance qui impose alors 4.24 avec 4.23.)
+\end_layout
+
+\begin_layout Standard
+The suggestion of Wigner gives a set of rotation invariant: 
+\color red
+(Pourquoi as-tu échanger les indices munulambda et mu'nu'lambda'? Il faut
+ rester cohérent le plus possible avec la notation de la littérature existante.
+ Cette remarque s'applique à toutes les équations suivantes.)
+\color inherit
+
+\begin_inset Formula 
+\begin{equation}
+\Phi_{\mu'\nu'}^{mnl}(\hat{\mathbf{r}}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})=f^{mnl}\sum_{\mu\nu\lambda}\left(\begin{array}{ccc}
+m & n & l\\
+\mu & \nu & \lambda
+\end{array}\right)R_{\mu\mu'}^{m}(\mathbf{\Omega}_{1})R_{\nu\nu'}^{m}(\mathbf{\Omega}_{2})R_{\lambda0}^{l}(\hat{\mathbf{r}}_{12})
+\end{equation}
+
+\end_inset
+
+such that
+\begin_inset Formula 
+\begin{equation}
+g(\mathbf{X}_{1},\mathbf{X}_{2})=\sum_{mnl}\sum_{\mu'\nu'}g_{\mu'\nu'}^{mnl}(\left\Vert \mathbf{r}_{12}\right\Vert )\Phi_{\mu'\nu'}^{mnl}(\hat{\mathbf{r}}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})
+\end{equation}
+
+\end_inset
+
+and
+\end_layout
+
+\begin_layout Subsection
+Blum's reduction of molecular OZ equation
+\end_layout
+
+\begin_layout Standard
+The molecular Ornstein-Zernike 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MOZ}
+\end_layout
+
+\end_inset
+
+ equation is defined as 
+\color red
+(rester cohérent dans la notation: il s'agit de la fonction gamma et non
+ eta.
+ a changer dans toutes les eq.
+ qui suivent.)
+\color inherit
+
+\begin_inset Formula 
+\begin{equation}
+h(\mathbf{X}_{1},\mathbf{X}_{2})-c(\mathbf{X}_{1},\mathbf{X}_{2})=\frac{\rho}{8\pi^{2}}\int\mathrm{d}\mathbf{X}_{3}h(\mathbf{X}_{1},\mathbf{X}_{3})c(\mathbf{X}_{3},\mathbf{X}_{2})
+\end{equation}
+
+\end_inset
+
+which can be both expanded as
+\begin_inset Formula 
+\begin{equation}
+h(\mathbf{X}_{1},\mathbf{X}_{2})=\sum_{mnl}\sum_{\mu'\nu'}h_{\mu'\nu'}^{mnl}(\left\Vert \mathbf{r}_{12}\right\Vert )\Phi_{\mu'\nu'}^{mnl}(\hat{\mathbf{r}}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+c(\mathbf{X}_{1},\mathbf{X}_{2})=\sum_{mnl}\sum_{\mu'\nu'}c_{\mu'\nu'}^{mnl}(\left\Vert \mathbf{r}_{12}\right\Vert )\Phi_{\mu'\nu'}^{mnl}(\hat{\mathbf{r}}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\eta(\mathbf{X}_{1},\mathbf{X}_{2})=h(\mathbf{X}_{1},\mathbf{X}_{2})-c(\mathbf{X}_{1},\mathbf{X}_{2})=\sum_{mnl}\sum_{\mu'\nu'}\eta_{\mu'\nu'}^{mnl}(\left\Vert \mathbf{r}_{12}\right\Vert )\Phi_{\mu'\nu'}^{mnl}(\hat{\mathbf{r}}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})
+\end{equation}
+
+\end_inset
+
+As an analog to the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ the fast Hankel transform can deal these rotational invariant projections
+ into 
+\begin_inset Formula $k$
+\end_inset
+
+-space, such that
+\begin_inset Formula 
+\begin{equation}
+\hat{c}_{\mu\nu}^{mnl}(k)=4\pi i^{l}\int\mathrm{d}r\,r^{2}j_{l}(kr)c_{\mu\nu}^{mnl}(r)
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\hat{\eta}_{\mu\nu}^{mnl}(k)=4\pi i^{l}\int\mathrm{d}r\,r^{2}j_{l}(kr)\eta_{\mu\nu}^{mnl}(r)
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $j_{l}(kr)$
+\end_inset
+
+ are the spherical Bessel functions.
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Formula $\chi$
+\end_inset
+
+-transform defined by Blum gives 
+\color red
+(Je vois que tu as ajouté un prime pour les fonctions dans le repère moléculaire
+ indicées par khi.
+ Ce n'est pas la notation historique de Blum mais tu as voulu te rapprocher
+ de la nôtre pour soluté+solvant.
+ Comme je l'ai dit dans des mails et utilisé dans l'article, je conseillerais
+ de coller le plus possible à la notation de Blum, donc pas de prime, mais
+ khi en indice après une virgule.)
+\color inherit
+
+\begin_inset Formula 
+\begin{equation}
+\hat{c'}_{\mu\nu,\chi}^{mn}(k)=\sum_{l=\left|m-n\right|}^{m+n}\left(\begin{array}{ccc}
+m & n & l\\
+\chi & -\chi & 0
+\end{array}\right)\hat{c}_{\mu\nu}^{mnl}(k)
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\hat{\eta'}_{\mu\nu,\chi}^{mn}(k)=\sum_{l=\left|m-n\right|}^{m+n}\left(\begin{array}{ccc}
+m & n & l\\
+\chi & -\chi & 0
+\end{array}\right)\hat{\eta}_{\mu\nu}^{mnl}(k)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $\Phi_{\mu'\nu'}^{mnl}(\hat{\mathbf{r}}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
+\end_inset
+
+ is defined with the factor 
+\begin_inset Formula $f^{mnl}=\left[(2m+1)(2n+1)\right]^{1/2},$
+\end_inset
+
+ the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MOZ}
+\end_layout
+
+\end_inset
+
+ equation can be reduced by Blum's reduction such that
+\begin_inset Formula 
+\begin{equation}
+\hat{\eta'}_{\mu\nu,\chi}^{mn}(k)=\rho\sum_{n_{1}}\sum_{\nu_{1}=-n_{1}}^{n_{1}}(-)^{\chi+\nu_{1}}\left[\hat{\eta'}_{\mu\nu_{1},\chi}^{mn_{1}}(k)+\hat{c'}_{\mu\nu_{1},\chi}^{mn_{1}}(k)\right]\hat{c'}_{\underline{\nu_{1}}\nu,\chi}^{n_{1}n}(k)
+\end{equation}
+
+\end_inset
+
+which reduces the calculation of 
+\begin_inset Formula $(\mathbf{X}_{1},\mathbf{X}_{3})$
+\end_inset
+
+ for 
+\begin_inset Formula $(\mathbf{X}_{3},\mathbf{X}_{2})$
+\end_inset
+
+ to a sum of 
+\begin_inset Formula $n_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $\nu_{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\color red
+(The part of HNC has non need in this thesis.)
+\end_layout
+
+\end_body
+\end_document

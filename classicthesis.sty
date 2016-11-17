@@ -368,7 +368,7 @@
         \def\toc@heading{%
             \ifthenelse{\boolean{@nochapters}}%
             {\section*{\contentsname}}%nochapters
-            {\chapter*{\contentsname}}%chapters
+            {\chapter*{\dottedcontents\contentsname}}%chapters
             \@mkboth{\spacedlowsmallcaps{\contentsname}}{\spacedlowsmallcaps{\contentsname}}}
               
     
@@ -376,8 +376,6 @@
 % layout of the chapter-, section-, subsection-, subsubsection-,
 % paragraph and description-headings
 % ********************************************************************             
-\RequirePackage{setspace} 
-\renewcommand{\baselinestretch}{2}
 \RequirePackage{titlesec}
         % parts
         \ifthenelse{\boolean{@parts}}%
@@ -465,15 +463,15 @@
       \ifthenelse{\boolean{@dottedtoc}}{\relax}%
       {%
       }%        
-      \setlength{\cftbeforepartskip}{1em}%
-      \setlength{\cftbeforechapskip}{1em}%
+      \setlength{\cftbeforepartskip}{1.5em}%
+      \setlength{\cftbeforechapskip}{1.5em}%
       \setlength{\beforebibskip}{\cftbeforepartskip}%
      }{\relax}
     % chapters
     \ifthenelse{\boolean{@nochapters}}%
         {\relax}%
         {%
-			\addtolength{\cftchapnumwidth}{0.7em}
+			\addtolength{\cftchapnumwidth}{1em}
             \renewcommand{\cftchappresnum}{\scshape\MakeTextLowercase}%
             \renewcommand{\cftchapfont}{\Large\normalfont}%
             \renewcommand{\cftchappagefont}{\Large\normalfont}%
@@ -495,6 +493,7 @@
       \renewcommand{\cftsecpagefont}{\normalfont}%
         \ifthenelse{\boolean{@dottedtoc}}{\relax}%
         {%        
+                \addtolength{\cftsecnumwidth}{.7em}
         \renewcommand{\cftsecleader}{,\hspace{.5em}}% 
         \renewcommand{\cftsecafterpnum}{\cftparfillskip}%
       }
@@ -504,6 +503,7 @@
         \renewcommand{\cftsubsecfont}{\normalfont}%
       \ifthenelse{\boolean{@dottedtoc}}{\relax}%
       {%      
+              \addtolength{\cftsubsecnumwidth}{.7em}
         \renewcommand{\cftsubsecleader}{,\hspace{.5em}}% 
         \renewcommand{\cftsubsecafterpnum}{\cftparfillskip}%   
       }             

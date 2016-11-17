@@ -91,9 +91,12 @@ et al.
 
 \shape default
  
-\color red
-[ref]
-\color inherit
+\begin_inset CommandInset citation
+LatexCommand citep
+key "gendre_classical_2009,jeanmairet_molecular_2013-1,jeanmairet_molecular_2015,jeanmairet_molecular_2016,Jeanmairet_thesis,levesque_solvation_2012,ramirez_density_2002,ramirez_density_2005,sergiievskyi_fast_2014,Zhao_2011"
+
+\end_inset
+
 , which implement the 
 \begin_inset ERT
 status open
@@ -108,12 +111,9 @@ acs{MDFT}
 \end_inset
 
  theory.
- It reads the force field (pair potential) 
-\begin_inset Formula $u(\mathbf{r},\mathbf{\Omega})$
-\end_inset
-
- describing the solute and the solvent as input, as well as necessary parameters
- like the temperature 
+ It reads the force field (Lennard-Jones and Coulomb parameters) describing
+ the solute and the solvent as input, as well as necessary parameters like
+ the temperature 
 \begin_inset Formula $T$
 \end_inset
 
@@ -127,56 +127,6 @@ acs{MDFT}
 \end_inset
 
 , then computes output properties.
- The main structure of the code is shown in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:code-mdft"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement h
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../_figure/mdft.eps
-	width 100col%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Main structure of code MDFT
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:code-mdft"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -187,8 +137,8 @@ Supercell discretization
 \begin_inset Formula $L_{x}\times L_{y}\times L_{z}$
 \end_inset
 
- Å
-\begin_inset Formula $^{3}$
+ 
+\begin_inset Formula $\left[\textrm{Å}^{3}\right]$
 \end_inset
 
  space is discretized on a regular grid of 
@@ -196,42 +146,11 @@ Supercell discretization
 \end_inset
 
  nodes.
- Angular grid is discretized with Lebedev (L) or Gauss-Legendre (GL) quadrature
- for 
-\begin_inset Formula $\mathbf{\Omega}\equiv\left(\Theta,\Phi\right)$
+ The solute center is at 
+\begin_inset Formula $\mathbf{r}_{T}=\left(\dfrac{L_{x}}{2},\dfrac{L_{y}}{2},\dfrac{L_{z}}{2}\right)$
 \end_inset
 
-, 
-\begin_inset Formula $\Theta\in\left[0,\pi\right]$
-\end_inset
-
-, 
-\begin_inset Formula $\Phi\in\left[0,2\pi\right]$
-\end_inset
-
- and regular quadrature for 
-\begin_inset Formula $\Psi\in\left[0,\pi\right]$
-\end_inset
-
- as we used the code mainly for water.
- The number of each angular dimension is linked to the order of quadrature,
- 
-\begin_inset Formula $m_{\max}$
-\end_inset
-
-, which is discussed mainly in the chapter of theory.
-\end_layout
-
-\begin_layout Standard
-The solute center is at 
-\begin_inset Formula $\left(\dfrac{L_{x}}{2},\dfrac{L_{y}}{2},\dfrac{L_{z}}{2}\right)$
-\end_inset
-
- of the box, characterized by 
-\begin_inset Formula $\mathbf{r}_{T}$
-\end_inset
-
-.
+ of the box.
  If the internal coordinates of solute 
 \begin_inset Formula $\mathbf{r}_{M}$
 \end_inset
@@ -243,12 +162,61 @@ The solute center is at
 .
 \end_layout
 
+\begin_layout Standard
+Angular grid is discretized with Lebedev (L) quadrature for 
+\begin_inset Formula $\mathbf{\Omega}\equiv\left(\Theta,\Phi\right)$
+\end_inset
+
+, 
+\begin_inset Formula $\Theta\in\left[0,\pi\right]$
+\end_inset
+
+, 
+\begin_inset Formula $\Phi\in\left[0,2\pi\right]$
+\end_inset
+
+ , or Gauss-Legendre (GL) quadrature for 
+\begin_inset Formula $\Theta$
+\end_inset
+
+ and trapezoidal quadrature for 
+\begin_inset Formula $\Phi$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\Psi\in\left[0,\pi\right]$
+\end_inset
+
+, as we used the code mainly for water, is discretized with trapezoidal
+ quadrature.
+ The number of each angular dimension is linked to the order of quadrature,
+ 
+\begin_inset Formula $m_{\max}$
+\end_inset
+
+, which is discussed mainly in the chapter of theory.
+\end_layout
+
 \begin_layout Section
 Minimizer L-BFGS-B
 \end_layout
 
 \begin_layout Standard
-The minimizer adopted by MDFT is the L-BFGS-B 
+The minimizer adopted by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ is the L-BFGS-B 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Zhu_1994_bfgs,Zhu_bfgs_1997_algorithm"
@@ -266,11 +234,6 @@ key "Zhu_1994_bfgs,Zhu_bfgs_1997_algorithm"
 \end_inset
 
 .
- 
-\color red
-During the evaluation of the initial code which uses L-BFGS,
-\color inherit
- the constraint function is not used.
 \end_layout
 
 \begin_layout Standard
@@ -287,11 +250,11 @@ The functional
 \begin_inset Formula $x_{i}$
 \end_inset
 
- and gradient of the past 
+ and gradients of the past 
 \begin_inset Formula $m$
 \end_inset
 
- iterations, which is a memory eater.
+ iterations, which requires a lot of memory.
 \end_layout
 
 \begin_layout Standard
@@ -299,14 +262,22 @@ The functional in MDFT to be minimized is eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:fff"
+reference "eq:4.fff"
 
 \end_inset
 
-), and its gradient is
+):
 \begin_inset Formula 
 \begin{equation}
-\frac{\delta\mathcal{F}[\rho]}{\delta\rho(\mathbf{r},\mathbf{\Omega})}=\beta^{-1}\ln\left(\dfrac{\rho(\mathbf{r},\mathbf{\Omega})}{\rho_{0}}\right)+V_{\mathrm{ext}}(\mathbf{r},\mathbf{\Omega})+V_{\mathrm{exc}}(\mathbf{r},\mathbf{\Omega})
+\mathcal{F}[\rho]=\mathcal{F}_{\mathrm{id}}[\rho]+\mathcal{F}_{\mathrm{ext}}[\rho]+\mathcal{F}_{\mathrm{exc}}[\rho]
+\end{equation}
+
+\end_inset
+
+and its gradient is
+\begin_inset Formula 
+\begin{equation}
+\frac{\delta\mathcal{F}[\rho]}{\delta\rho(\mathbf{r},\mathbf{\Omega})}=k_{\mathrm{B}}T\ln\left(\dfrac{\rho(\mathbf{r},\mathbf{\Omega})}{\rho_{0}}\right)+V_{\mathrm{exc}}(\mathbf{r},\mathbf{\Omega})+(V_{\mathrm{ext}}(\mathbf{r},\mathbf{\Omega})-\mu)
 \end{equation}
 
 \end_inset
@@ -339,11 +310,8 @@ During minimization, the density variable
 \begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
 \end_inset
 
- can have unphysical negative numbers, 
-\color red
-which also cause the divergence of the minimization.
-
-\color inherit
+ can have unphysical negative numbers, which also cause the divergence of
+ the minimization.
  To avoid this phenomenon, a normalized 
 \begin_inset Formula $\varphi(\mathbf{r},\mathbf{\Omega})$
 \end_inset
@@ -382,8 +350,70 @@ reference "eq:cg_vect"
 Therefore the gradient to feed the L-BFGS minimizer is:
 \begin_inset Formula 
 \begin{equation}
-\frac{\delta\mathcal{F}}{\delta\varphi}=\frac{\delta\mathcal{F}}{\delta\rho}\cdot\frac{\delta\rho}{\delta\varphi}=2\rho_{0}\varphi(\mathbf{r},\mathbf{\Omega})\cdot\left[\beta^{-1}\ln\varphi^{2}+V_{\mathrm{ext}}+V_{\mathrm{exc}}\right]
+\frac{\delta\mathcal{F}}{\delta\varphi}=\frac{\delta\mathcal{F}}{\delta\rho}\cdot\frac{\delta\rho}{\delta\varphi}=2\rho_{0}\varphi(\mathbf{r},\mathbf{\Omega})\cdot\left[\beta^{-1}\ln\varphi^{2}+V_{\mathrm{exc}}+\left(V_{\mathrm{ext}}-\mu\right)\right]
 \end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The main structure of the code is shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:code-mdft"
+
+\end_inset
+
+.
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align right
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/mdft.eps
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Main structure of code MDFT
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:code-mdft"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 

@@ -83,9 +83,8 @@ name "chpt:perspectives"
 \end_layout
 
 \begin_layout Standard
-Due to the difficulty of this thesis and my mental state, there are a lot
- of un finished work and theory.
- Here lists some to give un idea.
+A great deal of unfinished work and theories linked to this thesis is presented
+ here.
 \end_layout
 
 \begin_layout Section
@@ -93,11 +92,119 @@ Bug report
 \end_layout
 
 \begin_layout Standard
-bug in gamma test
+There are a few potential bugs in the code MDFT, where some strange behaviors
+ occurs.
 \end_layout
 
-\begin_layout Standard
-rotational invariant projection
+\begin_layout Enumerate
+In 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:k-border-effect"
+
+\end_inset
+
+, the 
+\begin_inset Formula $\gamma(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+ evaluated by 
+\family typewriter
+\series bold
+naive_standard
+\family default
+\series default
+ and the 
+\family typewriter
+\series bold
+convolution
+\family default
+\series default
+ algorithms have a mysterious difference at order of 
+\begin_inset Formula $10^{-2}$
+\end_inset
+
+, with an odd grid.
+ The same order of difference occurs at the evaluation of intermolecular
+ 
+\begin_inset Formula $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
+\end_inset
+
+ using invariant projections 
+\begin_inset Formula $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$
+\end_inset
+
+, compared to the table of 
+\begin_inset Formula $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
+\end_inset
+
+ given by Luc, for one small 
+\begin_inset Formula $k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The rotational invariant projection 
+\begin_inset Formula $\rho_{\mu\nu}^{mnl}$
+\end_inset
+
+ should be purely real according to Blum 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Blum_I"
+
+\end_inset
+
+.
+ But in fact, among the first projections, 
+\begin_inset Formula $\rho_{00}^{111}$
+\end_inset
+
+ 
+\begin_inset Formula $\rho_{00}^{122}$
+\end_inset
+
+, 
+\begin_inset Formula $\rho_{00}^{212}$
+\end_inset
+
+, 
+\begin_inset Formula $\rho_{00}^{221}$
+\end_inset
+
+, etc.
+ are purely imaginary, and 
+\begin_inset Formula $\rho_{02}^{121}$
+\end_inset
+
+,
+\begin_inset Formula $\rho_{02}^{122}$
+\end_inset
+
+, 
+\begin_inset Formula $\rho_{02}^{123}$
+\end_inset
+
+, 
+\begin_inset Formula $\rho_{20}^{202}$
+\end_inset
+
+, 
+\begin_inset Formula $\rho_{20}^{211}$
+\end_inset
+
+, 
+\begin_inset Formula $\rho_{20}^{212}$
+\end_inset
+
+, etc.
+ is complex.
 \end_layout
 
 \begin_layout Section
@@ -105,57 +212,334 @@ Reduce memory use in MDFT
 \end_layout
 
 \begin_layout Standard
-Computing performance of parallel code
+The total CPU time to implement a MDFT minimization using 
+\family typewriter
+\series bold
+convolution
+\family default
+\series default
+ algorithms is typically 1 to 30 minutes according to the resolution of
+ grid.
+ But the memory consumed for such a process is typically 1 to 20 G of RAM.
+ This is mainly due to the minimizer L-BFGS-B, which firstly needs to store
+ several steps of information during the iterations, and secondly it is
+ in double precision, it is to say that the density variable 
+\begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+ and the gradient also need to be stored in double precision, if not, as
+ tested, it leads to a divergence of result.
+ In addition, during the evaluation of functional, memory at most 3 times
+ of 
+\begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+ needs to be stored simultaneously.
 \end_layout
 
 \begin_layout Standard
-Node-level Parallelization
-\end_layout
+There are to ways to get over this memory limit, and both of them need to
+ modify the L-BFGS-B minimizer, which is a 
+\begin_inset Quotes eld
+\end_inset
 
-\begin_layout Standard
-OpenMP, scalability with respect to the number of thread
-\end_layout
+blackbox
+\begin_inset Quotes erd
+\end_inset
 
-\begin_layout Standard
-Parallelization on Several Nodes
-\end_layout
-
-\begin_layout Standard
-MPI, scalability with respect to the number of node
-\end_layout
-
-\begin_layout Standard
-As shown in chapter III, memory leak can cause divergence and other problem.
-\end_layout
-
-\begin_layout Subsection
-Pass to simple precision
-\end_layout
-
-\begin_layout Standard
-L-BFGS-B is in double precision
-\end_layout
-
-\begin_layout Subsection
-MPI of the L-BFGS-B minimizer
-\end_layout
-
-\begin_layout Standard
-As the code is a blackbox, in Fortran 77, it is difficult to parallelize
- it.
+, in Fortran 77.
  
 \end_layout
 
 \begin_layout Standard
-OpenMP, MPI giving the possibility to go beyond the memory limit.
- Due to the complexity of minimizer L-BFGS, this process is only added on
- the part of 
-\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+The simplest way is to change the double precision to float number of the
+ L-BFGS-B minimizer, this action can reduce the memory needed by 2.
+ 
+\end_layout
+
+\begin_layout Standard
+And another way to completely pass this limit, is to parallelize is code
+ to several nodes using MPI.
+ This requires only to modify the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
 \end_inset
 
- evaluation.
- Tests of performance stability with respect to both threads and nodes are
- made.
+ and L-BFGS-B process, where their is a mixing of variables 
+\begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Site-site grid
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+ uses intermolecular spherical coordinates, and cannot describe huge molecules.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ uses a homogeneous spatial grid, thus have the same resolution near and
+ far from the solute.
+ To meet a satisfying result, sometimes a finer resolution is needed.
+ Another natural way to think about construction of the grid is like in
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Site-site-grid-model"
+
+\end_inset
+
+, an spherical grid at each site of solute.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/site-site.eps
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Site-site grid model
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Site-site-grid-model"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The idea can be roughly understand as an interaction site treatment of the
+ solute, with a molecular treatment of the solvent.
+ It is a matrix of 
+\begin_inset Formula $h_{\text{MS}}(1,2)$
+\end_inset
+
+ with a full molecular description of 
+\begin_inset Formula $c_{\text{SS}}(1,2)$
+\end_inset
+
+.
+ As in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ the solvent density can be else than particle-particle distribution functions,
+ it is possible to have different descriptions for solute and solvent.
+ The formalism is possible, also as the e
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DFT}
+\end_layout
+
+\end_inset
+
+ shares some formalism with c
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DFT}
+\end_layout
+
+\end_inset
+
+, a site description of solute which is used as default in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{QM}
+\end_layout
+
+\end_inset
+
+ calculations should also gives some inspiration to the liquid theory.
+ (Or I think it is like 3D-RISM, but their is no correspondent 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DFT}
+\end_layout
+
+\end_inset
+
+ theory, nor basis set description of site.) If the sites are expanded onto
+ spherical harmonics 
+\begin_inset Formula $Y_{lm}$
+\end_inset
+
+, there is also a rotational invariance between the sites, and the inhomogeneous
+ angular grid can be thus ignored, it is only an issue of 
+\begin_inset Formula $\mathbf{r}_{\text{M}}-\mathbf{r}_{\text{N}}$
+\end_inset
+
+ between site M and N.
+ This is only an idea, the mathematical deduction is not yet fully verified.
+\end_layout
+
+\begin_layout Standard
+The generalized 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation to 
+\begin_inset Formula $n$
+\end_inset
+
+ components
+\begin_inset Formula 
+\begin{equation}
+h_{\nu\mu}(1,2)=c_{\nu\mu}(1,2)+\rho\sum_{\lambda}x_{\lambda}\int c_{\nu\lambda}(2,3)h_{\lambda\mu}(1,3)\mathrm{d}3
+\end{equation}
+
+\end_inset
+
+thus
+\begin_inset Formula 
+\begin{equation}
+h_{\text{MS}}(1,2)=c_{\text{MS}}(1,2)+\rho\int c_{\text{SS}}(2,3)h_{\text{MS}}(1,3)\mathrm{d}3
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+h_{\text{NS}}(1,2)=c_{\text{NS}}(1,2)+\rho\int c_{\text{SS}}(2,3)h_{\text{NS}}(1,3)\mathrm{d}3
+\end{equation}
+
+\end_inset
+
+Look that 
+\begin_inset Formula $c_{\text{SS}}(2,3)$
+\end_inset
+
+ is just the bulk 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+.
+ The link between 
+\begin_inset Formula $h_{\text{MS}}(1,2)$
+\end_inset
+
+ and 
+\begin_inset Formula $h_{\text{NS}}(1,2)$
+\end_inset
+
+ is a translation of center 
+\begin_inset Formula $\mathbf{r}_{\text{M}}-\mathbf{r}_{\text{N}}$
+\end_inset
+
+
+\color red
+(?)
+\color inherit
+.
+ Therefore, ...
 \end_layout
 
 \begin_layout Section
@@ -163,7 +547,17 @@ Polarizable solute
 \end_layout
 
 \begin_layout Standard
-Vext variable
+During the iteration, the 
+\begin_inset Formula $V_{\mathrm{ext}}$
+\end_inset
+
+ is fixed.
+ It can be a variable by adding an extra variable term linked to the dipole
+ of solute 
+\begin_inset Formula $\mu_{M}$
+\end_inset
+
+, such that this part can be calculated for each iteration, and can be minimized.
 \end_layout
 
 \begin_layout Section
@@ -171,12 +565,10 @@ MDFT Viewer
 \end_layout
 
 \begin_layout Standard
-This thesis contains a part of visualization
-\end_layout
-
-\begin_layout Standard
-Viewer is an important part of code developing, which provide beautiful
- visualization and easy analyzing helps to popularize the code.
+This thesis contains originally a segment on visualization.
+ Due to time limit, it is removed.
+ Viewer is an important part of code development, which provides beautiful
+ visualization and easy analysis, and helps to popularize the code.
  GaussViewer is a good example.
 \end_layout
 
@@ -184,24 +576,9 @@ Viewer is an important part of code developing, which provide beautiful
 The popular language of visualization is c++, OpenDM, ...
 \end_layout
 
-\begin_layout Section
-Classical SCF method
-\end_layout
-
 \begin_layout Standard
-To be more compatible with Gaussian, [Jensen]
-\end_layout
-
-\begin_layout Standard
-This is only an idea, the mathematical deduction is not fully verified.
-\end_layout
-
-\begin_layout Section
-Other branches of development about MDFT
-\end_layout
-
-\begin_layout Standard
-3-body, polarization, 
+The process of MDFT can produce energy and structures for each iteration,
+ although it takes time to write down all the possible output.
 \end_layout
 
 \end_body

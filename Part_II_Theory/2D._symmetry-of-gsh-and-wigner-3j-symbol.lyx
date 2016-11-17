@@ -266,7 +266,7 @@ m & n & l\\
 \end{array}\right)=\left(-\right)^{m+n+l}\left(\begin{array}{ccc}
 m & n & l\\
 -\mu & -\nu & -\lambda
-\end{array}\right)
+\end{array}\right)\label{eq:symm-3j-symbol}
 \end{equation}
 
 \end_inset
@@ -314,7 +314,20 @@ Properties of GSH
 \end_layout
 
 \begin_layout Standard
-There are many different definitions of GSH given in lectures.
+There are many different definitions of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+ given in lectures.
  Here we adopt the definition in Messiah:
 \begin_inset Formula 
 \begin{equation}
@@ -558,20 +571,7 @@ where
 \end_layout
 
 \begin_layout Subsubsection*
-Composition relation for 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{GSH}
-\end_layout
-
-\end_inset
-
-s
+Composition relation for GSHs
 \end_layout
 
 \begin_layout Subsubsection*
@@ -678,7 +678,8 @@ D_{m0}^{l}(\phi\theta\psi)=\left(-\right)^{m}\left(\dfrac{4\pi}{2l+1}\right)^{\f
 
 \end_inset
 
-is adopted, that means it shares the same definition as Edmonds, where 
+is adopted, which means it shares the same definition as Edmonds, where
+ 
 \begin_inset Formula 
 \begin{equation}
 R_{\mu'\mu}^{m}(\phi\theta\psi)=D_{\mu\mu'}^{m*}(\phi\theta\psi)\label{eq:GSH-def-2}

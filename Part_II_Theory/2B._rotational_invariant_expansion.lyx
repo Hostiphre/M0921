@@ -84,11 +84,11 @@ name "chpt:rotational-invariant-expansion"
 
 \begin_layout Standard
 If a function 
-\begin_inset Formula $F(\mathbf{X_{1}},\mathbf{X_{2}})$
+\begin_inset Formula $F(\mathbf{X}_{1},\mathbf{X}_{2})$
 \end_inset
 
 , 
-\begin_inset Formula $\mathbf{X_{i}}\equiv(\mathbf{r_{i}},\mathbf{\Omega_{i}})$
+\begin_inset Formula $\mathbf{X}_{i}\equiv(\mathbf{r}_{i},\mathbf{\Omega}_{i})$
 \end_inset
 
  has transitional and rotational invariance 
@@ -101,22 +101,22 @@ key "Blum_I"
 , it can be expanded as
 \begin_inset Formula 
 \begin{equation}
-F(\mathbf{X_{1}},\mathbf{X_{2}})=\sum_{mnl\mu\nu}F_{\mu\nu}^{mnl}(\left\Vert \mathbf{r_{12}}\right\Vert )\Phi_{\mu\nu}^{mnl}(\mathbf{\Omega_{1}},\mathbf{\Omega_{2}},\mathbf{\hat{r_{12}}})\label{eq:pdf_on_rot_invar}
+F(\mathbf{X}_{1},\mathbf{X}_{2})=\sum_{mnl\mu\nu}F_{\mu\nu}^{mnl}(\left\Vert \mathbf{r}_{12}\right\Vert )\Phi_{\mu\nu}^{mnl}(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2},\mathbf{\hat{r}}_{12})\label{eq:pdf_on_rot_invar}
 \end{equation}
 
 \end_inset
 
 where 
-\begin_inset Formula $\mathbf{r_{12}}\equiv\mathbf{r_{1}}-\mathbf{r_{2}}$
+\begin_inset Formula $\mathbf{r}_{12}\equiv\mathbf{r}_{1}-\mathbf{r}_{2}$
 \end_inset
 
  according to the transitional invariance, and
 \begin_inset Formula 
 \begin{equation}
-\Phi_{\mu\nu}^{mnl}(\mathbf{\Omega_{1}},\mathbf{\Omega_{2}},\mathbf{\hat{r_{12}}})=f^{mnl}\sum_{\mu'\nu'\lambda'}\left(\begin{array}{ccc}
+\Phi_{\mu\nu}^{mnl}(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2},\mathbf{\hat{r}}_{12})=f^{mnl}\sum_{\mu'\nu'\lambda'}\left(\begin{array}{ccc}
 m & n & l\\
 \mu' & \nu' & \lambda'
-\end{array}\right)R_{\mu'\mu}^{m}(\mathbf{\Omega_{1}})R_{\nu'\nu}^{n}(\mathbf{\Omega_{2}})R_{\lambda'0}^{l}(\mathbf{\hat{r_{12}}})\label{eq:definition_rot_invar}
+\end{array}\right)R_{\mu'\mu}^{m}(\mathbf{\Omega}_{1})R_{\nu'\nu}^{n}(\mathbf{\Omega}_{2})R_{\lambda'0}^{l}(\mathbf{\hat{r}}_{12})\label{eq:definition_rot_invar}
 \end{equation}
 
 \end_inset
@@ -157,7 +157,11 @@ key "Fries_Patey_1985"
 \begin_inset Formula $f^{mnl}=f^{m}f^{n}=\sqrt{2m+1}\sqrt{2n+1}$
 \end_inset
 
- according to the definition of Belloni 
+ according to the definition of 
+\color red
+(Blum's definition plutôt!)
+\color inherit
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Luc_2014"
@@ -205,7 +209,7 @@ reference "eq:definition_rot_invar"
 ) is orthogonal, as proven below:
 \begin_inset Formula 
 \begin{eqnarray}
-\left\langle \Phi\mid\Phi_{2}\right\rangle  & = & \int\mathrm{d}\mathbf{\Omega_{1}}\mathrm{d}\mathbf{\Omega_{2}}\mathrm{d}\hat{\mathbf{r}}\Phi_{\mu\nu}^{mnl}(\mathbf{\Omega_{1}},\mathbf{\Omega_{2}},\mathbf{\hat{r_{12}}})\Phi_{\mu_{2}\nu_{2}}^{m_{2}n_{2}l_{2}*}(\mathbf{\Omega_{1}},\mathbf{\Omega_{2}},\mathbf{\hat{r_{12}}})\nonumber \\
+\left\langle \Phi\mid\Phi_{2}\right\rangle  & = & \int\mathrm{d}\mathbf{\Omega}_{1}\mathrm{d}\mathbf{\Omega}_{2}\mathrm{d}\hat{\mathbf{r}}\Phi_{\mu\nu}^{mnl}(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2},\mathbf{\hat{r}}_{12})\Phi_{\mu_{2}\nu_{2}}^{m_{2}n_{2}l_{2}*}(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2},\mathbf{\hat{r}}_{12})\nonumber \\
  & = & f^{m}f^{n}f^{m_{2}}f^{n_{2}}\sum_{\mu'\nu'\lambda'}\left(\begin{array}{ccc}
 m & n & l\\
 \mu' & \nu' & \lambda'
@@ -213,8 +217,8 @@ m & n & l\\
 m_{2} & n_{2} & l_{2}\\
 \mu_{2}' & \nu_{2}' & \lambda_{2}'
 \end{array}\right)\nonumber \\
- &  & \times\{\int\mathrm{d}\mathbf{\Omega_{1}}R_{\mu'\mu}^{m}(\mathbf{\Omega_{1}})R_{\mu_{2}'\mu_{2}}^{m_{2}*}(\mathbf{\Omega_{1}})\nonumber \\
- &  & \left[\int\mathrm{d}\mathbf{\Omega_{2}}R_{\nu'\nu}^{n}(\mathbf{\Omega_{2}})R_{\nu_{2}'\nu_{2}}^{n_{2}*}(\mathbf{\Omega_{2}})\left(\int\mathrm{d}\hat{\mathbf{r}}R_{\lambda'0}^{l}(\mathbf{\hat{r_{12}}})R_{\lambda_{2}'0}^{l_{2}*}(\mathbf{\hat{r_{12}}})\right)\right]\}\nonumber \\
+ &  & \times\{\int\mathrm{d}\mathbf{\Omega}_{1}R_{\mu'\mu}^{m}(\mathbf{\Omega}_{1})R_{\mu_{2}'\mu_{2}}^{m_{2}*}(\mathbf{\Omega}_{1})\nonumber \\
+ &  & \left[\int\mathrm{d}\mathbf{\Omega}_{2}R_{\nu'\nu}^{n}(\mathbf{\Omega}_{2})R_{\nu_{2}'\nu_{2}}^{n_{2}*}(\mathbf{\Omega}_{2})\left(\int\mathrm{d}\hat{\mathbf{r}}R_{\lambda'0}^{l}(\mathbf{\hat{r}}_{12})R_{\lambda_{2}'0}^{l_{2}*}(\mathbf{\hat{r}}_{12})\right)\right]\}\nonumber \\
  & = & f^{m}f^{n}f^{m_{2}}f^{n_{2}}\sum_{\mu'\nu'\lambda'}\left(\begin{array}{ccc}
 m & n & l\\
 \mu' & \nu' & \lambda'
@@ -320,10 +324,10 @@ reference "eq:definition_rot_invar"
 ):
 \begin_inset Formula 
 \begin{equation}
-\Phi_{\mu\nu}^{mnl}(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},0)=f^{mnl}\sum_{\mu''\nu''\lambda''}\left(\begin{array}{ccc}
+\Phi_{\mu\nu}^{mnl}(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},0)=f^{mnl}\sum_{\mu''\nu''\lambda''}\left(\begin{array}{ccc}
 m & n & l\\
 \mu'' & \nu'' & \lambda''
-\end{array}\right)R_{\mu''\mu}^{m}(\boldsymbol{\omega_{1}})R_{\nu''\nu}^{n}(\boldsymbol{\omega_{2}})R_{\lambda''0}^{l}(0)
+\end{array}\right)R_{\mu''\mu}^{m}(\boldsymbol{\omega}_{1})R_{\nu''\nu}^{n}(\boldsymbol{\omega}_{2})R_{\lambda''0}^{l}(0)
 \end{equation}
 
 \end_inset
@@ -353,7 +357,7 @@ key "Edmonds,Messiah"
 
 \begin_inset Formula 
 \begin{equation}
-R_{\mu'\mu}^{m}(0)=\sum_{\mu''}R_{\mu'\mu''}^{m}(\mathbf{\hat{r}})R_{\mu''\mu}^{m}(\boldsymbol{\omega_{1}})
+R_{\mu'\mu}^{m}(0)=\sum_{\mu''}R_{\mu'\mu''}^{m}(\mathbf{\hat{r}})R_{\mu''\mu}^{m}(\boldsymbol{\omega}_{1})
 \end{equation}
 
 \end_inset
@@ -361,7 +365,7 @@ R_{\mu'\mu}^{m}(0)=\sum_{\mu''}R_{\mu'\mu''}^{m}(\mathbf{\hat{r}})R_{\mu''\mu}^{
 
 \begin_inset Formula 
 \begin{equation}
-R_{\nu'\nu}^{n}(\mathbf{\Omega})=\sum_{\nu''}R_{\nu'\nu''}^{n}(\mathbf{\hat{r}})R_{\nu''\nu}^{n}(\boldsymbol{\omega_{2}})
+R_{\nu'\nu}^{n}(\mathbf{\Omega})=\sum_{\nu''}R_{\nu'\nu''}^{n}(\mathbf{\hat{r}})R_{\nu''\nu}^{n}(\boldsymbol{\omega}_{2})
 \end{equation}
 
 \end_inset
@@ -377,7 +381,7 @@ R_{\lambda'0}^{l}(\mathbf{\hat{r}})=\sum_{\lambda''}R_{\lambda'\lambda''}^{l}(\m
 so
 \begin_inset Formula 
 \begin{align}
-\Phi_{\mu\nu}^{mnl}(0,\mathbf{\Omega},\mathbf{\hat{r}}) & =f^{mnl}\sum_{\mu''\nu''\lambda''}R_{\mu''\mu}^{m}(\boldsymbol{\omega_{1}})R_{\nu''\nu}^{n}(\boldsymbol{\omega_{2}})R_{\lambda''0}^{l}(0)\times\nonumber \\
+\Phi_{\mu\nu}^{mnl}(0,\mathbf{\Omega},\mathbf{\hat{r}}) & =f^{mnl}\sum_{\mu''\nu''\lambda''}R_{\mu''\mu}^{m}(\boldsymbol{\omega}_{1})R_{\nu''\nu}^{n}(\boldsymbol{\omega}_{2})R_{\lambda''0}^{l}(0)\times\nonumber \\
  & \left[\sum_{\mu'\nu'\lambda'}\left(\begin{array}{ccc}
 m & n & l\\
 \mu' & \nu' & \lambda'
@@ -443,8 +447,8 @@ m & n & l\\
 \Phi_{\mu\nu}^{mnl}(0,\mathbf{\Omega},\mathbf{\hat{r}}) & =f^{mnl}\sum_{\mu''\nu''\lambda''}\left(\begin{array}{ccc}
 m & n & l\\
 \mu'' & \nu'' & \lambda''
-\end{array}\right)R_{\mu''\mu}^{m}(\boldsymbol{\omega_{1}})R_{\nu''\nu}^{n}(\boldsymbol{\omega_{2}})R_{\lambda''0}^{l}(0)\nonumber \\
- & =\Phi_{\mu\nu}^{mnl}(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},0)
+\end{array}\right)R_{\mu''\mu}^{m}(\boldsymbol{\omega}_{1})R_{\nu''\nu}^{n}(\boldsymbol{\omega}_{2})R_{\lambda''0}^{l}(0)\nonumber \\
+ & =\Phi_{\mu\nu}^{mnl}(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},0)
 \end{align}
 
 \end_inset
@@ -499,7 +503,7 @@ m & n & l\\
 \end_inset
 
  
-\begin_inset Formula $\Phi_{\mu\nu}^{mnl}(\mathbf{\Omega_{1}},\mathbf{\Omega_{2}},\mathbf{\hat{r_{12}}})$
+\begin_inset Formula $\Phi_{\mu\nu}^{mnl}(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2},\mathbf{\hat{r}}_{12})$
 \end_inset
 
  in eq.
@@ -513,10 +517,10 @@ reference "eq:definition_rot_invar"
 ) can be simplified to
 \begin_inset Formula 
 \begin{equation}
-\Phi_{\mu\nu}^{mnl}(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},0)=\sum_{\chi}\left(\begin{array}{ccc}
+\Phi_{\mu\nu}^{mnl}(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},0)=\sum_{\chi}\left(\begin{array}{ccc}
 m & n & l\\
 \chi & -\chi & 0
-\end{array}\right)f^{m}f^{n}R_{\chi,\mu}^{m}(\boldsymbol{\omega_{1}})R_{-\chi,\nu}^{n}(\boldsymbol{\omega_{2}})\label{eq:phi_local}
+\end{array}\right)f^{m}f^{n}R_{\chi,\mu}^{m}(\boldsymbol{\omega}_{1})R_{-\chi,\nu}^{n}(\boldsymbol{\omega}_{2})\label{eq:phi_local}
 \end{equation}
 
 \end_inset
@@ -536,11 +540,11 @@ reference "eq:pdf_on_rot_invar"
 ) becomes
 \begin_inset Formula 
 \begin{eqnarray}
-F(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},r) & = & \sum_{mnl\mu\nu}F_{\mu\nu}^{mnl}(r)\Phi_{\mu\nu}^{mnl}(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},0)\nonumber \\
+F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r) & = & \sum_{mnl\mu\nu}F_{\mu\nu}^{mnl}(r)\Phi_{\mu\nu}^{mnl}(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},0)\nonumber \\
  & = & \sum_{mnl\mu\nu}F_{\mu\nu}^{mnl}(r)f^{m}f^{n}\sum_{\chi}\left(\begin{array}{ccc}
 m & n & l\\
 \chi & -\chi & 0
-\end{array}\right)R_{\chi\mu}^{m}(\boldsymbol{\omega_{1}})R_{-\chi\nu}^{n}(\boldsymbol{\omega_{2}})\label{eq:eq_total_local}
+\end{array}\right)R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})R_{-\chi\nu}^{n}(\boldsymbol{\omega}_{2})\label{eq:eq_total_local}
 \end{eqnarray}
 
 \end_inset
@@ -548,12 +552,12 @@ m & n & l\\
 and the inverse equation
 \begin_inset Formula 
 \begin{eqnarray}
-F_{\mu\nu}^{mnl}(r) & = & \int\mathrm{d}\boldsymbol{\omega_{1}}\mathrm{d}\boldsymbol{\omega_{2}}F(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},r)\Phi_{\mu\nu}^{mnl*}(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},0)\nonumber \\
+F_{\mu\nu}^{mnl}(r) & = & \int\mathrm{d}\boldsymbol{\omega}_{1}\mathrm{d}\boldsymbol{\omega}_{2}F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)\Phi_{\mu\nu}^{mnl*}(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},0)\nonumber \\
  & = & f^{m}f^{n}\sum_{\chi}\left(\begin{array}{ccc}
 m & n & l\\
 \chi & -\chi & 0
 \end{array}\right)\times\nonumber \\
- &  & \int\mathrm{d}\boldsymbol{\omega_{1}}R_{\chi\mu}^{m*}(\boldsymbol{\omega_{1}})\int\mathrm{d}\boldsymbol{\omega_{2}}R_{-\chi\nu}^{n*}(\boldsymbol{\omega_{2}})F(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},r)
+ &  & \int\mathrm{d}\boldsymbol{\omega}_{1}R_{\chi\mu}^{m*}(\boldsymbol{\omega}_{1})\int\mathrm{d}\boldsymbol{\omega}_{2}R_{-\chi\nu}^{n*}(\boldsymbol{\omega}_{2})F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)
 \end{eqnarray}
 
 \end_inset
@@ -563,7 +567,7 @@ m & n & l\\
 
 \begin_layout Standard
 The function 
-\begin_inset Formula $F(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},r)$
+\begin_inset Formula $F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)$
 \end_inset
 
  and the projections 
@@ -651,15 +655,15 @@ reference "eq:eq_total_local"
 ) becomes
 \begin_inset Formula 
 \begin{eqnarray}
-F(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},r) & = & \sum_{mnl\mu\nu}\left(2l+1\right)\sum_{\chi'}\left(\begin{array}{ccc}
+F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r) & = & \sum_{mnl\mu\nu}\left(2l+1\right)\sum_{\chi'}\left(\begin{array}{ccc}
 m & n & l\\
 \chi' & -\chi' & 0
 \end{array}\right)F_{\mu\nu,\chi'}^{mn}(r)\times\nonumber \\
  &  & \sum_{\chi}\left(\begin{array}{ccc}
 m & n & l\\
 \chi & -\chi & 0
-\end{array}\right)f^{m}f^{n}R_{\chi\mu}^{m}(\boldsymbol{\omega_{1}})R_{-\chi\nu}^{n}(\boldsymbol{\omega_{2}})\nonumber \\
- & = & \sum_{mn\mu\nu}\sum_{\chi'}\sum_{\chi}F_{\mu\nu,\chi'}^{mn}(r)f^{m}f^{n}R_{\chi\mu}^{m}(\boldsymbol{\omega_{1}})R_{-\chi\nu}^{n}(\boldsymbol{\omega_{2}})\times\nonumber \\
+\end{array}\right)f^{m}f^{n}R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})R_{-\chi\nu}^{n}(\boldsymbol{\omega}_{2})\nonumber \\
+ & = & \sum_{mn\mu\nu}\sum_{\chi'}\sum_{\chi}F_{\mu\nu,\chi'}^{mn}(r)f^{m}f^{n}R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})R_{-\chi\nu}^{n}(\boldsymbol{\omega}_{2})\times\nonumber \\
  &  & \sum_{l}\left(2l+1\right)\left(\begin{array}{ccc}
 m & n & l\\
 \chi' & -\chi' & 0
@@ -692,7 +696,7 @@ m & n & l\\
 we have
 \begin_inset Formula 
 \begin{equation}
-F(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},r)=\sum_{mn\mu\nu\chi}F_{\mu\nu,\chi}^{mn}(r)f^{m}f^{n}R_{\chi\mu}^{m}(\boldsymbol{\omega_{1}})R_{-\chi\nu}^{n}(\boldsymbol{\omega_{2}})\label{eq:local-forward}
+F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)=\sum_{mn\mu\nu\chi}F_{\mu\nu,\chi}^{mn}(r)f^{m}f^{n}R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})R_{-\chi\nu}^{n}(\boldsymbol{\omega}_{2})\label{eq:local-forward}
 \end{equation}
 
 \end_inset
@@ -700,7 +704,7 @@ F(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},r)=\sum_{mn\mu\nu\chi}F_{\mu\n
 and
 \begin_inset Formula 
 \begin{equation}
-F_{\mu\nu,\chi}^{mn}(r)=\int\mathrm{d}\boldsymbol{\omega_{1}}\mathrm{d}\boldsymbol{\omega_{2}}F(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},r)f^{m}f^{n}R_{\chi\mu}^{m*}(\boldsymbol{\omega_{1}})R_{-\chi\nu}^{n*}(\boldsymbol{\omega_{2}})\label{eq:local_backward}
+F_{\mu\nu,\chi}^{mn}(r)=\int\mathrm{d}\boldsymbol{\omega}_{1}\mathrm{d}\boldsymbol{\omega}_{2}F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)f^{m}f^{n}R_{\chi\mu}^{m*}(\boldsymbol{\omega}_{1})R_{-\chi\nu}^{n*}(\boldsymbol{\omega}_{2})\label{eq:local_backward}
 \end{equation}
 
 \end_inset
@@ -725,15 +729,41 @@ reference "eq:local_backward"
 \end_inset
 
 ) can be performed either by fast generalized spherical harmonic transform
- (FGSHT), or being developed into
+ (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+), or being developed into
 \begin_inset Formula 
 \begin{equation}
-F(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},r)=\sum_{mn\mu\nu\chi}F_{\mu\nu,\chi}^{mn}(r)f^{m}f^{n}r_{\chi\mu}^{m}(\theta_{1})r_{-\chi\nu}^{n}(\theta_{2})e^{-i\chi(\phi_{12}\equiv\phi_{1}-\phi_{2})}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}\label{eq:eq_s1_local}
+F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)=\sum_{mn\mu\nu\chi}F_{\mu\nu,\chi}^{mn}(r)f^{m}f^{n}r_{\chi\mu}^{m}(\theta_{1})r_{-\chi\nu}^{n}(\theta_{2})e^{-i\chi(\phi_{12}\equiv\phi_{1}-\phi_{2})}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}\label{eq:eq_s1_local}
 \end{equation}
 
 \end_inset
 
-and transformed with FFT-3D.
+and transformed with 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+-3D.
 \end_layout
 
 \begin_layout Subsection
@@ -752,7 +782,7 @@ F_{\mu\nu,\chi}^{m}(r,\theta_{2})=\sum_{n}F_{\mu\nu,\chi}^{mn}(r)f^{n}r_{-\chi\n
 then we have
 \begin_inset Formula 
 \begin{equation}
-F(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}},r)=\sum_{m\mu\nu\chi}F_{\mu\nu,\chi}^{m}(r,\theta_{2})f^{m}r_{\chi\mu}^{m}(\theta_{1})e^{-i\chi\phi_{12}}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}
+F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)=\sum_{m\mu\nu\chi}F_{\mu\nu,\chi}^{m}(r,\theta_{2})f^{m}r_{\chi\mu}^{m}(\theta_{1})e^{-i\chi\phi_{12}}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}
 \end{equation}
 
 \end_inset
@@ -796,12 +826,25 @@ F_{\mu\nu,\chi}^{m}(r,\theta_{2})=\frac{1}{2}\int\mathrm{d}(\cos\theta_{1})F_{\m
 then we have
 \begin_inset Formula 
 \begin{equation}
-F(r,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})=\sum_{\mu\nu\chi}F_{\mu\nu,\chi}(r,\theta_{1},\theta_{2})e^{-i\chi\phi_{12}}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}\label{eq:eq_s3_local}
+F(r,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})=\sum_{\mu\nu\chi}F_{\mu\nu,\chi}(r,\theta_{1},\theta_{2})e^{-i\chi\phi_{12}}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}\label{eq:eq_s3_local}
 \end{equation}
 
 \end_inset
 
-which can be treated as a normal FFT of 3 dimensions.
+which can be treated as a normal 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ of 3 dimensions.
 \end_layout
 
 \begin_layout Section
@@ -860,7 +903,20 @@ m & n & l\\
 \end_layout
 
 \begin_layout Standard
-Firstly, the FGSHT is performed:
+Firstly, the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+ is performed:
 \begin_inset Formula 
 \begin{equation}
 F_{\eta\nu}^{n}(\mathbf{r})=\int\mathrm{d}\mathbf{\Omega}f^{n}F(\mathbf{r},\mathbf{\Omega})R_{\eta,\nu}^{n*}(\mathbf{\Omega})
@@ -1011,7 +1067,33 @@ Symmetry
 \end_layout
 
 \begin_layout Standard
-In IEM and MDFT, the rotational invariants are used to describe the solvent.
+In 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+, the rotational invariants are used to describe the solvent.
  It possess symmetric rules, introduced by the indistinguishability of the
  two particles, symmetry properties of single particle, and its real number
  property as a physical quantity.
@@ -1020,7 +1102,7 @@ In IEM and MDFT, the rotational invariants are used to describe the solvent.
 
 \begin_layout Subsection
 Symmetric rules of 
-\begin_inset Formula $F(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
+\begin_inset Formula $F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
 \end_inset
 
  in intermolecular form
@@ -1083,7 +1165,7 @@ reference "fig:Symmetry-operations"
 \end_inset
 
 , function in intermolecular coordinate system 
-\begin_inset Formula $F(\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})\equiv F(\cos\theta_{1},\cos\theta_{2},\phi,\psi_{1},\psi_{2})$
+\begin_inset Formula $F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})\equiv F(\cos\theta_{1},\cos\theta_{2},\phi,\psi_{1},\psi_{2})$
 \end_inset
 
  possesses symmetry rules:

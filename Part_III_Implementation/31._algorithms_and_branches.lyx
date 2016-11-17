@@ -169,10 +169,10 @@ reference "tab:Branch-option"
  and will be detailed in the following context.
  
 \begin_inset Marginal
-status collapsed
+status open
 
 \begin_layout Plain Layout
-These branches should give numerically the same result in certain conditions,
+These branches should give numerically the same result in certain conditions
  that will be discussed in later sections.
 \end_layout
 
@@ -358,7 +358,20 @@ use
 \begin_inset Formula $c_{\mu\nu,\chi}^{mn}(k)$
 \end_inset
 
- as input DCF
+ as input 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -741,7 +754,33 @@ pure_angular
 \begin_inset Text
 
 \begin_layout Plain Layout
-inverse FFT and FGSHT
+inverse 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -800,7 +839,15 @@ name "tab:Branch-option"
 \end_layout
 
 \begin_layout Section
-Branches "naive" 
+Branches 
+\begin_inset Quotes eld
+\end_inset
+
+naive
+\begin_inset Quotes erd
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -883,7 +930,7 @@ naive_zero-order
 naive_interpolation
 \family default
 \series default
- using 
+ use 
 \begin_inset Formula $\hat{c}(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
 \end_inset
 
@@ -899,7 +946,15 @@ reference "chpt:error-evaluation-interpolation-DCF"
 \end_layout
 
 \begin_layout Section
-Branches "convolution"
+Branches 
+\begin_inset Quotes eld
+\end_inset
+
+convolution
+\begin_inset Quotes erd
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -989,7 +1044,7 @@ convolution_pure_angular
 
 \end_inset
 
-which inverse the first and last two steps of the two algorithms mentioned
+which inverts the first and last two steps of the two algorithms mentioned
  above.
 \end_layout
 
@@ -1018,7 +1073,20 @@ naive_nmax1
 \begin_inset Formula $\left(b\right)\shortrightarrow\left(h\right)\shortrightarrow\left(p\right)$
 \end_inset
 
- , using DCF separately of the references 
+ , using 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ separately of the references 
 \color red
 [ref]
 \color inherit
@@ -1051,11 +1119,37 @@ reference "subsec:Comparison-with-non-coupling"
 reference_dipole
 \family default
 \series default
- use DCF in 
+ use 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ in 
 \color red
 [ref]
 \color inherit
-, which is the original method in MDFT to calculate 
+, which is the original method in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ to calculate 
 \begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
 \end_inset
 
@@ -1066,9 +1160,34 @@ reference_dipole
 convolution_standard
 \family default
 \series default
-, which can also use the two DCF mentioned above, a test of validation can
- be performed, which should at any case exactly numerically the same if
- the same DCF is used.
+, which can also use the two 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ mentioned above, a test of validation can be performed, which should in
+ any case be exactly the same numerically if the same 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ is used.
 \end_layout
 
 \begin_layout Section

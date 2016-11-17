@@ -165,9 +165,9 @@ Acknowledgements
 \begin_layout Standard
 First of all, I would like to express my most respectful gratitude to my
  thesis advisors, Daniel Borgis and Luc Belloni, who have developed the
- main theories used in this thesis and and whose great knowledge of liquid
- theory as well as the genius way of thinking and explaining have given
- me a solid guide for doing this research.
+ main theories used in this thesis and whose great knowledge of liquid theory
+ as well as the genius way of thinking and explaining have given me a solid
+ guide for doing this research.
  I would also like to thank them for their tireless work in correcting this
  manuscript.
 \end_layout
@@ -183,7 +183,7 @@ I'm also grateful to Maximilien Levesque, the other main developer of MDFT
 I wish to acknowledge all the great minds willing to evaluate and give ideas
  about my work: 
 \color red
-(noms des jurés)
+(noms des rapporteurs et jurés)
 \color inherit
 , thank you for agreeing to be part of the jury of this thesis.
 \end_layout
@@ -216,11 +216,17 @@ I am also grateful to Thomas Wiggins for help in correcting the huge amount
 \end_layout
 
 \begin_layout Standard
-I'm deeply indebted to my tutors during my bachelor and master, respectively
- Mr.
+Looking back through all those years of schooling, I'm deeply indebted to
+ my tutors during my bachelor and master, respectively Mr.
  Hongwei Tan and Mrs.
  Michelle Gupta, whose clear logic and warm encouragement gave me all that
  I needed to be in love with theoretical chemistry.
+\end_layout
+
+\begin_layout Standard
+And I should also thank my friends Yiting Cui, Qirong Zhu, Yu Wu and Bo
+ Gao for taking care of me at the very end of the thesis when I was seriously
+ ill.
 \end_layout
 
 \begin_layout Standard

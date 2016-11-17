@@ -97,20 +97,226 @@ acs{DCF}
 \end_inset
 
  of bulk water produced by the work of Zhao et al.
- using MD; (2) Belloni et al.
- using MC [ref].
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "zhao_accurate_2013"
+
+\end_inset
+
+using 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
+\end_inset
+
+; (2) Belloni et al.
+ using 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MC}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "puibasset_bridge_2012"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
 Dipole DCF from molecular dynamics simulation
 \end_layout
 
-\begin_layout Subsection
-Principle
+\begin_layout Standard
+The angular dependent total correlation function in intermolecular frame,
+ 
+\begin_inset Formula $h(r,\cos\theta_{1},\cos\theta_{2},\psi_{1},\psi_{2},\phi_{12})$
+\end_inset
+
+, is extracted from 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
+\end_inset
+
+ simulation.
+ 
+\end_layout
+
+\begin_layout Standard
+within the NVT ensemble; the system temperature was set at T = 298 K using
+ Nose-Hoover thermostat.
+ The number of water molecules was fixed at N = 4096, and the simulation
+ box was such determined that the water concentration corresponds to 0.9971
+ g/cm3=*mol/cm3/Na.
+ The number density is 0.9971 [g/cm3] / 18,01528 [g/mol] * 6,022140 857 *
+ 10^23[/mol] * 10^-24 [cm3/a3]=0.3333/A3
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+h(r,\cos\theta_{1},\cos\theta_{2},\phi_{12})=\left\langle h(r,\cos\theta_{1},\cos\theta_{2},\psi_{1},\psi_{2},\phi_{12})\right\rangle _{\psi_{1},\psi_{2}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The total correlation function can be complementarily analyzed when projected
+ onto a basis of rotational invariants.
+ The primary rotational invariant projections h000 (r), h110 (r), h112 (r),
+ h220 (r), and h101 (r) are defined as (here with respect to relative frame)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h^{nml}(r)=f^{nml}\left\langle h(r,\cos\theta_{1},\cos\theta_{2},\phi_{12})\Phi^{nml}\right\rangle _{\cos\theta_{1},\cos\theta_{2},\phi_{12}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The notation of Wertheim and Hansen, or in k-space
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\Phi^{000} & =1\nonumber \\
+\Phi^{011} & =\hat{\mathbf{r}}\cdot\mathbf{\Omega}_{1}\nonumber \\
+\Phi^{101} & =\hat{\mathbf{r}}\cdot\mathbf{\Omega}_{2}\nonumber \\
+\Phi^{110} & =\mathbf{\Omega}_{1}\cdot\mathbf{\Omega}_{2}\\
+\Phi^{112} & =3\mathbf{(\hat{\mathbf{r}}\cdot\mathbf{\Omega}_{1})(\hat{\mathbf{r}}\cdot\mathbf{\Omega}_{2})-\Omega}_{1}\cdot\mathbf{\Omega}_{2}\nonumber 
+\end{align}
+
+\end_inset
+
+with 
+\begin_inset Formula $f^{000}=1$
+\end_inset
+
+, 
+\begin_inset Formula $f^{110}=f^{101}=3$
+\end_inset
+
+, 
+\begin_inset Formula $f^{112}=3/2$
+\end_inset
+
+.
+ The orientation 
+\begin_inset Formula $\omega$
+\end_inset
+
+ is along with the dipole moment of water molecule.
+ 
+\end_layout
+
+\begin_layout Standard
+The transform into 
+\begin_inset Formula $k$
+\end_inset
+
+-space ...with the help of Fourier transforms for space and matrix algebra
+ for angles.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $h(k,\omega_{1},\omega_{2})=\int\mathrm{d}r\mathrm{d}\cos\theta\mathrm{d}\phi e^{ikr\cos\theta}h(\mathbf{r},\omega_{1},\omega_{2})$
+\end_inset
+
+...
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\theta$
+\end_inset
+
+ 
+\begin_inset Formula $\phi$
+\end_inset
+
+ is the direction of vector r in laboratory frame.
+\end_layout
+
+\begin_layout Standard
+factor i
 \end_layout
 
 \begin_layout Section
 DCF projections from bulk Monte Carlo simulation
+\end_layout
+
+\begin_layout Standard
+This quantity is be provided with high precision and in different representation
+s by Luc Belloni, using a mixture of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MC}
+\end_layout
+
+\end_inset
+
+ simulations and inversion of the angular-dependent 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MOZ}
+\end_layout
+
+\end_inset
+
+ equation within a rotational invariant expansion 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "puibasset_bridge_2012"
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -174,6 +380,25 @@ example:
 
 \begin_layout Section
 Comparison
+\end_layout
+
+\begin_layout Standard
+The notation of Wertheim and Hansen, or in k-space
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\Phi^{000} & =1\nonumber \\
+\Phi^{011} & =\hat{\mathbf{k}}\cdot\mathbf{\Omega}_{1}\nonumber \\
+\Phi^{101} & =\hat{\mathbf{k}}\cdot\mathbf{\Omega}_{2}\nonumber \\
+\Phi^{110} & =\mathbf{\Omega}_{1}\cdot\mathbf{\Omega}_{2}\\
+\Phi^{112} & =3\mathbf{(\hat{\mathbf{k}}\cdot\mathbf{\Omega}_{1})(\hat{\mathbf{k}}\cdot\mathbf{\Omega}_{2})-\Omega}_{1}\cdot\mathbf{\Omega}_{2}\nonumber 
+\end{align}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
