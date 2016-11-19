@@ -600,28 +600,14 @@ key "Marchi_2001,Levy_2005"
 \begin_layout Standard
 If the solvent is ionic, the Poisson equation can be modified by taking
  into account a (thermal) Boltzmann distribution of ions in the solvent,
- i.
- e., 
-\color red
-(equation to be verified with a factor 2 before the ionic contribution.
- I don't find the definition of 
-\begin_inset Formula $n_{\mathrm{ion}}$
-\end_inset
-
-.)
-\color inherit
-
+ i.e.,
 \begin_inset Formula 
 \begin{equation}
-\rho_{\mathrm{tot}}(\mathbf{r})=\rho_{q}(\mathbf{r})+qn_{\mathrm{ion}}\sinh(\frac{qq_{e}}{k_{\mathrm{B}}T}V_{\mathrm{elec}}(\mathbf{r}))
+\rho_{\mathrm{tot}}(\mathbf{r})=\rho_{q}(\mathbf{r})+2qn_{\mathrm{ion}}\sinh(\frac{q}{k_{\mathrm{B}}T}V_{\mathrm{elec}}(\mathbf{r}))
 \end{equation}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 for a salt composed of ions of charge 
 \begin_inset Formula $+q$
 \end_inset
@@ -643,11 +629,7 @@ reference "eq:poisson"
 
 \end_inset
 
-) leads to the Poisson-Boltzmann Equation: 
-\color red
-(here q is of which unity?)
-\color inherit
-
+) leads to the Poisson-Boltzmann Equation:
 \begin_inset Formula 
 \begin{equation}
 \nabla\cdot(\varepsilon(\mathbf{r})\nabla V_{\mathrm{elec}}(\mathbf{r}))-\dfrac{qn_{\mathrm{ion}}}{\varepsilon_{0}}\sinh\left(\dfrac{qV_{\mathrm{elec}}(\mathbf{r})}{k_{\mathrm{B}}T}\right)=-\dfrac{\rho(\mathbf{r})}{\varepsilon_{0}}
@@ -695,7 +677,7 @@ reference "eq:poisson"
  is given by the Born formula:
 \begin_inset Formula 
 \begin{equation}
-\Delta G_{\mathrm{elec}}(q)=-\dfrac{1}{8\pi\varepsilon_{0}}\left(1-\frac{1}{\varepsilon}\right)\frac{q^{2}}{2a}
+\Delta G_{\mathrm{elec}}(q)=-\dfrac{1}{8\pi\varepsilon_{0}}\left(1-\frac{1}{\varepsilon}\right)\frac{q^{2}}{2a}\label{eq:born_model}
 \end{equation}
 
 \end_inset
@@ -1602,50 +1584,17 @@ key "SPC/E"
 \end_layout
 
 \begin_layout Standard
-With respect to the original SPC model, 
-\color red
-the SPC/E model takes into account the polarization in an implicit and phenomeno
-logical way, re-normalizing 
-\color inherit
-the dipole of the effective pair model
-\color red
-, 
-\begin_inset Formula $\mu$
-\end_inset
-
-, and thus increasing the partial charge slightly compared to SPC 
-\color inherit
-(table 
+With respect to the original SPC model, the SPC/E model takes into account
+ the polarization in an implicit and phenomenological way, re-normalizing
+ the dipole of the effective pair model, and thus increasing the partial
+ charge slightly compared to SPC (table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:SPC/E"
 
 \end_inset
 
-; the center of water molecule has been placed at atom O, for convenance):
-\begin_inset Formula 
-\begin{equation}
-E_{\mathrm{pol}}=\frac{1}{2}\sum_{i}\dfrac{(\mu-\mu^{0})^{2}}{\alpha_{i}}
-\end{equation}
-
-\end_inset
-
-
-\begin_inset Formula $\mu^{0}$
-\end_inset
-
- being the dipole moment of an isolated water molecule, and 
-\begin_inset Formula $\alpha_{i}$
-\end_inset
-
- the isotropic scalar polarizability 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "SPC/E"
-
-\end_inset
-
-.
+; the center of water molecule has been placed at atom O, for convenance).
  The SPC/E model gives a better radial distribution function and diffusion
  constant than the SPC model.
  It is the most commonly used model for applications.
@@ -1716,7 +1665,7 @@ Model
 \end_inset
 
  
-\begin_inset Formula $[Å^{6}]$
+\begin_inset Formula $[Å]$
 \end_inset
 
 
@@ -1760,11 +1709,11 @@ Model
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $q_{1}$
+\begin_inset Formula $\mathfrak{q}_{1}$
 \end_inset
 
  
-\begin_inset Formula $[e]$
+\begin_inset Formula $[q_{e}]$
 \end_inset
 
 
@@ -1776,11 +1725,11 @@ Model
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $q_{2}$
+\begin_inset Formula $\mathfrak{q}_{2}$
 \end_inset
 
  
-\begin_inset Formula $[e]$
+\begin_inset Formula $[q_{e}]$
 \end_inset
 
 
@@ -2112,9 +2061,12 @@ The flexible yielding can deal with the non-rigidity of the solvent, which
  center of the molecule, or even on each of its atomic sites, and by solving
  the set of induced dipoles self-consistently.
  Introducing variable atomic charges is possible too 
-\color red
-[ref? or idea?]
-\color inherit
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Berne_1994"
+
+\end_inset
+
 .
  Optimizing the induced charges/dipoles has a large computational overhead
  compared to fixed charges.
@@ -2166,8 +2118,8 @@ acs{QM}
  (wall).
  In the case of molecular solutes, it is consistent to require the solute
  to have at least the same scale of description as the solvent.
- Within molecular force fields, this leads to the hierarchy of potential
- models described in figure (
+ A hierarchy of possible potential models for solute is described in figure
+ (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Hierarchy-of-models"

@@ -307,7 +307,7 @@ reference "sec:Convention-of-GSH"
 
 \end_inset
 
-To build a relation between the irreducible form of the 
+To build an analogue of the irreducible form of 
 \begin_inset ERT
 status open
 
@@ -331,15 +331,11 @@ reference "sec:Angular-dependent-iem"
 
 \end_inset
 
-, with the symmetry
-\color red
- 
+, with a symmetry 
 \begin_inset Formula $\hat{c'}_{\nu\mu,\chi}^{nm}(k)=\hat{c'}_{\mu\nu,\underline{\chi}}^{mn*}(k)$
 \end_inset
 
-
-\color inherit
-)
+ for water):
 \begin_inset Formula 
 \begin{equation}
 \hat{\gamma'}_{\lambda\mu,\underline{\chi}}^{lm}(k)=\sum_{n=0}^{n_{\mathrm{max}}}\sum_{\nu=-n}^{n}\left(-\right){}^{\chi+\nu}\Delta\hat{\rho'}_{\lambda\underline{\nu},\underline{\chi}}^{ln}(k)\hat{c'}_{\mu\nu,\chi}^{mn*}(k)\label{eq:Blum-reduced-OZ}
@@ -347,7 +343,7 @@ reference "sec:Angular-dependent-iem"
 
 \end_inset
 
-and the 
+for the 
 \begin_inset ERT
 status open
 
@@ -598,41 +594,6 @@ m & n & l\\
 \end_inset
 
 
-\begin_inset Marginal
-status open
-
-\begin_layout Plain Layout
-In fact, in 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{MDFT}
-\end_layout
-
-\end_inset
-
-, 
-\begin_inset Formula $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$
-\end_inset
-
- is the conjugate of the invariant in eq.
- (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:Blum-reduced-OZ"
-
-\end_inset
-
-).
-\end_layout
-
-\end_inset
-
-
 \begin_inset Formula 
 \begin{equation}
 \hat{c}_{\mu\nu}^{mnl}(k)=\left(2l+1\right)\sum_{\chi=-\min(m,n)}^{\min(m,n)}\left(\begin{array}{ccc}
@@ -714,7 +675,7 @@ acs{MDFT}
 \end_inset
 
  in the local frame (
-\begin_inset Formula $\boldsymbol{\omega}_{i}=\hat{\mathbf{k}}\mathbf{\Omega}_{i}$
+\begin_inset Formula $\boldsymbol{\omega}_{i}=\hat{\mathbf{k}}^{-1}\mathbf{\Omega}_{i}$
 \end_inset
 
 ):
@@ -778,6 +739,20 @@ Using eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
+reference "eq:im"
+
+\end_inset
+
+), (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:c-p"
+
+\end_inset
+
+), (
+\begin_inset CommandInset ref
+LatexCommand ref
 reference "eq:gamma-p"
 
 \end_inset
@@ -785,23 +760,7 @@ reference "eq:gamma-p"
 ), (
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:im"
-
-\end_inset
-
-), eq.
- (
-\begin_inset CommandInset ref
-LatexCommand ref
 reference "eq:rho-p"
-
-\end_inset
-
-), eq.
- (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:c-p"
 
 \end_inset
 
@@ -835,6 +794,45 @@ reference "eq:3j-orthogonality"
 \end_inset
 
 ), we deduce that:
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+This 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation formalism is the main result of the new theory.
+ A step-by-step operational way to make use of this equation for 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ evaluation is shown in 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Operational-algorithm"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 \hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})=\sum_{n\nu}\left(-\right){}^{\chi+\nu}\hat{c'}_{\mu\nu,\chi}^{mn}(k)\Delta\hat{\rho'}_{\chi\underline{\nu}}^{n}(\mathbf{k})\label{eq:gamma-blum}
@@ -893,7 +891,7 @@ The index
 \end_inset
 
  in the treatment of spatial convolution, where the recombination of projections
- on exponential orthogonal bases gives for each 
+ on the exponential orthogonal bases gives for each 
 \begin_inset Formula $\mathbf{k}$
 \end_inset
 
@@ -959,74 +957,24 @@ reference "eq:local_backward"
 \end_inset
 
 ).
- 
+ The conjugate comes from that
 \color red
-The conjugate comes from that we take particle 2-1 formalism for 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{MDFT}
-\end_layout
+ in ref 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Fries_Patey_1985"
 
 \end_inset
 
-, and 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{IET}
-\end_layout
-
+, a different definition of 
+\begin_inset Formula $\mathbf{k}$
 \end_inset
 
- takes the 1-2 formalism.
- The same issue arrives in the comparison of 
-\begin_inset Formula $g_{\mu\nu}^{mnl}$
+ is used as the Hankel transform uses implicitly 
+\begin_inset Formula $e^{ikr}$
 \end_inset
 
- of the two approaches, where in 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{MDFT}
-\end_layout
-
-\end_inset
-
- the 
-\begin_inset Formula $g_{\mu\nu}^{mnl}$
-\end_inset
-
- corresponds to the 
-\begin_inset Formula $g_{\nu\mu}^{nml}$
-\end_inset
-
- in 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{IET}
-\end_layout
-
-\end_inset
-
-.
+ as forward transform, ????? (J'ai toujours du mal a supprimer le conjugé.)
 \end_layout
 
 \begin_layout Standard
@@ -1052,7 +1000,15 @@ reference "tab:FE-of-OZ"
 status open
 
 \begin_layout Plain Layout
-* Only if we do not need to calculate 
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+*
+\end_layout
+
+\end_inset
+
+Only if we do not need to calculate 
 \begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 \end_inset
 
@@ -1103,7 +1059,16 @@ reference "eq:gamma-k"
 
 \end_inset
 
-))*; but after the Blum's 
+))
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+*
+\end_layout
+
+\end_inset
+
+; but after the Blum's 
 \begin_inset Formula $\chi$
 \end_inset
 
@@ -1142,6 +1107,19 @@ status open
 
 \begin_layout Plain Layout
 \align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{-4.5em} 
+\end_layout
+
+\end_inset
+
+
 \begin_inset Box Frameless
 position "t"
 hor_pos "c"
@@ -2398,11 +2376,7 @@ where
 \begin_inset Formula $s$
 \end_inset
 
- is the 
-\color red
-molecule rotation symmetry order
-\color inherit
- (
+ is the molecule rotation symmetry order (
 \begin_inset ERT
 status open
 
@@ -4076,7 +4050,7 @@ acs{OZ}
  in eq.
  (
 \color red
-ref
+ref appendix
 \color inherit
 ).
 \end_layout

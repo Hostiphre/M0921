@@ -6381,6 +6381,77 @@ reference "fig:Comparison-to-IET,nmax0-5"
 \end_layout
 
 \begin_layout Standard
+
+\color red
+we take particle 2-1 formalism for 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+, and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+ takes the 1-2 formalism.
+ The same issue arrives in the comparison of 
+\begin_inset Formula $g_{\mu\nu}^{mnl}$
+\end_inset
+
+ of the two approaches, where in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ the 
+\begin_inset Formula $g_{\mu\nu}^{mnl}$
+\end_inset
+
+ corresponds to the 
+\begin_inset Formula $g_{\nu\mu}^{nml}$
+\end_inset
+
+ in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement H
 wide false

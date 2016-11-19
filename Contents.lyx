@@ -570,6 +570,59 @@ hspace{-1.5em}
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $F$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Helmholtz free energy [
+\begin_inset Formula $\mathrm{kJ\cdot mol^{-1}}$
+\end_inset
+
+]
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{-1.5em}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="3.3em">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset Formula $\mathcal{F}[\rho]$
 \end_inset
 
@@ -582,7 +635,7 @@ hspace{-1.5em}
 \begin_inset Text
 
 \begin_layout Plain Layout
-Helmholtz solvation free energy functional [
+Solvation free energy functional [
 \begin_inset Formula $\mathrm{kJ\cdot mol^{-1}}$
 \end_inset
 
@@ -859,7 +912,7 @@ Bulk solvent angular density,
 \begin_inset Formula $\mathrm{\textrm{Å}^{-3}}$
 \end_inset
 
-]; In this thesis, 
+]; in this thesis, 
 \begin_inset Formula $n_{0}=0.0332891$
 \end_inset
 
@@ -1053,13 +1106,13 @@ hspace{-1.5em}
 <lyxtabular version="3" rows="1" columns="2">
 <features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="3.3em">
-<column alignment="left" valignment="top" width="87col%">
+<column alignment="left" valignment="top">
 <row>
 <cell alignment="left" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $V_{\mathrm{int}}$
+\begin_inset Formula $\mu$
 \end_inset
 
 
@@ -1067,23 +1120,15 @@ hspace{-1.5em}
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Intrinsic chemical potential 
-\begin_inset Formula $V_{\mathrm{int}}=\mu-V_{\mathrm{ext}}$
-\end_inset
-
-, of unity [
+Chemical potential of unity [
 \begin_inset Formula $\mathrm{kJ\cdot mol^{-1}}$
 \end_inset
 
-], 
-\begin_inset Formula $\mu$
-\end_inset
-
- being the chemical potential
+]
 \end_layout
 
 \end_inset
@@ -1185,7 +1230,7 @@ hspace{-1.5em}
 \begin_inset Text
 
 \begin_layout Plain Layout
-Gradient of excess free energy functional, dimensionless
+Normalized gradient of excess free energy functional, dimensionless
 \end_layout
 
 \end_inset
@@ -1475,7 +1520,7 @@ hspace{-1.5em}
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $P$
+\begin_inset Formula $\mathbf{P}$
 \end_inset
 
 
@@ -1492,61 +1537,6 @@ Polarization [
 \end_inset
 
 ]
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\color red
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hspace{-1.5em}
-\end_layout
-
-\end_inset
-
-
-\begin_inset Tabular
-<lyxtabular version="3" rows="1" columns="2">
-<features tabularvalignment="middle">
-<column alignment="left" valignment="top" width="3.3em">
-<column alignment="left" valignment="top">
-<row>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\color red
-\begin_inset Formula $q$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\color red
-Number charge, dimensionless
 \end_layout
 
 \end_inset
@@ -1600,6 +1590,63 @@ Elementary charge,
 \end_inset
 
 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{-1.5em}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="3.3em">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $q$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Charge of unity 
+\begin_inset Formula $\mathrm{[C]}$
+\end_inset
+
+; 
+\begin_inset Formula $\mathfrak{q}=q/q_{e}$
+\end_inset
+
+ is the number charge, dimensionless
 \end_layout
 
 \end_inset
@@ -1701,7 +1748,7 @@ hspace{-1.5em}
 \begin_inset Text
 
 \begin_layout Plain Layout
-Dielectric constant (relative permittivity) of solvent
+Dielectric constant (relative permittivity) of solvent, dimensionless
 \end_layout
 
 \end_inset

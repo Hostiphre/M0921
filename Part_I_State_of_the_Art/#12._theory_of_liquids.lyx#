@@ -1294,23 +1294,10 @@ reference "eq:1.oz-origine"
 
 \end_inset
 
-), 
-\color red
-which takes advantage of the convolution properties to give a simple product
- relation in 
-\begin_inset Formula $k$
+), or 
+\begin_inset Formula $h^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})=c^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})+\int\mathrm{d}\mathbf{r}_{3}\left(c^{(2)}(\mathbf{r}_{1},\mathbf{r}_{3})\rho^{(1)}(\mathbf{r}_{3})h^{(2)}(\mathbf{r}_{3},\mathbf{r}_{2})\right)$
 \end_inset
 
--space: (what else to be noted?)
-\begin_inset Formula 
-\begin{equation}
-\gamma(\mathbf{k})=h(\mathbf{k})-c(\mathbf{k})=\rho\left(\gamma(\mathbf{k})+c(\mathbf{k})\right)c(\mathbf{k})
-\end{equation}
-
-\end_inset
-
-
-\color inherit
  Other is a closure equation, which can be deduced from eq.
  (
 \begin_inset CommandInset ref

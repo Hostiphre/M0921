@@ -192,10 +192,10 @@ acf{MDFT}
 
 \end_inset
 
-, the grand potential is rewritten as:
+, the free energy functional is rewritten as:
 \begin_inset Formula 
 \begin{equation}
-\varOmega[\rho(\mathbf{r},\mathbf{\Omega})]=\varOmega[\rho_{0}]+\mathcal{F}[\rho(\mathbf{r},\mathbf{\Omega})]\label{eq:4.grand-pot}
+\mathcal{F}[\rho(\mathbf{r},\mathbf{\Omega})]=\varOmega[\rho(\mathbf{r},\mathbf{\Omega})]-\varOmega[\rho_{0}]\label{eq:4.grand-pot}
 \end{equation}
 
 \end_inset
@@ -204,15 +204,7 @@ where
 \begin_inset Formula $\varOmega[\rho_{0}]$
 \end_inset
 
- is the correspondent reference bulk fluid grand potential (with 
-\begin_inset Formula $\rho=\rho_{0}$
-\end_inset
-
- and 
-\begin_inset Formula $V_{\mathrm{int}}=0$
-\end_inset
-
-).
+ is the correspondent reference bulk fluid grand potential at equilibrium.
  
 \begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
 \end_inset
@@ -261,7 +253,7 @@ reference "eq:4.grand-pot"
  (
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:1.omega-p"
+reference "eq:1.def.functional"
 
 \end_inset
 
@@ -311,18 +303,7 @@ regarding to
 
 \end_inset
 
-which remains exactly the same formalism with those in 
-\begin_inset Formula $\mathsection$
-\end_inset
 
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Classical-density-functional"
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Subsection
@@ -343,27 +324,6 @@ The ideal term
 \end_inset
 
 
-\color red
-(incoherent with 
-\begin_inset Formula $\mathsection$
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Classical-density-functional"
-
-\end_inset
-
- with an additional term 
-\begin_inset Formula $\rho_{0}$
-\end_inset
-
-, and disappeared 
-\begin_inset Formula $\Lambda^{3}$
-\end_inset
-
-.)
 \end_layout
 
 \begin_layout Standard
@@ -374,7 +334,7 @@ The differentiation of
  used for the minimization, which will be discussed later, has form:
 \begin_inset Formula 
 \begin{equation}
-\frac{\delta\mathcal{F}_{\mathrm{id}}[\rho]}{\delta\rho(\mathbf{r},\mathbf{\Omega})}=\beta^{-1}\ln\left(\dfrac{\rho(\mathbf{r},\mathbf{\Omega})}{\rho_{0}}\right)
+\frac{\delta\mathcal{F}_{\mathrm{id}}[\rho]}{\delta\rho(\mathbf{r},\mathbf{\Omega})}=k_{\mathrm{B}}T\ln\left(\dfrac{\rho(\mathbf{r},\mathbf{\Omega})}{\rho_{0}}\right)
 \end{equation}
 
 \end_inset
@@ -413,16 +373,12 @@ The external potential term calculates the contribution of
 :
 \begin_inset Formula 
 \begin{equation}
-\mathcal{F}_{\mathrm{ext}}[\rho]=\int\mathrm{d}\mathbf{r}\mathrm{d}\mathbf{\mathbf{\Omega}}\rho(\mathbf{r},\mathbf{\mathbf{\mathbf{\mathbf{\Omega}}}})(V_{\mathrm{ext}}(\mathbf{r},\mathbf{\mathbf{\mathbf{\mathbf{\Omega}}}})-\mu)
+\mathcal{F}_{\mathrm{ext}}[\rho]=\int\mathrm{d}\mathbf{r}\mathrm{d}\mathbf{\mathbf{\Omega}}\rho(\mathbf{r},\mathbf{\mathbf{\mathbf{\mathbf{\Omega}}}})V_{\mathrm{ext}}(\mathbf{r},\mathbf{\mathbf{\mathbf{\mathbf{\Omega}}}})
 \end{equation}
 
 \end_inset
 
-with 
-\begin_inset Formula $\mu$
-\end_inset
 
- the chemical potential.
 \end_layout
 
 \begin_layout Standard
@@ -601,15 +557,7 @@ reference "eq:poisson"
 
 \end_inset
 
-
-\color red
-(where is the 
-\begin_inset Formula $\varepsilon(\mathbf{r})$
-\end_inset
-
-?)
-\color inherit
- gives in Fourier space
+gives in Fourier space
 \begin_inset Formula 
 \begin{equation}
 \hat{V}_{q}(\mathbf{k})=\frac{\hat{\rho}_{q}(\mathbf{k})}{\varepsilon_{0}k^{2}}
@@ -696,20 +644,7 @@ name "subsec:The-excess-term"
 \end_layout
 
 \begin_layout Standard
-The two terms 
-\begin_inset Formula $\mathcal{F}_{\mathrm{id}}[\rho]$
-\end_inset
-
- and 
-\begin_inset Formula $\mathcal{F}_{\mathrm{ext}}[\rho]$
-\end_inset
-
- are physically exact, while the excess term 
-\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}[\rho]$
-\end_inset
-
- depends on the exact correlation function, which is a priori unknown.
- As shown in 
+As shown in 
 \begin_inset Formula $\mathsection$
 \end_inset
 
@@ -758,11 +693,7 @@ where
 
 \end_inset
 
-
-\color red
-(attention the negative sign)
-\color inherit
- which can be related to the solute-solvent 2-component 
+which can be related to the solute-solvent 2-component 
 \begin_inset ERT
 status open
 
@@ -770,7 +701,7 @@ status open
 
 
 \backslash
-acf{IET}
+acs{IET}
 \end_layout
 
 \end_inset
@@ -1111,7 +1042,7 @@ acs{IET}
  formalism to non-spherical solvent, Blum 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "Blum_I,Blum_II"
+key "Blum_I,Blum_II,blum_III"
 
 \end_inset
 
@@ -1204,9 +1135,6 @@ reference "chpt:symmetry"
 \end_inset
 
 .
- 
-\color red
-(I have a lot of difficulty to write this paragraph...)
 \end_layout
 
 \begin_layout Subsection
@@ -1308,8 +1236,6 @@ reference "eq:miet-def-func"
 \end_inset
 
 ) within the same precision of description.
- They provide a better way to describe the molecular structure by taking
- advantage of these invariance.
 \end_layout
 
 \begin_layout Standard
@@ -1349,7 +1275,7 @@ where the normalization factor
 \end_layout
 
 \begin_layout Standard
-With these definition, relation between the projections and the original
+With these definitions, relation between the projections and the original
  function is:
 \begin_inset Formula 
 \begin{equation}
@@ -1391,40 +1317,7 @@ acs{MOZ}
 
 \end_inset
 
-which takes advantage of the convolution properties to give
-\begin_inset Formula 
-\begin{eqnarray}
-\hat{\gamma}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2}) & = & \frac{\rho}{8\pi^{2}}\int\mathrm{d}\mathbf{\Omega}_{3}\hat{h}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{3})\hat{c}(\mathbf{k},\mathbf{\Omega}_{3},\mathbf{\Omega}_{2})\nonumber \\
- & = & \frac{\rho}{8\pi^{2}}\int\mathrm{d}\mathbf{\Omega}_{3}\left[\hat{\gamma}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})+\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{3})\right]\hat{c}(\mathbf{k},\mathbf{\Omega}_{3},\mathbf{\Omega}_{2})
-\end{eqnarray}
 
-\end_inset
-
-where 
-\begin_inset Formula $\hat{\gamma}$
-\end_inset
-
-, 
-\begin_inset Formula $\hat{h}$
-\end_inset
-
- and 
-\begin_inset Formula $\hat{c}$
-\end_inset
-
- are respectively the Fourier transform of 
-\begin_inset Formula $\gamma$
-\end_inset
-
-, 
-\begin_inset Formula $h$
-\end_inset
-
- and 
-\begin_inset Formula $c$
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Standard
@@ -1519,14 +1412,7 @@ acs{FFT}
 \end_layout
 
 \begin_layout Standard
-
-\color red
-The projections 
-\begin_inset Formula $f_{\mu\nu}^{mnl}(r)$
-\end_inset
-
- are real, owing to the property of rotational invariants in condition that
- 
+Note that if function 
 \begin_inset Formula $f(\mathbf{X}_{1},\mathbf{X}_{2})$
 \end_inset
 
@@ -1534,8 +1420,11 @@ The projections
 \begin_inset Formula $\mathrm{C}_{2v}$
 \end_inset
 
-.
- Therefore 
+, the projections 
+\begin_inset Formula $f_{\mu\nu}^{mnl}(r)$
+\end_inset
+
+ are real, therefore 
 \begin_inset Formula $\hat{f}_{\mu\nu}^{mnl}(k)$
 \end_inset
 
@@ -1548,11 +1437,6 @@ The projections
 \end_inset
 
  is odd.
- (Which is not the exactly case for 
-\begin_inset Formula $\rho_{\mu\nu}^{mnl}(r)$
-\end_inset
-
- calculated in MDFT!!! There are some projections that are totally imaginary.)
 \end_layout
 
 \begin_layout Standard
@@ -1573,7 +1457,14 @@ acs{MOZ}
 \begin_inset Formula $\hat{f}_{\mu\nu}^{mnl}(k)$
 \end_inset
 
- can be found in the article of Blum, by the form is a bit complicate.
+ can be found in the article of Blum 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Blum_I"
+
+\end_inset
+
+, but the form is a bit complicate.
  To provide a simpler form, Blum defined the 
 \begin_inset Formula $\chi$
 \end_inset
@@ -1600,41 +1491,9 @@ m & n & l\\
 
 \end_inset
 
-
-\color red
 where we try to use the apostrophe represents the functions in an intermolecular
  frame.
- (It is not convenient to use the same symbol for 
-\begin_inset Formula $\hat{c}_{\mu\nu}^{mnl}(k)$
-\end_inset
-
- and 
-\begin_inset Formula $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$
-\end_inset
-
-, because they are not the same quantity.
- However, to be coincident with Blum, 
-\begin_inset Formula $\hat{C}_{\mu\nu,\chi}^{mn}(k)$
-\end_inset
-
- should be used instead.
- Therefore, 
-\begin_inset Formula $\gamma'$
-\end_inset
-
- is 
-\begin_inset Formula $\Gamma$
-\end_inset
-
-, 
-\begin_inset Formula $\rho'$
-\end_inset
-
- is 
-\begin_inset Formula $P$
-\end_inset
-
-.)
+ 
 \end_layout
 
 \begin_layout Standard

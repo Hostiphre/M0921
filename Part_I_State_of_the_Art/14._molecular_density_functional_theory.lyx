@@ -175,7 +175,7 @@ Angular grid is discretized with Lebedev (L) quadrature for
 \begin_inset Formula $\Phi\in\left[0,2\pi\right]$
 \end_inset
 
- , or Gauss-Legendre (GL) quadrature for 
+, or Gauss-Legendre (GL) quadrature for 
 \begin_inset Formula $\Theta$
 \end_inset
 
@@ -188,8 +188,8 @@ Angular grid is discretized with Lebedev (L) quadrature for
 \begin_inset Formula $\Psi\in\left[0,\pi\right]$
 \end_inset
 
-, as we used the code mainly for water, is discretized with trapezoidal
- quadrature.
+ as we used the code mainly for water, is discretized with trapezoidal quadratur
+e.
  The number of each angular dimension is linked to the order of quadrature,
  
 \begin_inset Formula $m_{\max}$
@@ -277,7 +277,7 @@ reference "eq:4.fff"
 and its gradient is
 \begin_inset Formula 
 \begin{equation}
-\frac{\delta\mathcal{F}[\rho]}{\delta\rho(\mathbf{r},\mathbf{\Omega})}=k_{\mathrm{B}}T\ln\left(\dfrac{\rho(\mathbf{r},\mathbf{\Omega})}{\rho_{0}}\right)+V_{\mathrm{exc}}(\mathbf{r},\mathbf{\Omega})+(V_{\mathrm{ext}}(\mathbf{r},\mathbf{\Omega})-\mu)
+\frac{\delta\mathcal{F}[\rho]}{\delta\rho(\mathbf{r},\mathbf{\Omega})}=k_{\mathrm{B}}T\ln\left(\dfrac{\rho(\mathbf{r},\mathbf{\Omega})}{\rho_{0}}\right)+V_{\mathrm{exc}}(\mathbf{r},\mathbf{\Omega})+V_{\mathrm{ext}}(\mathbf{r},\mathbf{\Omega})
 \end{equation}
 
 \end_inset
@@ -298,7 +298,15 @@ n_{0}/8\pi^{2} & \mbox{if non-linear, }\Omega\equiv(\Theta,\Phi,\Psi)
 
 \end_inset
 
+such that 
+\begin_inset Formula $\int\mathrm{d}\mathbf{\Omega}\rho(\mathbf{r},\mathbf{\Omega})/\rho_{0}=n(\mathbf{r})/n_{0}$
+\end_inset
 
+ is normalized to 1 when 
+\begin_inset Formula $r\rightarrow\infty$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -347,10 +355,14 @@ reference "eq:cg_vect"
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 Therefore the gradient to feed the L-BFGS minimizer is:
 \begin_inset Formula 
 \begin{equation}
-\frac{\delta\mathcal{F}}{\delta\varphi}=\frac{\delta\mathcal{F}}{\delta\rho}\cdot\frac{\delta\rho}{\delta\varphi}=2\rho_{0}\varphi(\mathbf{r},\mathbf{\Omega})\cdot\left[\beta^{-1}\ln\varphi^{2}+V_{\mathrm{exc}}+\left(V_{\mathrm{ext}}-\mu\right)\right]
+\frac{\delta\mathcal{F}}{\delta\varphi}=\frac{\delta\mathcal{F}}{\delta\rho}\cdot\frac{\delta\rho}{\delta\varphi}=2\rho_{0}\varphi(\mathbf{r},\mathbf{\Omega})\cdot\left[\beta^{-1}\ln\varphi^{2}+V_{\mathrm{exc}}+V_{\mathrm{ext}}\right]
 \end{equation}
 
 \end_inset
@@ -415,6 +427,10 @@ name "fig:code-mdft"
 
 \end_layout
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 

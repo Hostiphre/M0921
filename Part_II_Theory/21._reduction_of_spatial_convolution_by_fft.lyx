@@ -296,7 +296,7 @@ acs{DCF}
 \end_inset
 
  directly from rotational invariant projections.
- The test below gives a complete discussion of these two strategies.
+ The text below gives a complete discussion of these two strategies.
 \end_layout
 
 \begin_layout Standard
@@ -1151,11 +1151,11 @@ c(\omega)=w_{0}c(\omega_{0})+w_{1}c(\omega_{1})
 \end_inset
 
 where 
-\begin_inset Formula $w_{0}=\frac{\omega_{1}-\omega}{\omega_{1}-\omega_{0}}$
+\begin_inset Formula $w_{0}=\dfrac{\omega_{1}-\omega}{\omega_{1}-\omega_{0}}$
 \end_inset
 
  and 
-\begin_inset Formula $w_{1}=\frac{\omega-\omega_{0}}{\omega_{1}-\omega_{0}}$
+\begin_inset Formula $w_{1}=\dfrac{\omega-\omega_{0}}{\omega_{1}-\omega_{0}}$
 \end_inset
 
 .
@@ -1310,7 +1310,7 @@ name "subsec:Using-projections-in"
 As described by Blum 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "Blum_I,Blum_II"
+key "Blum_I"
 
 \end_inset
 

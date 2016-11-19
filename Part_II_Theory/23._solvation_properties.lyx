@@ -82,21 +82,20 @@ name "chpt:solvation-properties"
 
 \end_layout
 
-\begin_layout Section
-Free energy correction for single ions
-\end_layout
-
 \begin_layout Standard
-The solvation free energy is the most important property that we seek; as
- shown in previous sections, it can be calculated by the minimization of
- free energy functional 
+The solvation free energy and solvent structure are the most important property
+ that we seek; as shown in previous sections, they can be both obtained
+ by the minimization of the free energy functional 
 \begin_inset Formula $\mathcal{F}[\rho]$
 \end_inset
 
 .
  Here is a discussion about some corrections needed for charged solutes
- and some related thermodynamic quantities that can be obtained directly
- from the solvation free energy.
+ and some profiles of structures deduced from the solvent density.
+\end_layout
+
+\begin_layout Section
+Free energy correction for single ions
 \end_layout
 
 \begin_layout Standard
@@ -114,23 +113,9 @@ key "Kastenholz_2006_I,Kastenholz_2006_II,Hunenberger_book"
  of a finite system size; in our case, is a system with cubic periodic boundary
  conditions, which presents artificial interactions between the ion and
  its own periodic copies, as well as between the solvent and the periodic
- copies of the ion (Type-B in 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Kastenholz_2006_II"
-
-\end_inset
-
-); (2) resulting from the choice of convention for summing up the contributions
- of solvent charges to the electrostatic potential in the sample system
- (Type-C in 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Kastenholz_2006_II"
-
-\end_inset
-
-).
+ copies of the ion (Type-B); (2) resulting from the choice of convention
+ for summing up the contributions of solvent charges to the electrostatic
+ potential in the sample system (Type-C).
 \end_layout
 
 \begin_layout Subsection
@@ -139,7 +124,7 @@ Correction of type B
 
 \begin_layout Standard
 Type B correction should be added for systems with finite size or periodic
- boundary conditions, accounting for the error in the solvent polarization
+ boundary conditions, accounting for the error in the solvent polarization:
  
 \begin_inset Marginal
 status open
@@ -213,14 +198,18 @@ is the vacuum permittivity;
 \begin_inset Text
 
 \begin_layout Plain Layout
-is the solvent permittivity (dielectric constant); 71 
+is the solvent permittivity (dielectric constant), here 
+\begin_inset Formula $\varepsilon=71$
+\end_inset
+
+ for water 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Kusalik_1994_dc_spc/e,SPC/E"
 
 \end_inset
 
-
+;
 \end_layout
 
 \end_inset
@@ -266,11 +255,7 @@ is the solute charge;
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\color red
-is the box length
-\color inherit
-;
+is the box length;
 \end_layout
 
 \end_inset
@@ -316,11 +301,7 @@ is the ionic radius;
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\color red
-is the energy per particle in a simple cubic lattice,
-\color inherit
- 
+is the energy per particle in a simple cubic lattice, 
 \begin_inset Formula $\xi\simeq-2.837297$
 \end_inset
 
@@ -387,7 +368,7 @@ reference "eq:corr-B"
 
 \end_inset
 
-) becomes
+) becomes:
 \begin_inset Formula 
 \begin{equation}
 \Delta G_{\mathrm{B}}=\frac{\xi}{8\pi\varepsilon_{0}}\left(1-\varepsilon^{-1}\right)\frac{q^{2}}{L}
@@ -395,11 +376,15 @@ reference "eq:corr-B"
 
 \end_inset
 
+which has the same form as the Born model in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:born_model"
 
-\color red
-It links to Born correction
-\color inherit
-.
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Subsection
@@ -477,11 +462,8 @@ name "fig:IQ-model-som-scheme"
 \end_layout
 
 \begin_layout Standard
-It can be deduced analytically by considering the solvent as a 
-\color red
-canonical ensemble
-\color inherit
- under the orientational disorder limit (ODL) 
+It can be deduced analytically by considering the solvent as a canonical
+ ensemble under the orientational disorder limit (ODL) 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Kastenholz_2006_I"
@@ -497,10 +479,6 @@ reference "fig:IQ-model-som-scheme"
 \end_inset
 
  (b)) possesses the same quadrupole trace 
-\begin_inset Formula $\gamma$
-\end_inset
-
- 
 \begin_inset Marginal
 status open
 
@@ -552,11 +530,7 @@ key "Multipole"
 It can be shown that the charge density of the solvent located within the
  boundary of the sample system vanishes everywhere, except at the boundary
  in the M scheme, which results in a uniform normal surface polarization.
- The correction needed for
-\color red
- M scheme 
-\color inherit
-is
+ The correction needed is:
 \begin_inset Formula 
 \begin{equation}
 \Delta G_{\mathrm{C}}=-q\left(1-\frac{4\pi R_{\mathrm{I}}^{3}}{3L^{3}}\right)\Delta\Phi_{\mathrm{ODL}}\label{eq:corr-C}
@@ -610,12 +584,11 @@ In MDFT, all the information about solvation structure can be deduced from
 \end_inset
 
 .
- This section presents some examples of structure which are used in later
- chapters.
+ Here presents some examples of structure which are used in later chapters.
 \end_layout
 
 \begin_layout Subsection
-Radial distribution function and site-site distribution function
+Radial and site-site distribution function
 \end_layout
 
 \begin_layout Standard
@@ -650,8 +623,8 @@ acs{RDF}
 \end_inset
 
 ).
- However, it is also used as a key character of the structure for inhomogeneous
- fluids, which can be calculated equivalently as:
+ However, it can be also used as a key character of the structure for inhomogene
+ous fluids, which can be calculated equivalently as:
 \begin_inset Formula 
 \begin{equation}
 g(r)=\left\langle \rho(r,\hat{\mathbf{r}})\right\rangle =\dfrac{\int\rho(r,\hat{\mathbf{r}})\mathrm{d}s_{r}}{\int\mathrm{d}s_{r}}
@@ -818,17 +791,17 @@ acs{RPF}
 ) is defined as 
 \begin_inset Formula 
 \begin{equation}
-p(r)=\left\langle P(r,\hat{\mathbf{r}})\right\rangle 
+p(r)=\left\langle \mathbf{P}(\mathbf{r})\cdot\hat{\mathbf{r}}\right\rangle 
 \end{equation}
 
 \end_inset
 
 where 
-\begin_inset Formula $P(\mathbf{r})$
+\begin_inset Formula $\mathbf{P}(\mathbf{r})$
 \end_inset
 
  is the polarization 
-\begin_inset Formula $P(\mathbf{r})=\int\mathbf{\Omega}\cdot\rho(\mathbf{r},\mathbf{\Omega})\mathrm{d}\mathbf{\Omega}$
+\begin_inset Formula $\mathbf{P}(\mathbf{r})=\int\mathbf{\Omega}\cdot\rho(\mathbf{r},\mathbf{\Omega})\mathrm{d}\mathbf{\Omega}$
 \end_inset
 
 .
@@ -844,11 +817,9 @@ Rotational invariant expansion
 \end_layout
 
 \begin_layout Standard
-The density can be expanded on rotational invariants: 
-\color red
-(un peu léger comme explication!
-\color inherit
-)
+If the solute is simple, like a spherical ion or little molecule, it is
+ convenient to expand the density on rotational invariants which possess
+ a lot of symmetries:
 \begin_inset Formula 
 \begin{eqnarray}
 \rho(\mathbf{r},\mathbf{\Omega}) & = & \sum_{mnl\mu\nu}\rho_{\mu\nu}^{mnl}(r)\Phi_{\mu\nu}^{mnl}(0,\mathbf{\Omega},\mathbf{\hat{r}})\label{eq:rot_invar_expansion}\\
@@ -860,11 +831,23 @@ m & n & l\\
 
 \end_inset
 
+Here the form of 
+\begin_inset Formula $\Phi_{\mu\nu}^{mnl}(0,\mathbf{\Omega},\mathbf{\hat{r}})$
+\end_inset
 
+ is reduced for the laboratory coordinate system.
+ A detailed deduction for this generalized formula is in appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:rotational-invariant-expansion"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-The forward transform is as shown below:
+The forward transform to obtain the projections is:
 \begin_inset Formula 
 \begin{equation}
 \rho_{\mu\nu}^{mnl}(r)=f^{m}f^{n}\sum_{\eta}\left(\begin{array}{ccc}
@@ -879,18 +862,15 @@ m & n & l\\
 \end_layout
 
 \begin_layout Standard
-A detailed deduction for this generalized formula is in appendix 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chpt:rotational-invariant-expansion"
-
+Note that if the solvent is water, that processes a symmetry axis 
+\begin_inset Formula $\mathrm{C}_{2v}$
 \end_inset
 
-.
-\end_layout
+, the projections 
+\begin_inset Formula $\rho_{\mu\nu}^{mnl}(r)$
+\end_inset
 
-\begin_layout Standard
-The projections are purely real, as...
+ are purely real.
 \end_layout
 
 \begin_layout Subsection
@@ -898,7 +878,7 @@ Equivalence between the curves
 \end_layout
 
 \begin_layout Standard
-The relation between these curves can be proven mathematically.
+The relation between these profiles of structure can be proven mathematically.
 \end_layout
 
 \begin_layout Standard
@@ -973,17 +953,19 @@ with
 \end_layout
 
 \begin_layout Standard
-We can see
+We can see that
 \begin_inset Formula 
 \begin{equation}
-\rho_{00}^{011}(r)=\dfrac{\int\mathrm{d}\hat{\mathbf{r}}\mathrm{d}\mathbf{\Omega}\rho(\mathbf{r},\mathbf{\Omega})\Phi_{00}^{011*}(\mathbf{r},\mathbf{\Omega})}{\int\mathrm{d}\hat{\mathbf{r}}\mathrm{d}\mathbf{\Omega}\left\Vert \Phi_{00}^{011}(\mathbf{r},\mathbf{\Omega})\right\Vert ^{2}}=-\dfrac{1}{3}\dfrac{\int\mathrm{d}\hat{\mathbf{r}}P(\mathbf{r})\cdot\hat{\mathbf{r}}}{\int\mathrm{d}\hat{\mathbf{r}}\mathrm{d}\mathbf{\Omega}\left\Vert \mathbf{\Omega}\cdot\hat{\mathbf{r}}\right\Vert ^{2}}
+\rho_{00}^{011}(r)=\dfrac{\int\mathrm{d}\hat{\mathbf{r}}\mathrm{d}\mathbf{\Omega}\rho(\mathbf{r},\mathbf{\Omega})\Phi_{00}^{011*}(\mathbf{r},\mathbf{\Omega})}{\int\mathrm{d}\hat{\mathbf{r}}\mathrm{d}\mathbf{\Omega}\left\Vert \Phi_{00}^{011}(\mathbf{r},\mathbf{\Omega})\right\Vert ^{2}}=-\dfrac{1}{3}\dfrac{\int\mathrm{d}\hat{\mathbf{r}}\mathbf{P}(\mathbf{r})\cdot\hat{\mathbf{r}}}{\int\mathrm{d}\hat{\mathbf{r}}\mathrm{d}\mathbf{\Omega}\left\Vert \mathbf{\Omega}\cdot\hat{\mathbf{r}}\right\Vert ^{2}}
 \end{equation}
 
 \end_inset
 
-...
- (yes, in the implementation we see they are different curves.
- No exact equivalence.)
+is proportional to 
+\begin_inset Formula $p(r)$
+\end_inset
+
+.
 \end_layout
 
 \end_body

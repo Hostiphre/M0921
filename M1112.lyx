@@ -109,6 +109,17 @@ pagenumbering{roman}
 pagestyle{plain}
 \end_layout
 
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand
+\backslash
+cleardoublepage{
+\backslash
+clearpage}
+\end_layout
+
 \end_inset
 
 
@@ -491,7 +502,7 @@ acs{MDFT}
 
 \end_inset
 
-, we need to evaluate the excess functional as well as its gradient:
+, we need to evaluate the excess functional
 \begin_inset Formula 
 \begin{equation}
 \mathcal{F}_{\mathrm{exc}}=-\frac{k_{\mathrm{B}}T}{2}\int\mathrm{d}\mathbf{r}_{1}\mathrm{d}\mathbf{r}_{2}\mathrm{d}\mathbf{\Omega}_{1}\mathrm{d}\mathbf{\Omega}_{2}\Delta\rho(\mathbf{r}_{1},\mathbf{\Omega}_{1})\Delta\rho(\mathbf{r}_{2},\mathbf{\Omega}_{2})c(\mathbf{r}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\tag{II.1}\label{eq:fexc-II}
@@ -499,7 +510,7 @@ acs{MDFT}
 
 \end_inset
 
-
+as well as its gradient (normalized as dimensionless)
 \begin_inset Formula 
 \begin{equation}
 \gamma(\mathbf{r}_{1},\mathbf{\Omega_{1}})=\int\mathrm{d}\mathbf{r}_{2}\mathrm{d}\mathbf{\Omega}_{2}\Delta\rho(\mathbf{r}_{2},\mathbf{\Omega}_{2})c(\mathbf{r}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\tag{II.2}\label{eq:gamma-II}
@@ -975,26 +986,6 @@ Section [ref] to show a .
 
 \begin_layout Part
 Applications
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "Part_IV_Applications/41._ions.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "Part_IV_Applications/42._large_solutes.lyx"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Part Introduction (ClassicThesis)

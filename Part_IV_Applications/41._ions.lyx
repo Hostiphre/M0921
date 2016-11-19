@@ -1236,7 +1236,7 @@ acs{MD}
 \end_inset
 
  simulation.
- (e) Ref 29.
+ (e) Ref [Marcus1988].
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:single-ions"
