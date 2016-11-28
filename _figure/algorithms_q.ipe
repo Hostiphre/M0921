@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
-<ipe version="70107" creator="Ipe 7.1.7">
-<info created="D:20160226103839" modified="D:20160819155150"/>
+<ipe version="70206" creator="Ipe 7.2.6">
+<info created="D:20160226103839" modified="D:20161121232604"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -310,7 +310,7 @@ h
 4 0 0 4 92 744 e
 </path>
 <text matrix="1 0 0 1 124 -160" transformations="translations" pos="88 744" stroke="black" type="label" width="4.234" height="5.136" depth="0" halign="center" valign="center" size="footnote">3</text>
-<text matrix="1 0 0 1 -60 -136" transformations="translations" pos="192 768" stroke="black" type="label" width="39.951" height="7.473" depth="2.49" halign="center" valign="center">$\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega})$</text>
+<text matrix="1 0 0 1 -60 -136" transformations="translations" pos="192 768" stroke="black" type="label" width="39.951" height="7.473" depth="2.49" halign="center" valign="center" style="math">\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega})</text>
 <path matrix="1 0 0 1 -60 -104" stroke="black">
 172 744 m
 172 728 l
@@ -318,15 +318,15 @@ h
 212 744 l
 h
 </path>
-<path matrix="1 0 0 1 -60 -96" stroke="black" fill="lightyellow">
+<path matrix="1 0 0 1 -60 -96" stroke="red" fill="lightyellow" pen="heavier">
 172 712 m
 172 696 l
 212 696 l
 212 712 l
 h
 </path>
-<text matrix="1 0 0 1 -60 -160" transformations="translations" pos="192 768" stroke="black" type="label" width="40.13" height="7.476" depth="4.09" halign="center" valign="center">$\Delta\hat{\rho}^m_{\mu&apos;\mu}(\mathbf{k})$</text>
-<text matrix="1 0 0 1 -12 -160" transformations="translations" pos="192 768" stroke="black" type="label" width="40.364" height="9.92" depth="3.82" halign="center" valign="center">$\Delta\hat{\rho&apos;}^m_{\chi\mu}(\mathbf{k})$</text>
+<text matrix="1 0 0 1 -60 -160" transformations="translations" pos="192 768" stroke="black" type="label" width="40.13" height="7.476" depth="4.09" halign="center" valign="center" style="math">\Delta\hat{\rho}^m_{\mu&apos;\mu}(\mathbf{k})</text>
+<text matrix="1 0 0 1 -12 -160" transformations="translations" pos="192 768" stroke="black" type="label" width="40.364" height="9.92" depth="3.82" halign="center" valign="center" style="math">\Delta\hat{\rho&apos;}^m_{\chi\mu}(\mathbf{k})</text>
 <path matrix="1 0 0 1 -12 -64" stroke="black">
 172 680 m
 172 664 l
@@ -334,7 +334,7 @@ h
 212 680 l
 h
 </path>
-<text matrix="1 0 0 1 -12 -136" transformations="translations" pos="192 768" stroke="black" type="label" width="38.235" height="7.473" depth="2.49" halign="center" valign="center">$\Delta\hat{\rho}(\mathbf{k},\mathbf{\omega})$</text>
+<text matrix="1 0 0 1 -12 -136" transformations="translations" pos="192 768" stroke="black" type="label" width="38.235" height="7.473" depth="2.49" halign="center" valign="center" style="math">\Delta\hat{\rho}(\mathbf{k},\mathbf{\omega})</text>
 <path matrix="1 0 0 1 52 -72" stroke="black">
 108 712 m
 108 696 l
@@ -342,7 +342,7 @@ h
 148 712 l
 h
 </path>
-<text matrix="1 0 0 1 112 -136" transformations="translations" pos="192 768" stroke="black" type="label" width="30.493" height="7.473" depth="2.49" halign="center" valign="center">$\hat{\gamma}(\mathbf{k},\mathbf{\omega})$</text>
+<text matrix="1 0 0 1 112 -136" transformations="translations" pos="192 768" stroke="black" type="label" width="30.493" height="7.473" depth="2.49" halign="center" valign="center" style="math">\hat{\gamma}(\mathbf{k},\mathbf{\omega})</text>
 <path matrix="1 0 0 1 176 -72" stroke="black">
 108 712 m
 108 696 l
@@ -350,7 +350,7 @@ h
 148 712 l
 h
 </path>
-<text matrix="1 0 0 1 112 -160" transformations="translations" pos="192 768" stroke="black" type="label" width="32.622" height="9.92" depth="3.82" halign="center" valign="center">$\hat{\gamma&apos;}^m_{\chi\mu}(\mathbf{k})$</text>
+<text matrix="1 0 0 1 112 -160" transformations="translations" pos="192 768" stroke="black" type="label" width="32.622" height="9.92" depth="3.82" halign="center" valign="center" style="math">\hat{\gamma&apos;}^m_{\chi\mu}(\mathbf{k})</text>
 <path matrix="1 0 0 1 112 -64" stroke="black">
 172 680 m
 172 664 l
@@ -358,15 +358,15 @@ h
 212 680 l
 h
 </path>
-<path matrix="1 0 0 1 160 -96" stroke="black" fill="lightyellow">
+<path matrix="1 0 0 1 160 -96" stroke="red" fill="lightyellow" pen="heavier">
 172 712 m
 172 696 l
 212 696 l
 212 712 l
 h
 </path>
-<text matrix="1 0 0 1 160 -160" transformations="translations" pos="192 768" stroke="black" type="label" width="31.835" height="7.476" depth="4.09" halign="center" valign="center">$\hat{\gamma}^m_{\mu&apos;\mu}(\mathbf{k})$</text>
-<text matrix="1 0 0 1 160 -136" transformations="translations" pos="192 768" stroke="black" type="label" width="32.209" height="7.473" depth="2.49" halign="center" valign="center">$\hat{\gamma}(\mathbf{k},\mathbf{\Omega})$</text>
+<text matrix="1 0 0 1 160 -160" transformations="translations" pos="192 768" stroke="black" type="label" width="31.835" height="7.476" depth="4.09" halign="center" valign="center" style="math">\hat{\gamma}^m_{\mu&apos;\mu}(\mathbf{k})</text>
+<text matrix="1 0 0 1 160 -136" transformations="translations" pos="192 768" stroke="black" type="label" width="32.209" height="7.473" depth="2.49" halign="center" valign="center" style="math">\hat{\gamma}(\mathbf{k},\mathbf{\Omega})</text>
 <path matrix="1 0 0 1 160 -104" stroke="black">
 172 744 m
 172 728 l
@@ -402,9 +402,9 @@ h
 272 582 l
 h
 </path>
-<text matrix="1 0 0 1 52 -20" transformations="translations" pos="196 676" stroke="black" type="label" width="52.988" height="7.473" depth="2.49" halign="center" valign="center">$\hat{c}(k,\mathbf{\Omega_1},\mathbf{\Omega_2})$</text>
-<text matrix="1 0 0 1 52 -44" transformations="translations" pos="196 676" stroke="black" type="label" width="48.842" height="7.473" depth="2.49" halign="center" valign="center">$\hat{c}(k,\mathbf{\omega_1},\mathbf{\omega_2})$</text>
-<text matrix="1 0 0 1 52 -68" transformations="translations" pos="196 676" stroke="black" type="label" width="34.277" height="7.471" depth="3.82" halign="center" valign="center">$\hat{c}^{mn}_{\mu\nu,\chi}(k)$</text>
-<text matrix="1 0 0 1 52 -92" transformations="translations" pos="196 676" stroke="black" type="label" width="32.613" height="8.457" depth="3.82" halign="center" valign="center">$\hat{c}^{mnl}_{\mu\nu}(k)$</text>
+<text matrix="1 0 0 1 52 -20" transformations="translations" pos="196 676" stroke="black" type="label" width="52.988" height="7.473" depth="2.49" halign="center" valign="center" style="math">\hat{c}(k,\mathbf{\Omega_1},\mathbf{\Omega_2})</text>
+<text matrix="1 0 0 1 52 -44" transformations="translations" pos="196 676" stroke="black" type="label" width="48.842" height="7.473" depth="2.49" halign="center" valign="center" style="math">\hat{c}(k,\mathbf{\omega_1},\mathbf{\omega_2})</text>
+<text matrix="1 0 0 1 52 -68" transformations="translations" pos="196 676" stroke="black" type="label" width="34.277" height="7.471" depth="3.82" halign="center" valign="center" style="math">\hat{c}^{mn}_{\mu\nu,\chi}(k)</text>
+<text matrix="1 0 0 1 52 -92" transformations="translations" pos="196 676" stroke="black" type="label" width="32.613" height="8.457" depth="3.82" halign="center" valign="center" style="math">\hat{c}^{mnl}_{\mu\nu}(k)</text>
 </page>
 </ipe>

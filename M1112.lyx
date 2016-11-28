@@ -7,7 +7,6 @@
 \textclass classicthesis
 \begin_preamble
 \addbibresource{Bibliography.bib}
-\addbibresource[label=ownpubs]{AMiede_Publications.bib}
 
 \ExecuteBibliographyOptions{backref=true,isbn=false}
 \end_preamble
@@ -513,7 +512,7 @@ acs{MDFT}
 as well as its gradient (normalized as dimensionless)
 \begin_inset Formula 
 \begin{equation}
-\gamma(\mathbf{r}_{1},\mathbf{\Omega_{1}})=\int\mathrm{d}\mathbf{r}_{2}\mathrm{d}\mathbf{\Omega}_{2}\Delta\rho(\mathbf{r}_{2},\mathbf{\Omega}_{2})c(\mathbf{r}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\tag{II.2}\label{eq:gamma-II}
+\gamma(\mathbf{r}_{1},\mathbf{\Omega}_{1})=\int\mathrm{d}\mathbf{r}_{2}\mathrm{d}\mathbf{\Omega}_{2}\Delta\rho(\mathbf{r}_{2},\mathbf{\Omega}_{2})c(\mathbf{r}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\tag{II.2}\label{eq:gamma-II}
 \end{equation}
 
 \end_inset
@@ -767,7 +766,7 @@ filename "Part_II_Theory/23._solvation_properties.lyx"
 \end_layout
 
 \begin_layout Part Introduction (ClassicThesis)
-The code MDFT developed in this thesis is based on the branch master of
+The code MDFT developed in this thesis is based on the master branch of
  Git project MDFT (
 \begin_inset Flex URL
 status open
@@ -780,13 +779,13 @@ https://github.com/maxlevesque/MDFT/
 \end_inset
 
 ), version [Fri Jun 20 19:05:52 2014 +0200].
- All the implementations are run on 
+ All the tests of computing performance are run on 
 \family sans
 \series bold
 POINCARE
 \family default
 \series default
- machines of IDRIS, which involved two kinds of machines:
+ machines of IDRIS, which involve nodes of kind:
 \begin_inset Newline newline
 \end_inset
 
@@ -810,90 +809,40 @@ poincare[001-092]:
 \end_inset
 
 
-\family sans
-\series bold
-poincarebig[01-02]:
-\family default
-\series default
- 4 processors AMD Opteron 6282 (2.60GHz, 16 cores per processor, with 64
- cores per node); 128 GB of memory per node.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset VSpace medskip
-\end_inset
-
-The former is used for regular calculation, whose memory hierarchy is shown
- in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:poincare"
-
-\end_inset
-
-.
- The latter is only used in the evaluation of accuracy, in case of memory
- leaks in the former.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset VSpace medskip
-\end_inset
-
-
-\begin_inset Float figure
-placement h
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename _figure/poincare.eps
-	width 90col%
+	width 87text%
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Structure of a POINCARE node
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:poincare"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
+\begin_inset Newline newline
 \end_inset
 
 
 \begin_inset VSpace medskip
 \end_inset
 
-Section 
+This chapter presents the implementation results of the theories established
+ in chapter II.
+ Firstly in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chpt:algorithms-and-branches"
 
 \end_inset
 
-, gives a brief introduction of all the implementation algorithms built
- in this thesis.
+, we summarize all the possible algorithms to evaluate 
+\begin_inset Formula $\gamma(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+ from 
+\begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+, and name a selection of branches in order to facilitate further discussions.
+ In the following sections, the results are regrouped into two aspects,
+ the accuracy and performance:
 \begin_inset Newline newline
 \end_inset
 
@@ -908,8 +857,26 @@ reference "chpt:accuracy"
 
 \end_inset
 
- compares the accuracy of each algorithm, from parts of the code to entire
- branches.
+ examines all the possible accuracy lost in the implementation, comparing
+ to the theoretical model, which is in a general sense continuous and infinite.
+ The accuracy lost is mainly due to the discretization of the system: the
+ finite expansion of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSHT}
+\end_layout
+
+\end_inset
+
+, the effects linking to discretized grid, as well as finite size of sample
+ box.
+ The factors linked to these effects are thus analyzed, in order to determine
+ their acceptable minimum number to give a reasonable result.
 \begin_inset Newline newline
 \end_inset
 
@@ -924,9 +891,12 @@ reference "chpt:seq-code-performance"
 
 \end_inset
 
- evaluates computing performance and memory limits for the sequential code.
- Due to the time limit, the parallelized version has not been totally built,
- and is included in the perspective.
+ discusses the computing performance of the code from subroutines to entire
+ algorithms.
+ The goal is to show that the new algorithms are much faster than the old
+ ones, according to the theory; but also, to give a detailed evaluation
+ of timing for all algorithms, as some of them maybe still useful for higher
+ accuracy requirement.
 \end_layout
 
 \begin_layout Part
@@ -964,7 +934,37 @@ filename "Part_III_Implementation/33._computing_performance_of_sequential_code.l
 \end_layout
 
 \begin_layout Part Introduction (ClassicThesis)
-Only a few applications are made concluding
+In chapter III, we've studied the numerical accuracy of the code comparing
+ to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+.
+ In this section, we are interested in the physical accuracy comparing to
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
+\end_inset
+
+ and experimental results.
+ A few applications are made in this purpose.
 \begin_inset Newline newline
 \end_inset
 
@@ -972,38 +972,106 @@ Only a few applications are made concluding
 \begin_inset VSpace medskip
 \end_inset
 
-Section [ref] to show the capability of MDFT to calculate ions and small
- molecules.
-\begin_inset Newline newline
+Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:ions"
+
 \end_inset
 
+ shows the comparison of energy and structure for some LJ centers, ions
+ and small molecules, and section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:mnoxo"
 
-\begin_inset VSpace medskip
 \end_inset
 
-Section [ref] to show a .
+ gives a go to a complex molecule to show the capability of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ to achieve which 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+ cannot.
+ Which will be done after the submit of the thesis and before the defense.
 \end_layout
 
 \begin_layout Part
 Applications
 \end_layout
 
-\begin_layout Part Introduction (ClassicThesis)
-The only one publication during this thesis
-\end_layout
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Part_IV_Applications/41._ions.lyx"
 
-\begin_layout Part
-Conclusion and Perspectives
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "Part_V_Conclusion_and_Perspectives/51._Conclusion.lyx"
+filename "Part_IV_Applications/42._large_solutes.lyx"
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Part Introduction (ClassicThesis)
+The only one publication during this thesis
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+The goal of the current work was ...
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+The following results were achieved in the current research project:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+The performed tests show that the proposed methods are suitable for fast
+ and accurate calculations of solvation free energies...
+\end_layout
+
+\begin_layout Part
+Conclusion and Perspectives
 \end_layout
 
 \begin_layout Standard
@@ -1023,7 +1091,7 @@ filename "Part_V_Conclusion_and_Perspectives/52._Perspectives.lyx"
 
 \end_layout
 
-\begin_layout Part
+\begin_layout Part*
 \start_of_appendix
 Appendix
 \end_layout

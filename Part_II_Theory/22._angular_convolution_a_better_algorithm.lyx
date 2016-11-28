@@ -3221,7 +3221,7 @@ Afterwards the projections in k-frame are then rotated into the local coordinate
 :
 \begin_inset Formula 
 \begin{equation}
-\Delta\hat{\rho'}_{\chi\mu}^{m}(\mathbf{k})=\sum_{\mu'}\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})R_{\mu'\chi}^{m}(\mathbf{\hat{k}})
+\Delta\hat{\rho'}_{\chi\mu}^{m}(\mathbf{k})=\sum_{\mu'}\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})R_{\mu'\chi}^{m}(\mathbf{\hat{k}})\label{eq:2.2.rho-rot-rho}
 \end{equation}
 
 \end_inset
@@ -3539,7 +3539,7 @@ It can be also proven that the passage from the function
 \end_inset
 
  to the projections in local frame 
-\begin_inset Formula $f'_{\chi\mu}^{m}(\mathbf{k})$
+\begin_inset Formula ${f'}_{\chi\mu}^{m}(\mathbf{k})$
 \end_inset
 
  can be achieved either by a rotation to the function 

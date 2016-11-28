@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
-<ipe version="70107" creator="Ipe 7.1.7">
-<info created="D:20160905151152" modified="D:20160905155102"/>
+<ipe version="70206" creator="Ipe 7.2.6">
+<info created="D:20160905151152" modified="D:20161126213439"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -250,10 +250,9 @@ h
 <page>
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
-<text layer="alpha" matrix="1 0 0 1 -128 -4" transformations="translations" pos="224 804" stroke="black" type="label" width="30.236" height="11.764" depth="2.58" halign="center" valign="center" size="LARGE">$\mathrm{CO_2}$</text>
-<text matrix="1 0 0 1 16 -4" transformations="translations" pos="224 804" stroke="black" type="label" width="18.743" height="11.764" depth="2.58" halign="center" valign="center" size="LARGE">$\mathrm{O_2}$</text>
-<text matrix="1 0 0 1 144 -4" transformations="translations" pos="224 804" stroke="black" type="label" width="18.287" height="11.764" depth="2.58" halign="center" valign="center" size="LARGE">$\mathrm{N_2}$</text>
-<text matrix="1 0 0 1 256 -4" transformations="translations" pos="224 804" stroke="black" type="label" width="30.679" height="11.764" depth="2.58" halign="center" valign="center" size="LARGE">$\mathrm{H_2O}$</text>
+<text layer="alpha" matrix="1 0 0 1 -128 -4" transformations="translations" pos="224 804" stroke="black" type="label" width="30.236" height="11.764" depth="2.58" halign="center" valign="center" size="LARGE" style="math">\mathrm{CO_2}</text>
+<text matrix="1 0 0 1 16 -4" transformations="translations" pos="224 804" stroke="black" type="label" width="18.743" height="11.764" depth="2.58" halign="center" valign="center" size="LARGE" style="math">\mathrm{O_2}</text>
+<text matrix="1 0 0 1 144 -4" transformations="translations" pos="224 804" stroke="black" type="label" width="18.287" height="11.764" depth="2.58" halign="center" valign="center" size="LARGE" style="math">\mathrm{N_2}</text>
 <group matrix="1 0 0 1 160 64">
 <path stroke="black" fill="lightgray" dash="dotted" pen="fat">
 176 704 m
@@ -286,33 +285,6 @@ h
 </path>
 <text matrix="1 0 0 1 -0.262 -63.738" transformations="translations" pos="176.262 767.738" stroke="black" type="label" width="10.53" height="9.803" depth="0" halign="center" valign="center" size="Large">N</text>
 <text matrix="1 0 0 1 63.7385 -63.7347" transformations="translations" pos="176.262 767.738" stroke="black" type="label" width="10.53" height="9.803" depth="0" halign="center" valign="center" size="Large">N</text>
-</group>
-<group matrix="1 0 0 1 64 60">
-<path stroke="black" dash="dotted" pen="fat">
-376 672 m
-416 704 l
-456 672 l
-</path>
-<group matrix="1.37818 0 0 1.37818 107.288 -354.442">
-<path stroke="black" fill="lightgray">
-12 0 0 12 224 768 e
-</path>
-<path fill="white">
-4 0 0 4 220 772 e
-</path>
-</group>
-<text matrix="1 0 0 1 239.738 -63.7378" transformations="translations" pos="176.262 767.738" stroke="black" type="label" width="10.926" height="9.803" depth="0" halign="center" valign="center" size="Large">O</text>
-<path matrix="0.5 0 0 0.5 168 288" fill="red">
-4 0 0 4 416 768 e
-</path>
-<path matrix="0.5 0 0 0.5 248 288" fill="red">
-4 0 0 4 416 768 e
-</path>
-<path matrix="0.5 0 0 0.5 208 296" fill="red">
-4 0 0 4 416 768 e
-</path>
-<text matrix="1 0 0 1 199.738 -95.738" transformations="translations" pos="176.262 767.738" stroke="black" type="label" width="10.53" height="9.803" depth="0" halign="center" valign="center" size="Large">H</text>
-<text matrix="1 0 0 1 279.738 -95.738" transformations="translations" pos="176.262 767.738" stroke="black" type="label" width="10.53" height="9.803" depth="0" halign="center" valign="center" size="Large">H</text>
 </group>
 <group matrix="1 0 0 1 -176 0">
 <path stroke="black" fill="lightgray" dash="dotted" pen="fat">

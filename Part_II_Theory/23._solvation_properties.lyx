@@ -96,6 +96,13 @@ The solvation free energy and solvent structure are the most important property
 
 \begin_layout Section
 Free energy correction for single ions
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Free-energy-correction"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -966,6 +973,13 @@ is proportional to
 \end_inset
 
 .
+ 
+\color red
+(In fact, in the code it gives exactly 
+\begin_inset Formula $\rho_{00}^{011}(r)=-3p(r)$
+\end_inset
+
+!!!)
 \end_layout
 
 \end_body

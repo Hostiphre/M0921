@@ -1,0 +1,2251 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass classicthesis
+\use_default_options true
+\maintain_unincluded_children false
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex8
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Computing Performance 
+\begin_inset CommandInset label
+LatexCommand label
+name "chpt:seq-code-performance"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This section evaluates the computing performance (timing) of the code.
+ Our goal is to show that the new algorithm of angular convolution is much
+ faster than the old naive one; the huge amount of simulation during this
+ thesis has proven that to be the case.
+ But a raw result, where the implementation goes for an indefinite number
+ of iterations during minimization, cannot give a proper and systematic
+ performance evaluation.
+ This is the purpose of this section.
+\end_layout
+
+\begin_layout Standard
+In this section, we will evaluate the performance only within the 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ term, knowing that other two terms takes time of the same magnitude than
+ the new algorithms for 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ part.
+ The spatial and angular grid dependence of branches are discussed.
+\end_layout
+
+\begin_layout Section
+FFT
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ play an important role in the implementation, which is used by the spatial
+ convolution and the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+ process.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/results/fftw_timing.eps
+	width 100col%
+	BoundingBox 0bp 20bp 567bp 310bp
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Timing of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ for real-to-complex and complex-to-complex processes with respect to grid
+ number 
+\begin_inset Formula $N$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:timing-FFT"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Referring to figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:timing-FFT"
+
+\end_inset
+
+, the dependance on 
+\begin_inset Formula $O(N\log_{2}N)$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Numerical_Recipes_3ed"
+
+\end_inset
+
+ doesn't totally exist, but of the same form, depending on the algorithm
+ of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Briggs-DFT"
+
+\end_inset
+
+.
+ It should be noted that a grid of prime number is always at the peaks in
+ the figure, which means it can be 2 or more times longer than that of the
+ composite number around.
+ Therefore it is better to use an even number grid, where the 
+\begin_inset Formula $k$
+\end_inset
+
+-border correction in 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:k-border-effect"
+
+\end_inset
+
+ is absolutely involved in.
+ Apart from this conclusion, to compare between the algorithms for angular
+ part involved in this thesis, we are not really interested in computing
+ performance with respect to the number of spatial grid.
+ However, the ratio of real and complex 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ timing is important, illustrated in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fft-real-to-complex"
+
+\end_inset
+
+, where the ratio between real-to-complex and complex-to-complex 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ processes is 0.54, near the theoretical ratio 0.5.
+ For example, we process 
+\begin_inset Formula $n_{\mathrm{angle}}$
+\end_inset
+
+ real to complex 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+, then 
+\begin_inset Formula $n_{\mathrm{spatial}}/2$
+\end_inset
+
+ complex to complex 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+.
+ Or we process 
+\begin_inset Formula $n_{\mathrm{spatial}}$
+\end_inset
+
+ real to complex 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+, then 
+\begin_inset Formula $n_{\mathrm{proj}}/2$
+\end_inset
+
+ complex to complex 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+.
+ This should not give a great difference if 
+\begin_inset Formula $n_{\mathrm{angle}}\sim n_{\mathrm{proj}}$
+\end_inset
+
+ for small 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+.
+ If the the ratio is not 1:2, it will have an influence on the choice of
+ algorithm.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/results/fftw_real_v_cmplx.eps
+	width 50col%
+	BoundingBox 0bp 20bp 340bp 235bp
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Timing of real-to-complex 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ processes with respect to its complex-to-complex process of the same grid
+ number 
+\begin_inset Formula $N$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fft-real-to-complex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+FGSHT
+\end_layout
+
+\begin_layout Standard
+The computing times of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSHT}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+ are shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:time-gsht-fgsht"
+
+\end_inset
+
+.
+ There is no reason to see in detail how much 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ has accelerated the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSHT}
+\end_layout
+
+\end_inset
+
+ process, but clearly 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+ can be 100 times faster than 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSHT}
+\end_layout
+
+\end_inset
+
+, and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSHT}
+\end_layout
+
+\end_inset
+
+ for the symmetry of 
+\begin_inset Formula $\Psi$
+\end_inset
+
+, 
+\begin_inset Formula $s=1$
+\end_inset
+
+ is on average 5 times longer than 
+\begin_inset Formula $s=2$
+\end_inset
+
+ (
+\begin_inset Formula $s$
+\end_inset
+
+ being the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MRSO}
+\end_layout
+
+\end_inset
+
+ defined in 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:fgsht"
+
+\end_inset
+
+).
+ As accuracy test shows that 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSHT}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+ give exactly the same result, and the case 
+\begin_inset Formula $m_{\max}<n_{\max}$
+\end_inset
+
+ is never needed, it is possible to utilize 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+ in all the cases to have a faster performance.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/results/fgsht_perf.eps
+	width 100col%
+	BoundingBox 0bp 20bp 731bp 263bp
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Computing time of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSHT}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+ (per 10000 times), between parentheses is the order of symmetry axes 
+\begin_inset Formula $s$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:time-gsht-fgsht"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+However, it is important to know the ratio between real and complex 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+ processes for the same reason as 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+.
+ It is demonstrated that this number is 0.3 in all cases, and it does not
+ depend on 
+\begin_inset Formula $m_{\max}$
+\end_inset
+
+, 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+ or 
+\begin_inset Formula $s.$
+\end_inset
+
+ The difference between these two is that the real one performs real-to-complex
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ for the 
+\begin_inset Formula $\Phi,\Psi$
+\end_inset
+
+ grid and calculates only slightly more than half of projections (
+\begin_inset Formula $\mu\geq0$
+\end_inset
+
+) than the complex one.
+
+\color red
+ 
+\color inherit
+Theoretically, the ratio should be greater than 0.5.
+ This could mean there may be an extra process in the complex one, or it
+ is controlled by the memory.
+ Ultimately, the final result 0.3 means, that doing 
+\begin_inset Formula $n_{\mathrm{spatial}}$
+\end_inset
+
+ real to complex 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+ takes only 0.6 the time of doing 
+\begin_inset Formula $n_{\mathrm{spatial}}/2$
+\end_inset
+
+ complex to complex 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+, which means in 
+\family typewriter
+\series bold
+convolution_standard
+\family default
+\series default
+ we use less time to compute 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+ than in 
+\family typewriter
+\series bold
+convolution_pure_angular
+\family default
+\series default
+.
+ 
+\color red
+(Which is in fact not observed in the following tests.)
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/results/fgsht_real_v_cmplx.eps
+	width 100col%
+	BoundingBox 0bp 20bp 680bp 235bp
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Timing of real-to-complex 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+ processes with respect to its complex-to-complex process of the same 
+\begin_inset Formula $m_{\max}$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+, for 
+\begin_inset Formula $s=1$
+\end_inset
+
+ and 
+\begin_inset Formula $s=2$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fgsht-real-to-complex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\begin_inset Formula $k$
+\end_inset
+
+-kernel
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:-kernel"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As discussed in the previous section, the final result of energy and structure
+ is independent of the choice of path inside a 
+\begin_inset Formula $k$
+\end_inset
+
+-kernel.
+ That means we are free in terms of precision cost to choose the fast path.
+ Path (1) passed directly by 
+\begin_inset Formula $\hat{c}(k,\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
+\end_inset
+
+ in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:k-kernel"
+
+\end_inset
+
+ has 
+\color red
+no interest in timing
+\color inherit
+, as the memory limit does not support such a direct allgorithm.
+ and the entire set of branches will be compared in later implementations,
+ here we only compare the paths (3) and (4), which correspond to eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:im"
+
+\end_inset
+
+) and (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gamma-blum"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+The theoretical predictions of the computing time of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation with respect to 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+ are listed in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:FE-of-OZ"
+
+\end_inset
+
+.
+ If the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation is the most time-consuming part, the result should have the same
+ proposal.
+ Figure (xx) shows the experimental timing of the whole path (3) and (4).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/results/k-kernel.eps
+	width 70col%
+	BoundingBox 0bp 20bp 453bp 236bp
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+k-kernel
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It is shown that...
+ 
+\color red
+(There is a problem of code that gives backtrace but obviously (4) is 100
+ times faster than (3).)
+\end_layout
+
+\begin_layout Section
+Entire iteration of 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ evaluation
+\end_layout
+
+\begin_layout Standard
+Apart from all the 
+\family typewriter
+\series bold
+naive
+\family default
+\series default
+ methods that will be discussed in 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Comparison-between-naive_standar"
+
+\end_inset
+
+, figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Entire-iteration"
+
+\end_inset
+
+ shows all the comparable 
+\family typewriter
+\series bold
+convolution
+\family default
+\series default
+ timing data.
+ We can see 
+\family typewriter
+\series bold
+convolution_standard
+\family default
+\series default
+ is the fastest algorithm, and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation is not the longest part in the iteration.
+ All the tests are performed for a 
+\begin_inset Formula $L=24$
+\end_inset
+
+, 
+\begin_inset Formula $\mathrm{nfft}=72$
+\end_inset
+
+ grid with 4 series: the three 
+\family typewriter
+\series bold
+convolution
+\family default
+\series default
+ methods with
+\begin_inset Formula $m_{\max}=n_{\max}$
+\end_inset
+
+, and 
+\family typewriter
+\series bold
+convolution_standard
+\family default
+\series default
+ with 
+\begin_inset Formula $m_{\max}=5$
+\end_inset
+
+, varying 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/results/branch_perf.pdf
+	width 90col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Entire iteration of 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ evaluation: timing overall/ decomposition of timing for 1 itertation evaluation
+ fexc 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Entire-iteration"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Quotes eld
+\end_inset
+
+naive
+\begin_inset Quotes erd
+\end_inset
+
+ methods and 
+\begin_inset Quotes eld
+\end_inset
+
+convolution_pure_angular
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Comparison-between-naive_standar"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The 
+\family typewriter
+\series bold
+naive_standard
+\family default
+\series default
+, 
+\family typewriter
+\series bold
+naive_interpolation
+\family default
+\series default
+, and 
+\family typewriter
+\series bold
+convolution_pure_angular
+\family default
+\series default
+ methods share the same processes out of the 
+\begin_inset Formula $k$
+\end_inset
+
+-kernel.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Timing-loop-k"
+
+\end_inset
+
+ shows the timing of loop 
+\begin_inset Formula $k$
+\end_inset
+
+ of these three methods.
+ It indicates that 
+\family typewriter
+\series bold
+convolution_pure_angular
+\family default
+\series default
+ takes far less time than the other two methods, of which the loop 
+\begin_inset Formula $k$
+\end_inset
+
+ takes time in the same order of magnitude as the rest of iteration.
+ And once 
+\begin_inset Formula $m_{\max}\geq2$
+\end_inset
+
+, 
+\family typewriter
+\series bold
+naive_interpolation
+\family default
+\series default
+ is faster than 
+\family typewriter
+\series bold
+naive_standard
+\family default
+\series default
+.
+ Note that order 2 of 
+\family typewriter
+\series bold
+naive_interpolation
+\family default
+\series default
+ can give good results for a 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ of 
+\begin_inset Formula $n_{\max}=5$
+\end_inset
+
+.
+ So in every case of 
+\family typewriter
+\series bold
+naive
+\family default
+\series default
+ methods, 
+\family typewriter
+\series bold
+naive_interpolation
+\family default
+\series default
+ should be used.
+ This verifies the conclusion of 
+\begin_inset Formula $k$
+\end_inset
+
+-kernel test in that the path (4) in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:k-kernel"
+
+\end_inset
+
+ is the fastest.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="5">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $m_{\max}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+naive_standard
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+naive_interpolation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+convo_pure_angular
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+Other
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.34
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.42
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.26
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.15
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+365.95
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+209.12
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.09
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.43
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3295.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+752.70
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.37
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.85
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+too long
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+too long
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.93
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.73
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+too long
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+too long
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10.36
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7.73
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Timing [sec] of loop 
+\begin_inset Formula $k$
+\end_inset
+
+ of 
+\begin_inset Quotes eld
+\end_inset
+
+naive_standard
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+naive_interpolation
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+convolution_pure_angular
+\begin_inset Quotes erd
+\end_inset
+
+, and the rest of iteration
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Timing-loop-k"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Quotes eld
+\end_inset
+
+convolution_standard
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+convolution_pure_angular
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The comparison of 
+\family typewriter
+\series bold
+convolution_standard
+\family default
+\series default
+ and 
+\family typewriter
+\series bold
+convolution_pure_angular
+\family default
+\series default
+ appears in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:comparison-pure_angular"
+
+\end_inset
+
+.
+ Their difference lies in the inversion of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+.
+ We can see the other parts are almost identical, but the implementation
+ of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ is different in terms of time.
+ Because in 
+\family typewriter
+\series bold
+convolution_standard
+\family default
+\series default
+ the number of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FE}
+\end_layout
+
+\end_inset
+
+ we need for 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ is the number of projections, and in 
+\family typewriter
+\series bold
+convolution_pure_angular
+\family default
+\series default
+ it is the number of angular grid nodes.
+ As there are fewer projections than angular nodes, 
+\family typewriter
+\series bold
+convolution_standard
+\family default
+\series default
+ reasonably takes less time.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/results/pure_angular.eps
+	width 100col%
+	BoundingBox 0bp 20bp 667bp 268bp
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+comparison of 
+\family typewriter
+\series bold
+convolution_standard
+\family default
+\series default
+ and 
+\family typewriter
+\series bold
+convolution_pure_angular
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:comparison-pure_angular"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Quotes eld
+\end_inset
+
+convolution_standard
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+convolution_asymm
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We compare
+\family typewriter
+\series bold
+ convolution_standard
+\family default
+\series default
+ and 
+\family typewriter
+\series bold
+convolution_asymm
+\family default
+\series default
+ in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:comparison-asymm"
+
+\end_inset
+
+.
+ The difference is that 
+\family typewriter
+\series bold
+standard
+\family default
+\series default
+ calculates a half 
+\begin_inset Formula $k$
+\end_inset
+
+ in the 
+\begin_inset Formula $k$
+\end_inset
+
+loop and 
+\family typewriter
+\series bold
+asymm
+\family default
+\series default
+ calculates all 
+\begin_inset Formula $k$
+\end_inset
+
+ in the 
+\begin_inset Formula $k$
+\end_inset
+
+loop.
+ They share the same process of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+; for the processes in a 
+\begin_inset Formula $k$
+\end_inset
+
+ loop (rotM, OZ) 
+\family typewriter
+\series bold
+asymm
+\family default
+\series default
+ always takes longer time.
+ As in 
+\family typewriter
+\series bold
+asymm
+\family default
+\series default
+ we calculate the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ for all the projections and in 
+\family typewriter
+\series bold
+standard
+\family default
+\series default
+ we calculate only a half projections with 
+\begin_inset Formula $\mu\geq0$
+\end_inset
+
+, the time consumed by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ is also different.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/results/asymm.eps
+	width 100col%
+	BoundingBox 0bp 20bp 648bp 268bp
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+comparison of 
+\family typewriter
+\series bold
+convolution_standard
+\family default
+\series default
+ and 
+\family typewriter
+\series bold
+convolution_asymm
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:comparison-asymm"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Formula $m_{\max}$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The comparison of 
+\begin_inset Formula $m_{\max}=n_{\max}$
+\end_inset
+
+ and 
+\begin_inset Formula $m_{\max}=5$
+\end_inset
+
+ for
+\family typewriter
+\series bold
+ convolution_standard
+\family default
+\series default
+ is shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:comparison-nmax"
+
+\end_inset
+
+.
+ We see that the choice of quadrature order 
+\begin_inset Formula $m_{\max}$
+\end_inset
+
+ only affects the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+ process and the lecture/storage of density variable (other).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/results/nmax.eps
+	width 100col%
+	BoundingBox 0bp 20bp 639bp 268bp
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+comparison of 
+\family typewriter
+\series bold
+convolution_standard
+\family default
+\series default
+ for 
+\begin_inset Formula $m_{\max}=n_{\max}$
+\end_inset
+
+ and 
+\begin_inset Formula $m_{\max}=5$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:comparison-nmax"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Global view of the sequential code performance
+\end_layout
+
+\begin_layout Standard
+We can see that 
+\family typewriter
+\series bold
+convolution_standard
+\family default
+\series default
+ is the fastest.
+ The 
+\family typewriter
+\series bold
+convolution
+\family default
+\series default
+ methods are orders of magnitude faster than 
+\family typewriter
+\series bold
+naive
+\family default
+\series default
+ methods.
+\end_layout
+
+\begin_layout Standard
+implementation of a method very fast of fexc evaluation by take advetatge
+ of properties of convolution spatial and angular
+\end_layout
+
+\begin_layout Standard
+we can now use nmax5 insdead of nmax1 in previous method in a resonable
+ timing
+\end_layout
+
+\end_body
+\end_document

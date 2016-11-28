@@ -1854,7 +1854,7 @@ hspace{-1.5em}
 \end_inset
 
 , electrostatic potential unit so that 
-\begin_inset Formula $f_{Q}\cdot q^{2}/r$
+\begin_inset Formula $f_{Q}\cdot\mathfrak{q}^{2}/r$
 \end_inset
 
  is in [
@@ -1862,7 +1862,7 @@ hspace{-1.5em}
 \end_inset
 
 ], where 
-\begin_inset Formula $q$
+\begin_inset Formula $\mathfrak{q}$
 \end_inset
 
  is the number charge without unity, 

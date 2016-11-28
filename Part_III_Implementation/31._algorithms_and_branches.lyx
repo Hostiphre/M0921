@@ -83,6 +83,183 @@ name "chpt:algorithms-and-branches"
 \end_layout
 
 \begin_layout Standard
+As discussed in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:mdft"
+
+\end_inset
+
+, in code MDFT, we evaluate the functional 
+\begin_inset Formula $\mathcal{F}[\varphi]$
+\end_inset
+
+ and its gradient 
+\begin_inset Formula $\delta\mathcal{F}[\varphi]/\delta\varphi$
+\end_inset
+
+ in each iteration.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:find-eq-den"
+
+\end_inset
+
+ shows a detailed portion of the total MDFT flow chart in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:code-mdft"
+
+\end_inset
+
+, including the functional evaluation and minimization.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/find_equilibium_density.eps
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Process 
+\begin_inset Quotes eld
+\end_inset
+
+find equilibrium density
+\begin_inset Quotes erd
+\end_inset
+
+ in MDFT
+\end_layout
+
+\end_inset
+
+Process 
+\begin_inset Quotes eld
+\end_inset
+
+find equilibrium density
+\begin_inset Quotes erd
+\end_inset
+
+ in MDFT.
+ After the 
+\begin_inset Quotes eld
+\end_inset
+
+initiation
+\begin_inset Quotes erd
+\end_inset
+
+ process, the flow chart begins at the black point.
+ The three terms of functional and their gradients are then accumulated
+ in order.
+ The process end at the white point, which then go through the 
+\begin_inset Quotes eld
+\end_inset
+
+output
+\begin_inset Quotes erd
+\end_inset
+
+ process.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:find-eq-den"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:find-eq-den"
+
+\end_inset
+
+, the three functional terms and its gradients can be both calculated separately.
+ With the first two terms well presented in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:mdft"
+
+\end_inset
+
+, this section aims to summary all the algorithms to evaluate the excess
+ functional gradient 
+\begin_inset Formula $\gamma(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+ from 
+\begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+, knowing that
+\begin_inset Formula 
+\begin{equation}
+\rho(\mathbf{r},\mathbf{\Omega})=\rho_{0}\varphi^{2}(\mathbf{r},\mathbf{\Omega})
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\frac{\delta\mathcal{F}_{\mathrm{exc}}}{\delta\varphi}=-k_{\mathrm{B}}T\rho_{0}\varphi(\mathbf{r},\mathbf{\Omega})\gamma(\mathbf{r},\mathbf{\Omega})
+\end{equation}
+
+\end_inset
+
+and the functional 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ can be calculated as:
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}_{\mathrm{exc}}=-\frac{k_{\mathrm{B}}T}{2}\int\mathrm{d}\mathbf{r}\mathrm{d}\mathbf{\Omega}\Delta\rho(\mathbf{r},\mathbf{\Omega})\gamma(\mathbf{r},\mathbf{\Omega})
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 According to the commutativity of operations (see 
 \begin_inset Formula $\mathsection$
 \end_inset
@@ -166,26 +343,17 @@ reference "tab:Branch-option"
 
 \end_inset
 
- and will be detailed in the following context.
- 
-\begin_inset Marginal
-status open
-
-\begin_layout Plain Layout
-These branches should give numerically the same result in certain conditions
+.
+ These branches should give numerically the same result in certain conditions,
  that will be discussed in later sections.
-\end_layout
-
-\end_inset
-
-
+ 
 \end_layout
 
 \begin_layout Standard
 
 \lang english
 \begin_inset Float table
-placement h
+placement H
 wide false
 sideways false
 status open
@@ -313,19 +481,14 @@ calculate
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\mathsection$
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chpt:mdft"
+Ref 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Zhao_2011"
 
 \end_inset
 
- 
-\color red
-[ref]
+
 \end_layout
 
 \end_inset
@@ -536,8 +699,13 @@ use
 \end_inset
 
  issue from 
-\color red
-[ref]
+\begin_inset CommandInset citation
+LatexCommand citep
+key "zhao_accurate_2013"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -602,8 +770,6 @@ use
 \end_inset
 
  issue from 
-\size footnotesize
-
 \begin_inset CommandInset citation
 LatexCommand citep
 key "puibasset_bridge_2012"
@@ -754,7 +920,7 @@ pure_angular
 \begin_inset Text
 
 \begin_layout Plain Layout
-inverse 
+swap 
 \begin_inset ERT
 status open
 
@@ -872,7 +1038,7 @@ reference "chpt:fft-spatial"
 
 \end_inset
 
- in figure 
+in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Possible-algorithms"
@@ -887,9 +1053,33 @@ reference "fig:Possible-algorithms"
 \begin_inset Formula $\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega})$
 \end_inset
 
-.
- The difference between branches is the way to calculate 
-\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega_{1}},\mathbf{\Omega_{2}})$
+ with
+\begin_inset Formula 
+\begin{equation}
+\hat{\gamma}(\mathbf{k},\mathbf{\Omega}_{1})=\int\mathrm{d}\mathbf{\Omega}_{2}\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega}_{2})\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\label{eq:gamma-naive}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The difference between branches is the way to calculate the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ in laboratory frame, 
+\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 \end_inset
 
 .
@@ -917,7 +1107,19 @@ acs{DCF}
 
 \end_inset
 
-.
+, and calculate 
+\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
+\end_inset
+
+ directly during the evaluation of eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gamma-naive"
+
+\end_inset
+
+) with these coefficients.
  Branch 
 \family typewriter
 \series bold
@@ -930,19 +1132,94 @@ naive_zero-order
 naive_interpolation
 \family default
 \series default
- use 
-\begin_inset Formula $\hat{c}(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
+ use a pre-tabulated 
+\begin_inset Formula $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
 \end_inset
 
- with zero-order and linear interpolation, where the former is rejected
- in the implementation due to a lack of precision (appendix 
+ as input, either calculated with 
+\begin_inset Formula $c_{\mu\nu,\chi}^{mn}(k)$
+\end_inset
+
+ or in other way, then find the proper 
+\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
+\end_inset
+
+ by a pre-established relation 
+\begin_inset Formula $\boldsymbol{\omega}(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
+\end_inset
+
+ with interpolation on 
+\begin_inset Formula $\boldsymbol{\omega}$
+\end_inset
+
+.
+ Branch 
+\family typewriter
+\series bold
+naive_zero-order
+\family default
+\series default
+ takes the neatest point of 
+\begin_inset Formula $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
+\end_inset
+
+, while 
+\family typewriter
+\series bold
+naive_interpolation
+\family default
+\series default
+ gives a linear interpolation on 
+\begin_inset Formula $\boldsymbol{\omega}$
+\end_inset
+
+.
+ The former is rejected in the implementation due to a lack of precision
+ (appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chpt:error-evaluation-interpolation-DCF"
 
 \end_inset
 
-).
+), thus only
+\series bold
+ 
+\family typewriter
+naive_standard
+\family default
+\series default
+ and 
+\family typewriter
+\series bold
+naive_interpolation
+\family default
+\series default
+ are in use practically, apart from the 
+\begin_inset Formula $n_{\max}=1$
+\end_inset
+
+ cases discussed later.
+ For all 
+\family typewriter
+\series bold
+naive
+\family default
+\series default
+ methods, we always take the nearest point of 
+\begin_inset Formula $\left\Vert \mathbf{k}\right\Vert $
+\end_inset
+
+ in 
+\begin_inset Formula $c_{\mu\nu,\chi}^{mn}(k)$
+\end_inset
+
+ or in 
+\begin_inset Formula $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
+\end_inset
+
+, i.e.
+ zero order.
 \end_layout
 
 \begin_layout Section
@@ -955,6 +1232,24 @@ convolution
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+The method 
+\family typewriter
+\series bold
+convolution
+\family default
+\series default
+, which are developed in the objective of this thesis and detailed theoretically
+ in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:angular-convolution"
+
+\end_inset
+
+, contains three branches.
 \end_layout
 
 \begin_layout Standard
@@ -971,14 +1266,7 @@ convolution_asymm
 convolution_standard
 \family default
 \series default
- are operational algorithms of angular convolution show in section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chpt:angular-convolution"
-
-\end_inset
-
-, which go through the path 
+ go through the path
 \begin_inset Formula 
 \[
 \left(a\right)\shortrightarrow\left(c\right)\shortrightarrow\left(f\right)\shortrightarrow\left(j\right)\shortrightarrow\left(n\right)\shortrightarrow\left(q\right)\shortrightarrow\left(r\right)
@@ -986,18 +1274,13 @@ reference "chpt:angular-convolution"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Branches
-\series bold
- 
+with 
 \family typewriter
+\series bold
 convolution_asymm
 \family default
 \series default
- uses the original operational algorithm (
+ using the original algorithm (
 \begin_inset Formula $\mathsection$
 \end_inset
 
@@ -1019,14 +1302,79 @@ reference "subsec:Reduction-by-symmetry"
 
 \end_inset
 
-), and 
+), i.e.
+ artificially generating all the projections 
+\begin_inset Formula $\Delta\rho_{\mu'\mu}^{m}(\mathbf{r})$
+\end_inset
+
+ from the projections of 
+\begin_inset Formula $\mu\geq0$
+\end_inset
+
+ given implicitly by the real-to-complex 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+ process; while 
 \family typewriter
 \series bold
 convolution_standard
 \family default
 \series default
- with it.
- 
+ takes only the projections 
+\begin_inset Formula $\mu\geq0$
+\end_inset
+
+, calculate the projections in local frame (eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2.2.rho-rot-rho"
+
+\end_inset
+
+))
+\begin_inset Formula 
+\begin{equation}
+\Delta\hat{\rho'}_{\chi\mu}^{m}(\mathbf{k})=\sum_{\mu'}\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})R_{\mu'\chi}^{m}(\mathbf{\hat{k}})
+\end{equation}
+
+\end_inset
+
+ for all 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and 
+\begin_inset Formula $k_{3}\geq0$
+\end_inset
+
+, with the symmetry relation (eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2.2.symm-rho-k"
+
+\end_inset
+
+))
+\begin_inset Formula 
+\begin{equation}
+\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})=(-)^{\mu'+\mu}\Delta\hat{\rho}_{-\mu'-\mu}^{m*}(-\mathbf{k})
+\end{equation}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1044,16 +1392,169 @@ convolution_pure_angular
 
 \end_inset
 
-which inverts the first and last two steps of the two algorithms mentioned
- above.
+which swaps the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+ processes.
+ It takes implicitly 
+\begin_inset Formula $k_{3}\geq0$
+\end_inset
+
+ from the real-to-complex 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ process, thus implements the same number of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FE}
+\end_layout
+
+\end_inset
+
+ for the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation as 
+\family typewriter
+\series bold
+convolution_standard
+\family default
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Theoretically, 
+\family typewriter
+\series bold
+convolution_standard
+\family default
+\series default
+ should be the fastest 
+\family typewriter
+\series bold
+convolution
+\family default
+\series default
+ method as its number of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FE}
+\end_layout
+
+\end_inset
+
+ for 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ process is depending on the number of projections 
+\begin_inset Formula $\Delta\rho_{\mu'\mu}^{m}$
+\end_inset
+
+, which is smaller than the number of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FE}
+\end_layout
+
+\end_inset
+
+ for 
+\family typewriter
+\series bold
+convolution_pure_angular
+\family default
+\series default
+ depending on the number of angles 
+\begin_inset Formula $(\Theta,\Phi,\Psi)$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
 Testing branches for 
-\begin_inset Formula $n_{\max}$
+\begin_inset Formula $n_{\max}=1$
 \end_inset
 
-=1
+
+\end_layout
+
+\begin_layout Standard
+To show the mathematical equivalence between the branches, several testing
+ branches for 
+\begin_inset Formula $n_{\max}=1$
+\end_inset
+
+ are built.
 \end_layout
 
 \begin_layout Standard
@@ -1063,17 +1564,36 @@ Branches
 naive_dipole
 \family default
 \series default
-, 
+ and 
 \family typewriter
 \series bold
 naive_nmax1
 \family default
 \series default
- pass by 
+ go through the path 
 \begin_inset Formula $\left(b\right)\shortrightarrow\left(h\right)\shortrightarrow\left(p\right)$
 \end_inset
 
- , using 
+, calculating 
+\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
+\end_inset
+
+ directly with the projections 
+\begin_inset Formula $\hat{c}^{mnl}(k)$
+\end_inset
+
+ as shown in 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Using-projections-in"
+
+\end_inset
+
+, with separately the 
 \begin_inset ERT
 status open
 
@@ -1086,21 +1606,20 @@ acs{DCF}
 
 \end_inset
 
- separately of the references 
-\color red
-[ref]
-\color inherit
- and 
-\size footnotesize
+ of the references 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "zhao_accurate_2013"
 
+\end_inset
+
+ and 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "puibasset_bridge_2012"
 
 \end_inset
 
-
-\size default
 , whose slight difference is shown in 
 \begin_inset Formula $\mathsection$
 \end_inset
@@ -1113,7 +1632,11 @@ reference "subsec:Comparison-with-non-coupling"
 \end_inset
 
 .
- Branch 
+ 
+\end_layout
+
+\begin_layout Standard
+Branch 
 \family typewriter
 \series bold
 reference_dipole
@@ -1133,9 +1656,12 @@ acs{DCF}
 \end_inset
 
  in 
-\color red
-[ref]
-\color inherit
+\begin_inset CommandInset citation
+LatexCommand citep
+key "zhao_accurate_2013"
+
+\end_inset
+
 , which is the original method in 
 \begin_inset ERT
 status open
@@ -1153,14 +1679,20 @@ acs{MDFT}
 \begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
 \end_inset
 
- via multipole expansion.
+ via multipole expansion, and is mathematically equivalent to 
+\family typewriter
+\series bold
+naive_dipole
+\family default
+\series default
+.
  In addition with branch 
 \family typewriter
 \series bold
 convolution_standard
 \family default
 \series default
-, which can also use the two 
+ that can also use the two 
 \begin_inset ERT
 status open
 
@@ -1173,7 +1705,7 @@ acs{DCF}
 
 \end_inset
 
- mentioned above, a test of validation can be performed, which should in
+s mentioned above, a test of validation can be performed, which should in
  any case be exactly the same numerically if the same 
 \begin_inset ERT
 status open
@@ -1203,9 +1735,30 @@ Considering the necessity, other paths such as those passing by
 \begin_inset Formula $\left(k\right)$
 \end_inset
 
- are only built for local test usage (c.
- f.
- discussion in following sections).
+ are only built for local test usage (c.f.
+ 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:A-single-k-kernel"
+
+\end_inset
+
+ and 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:-kernel"
+
+\end_inset
+
+).
 \end_layout
 
 \end_body
