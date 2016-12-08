@@ -1031,16 +1031,6 @@ filename "Part_IV_Applications/41._ions.lyx"
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "Part_IV_Applications/42._large_solutes.lyx"
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Part Introduction (ClassicThesis)
 The only one publication during this thesis
 \begin_inset Newline newline

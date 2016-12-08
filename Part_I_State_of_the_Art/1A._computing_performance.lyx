@@ -83,8 +83,8 @@ name "chpt:computing-performance"
 \end_layout
 
 \begin_layout Standard
-The performance of the code is essential to this thesis.
- Algorithm complexity is a crucial criteria, as defined below:
+Algorithm complexity is one of crucial criteria to evaluate the theoretical
+ performance of the code, as defined below:
 \end_layout
 
 \begin_layout Standard
@@ -165,7 +165,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../_figure/orders-of-growth.pdf
-	width 65text%
+	width 75text%
 
 \end_inset
 

@@ -184,7 +184,7 @@ acs{FFT}
 \begin_inset Formula $N$
 \end_inset
 
- 
+
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:timing-FFT"
@@ -661,6 +661,41 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Computing time of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSHT}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 Computing time of 
 \begin_inset ERT
 status open
@@ -871,6 +906,36 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Timing of real-to-complex 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+ processes with respect to its complex-to-complex process of the same 
+\begin_inset Formula $m_{\max}$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 Timing of real-to-complex 
 \begin_inset ERT
 status open
@@ -1097,7 +1162,24 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Timing of a k-kernel
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Timing of a 
+\begin_inset Formula $k$
+\end_inset
+
+-kernel
+\end_layout
+
+\end_inset
+
+Timing of a 
+\begin_inset Formula $k$
+\end_inset
+
+-kernel (log scale)
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Timing-k-kernel"
@@ -1234,6 +1316,19 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Entire iteration of 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ evaluation
+\end_layout
+
+\end_inset
+
 Entire iteration of 
 \begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
 \end_inset
@@ -1951,7 +2046,32 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Comparison of 
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Performance comparison of 
+\begin_inset Quotes eld
+\end_inset
+
+convolution_standard
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+convolution_pure_angular
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Performance comparison of 
 \family typewriter
 \series bold
 convolution_standard
@@ -2141,7 +2261,32 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Comparison of 
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Performance comparison of 
+\begin_inset Quotes eld
+\end_inset
+
+convolution_standard
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+convolution_asymm
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Performance comparison of 
 \family typewriter
 \series bold
 convolution_standard
@@ -2171,6 +2316,7 @@ name "fig:comparison-asymm"
 \end_layout
 
 \begin_layout Subsection
+Distinction of 
 \begin_inset Formula $m_{\max}$
 \end_inset
 
@@ -2257,7 +2403,32 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-comparison of 
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Performance comparison of 
+\begin_inset Quotes eld
+\end_inset
+
+convolution_standard
+\begin_inset Quotes erd
+\end_inset
+
+ for 
+\begin_inset Formula $m_{\max}=n_{\max}$
+\end_inset
+
+ and 
+\begin_inset Formula $m_{\max}=5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Performance comparison of 
 \family typewriter
 \series bold
 convolution_standard
@@ -2292,7 +2463,64 @@ name "fig:comparison-nmax"
 \end_layout
 
 \begin_layout Section
-Global view of the sequential code performance
+Global view of the code performance
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/results/global_perf.eps
+	scale 70
+	BoundingBox 0bp 20bp 453bp 236bp
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Timing of the whole 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ iteration
+\end_layout
+
+\end_inset
+
+Timing of the whole 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ iteration with 
+\begin_inset Formula $\mathrm{nfft}/L=72/24$
+\end_inset
+
+ grid (log scale)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2316,6 +2544,12 @@ naive
 \family default
 \series default
  methods.
+ The evaluation of 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ is at the same order of magnitude than other two terms and the same dependency
+ on angular grid.
 \end_layout
 
 \end_body

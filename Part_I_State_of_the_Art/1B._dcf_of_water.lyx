@@ -83,7 +83,7 @@ name "chpt:dcf-water"
 \end_layout
 
 \begin_layout Standard
-Two sources of DCF are used in this thesis: (1) The 
+The bulk 
 \begin_inset ERT
 status open
 
@@ -96,7 +96,68 @@ acs{DCF}
 
 \end_inset
 
- of bulk water produced by the work of Zhao et al.
+, which is an input for 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ and does not depend on the solute, can be calculated by numerical simulation.
+ In this thesis, the SPC/E water is used as solvent.
+ Two sources of bulk 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ are used: 
+\end_layout
+
+\begin_layout Enumerate
+The dipole 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ (
+\begin_inset Formula $\hat{c}_{S}^{000}$
+\end_inset
+
+, 
+\begin_inset Formula $\hat{c}_{\Delta}^{110}$
+\end_inset
+
+, 
+\begin_inset Formula $\hat{c}_{D}^{112}$
+\end_inset
+
+) produced by Zhao 
+\shape italic
+et al.
+
+\shape default
  
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -104,7 +165,7 @@ key "zhao_accurate_2013"
 
 \end_inset
 
-using 
+ using 
 \begin_inset ERT
 status open
 
@@ -117,7 +178,39 @@ acs{MD}
 
 \end_inset
 
-; (2) Belloni et al.
+;
+\end_layout
+
+\begin_layout Enumerate
+The complete 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ up to 
+\begin_inset Formula $n_{\max}=5$
+\end_inset
+
+ produced by Puibasset 
+\shape italic
+et al.
+
+\shape default
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "puibasset_bridge_2012"
+
+\end_inset
+
  using 
 \begin_inset ERT
 status open
@@ -131,13 +224,6 @@ acs{MC}
 
 \end_inset
 
- 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "puibasset_bridge_2012"
-
-\end_inset
-
 .
 \end_layout
 
@@ -146,12 +232,60 @@ Dipole DCF from molecular dynamics simulation
 \end_layout
 
 \begin_layout Standard
-The angular dependent total correlation function in intermolecular frame,
- 
+The 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ produced by Zhao 
+\shape italic
+et al.
+\shape default
+, namely the dipole 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+, contains three primary rotational invariant projections that correspondent
+ to 
+\begin_inset Formula $n_{\max}=1$
+\end_inset
+
+.
+ They are calculated with the angular dependent 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{PCF}
+\end_layout
+
+\end_inset
+
+ in intermolecular frame, 
 \begin_inset Formula $h(r,\cos\theta_{1},\cos\theta_{2},\psi_{1},\psi_{2},\phi_{12})$
 \end_inset
 
-, is extracted from 
+, which is directly extracted from 
 \begin_inset ERT
 status open
 
@@ -169,111 +303,179 @@ acs{MD}
 \end_layout
 
 \begin_layout Standard
-within the NVT ensemble; the system temperature was set at T = 298 K using
- Nose-Hoover thermostat.
- The number of water molecules was fixed at N = 4096, and the simulation
- box was such determined that the water concentration corresponds to 0.9971
- g/cm3=*mol/cm3/Na.
- The number density is 0.9971 [g/cm3] / 18,01528 [g/mol] * 6,022140 857 *
- 10^23[/mol] * 10^-24 [cm3/a3]=0.3333/A3
+As the primary projections do not depend on the 
+\begin_inset Formula $\psi$
+\end_inset
+
+ angles, the intermolecular frame 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
 \end_layout
 
-\begin_layout Standard
+\end_inset
+
+ can be simplified as:
 \begin_inset Formula 
 \begin{equation}
-h(r,\cos\theta_{1},\cos\theta_{2},\phi_{12})=\left\langle h(r,\cos\theta_{1},\cos\theta_{2},\psi_{1},\psi_{2},\phi_{12})\right\rangle _{\psi_{1},\psi_{2}}
+h(r,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})\equiv h(r,\cos\theta_{1},\cos\theta_{2},\phi_{12})=\left\langle h(r,\cos\theta_{1},\cos\theta_{2},\psi_{1},\psi_{2},\phi_{12})\right\rangle _{\psi_{1},\psi_{2}}\label{eq:h-linear}
 \end{equation}
 
 \end_inset
 
+and in 
+\begin_inset Formula $k$
+\end_inset
 
-\end_layout
-
-\begin_layout Standard
-The total correlation function can be complementarily analyzed when projected
- onto a basis of rotational invariants.
- The primary rotational invariant projections h000 (r), h110 (r), h112 (r),
- h220 (r), and h101 (r) are defined as (here with respect to relative frame)
-\end_layout
-
-\begin_layout Standard
+-space:
 \begin_inset Formula 
-\[
-h^{nml}(r)=f^{nml}\left\langle h(r,\cos\theta_{1},\cos\theta_{2},\phi_{12})\Phi^{nml}\right\rangle _{\cos\theta_{1},\cos\theta_{2},\phi_{12}}
-\]
+\begin{equation}
+h(k,\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})=\int\mathrm{d}r\mathrm{d}\cos\theta_{r}\mathrm{d}\phi_{r}e^{ikr\cos\theta_{r}}h(r,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})
+\end{equation}
 
 \end_inset
 
+where 
+\begin_inset Formula $\theta_{r}$
+\end_inset
 
+ and 
+\begin_inset Formula $\phi_{r}$
+\end_inset
+
+ are the orientations in spherical coordinates for 
+\begin_inset Formula $\mathbf{r}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{\Omega}$
+\end_inset
+
+ is in laboratory coordinate system.
 \end_layout
 
 \begin_layout Standard
-The notation of Wertheim and Hansen, or in k-space
-\end_layout
+The correlation functions are then expanded on projected onto a basis of
+ rotational invariants:
+\begin_inset Formula 
+\begin{equation}
+h^{nml}(k)=f^{nml}\left\langle h(k,\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\Phi^{nml}\right\rangle _{\mathbf{\Omega}_{1},\mathbf{\Omega}_{2}}
+\end{equation}
 
-\begin_layout Standard
+\end_inset
+
+with
 \begin_inset Formula 
 \begin{align}
 \Phi^{000} & =1\nonumber \\
-\Phi^{011} & =\hat{\mathbf{r}}\cdot\mathbf{\Omega}_{1}\nonumber \\
-\Phi^{101} & =\hat{\mathbf{r}}\cdot\mathbf{\Omega}_{2}\nonumber \\
 \Phi^{110} & =\mathbf{\Omega}_{1}\cdot\mathbf{\Omega}_{2}\\
-\Phi^{112} & =3\mathbf{(\hat{\mathbf{r}}\cdot\mathbf{\Omega}_{1})(\hat{\mathbf{r}}\cdot\mathbf{\Omega}_{2})-\Omega}_{1}\cdot\mathbf{\Omega}_{2}\nonumber 
+\Phi^{112} & =3(\hat{\mathbf{k}}\cdot\mathbf{\Omega}_{1})(\hat{\mathbf{k}}\cdot\mathbf{\Omega}_{2})-\mathbf{\Omega}_{1}\cdot\mathbf{\Omega}_{2}\nonumber 
 \end{align}
 
 \end_inset
 
-with 
+and 
 \begin_inset Formula $f^{000}=1$
 \end_inset
 
 , 
-\begin_inset Formula $f^{110}=f^{101}=3$
+\begin_inset Formula $f^{110}=3$
 \end_inset
 
 , 
 \begin_inset Formula $f^{112}=3/2$
 \end_inset
 
+, according to the convention of Wertheim and Hansen.
+\end_layout
+
+\begin_layout Standard
+To obtain the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+, the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation must be solved.
+ It is shown that the isotropic (
+\begin_inset Formula $n_{\max}=0$
+\end_inset
+
+) and dipolar (
+\begin_inset Formula $n_{\max}=1$
+\end_inset
+
+) components are decoupled:
+\begin_inset Formula 
+\begin{equation}
+\hat{c}^{000}(k)=\frac{\hat{h}^{000}(k)}{1+n_{0}\hat{h}^{000}(k)}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\hat{c}_{+}(k)=\frac{\hat{h}_{+}(k)}{1+\frac{2}{3}n_{0}\hat{h}_{+}(k)}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\hat{c}_{-}(k)=\frac{\hat{h}_{-}(k)}{1-\frac{1}{3}n_{0}\hat{h}_{-}(k)}
+\end{equation}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{equation}
+\hat{h}_{+}(k)=\hat{h}^{112}(k)+\frac{1}{2}\hat{h}^{110}(k)
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\hat{h}_{-}(k)=\hat{h}^{112}(k)-\hat{h}^{110}(k)
+\end{equation}
+
+\end_inset
+
+and idem.
+ for 
+\begin_inset Formula $\hat{c}$
+\end_inset
+
 .
- The orientation 
-\begin_inset Formula $\omega$
-\end_inset
-
- is along with the dipole moment of water molecule.
- 
-\end_layout
-
-\begin_layout Standard
-The transform into 
-\begin_inset Formula $k$
-\end_inset
-
--space ...with the help of Fourier transforms for space and matrix algebra
- for angles.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $h(k,\omega_{1},\omega_{2})=\int\mathrm{d}r\mathrm{d}\cos\theta\mathrm{d}\phi e^{ikr\cos\theta}h(\mathbf{r},\omega_{1},\omega_{2})$
-\end_inset
-
-...
-\end_layout
-
-\begin_layout Standard
-where 
-\begin_inset Formula $\theta$
-\end_inset
-
- 
-\begin_inset Formula $\phi$
-\end_inset
-
- is the direction of vector r in laboratory frame.
-\end_layout
-
-\begin_layout Standard
-factor i
 \end_layout
 
 \begin_layout Section
@@ -281,8 +483,29 @@ DCF projections from bulk Monte Carlo simulation
 \end_layout
 
 \begin_layout Standard
-This quantity is be provided with high precision and in different representation
-s by Luc Belloni, using a mixture of 
+The complete 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ up to 
+\begin_inset Formula $n_{\max}=5$
+\end_inset
+
+, that used in this thesis without specification, is calculated from the
+ accumulated 
+\begin_inset Formula $g_{\mu\nu}^{mnl}(r)$
+\end_inset
+
+ issue from 
 \begin_inset ERT
 status open
 
@@ -295,7 +518,14 @@ acs{MC}
 
 \end_inset
 
- simulations and inversion of the angular-dependent 
+ simulation 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "puibasset_bridge_2012"
+
+\end_inset
+
+ by resolving the inverted 
 \begin_inset ERT
 status open
 
@@ -308,140 +538,178 @@ acs{MOZ}
 
 \end_inset
 
- equation within a rotational invariant expansion 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "puibasset_bridge_2012"
+ equation
+\begin_inset Formula 
+\begin{equation}
+\ln y_{\alpha}(r)=\left\langle \ln\left[\sum_{\alpha'=1}^{\alpha_{\max}}g_{\alpha'}(r)\Phi_{\alpha'}(\tilde{\Omega})\right]\Phi_{\alpha}^{*}(\tilde{\Omega})\right\rangle +\beta v_{\alpha}(r)\label{eq:dcf-inverse-oz}
+\end{equation}
 
 \end_inset
 
-.
- 
+with the closure
+\begin_inset Formula 
+\begin{equation}
+g_{\alpha}(r)=\begin{cases}
+g_{\alpha}^{\mathrm{MC}}(r), & r\leq r_{\max}^{\mathrm{MC}}\\
+\left\langle \exp\left[-\beta v(r,\tilde{\Omega})+\sum_{\alpha'}\gamma_{\alpha'}(r)\Phi_{\alpha'}(\tilde{\Omega})\right]\Phi_{\alpha}^{*}(\tilde{\Omega})\right\rangle , & r>r_{\max}^{\mathrm{MC}}
+\end{cases}\label{eq:dcf-closure}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\ln y=\gamma+b$
+\end_inset
+
+ is the cavity function (
+\begin_inset Formula $b$
+\end_inset
+
+ the bridge function), 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ the projection number, and 
+\begin_inset Formula $r_{\max}^{\mathrm{MC}}$
+\end_inset
+
+ is the maximum radius of the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MC}
 \end_layout
 
-\begin_layout Standard
-This DCF set is calculated by Belloni 
-\shape italic
-et al.
-
-\shape default
- 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Luc_2012"
-
 \end_inset
 
- and is presented here briefly for the purpose of clarification.
- 
+ simulation.
+ Beyond 
+\begin_inset Formula $r_{\max}^{\mathrm{MC}}$
+\end_inset
+
+, 
 \begin_inset Formula $g$
 \end_inset
 
- accumulated, solve the inverse OZ equation to find 
-\begin_inset Formula $c$
-\end_inset
+ can be obtained by a normal 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
 
 
+\backslash
+acs{HNC}
 \end_layout
-
-\begin_layout Standard
-First rotational invariant of the Fourier transform of the total correlation
- function h
-\end_layout
-
-\begin_layout Standard
-example:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\hat{c}^{000}(k)=\frac{\hat{h}^{000}(k)}{1+n_{0}\hat{h}^{000}(k)}
-\]
 
 \end_inset
 
+ closure, and it is shown that the projections are continuous at 
+\begin_inset Formula $r_{\max}^{\mathrm{MC}}$
+\end_inset
 
+, which means 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HNC}
+\end_layout
+
+\end_inset
+
+ closure is enough to cope with long range correlation functions.
+ Note that the 
+\begin_inset Formula $\alpha_{\max}$
+\end_inset
+
+ corresponding to different 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+ leads to slightly different 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ results according to eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:dcf-inverse-oz"
+
+\end_inset
+
+,
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:dcf-closure"
+
+\end_inset
+
+).
+ 
 \end_layout
 
 \begin_layout Standard
+The 
+\begin_inset ERT
+status open
 
-\color red
-(question of 
-\begin_inset Formula $l$
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
 \end_inset
 
- imaginary in 
+ in 
 \begin_inset Formula $k$
 \end_inset
 
--space)
-\end_layout
-
-\begin_layout Section
-Comparison
+-space is obtained by Hankel transform.
 \end_layout
 
 \begin_layout Standard
-The notation of Wertheim and Hansen, or in k-space
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align}
-\Phi^{000} & =1\nonumber \\
-\Phi^{011} & =\hat{\mathbf{k}}\cdot\mathbf{\Omega}_{1}\nonumber \\
-\Phi^{101} & =\hat{\mathbf{k}}\cdot\mathbf{\Omega}_{2}\nonumber \\
-\Phi^{110} & =\mathbf{\Omega}_{1}\cdot\mathbf{\Omega}_{2}\\
-\Phi^{112} & =3\mathbf{(\hat{\mathbf{k}}\cdot\mathbf{\Omega}_{1})(\hat{\mathbf{k}}\cdot\mathbf{\Omega}_{2})-\Omega}_{1}\cdot\mathbf{\Omega}_{2}\nonumber 
-\end{align}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The notation of Wertheim and Hansen, or in k-space
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align}
-\Phi^{000} & =1\nonumber \\
-\Phi^{011} & =\hat{\mathbf{k}}\cdot\mathbf{\Omega}_{1}\nonumber \\
-\Phi^{101} & =\hat{\mathbf{k}}\cdot\mathbf{\Omega}_{2}\nonumber \\
-\Phi^{110} & =\mathbf{\Omega}_{1}\cdot\mathbf{\Omega}_{2}\\
-\Phi^{112} & =3\mathbf{(\hat{\mathbf{k}}\cdot\mathbf{\Omega}_{1})(\hat{\mathbf{k}}\cdot\mathbf{\Omega}_{2})-\Omega}_{1}\cdot\mathbf{\Omega}_{2}\nonumber 
-\end{align}
-
-\end_inset
-
-Different rotational invariant projections from Luc’s c.
- Luc defines (according to Blum)
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align}
-\Phi^{000} & =1\nonumber \\
-\Phi^{011} & =i\mathbf{k}\cdot\mathbf{\Omega}_{1}=i\cos\theta_{1}\nonumber \\
-\Phi^{101} & =i\mathbf{k}\cdot\mathbf{\Omega}_{2}=i\cos\theta_{2}\nonumber \\
-\Phi^{110} & =-\sqrt{3}\mathbf{\Omega}_{1}\cdot\mathbf{\Omega}_{2}=-\sqrt{3}(\sin\theta_{1}\sin\theta_{2}\cos\phi_{12}+\cos\theta_{1}\cos\theta_{2})\\
-\Phi^{112} & =\sqrt{\frac{3}{10}}\left[3\mathbf{(\mathbf{k}\cdot\mathbf{\Omega}_{1})(\mathbf{k}\cdot\mathbf{\Omega}_{2})-\Omega}_{1}\cdot\mathbf{\Omega}_{2}\right]=\sqrt{\frac{3}{10}}\left(2\cos\theta_{1}\cos\theta_{2}-\sin\theta_{1}\sin\theta_{2}\cos\phi_{12}\right)\nonumber 
-\end{align}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Comparison with non-coupling dipole DCF in MDFT (
+The convention of rotational invariants adapts those of Blum, which gives
+ for example for 
 \begin_inset Formula $n_{\max}=1$
 \end_inset
 
-)
+:
+\begin_inset Formula 
+\begin{align}
+\Phi^{000} & =1\nonumber \\
+\Phi^{011} & =i\mathbf{k}\cdot\mathbf{\Omega}_{1}\nonumber \\
+\Phi^{101} & =i\mathbf{k}\cdot\mathbf{\Omega}_{2}\nonumber \\
+\Phi^{110} & =-\sqrt{3}\mathbf{\Omega}_{1}\cdot\mathbf{\Omega}_{2}\\
+\Phi^{112} & =\sqrt{\frac{3}{10}}\left[3\mathbf{(\mathbf{k}\cdot\mathbf{\Omega}_{1})(\mathbf{k}\cdot\mathbf{\Omega}_{2})-\Omega}_{1}\cdot\mathbf{\Omega}_{2}\right]\nonumber 
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Comparison between DCFs
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Comparison-with-non-coupling"
@@ -452,34 +720,126 @@ name "subsec:Comparison-with-non-coupling"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $c_{s}^{000},c_{\Delta}^{110},c_{d}^{112}$
-\end_inset
+The comparison between the primary projections of the 
+\begin_inset ERT
+status open
 
- 
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
 \end_layout
 
-\begin_layout Subsection
-Comparison with respect to 
-\begin_inset Formula $n_{\max}$
 \end_inset
 
+s is given in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparison-dcf-ref"
 
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-first rotational invariants 
-\begin_inset Formula $m_{\mathrm{max}}=1$
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/results/dcf.pdf
+	width 100col%
+
 \end_inset
 
- (4 independent projections 
-\begin_inset Formula $c_{s}^{000},c_{\Delta}^{110},c_{d}^{112}$
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Comparison between 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ projections
+\end_layout
+
+\end_inset
+
+Comparison between the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ projections of 
+\begin_inset Formula $n_{\max}=1$
+\end_inset
+
+ (dipole) from ref 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "zhao_accurate_2013"
+
 \end_inset
 
  and 
-\begin_inset Formula $c_{+}^{011}=-c_{-}^{101}$
+\begin_inset Formula $n_{\max}=1,5$
 \end_inset
 
-).
+ from ref 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "puibasset_bridge_2012"
+
+\end_inset
+
+ (in convention of Wertheim and Hansen)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Comparison-dcf-ref"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body

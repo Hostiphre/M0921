@@ -305,7 +305,7 @@ listoffigures
 \end_layout
 
 \begin_layout Standard
-\begin_inset VSpace 8ex
+\begin_inset VSpace 4ex
 \end_inset
 
 
@@ -375,7 +375,7 @@ listoftables
 \end_layout
 
 \begin_layout Standard
-\begin_inset VSpace 8ex
+\begin_inset VSpace 4ex
 \end_inset
 
 
@@ -1996,7 +1996,7 @@ hspace{-1.5em}
 \end_layout
 
 \begin_layout Standard
-\begin_inset VSpace 8ex
+\begin_inset VSpace 4ex
 \end_inset
 
 

@@ -174,9 +174,9 @@ First of all, I would like to express my most respectful gratitude to my
 
 \begin_layout Standard
 I'm also grateful to Maximilien Levesque, the other main developer of MDFT
- who joined the supervision of my thesis.
- Thanks for sharing some results and data that have proven useful to my
- research.
+ who joined the supervision of my thesis and the correction of this manuscript.
+ Thanks as well for sharing some results and data that have proven useful
+ to my research.
 \end_layout
 
 \begin_layout Standard
@@ -201,13 +201,13 @@ This thesis was produced at
 \shape italic
  Maison de la Simulation, CEA Saclay
 \shape default
-, financially supported by the scholarship 
-\color red
-IDEX-CEA
+, financially supported by the schola
+\color black
+rship IDEX-CEA.
+ I 
 \color inherit
-.
- I acknowledge all the organizations and staff that gave me the chance to
- have this three-year experience.
+acknowledge all the organizations and staff that gave me the chance to have
+ this three-year experience.
 \end_layout
 
 \begin_layout Standard

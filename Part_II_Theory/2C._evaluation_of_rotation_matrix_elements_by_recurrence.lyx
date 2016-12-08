@@ -327,7 +327,7 @@ Case of
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsection*
 Recurrence relation for 
 \begin_inset Formula $-m+1\leq\chi'\leq m-1$
 \end_inset
@@ -431,7 +431,7 @@ b_{\chi\chi'}^{m}=0 & \mathrm{for}\,\chi=\pm m\,\mathrm{and}\,\chi=\mp(m-1)
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsection*
 Recurrence relation for 
 \begin_inset Formula $-m+2\leq\chi'\leq m$
 \end_inset
@@ -505,7 +505,7 @@ which is available for
 .
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsection*
 Symmetries
 \end_layout
 

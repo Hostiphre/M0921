@@ -72,7 +72,7 @@
 \begin_body
 
 \begin_layout Chapter
-Ions and small molecules
+Comparison to MD simulation
 \begin_inset CommandInset label
 LatexCommand label
 name "chpt:ions"
@@ -235,7 +235,8 @@ RDF of rare gazes
 \end_layout
 
 \begin_layout Section
-\begin_inset Formula $\mathrm{CH_{4}^{\mathfrak{q}}}$
+Charged 
+\begin_inset Formula $\mathrm{CH_{4}}$
 \end_inset
 
  series
@@ -309,13 +310,15 @@ status open
 \end_inset
 
 
+\color red
++dipole
 \end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Comparison to IET.
+Comparison to MD.
  Profile of 
 \begin_inset Formula $\rho$
 \end_inset
@@ -341,7 +344,51 @@ name "fig:Comparison-to-MD"
 \end_layout
 
 \begin_layout Section
-Solvation free energy and structure of single ions
+Solvation free energy of single ions
+\end_layout
+
+\begin_layout Standard
+From above we can see the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{RDF}
+\end_layout
+
+\end_inset
+
+ for positive ions are in well agreement with 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
+\end_inset
+
+ results....
+\end_layout
+
+\begin_layout Standard
+However, the energy is more difficult to compare, ...
+ 
+\end_layout
+
+\begin_layout Standard
+To compare with experimental results, there are several corrections depending
+ on box length and charge, and the LJ parameters are very different.
+\end_layout
+
+\begin_layout Standard
+here we just give a try with Honizek 
 \end_layout
 
 \begin_layout Standard
@@ -740,7 +787,7 @@ Ion
 \begin_layout Plain Layout
 
 \size tiny
--124
+-430
 \end_layout
 
 \end_inset
@@ -844,7 +891,7 @@ Ion
 \begin_layout Plain Layout
 
 \size tiny
-0
+-306
 \end_layout
 
 \end_inset
@@ -948,7 +995,7 @@ Ion
 \begin_layout Plain Layout
 
 \size tiny
-27
+-279
 \end_layout
 
 \end_inset
@@ -1052,7 +1099,7 @@ Ion
 \begin_layout Plain Layout
 
 \size tiny
-65
+-241
 \end_layout
 
 \end_inset
@@ -1725,7 +1772,7 @@ Ion
 \begin_layout Plain Layout
 
 \size tiny
-\begin_inset Formula $-\Delta G_{\mathrm{solv}}^{\mathrm{MD}}$
+\begin_inset Formula $\Delta G_{\mathrm{solv}}^{\mathrm{MD}}$
 \end_inset
 
  
@@ -1743,7 +1790,7 @@ Ion
 \begin_layout Plain Layout
 
 \size tiny
-\begin_inset Formula $-\Delta\varOmega_{\mathrm{solv}}^{\mathrm{dipole}}$
+\begin_inset Formula $\Delta\varOmega_{\mathrm{solv}}^{\mathrm{dipole}}$
 \end_inset
 
  
@@ -1761,7 +1808,7 @@ Ion
 \begin_layout Plain Layout
 
 \size tiny
-\begin_inset Formula $-\Delta\varOmega_{\mathrm{solv}}^{\mathrm{nmax3}}$
+\begin_inset Formula $\Delta\varOmega_{\mathrm{solv}}^{\mathrm{nmax3}}$
 \end_inset
 
  
@@ -1849,7 +1896,7 @@ Ion
 \begin_layout Plain Layout
 
 \size tiny
--124
+-430
 \end_layout
 
 \end_inset
@@ -1859,6 +1906,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+diverge
 \end_layout
 
 \end_inset
@@ -1868,6 +1917,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+-368.47
 \end_layout
 
 \end_inset
@@ -1888,6 +1939,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+-
 \end_layout
 
 \end_inset
@@ -1897,6 +1950,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+2.71
 \end_layout
 
 \end_inset
@@ -1923,7 +1978,7 @@ Ion
 \begin_layout Plain Layout
 
 \size tiny
-0
+-306
 \end_layout
 
 \end_inset
@@ -1933,6 +1988,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+diverge
 \end_layout
 
 \end_inset
@@ -1942,6 +1999,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+-297.33
 \end_layout
 
 \end_inset
@@ -1962,6 +2021,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+-
 \end_layout
 
 \end_inset
@@ -1971,6 +2032,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+2.88
 \end_layout
 
 \end_inset
@@ -1997,7 +2060,7 @@ Ion
 \begin_layout Plain Layout
 
 \size tiny
-27
+-279
 \end_layout
 
 \end_inset
@@ -2007,6 +2070,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+diverge
 \end_layout
 
 \end_inset
@@ -2016,6 +2081,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+-278.32
 \end_layout
 
 \end_inset
@@ -2036,6 +2103,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+-
 \end_layout
 
 \end_inset
@@ -2045,6 +2114,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+2.96
 \end_layout
 
 \end_inset
@@ -2071,7 +2142,7 @@ Ion
 \begin_layout Plain Layout
 
 \size tiny
-65
+-241
 \end_layout
 
 \end_inset
@@ -2081,6 +2152,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+diverge
 \end_layout
 
 \end_inset
@@ -2090,6 +2163,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+-253.42
 \end_layout
 
 \end_inset
@@ -2110,6 +2185,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+-
 \end_layout
 
 \end_inset
@@ -2119,6 +2196,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+3.12
 \end_layout
 
 \end_inset
@@ -2155,6 +2234,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+-707.73
 \end_layout
 
 \end_inset
@@ -2164,6 +2245,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+-405.28
 \end_layout
 
 \end_inset
@@ -2184,6 +2267,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+2.46
 \end_layout
 
 \end_inset
@@ -2193,6 +2278,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+2.38
 \end_layout
 
 \end_inset
@@ -2229,6 +2316,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+-621.76
 \end_layout
 
 \end_inset
@@ -2238,6 +2327,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+-366.00
 \end_layout
 
 \end_inset
@@ -2258,6 +2349,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+2.54
 \end_layout
 
 \end_inset
@@ -2267,6 +2360,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+2.54
 \end_layout
 
 \end_inset
@@ -2303,6 +2398,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+-559.13
 \end_layout
 
 \end_inset
@@ -2312,6 +2409,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+-338.37
 \end_layout
 
 \end_inset
@@ -2332,6 +2431,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+2.63
 \end_layout
 
 \end_inset
@@ -2341,6 +2442,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+2.70
 \end_layout
 
 \end_inset
@@ -2377,6 +2480,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+-508.84
 \end_layout
 
 \end_inset
@@ -2386,6 +2491,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+-316.06
 \end_layout
 
 \end_inset
@@ -2406,6 +2513,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+2.88
 \end_layout
 
 \end_inset
@@ -2415,6 +2524,8 @@ Ion
 
 \begin_layout Plain Layout
 
+\size tiny
+2.88
 \end_layout
 
 \end_inset
@@ -2465,7 +2576,7 @@ name "tab:free-energy-single-ions"
 \end_layout
 
 \begin_layout Section
-Solute solvation structure
+Small molecules
 \end_layout
 
 \begin_layout Standard
@@ -2483,9 +2594,835 @@ acs{MD}
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Test solutes
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Test-solutes-2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="12" columns="6">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="100line%">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+Solute
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex CT - Table Headline
+status collapsed
+
+\begin_layout Plain Layout
+Site
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $q$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sigma$
+\end_inset
+
  
-\color red
-(Figure making)
+\begin_inset Formula $[\textrm{Å}]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ [
+\begin_inset Formula $\mathrm{kJ\cdot mol^{-1}}$
+\end_inset
+
+]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x$
+\end_inset
+
+ 
+\begin_inset Formula $[\textrm{Å}]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Parameters of test solutes
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Parameters-of-test-solutes-2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Illustration of a large solute
+\end_layout
+
+\begin_layout Standard
+In the purpose to show the the ability of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ to calculate large solute that 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+ cannot, due to the spherical coordinate system it adopt, some large molecules
+ are investigated.
 \end_layout
 
 \end_body

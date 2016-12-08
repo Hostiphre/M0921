@@ -921,21 +921,30 @@ The solvation free energy functional
 status open
 
 \begin_layout Plain Layout
-
-\color red
-As we consider that for a macroscopic system, when the number of particles
- 
-\begin_inset Formula $N\rightarrow\infty$
+Here the character 
+\begin_inset Formula $\mathcal{F}$
 \end_inset
 
-, the energy of any ensemble are almost the same...
- (Which variable is negligeable?)
+ is used for 
+\begin_inset Quotes eld
+\end_inset
+
+functional
+\begin_inset Quotes erd
+\end_inset
+
+, it is a free energy of grand ensemble, but differ from Helmholtz free
+ energy 
+\begin_inset Formula $F$
+\end_inset
+
+.
 \end_layout
 
 \end_inset
 
- is defined as the deference between the grand potential functional of the
- solution system 
+ is defined as the difference between the grand potential functional of
+ the solution system 
 \begin_inset Formula $\varOmega[n]$
 \end_inset
 
@@ -1235,36 +1244,8 @@ acs{IET}
 
 \end_inset
 
-) aims to find the pair distribution function 
-\begin_inset Formula $g$
-\end_inset
-
- and 
-\color red
-the gradient of excess energy 
-\begin_inset Formula $\gamma=h-c$
-\end_inset
-
-.
-
-\color inherit
- Both theories give complete information of solvation energy and structure.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{IET}
-\end_layout
-
-\end_inset
-
- is about to solve a pair of integral equations of 
+) can also give structural and energetic informations by solving a pair
+ of integral equations of 
 \begin_inset Formula $h^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})$
 \end_inset
 
@@ -1272,8 +1253,24 @@ acs{IET}
 \begin_inset Formula $c^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})$
 \end_inset
 
-.
- One of these equations is the 
+ to find the pair distribution function 
+\begin_inset Formula $g$
+\end_inset
+
+ and the difference of correlation functions 
+\begin_inset Formula $\gamma=h-c$
+\end_inset
+
+ which is directly linked to the free energy.
+ One of the relations for 
+\begin_inset Formula $h$
+\end_inset
+
+ and 
+\begin_inset Formula $c$
+\end_inset
+
+ is the 
 \begin_inset ERT
 status open
 
@@ -1294,24 +1291,33 @@ reference "eq:1.oz-origine"
 
 \end_inset
 
-), 
-\color red
-which takes advantage of the convolution properties to give a simple product
- relation in 
+).
+ Note that in 
 \begin_inset Formula $k$
 \end_inset
 
--space: (what else to be noted?)
+-space eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:1.oz-origine"
+
+\end_inset
+
+) can take advantage of the convolution properties to give a simple product
+ relation:
 \begin_inset Formula 
 \begin{equation}
-\gamma(\mathbf{k})=h(\mathbf{k})-c(\mathbf{k})=\rho\left(\gamma(\mathbf{k})+c(\mathbf{k})\right)c(\mathbf{k})
+\gamma(\mathbf{k})=h(\mathbf{k})-c(\mathbf{k})=\rho\left(\gamma(\mathbf{k})+c(\mathbf{k})\right)c(\mathbf{k})\label{eq:3.oz-k}
 \end{equation}
 
 \end_inset
 
 
-\color inherit
- Other is a closure equation, which can be deduced from eq.
+\end_layout
+
+\begin_layout Standard
+The second relation is a closure equation, which can be deduced from eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref

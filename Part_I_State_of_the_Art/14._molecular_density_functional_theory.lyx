@@ -379,20 +379,8 @@ reference "fig:code-mdft"
 \end_inset
 
 .
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align right
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
-placement h
+placement H
 wide false
 sideways false
 status open
@@ -430,10 +418,182 @@ name "fig:code-mdft"
 \end_inset
 
 
-\begin_inset Newpage newpage
+\end_layout
+
+\begin_layout Section
+Fast Fourier transform
+\end_layout
+
+\begin_layout Standard
+The fast Fourier transform (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+) is used for example in the evaluation of excess functional in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:4.gamma-k"
+
+\end_inset
+
+); in this thesis, the FFTW3 library 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FFTW3"
+
+\end_inset
+
+ is used for implementation, which performs discrete Fourier Transform (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DFT}
+\end_layout
+
+\end_inset
+
+) as defined below:
+\begin_inset Formula 
+\begin{equation}
+Y_{k}=\sum_{j=0}^{n-1}X_{j}e^{-2\pi ijk/n}\begin{array}{c}
+\mathrm{(forward)}\end{array}\label{eq:fftw3-fwd}
+\end{equation}
+
 \end_inset
 
 
+\begin_inset Formula 
+\begin{equation}
+X_{j}=\sum_{k=0}^{n-1}Y_{k}e^{2\pi ijk/n}\begin{array}{c}
+\mathrm{(backward)}\end{array}\label{eq:fftw3-bwd}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that after a forward-backward Fourier transform, the original function
+ is multiplied by a normalization factor 
+\begin_inset Formula $N_{k}$
+\end_inset
+
+, which is the total number of nodes 
+\begin_inset Formula $k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For input function 
+\begin_inset Formula $Y_{k}$
+\end_inset
+
+ 
+\begin_inset Formula $(k=0,\ldots,n-1)$
+\end_inset
+
+ in real number, FFTW3 only outputs elements 
+\begin_inset Formula $k=0,\ldots,\left\lfloor n/2\right\rfloor $
+\end_inset
+
+ ( 
+\begin_inset Formula $\left\lfloor n/2\right\rfloor +1$
+\end_inset
+
+ complex numbers of 
+\begin_inset Formula $X_{j}$
+\end_inset
+
+ are stocked; 
+\begin_inset Formula $\left\lfloor n/2\right\rfloor $
+\end_inset
+
+ being the floor function of 
+\begin_inset Formula $n/2$
+\end_inset
+
+), with the “Hermitian” symmetry
+\begin_inset Formula 
+\begin{equation}
+Y_{k}=Y_{n-k}^{*}\label{eq:yk_conjg}
+\end{equation}
+
+\end_inset
+
+used to regenerate elements of 
+\begin_inset Formula $k>\left\lfloor n/2\right\rfloor $
+\end_inset
+
+.
+ The resulting 
+\begin_inset Formula $X_{j}$
+\end_inset
+
+ issue from the corresponding backward transform is purely real.
+ 
+\end_layout
+
+\begin_layout Standard
+The definition of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ can be differed in some literature, with the 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $+$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ sign in the exponential of forward transform and 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $-$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ sign in the exponential of backward transform.
+ According to the Hermitian symmetry, we should use the quantities in 
+\begin_inset Formula $k$
+\end_inset
+
+-space issue from such definition with its conjugate form.
 \end_layout
 
 \end_body

@@ -331,14 +331,10 @@ reference "sec:Angular-dependent-iem"
 
 \end_inset
 
-, with a symmetry 
-\begin_inset Formula $\hat{c'}_{\nu\mu,\chi}^{nm}(k)=\hat{c'}_{\mu\nu,\underline{\chi}}^{mn*}(k)$
-\end_inset
-
- for water):
+)
 \begin_inset Formula 
 \begin{equation}
-\hat{\gamma'}_{\lambda\mu,\underline{\chi}}^{lm}(k)=\sum_{n=0}^{n_{\mathrm{max}}}\sum_{\nu=-n}^{n}\left(-\right){}^{\chi+\nu}\Delta\hat{\rho'}_{\lambda\underline{\nu},\underline{\chi}}^{ln}(k)\hat{c'}_{\mu\nu,\chi}^{mn*}(k)\label{eq:Blum-reduced-OZ}
+\hat{\gamma'}_{\lambda\mu,\chi}^{lm}(k)=\sum_{n=0}^{n_{\mathrm{max}}}\sum_{\nu=-n}^{n}\left(-\right){}^{\chi+\nu}\Delta\hat{\rho'}_{\lambda\underline{\nu},\chi}^{ln}(k)\hat{c'}_{\nu\mu,\chi}^{nm}(k)\label{eq:Blum-reduced-OZ}
 \end{equation}
 
 \end_inset
@@ -912,8 +908,12 @@ acs{OZ}
 \end_layout
 
 \begin_layout Standard
-If we take the conjugate of 
-\begin_inset Formula $\hat{c'}_{\mu\nu,\chi}^{mn*}(k)$
+If we take 
+\begin_inset Formula $\hat{c'}_{\nu\mu,\chi}^{nm}(k)$
+\end_inset
+
+ instead of 
+\begin_inset Formula $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$
 \end_inset
 
 , eq.
@@ -935,7 +935,7 @@ reference "eq:Blum-reduced-OZ"
 ), as:
 \begin_inset Formula 
 \begin{equation}
-\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})=\sum_{l\lambda}\hat{\gamma'}_{\lambda\mu,\underline{\chi}}^{lm}(k)R_{\underline{\chi}\lambda}^{l}(\boldsymbol{\omega})
+\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})=\sum_{l\lambda}\hat{\gamma'}_{\lambda\mu,\chi}^{lm}(k)R_{\underline{\chi}\lambda}^{l}(\boldsymbol{\omega})
 \end{equation}
 
 \end_inset
@@ -943,7 +943,7 @@ reference "eq:Blum-reduced-OZ"
 
 \begin_inset Formula 
 \begin{equation}
-\hat{\rho'}_{\chi\underline{\nu}}^{n}(\mathbf{k})=\sum_{l\lambda}\Delta\hat{\rho'}_{\lambda\underline{\nu},\chi}^{ln}(k)R_{\chi\lambda}^{l*}(\boldsymbol{\omega})
+\hat{\rho'}_{\chi\underline{\nu}}^{n}(\mathbf{k})=\sum_{l\lambda}\Delta\hat{\rho'}_{\lambda\underline{\nu},\chi}^{ln}(k)R_{\underline{\chi}\lambda}^{l}(\boldsymbol{\omega})
 \end{equation}
 
 \end_inset
@@ -957,24 +957,58 @@ reference "eq:local_backward"
 \end_inset
 
 ).
- The conjugate comes from that
+ 
 \color red
- in ref 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Fries_Patey_1985"
+The inversion of indices may come from different convention that 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
 
 \end_inset
 
-, a different definition of 
-\begin_inset Formula $\mathbf{k}$
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
 \end_inset
 
- is used as the Hankel transform uses implicitly 
-\begin_inset Formula $e^{ikr}$
+ use.
+ In the code, when we use the 
+\begin_inset Formula $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$
 \end_inset
 
- as forward transform, ????? (J'ai toujours du mal a supprimer le conjugé.)
+ issue from 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+, we simply take the conjugate form as 
+\begin_inset Formula $\hat{c'}_{\nu\mu,\chi}^{nm}(k)=\hat{c'}_{\mu\nu,\underline{\chi}}^{mn*}(k)$
+\end_inset
+
+ for water...
+ (There is more problem.)
 \end_layout
 
 \begin_layout Standard
@@ -2678,100 +2712,7 @@ acs{GSHT}
 \end_layout
 
 \begin_layout Standard
-The FFTW3 library 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "FFTW3"
-
-\end_inset
-
- is used for implementation, which performs discrete Fourier Transform (
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{DFT}
-\end_layout
-
-\end_inset
-
-) as defined below:
-\begin_inset Formula 
-\begin{equation}
-Y_{k}=\sum_{j=0}^{n-1}X_{j}e^{-2\pi ijk/n}\begin{array}{c}
-\mathrm{(forward)}\end{array}\label{eq:fftw3-fwd}
-\end{equation}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{equation}
-X_{j}=\sum_{k=0}^{n-1}Y_{k}e^{2\pi ijk/n}\begin{array}{c}
-\mathrm{(backward)}\end{array}\label{eq:fftw3-bwd}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Note that after a forward-backward Fourier transform, the original function
- is multiplied by a normalization factor 
-\begin_inset Formula $N_{k}$
-\end_inset
-
-, which is the total number of nodes 
-\begin_inset Formula $k$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-For input function 
-\begin_inset Formula $Y_{k}$
-\end_inset
-
- 
-\begin_inset Formula $(k=0,\ldots,n-1)$
-\end_inset
-
- in real number, FFTW3 only outputs elements 
-\begin_inset Formula $k=0,\ldots,\left\lfloor n/2\right\rfloor $
-\end_inset
-
- ( 
-\begin_inset Formula $\left\lfloor n/2\right\rfloor +1$
-\end_inset
-
- complex numbers of 
-\begin_inset Formula $X_{j}$
-\end_inset
-
- are stocked), with the “Hermitian” symmetry
-\begin_inset Formula 
-\begin{equation}
-Y_{k}=Y_{n-k}^{*}\label{eq:yk_conjg}
-\end{equation}
-
-\end_inset
-
-used to regenerate elements of 
-\begin_inset Formula $k>\left\lfloor n/2\right\rfloor $
-\end_inset
-
-.
- The resulting 
-\begin_inset Formula $X_{j}$
-\end_inset
-
- issue from the corresponding backward transform is purely real.
- As the angular function 
+As the angular function 
 \begin_inset Formula $F(\mathbf{\Omega})$
 \end_inset
 
@@ -2799,7 +2740,7 @@ reference "eq:symm-gsh-1"
 ):
 \begin_inset Formula 
 \begin{equation}
-R_{-\mu',-\mu}^{m}(\mathbf{\Omega})=\left(-1\right)^{\mu'+\mu}R_{\mu'\mu}^{m*}(\mathbf{\Omega})
+R_{\underline{\mu'}\underline{\mu}}^{m}(\mathbf{\Omega})=\left(-1\right)^{\mu'+\mu}R_{\mu'\mu}^{m*}(\mathbf{\Omega})
 \end{equation}
 
 \end_inset
@@ -2807,7 +2748,7 @@ R_{-\mu',-\mu}^{m}(\mathbf{\Omega})=\left(-1\right)^{\mu'+\mu}R_{\mu'\mu}^{m*}(\
 the symmetry relation between the projections are
 \begin_inset Formula 
 \begin{equation}
-F_{-\mu',-\mu}^{m}=\left(-1\right)^{\mu'+\mu}F_{\mu'\mu}^{m*}\label{eq:symm_f_m_mup_mu}
+F_{\underline{\mu'}\underline{\mu}}^{m}=\left(-1\right)^{\mu'+\mu}F_{\mu'\mu}^{m*}\label{eq:symm_f_m_mup_mu}
 \end{equation}
 
 \end_inset
@@ -2821,7 +2762,14 @@ Therefore only the projections of
 \end_inset
 
  need to be stocked, which can be calculated with only these FFTW3 output
- elements reduced by the Hermitian symmetry.
+ elements reduced by the Hermitian symmetry (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:yk_conjg"
+
+\end_inset
+
+).
  The full process of FFTW3-2D real to real transform is illustrated in figure
  
 \begin_inset CommandInset ref
@@ -3115,7 +3063,7 @@ reference "eq:symm_f_m_mup_mu"
 ), we can verify that
 \begin_inset Formula 
 \begin{equation}
-F_{\mu'\mu}(\Theta)=F_{-\mu',-\mu}^{*}(\Theta)
+F_{\mu'\mu}(\Theta)=F_{\underline{\mu'}\underline{\mu}}^{*}(\Theta)
 \end{equation}
 
 \end_inset
@@ -3136,7 +3084,7 @@ reference "eq:fftw3-bwd"
 \end_inset
 
 ), 
-\begin_inset Formula $F_{-\mu',-\mu}(\Theta)$
+\begin_inset Formula $F_{\underline{\mu'}\underline{\mu}}(\Theta)$
 \end_inset
 
  is calculated instead of 
@@ -3693,7 +3641,7 @@ reference "eq:symm-gsh-1"
 )):
 \begin_inset Formula 
 \begin{equation}
-R_{\mu'\mu}^{m}(\mathbf{\Omega})=(-)^{\mu'+\mu}R_{-\mu'-\mu}^{m*}(\mathbf{\Omega})
+R_{\mu'\mu}^{m}(\mathbf{\Omega})=(-)^{\mu'+\mu}R_{\underline{\mu'}\underline{\mu}}^{m*}(\mathbf{\Omega})
 \end{equation}
 
 \end_inset
@@ -3701,7 +3649,7 @@ R_{\mu'\mu}^{m}(\mathbf{\Omega})=(-)^{\mu'+\mu}R_{-\mu'-\mu}^{m*}(\mathbf{\Omega
 we find
 \begin_inset Formula 
 \begin{equation}
-\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{r})=(-)^{\mu'+\mu}\Delta\hat{\rho}_{-\mu',-\mu}^{m*}(\mathbf{r})\label{eq:2.2.symm-rho-r}
+\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{r})=(-)^{\mu'+\mu}\Delta\hat{\rho}_{\underline{\mu'}\underline{\mu}}^{m*}(\mathbf{r})\label{eq:2.2.symm-rho-r}
 \end{equation}
 
 \end_inset
@@ -3745,7 +3693,7 @@ reference "eq:2.2.symm-rho-r"
 ) gives
 \begin_inset Formula 
 \begin{equation}
-\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})=(-)^{\mu'+\mu}\Delta\hat{\rho}_{-\mu'-\mu}^{m*}(-\mathbf{k})\label{eq:2.2.symm-rho-k}
+\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})=(-)^{\mu'+\mu}\Delta\hat{\rho}_{\underline{\mu'}\underline{\mu}}^{m*}(-\mathbf{k})\label{eq:2.2.symm-rho-k}
 \end{equation}
 
 \end_inset
@@ -4005,7 +3953,7 @@ acs{OZ}
 We can also find
 \begin_inset Formula 
 \begin{equation}
-R_{\mu'\chi}^{m}(\hat{\mathbf{k}})=(-)^{m}R_{\mu',\underline{\chi}}^{m}(-\hat{\mathbf{k}})=(-)^{m+\mu'+\chi}R_{\underline{\mu'},\chi}^{m}(-\hat{\mathbf{k}})\label{eq:3}
+R_{\mu'\chi}^{m}(\hat{\mathbf{k}})=(-)^{m}R_{\mu'\underline{\chi}}^{m}(-\hat{\mathbf{k}})=(-)^{m+\mu'+\chi}R_{\underline{\mu'}\chi}^{m}(-\hat{\mathbf{k}})\label{eq:3}
 \end{equation}
 
 \end_inset
@@ -4013,7 +3961,7 @@ R_{\mu'\chi}^{m}(\hat{\mathbf{k}})=(-)^{m}R_{\mu',\underline{\chi}}^{m}(-\hat{\m
 which gives
 \begin_inset Formula 
 \begin{equation}
-\Delta\hat{\rho'}_{\chi\mu}^{m}(\mathbf{k})=(-)^{m+\mu+\chi}\Delta\hat{\rho'}_{\chi,-\mu}^{m*}(-\mathbf{k})
+\Delta\hat{\rho'}_{\chi\mu}^{m}(\mathbf{k})=(-)^{m+\mu+\chi}\Delta\hat{\rho'}_{\chi\underline{\mu}}^{m*}(-\mathbf{k})
 \end{equation}
 
 \end_inset
@@ -4021,7 +3969,7 @@ which gives
 
 \begin_inset Formula 
 \begin{equation}
-\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})=(-)^{m+\mu+\chi}\hat{\gamma'}_{\chi,-\mu}^{m*}(-\mathbf{k})
+\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})=(-)^{m+\mu+\chi}\hat{\gamma'}_{\chi\underline{\mu}}^{m*}(-\mathbf{k})
 \end{equation}
 
 \end_inset
@@ -4049,9 +3997,12 @@ acs{OZ}
 
  in eq.
  (
-\color red
-ref appendix
-\color inherit
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sym-invar1"
+
+\end_inset
+
 ).
 \end_layout
 
@@ -4097,7 +4048,7 @@ reference "eq:2.2.symm-rho-k"
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement th
 wide false
 sideways false
 status open

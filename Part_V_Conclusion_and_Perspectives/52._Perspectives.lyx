@@ -424,7 +424,7 @@ acs{DCF}
 \end_layout
 
 \begin_layout Section
-Polarizable solute
+Polarizable solute, other improvement of the external term
 \end_layout
 
 \begin_layout Standard
@@ -460,6 +460,18 @@ The popular language of visualization is c++, OpenDM, ...
 \begin_layout Standard
 The process of MDFT can produce energy and structures for each iteration,
  although it takes time to write down all the possible output.
+\end_layout
+
+\begin_layout Section
+Application to real biological systems
+\end_layout
+
+\begin_layout Standard
+Reinvestigation of the Manganese-oxo 
+\end_layout
+
+\begin_layout Standard
+This is the case we talked about in the introduction, ...
 \end_layout
 
 \end_body

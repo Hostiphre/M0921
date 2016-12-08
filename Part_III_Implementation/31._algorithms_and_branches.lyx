@@ -518,7 +518,7 @@ standard
 
 \begin_layout Plain Layout
 use 
-\begin_inset Formula $c_{\mu\nu,\chi}^{mn}(k)$
+\begin_inset Formula $\hat{c}_{\mu\nu,\chi}^{mn}(k)$
 \end_inset
 
  as input 
@@ -687,15 +687,15 @@ dipole
 
 \begin_layout Plain Layout
 use 
-\begin_inset Formula $c_{S}$
+\begin_inset Formula $\hat{c}_{S}$
 \end_inset
 
 , 
-\begin_inset Formula $c_{\Delta}$
+\begin_inset Formula $\hat{c}_{\Delta}$
 \end_inset
 
 , 
-\begin_inset Formula $c_{D}$
+\begin_inset Formula $\hat{c}_{D}$
 \end_inset
 
  issue from 
@@ -754,19 +754,19 @@ nmax1
 
 \begin_layout Plain Layout
 use 
-\begin_inset Formula $c_{S}$
+\begin_inset Formula $\hat{c}_{S}$
 \end_inset
 
 , 
-\begin_inset Formula $c_{\Delta}$
+\begin_inset Formula $\hat{c}_{\Delta}$
 \end_inset
 
 , 
-\begin_inset Formula $c_{D}$
+\begin_inset Formula $\hat{c}_{D}$
 \end_inset
 
 , 
-\begin_inset Formula $c_{\pm}$
+\begin_inset Formula $\hat{c}^{011}$
 \end_inset
 
  issue from 
@@ -1369,7 +1369,7 @@ reference "eq:2.2.symm-rho-k"
 ))
 \begin_inset Formula 
 \begin{equation}
-\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})=(-)^{\mu'+\mu}\Delta\hat{\rho}_{-\mu'-\mu}^{m*}(-\mathbf{k})
+\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})=(-)^{\mu'+\mu}\Delta\hat{\rho}_{\underline{\mu'}\underline{\mu}}^{m*}(-\mathbf{k})
 \end{equation}
 
 \end_inset

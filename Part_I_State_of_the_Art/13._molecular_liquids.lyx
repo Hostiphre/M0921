@@ -632,6 +632,44 @@ is the cartesian coordinate of a solvent site
  
 \end_layout
 
+\begin_layout Standard
+Another method to calculate 
+\begin_inset Formula $V_{\mathrm{coul}}(\mathbf{r},\mathbf{\Omega})$
+\end_inset
+
+ is the direct summation, which gives a non-periodic external potential,
+ but in the implementation it usually leads to better convergency for non-spheri
+cal molecules.
+ Here we describe its expression, without understanding the reason behind
+ convergency, as in this thesis we only work on the 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ term:
+\begin_inset Formula 
+\begin{equation}
+V_{\mathrm{coul}}(\mathbf{r},\mathbf{\Omega})=\sum_{u\in\mathrm{solute}}\sum_{v\in\mathrm{solvent}}\left(\dfrac{q_{u}q_{v}}{4\pi\varepsilon_{0}r_{uv}}\right)
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $r_{uv}$
+\end_inset
+
+ is calculated as in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:4.ruv"
+
+\end_inset
+
+).
+ During this thesis, the direct summation is only used in the minimization
+ of non-spherical solutes, in the chapters of implementation and application.
+\end_layout
+
 \begin_layout Subsection
 The excess term
 \begin_inset CommandInset label
@@ -1372,7 +1410,7 @@ The relation between these projections in
 -space are built by the Hankel transform:
 \begin_inset Formula 
 \begin{equation}
-\hat{c}_{\mu\nu}^{mnl}(k)=4\pi i^{l}\int\mathrm{d}r\,r^{2}j_{l}(kr)c_{\mu\nu}^{mnl}(r)
+\hat{c}_{\mu\nu}^{mnl}(k)=4\pi i^{l}\int\mathrm{d}r\,r^{2}j_{l}(kr)c_{\mu\nu}^{mnl}(r)\label{eq:4.hankel1}
 \end{equation}
 
 \end_inset
@@ -1380,7 +1418,7 @@ The relation between these projections in
 
 \begin_inset Formula 
 \begin{equation}
-\hat{\gamma}_{\mu\nu}^{mnl}(k)=4\pi i^{l}\int\mathrm{d}r\,r^{2}j_{l}(kr)\gamma_{\mu\nu}^{mnl}(r)
+\hat{\gamma}_{\mu\nu}^{mnl}(k)=4\pi i^{l}\int\mathrm{d}r\,r^{2}j_{l}(kr)\gamma_{\mu\nu}^{mnl}(r)\label{eq:4.hankel2}
 \end{equation}
 
 \end_inset
@@ -1394,6 +1432,43 @@ where
 \end_inset
 
 .
+ Eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:4.hankel1"
+
+\end_inset
+
+) and (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:4.hankel2"
+
+\end_inset
+
+) are built in the same purpose as eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.oz-k"
+
+\end_inset
+
+) in atomic case, where 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ is used.
  As an analogue to 
 \begin_inset ERT
 status open

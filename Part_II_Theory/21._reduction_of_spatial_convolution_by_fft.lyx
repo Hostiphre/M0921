@@ -1381,7 +1381,7 @@ acs{DCF}
 \end_inset
 
  and 
-\begin_inset Formula $\hat{c}_{+}\equiv\hat{c}^{011}=-\hat{c}^{101}$
+\begin_inset Formula $\hat{c}^{011}=-\hat{c}^{101}$
 \end_inset
 
 , with the corresponding rotational invariants expressed below both in laborator
@@ -1496,7 +1496,7 @@ reference "eq:phi_local"
 )), such that
 \begin_inset Formula 
 \begin{equation}
-\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})=\frac{1}{2l+1}\sum_{mn\mu\nu\chi}\hat{c'}_{\mu\nu,\chi}^{mn}(k)r_{\chi\mu}^{m}(\theta_{1})r_{-\chi\nu}^{n}(\theta_{2})e^{-i\chi(\phi_{12}\equiv\phi_{1}-\phi_{2})}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}\label{eq:dcf-exact}
+\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})=\frac{1}{2l+1}\sum_{mn\mu\nu\chi}\hat{c'}_{\mu\nu,\chi}^{mn}(k)r_{\chi\mu}^{m}(\theta_{1})r_{\underline{\chi}\nu}^{n}(\theta_{2})e^{-i\chi(\phi_{12}\equiv\phi_{1}-\phi_{2})}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}\label{eq:dcf-exact}
 \end{equation}
 
 \end_inset
@@ -1519,6 +1519,10 @@ where
 
 , and 
 \begin_inset Formula $\chi\in\left[-\mathrm{min}(m,n),\mathrm{min}(m,n)\right]$
+\end_inset
+
+; 
+\begin_inset Formula $\underline{\chi}=-\chi$
 \end_inset
 
 .

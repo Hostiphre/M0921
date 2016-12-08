@@ -372,7 +372,7 @@ r_{\mu\mu'}^{m}(\theta)=(-)^{\mu'-\mu}r_{\mu'\mu}^{m}(\theta)
 
 \begin_inset Formula 
 \begin{equation}
-r_{\underline{\mu'}\underline{\mu}}^{m}(\theta)=\left(-\right)^{\mu'-\mu}r_{\mu'\mu}^{m}(\theta)
+r_{\underline{\mu'}\underline{\mu}}^{m}(\theta)=\left(-\right)^{\mu'-\mu}r_{\mu'\mu}^{m}(\theta)\label{eq:symm-glp-1}
 \end{equation}
 
 \end_inset
