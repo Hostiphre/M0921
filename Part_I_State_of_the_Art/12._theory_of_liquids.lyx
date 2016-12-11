@@ -939,6 +939,23 @@ functional
 \end_inset
 
 .
+ However, it can be proven that all the free energies become the same when
+ the fluctuations in 
+\begin_inset Formula $N$
+\end_inset
+
+ and 
+\begin_inset Formula $V$
+\end_inset
+
+ are negligible 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ensemble_thermo"
+
+\end_inset
+
+.
 \end_layout
 
 \end_inset

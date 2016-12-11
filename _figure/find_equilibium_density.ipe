@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.6">
-<info created="D:20160118213509" modified="D:20161121232422"/>
+<info created="D:20160118213509" modified="D:20161209144953"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -281,47 +281,47 @@ h
 316 808 l
 h
 </path>
-<text matrix="1 0 0 1 -152 -40" transformations="translations" pos="192 808" stroke="black" type="label" width="48.01" height="8.846" depth="2.49" halign="center" valign="center">$\mathcal{F}[\varphi^{(i)}]=0$</text>
-<path matrix="0.5625 0 0 2.5 -29.75 -1244" stroke="black" fill="white" cap="1" join="1">
+<text matrix="1 0 0 1 -152 -40" transformations="translations" pos="192 808" stroke="black" type="label" width="48.01" height="8.846" depth="2.49" halign="center" valign="center" style="math">\mathcal{F}[\varphi^{(i)}]=0</text>
+<path matrix="0.625 0 0 2.5 -41.5 -1244" stroke="black" fill="white" cap="1" join="1">
 188 808 m
 188 792 l
 316 792 l
 316 808 l
 h
 </path>
-<text matrix="1 0 0 1 -80 -40" transformations="translations" pos="192 808" stroke="black" type="label" width="60.655" height="6.923" depth="1.49" halign="center" valign="center">add $\mathcal{F}_{\mathrm{id}}$ to $\mathcal{F}$ </text>
-<text matrix="1 0 0 1 -152 -60" transformations="translations" pos="192 808" stroke="black" type="label" width="45.369" height="11.569" depth="5.2" halign="center" valign="center" style="math">\frac{\mathcal{F}[\varphi^{(i)}]}{\varphi^{(i)}}=0</text>
-<text matrix="1 0 0 1 -80 -60" transformations="translations" pos="192 808" stroke="black" type="label" width="67.237" height="8.906" depth="5.2" halign="center" valign="center">add $\frac{\mathcal{F}_{\mathrm{id}}}{\varphi^{(i)}}$ to $\frac{\mathcal{F}}{\varphi^{(i)}}$</text>
+<text matrix="1 0 0 1 -76 -40" transformations="translations" pos="192 808" stroke="black" type="label" width="60.655" height="6.923" depth="1.49" halign="center" valign="center">add $\mathcal{F}_{\mathrm{id}}$ to $\mathcal{F}$ </text>
+<text matrix="1 0 0 1 -152 -60" transformations="translations" pos="192 808" stroke="black" type="label" width="49.243" height="11.569" depth="5.2" halign="center" valign="center" style="math">\frac{\delta\mathcal{F}[\varphi^{(i)}]}{\delta\varphi^{(i)}}=0</text>
+<text matrix="1 0 0 1 -76 -60" transformations="translations" pos="192 808" stroke="black" type="label" width="74.985" height="8.984" depth="5.2" halign="center" valign="center">add $\frac{\delta\mathcal{F}_{\mathrm{id}}}{\delta\varphi^{(i)}}$ to $\frac{\delta\mathcal{F}}{\delta\varphi^{(i)}}$</text>
 <path matrix="1 0 0 1 -40 -12" stroke="black" arrow="pointed/tiny">
 108 768 m
 116 768 l
 </path>
-<path matrix="1 0 0 1 -40 -12" stroke="black" arrow="pointed/tiny">
+<path matrix="1 0 0 1 -32 -12" stroke="black" arrow="pointed/tiny">
 188 768 m
 196 768 l
 </path>
-<path matrix="0.5625 0 0 2.5 50.25 -1244" stroke="black" fill="white" cap="1" join="1">
+<path matrix="0.625 0 0 2.5 46.5 -1244" stroke="black" fill="white" cap="1" join="1">
 188 808 m
 188 792 l
 316 792 l
 316 808 l
 h
 </path>
-<text matrix="1 0 0 1 0 -40" transformations="translations" pos="192 808" stroke="black" type="label" width="64.84" height="6.923" depth="1.49" halign="center" valign="center">add $\mathcal{F}_{\mathrm{ext}}$ to $\mathcal{F}$ </text>
-<text matrix="1 0 0 1 0 -60" transformations="translations" pos="192 808" stroke="black" type="label" width="68.955" height="8.845" depth="5.2" halign="center" valign="center">add $\frac{\mathcal{F}_{\mathrm{ext}}}{\varphi^{(i)}}$ to $\frac{\mathcal{F}}{\varphi^{(i)}}$</text>
-<path matrix="1 0 0 1 40 -12" stroke="black" arrow="pointed/tiny">
+<text matrix="1 0 0 1 12 -40" transformations="translations" pos="192 808" stroke="black" type="label" width="64.84" height="6.923" depth="1.49" halign="center" valign="center">add $\mathcal{F}_{\mathrm{ext}}$ to $\mathcal{F}$ </text>
+<text matrix="1 0 0 1 12 -60" transformations="translations" pos="192 808" stroke="black" type="label" width="76.703" height="8.923" depth="5.2" halign="center" valign="center">add $\frac{\delta\mathcal{F}_{\mathrm{ext}}}{\delta\varphi^{(i)}}$ to $\frac{\delta\mathcal{F}}{\delta\varphi^{(i)}}$</text>
+<path matrix="1 0 0 1 56 -12" stroke="black" arrow="pointed/tiny">
 188 768 m
 196 768 l
 </path>
-<path matrix="0.5625 0 0 2.5 130.25 -1244" stroke="red" fill="lightyellow" pen="heavier" cap="1" join="1">
+<path matrix="0.625 0 0 2.5 134.5 -1244" stroke="red" fill="lightyellow" pen="heavier" cap="1" join="1">
 188 808 m
 188 792 l
 316 792 l
 316 808 l
 h
 </path>
-<text matrix="1 0 0 1 80 -40" transformations="translations" pos="192 808" stroke="black" type="label" width="65.269" height="6.923" depth="1.49" halign="center" valign="center">add $\mathcal{F}_{\mathrm{exc}}$ to $\mathcal{F}$ </text>
-<text matrix="1 0 0 1 80 -60" transformations="translations" pos="192 808" stroke="black" type="label" width="69.301" height="8.845" depth="5.2" halign="center" valign="center">add $\frac{\mathcal{F}_{\mathrm{exc}}}{\varphi^{(i)}}$ to $\frac{\mathcal{F}}{\varphi^{(i)}}$</text>
+<text matrix="1 0 0 1 100 -40" transformations="translations" pos="192 808" stroke="black" type="label" width="65.269" height="6.923" depth="1.49" halign="center" valign="center">add $\mathcal{F}_{\mathrm{exc}}$ to $\mathcal{F}$ </text>
+<text matrix="1 0 0 1 100 -60" transformations="translations" pos="192 808" stroke="black" type="label" width="77.049" height="8.923" depth="5.2" halign="center" valign="center">add $\frac{\delta\mathcal{F}_{\mathrm{exc}}}{\delta\varphi^{(i)}}$ to $\frac{\delta\mathcal{F}}{\delta\varphi^{(i)}}$</text>
 <path matrix="1 0 0 1 12 36" stroke="black" arrow="pointed/tiny">
 204 756 m
 196 756 l
@@ -339,8 +339,7 @@ h
 52 792 l
 </path>
 <path stroke="black" arrow="pointed/tiny">
-308 756 m
-328 756 l
+328 776 m
 328 792 l
 320 792 l
 </path>

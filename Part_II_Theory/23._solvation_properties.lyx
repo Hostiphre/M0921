@@ -917,8 +917,6 @@ reference "eq:rot_invar_expansion"
 \end_layout
 
 \begin_layout Standard
-
-\color red
 Then, according to appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -937,7 +935,7 @@ reference "chpt:rotational-invariant-expansion"
 such that:
 \begin_inset Formula 
 \begin{equation}
-\rho_{00}^{011}(r)=\dfrac{\int\mathrm{d}\hat{\mathbf{r}}\mathrm{d}\mathbf{\Omega}\rho(\mathbf{r},\mathbf{\Omega})\Phi_{00}^{011*}(\mathbf{r},\mathbf{\Omega})}{\int\mathrm{d}\hat{\mathbf{r}}\mathrm{d}\mathbf{\Omega}\left\Vert \Phi_{00}^{011}(\mathbf{r},\mathbf{\Omega})\right\Vert ^{2}}=-\dfrac{\int\mathrm{d}\hat{\mathbf{r}}\mathbf{P}(\mathbf{r})\cdot\hat{\mathbf{r}}}{\int\mathrm{d}\hat{\mathbf{r}}\mathrm{d}\mathbf{\Omega}\left\Vert \Phi_{00}^{011}(\mathbf{r},\mathbf{\Omega})\right\Vert ^{2}}
+\rho_{00}^{011}(r)=\int\mathrm{d}\hat{\mathbf{r}}\mathrm{d}\mathbf{\Omega}\rho(\mathbf{r},\mathbf{\Omega})\Phi_{00}^{011*}(\mathbf{r},\mathbf{\Omega})=-\dfrac{\int\mathrm{d}\hat{\mathbf{r}}\mathbf{P}(\mathbf{r})\cdot\hat{\mathbf{r}}}{\int\mathrm{d}\hat{\mathbf{r}}\mathrm{d}\mathbf{\Omega}\left\Vert \Phi_{00}^{011}(\mathbf{r},\mathbf{\Omega})\right\Vert ^{2}}
 \end{equation}
 
 \end_inset
@@ -946,8 +944,6 @@ such that:
 \end_layout
 
 \begin_layout Standard
-
-\color red
 Note that the orthogonality in eq.
  (
 \begin_inset CommandInset ref

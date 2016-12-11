@@ -2169,7 +2169,8 @@ acro{MOZ}{molecular Ornstein-Zernike (equation)}
 
   
 \backslash
-acro{MRSO}{molecule rotation symmetry order}
+acro{MRSO}{molecule rotation symmetry order, $s=1$ or 2 according to symmetry
+ axis}
 \end_layout
 
 \begin_layout Plain Layout

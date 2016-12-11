@@ -1,0 +1,640 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass classicthesis
+\use_default_options true
+\maintain_unincluded_children false
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex8
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Angular convolution using Blum's reduction
+\begin_inset CommandInset label
+LatexCommand label
+name "chpt:deduction_blum"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To make an analogue to the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ treatment for the convolution of spatial part of the integral, a fast generaliz
+ed spherical harmonics transform (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FGSHT}
+\end_layout
+
+\end_inset
+
+) treatment is proposed by developing 
+\begin_inset Formula $\hat{\gamma}$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{\rho}$
+\end_inset
+
+ in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gamma-k-II"
+
+\end_inset
+
+)
+\begin_inset Formula 
+\begin{equation}
+\hat{\gamma}(\mathbf{k},\mathbf{\Omega}_{1})=-\beta^{-1}\int\mathrm{d}\mathbf{\Omega}_{2}\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega}_{2})\hat{c}(k_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\label{eq:gamma-1.2F}
+\end{equation}
+
+\end_inset
+
+on generalized spherical harmonics:
+\begin_inset Formula 
+\begin{equation}
+\hat{\gamma}(\mathbf{k},\mathbf{\Omega}_{1})=\sum_{m\mu'\mu}f_{m}\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})R_{\mu'\mu}^{m}(\mathbf{\Omega}_{1})\label{eq:gamma-projection.2F}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega}_{2})=\sum_{n\nu'\nu}f_{n}\Delta\hat{\rho}_{\underline{\nu'}\underline{\nu}}^{n}(\mathbf{k})R_{\underline{\nu'}\underline{\nu}}^{n}(\mathbf{\Omega}_{2})\label{eq:delta-rho-projection.2F}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\left|\mu'\right|,\left|\mu\right|<m$
+\end_inset
+
+ and 
+\begin_inset Formula $\left|\nu'\right|,\left|\nu\right|<n$
+\end_inset
+
+; 
+\begin_inset Formula $f_{m}=\left(2m+1\right)^{\frac{1}{2}}$
+\end_inset
+
+ is the normalization factor.
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ can also be expended on rotational invariants 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Blum_I"
+
+\end_inset
+
+, with the normalization factors according to Blum's definition:
+\begin_inset Formula 
+\begin{equation}
+\hat{c}(k,\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})=\sum_{mnl\mu\nu}f_{m}f_{n}\hat{c}_{\mu\nu}^{mnl}(k)\sum_{\mu'\nu'\lambda'}\left(\begin{array}{ccc}
+m & n & l\\
+\mu' & \nu' & \lambda'
+\end{array}\right)R_{\mu'\mu}^{m}(\mathbf{\Omega}_{1})R_{\nu'\nu}^{n}(\mathbf{\Omega}_{2})R_{\lambda'0}^{l}(\hat{\mathbf{k}})\label{eq:c-projection.2F}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Replace eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gamma-1.2F"
+
+\end_inset
+
+) by (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gamma-projection.2F"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:delta-rho-projection.2F"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:c-projection.2F"
+
+\end_inset
+
+), as 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+s possess orthogonality 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gray-Gubbins,Messiah"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\int\frac{\mathrm{d}\mathbf{\Omega}_{2}}{8\pi^{2}}R_{\mu'\mu}^{m}(\mathbf{\Omega}_{2})R_{\nu{}^{'}\nu}^{n*}(\mathbf{\Omega}_{2})=\frac{\delta_{m,n}\delta_{\mu',\nu'}\delta_{\mu,\nu}}{2n+1}
+\end{equation}
+
+\end_inset
+
+and symmetry
+\begin_inset Formula 
+\begin{equation}
+R_{\nu'\nu}^{n*}(\mathbf{\Omega}_{2})=\left(-\right){}^{\nu'+\nu}R_{\underline{\nu'}\underline{\nu}}^{n}(\mathbf{\Omega}_{2})\label{eq:symm-gsh.2F}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gamma-1.2F"
+
+\end_inset
+
+) becomes
+\begin_inset Formula 
+\begin{eqnarray}
+ &  & \sum_{m\mu'\mu}\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})R_{\mu'\mu}^{m}(\mathbf{\Omega}_{1})\\
+ & = & \sum_{mnl\mu\nu}\hat{c}_{\mu\nu}^{mnl}(k)\sum_{\mu'\nu'\lambda'}\left(-\right){}^{\nu'+\nu}\Delta\hat{\rho}_{\underline{\nu'}\underline{\nu}}^{n}(\mathbf{k})\left(\begin{array}{ccc}
+m & n & l\\
+\mu' & \nu' & \lambda'
+\end{array}\right)R_{\mu'\mu}^{m}(\mathbf{\Omega}_{1})R_{\lambda'0}^{l}(\hat{\mathbf{k}})\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As the basis sets are orthogonal,
+\begin_inset Formula 
+\begin{equation}
+\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})=\sum_{nl\nu}\hat{c}_{\mu\nu}^{mnl}(k)\sum_{\nu'\lambda'}\left(-\right){}^{\nu'+\nu}\Delta\hat{\rho}_{\underline{\nu'}\underline{\nu}}^{n}(\mathbf{k})\left(\begin{array}{ccc}
+m & n & l\\
+\mu' & \nu' & \lambda'
+\end{array}\right)R_{\lambda'0}^{l}(\hat{\mathbf{k}})\label{eq:im.2F}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+According to Gubbins eq.
+ (A.41-43) and Messiah eq.
+ (C.76):
+\begin_inset Formula 
+\begin{equation}
+R_{\chi\mu}^{m}(\boldsymbol{\omega})=\sum_{\mu'}R_{\mu'\chi}^{m*}(\hat{\mathbf{k}})R_{\mu'\mu}^{m}(\mathbf{\Omega})
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+R_{\mu'\mu}^{m}(\mathbf{\Omega})=\sum_{\chi}R_{\chi\mu'}^{m*}(\hat{\mathbf{k}}^{-1})R_{\chi\mu}^{m}(\boldsymbol{\omega})=\sum_{\chi}R_{\mu'\chi}^{m}(\hat{\mathbf{k}})R_{\chi\mu}^{m}(\boldsymbol{\omega})
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\boldsymbol{\omega}=\hat{\mathbf{k}}^{-1}\mathbf{\Omega}$
+\end_inset
+
+.
+ Suppose 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ has rotational invariance, and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\hat{\gamma'}(\mathbf{k},\boldsymbol{\omega}_{1})=\sum_{m\chi\mu}f_{m}\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Compare to (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gamma-projection.2F"
+
+\end_inset
+
+), we have:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})=\sum_{\mu'}\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})R_{\mu'\chi}^{m}(\hat{\mathbf{k}})\label{eq:gamma-p.2F}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Idem.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Delta\hat{\rho}_{\underline{\nu'}\underline{\nu}}^{n}(\mathbf{k})=\sum_{\chi}\Delta\hat{\rho'}_{\chi\underline{\nu}}^{n}(\mathbf{k})R_{\underline{\nu'}\chi}^{n*}(\hat{\mathbf{k}})=\sum_{\chi}\Delta\hat{\rho'}_{\chi\underline{\nu}}^{n}(\mathbf{k})\left(-\right){}^{\chi+\nu'}R_{\nu'\underline{\chi}}^{n}(\hat{\mathbf{k}})\label{eq:rho-p.2F}
+\end{equation}
+
+\end_inset
+
+as the symmetry (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:symm-gsh.2F"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+As there is an equivalence of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation and the gradient 
+\begin_inset Formula $\gamma$
+\end_inset
+
+, we can be inspired by Blum's reduction of the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Blum_II"
+
+\end_inset
+
+ by proposing
+\begin_inset Formula 
+\begin{equation}
+\hat{c}_{\mu\nu}^{mnl}(k)=\left(2l+1\right)\sum_{\chi}\left(\begin{array}{ccc}
+m & n & l\\
+\chi & -\chi & 0
+\end{array}\right)\hat{c'}_{\mu\nu,\chi}^{mn}(k)\label{eq:c-p.2F}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus replace (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gamma-p.2F"
+
+\end_inset
+
+) by (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:im.2F"
+
+\end_inset
+
+), gives
+\begin_inset Formula 
+\begin{eqnarray}
+ &  & \hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})\nonumber \\
+ & = & \sum_{\mu'}\left[\sum_{nl\nu}\hat{c}_{\mu\nu}^{mnl}(k)\sum_{\nu'\lambda'}\left(-\right){}^{\nu'+\nu}\Delta\hat{\rho}_{\underline{\nu'}\underline{\nu}}^{n}(\mathbf{k})\left(\begin{array}{ccc}
+m & n & l\\
+\mu' & \nu' & \lambda'
+\end{array}\right)R_{\lambda'0}^{l}(\hat{\mathbf{k}})\right]R_{\mu'\chi}^{m}(\hat{\mathbf{k}})\nonumber \\
+ & = & \sum_{nl\nu}\hat{c}_{\mu\nu}^{mnl}(k)\sum_{\mu'\nu'\lambda'}\left(-\right){}^{\nu'+\nu}\Delta\hat{\rho}_{\underline{\nu'}\underline{\nu}}^{n}(\mathbf{k})\left(\begin{array}{ccc}
+m & n & l\\
+\mu' & \nu' & \lambda'
+\end{array}\right)R_{\lambda'0}^{l}(\hat{\mathbf{k}})R_{\mu'\chi}^{m}(\hat{\mathbf{k}})
+\end{eqnarray}
+
+\end_inset
+
+then by eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:rho-p.2F"
+
+\end_inset
+
+):
+\begin_inset Formula 
+\begin{eqnarray}
+\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k}) & = & \sum_{nl\nu}\hat{c}_{\mu\nu}^{mnl}(k)\sum_{\mu'\nu'\lambda'}\left[\sum_{\chi'}\Delta\hat{\rho'}_{\chi'\underline{\nu}}^{n}(\mathbf{k})\left(-\right){}^{\chi'+\nu}R_{\nu'\underline{\chi'}}^{n}(\hat{\mathbf{k}})\right]\nonumber \\
+ &  & \times\left(\begin{array}{ccc}
+m & n & l\\
+\mu' & \nu' & \lambda'
+\end{array}\right)R_{\lambda'0}^{l}(\hat{\mathbf{k}})R_{\mu'\chi}^{m}(\hat{\mathbf{k}})\nonumber \\
+ & = & \sum_{nl\nu}\hat{c}_{\mu\nu}^{mnl}(k)\sum_{\chi'}\Delta\hat{\rho'}_{\chi'\underline{\nu}}^{n}(\mathbf{k})\left(-\right){}^{\chi'+\nu}\label{eq:gamma-xxx.2F}\\
+ &  & \times\left[\sum_{\mu'\nu'\lambda'}\left(\begin{array}{ccc}
+m & n & l\\
+\mu' & \nu' & \lambda'
+\end{array}\right)R_{\lambda'0}^{l}(\hat{\mathbf{k}})R_{\mu'\chi}^{m}(\hat{\mathbf{k}})R_{\nu'\underline{\chi'}}^{n}(\hat{\mathbf{k}})\right]\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Gubbins eq.
+ (A.91) gives the symmetry relation:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\sum_{\mu'\nu'\lambda'}\left(\begin{array}{ccc}
+m & n & l\\
+\mu' & \nu' & \lambda'
+\end{array}\right)R_{\mu',\chi}^{m}(\hat{\mathbf{k}})R_{\nu'\underline{\chi'}}^{n}(\hat{\mathbf{k}})R_{\lambda'0}^{l}(\hat{\mathbf{k}})=\left(\begin{array}{ccc}
+m & n & l\\
+\chi & -\chi' & 0
+\end{array}\right)\label{eq:gg.a91.2F}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus with eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:c-p.2F"
+
+\end_inset
+
+), eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gamma-xxx.2F"
+
+\end_inset
+
+) becomes
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k}) & = & \sum_{nl\nu}\left(2l+1\right)\sum_{\chi'\chi''}\left(-\right){}^{\chi'+\nu}\left(\begin{array}{ccc}
+m & n & l\\
+\chi'' & -\chi'' & 0
+\end{array}\right)\left(\begin{array}{ccc}
+m & n & l\\
+\chi & -\chi' & 0
+\end{array}\right)\label{eq:gamma-xxx-1.2F}\\
+ &  & \times\hat{c'}_{\mu\nu,\chi''}^{mn}(k)\Delta\hat{\rho'}_{\chi'\underline{\nu}}^{n}(\mathbf{k})\nonumber \\
+ & = & \sum_{n\nu}\left(2l+1\right)\sum_{\chi'\chi''}\left(-\right){}^{\chi'+\nu}\hat{c'}_{\mu\nu,\chi''}^{mn}(k)\Delta\hat{\rho'}_{\chi'\underline{\nu}}^{n}(\mathbf{k})\\
+ &  & \times\left[\sum_{l}\left(\begin{array}{ccc}
+m & n & l\\
+\chi'' & -\chi'' & 0
+\end{array}\right)\left(\begin{array}{ccc}
+m & n & l\\
+\chi & -\chi' & 0
+\end{array}\right)\right]\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As the 3-j symbols possess the symmetry 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Messiah"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\sum_{l}\left(\begin{array}{ccc}
+m & n & l\\
+\chi'' & -\chi'' & 0
+\end{array}\right)\left(\begin{array}{ccc}
+m & n & l\\
+\chi & -\chi' & 0
+\end{array}\right)=\left(2l+1\right)^{-1}\delta_{\chi''\chi}\delta_{\chi''\chi'}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gamma-xxx-1.2F"
+
+\end_inset
+
+) becomes
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})=\sum_{n\nu}\left(-\right){}^{\chi+\nu}\hat{c'}_{\mu\nu,\chi}^{mn}(k)\Delta\hat{\rho'}_{\chi\underline{\nu}}^{n}(\mathbf{k})\label{eq:gamma-xxx-1-1.2F}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this way, the integral of the angular part in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gamma-1.2F"
+
+\end_inset
+
+) is reduced to a sum a few terms.
+\end_layout
+
+\end_body
+\end_document

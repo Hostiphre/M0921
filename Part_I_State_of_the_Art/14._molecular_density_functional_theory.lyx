@@ -546,7 +546,7 @@ used to regenerate elements of
 \begin_inset Formula $X_{j}$
 \end_inset
 
- issue from the corresponding backward transform is purely real.
+ issued from the corresponding backward transform is purely real.
  
 \end_layout
 
@@ -593,7 +593,7 @@ acs{FFT}
 \begin_inset Formula $k$
 \end_inset
 
--space issue from such definition with its conjugate form.
+-space issued from such definition with its conjugate form.
 \end_layout
 
 \end_body

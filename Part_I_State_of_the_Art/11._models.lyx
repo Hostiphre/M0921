@@ -603,7 +603,7 @@ If the solvent is ionic, the Poisson equation can be modified by taking
  i.e.,
 \begin_inset Formula 
 \begin{equation}
-\rho_{\mathrm{tot}}(\mathbf{r})=\rho_{q}(\mathbf{r})+2qn_{\mathrm{ion}}\sinh(\frac{q}{k_{\mathrm{B}}T}V_{\mathrm{elec}}(\mathbf{r}))
+\rho_{\mathrm{tot}}(\mathbf{r})=\rho_{q}(\mathbf{r})-2qn_{\mathrm{ion}}\sinh(\frac{q}{k_{\mathrm{B}}T}V_{\mathrm{elec}}(\mathbf{r}))
 \end{equation}
 
 \end_inset
@@ -632,7 +632,7 @@ reference "eq:poisson"
 ) leads to the Poisson-Boltzmann Equation:
 \begin_inset Formula 
 \begin{equation}
-\nabla\cdot(\varepsilon(\mathbf{r})\nabla V_{\mathrm{elec}}(\mathbf{r}))-\dfrac{qn_{\mathrm{ion}}}{\varepsilon_{0}}\sinh\left(\dfrac{qV_{\mathrm{elec}}(\mathbf{r})}{k_{\mathrm{B}}T}\right)=-\dfrac{\rho(\mathbf{r})}{\varepsilon_{0}}
+\nabla\cdot(\varepsilon(\mathbf{r})\nabla V_{\mathrm{elec}}(\mathbf{r}))-\dfrac{2qn_{\mathrm{ion}}}{\varepsilon_{0}}\sinh\left(\dfrac{qV_{\mathrm{elec}}(\mathbf{r})}{k_{\mathrm{B}}T}\right)=-\dfrac{\rho(\mathbf{r})}{\varepsilon_{0}}
 \end{equation}
 
 \end_inset

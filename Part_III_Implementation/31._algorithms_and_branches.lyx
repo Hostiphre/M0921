@@ -287,6 +287,31 @@ reference "fig:Possible-algorithms"
 \end_inset
 
 .
+ We recall here that 
+\begin_inset Formula $\mathbf{\Omega}$
+\end_inset
+
+ and 
+\begin_inset Formula $f_{\mu\nu}^{m}$
+\end_inset
+
+ refers to orientations in the laboratory frame whereas 
+\begin_inset Formula $\boldsymbol{\omega}$
+\end_inset
+
+ and 
+\begin_inset Formula ${f'}_{\mu\nu}^{m}$
+\end_inset
+
+ refers to orientations in intermolecular frame (axis 
+\begin_inset Formula $\overrightarrow{Oz}$
+\end_inset
+
+ in the direction of 
+\begin_inset Formula $\mathbf{k}$
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
@@ -350,8 +375,6 @@ reference "tab:Branch-option"
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 \begin_inset Float table
 placement H
 wide false
@@ -698,7 +721,7 @@ use
 \begin_inset Formula $\hat{c}_{D}$
 \end_inset
 
- issue from 
+ issued from 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "zhao_accurate_2013"
@@ -769,7 +792,7 @@ use
 \begin_inset Formula $\hat{c}^{011}$
 \end_inset
 
- issue from 
+ issued from 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "puibasset_bridge_2012"
@@ -979,8 +1002,6 @@ reference "chpt:algorithms-and-branches"
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -1220,6 +1241,93 @@ naive
 
 , i.e.
  zero order.
+\end_layout
+
+\begin_layout Standard
+It should be noticed that although the intermolecular form of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ (function or projections) is used in every branch 
+\family typewriter
+\series bold
+naive
+\family default
+\series default
+, the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ in laboratory form 
+\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
+\end_inset
+
+ is needed to be calculated.
+ To exactly take the path
+\begin_inset Formula 
+\[
+\left(b\right)\shortrightarrow\left(e\right)\shortrightarrow\left(i\right)\shortrightarrow\left(m\right)\shortrightarrow\left(p\right)
+\]
+
+\end_inset
+
+with 
+\begin_inset Formula $(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
+\end_inset
+
+ numbers of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FE}
+\end_layout
+
+\end_inset
+
+ for 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation, the density variable 
+\begin_inset Formula $\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega})$
+\end_inset
+
+ should be interpolated on 
+\begin_inset Formula $\Delta\hat{\rho}(\mathbf{k},\boldsymbol{\omega})$
+\end_inset
+
+, which seems not to be a wise choice.
 \end_layout
 
 \begin_layout Section

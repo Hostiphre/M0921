@@ -1069,7 +1069,20 @@ acs{MDFT}
 
 \begin_layout Standard
 Chapter II presents all the theory developed and newly used in this thesis.
- Two algorithms for the excess energy functional evaluation are proposed.
+ Two algorithms for the excess energy functional evaluation under 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HRF}
+\end_layout
+
+\end_inset
+
+ approximation are proposed.
  One is an extension of the previous algorithm which could be applied to
  only linear solvents (or linearized molecular solvents), to a full 3D molecular
  solvent case; while the other is a new algorithm that integrates the molecular
@@ -1141,7 +1154,7 @@ efficiency
 \end_layout
 
 \begin_layout Standard
-Chapter IV gives applications to ions and molecules.
+Chapter IV gives applications to some LJ centers, ions and molecules.
  Some works that remain unachieved are put in the perspectives.
 \end_layout
 

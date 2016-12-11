@@ -152,9 +152,9 @@ acs{FGSHT}
  by the computing capacity nowadays.
  This section works on all the possible effects and parameters that have
  an influence to the accuracy, e.g.
- the usage of different algorithms, or different discretizing parameters;
- and the goal of this study is to determine in which conditions the errors
- can be regarded as negligible, thus gives a global view of the credibility
+ the usage of different algorithms, or different discretizing parameters.
+ The goal of this study is to determine in which conditions the errors can
+ be regarded as negligible; it thus gives a global view of the credibility
  for the results given by this code.
 \end_layout
 
@@ -373,7 +373,7 @@ status open
 \begin_inset Formula $m_{\max}\geq n_{\max}$
 \end_inset
 
- is needed to ensure the absence of accuracy lost.
+ is needed to ensure the absence of accuracy loss.
 \end_layout
 
 \begin_layout Standard
@@ -423,7 +423,7 @@ acs{FFT}
 
 \end_inset
 
- process leads to strictly no accuracy lost (at machine precision, approximative
+ process leads to strictly no accuracy loss (at machine precision, approximative
 ly 
 \begin_inset Formula $10^{-13}$
 \end_inset
@@ -556,11 +556,11 @@ reference "tab:error-gsh"
 
 \end_inset
 
- we can see, as function 
+ we can see that for function 
 \begin_inset Formula $f(\mathbf{\Omega})=1=R_{00}^{0}$
 \end_inset
 
-, it should verify 
+, 
 \begin_inset Formula $m_{\max}\geq0$
 \end_inset
 
@@ -572,8 +572,8 @@ reference "tab:error-gsh"
 \begin_inset Formula $m_{\max}\geq n_{\max}$
 \end_inset
 
- to have a null difference.
- The same, function 
+ give a null difference.
+ Similarly, function 
 \begin_inset Formula $f(\mathbf{\Omega})=\cos3\Theta=4\cos^{3}\Theta-3\cos\Theta$
 \end_inset
 
@@ -585,11 +585,11 @@ reference "tab:error-gsh"
 \begin_inset Formula $R_{00}^{3}$
 \end_inset
 
- term and 
+ and 
 \begin_inset Formula $R_{00}^{1}$
 \end_inset
 
- term; it should satisfy 
+ terms; it should satisfy 
 \begin_inset Formula $m_{\max}\geq n_{\max}\geq3$
 \end_inset
 
@@ -616,7 +616,7 @@ acs{GSH}
 \end_inset
 
 s.
- In fact, for all the functions in which the order of 
+ In fact, all the functions in which the order of 
 \begin_inset Formula $\cos\Phi$
 \end_inset
 
@@ -628,7 +628,7 @@ s.
 \begin_inset Formula $\cos\Theta$
 \end_inset
 
-, it cannot be expanded on a finite number of 
+ cannot be expanded on a finite number of 
 \begin_inset ERT
 status open
 
@@ -642,12 +642,11 @@ acs{GSH}
 \end_inset
 
 s.
- The 
+ 
 \begin_inset Formula $R_{30}^{3}$
 \end_inset
 
- itself is an expansion on itself, thus a polynomial of order 3 requiring
- 
+ can expanded on itself, and indeed a polynomial of order 3 requiring 
 \begin_inset Formula $m_{\max}\geq n_{\max}\geq3$
 \end_inset
 
@@ -663,7 +662,7 @@ We can see that, all the
 \begin_inset Formula $m_{\max}<n_{\max}$
 \end_inset
 
- is horrible, and fortunately we use only 
+ is are rather large, and fortunately we use only 
 \begin_inset Formula $m_{\max}\geq n_{\max}$
 \end_inset
 
@@ -680,7 +679,7 @@ acs{FGSHT}
 
 \end_inset
 
- for numerical reason.
+ for numerical reasons.
  Yet the 
 \begin_inset Formula $E_{a}^{\mathrm{max}}$
 \end_inset
@@ -689,7 +688,7 @@ acs{FGSHT}
 \begin_inset Formula $m_{\max}\geq n_{\max}$
 \end_inset
 
- is not negligible neither, knowing that the values of trigonometric functions
+ may not be negligle either, knowing that the values of trigonometric functions
  are in between 
 \begin_inset Formula $\left[-1,1\right]$
 \end_inset
@@ -697,7 +696,7 @@ acs{FGSHT}
 .
  However, if the most portion of the function is a polynomial within the
  required order, the extra part does not play a great role, such that the
- total mean error is not as mush as seen now.
+ total mean error is not as significant as seen now.
  
 \end_layout
 
@@ -714,7 +713,7 @@ From
 \end_layout
 
 \begin_layout Standard
-The same way, the maximum absolute error of the density variable 
+In the same way, the maximum absolute error of the density variable 
 \begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
 \end_inset
 
@@ -3612,7 +3611,14 @@ name "fig:rho.proj5Ind"
 
 \end_inset
 
-We observe that the first peaks of projections of higher order are still
+In figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rho.proj5Ind"
+
+\end_inset
+
+, we observe that the first peaks of projections of higher order are still
  non-negligible.
  That gives the tendency in figure 
 \begin_inset CommandInset ref
@@ -3630,15 +3636,15 @@ reference "fig:unphysical-rho"
 \begin_inset Formula $\rho$
 \end_inset
 
- is zero; then the more negative projections are add on to the combined
+ is zero; when the more negative projections are added on to the combined
  function, this error will go to negative.
  The minimum will have a tendency to converge only if the order of projections
  are above the current order 5.
 \end_layout
 
 \begin_layout Standard
-That means within the computing capacity, we cannot rightly expand the density
- 
+That means within the computing capacity, we cannot correctly expand the
+ density 
 \begin_inset Formula $\rho$
 \end_inset
 
@@ -3705,7 +3711,7 @@ acs{GSH}
 \end_inset
 
 s and rotational invariants.
- Therefore, the higher order terms vanishes more easily in 
+ Therefore, the higher order terms vanish more easily in 
 \begin_inset Formula $\hat{\gamma}$
 \end_inset
 
@@ -3730,7 +3736,7 @@ reference "fig:gamma.proj5Ind"
 \end_inset
 
  is much stronger than the terms of 
-\begin_inset Formula $n_{\max}=3,4,5$
+\begin_inset Formula $n=3,4,5$
 \end_inset
 
 .
@@ -3848,7 +3854,8 @@ acs{DCF}
 
 \end_inset
 
- is used, in the condition that the error due to discretization is not fatal.
+ is used, under the condition that the error due to discretization is not
+ fatal.
  The most direct comparison can be done with the free energy and structure
  obtained in the end of minimization.
  To be more strict, it is also worthwhile to study only the 
@@ -3876,7 +3883,7 @@ reference "fig:Possible-algorithms"
 \end_layout
 
 \begin_layout Subsection
-Significant digits from minimization
+Difference in energy evaluation
 \end_layout
 
 \begin_layout Standard
@@ -4233,10 +4240,6 @@ name "tab:conv_criteria"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsection
-Difference in energy evaluation
 \end_layout
 
 \begin_layout Standard
@@ -7690,7 +7693,7 @@ name "fig:ch4_nmax1_new"
 \end_layout
 
 \begin_layout Standard
-The collections of the raw results issue directly from the code MDFT are
+The collections of the raw results issued directly from the code MDFT are
  shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -9386,7 +9389,7 @@ reference "tab:Free-energy-of-mnmax"
 \end_inset
 
 .
- Three types of energy are listed: the results issue from 
+ Three types of energy are listed: the results issued from 
 \begin_inset ERT
 status open
 

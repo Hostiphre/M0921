@@ -517,7 +517,15 @@ reference "eq:c-projection"
 
 \end_inset
 
-), which gives:
+), which gives (here we omit the detailed demonstration for simplicity,
+ which is put in appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:deduction_blum"
+
+\end_inset
+
+):
 \begin_inset Formula 
 \begin{equation}
 \hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})=\sum_{nl\nu}\hat{c}_{\mu\nu}^{mnl}(k)\sum_{\nu'\lambda'}\left(-\right){}^{\nu'+\nu}\Delta\hat{\rho}_{\underline{\nu'}\underline{\nu}}^{n}(\mathbf{k})\left(\begin{array}{ccc}
@@ -908,11 +916,11 @@ acs{OZ}
 \end_layout
 
 \begin_layout Standard
-If we take 
-\begin_inset Formula $\hat{c'}_{\nu\mu,\chi}^{nm}(k)$
+If we consider the solute is the same as solvent, and take 
+\begin_inset Formula $\hat{c'}_{\nu\mu,\underline{\chi}}^{nm}(k)$
 \end_inset
 
- instead of 
+ in the place of 
 \begin_inset Formula $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$
 \end_inset
 
@@ -935,7 +943,7 @@ reference "eq:Blum-reduced-OZ"
 ), as:
 \begin_inset Formula 
 \begin{equation}
-\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})=\sum_{l\lambda}\hat{\gamma'}_{\lambda\mu,\chi}^{lm}(k)R_{\underline{\chi}\lambda}^{l}(\boldsymbol{\omega})
+\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})=\sum_{l\lambda}f^{l}\hat{\gamma'}_{\lambda\mu,\underline{\chi}}^{lm}(k)R_{\underline{\chi}\lambda}^{l}(\hat{\mathbf{k}})
 \end{equation}
 
 \end_inset
@@ -943,7 +951,7 @@ reference "eq:Blum-reduced-OZ"
 
 \begin_inset Formula 
 \begin{equation}
-\hat{\rho'}_{\chi\underline{\nu}}^{n}(\mathbf{k})=\sum_{l\lambda}\Delta\hat{\rho'}_{\lambda\underline{\nu},\chi}^{ln}(k)R_{\underline{\chi}\lambda}^{l}(\boldsymbol{\omega})
+\hat{\rho'}_{\chi\underline{\nu}}^{n}(\mathbf{k})=\sum_{l\lambda}f^{l}\Delta\hat{\rho'}_{\lambda\underline{\nu},\underline{\chi}}^{ln}(k)R_{\underline{\chi}\lambda}^{l}(\hat{\mathbf{k}})
 \end{equation}
 
 \end_inset
@@ -952,45 +960,29 @@ according to the rotational invariant transform in eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:local_backward"
+reference "eq:local-forward"
 
 \end_inset
 
 ).
- 
+ In fact, 
 \color red
-The inversion of indices may come from different convention that 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{IET}
-\end_layout
+it can be proven that:
+\begin_inset Formula 
+\begin{equation}
+\hat{c'}_{\nu\mu,\underline{\chi}}^{nm}(k)=\hat{c'}_{\mu\nu,\chi}^{mn*}(k)
+\end{equation}
 
 \end_inset
 
- and 
-\begin_inset ERT
-status open
 
-\begin_layout Plain Layout
-
-
-\backslash
-acs{MDFT}
-\end_layout
-
-\end_inset
-
- use.
+\color inherit
+The incompatibility in the conjugate is yet to be understand.
  In the code, when we use the 
 \begin_inset Formula $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$
 \end_inset
 
- issue from 
+ issued from 
 \begin_inset ERT
 status open
 
@@ -1003,12 +995,51 @@ acs{IET}
 
 \end_inset
 
-, we simply take the conjugate form as 
-\begin_inset Formula $\hat{c'}_{\nu\mu,\chi}^{nm}(k)=\hat{c'}_{\mu\nu,\underline{\chi}}^{mn*}(k)$
+, we also need to take its conjugate to obtain the same result as 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
 \end_inset
 
- for water...
- (There is more problem.)
+.
+ Note that the demonstration from eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gamma-projection"
+
+\end_inset
+
+) to eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gamma-blum"
+
+\end_inset
+
+) does not contain any incompatibility, it only occurs in the comparison
+ with the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+ formalism for homogeneous liquids.
 \end_layout
 
 \begin_layout Standard
@@ -1134,7 +1165,7 @@ acs{OZ}
 
 \begin_layout Standard
 \begin_inset Float table
-placement h
+placement t
 wide false
 sideways false
 status open
@@ -1148,7 +1179,7 @@ status open
 
 
 \backslash
-hspace{-4.5em} 
+hspace{0em} 
 \end_layout
 
 \end_inset
@@ -1161,7 +1192,7 @@ has_inner_box 1
 inner_pos "t"
 use_parbox 0
 use_makebox 0
-width "110col%"
+width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
@@ -1184,13 +1215,13 @@ status open
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<row topspace="-0.17em">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 \begin_inset Formula $m_{\mathrm{max}}$
 \end_inset
 
@@ -1199,80 +1230,80 @@ status open
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 1
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 2
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 3
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 4
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 5
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+<row topspace="-0.33em">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 \begin_inset Formula $N_{\Theta}$
 \end_inset
 
@@ -1281,80 +1312,80 @@ status open
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 1
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 2
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 3
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 4
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 5
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 6
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
+<row topspace="-0.33em">
 <cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 \begin_inset Formula $N_{\mathrm{ang}}$
 \end_inset
 
@@ -1368,7 +1399,7 @@ status open
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 1 (1)
 \end_layout
 
@@ -1379,7 +1410,7 @@ status open
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 18 (6)
 \end_layout
 
@@ -1390,7 +1421,7 @@ status open
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 75 (45)
 \end_layout
 
@@ -1401,7 +1432,7 @@ status open
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 196 (84)
 \end_layout
 
@@ -1412,7 +1443,7 @@ status open
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 405 (225)
 \end_layout
 
@@ -1423,20 +1454,20 @@ status open
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 726 (330)
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
+<row topspace="-0.33em">
 <cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 \begin_inset Formula $N_{\mathrm{ang}}$
 \end_inset
 
@@ -1454,7 +1485,7 @@ status open
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 1 (1)
 \end_layout
 
@@ -1465,7 +1496,7 @@ status open
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 18 (6)
 \end_layout
 
@@ -1476,7 +1507,7 @@ status open
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 70 (42)
 \end_layout
 
@@ -1487,7 +1518,7 @@ status open
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 182 (78)
 \end_layout
 
@@ -1498,7 +1529,7 @@ status open
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 342 (190)
 \end_layout
 
@@ -1509,20 +1540,20 @@ status open
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 550 (250)
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
+<row topspace="-0.33em">
 <cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 \begin_inset Formula $N_{\mathrm{proj}}$
 \end_inset
 
@@ -1536,7 +1567,7 @@ status open
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 1 (1)
 \end_layout
 
@@ -1547,7 +1578,7 @@ status open
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 10 (4)
 \end_layout
 
@@ -1558,7 +1589,7 @@ status open
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 35 (19)
 \end_layout
 
@@ -1569,7 +1600,7 @@ status open
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 84 (40)
 \end_layout
 
@@ -1580,7 +1611,7 @@ status open
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 165 (85)
 \end_layout
 
@@ -1591,20 +1622,20 @@ status open
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 286 (140)
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
+<row topspace="-0.33em">
 <cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 FE for eq.
  (
 \begin_inset CommandInset ref
@@ -1623,7 +1654,7 @@ reference "eq:gamma-k"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 1 (1)
 \end_layout
 
@@ -1634,7 +1665,7 @@ reference "eq:gamma-k"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 324 (36)
 \end_layout
 
@@ -1645,7 +1676,7 @@ reference "eq:gamma-k"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 5625 (2025)
 \end_layout
 
@@ -1656,7 +1687,7 @@ reference "eq:gamma-k"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 38416 (7056)
 \end_layout
 
@@ -1667,7 +1698,7 @@ reference "eq:gamma-k"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 164025 (50625)
 \end_layout
 
@@ -1678,20 +1709,20 @@ reference "eq:gamma-k"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 527076 (108900)
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
+<row topspace="-0.33em">
 <cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 FE for eq.
  (
 \begin_inset CommandInset ref
@@ -1710,7 +1741,7 @@ reference "eq:im"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 1 (1)
 \end_layout
 
@@ -1721,7 +1752,7 @@ reference "eq:im"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 262 (34)
 \end_layout
 
@@ -1732,7 +1763,7 @@ reference "eq:im"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 4787 (1459)
 \end_layout
 
@@ -1743,7 +1774,7 @@ reference "eq:im"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 36588 (8116)
 \end_layout
 
@@ -1754,7 +1785,7 @@ reference "eq:im"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 175989 (47221)
 \end_layout
 
@@ -1765,20 +1796,20 @@ reference "eq:im"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 633490 (150566)
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
+<row topspace="-0.33em">
 <cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 FE for eq.
  (
 \begin_inset CommandInset ref
@@ -1797,7 +1828,7 @@ reference "eq:gamma-blum"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 1 (1)
 \end_layout
 
@@ -1808,7 +1839,7 @@ reference "eq:gamma-blum"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 34 (6)
 \end_layout
 
@@ -1819,7 +1850,7 @@ reference "eq:gamma-blum"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 259 (75)
 \end_layout
 
@@ -1830,7 +1861,7 @@ reference "eq:gamma-blum"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 1092 (252)
 \end_layout
 
@@ -1841,7 +1872,7 @@ reference "eq:gamma-blum"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 3333 (877)
 \end_layout
 
@@ -1852,7 +1883,7 @@ reference "eq:gamma-blum"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 8294 (2002)
 \end_layout
 
@@ -3313,7 +3344,7 @@ key "FFTW3"
 
 \end_inset
 
-, mathematically leading to no accuracy lost;
+, mathematically leading to no accuracy loss;
 \end_layout
 
 \begin_layout Enumerate
@@ -3897,9 +3928,9 @@ key "Blum_I"
 
 :
 \begin_inset Formula 
-\[
+\begin{equation}
 \hat{c}_{\mu\nu}^{mnl}(k)=\left(-\right)^{m+n+\mu+\nu}\hat{c}_{\underline{\mu}\underline{\nu}}^{mnl*}(k)
-\]
+\end{equation}
 
 \end_inset
 
@@ -3999,11 +4030,19 @@ acs{OZ}
  (
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:sym-invar1"
+reference "eq:rot-invar-symm-k-chi"
 
 \end_inset
 
-).
+):
+\begin_inset Formula 
+\begin{equation}
+\hat{c}_{\mu\nu,\chi}^{mn}(k)=\left(-\right)^{m+n+\mu+\nu}\hat{c}_{\underline{\mu}\underline{\nu},\chi}^{mn*}(k)
+\end{equation}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

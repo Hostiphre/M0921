@@ -520,7 +520,7 @@ The symmetries of
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-R_{-m,-m'}^{l}=\left(-1\right)^{m+m'}R_{mm'}^{l*}
+R_{\underline{m}\underline{m'}}^{l}=\left(-1\right)^{m+m'}R_{mm'}^{l*}
 \end{equation}
 
 \end_inset
@@ -531,7 +531,7 @@ which gives
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-F_{-m,-m'}^{l}=\left(-1\right)^{m+m'}F_{mm'}^{l}
+F_{\underline{m}\underline{m'}}^{l}=\left(-1\right)^{m+m'}F_{mm'}^{l}
 \end{equation}
 
 \end_inset
@@ -539,7 +539,7 @@ F_{-m,-m'}^{l}=\left(-1\right)^{m+m'}F_{mm'}^{l}
 
 \begin_inset Formula 
 \begin{equation}
-G_{-m,-m'}^{l}=-\left(-1\right)^{m+m'}G_{mm'}^{l}
+G_{\underline{m}\underline{m'}}^{l}=-\left(-1\right)^{m+m'}G_{mm'}^{l}
 \end{equation}
 
 \end_inset

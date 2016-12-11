@@ -509,7 +509,7 @@ reference "eq:definition_rot_invar"
 \Phi_{\mu\nu}^{mnl}(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},0)=\sum_{\chi}\left(\begin{array}{ccc}
 m & n & l\\
 \chi & -\chi & 0
-\end{array}\right)f^{m}f^{n}R_{\chi,\mu}^{m}(\boldsymbol{\omega}_{1})R_{-\chi,\nu}^{n}(\boldsymbol{\omega}_{2})\label{eq:phi_local}
+\end{array}\right)f^{m}f^{n}R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})R_{\underline{\chi}\nu}^{n}(\boldsymbol{\omega}_{2})\label{eq:phi_local}
 \end{equation}
 
 \end_inset
@@ -533,7 +533,7 @@ F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r) & = & \sum_{mnl\mu\nu}F_{\m
  & = & \sum_{mnl\mu\nu}F_{\mu\nu}^{mnl}(r)f^{m}f^{n}\sum_{\chi}\left(\begin{array}{ccc}
 m & n & l\\
 \chi & -\chi & 0
-\end{array}\right)R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})R_{-\chi\nu}^{n}(\boldsymbol{\omega}_{2})\label{eq:eq_total_local}
+\end{array}\right)R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})R_{\underline{\chi}\nu}^{n}(\boldsymbol{\omega}_{2})\label{eq:eq_total_local}
 \end{eqnarray}
 
 \end_inset
@@ -546,7 +546,7 @@ F_{\mu\nu}^{mnl}(r) & = & \int\mathrm{d}\boldsymbol{\omega}_{1}\mathrm{d}\boldsy
 m & n & l\\
 \chi & -\chi & 0
 \end{array}\right)\times\nonumber \\
- &  & \int\mathrm{d}\boldsymbol{\omega}_{1}R_{\chi\mu}^{m*}(\boldsymbol{\omega}_{1})\int\mathrm{d}\boldsymbol{\omega}_{2}R_{-\chi\nu}^{n*}(\boldsymbol{\omega}_{2})F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)
+ &  & \int\mathrm{d}\boldsymbol{\omega}_{1}R_{\chi\mu}^{m*}(\boldsymbol{\omega}_{1})\int\mathrm{d}\boldsymbol{\omega}_{2}R_{\underline{\chi}\nu}^{n*}(\boldsymbol{\omega}_{2})F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)
 \end{eqnarray}
 
 \end_inset
@@ -651,8 +651,8 @@ m & n & l\\
  &  & \sum_{\chi}\left(\begin{array}{ccc}
 m & n & l\\
 \chi & -\chi & 0
-\end{array}\right)f^{m}f^{n}R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})R_{-\chi\nu}^{n}(\boldsymbol{\omega}_{2})\nonumber \\
- & = & \sum_{mn\mu\nu}\sum_{\chi'}\sum_{\chi}F_{\mu\nu,\chi'}^{mn}(r)f^{m}f^{n}R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})R_{-\chi\nu}^{n}(\boldsymbol{\omega}_{2})\times\nonumber \\
+\end{array}\right)f^{m}f^{n}R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})R_{\underline{\chi}\nu}^{n}(\boldsymbol{\omega}_{2})\nonumber \\
+ & = & \sum_{mn\mu\nu}\sum_{\chi'}\sum_{\chi}F_{\mu\nu,\chi'}^{mn}(r)f^{m}f^{n}R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})R_{\underline{\chi}\nu}^{n}(\boldsymbol{\omega}_{2})\times\nonumber \\
  &  & \sum_{l}\left(2l+1\right)\left(\begin{array}{ccc}
 m & n & l\\
 \chi' & -\chi' & 0
@@ -685,7 +685,7 @@ m & n & l\\
 we have
 \begin_inset Formula 
 \begin{equation}
-F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)=\sum_{mn\mu\nu\chi}F_{\mu\nu,\chi}^{mn}(r)f^{m}f^{n}R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})R_{-\chi\nu}^{n}(\boldsymbol{\omega}_{2})\label{eq:local-forward}
+F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)=\sum_{mn\mu\nu\chi}F_{\mu\nu,\chi}^{mn}(r)f^{m}f^{n}R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})R_{\underline{\chi}\nu}^{n}(\boldsymbol{\omega}_{2})\label{eq:local-forward}
 \end{equation}
 
 \end_inset
@@ -693,7 +693,7 @@ F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)=\sum_{mn\mu\nu\chi}F_{\mu\n
 and
 \begin_inset Formula 
 \begin{equation}
-F_{\mu\nu,\chi}^{mn}(r)=\int\mathrm{d}\boldsymbol{\omega}_{1}\mathrm{d}\boldsymbol{\omega}_{2}F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)f^{m}f^{n}R_{\chi\mu}^{m*}(\boldsymbol{\omega}_{1})R_{-\chi\nu}^{n*}(\boldsymbol{\omega}_{2})\label{eq:local_backward}
+F_{\mu\nu,\chi}^{mn}(r)=\int\mathrm{d}\boldsymbol{\omega}_{1}\mathrm{d}\boldsymbol{\omega}_{2}F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)f^{m}f^{n}R_{\chi\mu}^{m*}(\boldsymbol{\omega}_{1})R_{\underline{\chi}\nu}^{n*}(\boldsymbol{\omega}_{2})\label{eq:local_backward}
 \end{equation}
 
 \end_inset
@@ -734,7 +734,7 @@ acs{FGSHT}
 ), or being developed into
 \begin_inset Formula 
 \begin{equation}
-F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)=\sum_{mn\mu\nu\chi}F_{\mu\nu,\chi}^{mn}(r)f^{m}f^{n}r_{\chi\mu}^{m}(\theta_{1})r_{-\chi\nu}^{n}(\theta_{2})e^{-i\chi(\phi_{12}\equiv\phi_{1}-\phi_{2})}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}\label{eq:eq_s1_local}
+F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)=\sum_{mn\mu\nu\chi}F_{\mu\nu,\chi}^{mn}(r)f^{m}f^{n}r_{\chi\mu}^{m}(\theta_{1})r_{\underline{\chi}\nu}^{n}(\theta_{2})e^{-i\chi(\phi_{12}\equiv\phi_{1}-\phi_{2})}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}\label{eq:eq_s1_local}
 \end{equation}
 
 \end_inset
@@ -763,7 +763,7 @@ Rotational invariant transform with FFT-3D
 Suppose
 \begin_inset Formula 
 \begin{equation}
-F_{\mu\nu,\chi}^{m}(r,\theta_{2})=\sum_{n}F_{\mu\nu,\chi}^{mn}(r)f^{n}r_{-\chi\nu}^{n}(\theta_{2})
+F_{\mu\nu,\chi}^{m}(r,\theta_{2})=\sum_{n}F_{\mu\nu,\chi}^{mn}(r)f^{n}r_{\underline{\chi}\nu}^{n}(\theta_{2})
 \end{equation}
 
 \end_inset
@@ -783,7 +783,7 @@ F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)=\sum_{m\mu\nu\chi}F_{\mu\nu
 The inverse transform should be
 \begin_inset Formula 
 \begin{equation}
-F_{\mu\nu,\chi}^{mn}(r)=\frac{1}{2}\int\mathrm{d}(\cos\theta_{2})F_{\mu\nu,\chi}^{m}(r,\theta_{2})r_{-\chi\nu}^{n}(\theta_{2})
+F_{\mu\nu,\chi}^{mn}(r)=\frac{1}{2}\int\mathrm{d}(\cos\theta_{2})F_{\mu\nu,\chi}^{m}(r,\theta_{2})r_{\underline{\chi}\nu}^{n}(\theta_{2})
 \end{equation}
 
 \end_inset
@@ -1423,7 +1423,7 @@ key "Blum_I"
  with the definition of Hankel transform,
 \begin_inset Formula 
 \begin{equation}
-\hat{F}_{\mu\nu}^{mnl}(k)=\left(-\right)^{m+n+\mu+\nu}\hat{F}_{\underline{\mu}\underline{\nu}}^{mnl*}(k)
+\hat{F}_{\mu\nu}^{mnl}(k)=\left(-\right)^{m+n+\mu+\nu}\hat{F}_{\underline{\mu}\underline{\nu}}^{mnl*}(k)\label{eq:rot-invar-symm-k-l}
 \end{equation}
 
 \end_inset
@@ -1431,12 +1431,22 @@ key "Blum_I"
 Therefore
 \begin_inset Formula 
 \begin{equation}
-\hat{F}_{\mu\nu,\chi}^{mn}(k)=\left(-\right)^{m+n+\mu+\nu}\hat{F}_{\underline{\mu}\underline{\nu},\chi}^{mn*}(k)
+\hat{F}_{\mu\nu,\chi}^{mn}(k)=\left(-\right)^{m+n+\mu+\nu}\hat{F}_{\underline{\mu}\underline{\nu},\chi}^{mn*}(k)\label{eq:rot-invar-symm-k-chi}
 \end{equation}
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Enumerate
+
+\color red
+(Symmetries on 
+\begin_inset Formula $k$
+\end_inset
+
+ needed.)
 \end_layout
 
 \end_body

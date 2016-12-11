@@ -1825,6 +1825,19 @@ too long
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Timing of loop 
+\begin_inset Formula $k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 Timing [sec] of loop 
 \begin_inset Formula $k$
 \end_inset
@@ -2521,6 +2534,15 @@ Timing of the whole
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Note that this is for an ion solute.
+ 
+\begin_inset Formula $\mathcal{F}_{\mathrm{ext}}$
+\end_inset
+
+ can be very slow if the solute have a very complex form.
 \end_layout
 
 \begin_layout Standard
