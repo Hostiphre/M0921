@@ -1050,12 +1050,12 @@ where
 \end_inset
 
  is the total number of grid points to be counted.
- The curves obtained with this setting are well smooth for LJ centers and
- ions, but for non-spherical solutes, 
+ The curves obtained with this setting are smooth enough for LJ centers
+ and ions, but for non-spherical solutes, 
 \begin_inset Formula $n_{\mathrm{bin}}$
 \end_inset
 
- seems to be too many comparing to the fluctuation of the sample.
+ seems to be too large in view of the fluctuations of the sample.
  In figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1076,7 +1076,7 @@ acs{RDF}
 
 \end_inset
 
- with different resolution parameter for site O of 
+ with different resolution parameter for the site O of the 
 \begin_inset Formula $\mathrm{O_{2}}$
 \end_inset
 
@@ -1187,7 +1187,11 @@ acs{RDF}
 \end_inset
 
  vary from 1 to 8.
- The square box at left is zoomed and smoothed shown in the right box.
+ The square box on the left is zoomed and smoothed 
+\color red
+(with Catmull-Rom spline impcilty used by Excel)
+\color inherit
+, shown in the right box.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:rdf-with-different"
@@ -7394,7 +7398,7 @@ reference "sec:Free-energy-correction"
  From (b) we consider that at least a 3 points grid in 1 dimension (each
  direction) per Angstrom is needed to reduce the uncertainty due to grid
  resolution.
- Figure (c) is also neutral, i.e.
+ The molecule in Figure (c) is neutral (although dipolar), i.e.
  does not need any border correction neither.
  We see that the energy also varies with respect to the box length (with
  direct summation this time), and have the same tendency for different resolutio
@@ -7429,9 +7433,7 @@ n
 \begin_inset Formula $\Psi$
 \end_inset
 
-.
- which does not completely have a tendency to vanish when increasing the
- resolution of grid.
+ which does not completely vanish when increasing the resolution of grid.
  Since during the whole thesis the 
 \begin_inset Formula $\Psi$
 \end_inset
@@ -13262,7 +13264,7 @@ reference "fig:Comparison-co2"
 \begin_inset Formula $m=0$
 \end_inset
 
-, it is well agreed with 
+, they are well agreed with 
 \begin_inset ERT
 status open
 
@@ -13275,7 +13277,53 @@ acs{IET}
 
 \end_inset
 
- results, or have a factor of normalization.
+ results, 
+\color red
+but for the projections with 
+\begin_inset Formula $m=2$
+\end_inset
+
+, a factor of normalization at 
+\begin_inset Formula $\sqrt{3}$
+\end_inset
+
+ appears, which seems to have no reason to exist, as the factor normally
+ linked to 
+\begin_inset Formula $m$
+\end_inset
+
+ is 
+\begin_inset Formula $2m+1$
+\end_inset
+
+ or 
+\begin_inset Formula $\sqrt{2m+1}$
+\end_inset
+
+.
+ The projections for 
+\begin_inset Formula $\mathrm{O_{2}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathrm{N_{2}}$
+\end_inset
+
+ is totally different from 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+ results mainly in the range of first shell, maybe the wrong molecules are
+ used in these two implementations (waiting for Luc's verification).
 \end_layout
 
 \begin_layout Standard
@@ -13392,17 +13440,6 @@ name "fig:Comparison-co2"
 
 \end_layout
 
-\begin_layout Standard
-In figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Comparison-co2"
-
-\end_inset
-
-, 
-\end_layout
-
 \begin_layout Section
 Premier conclusion
 \end_layout
@@ -13421,7 +13458,10 @@ acs{MDFT}
 
 \end_inset
 
- is capable to produce the same result with 
+ is capable to produce the solvation free energy at chemical precision with
+ normal convergence criteria (which gives 2 decimal for a specific spatial
+ and angular grid), which is nearly the same compared to mathematical equivalent
+ 
 \begin_inset ERT
 status open
 
@@ -13434,7 +13474,126 @@ acs{IET}
 
 \end_inset
 
- for LJ centers, single ions and linear solutes.
+ results for LJ centers, single ions and linear solutes.
+ The variance of free energy due to discretization parameters is at chemical
+ precision, i.e.
+ 1 to 2 kJ/mol.
+ To keep this precision, at least 
+\begin_inset Formula $n_{\max}=3$
+\end_inset
+
+ is needed, and the order of quadrature 
+\begin_inset Formula $m_{\max}$
+\end_inset
+
+ has no influence to the energy and structure if it is larger than 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+.
+ This 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+ is far from sufficient to describe the solvent density 
+\begin_inset Formula $\rho$
+\end_inset
+
+, but sufficient for 
+\begin_inset Formula $\gamma$
+\end_inset
+
+.
+ As 
+\begin_inset Formula $\rho$
+\end_inset
+
+ is produced by the minimization, its expansion has no influence to the
+ final result.
+ The different branches produce almost the same result with the same 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+, comparing to the error introduced by spatial grid dependence; while 
+\family typewriter
+\series bold
+naive_interpolation
+\family default
+\series default
+ seems to be a bit more stable compared to 
+\family typewriter
+\series bold
+convolution
+\family default
+\series default
+ methods in terms of convergence for negative molecules, but have an energy
+ shift about 2 kJ/mol for neutral LJ centers.
+ For charged solutes, the two types of free energy corrections mentioned
+ in this thesis are needed.
+\end_layout
+
+\begin_layout Standard
+As for structure, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ can also produce the same result as 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+.
+ It requires about 
+\begin_inset Formula $n_{\max}=4$
+\end_inset
+
+ to have a converged curve of 
+\begin_inset Formula $g(r)$
+\end_inset
+
+ projections.
+ For solutes, we are obliged to use looser sampling rate to have a smooth
+ curve; as the spatial grid is cubic, but not in spherical coordinates as
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+.
  In a general feeling, 
 \begin_inset ERT
 status open
@@ -13448,7 +13607,8 @@ acs{MDFT}
 
 \end_inset
 
- has an advantage to calculate 3D molecules such as DNA, but 
+ has an advantage to produce 3D solvent structures for complicate molecules,
+ but 
 \begin_inset ERT
 status open
 
@@ -13461,79 +13621,12 @@ acs{IET}
 
 \end_inset
 
- is ideal to treat small molecules like 
-\begin_inset Formula $\mathrm{O}_{2}$
+ is ideal to give information about small symmetric molecules using functions
+ with respect to 
+\begin_inset Formula $r$
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-The different branches produce almost the same result with the same 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{DCF}
-\end_layout
-
-\end_inset
-
-; while 
-\family typewriter
-\series bold
-naive_interpolation
-\family default
-\series default
- seems to be a bit more stable compared to 
-\family typewriter
-\series bold
-convolution
-\family default
-\series default
- methods in terms of convergence, but have an energy shift about 2 kJ/mol.
-\end_layout
-
-\begin_layout Standard
-The order of quadrature 
-\begin_inset Formula $m_{\max}$
-\end_inset
-
- has no influence to the energy and structure if it is larger than 
-\begin_inset Formula $n_{\max}$
-\end_inset
-
-, while from 
-\begin_inset Formula $n_{\max}=3$
-\end_inset
-
- the results begin to converge.
-\end_layout
-
-\begin_layout Standard
-The spatial grid and angular grid have both an influence to the final results.
-\end_layout
-
-\begin_layout Standard
-The defeat of 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{MDFT}
-\end_layout
-
-\end_inset
-
- is that for very polar solutes, the grid needed should be very fine, and
- in 3D it is a very huge number, as it treats the same resolution from near
- to far from the solute.
 \end_layout
 
 \end_body

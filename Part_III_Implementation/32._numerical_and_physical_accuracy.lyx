@@ -1050,12 +1050,12 @@ where
 \end_inset
 
  is the total number of grid points to be counted.
- The curves obtained with this setting are well smooth for LJ centers and
- ions, but for non-spherical solutes, 
+ The curves obtained with this setting are smooth enough for LJ centers
+ and ions, but for non-spherical solutes, 
 \begin_inset Formula $n_{\mathrm{bin}}$
 \end_inset
 
- seems to be too many comparing to the fluctuation of the sample.
+ seems to be too large in view of the fluctuations of the sample.
  In figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1076,7 +1076,7 @@ acs{RDF}
 
 \end_inset
 
- with different resolution parameter for site O of 
+ with different resolution parameter for the site O of the 
 \begin_inset Formula $\mathrm{O_{2}}$
 \end_inset
 
@@ -1187,7 +1187,11 @@ acs{RDF}
 \end_inset
 
  vary from 1 to 8.
- The square box at left is zoomed and smoothed shown in the right box.
+ The square box on the left is zoomed and smoothed 
+\color red
+(with Catmull-Rom spline impcilty used by Excel)
+\color inherit
+, shown in the right box.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:rdf-with-different"
@@ -7394,7 +7398,7 @@ reference "sec:Free-energy-correction"
  From (b) we consider that at least a 3 points grid in 1 dimension (each
  direction) per Angstrom is needed to reduce the uncertainty due to grid
  resolution.
- Figure (c) is also neutral, i.e.
+ The molecule in Figure (c) is neutral (although dipolar), i.e.
  does not need any border correction neither.
  We see that the energy also varies with respect to the box length (with
  direct summation this time), and have the same tendency for different resolutio
@@ -7429,14 +7433,13 @@ n
 \begin_inset Formula $\Psi$
 \end_inset
 
-.
- which does not completely have a tendency to vanish when increasing the
- resolution of grid.
+ which does not completely vanish when increasing the resolution of angular
+ grid.
  Since during the whole thesis the 
 \begin_inset Formula $\Psi$
 \end_inset
 
- is theoretically fixed in the same order (as) with 
+ is theoretically fixed by the order of the quadrature in 
 \begin_inset Formula $\Theta$
 \end_inset
 
@@ -7447,8 +7450,8 @@ n
 , this remains an issue for further verification.
  We can roughly conclude that an error around 1-2 kJ/mol is common for this
  code.
- The spatial grid dependence will not be treated in this thesis as it comes
- from other terns of the functional.
+ The spatial grid dependence will not be treated in this thesis as it may
+ come from other terms of the functional.
 \end_layout
 
 \begin_layout Section
@@ -8149,7 +8152,7 @@ Methods and parameters for charged
 \begin_inset Formula $m_{\max}=2$
 \end_inset
 
-), which is mathematically equivalent with Gauss-Legendre quadrature but
+), which is mathematically equivalent to Gauss-Legendre quadrature but requires
  only ˜2/3 angles.
 \begin_inset CommandInset label
 LatexCommand label
@@ -8665,27 +8668,24 @@ acs{IET}
 
 \end_inset
 
- results to be compared are done with 
+ results to be compared were obtained using the 1D-HNC formalism (1 distance,
+ 5 angles) developed by Belloni and collaborators 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "belloni_efficient_2014"
+
+\end_inset
+
+.
+ The calculation were done with a cut-off distance of 
 \begin_inset Formula $R_{\max}=102.4\textrm{Å}$
 \end_inset
 
-, and need a correction of 
+ and an additional Born-like correction of 
 \begin_inset Formula $-2.556k_{\mathrm{B}}T$
 \end_inset
 
  to obtain the free energy in the infinite system.
- 
-\color red
-(
-\begin_inset Quotes eld
-\end_inset
-
-oui! préciser qu'il s'agit de calculs HNC "1D" 1 distance + 5 angles.
-\begin_inset Quotes erd
-\end_inset
-
-: je ne comprends pas...)
-\color inherit
  The difference in free energy between 
 \begin_inset ERT
 status open
@@ -8903,7 +8903,8 @@ acs{DCF}
 
 \end_inset
 
- are not perfectly in agreement with each other, unlike shown in table 
+ are not perfectly in agreement with each other, despite what is shown in
+ table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:free-energy"
@@ -8977,7 +8978,7 @@ acs{IET}
 
 \end_inset
 
- result is yet to understand, as well as the dependence on 
+ result is yet to be understood, as well as the dependence on 
 \begin_inset Formula $q$
 \end_inset
 
@@ -10166,7 +10167,7 @@ acs{OZ}
 \begin_inset Formula $\gamma$
 \end_inset
 
-, in order to economize computing cost.
+, in order to save computing cost.
 \end_layout
 
 \begin_layout Standard
@@ -10231,7 +10232,7 @@ s.
 \end_layout
 
 \begin_layout Standard
-A schema of free energy evaluation with respect to 
+A scheme of free energy evaluation with respect to 
 \begin_inset Formula $n_{\max}$
 \end_inset
 
@@ -10243,8 +10244,8 @@ A schema of free energy evaluation with respect to
 \begin_inset Formula $m_{\max}=n_{\max}$
 \end_inset
 
- have difficulty to converge and if converge they give usually the same
- result) is made in figure 
+ have difficulty to converge and if convergence is achieved they give usually
+ the same result) is made in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Comparison-to-IET,with-corr-nmax"
@@ -10655,8 +10656,8 @@ s for the three charges, as well as their zoomed parts in order to have
 \begin_inset Formula $n_{\max}=4$
 \end_inset
 
- is sufficient for structure to converge for common usages (without regarding
- to higher order projections).
+ is sufficient for the structure to converge (without considering higher
+ order projections).
 \end_layout
 
 \begin_layout Section
@@ -10694,7 +10695,7 @@ reference "fig:Comparison-to-IET,with-corr"
 
 \end_inset
 
-), we calculate complimentarily some other uncharged LJ centers.
+), we have calculated in addition some other uncharged LJ centers.
  
 \begin_inset Float table
 placement h
@@ -11463,12 +11464,12 @@ reference "tab:Free-energy-rare-gas"
 
 \end_inset
 
- shows that this energy shift is common in any uncharged LJ centers; and
+ show that this energy shift is common in any uncharged LJ centers; and
  in these cases, even 
 \begin_inset Formula $n_{\max}=1$
 \end_inset
 
- can satisfy the require of chemical precision.
+ can satisfy the requirement of chemical precision.
 \end_layout
 
 \begin_layout Section
@@ -11520,7 +11521,7 @@ reference "subsec:The-external-term"
 
  always diverges with Poisson method.
  We can make hypothesis that this is because the distance between the charges
- is to short, as shown in figure 
+ is too short, as shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Test-linear-solutes"
@@ -11532,8 +11533,8 @@ reference "fig:Test-linear-solutes"
 \end_inset
 
  evaluation can cause divergence.
- There is a better version of Poisson solver developing in parallel of this
- code, which has been reported to have better convergency.
+ There is a better version of Poisson solver that is developed in parallel
+ of this code, which has been reported to have better convergency.
  We consider that this divergency problem does not come from the evaluation
  of 
 \begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
@@ -12558,7 +12559,7 @@ reference "tab:Free-energy-of-solute"
 \begin_inset Formula $n_{\max}=3$
 \end_inset
 
-, free energy seems to converge, and there is almost no difference between
+, the free energy seems to converge, and there is almost no difference between
  
 \begin_inset Formula $m_{\max}=5$
 \end_inset
@@ -13237,7 +13238,7 @@ name "tab:Free-energy-of-solute"
 \end_layout
 
 \begin_layout Standard
-The structures of solutes are also compared to 
+The solvent structure around the various solutes are also compared to 
 \begin_inset ERT
 status open
 
@@ -13439,11 +13440,14 @@ name "fig:Comparison-co2"
 \end_layout
 
 \begin_layout Section
-Premier conclusion
+First conclusion
 \end_layout
 
 \begin_layout Standard
-From the results, we see that 
+From the above results, the following first conclusions may be drawn:
+\end_layout
+
+\begin_layout Itemize
 \begin_inset ERT
 status open
 
@@ -13533,13 +13537,13 @@ naive_interpolation
 convolution
 \family default
 \series default
- methods in terms of convergence for negative molecules, but have an energy
- shift about 2 kJ/mol for neutral LJ centers.
+ methods in terms of convergence for negative molecules, but exhibits a
+ small an energy shift about 2 kJ/mol for neutral LJ centers.
  For charged solutes, the two types of free energy corrections mentioned
  in this thesis are needed.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 As for structure, 
 \begin_inset ERT
 status open
@@ -13592,7 +13596,7 @@ acs{IET}
 \end_inset
 
 .
- In a general feeling, 
+ Indeed 
 \begin_inset ERT
 status open
 
@@ -13605,8 +13609,8 @@ acs{MDFT}
 
 \end_inset
 
- has an advantage to produce 3D solvent structures for complicate molecules,
- but 
+ has the great advantage to be generalizable to produce 3D solvent structures
+ for complicate molecules, but 
 \begin_inset ERT
 status open
 
@@ -13619,8 +13623,8 @@ acs{IET}
 
 \end_inset
 
- is ideal to give information about small symmetric molecules using functions
- with respect to 
+ is ideal, and much more efficient, to give information about small symmetric
+ molecules using functions with respect to 
 \begin_inset Formula $r$
 \end_inset
 
