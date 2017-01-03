@@ -83,9 +83,9 @@ name "chpt:perspectives"
 \end_layout
 
 \begin_layout Standard
-A great deal of unfinished work and theories linked to this thesis is presented
- here.Polarizable and/or flexible models of solute, and the coupling of a
- QM solute to the molecular solvent, will be described in perspective.
+The work is never perfect, a great deal of unfinished work and theories
+ linked to this thesis is presented here.
+ 
 \end_layout
 
 \begin_layout Section
@@ -195,7 +195,22 @@ acs{MDFT}
 
  uses a homogeneous spatial grid, thus have the same resolution near and
  far from the solute.
- To meet a satisfying result, sometimes a finer resolution is needed.
+ The defeat of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ is that for very polar solutes, the grid needed should be very fine to
+ meet a satisfying result, and in 3D it is a very huge number, as it treats
+ the same resolution from near to far from the solute.
  Another natural way to think about construction of the grid is like in
  
 \begin_inset CommandInset ref
@@ -206,6 +221,12 @@ reference "fig:Site-site-grid-model"
 
 , an spherical grid at each site of solute.
  
+\end_layout
+
+\begin_layout Standard
+
+\color red
+(This part needs more brain)
 \end_layout
 
 \begin_layout Standard
@@ -424,21 +445,51 @@ acs{DCF}
 \end_layout
 
 \begin_layout Section
-Polarizable solute, other improvement of the external term
+Theories out from the HRF approximation part
 \end_layout
 
 \begin_layout Standard
-During the iteration, the 
+In terms of 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+, there can be still development out of HRF approximation, such as 3-body
+ correction.
+\end_layout
+
+\begin_layout Standard
+Apart from the 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ term, there are still many field of study to develop 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+.
+ For example, the evaluation of external potential 
 \begin_inset Formula $V_{\mathrm{ext}}$
 \end_inset
 
- is fixed.
- It can be a variable by adding an extra variable term linked to the dipole
- of solute 
-\begin_inset Formula $\mu_{M}$
+, which poses problems of convergency for molecular solutes, still needs
+ to improve.
+ Note that this part can be also a functional of solvent density, in this
+ case, the solute is polarizable, and the 
+\begin_inset Formula $V_{\mathrm{ext}}$
 \end_inset
 
-, such that this part can be calculated for each iteration, and can be minimized.
+ varies during the minimization.
+ The polarization can be introduced by for example an extra dipole on the
+ solute.
 \end_layout
 
 \begin_layout Section
@@ -453,25 +504,92 @@ This thesis contains originally a segment on visualization.
  GaussViewer is a good example.
 \end_layout
 
-\begin_layout Standard
-The popular language of visualization is c++, OpenDM, ...
-\end_layout
-
-\begin_layout Standard
-The process of MDFT can produce energy and structures for each iteration,
- although it takes time to write down all the possible output.
-\end_layout
-
 \begin_layout Section
-Application to real biological systems
+Application to real biological systems, and entropy
 \end_layout
 
 \begin_layout Standard
-Reinvestigation of the Manganese-oxo 
+From this thesis we can see that 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
 \end_layout
 
-\begin_layout Standard
-This is the case we talked about in the introduction, ...
+\end_inset
+
+ is capable to deal with some small chemical system, but it is still far
+ from satisfied for common usage in the domain of bio-chemistry as a complement
+ of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{QM}
+\end_layout
+
+\end_inset
+
+.
+ For example, for real applications, enthalpy and entropy are also important,
+ as discussed in ref 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Mn-oxo"
+
+\end_inset
+
+.
+ The results of 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Mn-oxo"
+
+\end_inset
+
+ cannot be repeated with 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{QM}
+\end_layout
+
+\end_inset
+
+ calculations using simply continuum model as solvent corrections (research
+ subject of my university diploma), which gives identical tendency of entropy
+ with respect to temperature (in DMSO).
+ In 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+, the 
+\begin_inset Formula $\mathcal{F}_{\mathrm{id}}$
+\end_inset
+
+term gives entropy of information.
+ It is not exactly the same as total entropy as there are also contribution
+ from charge distribution, etc.
 \end_layout
 
 \end_body

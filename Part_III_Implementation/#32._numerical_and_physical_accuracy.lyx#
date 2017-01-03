@@ -1036,7 +1036,8 @@ reference "sec:Solvation-structure"
 \end_inset
 
 ) can have an influence to the shown results.
- Implicitly the number of bins is determined by the Rice rule:
+ Implicitly (without specification) the number of bins is determined by
+ the Rice rule:
 \begin_inset Formula 
 \begin{equation}
 n_{\mathrm{bin}}=2n^{\frac{1}{3}}
@@ -9155,7 +9156,7 @@ Charge
 \end_inset
 </cell>
 </row>
-<row topspace="-0.17em">
+<row topspace="-0.33em">
 <cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
@@ -10694,19 +10695,9 @@ reference "fig:Comparison-to-IET,with-corr"
 \end_inset
 
 ), we calculate complimentarily some other uncharged LJ centers.
- Results in table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Free-energy-rare-gas"
-
-\end_inset
-
- shows that this energy shift is common in any uncharged LJ centers.
-\end_layout
-
-\begin_layout Standard
+ 
 \begin_inset Float table
-placement H
+placement h
 wide false
 sideways false
 status open
@@ -11403,7 +11394,24 @@ convolution_standard
 naive_interpolation
 \family default
 \series default
- , 
+ with 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ of 
+\begin_inset Formula $n_{\max}=5$
+\end_inset
+
+; 
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -11448,7 +11456,19 @@ name "tab:Free-energy-rare-gas"
 
 \end_inset
 
+Results in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Free-energy-rare-gas"
 
+\end_inset
+
+ shows that this energy shift is common in any uncharged LJ centers; and
+ in these cases, even 
+\begin_inset Formula $n_{\max}=1$
+\end_inset
+
+ can satisfy the require of chemical precision.
 \end_layout
 
 \begin_layout Section
@@ -11479,15 +11499,26 @@ reference "tab:Parameters-of-test-solutes"
 \end_inset
 
 .
- The direct summation method for 
+ The direct summation method (
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:The-external-term"
+
+\end_inset
+
+) is used for 
 \begin_inset Formula $\mathcal{F}_{\mathrm{ext}}$
 \end_inset
 
- evaluation is used, as 
+ evaluation, as 
 \begin_inset Formula $\mathrm{O}_{2}$
 \end_inset
 
- always diverge with Poisson method.
+ always diverges with Poisson method.
  We can make hypothesis that this is because the distance between the charges
  is to short, as shown in figure 
 \begin_inset CommandInset ref
@@ -11502,7 +11533,7 @@ reference "fig:Test-linear-solutes"
 
  evaluation can cause divergence.
  There is a better version of Poisson solver developing in parallel of this
- code, which has been reported of better convergence.
+ code, which has been reported to have better convergency.
  We consider that this divergency problem does not come from the evaluation
  of 
 \begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
@@ -11522,7 +11553,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../_figure/app_solute.eps
-	scale 70
+	scale 60
 
 \end_inset
 
@@ -11571,8 +11602,8 @@ status open
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<row topspace="-0.17em">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -11580,6 +11611,8 @@ status open
 status collapsed
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Solute
 \end_layout
 
@@ -11590,7 +11623,7 @@ Solute
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -11598,6 +11631,8 @@ Solute
 status collapsed
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Site
 \end_layout
 
@@ -11608,10 +11643,12 @@ Site
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 \begin_inset Formula $q$
 \end_inset
 
@@ -11620,10 +11657,12 @@ Site
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -11636,10 +11675,12 @@ Site
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 \begin_inset Formula $\epsilon$
 \end_inset
 
@@ -11652,10 +11693,12 @@ Site
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 \begin_inset Formula $x$
 \end_inset
 
@@ -11669,13 +11712,13 @@ Site
 \end_inset
 </cell>
 </row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
+<row topspace="-0.33em">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 \begin_inset Formula $\mathrm{CO_{2}}$
 \end_inset
 
@@ -11691,69 +11734,69 @@ key "Harris_1995"
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 1
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.6512 
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 2.76
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.234
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.000 
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
+<row topspace="-0.33em">
 <cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 (20.48 [
 \begin_inset Formula $\mathrm{kJ\cdot mol^{-1}}$
 \end_inset
@@ -11768,7 +11811,7 @@ key "Harris_1995"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 2
 \end_layout
 
@@ -11779,7 +11822,7 @@ key "Harris_1995"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 -0.3256
 \end_layout
 
@@ -11790,7 +11833,7 @@ key "Harris_1995"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 3.03 
 \end_layout
 
@@ -11801,7 +11844,7 @@ key "Harris_1995"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.67
 \end_layout
 
@@ -11812,14 +11855,14 @@ key "Harris_1995"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 -1.149 
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
+<row topspace="-0.33em">
 <cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
@@ -11834,7 +11877,7 @@ key "Harris_1995"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 3
 \end_layout
 
@@ -11845,7 +11888,7 @@ key "Harris_1995"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 -0.3256
 \end_layout
 
@@ -11856,7 +11899,7 @@ key "Harris_1995"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 3.03 
 \end_layout
 
@@ -11867,7 +11910,7 @@ key "Harris_1995"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.67
 \end_layout
 
@@ -11878,20 +11921,20 @@ key "Harris_1995"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 1.149 
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
+<row topspace="-0.33em">
 <cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 \begin_inset Formula $\mathrm{O_{2}}$
 \end_inset
 
@@ -11912,7 +11955,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 1
 \end_layout
 
@@ -11923,7 +11966,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.0
 \end_layout
 
@@ -11934,7 +11977,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 3.1062
 \end_layout
 
@@ -11945,7 +11988,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.36 
 \end_layout
 
@@ -11956,20 +11999,20 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 -0.485
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
+<row topspace="-0.33em">
 <cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 (22.05 [
 \begin_inset Formula $\mathrm{kJ\cdot mol^{-1}}$
 \end_inset
@@ -11984,7 +12027,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 2
 \end_layout
 
@@ -11995,7 +12038,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.0
 \end_layout
 
@@ -12006,7 +12049,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 3.1062
 \end_layout
 
@@ -12017,7 +12060,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.36 
 \end_layout
 
@@ -12028,14 +12071,14 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.485
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
+<row topspace="-0.33em">
 <cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
@@ -12050,7 +12093,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 3
 \end_layout
 
@@ -12061,7 +12104,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 -2.1
 \end_layout
 
@@ -12072,7 +12115,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.00
 \end_layout
 
@@ -12083,7 +12126,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.00
 \end_layout
 
@@ -12094,14 +12137,14 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 -0.200
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
+<row topspace="-0.33em">
 <cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
@@ -12116,7 +12159,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 4
 \end_layout
 
@@ -12127,7 +12170,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 -2.1
 \end_layout
 
@@ -12138,7 +12181,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.00
 \end_layout
 
@@ -12149,7 +12192,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.00
 \end_layout
 
@@ -12160,14 +12203,14 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.200
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
+<row topspace="-0.33em">
 <cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
@@ -12182,7 +12225,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 5
 \end_layout
 
@@ -12193,7 +12236,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 4.2
 \end_layout
 
@@ -12204,7 +12247,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.00
 \end_layout
 
@@ -12215,7 +12258,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.00
 \end_layout
 
@@ -12226,20 +12269,20 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.000
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
+<row topspace="-0.33em">
 <cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 \begin_inset Formula $\mathrm{N_{2}}$
 \end_inset
 
@@ -12255,7 +12298,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 1
 \end_layout
 
@@ -12266,7 +12309,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 -0.5075
 \end_layout
 
@@ -12277,7 +12320,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 3.30
 \end_layout
 
@@ -12288,7 +12331,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.30
 \end_layout
 
@@ -12299,20 +12342,20 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 -0.549
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
+<row topspace="-0.33em">
 <cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 (26.75 [
 \begin_inset Formula $\mathrm{kJ\cdot mol^{-1}}$
 \end_inset
@@ -12327,7 +12370,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 2
 \end_layout
 
@@ -12338,7 +12381,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 -0.5075
 \end_layout
 
@@ -12349,7 +12392,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 3.30
 \end_layout
 
@@ -12360,7 +12403,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.30
 \end_layout
 
@@ -12371,14 +12414,14 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.549
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
+<row topspace="-0.33em">
 <cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
@@ -12393,7 +12436,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 3
 \end_layout
 
@@ -12404,7 +12447,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 1.0150
 \end_layout
 
@@ -12415,7 +12458,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.00
 \end_layout
 
@@ -12426,7 +12469,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.00
 \end_layout
 
@@ -12437,7 +12480,7 @@ key "Boutard200525"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 0.000
 \end_layout
 
@@ -12546,8 +12589,8 @@ status open
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
+<column alignment="center" valignment="top" width="0pt">
+<row topspace="-0.17em">
 <cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
@@ -12556,6 +12599,8 @@ status open
 status collapsed
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Solute
 \end_layout
 
@@ -12570,11 +12615,11 @@ Solute
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 \begin_inset Formula $\mathrm{CO_{2}}$
 \end_inset
 
-
-\size footnotesize
  (20.48)
 \end_layout
 
@@ -12593,11 +12638,11 @@ Solute
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 \begin_inset Formula $\mathrm{O_{2}}$
 \end_inset
 
-
-\size footnotesize
  (22.05)
 \end_layout
 
@@ -12616,11 +12661,11 @@ Solute
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 \begin_inset Formula $\mathrm{N_{2}}$
 \end_inset
 
-
-\size footnotesize
  (26.75)
 \end_layout
 
@@ -12636,13 +12681,13 @@ Solute
 \end_inset
 </cell>
 </row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<row topspace="-0.33em">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 \begin_inset Formula $n_{\max}$
 \end_inset
 
@@ -12657,12 +12702,12 @@ Solute
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 \begin_inset Formula $m_{\max}=n_{\max}$
 \end_inset
 
@@ -12671,12 +12716,12 @@ Solute
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 \begin_inset Formula $m_{\max}=5$
 \end_inset
 
@@ -12685,12 +12730,12 @@ Solute
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 \begin_inset Formula $m_{\max}=n_{\max}$
 \end_inset
 
@@ -12699,12 +12744,12 @@ Solute
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 \begin_inset Formula $m_{\max}=5$
 \end_inset
 
@@ -12713,12 +12758,12 @@ Solute
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 \begin_inset Formula $m_{\max}=n_{\max}$
 \end_inset
 
@@ -12727,12 +12772,12 @@ Solute
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 \begin_inset Formula $m_{\max}=5$
 \end_inset
 
@@ -12742,92 +12787,92 @@ Solute
 \end_inset
 </cell>
 </row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
+<row topspace="-0.33em">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 1
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 11.53
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 9.61
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 21.55
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 21.46
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 25.11
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 24.76
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
+<row topspace="-0.33em">
 <cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 2
 \end_layout
 
@@ -12838,7 +12883,7 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 17.87
 \end_layout
 
@@ -12849,7 +12894,7 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 17.87
 \end_layout
 
@@ -12860,7 +12905,7 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 22.35
 \end_layout
 
@@ -12871,7 +12916,7 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 22.38
 \end_layout
 
@@ -12882,7 +12927,7 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 26.63
 \end_layout
 
@@ -12893,20 +12938,20 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 26.63
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
+<row topspace="-0.33em">
 <cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 3
 \end_layout
 
@@ -12917,7 +12962,7 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 20.33
 \end_layout
 
@@ -12928,7 +12973,7 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 20.35
 \end_layout
 
@@ -12939,7 +12984,7 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 21.89
 \end_layout
 
@@ -12950,7 +12995,7 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 21.96
 \end_layout
 
@@ -12961,7 +13006,7 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 26.60
 \end_layout
 
@@ -12972,20 +13017,20 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 26.62
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
+<row topspace="-0.33em">
 <cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 4
 \end_layout
 
@@ -12996,7 +13041,7 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 20.88
 \end_layout
 
@@ -13007,7 +13052,7 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 20.88
 \end_layout
 
@@ -13018,7 +13063,7 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 22.42
 \end_layout
 
@@ -13029,7 +13074,7 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 22.45
 \end_layout
 
@@ -13040,7 +13085,7 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 27.10
 \end_layout
 
@@ -13051,20 +13096,20 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 27.11
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
+<row topspace="-0.33em">
 <cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 5
 \end_layout
 
@@ -13075,7 +13120,7 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 20.52
 \end_layout
 
@@ -13086,7 +13131,7 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 20.52
 \end_layout
 
@@ -13097,7 +13142,7 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 22.07
 \end_layout
 
@@ -13108,7 +13153,7 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 22.07
 \end_layout
 
@@ -13119,7 +13164,7 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 26.74
 \end_layout
 
@@ -13130,7 +13175,7 @@ Solute
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 26.74
 \end_layout
 
@@ -13206,6 +13251,31 @@ acs{IET}
 \end_inset
 
  results, shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparison-co2"
+
+\end_inset
+
+.
+ For the projections of 
+\begin_inset Formula $m=0$
+\end_inset
+
+, it is well agreed with 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+ results, or have a factor of normalization.
 \end_layout
 
 \begin_layout Standard
@@ -13216,10 +13286,41 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../_figure/results/co2.pdf
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset Argument 1
+status open
 
+\begin_layout Plain Layout
+The projections 
+\begin_inset Formula $\rho_{\mu\nu}^{mnl}(r)$
+\end_inset
+
+ of 
+\begin_inset Formula $\mathrm{CO}_{2}$
+\end_inset
+
+ comparing to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
 \end_layout
 
 \end_inset
@@ -13229,7 +13330,77 @@ status open
 
 \end_inset
 
+The projections 
+\begin_inset Formula $\rho_{\mu\nu}^{mnl}(r)$
+\end_inset
 
+ of 
+\begin_inset Formula $\mathrm{CO}_{2}$
+\end_inset
+
+ comparing to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+, with 
+\begin_inset Formula $m_{\max}=n_{\max}=5$
+\end_inset
+
+, 
+\begin_inset Formula $L=24$
+\end_inset
+
+ 
+\begin_inset Formula $\textrm{Å}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathrm{nfft}=72$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\frac{1}{3}n_{\mathrm{bin}}$
+\end_inset
+
+ is used in order to avoid noise.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Comparison-co2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparison-co2"
+
+\end_inset
+
+, 
 \end_layout
 
 \begin_layout Section

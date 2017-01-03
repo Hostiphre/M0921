@@ -1,10 +1,8 @@
 
 \chapter{Perspectives\label{chpt:perspectives}}
 
-A great deal of unfinished work and theories linked to this thesis
-is presented here.Polarizable and/or flexible models of solute, and
-the coupling of a QM solute to the molecular solvent, will be described
-in perspective.
+The work is never perfect, a great deal of unfinished work and theories
+linked to this thesis is presented here. 
 
 \section{Reduce memory use in MDFT}
 
@@ -37,10 +35,15 @@ $\rho(\mathbf{r},\mathbf{\Omega})$.
 
 The \acs{IET} uses intermolecular spherical coordinates, and cannot
 describe huge molecules. \acs{MDFT} uses a homogeneous spatial grid,
-thus have the same resolution near and far from the solute. To meet
-a satisfying result, sometimes a finer resolution is needed. Another
-natural way to think about construction of the grid is like in \ref{fig:Site-site-grid-model},
-an spherical grid at each site of solute. 
+thus have the same resolution near and far from the solute. The defeat
+of \acs{MDFT} is that for very polar solutes, the grid needed should
+be very fine to meet a satisfying result, and in 3D it is a very huge
+number, as it treats the same resolution from near to far from the
+solute. Another natural way to think about construction of the grid
+is like in \ref{fig:Site-site-grid-model}, an spherical grid at each
+site of solute. 
+
+\textcolor{red}{(This part needs more brain)}
 
 \begin{figure}[h]
 \begin{centering}
@@ -82,12 +85,19 @@ between $h_{\text{MS}}(1,2)$ and $h_{\text{NS}}(1,2)$ is a translation
 of center $\mathbf{r}_{\text{M}}-\mathbf{r}_{\text{N}}$\textcolor{red}{(?)}.
 Therefore, ...
 
-\section{Polarizable solute, other improvement of the external term}
+\section{Theories out from the HRF approximation part}
 
-During the iteration, the $V_{\mathrm{ext}}$ is fixed. It can be
-a variable by adding an extra variable term linked to the dipole of
-solute $\mu_{M}$, such that this part can be calculated for each
-iteration, and can be minimized.
+In terms of $\mathcal{F}_{\mathrm{exc}}$, there can be still development
+out of HRF approximation, such as 3-body correction.
+
+Apart from the $\mathcal{F}_{\mathrm{exc}}$ term, there are still
+many field of study to develop \acs{MDFT}. For example, the evaluation
+of external potential $V_{\mathrm{ext}}$, which poses problems of
+convergency for molecular solutes, still needs to improve. Note that
+this part can be also a functional of solvent density, in this case,
+the solute is polarizable, and the $V_{\mathrm{ext}}$ varies during
+the minimization. The polarization can be introduced by for example
+an extra dipole on the solute.
 
 \section{MDFT Viewer}
 
@@ -96,13 +106,16 @@ time limit, it is removed. Viewer is an important part of code development,
 which provides beautiful visualization and easy analysis, and helps
 to popularize the code. GaussViewer is a good example.
 
-The popular language of visualization is c++, OpenDM, ...
+\section{Application to real biological systems, and entropy}
 
-The process of MDFT can produce energy and structures for each iteration,
-although it takes time to write down all the possible output.
-
-\section{Application to real biological systems}
-
-Reinvestigation of the Manganese-oxo 
-
-This is the case we talked about in the introduction, ...
+From this thesis we can see that \acs{MDFT} is capable to deal with
+some small chemical system, but it is still far from satisfied for
+common usage in the domain of bio-chemistry as a complement of \acs{QM}.
+For example, for real applications, enthalpy and entropy are also
+important, as discussed in ref \citep{Mn-oxo}. The results of \citep{Mn-oxo}
+cannot be repeated with \acs{QM} calculations using simply continuum
+model as solvent corrections (research subject of my university diploma),
+which gives identical tendency of entropy with respect to temperature
+(in DMSO). In \acs{MDFT}, the $\mathcal{F}_{\mathrm{id}}$term gives
+entropy of information. It is not exactly the same as total entropy
+as there are also contribution from charge distribution, etc.

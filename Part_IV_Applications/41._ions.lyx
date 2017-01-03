@@ -131,7 +131,26 @@ acs{MD}
 convolution_standard
 \family default
 \series default
- algorithm, with implicitly if not specified.
+ algorithm, with implicitly 
+\begin_inset Formula $L=24$
+\end_inset
+
+ 
+\begin_inset Formula $\textrm{Å}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathrm{nfft}=72$
+\end_inset
+
+, 
+\begin_inset Formula $m_{\max}=n_{\max}$
+\end_inset
+
+ if not specified.
+ Comparison to dipole method is also involved in, as we should justify that
+ the increase of computing cost is has the capability to produce better
+ results.
 \end_layout
 
 \begin_layout Section
@@ -159,7 +178,7 @@ reference "tab:Free-energy-rare-gas"
 
 \end_inset
 
- in compared with 
+ is compared with 
 \begin_inset ERT
 status open
 
@@ -173,11 +192,30 @@ acs{MD}
 \end_inset
 
  in figure using 
-\begin_inset Formula $m_{\max}=3$
+\begin_inset Formula $n_{\max}=3$
 \end_inset
 
  to 5.
- It looks like there is no improvement compared to ref 
+ The structures of different 
+\begin_inset Formula $n_{\max}$
+\end_inset
+
+ is almost identical.
+ Comparing to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
+\end_inset
+
+, it looks like there is no improvement compared to the dipole method in
+ ref 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Zhao_2011"
@@ -185,6 +223,21 @@ key "Zhao_2011"
 \end_inset
 
 .
+ This kind of disagreement in curve shape is regarded as a known default
+ of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HNC}
+\end_layout
+
+\end_inset
+
+ approximation.
 \end_layout
 
 \begin_layout Standard
@@ -198,7 +251,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../_figure/results/rare_gaz.pdf
-	width 80col%
+	width 90col%
 
 \end_inset
 
@@ -209,19 +262,32 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-RDF of rare gazes 
-\begin_inset Formula $L=24$
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{RDF}
+\end_layout
+
 \end_inset
 
- 
-\begin_inset Formula $\textrm{Å}$
+ of rare gazes compared to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
 \end_inset
 
-, 
-\begin_inset Formula $\mathrm{nfft}=72$
-\end_inset
-
-
+ result
 \end_layout
 
 \end_inset
@@ -269,7 +335,11 @@ acs{MD}
 
 \end_inset
 
- results are shown in figure 
+ results for charged 
+\begin_inset Formula $\mathrm{CH_{4}}$
+\end_inset
+
+ series are shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Comparison-to-MD"
@@ -277,7 +347,43 @@ reference "fig:Comparison-to-MD"
 \end_inset
 
 .
- We can see that for negative charges, the 
+ We can see that for positive charges, the complete 
+\begin_inset Formula $n_{\max}=5$
+\end_inset
+
+ gives much better results compared to dipole method, which is almost well
+ agreed with 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
+\end_inset
+
+ results.
+ For negative charges, 
+\begin_inset Formula $n_{\max}=5$
+\end_inset
+
+ gives nearly the same result as dipole method, while the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
+\end_inset
+
+ results are more smooth, but the first peak of the 
 \begin_inset ERT
 status open
 
@@ -290,8 +396,21 @@ acs{MDFT}
 
 \end_inset
 
- results are more smooth, but the first peak is in good position.
- For positive charges, it is in agreement.
+ results seems to be in good position.
+ We can conclude that the complete 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ gives a large improvement for positive charged ions.
 \end_layout
 
 \begin_layout Standard
@@ -316,7 +435,36 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Comparison to MD
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{RDF}
+\end_layout
+
+\end_inset
+
+ of charged 
+\begin_inset Formula $\mathrm{CH_{4}}$
+\end_inset
+
+ series compared to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
+\end_inset
+
+ result
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Comparison-to-MD"
@@ -341,6 +489,28 @@ Solvation free energy of single ions
 \end_layout
 
 \begin_layout Standard
+\begin_inset Marginal
+status collapsed
+
+\begin_layout Plain Layout
+We consider that for a macroscopic system, when the number of particles
+ 
+\begin_inset Formula $N\rightarrow\infty$
+\end_inset
+
+, the Gibbs and Helmholtz free energy are almost the same.
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ensemble_thermo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 From above we can see the 
 \begin_inset ERT
 status open
@@ -367,21 +537,11 @@ acs{MD}
 
 \end_inset
 
- results....
-\end_layout
-
-\begin_layout Standard
-However, the energy is more difficult to compare, ...
- 
-\end_layout
-
-\begin_layout Standard
-To compare with experimental results, there are several corrections depending
- on box length and charge, and the LJ parameters are very different.
-\end_layout
-
-\begin_layout Standard
-here we just give a try with Honizek 
+ results.
+ However, the energy is more difficult to compare, as there are several
+ conventions of single ions, depending on for example box length and charge;
+ and the free energy depends largely on the input LJ parameters of the ions,
+ which is independent to the method.
 \end_layout
 
 \begin_layout Standard
@@ -420,10 +580,17 @@ acs{RDF}
 
  for alkali and halide ions.
  We can see that the data itself varies a lot.
- Nevertheless, the parameters of ions from literatures can also have thousand
- times of difference.
+ Nevertheless, the LJ parameters of ions from literatures can also have
+ thousand times of difference.
  Therefore, we chose a series of force field parameters for halide anions
- and alkali cations based on SPC/E water as shown also in table 
+ and alkali cations from ref 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "horinek_rational_2009"
+
+\end_inset
+
+ based on SPC/E water as shown also in table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:single-ions"
@@ -432,33 +599,6 @@ reference "tab:single-ions"
 
 .
  
-\begin_inset Marginal
-status open
-
-\begin_layout Plain Layout
-
-\color red
-We consider that for a macroscopic system, when the number of particles
- 
-\begin_inset Formula $N\rightarrow\infty$
-\end_inset
-
-, the Gibbs and Helmholtz free energy are almost the same.
- 
-\color inherit
-
-\begin_inset CommandInset citation
-LatexCommand citep
-key "ensemble_thermo"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1743,7 +1883,14 @@ key "tissandier_protons_1998"
 \end_inset
 
 .
- (e) Ref [Horinek] from 
+ (e) Ref 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "horinek_rational_2009"
+
+\end_inset
+
+ from 
 \begin_inset ERT
 status open
 
@@ -1757,7 +1904,14 @@ acs{MD}
 \end_inset
 
  simulation.
- (d) Ref [Marcus1988].
+ (d) Ref 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Marcus_1988"
+
+\end_inset
+
+.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:single-ions"
@@ -2618,12 +2772,21 @@ name "tab:free-energy-single-ions"
 
 \end_layout
 
-\begin_layout Section
-Small molecules
+\begin_layout Standard
+The results shows that the free energies given by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
 \end_layout
 
-\begin_layout Standard
-Here gives some solute structure compared to 
+\end_inset
+
+ is not perfect, but in the same order of magnitude as 
 \begin_inset ERT
 status open
 
@@ -2636,7 +2799,134 @@ acs{MD}
 
 \end_inset
 
+ results.
+ Results with 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ of 
+\begin_inset Formula $n_{\max}=3$
+\end_inset
+
+ works better than dipole in energy, 
+\color red
+but in terms of position of first solvation maximum it gives the same result
+ for positive ions, which is a little different with 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
+\end_inset
+
+ results.
+ specially for 
+\begin_inset Formula $\mathrm{Li^{+}}$
+\end_inset
+
 .
+ Which is not completely agreed with the previous 
+\begin_inset Formula $\mathrm{CH_{4}}$
+\end_inset
+
+ results.
+\end_layout
+
+\begin_layout Section
+Small molecules
+\end_layout
+
+\begin_layout Standard
+Some solute structure are also generated to compare to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
+\end_inset
+
+, shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Test-solutes-2"
+
+\end_inset
+
+ and table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Parameters-of-test-solutes-2"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Site-O"
+
+\end_inset
+
+ gives the site-site 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{RDF}
+\end_layout
+
+\end_inset
+
+s (solute site to water O site) of 
+\begin_inset Formula $n_{\max}=4$
+\end_inset
+
+, dipole and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
+\end_inset
+
+ results for these test solutes.
+ It is shown that in the most of cases, 
+\begin_inset Formula $n_{\max}=4$
+\end_inset
+
+ gives better or the same results than dipole, apart from the cases of water,
+ specially SPC/E water.
+ In methanol, the dipole method diverge.
 \end_layout
 
 \begin_layout Standard
@@ -8091,7 +8381,70 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-solute
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Site-O 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{RDF}
+\end_layout
+
+\end_inset
+
+ of test solutes
+\end_layout
+
+\end_inset
+
+Site-O 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{RDF}
+\end_layout
+
+\end_inset
+
+ of test solutes, with 
+\begin_inset Formula $m_{\max}=n_{\max}=4$
+\end_inset
+
+, 
+\begin_inset Formula $L=24$
+\end_inset
+
+ 
+\begin_inset Formula $\textrm{Å}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathrm{nfft}=72$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\frac{1}{3}n_{\mathrm{bin}}$
+\end_inset
+
+ is used in order to avoid noise.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Site-O"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -8179,7 +8532,9 @@ status open
 
 
 \backslash
-caption[]{solute (continued)}
+caption[]{Site-O 
+\backslash
+acs{RDF} of test solutes (continued)}
 \end_layout
 
 \end_inset
@@ -8267,7 +8622,9 @@ status open
 
 
 \backslash
-caption[]{solute (continued)}
+caption[]{Site-O 
+\backslash
+acs{RDF} of test solutes (continued)}
 \end_layout
 
 \end_inset
@@ -8322,7 +8679,9 @@ status open
 
 
 \backslash
-caption[]{solute (continued)}
+caption[]{Site-O 
+\backslash
+acs{RDF} of test solutes (continued)}
 \end_layout
 
 \end_inset
@@ -8356,7 +8715,18 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Volume slice of pyrimidine
+Volume slice of solvent number density 
+\begin_inset Formula $n(\mathbf{r})$
+\end_inset
+
+ for pyrimidine
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Volume-slice-of"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -8396,7 +8766,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-SPC/E
+SPC/E water
 \end_layout
 
 \end_inset
@@ -8427,7 +8797,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TIP4P
+TIP4P water
 \end_layout
 
 \end_inset
@@ -8444,7 +8814,18 @@ TIP4P
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Isosurface
+Iso-surface of solvent number density 
+\begin_inset Formula $n(\mathbf{r})=2.4$
+\end_inset
+
+ for test water molecules
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Iso-surface-of-solvent"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -8471,21 +8852,44 @@ acs{MDFT}
 
 \end_inset
 
- to calculate large solute that 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{IET}
-\end_layout
+ to show calculate 3D solute structure, due to the spherical coordinate
+ system it adopt, we show some 3D figure of solvent in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Volume-slice-of"
 
 \end_inset
 
- cannot, due to the spherical coordinate system it adopt, some large molecules
- are investigated.
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Iso-surface-of-solvent"
+
+\end_inset
+
+.
+ In figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Iso-surface-of-solvent"
+
+\end_inset
+
+, we can see the famous tetrahedral structure around the water molecule.
+ In SPC/E water, there is more density than expected on the north pole,
+ and this piece of density disappears with the extra charged added on the
+ TIP4P water.
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
 \end_layout
 
 \end_body

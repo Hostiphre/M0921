@@ -2537,15 +2537,6 @@ Timing of the whole
 \end_layout
 
 \begin_layout Standard
-Note that this is for an ion solute.
- 
-\begin_inset Formula $\mathcal{F}_{\mathrm{ext}}$
-\end_inset
-
- can be very slow if the solute have a very complex form.
-\end_layout
-
-\begin_layout Standard
 We can see that 
 \family typewriter
 \series bold

@@ -6,59 +6,68 @@ correctly predict solvation properties of LJ centers, single ions
 and linear solutes compared to \acs{IET}. In this section, we will
 compare them to \acs{MD} and experimental results. All the solutes
 are optimized with the fast \texttt{\textbf{convolution\_standard}}
-algorithm, with implicitly if not specified.
+algorithm, with implicitly $L=24$ $\textrm{Å}$, $\mathrm{nfft}=72$,
+$m_{\max}=n_{\max}$ if not specified. Comparison to dipole method
+is also involved in, as we should justify that the increase of computing
+cost is has the capability to produce better results.
 
 \section{LJ centers}
 
 The \acs{RDF} of rare gazes calculated in \ref{tab:Free-energy-rare-gas}
-in compared with \acs{MD} in figure using $m_{\max}=3$ to 5. It
-looks like there is no improvement compared to ref \citep{Zhao_2011}.
+is compared with \acs{MD} in figure using $n_{\max}=3$ to 5. The
+structures of different $n_{\max}$ is almost identical. Comparing
+to \acs{MD}, it looks like there is no improvement compared to the
+dipole method in ref \citep{Zhao_2011}. This kind of disagreement
+in curve shape is regarded as a known default of \acs{HNC} approximation.
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.8\columnwidth]{_figure/results/rare_gaz}
+\includegraphics[width=0.9\columnwidth]{_figure/results/rare_gaz}
 \par\end{centering}
-\caption{RDF of rare gazes $L=24$ $\textrm{Å}$, $\mathrm{nfft}=72$}
+\caption{\acs{RDF} of rare gazes compared to \acs{MD} result}
 \end{figure}
 
 
 \section{Charged $\mathrm{CH_{4}}$ series}
 
-The comparison of \acs{RDF} with \acs{MD} results are shown in figure
-\ref{fig:Comparison-to-MD}. We can see that for negative charges,
-the \acs{MDFT} results are more smooth, but the first peak is in
-good position. For positive charges, it is in agreement.
+The comparison of \acs{RDF} with \acs{MD} results for charged $\mathrm{CH_{4}}$
+series are shown in figure \ref{fig:Comparison-to-MD}. We can see
+that for positive charges, the complete $n_{\max}=5$ gives much better
+results compared to dipole method, which is almost well agreed with
+\acs{MD} results. For negative charges, $n_{\max}=5$ gives nearly
+the same result as dipole method, while the \acs{MD} results are
+more smooth, but the first peak of the \acs{MDFT} results seems to
+be in good position. We can conclude that the complete \acs{DCF}
+gives a large improvement for positive charged ions.
 
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=1\columnwidth]{_figure/results/ch4_md}
 \par\end{centering}
-\caption{Comparison to MD\label{fig:Comparison-to-MD}}
+\caption{\acs{RDF} of charged $\mathrm{CH_{4}}$ series compared to \acs{MD}
+result\label{fig:Comparison-to-MD}}
 \end{figure}
 
 
 \section{Solvation free energy of single ions}
 
-From above we can see the \acs{RDF} for positive ions are in well
-agreement with \acs{MD} results....
-
-However, the energy is more difficult to compare, ... 
-
-To compare with experimental results, there are several corrections
-depending on box length and charge, and the LJ parameters are very
-different.
-
-here we just give a try with Honizek 
+\marginpar{We consider that for a macroscopic system, when the number of particles
+$N\rightarrow\infty$, the Gibbs and Helmholtz free energy are almost
+the same. \citep{ensemble_thermo}}From above we can see the \acs{RDF} for positive ions are in well
+agreement with \acs{MD} results. However, the energy is more difficult
+to compare, as there are several conventions of single ions, depending
+on for example box length and charge; and the free energy depends
+largely on the input LJ parameters of the ions, which is independent
+to the method.
 
 Table \ref{tab:single-ions} gives some experimental and \acs{MD}
 simulation result of solvation free energy and first maximum of \acs{RDF}
 for alkali and halide ions. We can see that the data itself varies
-a lot. Nevertheless, the parameters of ions from literatures can also
-have thousand times of difference. Therefore, we chose a series of
-force field parameters for halide anions and alkali cations based
-on SPC/E water as shown also in table \ref{tab:single-ions}. \marginpar{\textcolor{red}{We consider that for a macroscopic system, when the
-number of particles $N\rightarrow\infty$, the Gibbs and Helmholtz
-free energy are almost the same. }\citep{ensemble_thermo}}
+a lot. Nevertheless, the LJ parameters of ions from literatures can
+also have thousand times of difference. Therefore, we chose a series
+of force field parameters for halide anions and alkali cations from
+ref \citep{horinek_rational_2009} based on SPC/E water as shown also
+in table \ref{tab:single-ions}. 
 
 \begin{table}[h]
 \begin{centering}
@@ -93,8 +102,8 @@ and halide ions from experimental and \acs{MD} simulation result]{Free energy in
 ion-water oxygen radial distribution functions in $[\textrm{Å}]$
 for alkali and halide ions from experimental and \acs{MD} simulation
 result. (a). Ref \citep{MARCUS1994111}. (b). Ref \citep{Noyes_1962}.
-(c) Ref \citep{tissandier_protons_1998}. (e) Ref {[}Horinek{]} from
-\acs{MD} simulation. (d) Ref {[}Marcus1988{]}.\label{tab:single-ions}}
+(c) Ref \citep{tissandier_protons_1998}. (e) Ref \citep{horinek_rational_2009}
+from \acs{MD} simulation. (d) Ref \citep{Marcus_1988}.\label{tab:single-ions}}
 
 \vspace{0.5cm}
 
@@ -128,10 +137,25 @@ maximum $[\textrm{Å}]$ of single ions from \acs{MDFT} results compared
 to experimental results \label{tab:free-energy-single-ions}}
 \end{table}
 
+The results shows that the free energies given by \acs{MDFT} is not
+perfect, but in the same order of magnitude as \acs{MD} results.
+Results with \acs{DCF} of $n_{\max}=3$ works better than dipole
+in energy, \textcolor{red}{but in terms of position of first solvation
+maximum it gives the same result for positive ions, which is a little
+different with \acs{MD} results. specially for $\mathrm{Li^{+}}$.
+Which is not completely agreed with the previous $\mathrm{CH_{4}}$
+results.}
 
 \section{Small molecules}
 
-Here gives some solute structure compared to \acs{MD}.
+Some solute structure are also generated to compare to \acs{MD},
+shown in figure \ref{fig:Test-solutes-2} and table \ref{tab:Parameters-of-test-solutes-2}.
+
+Figure \ref{fig:Site-O} gives the site-site \acs{RDF}s (solute site
+to water O site) of $n_{\max}=4$, dipole and \acs{MD} results for
+these test solutes. It is shown that in the most of cases, $n_{\max}=4$
+gives better or the same results than dipole, apart from the cases
+of water, specially SPC/E water. In methanol, the dipole method diverge.
 
 \begin{figure}[h]
 \begin{centering}
@@ -346,7 +370,9 @@ Here gives some solute structure compared to \acs{MD}.
 \begin{centering}
 \includegraphics[width=1\columnwidth]{_figure/results/solute\lyxdot benzene-3}
 \par\end{centering}
-\caption{solute}
+\caption[Site-O \acs{RDF} of test solutes]{Site-O \acs{RDF} of test solutes, with $m_{\max}=n_{\max}=4$, $L=24$
+$\textrm{Å}$, $\mathrm{nfft}=72$. $\frac{1}{3}n_{\mathrm{bin}}$
+is used in order to avoid noise.\label{fig:Site-O}}
 \end{figure}
 
 \begin{figure}[!tbph]
@@ -363,7 +389,7 @@ Here gives some solute structure compared to \acs{MD}.
 \begin{centering}
 \includegraphics[width=1\columnwidth]{_figure/results/solute\lyxdot methanol-3}
 \par\end{centering}
-\caption[]{solute (continued)}
+\caption[]{Site-O \acs{RDF} of test solutes (continued)}
 \end{figure}
 
 \begin{figure}[!tbph]
@@ -380,7 +406,7 @@ Here gives some solute structure compared to \acs{MD}.
 \begin{centering}
 \includegraphics[width=1\columnwidth]{_figure/results/solute\lyxdot spce-3}
 \par\end{centering}
-\caption[]{solute (continued)}
+\caption[]{Site-O \acs{RDF} of test solutes (continued)}
 \end{figure}
 
 \begin{figure}[!tbph]
@@ -388,28 +414,36 @@ Here gives some solute structure compared to \acs{MD}.
 \begin{centering}
 \includegraphics[width=1\columnwidth]{_figure/results/solute\lyxdot tip4p-3}
 \par\end{centering}
-\caption[]{solute (continued)}
+\caption[]{Site-O \acs{RDF} of test solutes (continued)}
 \end{figure}
 
 \begin{figure}
 \begin{centering}
 \includegraphics[width=0.7\columnwidth]{/Users/Hostiphre/Desktop/_M1116/_figure/results/solute\lyxdot pyrimidine\lyxdot snap}
 \par\end{centering}
-\caption{Volume slice of pyrimidine}
+\caption{Volume slice of solvent number density $n(\mathbf{r})$ for pyrimidine\label{fig:Volume-slice-of}}
 \end{figure}
 
 \begin{figure}
-\subfloat[SPC/E]{\begin{centering}
+\subfloat[SPC/E water]{\begin{centering}
 \includegraphics[width=0.45\columnwidth]{/Users/Hostiphre/Desktop/_M1116/_figure/results/solute\lyxdot spce\lyxdot snap}
 \par\end{centering}
-}\subfloat[TIP4P]{\begin{centering}
+}\subfloat[TIP4P water]{\begin{centering}
 \includegraphics[width=0.45\columnwidth]{/Users/Hostiphre/Desktop/_M1116/_figure/results/solute\lyxdot tip4p\lyxdot snap}
 \par\end{centering}
 }
 
-\caption{Isosurface}
+\caption{Iso-surface of solvent number density $n(\mathbf{r})=2.4$ for test
+water molecules\label{fig:Iso-surface-of-solvent}}
 \end{figure}
 
-In the purpose to show the the ability of \acs{MDFT} to calculate
-large solute that \acs{IET} cannot, due to the spherical coordinate
-system it adopt, some large molecules are investigated.
+In the purpose to show the the ability of \acs{MDFT} to show calculate
+3D solute structure, due to the spherical coordinate system it adopt,
+we show some 3D figure of solvent in figure \ref{fig:Volume-slice-of}
+and \ref{fig:Iso-surface-of-solvent}. In figure \ref{fig:Iso-surface-of-solvent},
+we can see the famous tetrahedral structure around the water molecule.
+In SPC/E water, there is more density than expected on the north pole,
+and this piece of density disappears with the extra charged added
+on the TIP4P water.\newpage{}
+
+$ $

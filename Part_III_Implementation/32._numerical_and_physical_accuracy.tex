@@ -85,7 +85,8 @@ The output curves (\acs{RDF}, \acs{RPF}, etc.) with respect to $r$
 that this code provides, always pass through a histogram process ($\mathsection$\ref{sec:Solvation-structure}).
 Therefore, the number of bins ($n_{\mathrm{bin}}$) of the histogram
 (which determines $\delta r$) can have an influence to the shown
-results. Implicitly the number of bins is determined by the Rice rule:
+results. Implicitly (without specification) the number of bins is
+determined by the Rice rule:
 \begin{equation}
 n_{\mathrm{bin}}=2n^{\frac{1}{3}}
 \end{equation}
@@ -1110,8 +1111,14 @@ $m_{\max}=5$ and $m_{\max}=n_{\max}$.
 \end{table}
 
 The structures of solutes are also compared to \acs{IET} results,
-shown in figure \ref{fig:Comparison-co2}. The curves are either bien
-agreed or have a factor of normalisation.
+shown in figure \ref{fig:Comparison-co2}. For the projections of
+$m=0$, they are well agreed with \acs{IET} results, \textcolor{red}{but
+for the projections with $m=2$, a factor of normalization at $\sqrt{3}$
+appears, which seems to have no reason to exist, as the factor normally
+linked to $m$ is $2m+1$ or $\sqrt{2m+1}$. The projections for $\mathrm{O_{2}}$
+and $\mathrm{N_{2}}$ is totally different from \acs{IET} results
+mainly in the range of first shell, maybe the wrong molecules are
+used in these two implementations (waiting for Luc's verification).}
 
 \begin{figure}[h]
 \begin{centering}
@@ -1120,30 +1127,39 @@ agreed or have a factor of normalisation.
 \caption[The projections $\rho_{\mu\nu}^{mnl}(r)$ of $\mathrm{CO}_{2}$ comparing
 to \acs{IET}]{The projections $\rho_{\mu\nu}^{mnl}(r)$ of $\mathrm{CO}_{2}$ comparing
 to \acs{IET}, with $m_{\max}=n_{\max}=5$, $L=24$ $\textrm{Å}$,
-$\mathrm{nfft}=72$.\label{fig:Comparison-co2}}
+$\mathrm{nfft}=72$. $\frac{1}{3}n_{\mathrm{bin}}$ is used in order
+to avoid noise.\label{fig:Comparison-co2}}
 \end{figure}
 
 
 \section{Premier conclusion}
 
 From the results, we see that \acs{MDFT} is capable to produce the
-same result with \acs{IET} for LJ centers, single ions and linear
-solutes. In a general feeling, \acs{MDFT} has an advantage to calculate
-3D molecules such as DNA, but \acs{IET} is ideal to treat small molecules
-like $\mathrm{O}_{2}$.
+solvation free energy at chemical precision with normal convergence
+criteria (which gives 2 decimal for a specific spatial and angular
+grid), which is nearly the same compared to mathematical equivalent
+\acs{IET} results for LJ centers, single ions and linear solutes.
+The variance of free energy due to discretization parameters is at
+chemical precision, i.e. 1 to 2 kJ/mol. To keep this precision, at
+least $n_{\max}=3$ is needed, and the order of quadrature $m_{\max}$
+has no influence to the energy and structure if it is larger than
+$n_{\max}$. This $n_{\max}$ is far from sufficient to describe the
+solvent density $\rho$, but sufficient for $\gamma$. As $\rho$
+is produced by the minimization, its expansion has no influence to
+the final result. The different branches produce almost the same result
+with the same \acs{DCF}, comparing to the error introduced by spatial
+grid dependence; while \texttt{\textbf{naive\_interpolation}} seems
+to be a bit more stable compared to \texttt{\textbf{convolution}}
+methods in terms of convergence for negative molecules, but have an
+energy shift about 2 kJ/mol for neutral LJ centers. For charged solutes,
+the two types of free energy corrections mentioned in this thesis
+are needed.
 
-The different branches produce almost the same result with the same
-\acs{DCF}; while \texttt{\textbf{naive\_interpolation}} seems to
-be a bit more stable compared to \texttt{\textbf{convolution}} methods
-in terms of convergence, but have an energy shift about 2 kJ/mol.
-
-The order of quadrature $m_{\max}$ has no influence to the energy
-and structure if it is larger than $n_{\max}$, while from $n_{\max}=3$
-the results begin to converge.
-
-The spatial grid and angular grid have both an influence to the final
-results.
-
-The defeat of \acs{MDFT} is that for very polar solutes, the grid
-needed should be very fine, and in 3D it is a very huge number, as
-it treats the same resolution from near to far from the solute.
+As for structure, \acs{MDFT} can also produce the same result as
+\acs{IET}. It requires about $n_{\max}=4$ to have a converged curve
+of $g(r)$ projections. For solutes, we are obliged to use looser
+sampling rate to have a smooth curve; as the spatial grid is cubic,
+but not in spherical coordinates as \acs{IET}. In a general feeling,
+\acs{MDFT} has an advantage to produce 3D solvent structures for
+complicate molecules, but \acs{IET} is ideal to give information
+about small symmetric molecules using functions with respect to $r$.
