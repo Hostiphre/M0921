@@ -170,12 +170,8 @@ The dielectric constant
 \end_inset
 
  is the key parameter characterizing the solvent.
- It is normally a constant value, but that can depend on the distance from
- the solute 
-\begin_inset Formula $M$
-\end_inset
-
-.
+ It is normally a constant value, but that can depend on the position in
+ space.
  (see 
 \begin_inset Formula $\mathsection$
 \end_inset
@@ -609,11 +605,11 @@ If the solvent is ionic, the Poisson equation can be modified by taking
 \end_inset
 
 for a salt composed of ions of charge 
-\begin_inset Formula $+q$
+\begin_inset Formula $+\mathfrak{q}$
 \end_inset
 
  and 
-\begin_inset Formula $-q$
+\begin_inset Formula $-\mathfrak{q}$
 \end_inset
 
  and of density 

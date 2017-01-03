@@ -333,7 +333,7 @@ where
 
 .
  Suppose 
-\begin_inset Formula $\gamma$
+\begin_inset Formula $\hat{\gamma}$
 \end_inset
 
  has rotational invariance, and
@@ -342,7 +342,7 @@ where
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\hat{\gamma'}(\mathbf{k},\boldsymbol{\omega}_{1})=\sum_{m\chi\mu}f_{m}\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})
+\hat{\gamma}(\mathbf{k},\boldsymbol{\omega}_{1})=\sum_{m\chi\mu}f_{m}\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})
 \end{equation}
 
 \end_inset

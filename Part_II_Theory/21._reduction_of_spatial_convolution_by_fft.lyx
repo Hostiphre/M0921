@@ -234,8 +234,8 @@ acs{DCF}
 
 \end_inset
 
- is stocked in simple precision, it takes 
-\begin_inset Formula $64^{3}\times42^{2}\times4\,\mathrm{bytes}=1.76\mathrm{GB}$
+ is stocked in simple precision (complex number), it takes 
+\begin_inset Formula $64^{3}\times42^{2}\times4\,\mathrm{bytes}\times2=3.52\mathrm{GB}$
 \end_inset
 
 , and for a Lebedev quadrature of order 5 and correspondingly 5 
@@ -243,7 +243,7 @@ acs{DCF}
 \end_inset
 
 -angles, it takes 
-\begin_inset Formula $64^{3}\times250^{2}\times4\,\mathrm{bytes}=65.5\mathrm{GB}$
+\begin_inset Formula $64^{3}\times250^{2}\times4\,\mathrm{bytes}\times2=131\mathrm{GB}$
 \end_inset
 
 .
@@ -252,7 +252,7 @@ acs{DCF}
 \end_layout
 
 \begin_layout Standard
-Therefore, two strategies are developed treat the full 
+Therefore, two strategies are developed to treat the full 
 \begin_inset ERT
 status open
 
@@ -296,7 +296,7 @@ acs{DCF}
 \end_inset
 
  directly from rotational invariant projections.
- The text below gives a complete discussion of these two strategies.
+ Here we give a complete discussion of these two strategies.
 \end_layout
 
 \begin_layout Standard
@@ -419,11 +419,11 @@ acs{DCF}
 
 , and the storage is considerably reduced.
  The transform from 
-\begin_inset Formula $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
+\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 \end_inset
 
  to 
-\begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
+\begin_inset Formula $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
 \end_inset
 
  relies on the correspondence 
@@ -448,7 +448,7 @@ Finding
 \begin_inset Formula $\mathbf{\hat{R}}_{\mathbf{\Omega}}$
 \end_inset
 
- rotates the solvent molecule from 
+ that rotates the solvent molecule from 
 \begin_inset Formula $\mathbf{I}$
 \end_inset
 
@@ -621,8 +621,6 @@ status open
 
 \begin_layout Plain Layout
 Rotation to k-frame
-\lang english
-
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:rotation"
@@ -1159,7 +1157,24 @@ where
 \end_inset
 
 .
- Here 
+ 
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $w$
+\end_inset
+
+ is the weight, and 
+\begin_inset Formula $\omega$
+\end_inset
+
+ is the angle set.
+\end_layout
+
+\end_inset
+
+Here 
 \begin_inset Formula $\omega$
 \end_inset
 

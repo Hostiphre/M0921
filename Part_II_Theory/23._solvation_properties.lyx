@@ -581,6 +581,13 @@ reference "eq:corr-C"
 
 \begin_layout Section
 Solvation structure
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Solvation-structure"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -842,14 +849,7 @@ Here the form of
 \end_inset
 
  is reduced for the laboratory coordinate system.
- A detailed deduction for this generalized formula is in appendix 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chpt:rotational-invariant-expansion"
-
-\end_inset
-
-.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -868,6 +868,62 @@ m & n & l\\
 \end_layout
 
 \begin_layout Standard
+Like the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{RDF}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{PDF}
+\end_layout
+
+\end_inset
+
+, histogram approach is used in this process to evaluate the integration
+ 
+\begin_inset Formula $\int\mathrm{d}\hat{\mathbf{r}}$
+\end_inset
+
+, to take advantage of the 
+\begin_inset Formula $R_{\lambda0}^{l*}(\mathbf{\hat{r}})$
+\end_inset
+
+ in regular spatial space calculated by recurrence (appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:rotM-by-recurrence"
+
+\end_inset
+
+).
+ A detailed deduction for these generalized formula is in appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chpt:rotational-invariant-expansion"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\color red
 Note that if the solvent is water, that processes a symmetry axis 
 \begin_inset Formula $\mathrm{C}_{2v}$
 \end_inset
@@ -908,7 +964,7 @@ reference "eq:rot_invar_expansion"
  The projection is thus
 \begin_inset Formula 
 \begin{equation}
-\rho_{00}^{000}(r)=\rho(\mathbf{r},\mathbf{\Omega})=g(r)
+\rho_{00}^{000}(r)=\int\mathrm{d}\hat{\mathbf{r}}\mathrm{d}\mathbf{\Omega}\rho(\mathbf{r},\mathbf{\Omega})=g(r)
 \end{equation}
 
 \end_inset

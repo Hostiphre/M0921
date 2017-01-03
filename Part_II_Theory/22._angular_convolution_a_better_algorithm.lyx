@@ -685,7 +685,7 @@ acs{MDFT}
 ):
 \begin_inset Formula 
 \begin{equation}
-\hat{\gamma'}(\mathbf{k},\boldsymbol{\omega}_{1})=\sum_{m\chi\mu}f_{m}\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})\label{eq:gamma-projection-local}
+\hat{\gamma}(\mathbf{k},\boldsymbol{\omega}_{1})=\sum_{m\chi\mu}f_{m}\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})\label{eq:gamma-projection-local}
 \end{equation}
 
 \end_inset
@@ -693,7 +693,7 @@ acs{MDFT}
 
 \begin_inset Formula 
 \begin{equation}
-\Delta\hat{\rho'}(\mathbf{k},\boldsymbol{\omega}_{2})=\sum_{n\chi\nu}f_{n}\Delta\hat{\rho'}_{\chi\nu}^{n}(\mathbf{k})R_{\chi\nu}^{n}(\mathbf{\boldsymbol{\omega}}_{2})\label{eq:delta-rho-projection-local}
+\Delta\hat{\rho}(\mathbf{k},\boldsymbol{\omega}_{2})=\sum_{n\chi\nu}f_{n}\Delta\hat{\rho'}_{\chi\nu}^{n}(\mathbf{k})R_{\chi\nu}^{n}(\mathbf{\boldsymbol{\omega}}_{2})\label{eq:delta-rho-projection-local}
 \end{equation}
 
 \end_inset
@@ -3229,7 +3229,7 @@ reference "chpt:rotM-by-recurrence"
 Next, computing the OZ equation with Blum's reduction:
 \begin_inset Formula 
 \begin{equation}
-\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})=\sum_{n,\nu}(-1)^{\chi+\nu}\hat{c}_{\mu\nu,\chi}^{mn}(\mathbf{k})\Delta\hat{\rho'}_{\chi\underline{\nu}}^{n}(\mathbf{k})\label{eq:OZ-2}
+\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})=\sum_{n,\nu}(-1)^{\chi+\nu}\hat{c'}_{\mu\nu,\chi}^{mn}(\mathbf{k})\Delta\hat{\rho'}_{\chi\underline{\nu}}^{n}(\mathbf{k})\label{eq:OZ-2}
 \end{equation}
 
 \end_inset
@@ -3522,7 +3522,7 @@ It can be also proven that the passage from the function
 \end_inset
 
  can be achieved either by a rotation to the function 
-\begin_inset Formula $\hat{f'}(\mathbf{k},\boldsymbol{\omega}_{k})$
+\begin_inset Formula $\hat{f}(\mathbf{k},\boldsymbol{\omega}_{k})$
 \end_inset
 
  in intermolecular frame following by an 

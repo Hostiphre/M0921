@@ -171,7 +171,7 @@ acs{IET}
 
 \end_inset
 
- to treat molecular solvent, will not be discussed in this thesis.
+ to treat molecular solvent, will not be discussed here for simpleness.
 \end_layout
 
 \begin_layout Section
@@ -344,6 +344,13 @@ The differentiation of
 
 \begin_layout Subsection
 The external term
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:The-external-term"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -409,7 +416,7 @@ where
  are the geometric and arithmetic average Lennard-Jones parameters between
  solute and solvent, according to the Lorentz-Berthelot mixing rules.
  
-\begin_inset Formula $r_{ij}$
+\begin_inset Formula $r_{uv}$
 \end_inset
 
  is the norm of relative site-site vector
@@ -638,14 +645,24 @@ Another method to calculate
 \end_inset
 
  is the direct summation, which gives a non-periodic external potential,
- but in the implementation it usually leads to better convergency for non-spheri
+ but in the implementation it usually leads to better convergence for non-spheri
 cal molecules.
- Here we describe its expression, without understanding the reason behind
- convergency, as in this thesis we only work on the 
+ 
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+As in this thesis we only work on the 
 \begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
 \end_inset
 
- term:
+ term.
+\end_layout
+
+\end_inset
+
+Here we describe its expression, without understanding the reason behind
+ the convergence:
 \begin_inset Formula 
 \begin{equation}
 V_{\mathrm{coul}}(\mathbf{r},\mathbf{\Omega})=\sum_{u\in\mathrm{solute}}\sum_{v\in\mathrm{solvent}}\left(\dfrac{q_{u}q_{v}}{4\pi\varepsilon_{0}r_{uv}}\right)
@@ -1487,6 +1504,8 @@ acs{FFT}
 \end_layout
 
 \begin_layout Standard
+
+\color red
 Note that if function 
 \begin_inset Formula $f(\mathbf{X}_{1},\mathbf{X}_{2})$
 \end_inset
@@ -1495,7 +1514,7 @@ Note that if function
 \begin_inset Formula $\mathrm{C}_{2v}$
 \end_inset
 
-, the projections 
+, like water, the projections 
 \begin_inset Formula $f_{\mu\nu}^{mnl}(r)$
 \end_inset
 
@@ -1512,6 +1531,18 @@ Note that if function
 \end_inset
 
  is odd.
+ The complete symmetry relations are listed in 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Symmetry-rot_invar"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -1566,7 +1597,7 @@ m & n & l\\
 
 \end_inset
 
-where we try to use the apostrophe represents the functions in an intermolecular
+where we use the apostrophe to represent functions in an intermolecular
  frame.
  
 \end_layout
@@ -1610,12 +1641,12 @@ acs{MOZ}
 
 \end_inset
 
- equation reduces the calculation of each 
-\begin_inset Formula $(\mathbf{X}_{1},\mathbf{X}_{3})$
+ equation reduces the calculation of 
+\begin_inset Formula $\int\mathrm{d}\mathbf{X}_{3}$
 \end_inset
 
- for 
-\begin_inset Formula $(\mathbf{X}_{3},\mathbf{X}_{2})$
+ for each 
+\begin_inset Formula $(\mathbf{X}_{1},\mathbf{X}_{2})$
 \end_inset
 
  in eq.
@@ -1634,7 +1665,7 @@ reference "eq:4.MOZ"
 \begin_inset Formula $\nu_{1}$
 \end_inset
 
-.
+ for each index of projection.
 \end_layout
 
 \end_body

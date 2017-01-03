@@ -636,7 +636,7 @@ acs{DCF}
 \end_inset
 
  
-\begin_inset Formula $\hat{c}(k,\cos\theta_{1},\cos\theta_{2},\phi,\psi_{1},\psi_{2})$
+\begin_inset Formula $\hat{c}(k,\cos\theta_{1},\cos\theta_{2},\phi_{12},\psi_{1},\psi_{2})$
 \end_inset
 
  or rotational invariant projections.
@@ -837,7 +837,7 @@ reference "chpt:algorithms-and-branches"
 \end_inset
 
  from 
-\begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
+\begin_inset Formula $\Delta\rho(\mathbf{r},\mathbf{\Omega})$
 \end_inset
 
 , and name a selection of branches in order to facilitate further discussions.
@@ -895,8 +895,7 @@ reference "chpt:seq-code-performance"
  algorithms.
  The goal is to show that the new algorithms are much faster than the old
  ones, according to the theory; but also, to give a detailed evaluation
- of timing for all algorithms, as some of them maybe still useful for higher
- accuracy requirement.
+ of timing of all algorithms for further code development.
 \end_layout
 
 \begin_layout Part
@@ -964,57 +963,16 @@ acs{MD}
 \end_inset
 
  and experimental results.
- A few applications are made in this purpose.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset VSpace medskip
-\end_inset
-
-Section 
+ A few applications are made in this purpose in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chpt:ions"
 
 \end_inset
 
- shows the comparison of energy and structure for some LJ centers, ions
- and small molecules, and section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chpt:mnoxo"
-
-\end_inset
-
- gives a go to a complex molecule to show the capability of 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{MDFT}
-\end_layout
-
-\end_inset
-
- to achieve which 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{IET}
-\end_layout
-
-\end_inset
-
- cannot.
- Which will be done after the submit of the thesis and before the defense.
+, containing some LJ centers, ions and small molecules.
+ The results are also compared to dipole reference method, to show that
+ this increase of computing cost has really done an improvement on the results.
 \end_layout
 
 \begin_layout Part
@@ -1081,7 +1039,7 @@ filename "Part_V_Conclusion_and_Perspectives/52._Perspectives.lyx"
 
 \end_layout
 
-\begin_layout Part*
+\begin_layout Part
 \start_of_appendix
 Appendix
 \end_layout

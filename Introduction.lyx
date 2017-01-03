@@ -365,7 +365,7 @@ acs{MC}
 
 \end_inset
 
-), have become the alternative solution of choice during the last few decades.
+), have become the alternative solution during the last few decades.
  They generate trajectories and configurations, and from there estimate
  free energy changes by statistical mechanical techniques, such as free
  energy perturbation (FEP) theory or thermodynamic integration (TI) 
@@ -462,7 +462,7 @@ key "Chandler_1972_RISM"
 
  developed the reference interaction site model (RISM), which discretizes
  the distribution and correlation functions into site-site functions, and
- and solves somewhat phenomenological 
+ solves somewhat phenomenological 
 \begin_inset ERT
 status open
 
@@ -946,7 +946,7 @@ partially
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Different solvation theories
+Solvation theories
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Theories-of-solvation"

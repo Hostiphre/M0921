@@ -539,7 +539,7 @@ which means the probability to find
 , that 
 \begin_inset Formula 
 \begin{equation}
-\rho^{(1)}(\mathbf{r})\mathrm{d}\mathbf{r}=\left\langle N\right\rangle 
+\int\rho^{(1)}(\mathbf{r})\mathrm{d}\mathbf{r}=\left\langle N\right\rangle 
 \end{equation}
 
 \end_inset
@@ -929,7 +929,7 @@ Here the character
 \begin_inset Quotes eld
 \end_inset
 
-functional
+free-energy functional
 \begin_inset Quotes erd
 \end_inset
 

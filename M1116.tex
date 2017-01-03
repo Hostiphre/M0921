@@ -1,0 +1,281 @@
+%% LyX 2.2.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[french,american,fontsize=11pt,paper=a4,twoside,openright,titlepage,numbers=noenddot,headinclude,BCOR=5mm,footinclude=true,cleardoublepage=empty]{scrreprt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\setcounter{secnumdepth}{2}
+\usepackage{color}
+\usepackage{array}
+\usepackage{verbatim}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{textcomp}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+\usepackage{subscript}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\newcommand{\lyxmathsym}[1]{\ifmmode\begingroup\def\b@ld{bold}
+  \text{\ifx\math@version\b@ld\bfseries\fi#1}\endgroup\else#1\fi}
+
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+%% A simple dot to overcome graphicx limitations
+\newcommand{\lyxdot}{.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+% Classic Thesis Style loader
+\makeatother
+\input{classicthesis-config.tex}
+\makeatletter
+
+% \input@path is a list of paths where LaTeX should look for files
+% LyX defines it as a single element list with the path of the main document in it
+% Comes in two forms: {\string "/home/user/dir ectory/\string "/} or {/home/user/directory//}
+% This is a hack to extract the bare path from the above strings
+\ifcsname input@path\endcsname 
+  \edef\@basepath{\expandafter\@firstofone\input@path} %remove braces
+  \def\rm@quotes#1"#2"#3\@nul{\ifx\relax#2\relax #1\else #2\fi}
+  \edef\@basepath{\expandafter\rm@quotes\@basepath""\@nul} %remove quotes
+\else\edef\@basepath{./}\fi
+
+
+\let\orig@addbibresource\addbibresource
+\renewrobustcmd*{\addbibresource}[2][type=file]{\orig@addbibresource[#1]{\@basepath#2}}
+
+% use Latin Modern instead of Computer Modern sans serif
+\renewcommand{\sfdefault}{lmss}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\addbibresource{Bibliography.bib}
+
+\ExecuteBibliographyOptions{backref=true,isbn=false}
+
+\@ifundefined{showcaptionsetup}{}{%
+ \PassOptionsToPackage{caption=false}{subfig}}
+\usepackage{subfig}
+\makeatother
+
+\usepackage{babel}
+\makeatletter
+\addto\extrasfrench{%
+   \providecommand{\og}{\leavevmode\flqq~}%
+   \providecommand{\fg}{\ifdim\lastskip>\z@\unskip\fi~\frqq}%
+}
+
+\makeatother
+\begin{document}
+\frenchspacing
+\raggedbottom
+\pagenumbering{roman}
+\pagestyle{plain}
+\renewcommand\cleardoublepage{\clearpage}
+
+\include{Front_Staff/Titlepage}
+
+\include{Front_Staff/Titleback}
+
+\cleardoublepage{}
+
+\include{Front_Staff/Acknowledgments}
+
+\newpage{}
+
+\include{Front_Staff/Abstract}\cleardoublepage{}
+
+\pagestyle{scrheadings}
+
+\include{Contents}
+
+\cleardoublepage{}
+
+\pagenumbering{arabic}
+
+\include{Introduction}
+
+\ctparttext{This chapter gives a brief review of all the basic concepts and previous
+work that this thesis is based on.\\
+\medskip{}
+In section \ref{chpt:models}, we begin by introducing the frequent
+models of solvent in a simulation, from the simplest implicit continuum
+model to the most complex explicit one. The overview of these models
+then helps to understand the choice of description scale used in our
+study, as well as its limits.\\
+\medskip{}
+Once the model is chosen, all the theories become mathematical problems.
+Section \ref{chpt:statistical-mechanics} reviews some basic concepts
+of statistical mechanics for liquids (i.e. theory of liquids), which
+present some brief formalisms deduced for an atomic solvent model.
+Two frontier approaches are introduced with a few deductions: the
+classical density functional theory (c\acs{DFT}), and the integral
+equation theory (\acs{IET}). A mathematical equivalence between these
+two theories is also presented.\\
+\medskip{}
+The following section \ref{chpt:iem-mdft} gives the extension of
+the two theories to the molecular solvent case, i.e. the molecular
+density functional theory (\acs{MDFT}) that this thesis works upon,
+and the molecular Ornstein-Zernike (\acs{MOZ}) approach for \acs{IET}.
+The equivalence between these two theories gave us the idea to use
+the expansion techniques in \acs{IET} to serve \acs{MDFT}.\\
+\medskip{}
+Section \ref{chpt:mdft} gives some supplementary presentation of
+the initial code \acs{MDFT}, which the development of this thesis
+is based on.}
+
+\part{State of the Art: Solvation, Models and Methods}
+
+\include{Part_I_State_of_the_Art/11._models}
+
+\include{Part_I_State_of_the_Art/12._theory_of_liquids}
+
+\include{Part_I_State_of_the_Art/13._molecular_liquids}
+
+\include{Part_I_State_of_the_Art/14._molecular_density_functional_theory}
+
+\ctparttext{This chapter presents a complete theory of the $\mathcal{F}_{\mathrm{exc}}$
+evaluation under HRF approximation.\\
+\medskip{}
+As presented in section \ref{chpt:mdft}, to complete the minimization
+process of \acs{MDFT}, we need to evaluate the excess functional
+\begin{equation}
+\mathcal{F}_{\mathrm{exc}}=-\frac{k_{\mathrm{B}}T}{2}\int\mathrm{d}\mathbf{r}_{1}\mathrm{d}\mathbf{r}_{2}\mathrm{d}\mathbf{\Omega}_{1}\mathrm{d}\mathbf{\Omega}_{2}\Delta\rho(\mathbf{r}_{1},\mathbf{\Omega}_{1})\Delta\rho(\mathbf{r}_{2},\mathbf{\Omega}_{2})c(\mathbf{r}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\tag{II.1}\label{eq:fexc-II}
+\end{equation}
+as well as its gradient (normalized as dimensionless)
+\begin{equation}
+\gamma(\mathbf{r}_{1},\mathbf{\Omega}_{1})=\int\mathrm{d}\mathbf{r}_{2}\mathrm{d}\mathbf{\Omega}_{2}\Delta\rho(\mathbf{r}_{2},\mathbf{\Omega}_{2})c(\mathbf{r}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\tag{II.2}\label{eq:gamma-II}
+\end{equation}
+As discussed in $\mathsection$\ref{subsec:The-excess-term}, eq.
+(\ref{eq:gamma-II}) is a 3D convolution, which leads to
+\begin{equation}
+\hat{\gamma}(\mathbf{k},\mathbf{\Omega}_{1})=\int\mathrm{d}\mathbf{\Omega}_{2}\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega}_{2})\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\tag{II.3}\label{eq:gamma-k-II}
+\end{equation}
+such that the integral $\int\mathrm{d}\mathbf{r}_{2}$ in eq. (\ref{eq:gamma-II})
+is transformed into a simple product in eq. (\ref{eq:gamma-k-II}),
+giving a great advantage in terms of computational efficiency for
+huge spatial grid. \\
+\medskip{}
+In the previous work \citep{Zhao_2011}, $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
+in eq. (\ref{eq:gamma-k-II}) is evaluated with a pre- tabulated intermolecular
+\acs{DCF}, $\hat{c}(k,\cos\theta_{1},\cos\theta_{2},\phi_{12})$,
+which is appropriate for linear molecules. Section \ref{chpt:fft-spatial}
+gives a complete evaluation of $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
+using either a full intermolecular \acs{DCF} $\hat{c}(k,\cos\theta_{1},\cos\theta_{2},\phi_{12},\psi_{1},\psi_{2})$
+or rotational invariant projections.\\
+\medskip{}
+On the other hand, the increased precision of \acs{DCF} evaluation
+makes the computing cost of the original algorithm no longer reasonable.
+Further approximation should be therefore made. Section \ref{chpt:angular-convolution}
+presents a new algorithm to treat the angular convolution in eq. (\ref{eq:gamma-k-II}),
+which takes advantage of the rotational invariance by expanding the
+density variable $\rho(\mathbf{r},\mathbf{\Omega})$ on Wigner generalized
+spherical harmonics. In this algorithm, the \acs{OZ} equation is
+largely simplified, and the memory needed for the storage of \acs{DCF}
+is no longer important.\\
+\medskip{}
+The solvent properties involved in this thesis are presented in section
+\ref{chpt:solvation-properties}, organized in two aspects, the energy
+and the structure. The solvation free energy corrections and some
+forms of structure are presented.}
+
+\part{Theory: HRF Approximation, For Molecular Solvent}
+
+\include{Part_II_Theory/21._reduction_of_spatial_convolution_by_fft}
+
+\include{Part_II_Theory/22._angular_convolution_a_better_algorithm}
+
+\include{Part_II_Theory/23._solvation_properties}
+
+\ctparttext{The code MDFT developed in this thesis is based on the master branch
+of Git project MDFT (\url{https://github.com/maxlevesque/MDFT/}),
+version {[}Fri Jun 20 19:05:52 2014 +0200{]}. All the tests of computing
+performance are run on \textsf{\textbf{POINCARE}} machines of IDRIS,
+which involve nodes of kind:\\
+\medskip{}
+\textsf{\textbf{poincare{[}001-092{]}:}} 2 processors Sandy Bridge
+E5-2670 (2.60GHz, 8 cores per processor, with 16 cores per node);
+32 GB of memory per node.\\
+\medskip{}
+\includegraphics[width=0.87\textwidth]{_figure/poincare}\\
+\medskip{}
+This chapter presents the implementation results of the theories established
+in chapter II. Firstly in section \ref{chpt:algorithms-and-branches},
+we summarize all the possible algorithms to evaluate $\gamma(\mathbf{r},\mathbf{\Omega})$
+from $\Delta\rho(\mathbf{r},\mathbf{\Omega})$, and name a selection
+of branches in order to facilitate further discussions. In the following
+sections, the results are regrouped into two aspects, the accuracy
+and performance:\\
+\medskip{}
+Section \ref{chpt:accuracy} examines all the possible accuracy loss
+in the implementation, comparing to the theoretical model, which is
+in a general sense continuous and infinite. The accuracy loss is mainly
+due to the discretization of the system: the finite expansion of \acs{GSHT},
+the effects linking to discretized grid, as well as finite size of
+sample box. The factors linked to these effects are thus analyzed,
+in order to determine their acceptable minimum number to give a reasonable
+result.\\
+\medskip{}
+Section \ref{chpt:seq-code-performance} discusses the computing performance
+of the code from subroutines to entire algorithms. The goal is to
+show that the new algorithms are much faster than the old ones, according
+to the theory; but also, to give a detailed evaluation of timing of
+all algorithms for further code development.}
+
+\part{Implementation}
+
+\include{Part_III_Implementation/31._algorithms_and_branches}
+
+\include{Part_III_Implementation/32._numerical_and_physical_accuracy}
+
+\include{Part_III_Implementation/33._computing_performance_of_sequential_code}
+
+\ctparttext{In chapter III, we've studied the numerical accuracy of the code
+comparing to \acs{IET}. In this section, we are interested in the
+physical accuracy comparing to \acs{MD} and experimental results.
+A few applications are made in this purpose in section \ref{chpt:ions},
+containing some LJ centers, ions and small molecules. The results
+are also compared to dipole reference method, to show that this increase
+of computing cost has really done an improvement on the results.}
+
+\part{Applications}
+
+\include{Part_IV_Applications/41._ions}
+
+\ctparttext{The only one publication during this thesis\\
+\medskip{}
+The goal of the current work was ...\\
+\medskip{}
+The following results were achieved in the current research project:\\
+\medskip{}
+The performed tests show that the proposed methods are suitable for
+fast and accurate calculations of solvation free energies...}
+
+\part{Conclusion and Perspectives}
+
+\include{Part_V_Conclusion_and_Perspectives/52._Perspectives}
+
+\cleardoublepage{}
+
+\appendix
+
+\part{Appendix}
+
+\include{Part_I_State_of_the_Art/1A._computing_performance}\include{Part_I_State_of_the_Art/1B._dcf_of_water}\include{Part_II_Theory/2E._error_evaluation_of_interpolation_strategies}\include{Part_II_Theory/2F._deduction_blum}\include{Part_II_Theory/2A._equivalence_of_quadrature_projection_order}
+
+\include{Part_II_Theory/2B._rotational_invariant_expansion}
+
+\include{Part_II_Theory/2C._evaluation_of_rotation_matrix_elements_by_recurrence}
+
+\include{Part_II_Theory/2D._symmetry-of-gsh-and-wigner-3j-symbol}
+
+\cleardoublepage{}
+
+\include{Bibliography}
+\end{document}

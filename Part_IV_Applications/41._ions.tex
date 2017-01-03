@@ -1,0 +1,415 @@
+
+\chapter{Comparison to MD simulation\label{chpt:ions}}
+
+In the last chapter, we have proven that \acs{MDFT} is capable to
+correctly predict solvation properties of LJ centers, single ions
+and linear solutes compared to \acs{IET}. In this section, we will
+compare them to \acs{MD} and experimental results. All the solutes
+are optimized with the fast \texttt{\textbf{convolution\_standard}}
+algorithm, with implicitly if not specified.
+
+\section{LJ centers}
+
+The \acs{RDF} of rare gazes calculated in \ref{tab:Free-energy-rare-gas}
+in compared with \acs{MD} in figure using $m_{\max}=3$ to 5. It
+looks like there is no improvement compared to ref \citep{Zhao_2011}.
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=0.8\columnwidth]{_figure/results/rare_gaz}
+\par\end{centering}
+\caption{RDF of rare gazes $L=24$ $\textrm{Å}$, $\mathrm{nfft}=72$}
+\end{figure}
+
+
+\section{Charged $\mathrm{CH_{4}}$ series}
+
+The comparison of \acs{RDF} with \acs{MD} results are shown in figure
+\ref{fig:Comparison-to-MD}. We can see that for negative charges,
+the \acs{MDFT} results are more smooth, but the first peak is in
+good position. For positive charges, it is in agreement.
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=1\columnwidth]{_figure/results/ch4_md}
+\par\end{centering}
+\caption{Comparison to MD\label{fig:Comparison-to-MD}}
+\end{figure}
+
+
+\section{Solvation free energy of single ions}
+
+From above we can see the \acs{RDF} for positive ions are in well
+agreement with \acs{MD} results....
+
+However, the energy is more difficult to compare, ... 
+
+To compare with experimental results, there are several corrections
+depending on box length and charge, and the LJ parameters are very
+different.
+
+here we just give a try with Honizek 
+
+Table \ref{tab:single-ions} gives some experimental and \acs{MD}
+simulation result of solvation free energy and first maximum of \acs{RDF}
+for alkali and halide ions. We can see that the data itself varies
+a lot. Nevertheless, the parameters of ions from literatures can also
+have thousand times of difference. Therefore, we chose a series of
+force field parameters for halide anions and alkali cations based
+on SPC/E water as shown also in table \ref{tab:single-ions}. \marginpar{\textcolor{red}{We consider that for a macroscopic system, when the
+number of particles $N\rightarrow\infty$, the Gibbs and Helmholtz
+free energy are almost the same. }\citep{ensemble_thermo}}
+
+\begin{table}[h]
+\begin{centering}
+\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}ccccccccc}
+\toprule 
+\addlinespace[-0.17em]
+\tableheadline{{\footnotesize{}Ion}} & {\scriptsize{}$-\Delta G_{\mathrm{solv}}^{\mathrm{exp}}$\textsuperscript{{\scriptsize{}(a)}}} & {\scriptsize{}$-\Delta F_{\mathrm{solv}}^{\mathrm{exp}}$\textsuperscript{{\scriptsize{}(b)}}} & {\scriptsize{}$-\Delta G_{\mathrm{solv}}^{\mathrm{exp}}$\textsuperscript{{\scriptsize{}(c)}}} & {\scriptsize{}$R_{1}$\textsuperscript{{\scriptsize{}(d)}}} & {\scriptsize{}$\sigma$ $[\textrm{Å}]$\textsuperscript{{\scriptsize{}(e)}}} & {\scriptsize{}$\epsilon$ {[}$\mathrm{kJ\cdot mol^{-1}}${]}\textsuperscript{{\scriptsize{}(e)}}} & {\scriptsize{}$-\Delta G_{\mathrm{solv}}^{\mathrm{MD}}$\textsuperscript{{\scriptsize{}(e)}}} & {\scriptsize{}$R_{1}^{\mathrm{MD}}$\textsuperscript{{\scriptsize{}(e)}}}\tabularnewline
+\midrule 
+\addlinespace[-0.33em]
+{\scriptsize{}$\mathrm{F^{-}}$} & {\scriptsize{}465} & {\scriptsize{}374.5} & {\scriptsize{}428.8} & {\scriptsize{}2.08} & {\scriptsize{}3.30} & {\scriptsize{}0.55} & {\scriptsize{}-430} & {\scriptsize{}2.74}\tabularnewline
+\addlinespace[-0.33em]
+{\scriptsize{}$\mathrm{Cl^{-}}$} & {\scriptsize{}340} & {\scriptsize{}318.4} & {\scriptsize{}304.2} & {\scriptsize{}2.36} & {\scriptsize{}3.78} & {\scriptsize{}0.52} & {\scriptsize{}-306} & {\scriptsize{}3.23}\tabularnewline
+\addlinespace[-0.33em]
+{\scriptsize{}$\mathrm{Br^{-}}$} & {\scriptsize{}315} & {\scriptsize{}289.5} & {\scriptsize{}227.4} & {\scriptsize{}2.80} & {\scriptsize{}4.00} & {\scriptsize{}0.37} & {\scriptsize{}-279} & {\scriptsize{}3.35}\tabularnewline
+\addlinespace[-0.33em]
+{\scriptsize{}$\mathrm{I^{-}}$ } & {\scriptsize{}275} & {\scriptsize{}252.3} & {\scriptsize{}240.0} & {\scriptsize{}2.89} & {\scriptsize{}4.25} & {\scriptsize{}0.32} & {\scriptsize{}-241} & {\scriptsize{}3.55}\tabularnewline
+\addlinespace[-0.33em]
+{\scriptsize{}$\mathrm{Li^{+}}$ } & {\scriptsize{}475} & {\scriptsize{}511.0} & {\scriptsize{}529.4} & {\scriptsize{}3.14} & {\scriptsize{}3.02} & {\scriptsize{}0.02} & {\scriptsize{}-520} & {\scriptsize{}1.91}\tabularnewline
+\addlinespace[-0.33em]
+{\scriptsize{}$\mathrm{Na^{+}}$ } & {\scriptsize{}365} & {\scriptsize{}411.5} & {\scriptsize{}423.8} & {\scriptsize{}2.63} & {\scriptsize{}3.49} & {\scriptsize{}0.02} & {\scriptsize{}-414} & {\scriptsize{}2.28}\tabularnewline
+\addlinespace[-0.33em]
+{\scriptsize{}$\mathrm{K^{+}}$ } & {\scriptsize{}295} & {\scriptsize{}337.2} & {\scriptsize{}352.0} & {\scriptsize{}3.19} & {\scriptsize{}3.85} & {\scriptsize{}0.02} & {\scriptsize{}-347} & {\scriptsize{}2.54}\tabularnewline
+\addlinespace[-0.33em]
+{\scriptsize{}$\mathrm{Rb^{+}}$ } & {\scriptsize{}275} & {\scriptsize{}316.0} & {\scriptsize{}329.3} & {\scriptsize{}3.37} & {\scriptsize{}no data} & {\scriptsize{}no data} & {\scriptsize{}no data} & {\scriptsize{}no data}\tabularnewline
+\addlinespace[-0.33em]
+{\scriptsize{}$\mathrm{Cs^{+}}$ } & {\scriptsize{}250} & {\scriptsize{}283.8} & {\scriptsize{}no data} & {\scriptsize{}3.65} & {\scriptsize{}4.17} & {\scriptsize{}0.02} & {\scriptsize{}-300} & {\scriptsize{}2.79}\tabularnewline
+\bottomrule
+\end{tabular*}
+\par\end{centering}
+\caption[Free energy and first maximum of ion-water oxygen \acs{RDF} for alkali
+and halide ions from experimental and \acs{MD} simulation result]{Free energy in $[\mathrm{kJ\cdot mol^{-1}}]$ and first maximum of
+ion-water oxygen radial distribution functions in $[\textrm{Å}]$
+for alkali and halide ions from experimental and \acs{MD} simulation
+result. (a). Ref \citep{MARCUS1994111}. (b). Ref \citep{Noyes_1962}.
+(c) Ref \citep{tissandier_protons_1998}. (e) Ref {[}Horinek{]} from
+\acs{MD} simulation. (d) Ref {[}Marcus1988{]}.\label{tab:single-ions}}
+
+\vspace{0.5cm}
+
+\begin{centering}
+\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}ccccccc}
+\toprule 
+\addlinespace[-0.17em]
+\tableheadline{{\footnotesize{}Ion}} & {\scriptsize{}$\Delta G_{\mathrm{solv}}^{\mathrm{MD}}$} & {\scriptsize{}$\Delta\varOmega_{\mathrm{solv}}^{\mathrm{dipole}}$} & {\scriptsize{}$\Delta\varOmega_{\mathrm{solv}}^{\mathrm{nmax3}}$} & {\scriptsize{}$R_{1}^{\mathrm{MD}}$} & {\scriptsize{}$R_{1}^{\mathrm{dipole}}$} & {\scriptsize{}$R_{1}^{\mathrm{nmax3}}$}\tabularnewline
+\midrule 
+\addlinespace[-0.33em]
+{\scriptsize{}$\mathrm{F^{-}}$ } & {\scriptsize{}-430} & {\scriptsize{}diverge} & {\scriptsize{}-368.47} & {\scriptsize{}2.74} & {\scriptsize{}-} & {\scriptsize{}2.71}\tabularnewline
+\addlinespace[-0.33em]
+{\scriptsize{}$\mathrm{Cl^{-}}$ } & {\scriptsize{}-306} & {\scriptsize{}diverge} & {\scriptsize{}-297.33} & {\scriptsize{}3.23} & {\scriptsize{}-} & {\scriptsize{}2.88}\tabularnewline
+\addlinespace[-0.33em]
+{\scriptsize{}$\mathrm{Br^{-}}$ } & {\scriptsize{}-279} & {\scriptsize{}diverge} & {\scriptsize{}-278.32} & {\scriptsize{}3.35} & {\scriptsize{}-} & {\scriptsize{}2.96}\tabularnewline
+\addlinespace[-0.33em]
+{\scriptsize{}$\mathrm{I^{-}}$ } & {\scriptsize{}-241} & {\scriptsize{}diverge} & {\scriptsize{}-253.42} & {\scriptsize{}3.55} & {\scriptsize{}-} & {\scriptsize{}3.12}\tabularnewline
+\addlinespace[-0.33em]
+{\scriptsize{}$\mathrm{Li^{+}}$ } & {\scriptsize{}-520} & {\scriptsize{}-707.73} & {\scriptsize{}-405.28} & {\scriptsize{}1.91} & {\scriptsize{}2.46} & {\scriptsize{}2.38}\tabularnewline
+\addlinespace[-0.33em]
+{\scriptsize{}$\mathrm{Na^{+}}$ } & {\scriptsize{}-414} & {\scriptsize{}-621.76} & {\scriptsize{}-366.00} & {\scriptsize{}2.28} & {\scriptsize{}2.54} & {\scriptsize{}2.54}\tabularnewline
+\addlinespace[-0.33em]
+{\scriptsize{}$\mathrm{K^{+}}$ } & {\scriptsize{}-347} & {\scriptsize{}-559.13} & {\scriptsize{}-338.37} & {\scriptsize{}2.54} & {\scriptsize{}2.63} & {\scriptsize{}2.70}\tabularnewline
+\addlinespace[-0.33em]
+{\scriptsize{}$\mathrm{Cs^{+}}$ } & {\scriptsize{}-300} & {\scriptsize{}-508.84} & {\scriptsize{}-316.06} & {\scriptsize{}2.79} & {\scriptsize{}2.88} & {\scriptsize{}2.88}\tabularnewline
+\bottomrule
+\end{tabular*}
+\par\end{centering}
+\caption{Free energies $[\mathrm{kJ\cdot mol^{-1}}]$ and first \acs{RDF}
+maximum $[\textrm{Å}]$ of single ions from \acs{MDFT} results compared
+to experimental results \label{tab:free-energy-single-ions}}
+\end{table}
+
+
+\section{Small molecules}
+
+Here gives some solute structure compared to \acs{MD}.
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[width=1\columnwidth]{_figure/app_solute_var}
+\par\end{centering}
+\caption{Test solutes\label{fig:Test-solutes-2}}
+\end{figure}
+
+\begin{table}[h]
+\begin{centering}
+\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}llrrrrrr}
+\toprule 
+\addlinespace[-0.17em]
+\tableheadline{{\footnotesize{}Solute}} & \tableheadline{{\footnotesize{}Site}} & {\scriptsize{}$q$} & {\scriptsize{}$\sigma$ $[\textrm{Å}]$} & {\scriptsize{}$\epsilon$ {[}$\mathrm{kJ\cdot mol^{-1}}${]}} & {\scriptsize{}$x$ $[\textrm{Å}]$} & {\scriptsize{}$y$ $[\textrm{Å}]$} & {\scriptsize{}$z$ $[\textrm{Å}]$}\tabularnewline
+\midrule 
+\addlinespace[-0.33em]
+{\scriptsize{}Acetone \citep{jorgensen_relative_1990}} & {\scriptsize{}CH\textsubscript{3}} & {\scriptsize{}0.062} & {\scriptsize{}3.91} & {\scriptsize{}0.6694} & {\scriptsize{}1.2810} & {\scriptsize{}0.7024} & {\scriptsize{}-0.0002}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}C} & {\scriptsize{}0.300} & {\scriptsize{}3.75} & {\scriptsize{}0.4393} & {\scriptsize{}0.0101} & {\scriptsize{}-0.0872 } & {\scriptsize{}0.0106 }\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}O} & {\scriptsize{}-0.424} & {\scriptsize{}2.96} & {\scriptsize{}0.8796} & {\scriptsize{}0.0103} & {\scriptsize{}-1.3171 } & {\scriptsize{}-0.0102 }\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}CH\textsubscript{3}} & {\scriptsize{}0.062} & {\scriptsize{}3.91} & {\scriptsize{}0.6694} & {\scriptsize{}-1.2813} & {\scriptsize{}0.7019} & {\scriptsize{}-0.0002}\tabularnewline
+\addlinespace[-0.17em]
+\midrule 
+\addlinespace[-0.33em]
+{\scriptsize{}Acetonitrile }\textcolor{red}{\scriptsize{}{[}ref{]}} & {\scriptsize{}CH\textsubscript{3}} & {\scriptsize{}0.269 } & {\scriptsize{}3.6 } & {\scriptsize{}1.590 } & {\scriptsize{}0.0000} & {\scriptsize{}0.0000} & {\scriptsize{}-1.3254 }\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}C} & {\scriptsize{}0.129} & {\scriptsize{}3.4 } & {\scriptsize{}0.416 } & {\scriptsize{}0.0000} & {\scriptsize{}0.0000} & {\scriptsize{}0.1346}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}N} & {\scriptsize{}-0.398 } & {\scriptsize{}3.3 } & {\scriptsize{}0.416 } & {\scriptsize{}0.0000} & {\scriptsize{}0.0000} & {\scriptsize{}1.3046}\tabularnewline
+\addlinespace[-0.17em]
+\midrule 
+\addlinespace[-0.33em]
+{\scriptsize{}Ammonia \citep{Diraison_1999}} & {\scriptsize{}N} & {\scriptsize{}0.000 } & {\scriptsize{}3.4 } & {\scriptsize{}1.164 } & {\scriptsize{}0.000000} & {\scriptsize{}0.000000} & {\scriptsize{}0.000000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}X} & {\scriptsize{}-1.386} & {\scriptsize{}0.0} & {\scriptsize{}0.000} & {\scriptsize{}0.000000} & {\scriptsize{}0.000000} & {\scriptsize{}-0.156000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}H} & {\scriptsize{}0.462} & {\scriptsize{}0.0} & {\scriptsize{}0.000} & {\scriptsize{}-0.937790} & {\scriptsize{}0.000000} & {\scriptsize{}-0.381449}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}H} & {\scriptsize{}0.462} & {\scriptsize{}0.0} & {\scriptsize{}0.000} & {\scriptsize{}0.468895} & {\scriptsize{}0.812150} & {\scriptsize{}-0.381449}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}H} & {\scriptsize{}0.462} & {\scriptsize{}0.0} & {\scriptsize{}0.000} & {\scriptsize{}0.468895} & {\scriptsize{}-0.812150} & {\scriptsize{}-0.381449}\tabularnewline
+\addlinespace[-0.17em]
+\midrule 
+\addlinespace[-0.33em]
+{\scriptsize{}Benzene \citep{Chipot_1996}} & {\scriptsize{}C} & {\scriptsize{}-0.138} & {\scriptsize{}1.908 } & {\scriptsize{}0.35980 } & {\scriptsize{}1.386 } & {\scriptsize{}0.000} & {\scriptsize{}0.000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+{\scriptsize{}(charged)} & {\scriptsize{}C} & {\scriptsize{}-0.138} & {\scriptsize{}1.908 } & {\scriptsize{}0.35980 } & {\scriptsize{}0.693} & {\scriptsize{}-1.200} & {\scriptsize{}0.000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}C} & {\scriptsize{}-0.138} & {\scriptsize{}1.908 } & {\scriptsize{}0.35980 } & {\scriptsize{}-0.693} & {\scriptsize{}-1.200} & {\scriptsize{}0.000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}C} & {\scriptsize{}-0.138} & {\scriptsize{}1.908 } & {\scriptsize{}0.35980 } & {\scriptsize{}-1.386} & {\scriptsize{}0.000} & {\scriptsize{}0.000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}C} & {\scriptsize{}-0.138} & {\scriptsize{}1.908 } & {\scriptsize{}0.35980 } & {\scriptsize{}-0.693} & {\scriptsize{}1.200} & {\scriptsize{}0.000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}C} & {\scriptsize{}-0.138} & {\scriptsize{}1.908 } & {\scriptsize{}0.35980 } & {\scriptsize{}0.693} & {\scriptsize{}1.200} & {\scriptsize{}0.000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}H} & {\scriptsize{}0.138 } & {\scriptsize{}1.459} & {\scriptsize{}0.06276 } & {\scriptsize{}2.462} & {\scriptsize{}0.000} & {\scriptsize{}0.000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}H} & {\scriptsize{}0.138 } & {\scriptsize{}1.459} & {\scriptsize{}0.06276 } & {\scriptsize{}1.231} & {\scriptsize{}-2.132} & {\scriptsize{}0.000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}H} & {\scriptsize{}0.138 } & {\scriptsize{}1.459} & {\scriptsize{}0.06276 } & {\scriptsize{}-1.231} & {\scriptsize{}-2.132} & {\scriptsize{}0.000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}H} & {\scriptsize{}0.138 } & {\scriptsize{}1.459} & {\scriptsize{}0.06276 } & {\scriptsize{}-2.462} & {\scriptsize{}0.000} & {\scriptsize{}0.000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}H} & {\scriptsize{}0.138 } & {\scriptsize{}1.459} & {\scriptsize{}0.06276 } & {\scriptsize{}-1.231} & {\scriptsize{}2.132} & {\scriptsize{}0.000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}H} & {\scriptsize{}0.138 } & {\scriptsize{}1.459} & {\scriptsize{}0.06276 } & {\scriptsize{}1.231} & {\scriptsize{}2.132} & {\scriptsize{}0.000}\tabularnewline
+\addlinespace[-0.17em]
+\midrule 
+\addlinespace[-0.33em]
+{\scriptsize{}$\mathrm{CO_{2}}$ \citep{Harris_1995}} & {\scriptsize{}C} & {\scriptsize{}0.6512 } & {\scriptsize{}2.76} & {\scriptsize{}0.234} & {\scriptsize{}0.000 } & {\scriptsize{}0.000 } & {\scriptsize{}0.000 }\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}O} & {\scriptsize{}-0.3256} & {\scriptsize{}3.03 } & {\scriptsize{}0.67} & {\scriptsize{}-1.149 } & {\scriptsize{}0.000 } & {\scriptsize{}0.000 }\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}O} & {\scriptsize{}-0.3256} & {\scriptsize{}3.03 } & {\scriptsize{}0.67} & {\scriptsize{}1.149 } & {\scriptsize{}0.000 } & {\scriptsize{}0.000 }\tabularnewline
+\addlinespace[-0.17em]
+\midrule 
+\addlinespace[-0.33em]
+{\scriptsize{}$\mathrm{O_{2}}$ \citep{Boutard200525}} & {\scriptsize{}O} & {\scriptsize{}0.0} & {\scriptsize{}3.1062} & {\scriptsize{}0.36 } & {\scriptsize{}-0.485} & {\scriptsize{}0.000 } & {\scriptsize{}0.000 }\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}O} & {\scriptsize{}0.0} & {\scriptsize{}3.1062} & {\scriptsize{}0.36 } & {\scriptsize{}0.485} & {\scriptsize{}0.000 } & {\scriptsize{}0.000 }\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}X} & {\scriptsize{}-2.1} & {\scriptsize{}0.00} & {\scriptsize{}0.00} & {\scriptsize{}-0.200} & {\scriptsize{}0.000 } & {\scriptsize{}0.000 }\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}X} & {\scriptsize{}-2.1} & {\scriptsize{}0.00} & {\scriptsize{}0.00} & {\scriptsize{}0.200} & {\scriptsize{}0.000 } & {\scriptsize{}0.000 }\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}X} & {\scriptsize{}4.2} & {\scriptsize{}0.00} & {\scriptsize{}0.00} & {\scriptsize{}0.000} & {\scriptsize{}0.000 } & {\scriptsize{}0.000 }\tabularnewline
+\addlinespace[-0.17em]
+\midrule 
+\addlinespace[-0.33em]
+{\scriptsize{}Ethane \citep{jorgensen_relative_1990}} & {\scriptsize{}CH\textsubscript{3}} & {\scriptsize{}0.0} & {\scriptsize{}3.775} & {\scriptsize{}0.8661} & {\scriptsize{}-0.756} & {\scriptsize{}0.000} & {\scriptsize{}0.000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}CH\textsubscript{3}} & {\scriptsize{}0.0} & {\scriptsize{}3.775} & {\scriptsize{}0.8661} & {\scriptsize{}0.756} & {\scriptsize{}0.000} & {\scriptsize{}0.000}\tabularnewline
+\addlinespace[-0.17em]
+\midrule 
+\addlinespace[-0.33em]
+{\scriptsize{}Methanol \citep{Schnabel_2007}} & {\scriptsize{}CH\textsubscript{3}} & {\scriptsize{}0.24746} & {\scriptsize{}3.7543} & {\scriptsize{}1.0027} & {\scriptsize{}-1.42460} & {\scriptsize{}0.000000} & {\scriptsize{}0.000000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}OH} & {\scriptsize{}-0.67874} & {\scriptsize{}3.0300} & {\scriptsize{}0.7307} & {\scriptsize{}0.00000} & {\scriptsize{}0.000000} & {\scriptsize{}0.000000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}X} & {\scriptsize{}0.43128} & {\scriptsize{}0.0000} & {\scriptsize{}0.0000} & {\scriptsize{}0.30035} & {\scriptsize{}0.896104} & {\scriptsize{}0.000000}\tabularnewline
+\addlinespace[-0.17em]
+\midrule 
+\addlinespace[-0.33em]
+{\scriptsize{}$\mathrm{N_{2}}$ }\textcolor{red}{\scriptsize{}{[}ref{]}} & {\scriptsize{}N} & {\scriptsize{}-0.5075} & {\scriptsize{}3.30} & {\scriptsize{}0.30} & {\scriptsize{}-0.549} & {\scriptsize{}0.000} & {\scriptsize{}0.000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}N} & {\scriptsize{}-0.5075} & {\scriptsize{}3.30} & {\scriptsize{}0.30} & {\scriptsize{}0.549} & {\scriptsize{}0.000} & {\scriptsize{}0.000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}X} & {\scriptsize{}1.0150} & {\scriptsize{}0.00} & {\scriptsize{}0.00} & {\scriptsize{}0.000} & {\scriptsize{}0.000} & {\scriptsize{}0.000}\tabularnewline
+\addlinespace[-0.17em]
+\midrule 
+\addlinespace[-0.33em]
+{\scriptsize{}Propane }\textcolor{red}{\scriptsize{}{[}ref{]}} & {\scriptsize{}CH\textsubscript{3}} & {\scriptsize{}0.0} & {\scriptsize{}3.905} & {\scriptsize{}0.732} & {\scriptsize{}-1.25} & {\scriptsize{}-0.4417} & {\scriptsize{}0.0}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}CH\textsubscript{2}} & {\scriptsize{}0.0} & {\scriptsize{}3.905} & {\scriptsize{}0.494} & {\scriptsize{}0.0} & {\scriptsize{}0.4417} & {\scriptsize{}0.0}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}CH\textsubscript{3}} & {\scriptsize{}0.0} & {\scriptsize{}3.905} & {\scriptsize{}0.732} & {\scriptsize{}1.25} & {\scriptsize{}-0.4417} & {\scriptsize{}0.0}\tabularnewline
+\addlinespace[-0.17em]
+\midrule 
+\addlinespace[-0.33em]
+{\scriptsize{}Pyrimidine \citep{jorgensen_relative_1990}} & {\scriptsize{}N} & {\scriptsize{}-0.490} & {\scriptsize{}3.25} & {\scriptsize{}0.7113} & {\scriptsize{}1.2035} & {\scriptsize{}-0.6989} & {\scriptsize{}0.0000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}N} & {\scriptsize{}-0.490} & {\scriptsize{}3.25} & {\scriptsize{}0.7113} & {\scriptsize{}-1.2063} & {\scriptsize{}-0.6943} & {\scriptsize{}0.0000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}C\textsuperscript{2}H} & {\scriptsize{}0.410} & {\scriptsize{}3.75} & {\scriptsize{}0.4602} & {\scriptsize{}-0.0026} & {\scriptsize{}-1.2980} & {\scriptsize{}0.0001}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}C\textsuperscript{3}H} & {\scriptsize{}0.245} & {\scriptsize{}3.75} & {\scriptsize{}0.4602} & {\scriptsize{}1.1692} & {\scriptsize{}0.6499} & {\scriptsize{}-0.0001}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}C\textsuperscript{4}H} & {\scriptsize{}0.245} & {\scriptsize{}3.75} & {\scriptsize{}0.4602} & {\scriptsize{}-1.1666} & {\scriptsize{}0.6543} & {\scriptsize{}-0.0001}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}C\textsuperscript{5}H} & {\scriptsize{}0.080} & {\scriptsize{}3.75} & {\scriptsize{}0.4602} & {\scriptsize{}0.0028} & {\scriptsize{}1.3870} & {\scriptsize{}0.0001}\tabularnewline
+\addlinespace[-0.17em]
+\midrule 
+\addlinespace[-0.33em]
+{\scriptsize{}SPC/E \citep{SPC/E}} & {\scriptsize{}O} & {\scriptsize{}-0.8476} & {\scriptsize{}3.165} & {\scriptsize{}0.65} & {\scriptsize{}0.000000} & {\scriptsize{}0.000000} & {\scriptsize{}0.0000000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}H} & {\scriptsize{}0.4238} & {\scriptsize{}0.000} & {\scriptsize{}0.00} & {\scriptsize{}0.816495} & {\scriptsize{}0.000000} & {\scriptsize{}0.5773525}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}H} & {\scriptsize{}0.4238} & {\scriptsize{}0.000} & {\scriptsize{}0.00} & {\scriptsize{}-0.816495} & {\scriptsize{}0.000000} & {\scriptsize{}0.5773525}\tabularnewline
+\addlinespace[-0.17em]
+\midrule 
+\addlinespace[-0.33em]
+{\scriptsize{}TIP4P \citep{Abascal_2005}} & {\scriptsize{}O} & {\scriptsize{}0.0000} & {\scriptsize{}3.1589} & {\scriptsize{}0.775} & {\scriptsize{}0.00000} & {\scriptsize{}0.00000} & {\scriptsize{}0.00000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}H} & {\scriptsize{}0.5564} & {\scriptsize{}0.0000} & {\scriptsize{}0.000} & {\scriptsize{}0.75695} & {\scriptsize{}0.58588} & {\scriptsize{}0.00000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}H} & {\scriptsize{}0.5564} & {\scriptsize{}0.0000} & {\scriptsize{}0.000} & {\scriptsize{}-0.75695} & {\scriptsize{}0.58588} & {\scriptsize{}0.00000}\tabularnewline
+\addlinespace[-0.17em]
+\addlinespace[-0.33em]
+ & {\scriptsize{}X} & {\scriptsize{}-1.1128} & {\scriptsize{}0.0000} & {\scriptsize{}0.000} & {\scriptsize{}0.00000} & {\scriptsize{}0.15460} & {\scriptsize{}0.00000}\tabularnewline
+\bottomrule
+\addlinespace[-0.17em]
+\end{tabular*}
+\par\end{centering}
+\caption{Parameters of test solutes\label{tab:Parameters-of-test-solutes-2}}
+\end{table}
+
+\begin{figure}[!tbph]
+\begin{centering}
+\includegraphics[width=1\columnwidth]{_figure/results/solute\lyxdot acetone-3}
+\par\end{centering}
+\begin{centering}
+\includegraphics[width=1\columnwidth]{_figure/results/solute\lyxdot acetonitrile-3}
+\par\end{centering}
+\begin{centering}
+\includegraphics[width=1\columnwidth]{_figure/results/solute\lyxdot ammonia-3}
+\par\end{centering}
+\begin{centering}
+\includegraphics[width=1\columnwidth]{_figure/results/solute\lyxdot benzene-3}
+\par\end{centering}
+\caption{solute}
+\end{figure}
+
+\begin{figure}[!tbph]
+\ContinuedFloat
+\begin{centering}
+\includegraphics[width=1\columnwidth]{_figure/results/solute\lyxdot carbondioxide-3}
+\par\end{centering}
+\begin{centering}
+\includegraphics[width=1\columnwidth]{_figure/results/solute\lyxdot oxygen-3}
+\par\end{centering}
+\begin{centering}
+\includegraphics[width=1\columnwidth]{_figure/results/solute\lyxdot ethane-3}
+\par\end{centering}
+\begin{centering}
+\includegraphics[width=1\columnwidth]{_figure/results/solute\lyxdot methanol-3}
+\par\end{centering}
+\caption[]{solute (continued)}
+\end{figure}
+
+\begin{figure}[!tbph]
+\ContinuedFloat
+\begin{centering}
+\includegraphics[width=1\columnwidth]{_figure/results/solute\lyxdot nitrogen-3}
+\par\end{centering}
+\begin{centering}
+\includegraphics[width=1\columnwidth]{_figure/results/solute\lyxdot propane-3}
+\par\end{centering}
+\begin{centering}
+\includegraphics[width=1\columnwidth]{_figure/results/solute\lyxdot pyrimidine-3}
+\par\end{centering}
+\begin{centering}
+\includegraphics[width=1\columnwidth]{_figure/results/solute\lyxdot spce-3}
+\par\end{centering}
+\caption[]{solute (continued)}
+\end{figure}
+
+\begin{figure}[!tbph]
+\ContinuedFloat
+\begin{centering}
+\includegraphics[width=1\columnwidth]{_figure/results/solute\lyxdot tip4p-3}
+\par\end{centering}
+\caption[]{solute (continued)}
+\end{figure}
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.7\columnwidth]{/Users/Hostiphre/Desktop/_M1116/_figure/results/solute\lyxdot pyrimidine\lyxdot snap}
+\par\end{centering}
+\caption{Volume slice of pyrimidine}
+\end{figure}
+
+\begin{figure}
+\subfloat[SPC/E]{\begin{centering}
+\includegraphics[width=0.45\columnwidth]{/Users/Hostiphre/Desktop/_M1116/_figure/results/solute\lyxdot spce\lyxdot snap}
+\par\end{centering}
+}\subfloat[TIP4P]{\begin{centering}
+\includegraphics[width=0.45\columnwidth]{/Users/Hostiphre/Desktop/_M1116/_figure/results/solute\lyxdot tip4p\lyxdot snap}
+\par\end{centering}
+}
+
+\caption{Isosurface}
+\end{figure}
+
+In the purpose to show the the ability of \acs{MDFT} to calculate
+large solute that \acs{IET} cannot, due to the spherical coordinate
+system it adopt, some large molecules are investigated.

@@ -130,7 +130,7 @@ Abstract
 \end_layout
 
 \begin_layout Standard
-Solvation properties often play an important role in chemical and bio-chemical
+Solvation properties play an important role in chemical and bio-chemical
  issues.
  The molecular density functional theory (
 \begin_inset ERT
@@ -145,9 +145,9 @@ acs{MDFT}
 
 \end_inset
 
-) is one of the frontier domains to evaluate these properties, in which
- the solvation free energy functional is minimized for an arbitrary solute
- in a periodic cubic solvent box.
+) is one of the frontier numerical methods to evaluate these properties,
+ in which the solvation free energy functional is minimized for an arbitrary
+ solute in a periodic cubic solvent box.
  In this thesis, we work on the evaluation of the excess term of the free
  energy functional under the homogeneous reference fluid (
 \begin_inset ERT
@@ -162,11 +162,25 @@ acs{HRF}
 
 \end_inset
 
-) approximation.
- Two algorithms are proposed: the first one is an extension of the previous
- algorithm, which allows to calculate full 3D molecular solvent (depending
- on three Euler angles) instead of linear solvent (depending on two angles);
- the other one is a new algorithm that integrates the molecular 
+) approximation, which is equivalent to hypernetted-chain (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HNC}
+\end_layout
+
+\end_inset
+
+) approximation in integral equation theory.
+ Two algorithms are proposed: the first one is an extension of a previously
+ implemented algorithm, which makes it possible to handle full 3D molecular
+ solvent (depending on three Euler angles) instead of linear solvent (depending
+ on two angles); the other one is a new algorithm that integrates the molecular
+ Ornstein-Zernike (
 \begin_inset ERT
 status open
 
@@ -179,7 +193,7 @@ acs{OZ}
 
 \end_inset
 
- equation treatment of angular convolution into 
+) equation treatment of angular convolution into 
 \begin_inset ERT
 status open
 
@@ -208,10 +222,10 @@ acs{GSH}
 
 s).
  It is shown that the new algorithm is much more rapid than the previous
- one, while the latter is more stable in terms of convergency, specially
- for negative charged solutes.
- Both algorithms are successful to predict free energy and structure of
- ions and small molecules.
+ one.
+ Both algorithms are suitable for arbitrary three-dimensional solute in
+ liquid water, and are able to predict the solvation free energy and structure
+ of ions and molecules.
 \end_layout
 
 \begin_layout Standard
@@ -244,9 +258,11 @@ Résumé
 \begin_layout Standard
 
 \lang french
-Les propriétés de solvatation jouent souvent un rôle important dans les
- problèmes chimiques et biochimiques.
+Les propriétés de solvatation jouent un rôle important dans les problèmes
+ chimiques et biochimiques.
  La théorie fonctionnelle de la densité moléculaire (
+\lang american
+
 \begin_inset ERT
 status open
 
@@ -259,12 +275,16 @@ acs{MDFT}
 
 \end_inset
 
-) est l'un des domaines frontières pour évaluer ces propriétés, dans lesquelles
- la fonctionnelle d'énergie libre de solvatation est minimisée pour un soluté
+
+\lang french
+) est l'une des méthodes frontières pour évaluer ces propriétés, dans laquelle
+ une fonction d'énergie libre de solvatation est minimisée pour un soluté
  arbitraire dans une boîte de solvant cubique périodique.
  Dans cette thèse, nous travaillons sur l'évaluation du terme d'excès de
- la fonctionnelle d'énergie libre sous l'approximation homogène du fluide
- de référence (
+ la fonctionnelle d’énergie libre sous l’approximation du fluide de référence
+ homogène (
+\lang american
+
 \begin_inset ERT
 status open
 
@@ -277,12 +297,33 @@ acs{HRF}
 
 \end_inset
 
-).
- Deux algorithmes sont proposés : le premier est une extension de l'algorithme
- précédent, qui permet de calculer le solvant moléculaire 3D complet (selon
- trois angles d'Euler) au lieu du solvant linéaire (selon deux angles);
- L'autre est un nouvel algorithme qui intègre le traitement de la convolution
- angulaire d'équation 
+
+\lang french
+), équivalent à l'approximation de la chaîne hypernettée (
+\lang american
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HNC}
+\end_layout
+
+\end_inset
+
+
+\lang french
+) dans la théorie des équations intégrales.
+ Deux algorithmes sont proposés: le premier est une extension d'un algorithme
+ précédent, qui permet de traiter le cas d'un solvant moléculaire à trois
+ dimensions (en fonction de trois angles d'Euler) au lieu d'un solvant linéaire
+ (selon deux angles); L'autre est un nouvel algorithme qui intègre le traitement
+ de la convolution angulaire de l'équation Ornstein-Zernike (
+\lang american
+
 \begin_inset ERT
 status open
 
@@ -295,7 +336,11 @@ acs{OZ}
 
 \end_inset
 
- moléculaire dans 
+
+\lang french
+) moléculaire dans 
+\lang american
+
 \begin_inset ERT
 status open
 
@@ -308,8 +353,12 @@ acs{MDFT}
 
 \end_inset
 
-, qui en fait développe la densité du solvant et le gradient fonctionnel
+
+\lang french
+, et en fait développe la densité du solvant et le gradient fonctionnel
  en harmoniques sphériques généralisées (
+\lang american
+
 \begin_inset ERT
 status open
 
@@ -322,12 +371,13 @@ acs{GSH}
 
 \end_inset
 
+
+\lang french
 s).
- On montre que le nouvel algorithme est beaucoup plus rapide que le précédent,
- tandis que le second est plus stable en termes de convergence, spécialement
- pour les solutés chargés négatifs.
- Les deux algorithmes réussissent à prédire l'énergie libre et la structure
- des ions et des petites molécules.
+ On montre que le nouvel algorithme est beaucoup plus rapide que le précédent.
+ Les deux algorithmes sont appropriés pour des solutés arbitraires tridimensionn
+el dans l'eau liquide, et pour prédire l'énergie libre et la structure de
+ solvatation d'ions et de molécules.
 \end_layout
 
 \begin_layout Standard

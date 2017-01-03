@@ -1055,6 +1055,13 @@ m & n & l\\
 
 \begin_layout Section
 Symmetry
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Symmetry-rot_invar"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

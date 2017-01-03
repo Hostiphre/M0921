@@ -1,0 +1,173 @@
+
+\chapter{Angular convolution using Blum's reduction\label{chpt:deduction_blum}}
+
+To make an analogue to the \acs{FFT} treatment for the convolution
+of spatial part of the integral, a fast generalized spherical harmonics
+transform (\acs{FGSHT}) treatment is proposed by developing $\hat{\gamma}$
+and $\hat{\rho}$ in eq. (\ref{eq:gamma-k-II})
+\begin{equation}
+\hat{\gamma}(\mathbf{k},\mathbf{\Omega}_{1})=-\beta^{-1}\int\mathrm{d}\mathbf{\Omega}_{2}\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega}_{2})\hat{c}(k_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\label{eq:gamma-1.2F}
+\end{equation}
+on generalized spherical harmonics:
+\begin{equation}
+\hat{\gamma}(\mathbf{k},\mathbf{\Omega}_{1})=\sum_{m\mu'\mu}f_{m}\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})R_{\mu'\mu}^{m}(\mathbf{\Omega}_{1})\label{eq:gamma-projection.2F}
+\end{equation}
+\begin{equation}
+\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega}_{2})=\sum_{n\nu'\nu}f_{n}\Delta\hat{\rho}_{\underline{\nu'}\underline{\nu}}^{n}(\mathbf{k})R_{\underline{\nu'}\underline{\nu}}^{n}(\mathbf{\Omega}_{2})\label{eq:delta-rho-projection.2F}
+\end{equation}
+where $\left|\mu'\right|,\left|\mu\right|<m$ and $\left|\nu'\right|,\left|\nu\right|<n$;
+$f_{m}=\left(2m+1\right)^{\frac{1}{2}}$ is the normalization factor.
+
+The \acs{DCF} can also be expended on rotational invariants \citep{Blum_I},
+with the normalization factors according to Blum's definition:
+\begin{equation}
+\hat{c}(k,\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})=\sum_{mnl\mu\nu}f_{m}f_{n}\hat{c}_{\mu\nu}^{mnl}(k)\sum_{\mu'\nu'\lambda'}\left(\begin{array}{ccc}
+m & n & l\\
+\mu' & \nu' & \lambda'
+\end{array}\right)R_{\mu'\mu}^{m}(\mathbf{\Omega}_{1})R_{\nu'\nu}^{n}(\mathbf{\Omega}_{2})R_{\lambda'0}^{l}(\hat{\mathbf{k}})\label{eq:c-projection.2F}
+\end{equation}
+
+Replace eq. (\ref{eq:gamma-1.2F}) by (\ref{eq:gamma-projection.2F},
+\ref{eq:delta-rho-projection.2F}, \ref{eq:c-projection.2F}), as
+\acs{GSH}s possess orthogonality \citep{Gray-Gubbins,Messiah}
+\begin{equation}
+\int\frac{\mathrm{d}\mathbf{\Omega}_{2}}{8\pi^{2}}R_{\mu'\mu}^{m}(\mathbf{\Omega}_{2})R_{\nu{}^{'}\nu}^{n*}(\mathbf{\Omega}_{2})=\frac{\delta_{m,n}\delta_{\mu',\nu'}\delta_{\mu,\nu}}{2n+1}
+\end{equation}
+and symmetry
+\begin{equation}
+R_{\nu'\nu}^{n*}(\mathbf{\Omega}_{2})=\left(-\right){}^{\nu'+\nu}R_{\underline{\nu'}\underline{\nu}}^{n}(\mathbf{\Omega}_{2})\label{eq:symm-gsh.2F}
+\end{equation}
+
+Eq. (\ref{eq:gamma-1.2F}) becomes
+\begin{eqnarray}
+ &  & \sum_{m\mu'\mu}\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})R_{\mu'\mu}^{m}(\mathbf{\Omega}_{1})\\
+ & = & \sum_{mnl\mu\nu}\hat{c}_{\mu\nu}^{mnl}(k)\sum_{\mu'\nu'\lambda'}\left(-\right){}^{\nu'+\nu}\Delta\hat{\rho}_{\underline{\nu'}\underline{\nu}}^{n}(\mathbf{k})\left(\begin{array}{ccc}
+m & n & l\\
+\mu' & \nu' & \lambda'
+\end{array}\right)R_{\mu'\mu}^{m}(\mathbf{\Omega}_{1})R_{\lambda'0}^{l}(\hat{\mathbf{k}})\nonumber 
+\end{eqnarray}
+
+As the basis sets are orthogonal,
+\begin{equation}
+\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})=\sum_{nl\nu}\hat{c}_{\mu\nu}^{mnl}(k)\sum_{\nu'\lambda'}\left(-\right){}^{\nu'+\nu}\Delta\hat{\rho}_{\underline{\nu'}\underline{\nu}}^{n}(\mathbf{k})\left(\begin{array}{ccc}
+m & n & l\\
+\mu' & \nu' & \lambda'
+\end{array}\right)R_{\lambda'0}^{l}(\hat{\mathbf{k}})\label{eq:im.2F}
+\end{equation}
+
+According to Gubbins eq. (A.41-43) and Messiah eq. (C.76):
+\begin{equation}
+R_{\chi\mu}^{m}(\boldsymbol{\omega})=\sum_{\mu'}R_{\mu'\chi}^{m*}(\hat{\mathbf{k}})R_{\mu'\mu}^{m}(\mathbf{\Omega})
+\end{equation}
+\begin{equation}
+R_{\mu'\mu}^{m}(\mathbf{\Omega})=\sum_{\chi}R_{\chi\mu'}^{m*}(\hat{\mathbf{k}}^{-1})R_{\chi\mu}^{m}(\boldsymbol{\omega})=\sum_{\chi}R_{\mu'\chi}^{m}(\hat{\mathbf{k}})R_{\chi\mu}^{m}(\boldsymbol{\omega})
+\end{equation}
+where $\boldsymbol{\omega}=\hat{\mathbf{k}}^{-1}\mathbf{\Omega}$.
+Suppose $\hat{\gamma}$ has rotational invariance, and
+
+\begin{equation}
+\hat{\gamma}(\mathbf{k},\boldsymbol{\omega}_{1})=\sum_{m\chi\mu}f_{m}\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})
+\end{equation}
+
+Compare to (\ref{eq:gamma-projection.2F}), we have:
+
+\begin{equation}
+\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})=\sum_{\mu'}\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})R_{\mu'\chi}^{m}(\hat{\mathbf{k}})\label{eq:gamma-p.2F}
+\end{equation}
+
+Idem.
+
+\begin{equation}
+\Delta\hat{\rho}_{\underline{\nu'}\underline{\nu}}^{n}(\mathbf{k})=\sum_{\chi}\Delta\hat{\rho'}_{\chi\underline{\nu}}^{n}(\mathbf{k})R_{\underline{\nu'}\chi}^{n*}(\hat{\mathbf{k}})=\sum_{\chi}\Delta\hat{\rho'}_{\chi\underline{\nu}}^{n}(\mathbf{k})\left(-\right){}^{\chi+\nu'}R_{\nu'\underline{\chi}}^{n}(\hat{\mathbf{k}})\label{eq:rho-p.2F}
+\end{equation}
+as the symmetry (\ref{eq:symm-gsh.2F}).
+
+As there is an equivalence of \acs{OZ} equation and the gradient
+$\gamma$, we can be inspired by Blum's reduction of the \acs{OZ}
+equation \citep{Blum_II} by proposing
+\begin{equation}
+\hat{c}_{\mu\nu}^{mnl}(k)=\left(2l+1\right)\sum_{\chi}\left(\begin{array}{ccc}
+m & n & l\\
+\chi & -\chi & 0
+\end{array}\right)\hat{c'}_{\mu\nu,\chi}^{mn}(k)\label{eq:c-p.2F}
+\end{equation}
+
+Thus replace (\ref{eq:gamma-p.2F}) by (\ref{eq:im.2F}), gives
+\begin{eqnarray}
+ &  & \hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})\nonumber \\
+ & = & \sum_{\mu'}\left[\sum_{nl\nu}\hat{c}_{\mu\nu}^{mnl}(k)\sum_{\nu'\lambda'}\left(-\right){}^{\nu'+\nu}\Delta\hat{\rho}_{\underline{\nu'}\underline{\nu}}^{n}(\mathbf{k})\left(\begin{array}{ccc}
+m & n & l\\
+\mu' & \nu' & \lambda'
+\end{array}\right)R_{\lambda'0}^{l}(\hat{\mathbf{k}})\right]R_{\mu'\chi}^{m}(\hat{\mathbf{k}})\nonumber \\
+ & = & \sum_{nl\nu}\hat{c}_{\mu\nu}^{mnl}(k)\sum_{\mu'\nu'\lambda'}\left(-\right){}^{\nu'+\nu}\Delta\hat{\rho}_{\underline{\nu'}\underline{\nu}}^{n}(\mathbf{k})\left(\begin{array}{ccc}
+m & n & l\\
+\mu' & \nu' & \lambda'
+\end{array}\right)R_{\lambda'0}^{l}(\hat{\mathbf{k}})R_{\mu'\chi}^{m}(\hat{\mathbf{k}})
+\end{eqnarray}
+then by eq. (\ref{eq:rho-p.2F}):
+\begin{eqnarray}
+\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k}) & = & \sum_{nl\nu}\hat{c}_{\mu\nu}^{mnl}(k)\sum_{\mu'\nu'\lambda'}\left[\sum_{\chi'}\Delta\hat{\rho'}_{\chi'\underline{\nu}}^{n}(\mathbf{k})\left(-\right){}^{\chi'+\nu}R_{\nu'\underline{\chi'}}^{n}(\hat{\mathbf{k}})\right]\nonumber \\
+ &  & \times\left(\begin{array}{ccc}
+m & n & l\\
+\mu' & \nu' & \lambda'
+\end{array}\right)R_{\lambda'0}^{l}(\hat{\mathbf{k}})R_{\mu'\chi}^{m}(\hat{\mathbf{k}})\nonumber \\
+ & = & \sum_{nl\nu}\hat{c}_{\mu\nu}^{mnl}(k)\sum_{\chi'}\Delta\hat{\rho'}_{\chi'\underline{\nu}}^{n}(\mathbf{k})\left(-\right){}^{\chi'+\nu}\label{eq:gamma-xxx.2F}\\
+ &  & \times\left[\sum_{\mu'\nu'\lambda'}\left(\begin{array}{ccc}
+m & n & l\\
+\mu' & \nu' & \lambda'
+\end{array}\right)R_{\lambda'0}^{l}(\hat{\mathbf{k}})R_{\mu'\chi}^{m}(\hat{\mathbf{k}})R_{\nu'\underline{\chi'}}^{n}(\hat{\mathbf{k}})\right]\nonumber 
+\end{eqnarray}
+
+Gubbins eq. (A.91) gives the symmetry relation:
+
+\begin{equation}
+\sum_{\mu'\nu'\lambda'}\left(\begin{array}{ccc}
+m & n & l\\
+\mu' & \nu' & \lambda'
+\end{array}\right)R_{\mu',\chi}^{m}(\hat{\mathbf{k}})R_{\nu'\underline{\chi'}}^{n}(\hat{\mathbf{k}})R_{\lambda'0}^{l}(\hat{\mathbf{k}})=\left(\begin{array}{ccc}
+m & n & l\\
+\chi & -\chi' & 0
+\end{array}\right)\label{eq:gg.a91.2F}
+\end{equation}
+
+Thus with eq. (\ref{eq:c-p.2F}), eq. (\ref{eq:gamma-xxx.2F}) becomes
+
+\begin{eqnarray}
+\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k}) & = & \sum_{nl\nu}\left(2l+1\right)\sum_{\chi'\chi''}\left(-\right){}^{\chi'+\nu}\left(\begin{array}{ccc}
+m & n & l\\
+\chi'' & -\chi'' & 0
+\end{array}\right)\left(\begin{array}{ccc}
+m & n & l\\
+\chi & -\chi' & 0
+\end{array}\right)\label{eq:gamma-xxx-1.2F}\\
+ &  & \times\hat{c'}_{\mu\nu,\chi''}^{mn}(k)\Delta\hat{\rho'}_{\chi'\underline{\nu}}^{n}(\mathbf{k})\nonumber \\
+ & = & \sum_{n\nu}\left(2l+1\right)\sum_{\chi'\chi''}\left(-\right){}^{\chi'+\nu}\hat{c'}_{\mu\nu,\chi''}^{mn}(k)\Delta\hat{\rho'}_{\chi'\underline{\nu}}^{n}(\mathbf{k})\\
+ &  & \times\left[\sum_{l}\left(\begin{array}{ccc}
+m & n & l\\
+\chi'' & -\chi'' & 0
+\end{array}\right)\left(\begin{array}{ccc}
+m & n & l\\
+\chi & -\chi' & 0
+\end{array}\right)\right]\nonumber 
+\end{eqnarray}
+
+As the 3-j symbols possess the symmetry \citep{Messiah}
+
+\begin{equation}
+\sum_{l}\left(\begin{array}{ccc}
+m & n & l\\
+\chi'' & -\chi'' & 0
+\end{array}\right)\left(\begin{array}{ccc}
+m & n & l\\
+\chi & -\chi' & 0
+\end{array}\right)=\left(2l+1\right)^{-1}\delta_{\chi''\chi}\delta_{\chi''\chi'}
+\end{equation}
+
+Eq. (\ref{eq:gamma-xxx-1.2F}) becomes
+
+\begin{equation}
+\hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})=\sum_{n\nu}\left(-\right){}^{\chi+\nu}\hat{c'}_{\mu\nu,\chi}^{mn}(k)\Delta\hat{\rho'}_{\chi\underline{\nu}}^{n}(\mathbf{k})\label{eq:gamma-xxx-1-1.2F}
+\end{equation}
+
+In this way, the integral of the angular part in eq. (\ref{eq:gamma-1.2F})
+is reduced to a sum a few terms.

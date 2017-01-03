@@ -211,7 +211,7 @@ Error of finding
 \begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 \end_inset
 
- by interpolation compared to direct calculation: Test 0.1-0.4 is zero order
+ by interpolation compared to direct calculation: Test 0.1-0.4 is zero-order
  interpolation with 
 \begin_inset Formula $\phi$
 \end_inset
@@ -343,7 +343,7 @@ with resolution of 0.1%, in range of [0, 1].
 \end_layout
 
 \begin_layout Standard
-In all three figures, the 4 curves given by zero order interpolation do
+In all three figures, the 4 curves given by zero-order interpolation do
  not diverge a great deal compared with the linear interpolation one.
  The result of 
 \begin_inset ERT
@@ -358,7 +358,7 @@ acs{MDFT}
 
 \end_inset
 
- also shows that zero order interpolation gives large energy error with
+ also shows that zero-order interpolation gives large energy error with
  a 
 \begin_inset ERT
 status open
@@ -376,7 +376,7 @@ acs{DCF}
 \begin_inset Formula $n_{\max}=1$
 \end_inset
 
-, and has convergency problems in certain cases.
+, and has convergence problems in certain cases.
  We conclude that the linear interpolation scheme is absolutely necessary.
  On the other hand, as seen in eq.
  (
