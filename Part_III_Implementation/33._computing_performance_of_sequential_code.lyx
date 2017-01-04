@@ -86,25 +86,31 @@ name "chpt:seq-code-performance"
 This section evaluates the computing performance (timing) of the code.
  Our goal is to show that the new algorithm of angular convolution is much
  faster than the old naive one; the huge amount of simulation during this
- thesis has proven that to be the case.
- But a raw result, where the implementation goes for an indefinite number
- of iterations during minimization, cannot give a proper and systematic
- performance evaluation.
- This is the purpose of this section.
+ thesis has proven that it is indeed the case.
+ The purpose of this section is to substantiate this statement by a proper
+ and systematic performance evaluation.
 \end_layout
 
 \begin_layout Standard
-In this section, we will evaluate the performance only within the 
+In this section, we will evaluate the performance only concerning the 
 \begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
 \end_inset
 
- term, knowing that other two terms takes time of the same magnitude than
- the new algorithms for 
+ term, knowing that the two other terms of the functional, the 
+\begin_inset Formula $\mathcal{F}_{\mathrm{id}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{F}_{\mathrm{ext}}$
+\end_inset
+
+ contribution, require a computer time of the same magnitude than the new
+ algorithms for 
 \begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
 \end_inset
 
  part.
- The spatial and angular grid dependence of branches are discussed.
+ The spatial and angular grid dependence of the various branches are discussed.
 \end_layout
 
 \begin_layout Section
@@ -125,8 +131,7 @@ acs{FFT}
 
 \end_inset
 
- play an important role in the implementation, which is used by the spatial
- convolution and the 
+, which is used by the spatial convolution and the 
 \begin_inset ERT
 status open
 
@@ -139,7 +144,7 @@ acs{FGSHT}
 
 \end_inset
 
- process.
+ process, play an important role in the implementation.
  
 \end_layout
 
@@ -212,7 +217,7 @@ reference "fig:timing-FFT"
 
 \end_inset
 
-, the dependance on 
+, the expected dependance on 
 \begin_inset Formula $O(N\log_{2}N)$
 \end_inset
 
@@ -223,8 +228,8 @@ key "Numerical_Recipes_3ed"
 
 \end_inset
 
- doesn't totally exist, but of the same form, depending on the algorithm
- of 
+ doesn't totally exist, but it appears of the same form, depending on the
+ algorithm of 
 \begin_inset ERT
 status open
 
@@ -246,9 +251,9 @@ key "Briggs-DFT"
 
 .
  It should be noted that a grid of prime number is always at the peaks in
- the figure, which means it can be 2 or more times longer than that of the
- composite number around.
- Therefore it is better to use an even number grid, where the 
+ the figure, which means it can be twice longer or more than that of a nearby
+ composite number.
+ Therefore it is better to use an even number grid, for which the 
 \begin_inset Formula $k$
 \end_inset
 
@@ -263,10 +268,10 @@ reference "subsec:k-border-effect"
 
 \end_inset
 
- is absolutely involved in.
- Apart from this conclusion, to compare between the algorithms for angular
- part involved in this thesis, we are not really interested in computing
- performance with respect to the number of spatial grid.
+ should absolutely be accounted for.
+ Apart from this conclusion, to compare the algorithms for angular integration
+ involved in this thesis, we are not really interested in computing performance
+ with respect to the number of spatial grid.
  However, the ratio of real and complex 
 \begin_inset ERT
 status open
@@ -280,7 +285,7 @@ acs{FFT}
 
 \end_inset
 
- timing is important, illustrated in figure 
+ timing is important, as illustrated in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:fft-real-to-complex"
@@ -300,8 +305,8 @@ acs{FFT}
 
 \end_inset
 
- processes is 0.54, near the theoretical ratio 0.5.
- For example, we process 
+ processes is measured as 0.54, near the theoretical ratio 0.5.
+ For example, we may process 
 \begin_inset Formula $n_{\mathrm{angle}}$
 \end_inset
 
@@ -336,7 +341,7 @@ acs{FGSHT}
 \end_inset
 
 .
- Or we process 
+ Or we may process 
 \begin_inset Formula $n_{\mathrm{spatial}}$
 \end_inset
 
@@ -380,8 +385,7 @@ acs{FFT}
 \end_inset
 
 .
- If the the ratio is not 1:2, it will have an influence on the choice of
- algorithm.
+ If the ratio is not 1:2, it will have an influence on the choice of algorithm.
 \end_layout
 
 \begin_layout Standard
@@ -537,7 +541,12 @@ acs{GSHT}
 
 \end_inset
 
-, and 
+.
+ Besides, looking at the influence of the symmetry in 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ on 
 \begin_inset ERT
 status open
 
@@ -548,10 +557,6 @@ status open
 acs{GSHT}
 \end_layout
 
-\end_inset
-
- for the symmetry of 
-\begin_inset Formula $\Psi$
 \end_inset
 
 , 
@@ -591,7 +596,7 @@ reference "sec:fgsht"
 \end_inset
 
 ).
- As accuracy test shows that 
+ As accuracy tests show that 
 \begin_inset ERT
 status open
 
@@ -617,7 +622,7 @@ acs{FGSHT}
 
 \end_inset
 
- give exactly the same result, and the case 
+ give exactly the same result, and as the case 
 \begin_inset Formula $m_{\max}<n_{\max}$
 \end_inset
 
@@ -834,7 +839,7 @@ acs{FGSHT}
 
 \end_inset
 
- takes only 0.6 the time of doing 
+ should take only 0.6 the time of doing 
 \begin_inset Formula $n_{\mathrm{spatial}}/2$
 \end_inset
 
@@ -857,7 +862,7 @@ acs{FGSHT}
 convolution_standard
 \family default
 \series default
- we use less time to compute 
+ we should use less time to compute 
 \begin_inset ERT
 status open
 
@@ -876,10 +881,7 @@ acs{FGSHT}
 convolution_pure_angular
 \family default
 \series default
-.
- 
-\color red
-(Which is in fact not observed in the following tests.)
+; which is in fact not observed in the following tests.
 \end_layout
 
 \begin_layout Standard
@@ -1006,8 +1008,8 @@ As discussed in the previous section, the final result of energy and structure
 \end_inset
 
 -kernel.
- That means we are free in terms of precision cost to choose the fast path.
- Path (1) passed directly by 
+ That means we are free to choose the fastest path.
+ Path (1) passing directly by 
 \begin_inset Formula $\hat{c}(k,\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 \end_inset
 
@@ -1050,7 +1052,7 @@ reference "eq:gamma-blum"
 \end_layout
 
 \begin_layout Standard
-The theoretical predictions of the computing time of 
+The theoretical predictions for the computing time of 
 \begin_inset ERT
 status open
 
@@ -1063,7 +1065,7 @@ acs{OZ}
 
 \end_inset
 
- equation with respect to 
+ equation with 
 \begin_inset Formula $m_{\max}=n_{\max}$
 \end_inset
 
@@ -1088,8 +1090,8 @@ acs{OZ}
 
 \end_inset
 
- equation is the most time-consuming part, the result should have the same
- proposal.
+ equation is the most time-consuming part, the observed result should have
+ the same tendency.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1098,7 +1100,7 @@ reference "fig:Timing-k-kernel"
 \end_inset
 
  shows the experimental timing of the three paths, where path (3) is 100
- times longer than (4), well corresponding to the theoretical value.
+ times longer than (4), corresponding well to the theoretical value.
  Path (2) is much longer than path (3) because apart from the 
 \begin_inset ERT
 status open
@@ -1112,7 +1114,7 @@ acs{OZ}
 
 \end_inset
 
- equation, the lecture and calculation of the 
+ equation, the reading in memory and calculation of the 
 \begin_inset ERT
 status open
 
@@ -1150,7 +1152,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../_figure/results/k-kernel.eps
-	width 70col%
+	width 65col%
 	BoundingBox 0bp 20bp 453bp 236bp
 
 \end_inset
@@ -1239,7 +1241,7 @@ convolution
 \family default
 \series default
  timing data.
- We can see 
+ We can see that 
 \family typewriter
 \series bold
 convolution_standard
@@ -1967,8 +1969,7 @@ acs{FFT}
 
 \end_inset
 
- is different in terms of time.
- Because in 
+ is different in terms of time, because in 
 \family typewriter
 \series bold
 convolution_standard
@@ -2014,26 +2015,26 @@ convolution_standard
 \family default
 \series default
  reasonably takes less time.
- The stair form of the 
+ The stepwise form of the 
 \family typewriter
 \series bold
 pure_angular
 \family default
 \series default
- curve is due to the grid 
+ curve is due to the grid in 
 \begin_inset Formula $\Psi$
 \end_inset
 
-, which takes 
+, which requires 
 \begin_inset Formula $\left\lfloor m_{\max}/2\right\rfloor $
 \end_inset
 
- points in the presence of 
+ points in the case of 
 \begin_inset Formula $\mathrm{C}_{2v}$
 \end_inset
 
  symmetry.
- Projections are less sensible.
+ Projections are less sensitive to this effect.
 \end_layout
 
 \begin_layout Standard
@@ -2159,11 +2160,11 @@ reference "fig:comparison-asymm"
 standard
 \family default
 \series default
- calculates a half 
+ calculates half of the 
 \begin_inset Formula $k$
 \end_inset
 
- in the 
+'s in the 
 \begin_inset Formula $k$
 \end_inset
 
@@ -2177,7 +2178,7 @@ asymm
 \begin_inset Formula $k$
 \end_inset
 
- in the 
+'s in the 
 \begin_inset Formula $k$
 \end_inset
 
@@ -2195,7 +2196,7 @@ acs{FGSHT}
 
 \end_inset
 
-; for the processes in a 
+; while for the processes in a 
 \begin_inset Formula $k$
 \end_inset
 
@@ -2206,7 +2207,7 @@ asymm
 \family default
 \series default
  always takes longer time.
- As in 
+ Since in 
 \family typewriter
 \series bold
 asymm
@@ -2380,7 +2381,7 @@ acs{FGSHT}
 
 \end_inset
 
- process and the lecture/storage of density variable (other).
+ process and the reading/storage of density variable (other).
  The time taken by extra order 
 \begin_inset Formula $m_{\max}$
 \end_inset
@@ -2480,6 +2481,33 @@ Global view of the code performance
 \end_layout
 
 \begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Timing-full"
+
+\end_inset
+
+ gives the timing of the whole 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ iteration.
+ We can see that the evaluation of 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ is at the same order of magnitude than other two terms and the same dependency
+ on angular grid.
+ That means that considering the priority of code optimization, the 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ is no longer an absolute bottleneck to the whole process, owing to the
+ new algorithm.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement H
 wide false
@@ -2490,7 +2518,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../_figure/results/global_perf.eps
-	scale 70
+	scale 65
 	BoundingBox 0bp 20bp 453bp 236bp
 
 \end_inset
@@ -2523,7 +2551,20 @@ Timing of the whole
 \begin_inset Formula $\mathrm{nfft}/L=72/24$
 \end_inset
 
- grid (log scale)
+ grid (log scale), using 
+\family typewriter
+\series bold
+convolution_standard
+\family default
+\series default
+ algorithm 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Timing-full"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -2537,14 +2578,21 @@ Timing of the whole
 \end_layout
 
 \begin_layout Standard
-We can see that 
+In conclusion, we stress that:
+\end_layout
+
+\begin_layout Itemize
+
 \family typewriter
 \series bold
 convolution_standard
 \family default
 \series default
- is the fastest.
- The 
+ is the fastest algorithm among those that we have tested..
+\end_layout
+
+\begin_layout Itemize
+The 
 \family typewriter
 \series bold
 convolution
@@ -2557,12 +2605,36 @@ naive
 \family default
 \series default
  methods.
- The evaluation of 
-\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_layout
+
+\begin_layout Itemize
+The attempt to fix 
+\begin_inset Formula $m_{\max}$
 \end_inset
 
- is at the same order of magnitude than other two terms and the same dependency
- on angular grid.
+ considerably damages the efficiency, in addition to the necessity, 
+\begin_inset Formula $m_{\max}=n_{\max}$
+\end_inset
+
+ is absolutely recommended.
+\end_layout
+
+\begin_layout Itemize
+We have been able to reduce a complex spatial and angular convolution process
+ to roughly the same computer cost as a local calculation in both space
+ and angles, which can be seen as the major accomplishment of this thesis.
+ 
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
 \end_layout
 
 \end_body

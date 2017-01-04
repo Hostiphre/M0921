@@ -946,8 +946,34 @@ filename "Part_III_Implementation/33._computing_performance_of_sequential_code.l
 \end_layout
 
 \begin_layout Part Introduction (ClassicThesis)
-In chapter III, we've studied the numerical accuracy of the code comparing
- to 
+In chapter III, we have studied the numerical accuracy of the code (in effect
+ of the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+/
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HRF}
+\end_layout
+
+\end_inset
+
+ approximation) compared to 
 \begin_inset ERT
 status open
 
@@ -976,16 +1002,17 @@ acs{MD}
 \end_inset
 
  and experimental results.
- A few applications are made in this purpose in section 
+ A few applications are made for this purpose in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chpt:ions"
 
 \end_inset
 
-, containing some LJ centers, ions and small molecules.
- The results are also compared to dipole reference method, to show that
- this increase of computing cost has really done an improvement on the results.
+, involving some LJ centers, ions and small molecules.
+ The results are also compared to the dipolar reference method - that was
+ fully implemented so far - to show that this increase of computing cost
+ has really done an improvement on the results.
 \end_layout
 
 \begin_layout Part

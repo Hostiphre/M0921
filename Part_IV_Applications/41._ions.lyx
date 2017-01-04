@@ -147,10 +147,11 @@ convolution_standard
 \begin_inset Formula $m_{\max}=n_{\max}$
 \end_inset
 
- if not specified.
+ unless otherwise specified.
  Comparison to dipole method is also involved in, as we should justify that
  the increase of computing cost is has the capability to produce better
  results.
+ 
 \end_layout
 
 \begin_layout Section
@@ -171,14 +172,14 @@ acs{RDF}
 
 \end_inset
 
- of rare gazes calculated in 
+ of rare gases calculated in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Free-energy-rare-gas"
 
 \end_inset
 
- is compared with 
+ is compared to 
 \begin_inset ERT
 status open
 
@@ -191,7 +192,14 @@ acs{MD}
 
 \end_inset
 
- in figure using 
+ in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rare-gazz"
+
+\end_inset
+
+ using 
 \begin_inset Formula $n_{\max}=3$
 \end_inset
 
@@ -222,7 +230,15 @@ key "Zhao_2011"
 
 \end_inset
 
-.
+ 
+\color red
+or to calculation involving 
+\begin_inset Formula $c_{00}^{000}$
+\end_inset
+
+ only.
+
+\color inherit
  This kind of disagreement in curve shape is regarded as a known default
  of 
 \begin_inset ERT
@@ -288,6 +304,13 @@ acs{MD}
 \end_inset
 
  result
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rare-gazz"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -2930,8 +2953,51 @@ acs{MD}
 \end_layout
 
 \begin_layout Standard
+In the purpose to show the the ability of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ to show calculate 3D solute structure, due to the spherical coordinate
+ system it adopt, we show some 3D figure of solvent in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Volume-slice-of"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Iso-surface-of-solvent"
+
+\end_inset
+
+.
+ In figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Iso-surface-of-solvent"
+
+\end_inset
+
+, we can see the famous tetrahedral structure around the water molecule.
+ In SPC/E water, there is more density than expected on the north pole,
+ and this piece of density disappears with the extra charged added on the
+ TIP4P water.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
-placement h
+placement H
 wide false
 sideways false
 status open
@@ -2973,7 +3039,7 @@ name "fig:Test-solutes-2"
 
 \begin_layout Standard
 \begin_inset Float table
-placement h
+placement H
 wide false
 sideways false
 status open
@@ -8839,46 +8905,6 @@ name "fig:Iso-surface-of-solvent"
 \end_layout
 
 \begin_layout Standard
-In the purpose to show the the ability of 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{MDFT}
-\end_layout
-
-\end_inset
-
- to show calculate 3D solute structure, due to the spherical coordinate
- system it adopt, we show some 3D figure of solvent in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Volume-slice-of"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Iso-surface-of-solvent"
-
-\end_inset
-
-.
- In figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Iso-surface-of-solvent"
-
-\end_inset
-
-, we can see the famous tetrahedral structure around the water molecule.
- In SPC/E water, there is more density than expected on the north pole,
- and this piece of density disappears with the extra charged added on the
- TIP4P water.
 \begin_inset Newpage newpage
 \end_inset
 

@@ -7,24 +7,25 @@ and linear solutes compared to \acs{IET}. In this section, we will
 compare them to \acs{MD} and experimental results. All the solutes
 are optimized with the fast \texttt{\textbf{convolution\_standard}}
 algorithm, with implicitly $L=24$ $\textrm{Å}$, $\mathrm{nfft}=72$,
-$m_{\max}=n_{\max}$ if not specified. Comparison to dipole method
-is also involved in, as we should justify that the increase of computing
-cost is has the capability to produce better results.
+$m_{\max}=n_{\max}$ unless otherwise specified. Comparison to dipole
+method is also involved in, as we should justify that the increase
+of computing cost is has the capability to produce better results. 
 
 \section{LJ centers}
 
-The \acs{RDF} of rare gazes calculated in \ref{tab:Free-energy-rare-gas}
-is compared with \acs{MD} in figure using $n_{\max}=3$ to 5. The
-structures of different $n_{\max}$ is almost identical. Comparing
-to \acs{MD}, it looks like there is no improvement compared to the
-dipole method in ref \citep{Zhao_2011}. This kind of disagreement
+The \acs{RDF} of rare gases calculated in \ref{tab:Free-energy-rare-gas}
+is compared to \acs{MD} in figure \ref{fig:rare-gazz} using $n_{\max}=3$
+to 5. The structures of different $n_{\max}$ is almost identical.
+Comparing to \acs{MD}, it looks like there is no improvement compared
+to the dipole method in ref \citep{Zhao_2011} \textcolor{red}{or
+to calculation involving $c_{00}^{000}$ only.} This kind of disagreement
 in curve shape is regarded as a known default of \acs{HNC} approximation.
 
 \begin{figure}[h]
 \begin{centering}
 \includegraphics[width=0.9\columnwidth]{_figure/results/rare_gaz}
 \par\end{centering}
-\caption{\acs{RDF} of rare gazes compared to \acs{MD} result}
+\caption{\acs{RDF} of rare gazes compared to \acs{MD} result\label{fig:rare-gazz}}
 \end{figure}
 
 
@@ -157,14 +158,23 @@ these test solutes. It is shown that in the most of cases, $n_{\max}=4$
 gives better or the same results than dipole, apart from the cases
 of water, specially SPC/E water. In methanol, the dipole method diverge.
 
-\begin{figure}[h]
+In the purpose to show the the ability of \acs{MDFT} to show calculate
+3D solute structure, due to the spherical coordinate system it adopt,
+we show some 3D figure of solvent in figure \ref{fig:Volume-slice-of}
+and \ref{fig:Iso-surface-of-solvent}. In figure \ref{fig:Iso-surface-of-solvent},
+we can see the famous tetrahedral structure around the water molecule.
+In SPC/E water, there is more density than expected on the north pole,
+and this piece of density disappears with the extra charged added
+on the TIP4P water.
+
+\begin{figure}[H]
 \begin{centering}
 \includegraphics[width=1\columnwidth]{_figure/app_solute_var}
 \par\end{centering}
 \caption{Test solutes\label{fig:Test-solutes-2}}
 \end{figure}
 
-\begin{table}[h]
+\begin{table}[H]
 \begin{centering}
 \begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}llrrrrrr}
 \toprule 
@@ -437,13 +447,6 @@ is used in order to avoid noise.\label{fig:Site-O}}
 water molecules\label{fig:Iso-surface-of-solvent}}
 \end{figure}
 
-In the purpose to show the the ability of \acs{MDFT} to show calculate
-3D solute structure, due to the spherical coordinate system it adopt,
-we show some 3D figure of solvent in figure \ref{fig:Volume-slice-of}
-and \ref{fig:Iso-surface-of-solvent}. In figure \ref{fig:Iso-surface-of-solvent},
-we can see the famous tetrahedral structure around the water molecule.
-In SPC/E water, there is more density than expected on the north pole,
-and this piece of density disappears with the extra charged added
-on the TIP4P water.\newpage{}
+\newpage{}
 
 $ $

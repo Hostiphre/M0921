@@ -91,12 +91,12 @@ determined by the Rice rule:
 n_{\mathrm{bin}}=2n^{\frac{1}{3}}
 \end{equation}
 where $n$ is the total number of grid points to be counted. The curves
-obtained with this setting are well smooth for LJ centers and ions,
+obtained with this setting are smooth enough for LJ centers and ions,
 but for non-spherical solutes, $n_{\mathrm{bin}}$ seems to be too
-many comparing to the fluctuation of the sample. In figure \ref{fig:rdf-with-different},
+large in view of the fluctuations of the sample. In figure \ref{fig:rdf-with-different},
 we give an example of \acs{RDF} with different resolution parameter
-for site O of $\mathrm{O_{2}}$ molecule. It is shown that the curves
-do not vary too much within $n_{\mathrm{bin}}$ to $\frac{1}{8}n_{\mathrm{bin}}$,
+for the site O of the $\mathrm{O_{2}}$ molecule. It is shown that
+the curves do not vary too much within $n_{\mathrm{bin}}$ to $\frac{1}{8}n_{\mathrm{bin}}$,
 and from $\frac{1}{3}n_{\mathrm{bin}}$, the noise is well avoided.
 
 \begin{figure}[h]
@@ -107,8 +107,9 @@ and from $\frac{1}{3}n_{\mathrm{bin}}$, the noise is well avoided.
 $L=24$ $\textrm{Å}$, $\mathrm{nfft}=72$) with different resolution
 parameter. The curves take $\frac{1}{N}n_{\mathrm{bin}}$ as number
 of bins, where $n_{\mathrm{bin}}$ is determined by the Rice rule,
-and $N$ vary from 1 to 8. The square box at left is zoomed and smoothed
-shown in the right box.\label{fig:rdf-with-different}}
+and $N$ vary from 1 to 8. The square box on the left is zoomed and
+smoothed \textcolor{red}{(with Catmull-Rom spline impcilty used by
+Excel)}, shown in the right box.\label{fig:rdf-with-different}}
 \end{figure}
 
 
@@ -666,20 +667,20 @@ mentioned in $\mathsection$\ref{sec:Free-energy-correction}, as
 both the box length and the charge remain the same for the whole set
 of test. From (b) we consider that at least a 3 points grid in 1 dimension
 (each direction) per Angstrom is needed to reduce the uncertainty
-due to grid resolution. Figure (c) is also neutral, i.e. does not
-need any border correction neither. We see that the energy also varies
-with respect to the box length (with direct summation this time),
-and have the same tendency for different resolution $\mathrm{nfft}/L$.
-The curves of $\mathrm{nfft}/L=3$ and $\mathrm{nfft}/L=4$ do not
-give too much difference. Figure (d) fixed the Lebedev quadrature
+due to grid resolution. The molecule in Figure (c) is neutral (although
+dipolar), i.e. does not need any border correction neither. We see
+that the energy also varies with respect to the box length (with direct
+summation this time), and have the same tendency for different resolution
+$\mathrm{nfft}/L$. The curves of $\mathrm{nfft}/L=3$ and $\mathrm{nfft}/L=4$
+do not give too much difference. Figure (d) fixed the Lebedev quadrature
 for $\Theta$ and $\Phi$, but left varying the $\Psi$. We can also
-see a dependence on $\Psi$. which does not completely have a tendency
-to vanish when increasing the resolution of grid. Since during the
-whole thesis the $\Psi$ is theoretically fixed in the same order
-(as) with $\Theta$ and $\Phi$, this remains an issue for further
-verification. We can roughly conclude that an error around 1-2 kJ/mol
-is common for this code. The spatial grid dependence will not be treated
-in this thesis as it comes from other terns of the functional.
+see a dependence on $\Psi$ which does not completely vanish when
+increasing the resolution of angular grid. Since during the whole
+thesis the $\Psi$ is theoretically fixed by the order of the quadrature
+in $\Theta$ and $\Phi$, this remains an issue for further verification.
+We can roughly conclude that an error around 1-2 kJ/mol is common
+for this code. The spatial grid dependence will not be treated in
+this thesis as it may come from other terms of the functional.
 
 \section{Series of charged LJ centers}
 
@@ -742,7 +743,7 @@ are presented.}
 test]{Methods and parameters for charged $\mathrm{C}\mathrm{H}_{4}$ series
 test. Leb is Lebedev quadrature (6 angles of $\Theta$ and $\Phi$
 for $m_{\max}=1$ and 14 for $m_{\max}=2$), which is mathematically
-equivalent with Gauss-Legendre quadrature but only ˜2/3 angles.\label{tab:parameters-ch4}}
+equivalent to Gauss-Legendre quadrature but requires only ˜2/3 angles.\label{tab:parameters-ch4}}
 \end{table}
 
 \begin{figure}[!bh]
@@ -813,16 +814,17 @@ compared to \acs{IET}, without P-scheme correction\label{fig:Comparison-to-IET,w
 \end{figure}
 The intercept values in each of figures \ref{fig:ch4_nmax1_lmn} to
 \ref{fig:ch4_nmax1_new} correspond to the free energy of an infinite
-box. The \acs{IET} results to be compared are done with $R_{\max}=102.4\textrm{Å}$,
-and need a correction of $-2.556k_{\mathrm{B}}T$ to obtain the free
-energy in the infinite system. \textcolor{red}{(``oui! préciser qu'il
-s'agit de calculs HNC \textquotedbl{}1D\textquotedbl{} 1 distance
-+ 5 angles.'': je ne comprends pas...)} The difference in free energy
-between \acs{MDFT} and \acs{IET} of the infinite system are given
-in figure \ref{fig:Comparison-to-IET,without-correction}. The linear
-regression is done with all existing points in this figure, and its
-slope 87.653 $\mathrm{kJ}\cdot\mathrm{mol^{-1}}$ corresponds to the
-correction of type-C:
+box. The \acs{IET} results to be compared were obtained using the
+1D-HNC formalism (1 distance, 5 angles) developed by Belloni and collaborators
+\citep{belloni_efficient_2014}. The calculation were done with a
+cut-off distance of $R_{\max}=102.4\textrm{Å}$ and an additional
+Born-like correction of $-2.556k_{\mathrm{B}}T$ to obtain the free
+energy in the infinite system. The difference in free energy between
+\acs{MDFT} and \acs{IET} of the infinite system are given in figure
+\ref{fig:Comparison-to-IET,without-correction}. The linear regression
+is done with all existing points in this figure, and its slope 87.653
+$\mathrm{kJ}\cdot\mathrm{mol^{-1}}$ corresponds to the correction
+of type-C:
 \begin{equation}
 \dfrac{2\pi}{3}f_{Q}\eta\gamma=82.104\mathrm{kJ}\cdot\mathrm{mol^{-1}}\label{eq:eta-gamma}
 \end{equation}
@@ -855,15 +857,15 @@ between results of $m_{\max}=n_{\max}=5$ given by \texttt{\textbf{convolution\_s
 corrections and \acs{IET} with infinite corrections (nmax5\_convo)
 are shown in figure \ref{fig:Comparison-to-IET,with-corr}. Note that
 the curves for the same \acs{DCF} are not perfectly in agreement
-with each other, unlike shown in table \ref{tab:free-energy}. The
-fact is that in ``nmax1\_lmn'', Lebedev quadrature is used, and
-in ``nmax1\_convo'', Gauss-Legendre quadrature is used, as we know
-the different angular grid can have an effect on the energy; and for
-$n_{\max}=5$, as we have taken by chance the +0.4 as charge in table
-\ref{tab:free-energy}, the difference between the \texttt{\textbf{naive\_interpolation}}
+with each other, despite what is shown in table \ref{tab:free-energy}.
+The fact is that in ``nmax1\_lmn'', Lebedev quadrature is used,
+and in ``nmax1\_convo'', Gauss-Legendre quadrature is used, as we
+know the different angular grid can have an effect on the energy;
+and for $n_{\max}=5$, as we have taken by chance the +0.4 as charge
+in table \ref{tab:free-energy}, the difference between the \texttt{\textbf{naive\_interpolation}}
 and \texttt{\textbf{convolution\_standard}} results are accidentally
 small. The troublesome energy shift of about 2 $\mathrm{kJ}\cdot\mathrm{mol^{-1}}$
-between ``nmax5\_inter'' and \acs{IET} result is yet to understand,
+between ``nmax5\_inter'' and \acs{IET} result is yet to be understood,
 as well as the dependence on $q$ for ``nmax5\_convo'' after correction.
 But if we look at the free energies without comparing them in figure
 \ref{fig:Comparison-to-IET,with-corr-alles}, we can see that these
@@ -921,7 +923,7 @@ $m_{\max}=n_{\max}$ and $m_{\max}=5$. As we said previously the
 gradient $\gamma$ is smoother than $\rho$; it is worthwhile to study
 the case when the order of quadrature $m_{\max}$ for the expansion
 of $\rho$ is larger than the order of \acs{DCF} $n_{\max}$ used
-in equation \acs{OZ} to solve $\gamma$, in order to economize computing
+in equation \acs{OZ} to solve $\gamma$, in order to save computing
 cost.
 
 From table \ref{tab:Free-energy-of-mnmax} we can see that the free
@@ -934,13 +936,13 @@ gives no influence to the functional gradient, and the $\rho$ used
 to evaluate the functional is given by minimization, i.e. without
 expansion on \acs{GSH}s.
 
-A schema of free energy evaluation with respect to $n_{\max}$ ($m_{\max}=5$,
+A scheme of free energy evaluation with respect to $n_{\max}$ ($m_{\max}=5$,
 as some of the points of $m_{\max}=n_{\max}$ have difficulty to converge
-and if converge they give usually the same result) is made in figure
-\ref{fig:Comparison-to-IET,with-corr-nmax}. We see that from $n_{\max}=3$
-to higher order, the curves do not vary a lot. We can conclude that
-within $n_{\max}\geq3$ to $n_{\max}=5$, the error in free energy
-is acceptable.\marginpar{We take solute-solvent formalism for \acs{MDFT}, and \acs{IET} takes
+and if convergence is achieved they give usually the same result)
+is made in figure \ref{fig:Comparison-to-IET,with-corr-nmax}. We
+see that from $n_{\max}=3$ to higher order, the curves do not vary
+a lot. We can conclude that within $n_{\max}\geq3$ to $n_{\max}=5$,
+the error in free energy is acceptable.\marginpar{We take solute-solvent formalism for \acs{MDFT}, and \acs{IET} takes
 the solvent-solute formalism. Thus in \acs{MDFT} the $g_{\mu\nu}^{mnl}$
 corresponds to the $g_{\nu\mu}^{nml}$ in \acs{IET}. In figure \ref{fig:Comparison-to-IET.rot_invar}
 it is converted to give a easier understanding. }
@@ -981,15 +983,15 @@ For $\mathrm{C}\mathrm{H}_{4}$ it seems to be bazar, but looking
 at the scale of the schema and we consider that it converges from
 $n_{\max}=4$. To conclude, for $\mathrm{C}\mathrm{H}_{4}^{\mathfrak{q}}$
 series, we think $n_{\max}=3$ is sufficient for energy, and $n_{\max}=4$
-is sufficient for structure to converge for common usages (without
-regarding to higher order projections).
+is sufficient for the structure to converge (without considering higher
+order projections).
 
 \section{Uncharged LJ centers}
 
 As there is an energy shift between \texttt{\textbf{naive\_interpolation}}
 and \acs{IET} results even for un charged $\mathrm{C}\mathrm{H}_{4}$
-(figure \ref{fig:Comparison-to-IET,with-corr}), we calculate complimentarily
-some other uncharged LJ centers. 
+(figure \ref{fig:Comparison-to-IET,with-corr}), we have calculated
+in addition some other uncharged LJ centers. 
 \begin{table}[h]
 \begin{centering}
 \begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}ccccccccccc}
@@ -1014,9 +1016,9 @@ with $m_{\max}=n_{\max}=1,\ldots,5$, and \texttt{\textbf{naive\_interpolation}}
 with \acs{DCF} of $n_{\max}=5$; $\sigma$ in $[\textrm{Å}]$, $\epsilon$
 in $[\mathrm{kJ\cdot mol^{-1}}]$, with $L=24$ $\textrm{Å}$, $\mathrm{nfft}=72$.\label{tab:Free-energy-rare-gas}}
 \end{table}
-Results in table \ref{tab:Free-energy-rare-gas} shows that this energy
+Results in table \ref{tab:Free-energy-rare-gas} show that this energy
 shift is common in any uncharged LJ centers; and in these cases, even
-$n_{\max}=1$ can satisfy the require of chemical precision.
+$n_{\max}=1$ can satisfy the requirement of chemical precision.
 
 \section{Linear solutes}
 
@@ -1026,10 +1028,10 @@ and table \ref{tab:Parameters-of-test-solutes}. The direct summation
 method ($\mathsection$\ref{subsec:The-external-term}) is used for
 $\mathcal{F}_{\mathrm{ext}}$ evaluation, as $\mathrm{O}_{2}$ always
 diverges with Poisson method. We can make hypothesis that this is
-because the distance between the charges is to short, as shown in
+because the distance between the charges is too short, as shown in
 figure \ref{fig:Test-linear-solutes}; therefore the interpolation
 in $\mathcal{F}_{\mathrm{ext}}$ evaluation can cause divergence.
-There is a better version of Poisson solver developing in parallel
+There is a better version of Poisson solver that is developed in parallel
 of this code, which has been reported to have better convergency.
 We consider that this divergency problem does not come from the evaluation
 of $\mathcal{F}_{\mathrm{exc}}$.
@@ -1081,8 +1083,8 @@ parentheses.\label{tab:Parameters-of-test-solutes}}
 
 Table \ref{tab:Free-energy-of-solute} shows the free energy of solute
 with respect to $n_{\max}$. We also find that from $n_{\max}=3$,
-free energy seems to converge, and there is almost no difference between
-$m_{\max}=5$ and $m_{\max}=n_{\max}$. 
+the free energy seems to converge, and there is almost no difference
+between $m_{\max}=5$ and $m_{\max}=n_{\max}$. 
 
 \begin{table}[h]
 \begin{centering}
@@ -1110,15 +1112,16 @@ $m_{\max}=5$ and $m_{\max}=n_{\max}$.
 \caption[Free energy of solutes]{Free energy of solutes. Reference free energy by \acs{IET} in parentheses.\label{tab:Free-energy-of-solute}}
 \end{table}
 
-The structures of solutes are also compared to \acs{IET} results,
-shown in figure \ref{fig:Comparison-co2}. For the projections of
-$m=0$, they are well agreed with \acs{IET} results, \textcolor{red}{but
-for the projections with $m=2$, a factor of normalization at $\sqrt{3}$
-appears, which seems to have no reason to exist, as the factor normally
-linked to $m$ is $2m+1$ or $\sqrt{2m+1}$. The projections for $\mathrm{O_{2}}$
-and $\mathrm{N_{2}}$ is totally different from \acs{IET} results
-mainly in the range of first shell, maybe the wrong molecules are
-used in these two implementations (waiting for Luc's verification).}
+The solvent structure around the various solutes are also compared
+to \acs{IET} results, shown in figure \ref{fig:Comparison-co2}.
+For the projections of $m=0$, they are well agreed with \acs{IET}
+results, \textcolor{red}{but for the projections with $m=2$, a factor
+of normalization at $\sqrt{3}$ appears, which seems to have no reason
+to exist, as the factor normally linked to $m$ is $2m+1$ or $\sqrt{2m+1}$.
+The projections for $\mathrm{O_{2}}$ and $\mathrm{N_{2}}$ is totally
+different from \acs{IET} results mainly in the range of first shell,
+maybe the wrong molecules are used in these two implementations (waiting
+for Luc's verification).}
 
 \begin{figure}[h]
 \begin{centering}
@@ -1132,34 +1135,37 @@ to avoid noise.\label{fig:Comparison-co2}}
 \end{figure}
 
 
-\section{Premier conclusion}
+\section{First conclusion}
 
-From the results, we see that \acs{MDFT} is capable to produce the
-solvation free energy at chemical precision with normal convergence
-criteria (which gives 2 decimal for a specific spatial and angular
-grid), which is nearly the same compared to mathematical equivalent
-\acs{IET} results for LJ centers, single ions and linear solutes.
-The variance of free energy due to discretization parameters is at
-chemical precision, i.e. 1 to 2 kJ/mol. To keep this precision, at
-least $n_{\max}=3$ is needed, and the order of quadrature $m_{\max}$
-has no influence to the energy and structure if it is larger than
-$n_{\max}$. This $n_{\max}$ is far from sufficient to describe the
-solvent density $\rho$, but sufficient for $\gamma$. As $\rho$
-is produced by the minimization, its expansion has no influence to
-the final result. The different branches produce almost the same result
-with the same \acs{DCF}, comparing to the error introduced by spatial
-grid dependence; while \texttt{\textbf{naive\_interpolation}} seems
-to be a bit more stable compared to \texttt{\textbf{convolution}}
-methods in terms of convergence for negative molecules, but have an
-energy shift about 2 kJ/mol for neutral LJ centers. For charged solutes,
-the two types of free energy corrections mentioned in this thesis
-are needed.
-
-As for structure, \acs{MDFT} can also produce the same result as
+From the above results, the following first conclusions may be drawn:
+\begin{itemize}
+\item \acs{MDFT} is capable to produce the solvation free energy at chemical
+precision with normal convergence criteria (which gives 2 decimal
+for a specific spatial and angular grid), which is nearly the same
+compared to mathematical equivalent \acs{IET} results for LJ centers,
+single ions and linear solutes. The variance of free energy due to
+discretization parameters is at chemical precision, i.e. 1 to 2 kJ/mol.
+To keep this precision, at least $n_{\max}=3$ is needed, and the
+order of quadrature $m_{\max}$ has no influence to the energy and
+structure if it is larger than $n_{\max}$. This $n_{\max}$ is far
+from sufficient to describe the solvent density $\rho$, but sufficient
+for $\gamma$. As $\rho$ is produced by the minimization, its expansion
+has no influence to the final result. The different branches produce
+almost the same result with the same \acs{DCF}, comparing to the
+error introduced by spatial grid dependence; while \texttt{\textbf{naive\_interpolation}}
+seems to be a bit more stable compared to \texttt{\textbf{convolution}}
+methods in terms of convergence for negative molecules, but exhibits
+a small an energy shift about 2 kJ/mol for neutral LJ centers. For
+charged solutes, the two types of free energy corrections mentioned
+in this thesis are needed.
+\item As for structure, \acs{MDFT} can also produce the same result as
 \acs{IET}. It requires about $n_{\max}=4$ to have a converged curve
 of $g(r)$ projections. For solutes, we are obliged to use looser
 sampling rate to have a smooth curve; as the spatial grid is cubic,
-but not in spherical coordinates as \acs{IET}. In a general feeling,
-\acs{MDFT} has an advantage to produce 3D solvent structures for
-complicate molecules, but \acs{IET} is ideal to give information
-about small symmetric molecules using functions with respect to $r$.
+but not in spherical coordinates as \acs{IET}. Indeed \acs{MDFT}
+has the great advantage to be generalizable to produce 3D solvent
+structures for complicate molecules, but \acs{IET} is ideal, and
+much more efficient, to give information about small symmetric molecules
+using functions with respect to $r$.
+\end{itemize}
+
