@@ -72,7 +72,8 @@
 \begin_body
 
 \begin_layout Chapter
-Error evaluation of interpolation strategies for DCF in local frame
+Error evaluation of interpolation strategies for DCF in the local (molecular)
+ frame
 \begin_inset CommandInset label
 LatexCommand label
 name "chpt:error-evaluation-interpolation-DCF"
@@ -254,7 +255,7 @@ name "fig:error"
 \series bold
 Absolute error
 \series default
- is the histogram that counts the number of times that the calculated 
+ is the histogram that accounts for the number of calculated 
 \begin_inset ERT
 status open
 
@@ -267,15 +268,11 @@ acs{DCF}
 
 \end_inset
 
- gives the corresponding absolute error 
+ with error 
 \begin_inset Formula $E_{\mathrm{a}}^{i}$
 \end_inset
 
- with a resolution of 0.01, in range of 
-\begin_inset Formula $[0,10]$
-\end_inset
-
-:
+ :
 \begin_inset Formula 
 \begin{equation}
 E_{\mathrm{a}}^{i}=\left|c_{k}^{i}-c_{k}\right|
@@ -299,7 +296,7 @@ where
 \begin_inset Formula $c_{k}$
 \end_inset
 
- is the one calculated directly as the reference.
+ is the reference.
 \end_layout
 
 \begin_layout Standard
@@ -334,18 +331,18 @@ Relative error
  is defined as:
 \begin_inset Formula 
 \begin{equation}
-E_{r}^{i}=\left|c_{k}^{i}-c_{k}\right|/\left|c_{k}\right|\label{eq:Er}
+E_{r}^{i}=\left|c_{k}^{i}-c_{k}\right|/\left|c_{k}\right|.\label{eq:Er}
 \end{equation}
 
 \end_inset
 
-with resolution of 0.1%, in range of [0, 1].
+
 \end_layout
 
 \begin_layout Standard
-In all three figures, the 4 curves given by zero-order interpolation do
- not diverge a great deal compared with the linear interpolation one.
- The result of 
+In all three figures, we see that zeroth-order interpolation give much larger
+ errors than the linear interpolation.
+ Also, 
 \begin_inset ERT
 status open
 
@@ -358,7 +355,7 @@ acs{MDFT}
 
 \end_inset
 
- also shows that zero-order interpolation gives large energy error with
+ within the zeroth-order interpolation has more convergence problems with
  a 
 \begin_inset ERT
 status open
@@ -376,8 +373,8 @@ acs{DCF}
 \begin_inset Formula $n_{\max}=1$
 \end_inset
 
-, and has convergence problems in certain cases.
- We conclude that the linear interpolation scheme is absolutely necessary.
+.
+ We conclude that the linear interpolation scheme must be used in MDFT.
  On the other hand, as seen in eq.
  (
 \begin_inset CommandInset ref
@@ -391,7 +388,7 @@ reference "eq:interpolation"
 \begin_inset Formula $2^{5}=32$
 \end_inset
 
- times the number of operations.
+ times more operations.
 \end_layout
 
 \end_body
