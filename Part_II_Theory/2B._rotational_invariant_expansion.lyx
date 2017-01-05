@@ -125,22 +125,23 @@ where
 \begin_inset Formula $R_{\mu'\mu}^{m}$
 \end_inset
 
- is the Wigner generalized spherical harmonics or Wigner D-symbol defined
- in the same convention as Messiah 
+ is the Wigner generalized spherical harmonics or Wigner D-symbol.
+ Several conventions exist for these generalized spherical harmonics.
+ We use Messiah's 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Messiah"
 
 \end_inset
 
- (different than Edmonds 
+, which is different from Edmonds' 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Edmonds"
 
 \end_inset
 
-).
+.
  
 \begin_inset Formula $f^{mnl}$
 \end_inset
@@ -157,13 +158,14 @@ key "Fries_Patey_1985"
 \begin_inset Formula $f^{mnl}=f^{m}f^{n}=\sqrt{2m+1}\sqrt{2n+1}$
 \end_inset
 
- according to the definition of Blum.
+ according to Blum.
 \end_layout
 
 \begin_layout Standard
-Two special cases are adopted in this thesis, these being the laboratory
- coordinate system with particle 1 at origin (fixed frame) and intermolecular
- coordinate system (local frame) shown in figure 
+Two special cases are adopted in this thesis: (i) in the laboratory framework
+ with particle 1 at origin, also called the fixed frame, and (ii) in the
+ intermolecular framework, also called the local frame.
+ These are illustrated in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:coordinate_systems"
@@ -171,7 +173,7 @@ reference "fig:coordinate_systems"
 \end_inset
 
 .
- Their formalism and symmetry properties are presented later.
+ Their formalism and symmetry properties are given below.
 \end_layout
 
 \begin_layout Section
@@ -183,19 +185,7 @@ Orthogonality of
 \end_layout
 
 \begin_layout Standard
-The rotational invariant 
-\begin_inset Formula $\Phi$
-\end_inset
-
- in eq.
- (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:definition_rot_invar"
-
-\end_inset
-
-) is orthogonal, as proven below:
+Rotational invariants form an orthogonal basis set, as proven below:
 \begin_inset Formula 
 \begin{eqnarray}
 \left\langle \Phi\mid\Phi_{2}\right\rangle  & = & \int\mathrm{d}\mathbf{\Omega}_{1}\mathrm{d}\mathbf{\Omega}_{2}\mathrm{d}\hat{\mathbf{r}}\Phi_{\mu\nu}^{mnl}(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2},\mathbf{\hat{r}}_{12})\Phi_{\mu_{2}\nu_{2}}^{m_{2}n_{2}l_{2}*}(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2},\mathbf{\hat{r}}_{12})\nonumber \\
@@ -266,6 +256,16 @@ m & n & l_{2}\\
 \end_inset
 
 it gives
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+manque pas un delta cidessous ?
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 \left\langle \Phi\mid\Phi_{2}\right\rangle =\left(2l+1\right)^{-1}\label{eq:2b-ortho}
@@ -459,19 +459,19 @@ Transform in local frame
 
 \begin_layout Standard
 In the intermolecular (local) coordinate system, the 2 molecules are both
- positioned along the 
+ aligned along the 
 \begin_inset Formula $z$
 \end_inset
 
  axis.
- Using the properties 
+ Using the properties of generalized spherical harmonics
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Edmonds,Gray-Gubbins,Messiah"
 
 \end_inset
 
- of generalized spherical harmonics:
+ :
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
@@ -480,18 +480,18 @@ R_{\mu'\mu}^{m}(\Theta,\Phi,\Psi)=\delta_{\mu'\mu} & \mathrm{if} & \Theta=\Phi=\
 
 \end_inset
 
-and 3j-symbol
+and of 3j-symbols
 \begin_inset Formula 
 \begin{eqnarray}
 \left(\begin{array}{ccc}
 m & n & l\\
 \mu' & \nu' & \lambda'
-\end{array}\right)\neq0 & \mathrm{only\,if} & \mu'+\nu'+\lambda'=0
+\end{array}\right)\neq0 & \mathrm{only\,if} & \mu'+\nu'+\lambda'=0,
 \end{eqnarray}
 
 \end_inset
 
- 
+we have 
 \begin_inset Formula $\Phi_{\mu\nu}^{mnl}(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2},\mathbf{\hat{r}}_{12})$
 \end_inset
 
@@ -503,7 +503,7 @@ reference "eq:definition_rot_invar"
 
 \end_inset
 
-) can be simplified to
+) that can be simplified to
 \begin_inset Formula 
 \begin{equation}
 \Phi_{\mu\nu}^{mnl}(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},0)=\sum_{\chi}\left(\begin{array}{ccc}
@@ -518,7 +518,7 @@ m & n & l\\
 \end_layout
 
 \begin_layout Standard
-Thus eq.
+Thus, eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -538,7 +538,7 @@ m & n & l\\
 
 \end_inset
 
-and the inverse equation
+and the inverse equation is
 \begin_inset Formula 
 \begin{eqnarray}
 F_{\mu\nu}^{mnl}(r) & = & \int\mathrm{d}\boldsymbol{\omega}_{1}\mathrm{d}\boldsymbol{\omega}_{2}F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)\Phi_{\mu\nu}^{mnl*}(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},0)\nonumber \\
@@ -877,7 +877,7 @@ Expansion of
 \end_layout
 
 \begin_layout Standard
-The total equation of the forward transform is as shown below:
+The total equation of the forward transform is:
 \begin_inset Formula 
 \begin{equation}
 F_{\mu\nu}^{mnl}(r)=f^{m}f^{n}\sum_{\eta}\left(\begin{array}{ccc}
@@ -892,7 +892,11 @@ m & n & l\\
 \end_layout
 
 \begin_layout Standard
-Firstly, the 
+Its decomposition reads: 
+\end_layout
+
+\begin_layout Standard
+First, the 
 \begin_inset ERT
 status open
 
@@ -1022,8 +1026,19 @@ It should be noted that
  is puraly real if 
 \color red
 ...
+
 \color inherit
-, accroding to the symetry.
+ , accroding to the symetry.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Y A DU ROUGE ICI
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection*

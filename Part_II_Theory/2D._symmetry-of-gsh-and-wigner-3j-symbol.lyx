@@ -72,7 +72,7 @@
 \begin_body
 
 \begin_layout Chapter
-Properties of Wigner 3j-Symbol and GSH 
+Properties of Wigner 3j-Symbol and Generalized Spherical Harmonics 
 \begin_inset CommandInset label
 LatexCommand label
 name "chpt:symmetry"
@@ -327,8 +327,8 @@ acs{GSH}
 
 \end_inset
 
- given in lectures.
- Here we adopt the definition in Messiah:
+.
+ Here we adopt the Messiah's definition:
 \begin_inset Formula 
 \begin{equation}
 R_{\mu'\mu}^{m}(\phi\theta\psi)=e^{-i\mu'\phi}r_{\mu'\mu}^{m}(\theta)e^{-i\mu\psi}\label{eq:GSH-def}
@@ -340,8 +340,8 @@ where
 \begin_inset Formula $r_{\mu\mu'}^{m}$
 \end_inset
 
- is the generalized Legendre polynomial (GLP), which is real, and can be
- evaluated using the Wigner formula:
+ is the generalized Legendre polynomial (GLP), which is real.
+ It can be evaluated using the Wigner formula:
 \begin_inset Formula 
 \begin{eqnarray}
 r_{\mu'\mu}^{m}(\theta) & = & \left[\left(m+\mu'\right)!\left(m-\mu'\right)!\left(m+\mu\right)!\left(m-\mu\right)!\right]^{\frac{1}{2}}\times\nonumber \\
