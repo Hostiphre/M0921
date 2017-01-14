@@ -1504,13 +1504,11 @@ acs{FFT}
 \end_layout
 
 \begin_layout Standard
-
-\color red
 Note that if function 
 \begin_inset Formula $f(\mathbf{X}_{1},\mathbf{X}_{2})$
 \end_inset
 
- is real and processes a symmetry axis 
+ is real and the molecules processes a symmetry axis 
 \begin_inset Formula $\mathrm{C}_{2v}$
 \end_inset
 

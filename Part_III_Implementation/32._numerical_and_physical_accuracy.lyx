@@ -1187,11 +1187,8 @@ acs{RDF}
 \end_inset
 
  vary from 1 to 8.
- The square box on the left is zoomed and smoothed 
-\color red
-(with Catmull-Rom spline impcilty used by Excel)
-\color inherit
-, shown in the right box.
+ The square box on the left is zoomed and smoothed (with Catmull-Rom spline
+ implicitly used by Excel), shown in the right box.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:rdf-with-different"
@@ -13276,9 +13273,7 @@ acs{IET}
 
 \end_inset
 
- results, 
-\color red
-but for the projections with 
+ results, but for the projections with 
 \begin_inset Formula $m=2$
 \end_inset
 
@@ -13300,29 +13295,7 @@ but for the projections with
 \end_inset
 
 .
- The projections for 
-\begin_inset Formula $\mathrm{O_{2}}$
-\end_inset
-
- and 
-\begin_inset Formula $\mathrm{N_{2}}$
-\end_inset
-
- is totally different from 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{IET}
-\end_layout
-
-\end_inset
-
- results mainly in the range of first shell, maybe the wrong molecules are
- used in these two implementations (waiting for Luc's verification).
+ 
 \end_layout
 
 \begin_layout Standard

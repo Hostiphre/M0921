@@ -148,9 +148,16 @@ convolution_standard
 \end_inset
 
  unless otherwise specified.
- Comparison to dipole method is also involved in, as we should justify that
- the increase of computing cost is has the capability to produce better
- results.
+ Comparison to the dipole method is also involved, as we should justify
+ that the increase of computing cost when going from 
+\begin_inset Formula $n_{\max}=1$
+\end_inset
+
+ to 
+\begin_inset Formula $n_{\max}>1$
+\end_inset
+
+ is counter-balanced by the capability to produce better results.
  
 \end_layout
 
@@ -230,15 +237,18 @@ key "Zhao_2011"
 
 \end_inset
 
- 
-\color red
-or to calculation involving 
+ or to calculation involving 
 \begin_inset Formula $c_{00}^{000}$
 \end_inset
 
- only.
+ only 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "levesque_scalar_2012"
 
-\color inherit
+\end_inset
+
+.
  This kind of disagreement in curve shape is regarded as a known default
  of 
 \begin_inset ERT
@@ -253,7 +263,20 @@ acs{HNC}
 
 \end_inset
 
- approximation.
+ (or 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HRF}
+\end_layout
+
+\end_inset
+
+ ) approximation.
 \end_layout
 
 \begin_layout Standard
@@ -332,7 +355,7 @@ Charged
 \end_layout
 
 \begin_layout Standard
-The comparison of 
+The comparison of the 
 \begin_inset ERT
 status open
 
@@ -345,7 +368,7 @@ acs{RDF}
 
 \end_inset
 
- with 
+ obtained with 
 \begin_inset ERT
 status open
 
@@ -374,8 +397,8 @@ reference "fig:Comparison-to-MD"
 \begin_inset Formula $n_{\max}=5$
 \end_inset
 
- gives much better results compared to dipole method, which is almost well
- agreed with 
+ gives much better results compared to the dipole method, which itself almost
+ agree with 
 \begin_inset ERT
 status open
 
@@ -513,7 +536,7 @@ Solvation free energy of single ions
 
 \begin_layout Standard
 \begin_inset Marginal
-status collapsed
+status open
 
 \begin_layout Plain Layout
 We consider that for a macroscopic system, when the number of particles
@@ -521,7 +544,7 @@ We consider that for a macroscopic system, when the number of particles
 \begin_inset Formula $N\rightarrow\infty$
 \end_inset
 
-, the Gibbs and Helmholtz free energy are almost the same.
+, all kinds of free energies are almost the same.
  
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -547,7 +570,7 @@ acs{RDF}
 
 \end_inset
 
- for positive ions are in well agreement with 
+ for positive ions are in good agreement with 
 \begin_inset ERT
 status open
 
@@ -561,10 +584,10 @@ acs{MD}
 \end_inset
 
  results.
- However, the energy is more difficult to compare, as there are several
- conventions of single ions, depending on for example box length and charge;
- and the free energy depends largely on the input LJ parameters of the ions,
- which is independent to the method.
+ However, the free energy is more difficult to compare, as there are several
+ finite-size corrections for single ions, depending on for example box length
+ and charge; besides the free energy depends largely on the input LJ parameters
+ of the ions, which is independent to the method.
 \end_layout
 
 \begin_layout Standard
@@ -588,7 +611,8 @@ acs{MD}
 
 \end_inset
 
- simulation result of solvation free energy and first maximum of 
+ simulation results of solvation free energy as well as the positions of
+ the first maximum of the 
 \begin_inset ERT
 status open
 
@@ -602,18 +626,18 @@ acs{RDF}
 \end_inset
 
  for alkali and halide ions.
- We can see that the data itself varies a lot.
- Nevertheless, the LJ parameters of ions from literatures can also have
- thousand times of difference.
- Therefore, we chose a series of force field parameters for halide anions
- and alkali cations from ref 
+ We can see that the experimental data themselves vary a lot.
+ Furthermore the LJ parameters for ions in the literature are extremely
+ dispersed.
+ Therefore, we focused on a single series of force field parameters for
+ halide anions and alkali cations taken from ref 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "horinek_rational_2009"
 
 \end_inset
 
- based on SPC/E water as shown also in table 
+ based on SPC/E water, as shown also in table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:single-ions"
@@ -1852,7 +1876,7 @@ acs{MD}
 
 \end_inset
 
- simulation result
+ simulation results
 \end_layout
 
 \end_inset
@@ -2117,7 +2141,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--368.47
+-368.5
 \end_layout
 
 \end_inset
@@ -2199,7 +2223,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--297.33
+-297.3
 \end_layout
 
 \end_inset
@@ -2281,7 +2305,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--278.32
+-278.3
 \end_layout
 
 \end_inset
@@ -2363,7 +2387,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--253.42
+-253.4
 \end_layout
 
 \end_inset
@@ -2434,7 +2458,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--707.73
+-707.7
 \end_layout
 
 \end_inset
@@ -2445,7 +2469,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--405.28
+-405.3
 \end_layout
 
 \end_inset
@@ -2516,7 +2540,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--621.76
+-621.8
 \end_layout
 
 \end_inset
@@ -2527,7 +2551,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--366.00
+-366.0
 \end_layout
 
 \end_inset
@@ -2598,7 +2622,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--559.13
+-559.1
 \end_layout
 
 \end_inset
@@ -2609,7 +2633,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--338.37
+-338.4
 \end_layout
 
 \end_inset
@@ -2680,7 +2704,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--508.84
+-508.8
 \end_layout
 
 \end_inset
@@ -2691,7 +2715,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--316.06
+-316.1
 \end_layout
 
 \end_inset
@@ -2809,7 +2833,7 @@ acs{MDFT}
 
 \end_inset
 
- is not perfect, but in the same order of magnitude as 
+ is not perfect, but lie in the same order of magnitude as 
 \begin_inset ERT
 status open
 
@@ -2822,8 +2846,37 @@ acs{MD}
 
 \end_inset
 
- results.
- Results with 
+ for 
+\begin_inset Formula $\mathrm{Cl}^{-}$
+\end_inset
+
+ to 
+\begin_inset Formula $\mathrm{I}^{-}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathrm{K}^{+}$
+\end_inset
+
+ to 
+\begin_inset Formula $\mathrm{Cs}^{+}$
+\end_inset
+
+.
+ They are much less convincing for small ions such as 
+\begin_inset Formula $\mathrm{F}^{-}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathrm{Li}^{+}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathrm{Na}^{+}$
+\end_inset
+
+.
+ Besides, the results with a 
 \begin_inset ERT
 status open
 
@@ -2836,14 +2889,16 @@ acs{DCF}
 
 \end_inset
 
- of 
+ at 
 \begin_inset Formula $n_{\max}=3$
 \end_inset
 
- works better than dipole in energy, 
-\color red
-but in terms of position of first solvation maximum it gives the same result
- for positive ions, which is a little different with 
+ works better than the dipolar approximation, which is a positive sign for
+ our developments.
+ In contrast, there is no improvement in terms of position of the first
+ solvation maximum.
+ Note that for this quantity, the agreement between experimental data and
+ 
 \begin_inset ERT
 status open
 
@@ -2856,17 +2911,8 @@ acs{MD}
 
 \end_inset
 
- results.
- specially for 
-\begin_inset Formula $\mathrm{Li^{+}}$
-\end_inset
-
-.
- Which is not completely agreed with the previous 
-\begin_inset Formula $\mathrm{CH_{4}}$
-\end_inset
-
- results.
+ is not obvious either.
+ 
 \end_layout
 
 \begin_layout Section
@@ -2874,7 +2920,20 @@ Small molecules
 \end_layout
 
 \begin_layout Standard
-Some solute structure are also generated to compare to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ calculations involving some small molecular solutes were also generated
+ to compare to 
 \begin_inset ERT
 status open
 
@@ -2887,14 +2946,14 @@ acs{MD}
 
 \end_inset
 
-, shown in figure 
+; the chosen solutes are shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Test-solutes-2"
 
 \end_inset
 
- and table 
+ and defined in table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Parameters-of-test-solutes-2"
@@ -2902,6 +2961,35 @@ reference "tab:Parameters-of-test-solutes-2"
 \end_inset
 
 .
+ Note that a certain proportion of them have a non-linear, 3-dimensional
+ geometry which could not be handled by the molecular 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+; this shows the advantage of the general 3D-
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ approach adopted in this thesis and the new algorithm that we have developed
+ in this context.
 \end_layout
 
 \begin_layout Standard
@@ -2925,11 +3013,15 @@ acs{RDF}
 
 \end_inset
 
-s (solute site to water O site) of 
+s (solute site to water O site) for 
 \begin_inset Formula $n_{\max}=4$
 \end_inset
 
-, dipole and 
+, the dipolar approximation (
+\begin_inset Formula $n_{\max}=1$
+\end_inset
+
+), and 
 \begin_inset ERT
 status open
 
@@ -2942,18 +3034,66 @@ acs{MD}
 
 \end_inset
 
- results for these test solutes.
- It is shown that in the most of cases, 
+ for these test solutes.
+ It is shown that in the most of the cases, 
 \begin_inset Formula $n_{\max}=4$
 \end_inset
 
- gives better or the same results than dipole, apart from the cases of water,
- specially SPC/E water.
+ does give equivalent or better results than the dipolar order, apart from
+ the cases of water, and specially SPC/E water.
  In methanol, the dipole method diverge.
+ For most solutes, the comparison to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
+\end_inset
+
+ is far from perfect but can be qualified as satisfactory in reproducing
+ the - sometimes complex - shape of the RDF's and the main peaks positions.
+ This statement is especially true for benzene and pyrimidine for example.
+ For hydrophobic molecules or molecules with hydrophobic sites (alkanes,
+ oxygen, nitrogen, ...) one recovers the slight underestimation of the first
+ peak position and the overestimation of peak height that was already remarked
+ for rare gases; this is a clear defect of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HNC}
+\end_layout
+
+\end_inset
+
+.
+ The case of molecules giving raise to hydrogen bonds to water (e.g.
+ methanol, or water in water) is more problematic and subtle.
+ Here the dipolar approximation gives a first peak for the water oxygen
+ around the O-site that is too high but has the correct width, whereas 
+\begin_inset Formula $n_{\max}=4$
+\end_inset
+
+ shifts the first peak to higher values and makes it too wide (a sort of
+ merge of the first and second peak, an effect even clearer for methanol).
+ The H-O first peak on the other hand is at a correct position but underestimate
+d, both for water and methanol.
+ The tetrahedral order around a water solute is not correctly reproduced
+ - although the correct balance to get the right structure is subtle and
+ does not appear too far.
+ 
 \end_layout
 
 \begin_layout Standard
-In the purpose to show the the ability of 
+In the purpose of showing the ability of 
 \begin_inset ERT
 status open
 
@@ -2966,8 +3106,8 @@ acs{MDFT}
 
 \end_inset
 
- to show calculate 3D solute structure, due to the spherical coordinate
- system it adopt, we show some 3D figure of solvent in figure 
+ to calculate 3D solute structure, we display 3D solvent densities for specific
+ solutes in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Volume-slice-of"
@@ -2982,17 +3122,24 @@ reference "fig:Iso-surface-of-solvent"
 \end_inset
 
 .
- In figure 
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Iso-surface-of-solvent"
 
 \end_inset
 
-, we can see the famous tetrahedral structure around the water molecule.
+ complements the discussion given just above concerning the expected tetrahedral
+ structure around a water molecule in water.
+ That structure can be indeed detected for SPC/E water and even more so
+ for the TIP4P model.
  In SPC/E water, there is more density than expected on the north pole,
- and this piece of density disappears with the extra charged added on the
+ and this piece of density disappears with the extra charge added on the
  TIP4P water.
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3000,7 +3147,7 @@ reference "fig:Iso-surface-of-solvent"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -3042,7 +3189,7 @@ name "fig:Test-solutes-2"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -8394,10 +8541,10 @@ name "tab:Parameters-of-test-solutes-2"
 
 \begin_layout Standard
 \begin_inset Float figure
-placement !tbph
+placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -8525,10 +8672,10 @@ name "fig:Site-O"
 
 \begin_layout Standard
 \begin_inset Float figure
-placement !tbph
+placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -8615,10 +8762,10 @@ acs{RDF} of test solutes (continued)}
 
 \begin_layout Standard
 \begin_inset Float figure
-placement !tbph
+placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -8705,10 +8852,10 @@ acs{RDF} of test solutes (continued)}
 
 \begin_layout Standard
 \begin_inset Float figure
-placement !tbph
+placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -8762,9 +8909,10 @@ acs{RDF} of test solutes (continued)}
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -8807,9 +8955,10 @@ name "fig:Volume-slice-of"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Float figure

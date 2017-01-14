@@ -1,0 +1,490 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass classicthesis
+\use_default_options true
+\maintain_unincluded_children false
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex8
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Conclusion
+\begin_inset CommandInset label
+LatexCommand label
+name "chpt:conclusion"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the framework of the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acf{MDFT}
+\end_layout
+
+\end_inset
+
+ theory, this thesis presents a complete study of the excess free energy
+ functional evaluation under the homogeneous reference fluid (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HRF}
+\end_layout
+
+\end_inset
+
+) approximation, equivalent to the hypernetted-chain (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HNC}
+\end_layout
+
+\end_inset
+
+) approximation in integral equation language:
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}_{\mathrm{exc}}=-\frac{k_{\mathrm{B}}T}{2}\int\mathrm{d}\mathbf{r}_{1}\mathrm{d}\mathbf{r}_{2}\mathrm{d}\mathbf{\Omega}_{1}\mathrm{d}\mathbf{\Omega}_{2}\Delta\rho(\mathbf{r}_{1},\mathbf{\Omega}_{1})\Delta\rho(\mathbf{r}_{2},\mathbf{\Omega}_{2})c(\mathbf{r}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\tag{IV.1}
+\end{equation}
+
+\end_inset
+
+where the orientations span the three Euler angles, 
+\begin_inset Formula $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$
+\end_inset
+
+.
+ It gives a new method to evaluate solvation properties (grand-canonical
+ free energy and microscopic solvent density) within the framework of liquid-sta
+te theory.
+ It is more complete and accurate compared within the development of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acf{MDFT}
+\end_layout
+
+\end_inset
+
+ presented so far.
+ The approach is yet limited to rigid molecules and the neglect of three-body
+ correlations.
+\end_layout
+
+\begin_layout Standard
+In this thesis, we have firstly improved the original angular integration
+ algorithm developed previously in the group, which uses 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ to deal with the spatial convolution, and a direct integration over angles.
+ For practical reasons, this initial approach was limited to linear or pseudo-li
+near solvents in order to reduce the number of angular variables.
+ In this work, it have been extended to deal with arbitrary 3D molecular
+ solvent, which is mainly about to write out the expression of the more
+ complicated rotation matrix which corresponds to 3-Euler-angle case.
+ 
+\end_layout
+
+\begin_layout Standard
+A new algorithm by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acf{GSH}
+\end_layout
+
+\end_inset
+
+ expansion is then built for the treatment of the angular convolution part,
+ inspired by Blum's 
+\begin_inset Formula $\chi$
+\end_inset
+
+-reduction of the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MOZ}
+\end_layout
+
+\end_inset
+
+ equation.
+ This algorithm takes advantage of the rotational invariance, separating
+ the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{OZ}
+\end_layout
+
+\end_inset
+
+ equation in irreducible terms according to a series of 
+\begin_inset Formula $\chi$
+\end_inset
+
+ values; those can be seen as an analogue of the 
+\begin_inset Formula $\mathbf{k}$
+\end_inset
+
+-vectors in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{FFT}
+\end_layout
+
+\end_inset
+
+ transform that takes advantage of translational invariance.
+\end_layout
+
+\begin_layout Standard
+The new algorithm has been proven theoretically and practically much faster
+ than the previous one, with an acceptable accuracy lost.
+\end_layout
+
+\begin_layout Standard
+The tests that have been performed show that the proposed methods are suitable
+ for fast and accurate calculations of solvation free energies.
+ The accuracy was assessed by comparing the results to a mathematical equivalent
+ 1D-
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acf{IET}
+\end_layout
+
+\end_inset
+
+ code for simple (spherical or linear) solutes.
+ For the solvent structure, the relatively loose cubic spatial grid that
+ has to be adopted in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acf{MDFT}
+\end_layout
+
+\end_inset
+
+ (3-4 points per Angstrom) prevents the theory to produce radial curves
+ that are as smooth as those produced by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{IET}
+\end_layout
+
+\end_inset
+
+ for simple solutes.
+ But indeed 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acf{MDFT}
+\end_layout
+
+\end_inset
+
+ has much more capacity to deal with complex 3D solutes, and produce the
+ 3D solvent structure on a regular grid.
+\end_layout
+
+\begin_layout Standard
+Comparing to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
+\end_inset
+
+ and/or experimental results, it is shown that the new method works better
+ in most cases than the previously implemented 
+\begin_inset Quotes eld
+\end_inset
+
+dipolar-like
+\begin_inset Quotes erd
+\end_inset
+
+ method.
+ Concerning the solvent structure, the agreement to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
+\end_inset
+
+ is far from perfect but can be qualified as satisfactory for solute molecules
+ with limited hydrogen-bonding to the solvent.
+ For small ions (in particular anions), or H-bonded molecules such as water
+ itself or alcohols, the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HRF}
+\end_layout
+
+\end_inset
+
+/
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HNC}
+\end_layout
+
+\end_inset
+
+ theory has to be improved or corrected.
+ Concerning thermodynamic properties such as solvation free energies, some
+ of small monovalent ions have been tested in this purpose.
+ In this case, we showed that it is very important to account for finite
+ size effects through two type of corrections: a Madelung correction reminiscent
+ of the Born correction for spherical systems, scaling as 
+\begin_inset Formula $q^{2}/L$
+\end_inset
+
+, and a much less intuitive correction scaling as the ion charge 
+\begin_inset Formula $q$
+\end_inset
+
+ and accounting for the proper treatment of boundary charges in periodic
+ systems.
+ The tests need now to be extended to relevant databanks of organic molecules
+ in order to fully assess the relevance of the method.
+ One can anticipate that it will require the introduction of ad-hoc pressure
+ corrections, or three-body correction terms in the functional in order
+ to compensate the much too high pressure given by the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HRF}
+\end_layout
+
+\end_inset
+
+/
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HNC}
+\end_layout
+
+\end_inset
+
+ functional, a defect that has been pointed out recently.
+\end_layout
+
+\begin_layout Standard
+In a word, the new algorithm is now ready for chemical applications usage.
+ However, there are still some minor problems waiting for a response.
+ Firstly, there are some slight incompatibilities within the theory and
+ through the implementation, notably the 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ problem and the conjugate form of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ which is explained as clearly as possible in the main text.
+ There are also some sign and normalization factor issues of the projections
+ 
+\begin_inset Formula $f_{\mu\nu}^{mnl}$
+\end_inset
+
+.
+ The grid dependence of free energy is also somehow worrying; it might be
+ due to a little deficiency in the calculation of the external potential,
+ present in the initial version of the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acf{MDFT}
+\end_layout
+
+\end_inset
+
+ code used.
+ This issue is not deepened as this thesis mainly treat the excess 
+\begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
+\end_inset
+
+ term of the functional.
+\end_layout
+
+\end_body
+\end_document

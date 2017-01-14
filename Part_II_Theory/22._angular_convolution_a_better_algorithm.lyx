@@ -965,9 +965,18 @@ reference "eq:local-forward"
 \end_inset
 
 ).
- In fact, 
-\color red
-it can be proven that:
+ In fact, it can be proven (with 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Symmetry-rot_invar"
+
+\end_inset
+
+) that:
 \begin_inset Formula 
 \begin{equation}
 \hat{c'}_{\nu\mu,\underline{\chi}}^{nm}(k)=\hat{c'}_{\mu\nu,\chi}^{mn*}(k)
@@ -975,8 +984,6 @@ it can be proven that:
 
 \end_inset
 
-
-\color inherit
 The incompatibility in the conjugate is yet to be understand.
  In the code, when we use the 
 \begin_inset Formula $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$

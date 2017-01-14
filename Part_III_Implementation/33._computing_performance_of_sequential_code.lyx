@@ -1152,7 +1152,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../_figure/results/k-kernel.eps
-	width 65col%
+	width 50col%
 	BoundingBox 0bp 20bp 453bp 236bp
 
 \end_inset
@@ -2518,7 +2518,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../_figure/results/global_perf.eps
-	scale 65
+	scale 50
 	BoundingBox 0bp 20bp 453bp 236bp
 
 \end_inset
@@ -2588,11 +2588,8 @@ In conclusion, we stress that:
 convolution_standard
 \family default
 \series default
- is the fastest algorithm among those that we have tested..
-\end_layout
-
-\begin_layout Itemize
-The 
+ is the fastest algorithm among those that we have tested.
+ The 
 \family typewriter
 \series bold
 convolution
@@ -2605,6 +2602,10 @@ naive
 \family default
 \series default
  methods.
+ It means that we have been able to reduce a complex spatial and angular
+ convolution process to roughly the same computer cost as a local calculation
+ in both space and angles, which can be seen as the major accomplishment
+ of this thesis.
 \end_layout
 
 \begin_layout Itemize
@@ -2617,24 +2618,6 @@ The attempt to fix
 \end_inset
 
  is absolutely recommended.
-\end_layout
-
-\begin_layout Itemize
-We have been able to reduce a complex spatial and angular convolution process
- to roughly the same computer cost as a local calculation in both space
- and angles, which can be seen as the major accomplishment of this thesis.
- 
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $ $
-\end_inset
-
-
 \end_layout
 
 \end_body

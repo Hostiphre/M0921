@@ -624,7 +624,7 @@ we have as the inverse transform
 F_{\mu\nu}^{mnl}(r)=\left(2l+1\right)\sum_{\chi}\left(\begin{array}{ccc}
 m & n & l\\
 \chi & -\chi & 0
-\end{array}\right)F_{\mu\nu,\chi}^{mn}(r)
+\end{array}\right)F_{\mu\nu,\chi}^{mn}(r)\label{eq:def_f_mnl_munu}
 \end{equation}
 
 \end_inset
@@ -1174,7 +1174,12 @@ reference "fig:Symmetry-operations"
 \end_layout
 
 \begin_layout Enumerate
-Symmetry of vertical mirror: 
+Symmetry of vertical mirror (if the molecule possesses a vertical mirror
+ 
+\begin_inset Formula $v$
+\end_inset
+
+): 
 \begin_inset Formula 
 \begin{equation}
 F(\theta_{1},\theta_{2},\phi,\psi_{1},\psi_{2})=F(\theta_{1},\theta_{2},-\phi,-\psi_{1},-\psi_{2})\label{eq:symm_dcf_1}
@@ -1186,7 +1191,7 @@ F(\theta_{1},\theta_{2},\phi,\psi_{1},\psi_{2})=F(\theta_{1},\theta_{2},-\phi,-\
 \end_layout
 
 \begin_layout Enumerate
-Symmetry of inversion: 
+Symmetry of inversion (if the molecules are interchangeable): 
 \begin_inset Formula 
 \begin{equation}
 F(\theta_{1},\theta_{2},\phi,\psi_{1},\psi_{2})=F(\pi-\theta_{2},\pi-\theta_{1},\phi,\psi_{2},\psi_{1})\label{eq:symm_dcf_2}
@@ -1213,7 +1218,7 @@ status open
 \end_inset
 
 Symmetry axe 
-\begin_inset Formula $\mathrm{C}_{2v}$
+\begin_inset Formula $\mathrm{C}_{2}$
 \end_inset
 
 : 
@@ -1233,22 +1238,29 @@ Symmetric rules of rotational invariant projections
 
 \begin_layout Standard
 We can deduce all the symmetries with the definition of 
-\begin_inset Formula $F_{\mu\nu,\chi}^{mn}(r)$
+\begin_inset Formula $F(r,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})\Leftrightarrow F_{\mu\nu,\chi}^{mn}(r)$
 \end_inset
 
  in eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:eq_s1_local"
+reference "eq:local-forward"
 
 \end_inset
 
-):
-\end_layout
+,
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:local_backward"
 
-\begin_layout Enumerate
-According to the definition in eq.
+\end_inset
+
+), 
+\begin_inset Formula $F_{\mu\nu}^{mnl}\Leftrightarrow F_{\mu\nu,\chi}^{mn}$
+\end_inset
+
+ in eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1256,10 +1268,17 @@ reference "eq:def_f_mn_munuchi"
 
 \end_inset
 
-),
+,
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:def_f_mnl_munu"
+
+\end_inset
+
+), and the definition of Hankel transhform:
 \begin_inset Formula 
 \begin{equation}
-F_{\mu\nu,\chi}^{mn}(r)=\left(-\right)^{m+n+l}F_{\mu\nu,\underline{\chi}}^{mn}(r)\label{eq:-chi_symm}
+\hat{F}_{\mu\nu}^{mnl}(k)=4\pi i^{l}\int\mathrm{d}r\,r^{2}j_{l}(kr)F_{\mu\nu}^{mnl}(r)\label{eq:hankel}
 \end{equation}
 
 \end_inset
@@ -1289,7 +1308,11 @@ reference "eq:symm-glp-1"
 
 \end_inset
 
-)),
+)) and the fact that 
+\begin_inset Formula $F(r,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
+\end_inset
+
+ is real,
 \begin_inset Formula 
 \begin{equation}
 F_{\mu\nu,\chi}^{mn}(r)=\left(-\right)^{\mu+\nu}F_{\underline{\mu}\underline{\nu},\underline{\chi}}^{mn*}(r)
@@ -1305,11 +1328,146 @@ F_{\mu\nu}^{mnl}(r)=\left(-\right)^{m+n+l+\mu+\nu}F_{\underline{\mu}\underline{\
 
 \end_inset
 
+As the the spherical Bessel function 
+\begin_inset Formula $j_{l}(kr)$
+\end_inset
+
+ is real and 
+\begin_inset Formula $\left(i^{l}\right)^{*}=\left(-\right)^{l}i^{l}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+\hat{F}_{\mu\nu}^{mnl}(k)=\left(-\right)^{m+n+\mu+\nu}\hat{F}_{\underline{\mu}\underline{\nu}}^{mnl*}(k)\label{eq:rot-invar-symm-k-l}
+\end{equation}
+
+\end_inset
+
+Therefore
+\begin_inset Formula 
+\begin{equation}
+\hat{F}_{\mu\nu,\chi}^{mn}(k)=\left(-\right)^{m+n+\mu+\nu}\hat{F}_{\underline{\mu}\underline{\nu},\chi}^{mn*}(k)\label{eq:rot-invar-symm-k-chi}
+\end{equation}
+
+\end_inset
+
 
 \end_layout
 
 \begin_layout Enumerate
 With the symmetry in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:symm_dcf_2"
+
+\end_inset
+
+), which adapts to pure solvent, as well as the symmetry of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{GSH}
+\end_layout
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+r_{\chi\mu}^{m}(\pi-\theta)=\left(-\right)^{m+\mu}r_{\underline{\chi}\mu}^{m}(\theta)
+\end{equation}
+
+\end_inset
+
+we can find
+\begin_inset Formula 
+\begin{equation}
+F_{\nu\mu,\chi}^{nm}(r)=\left(-\right)^{m+n+\mu+\nu}F_{\mu\nu,\chi}^{mn}(r)
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+F_{\nu\mu}^{nml}(r)=\left(-\right)^{m+n+\mu+\nu}F_{\mu\nu}^{mnl}(r)
+\end{equation}
+
+\end_inset
+
+Of course, if the particles 1 and 2 belong to 2 different species 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta$
+\end_inset
+
+, the term on the right refers to the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{PDF}
+\end_layout
+
+\end_inset
+
+ of 
+\begin_inset Formula $\alpha\beta$
+\end_inset
+
+ and on the left refers to the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{PDF}
+\end_layout
+
+\end_inset
+
+ of 
+\begin_inset Formula $\beta\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+With 
+\begin_inset Formula $\mathrm{C}_{2v}$
+\end_inset
+
+ symmetry as water, according to the 
+\begin_inset Formula $\mathrm{C}_{2}$
+\end_inset
+
+ symmetry, 
+\begin_inset Formula $\mu$
+\end_inset
+
+, 
+\begin_inset Formula $\nu$
+\end_inset
+
+ is even; then as the molecule possesses a symmetry of vertical mirror 
+\begin_inset Formula $v$
+\end_inset
+
+, with the symmetry in eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1333,66 +1491,35 @@ which implies that
 \begin_inset Formula $F_{\mu\nu}^{mnl}(r)$
 \end_inset
 
- are real.
-\end_layout
-
-\begin_layout Enumerate
-With the symmetry in eq.
+ are real, and according to eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:symm_dcf_2"
+reference "eq:hankel"
 
 \end_inset
 
-),
-\begin_inset Formula 
-\begin{equation}
-r_{\chi\mu}^{m}(\pi-\theta)=\left(-\right)^{m+\mu}r_{\underline{\chi}\mu}^{m}(\theta)
-\end{equation}
-
+), 
+\begin_inset Formula $F_{\mu\nu}^{mnl}(k)$
 \end_inset
 
-
-\begin_inset Formula 
-\begin{equation}
-F_{\nu\mu,\chi}^{nm}(r)=\left(-\right)^{m+n+\mu+\nu}F_{\mu\nu,\chi}^{mn}(r)
-\end{equation}
-
+ is real if 
+\begin_inset Formula $l$
 \end_inset
 
-
-\begin_inset Formula 
-\begin{equation}
-F_{\nu\mu}^{nml}(r)=\left(-\right)^{m+n+\mu+\nu}F_{\mu\nu}^{mnl}(r)
-\end{equation}
-
+ is even, and pure imaginary if 
+\begin_inset Formula $l$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Enumerate
-With 
-\begin_inset Formula $\mathrm{C}_{2v}$
-\end_inset
-
- symmetry, according to Blum 
+ is odd.
+ According to Blum 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Blum_I"
 
 \end_inset
 
-: 
-\begin_inset Formula $\mu$
-\end_inset
-
-, 
-\begin_inset Formula $\nu$
-\end_inset
-
- is even and
+, we have also:
 \begin_inset Formula 
 \begin{equation}
 F_{\mu\nu}^{mnl}(r)=F_{\underline{\mu}\underline{\nu}}^{mnl}(r)
@@ -1400,7 +1527,7 @@ F_{\mu\nu}^{mnl}(r)=F_{\underline{\mu}\underline{\nu}}^{mnl}(r)
 
 \end_inset
 
-Therefore
+
 \begin_inset Formula 
 \begin{equation}
 F_{\mu\nu,\chi}^{mn}(r)=F_{\underline{\mu}\underline{\nu},\chi}^{mn}(r)
@@ -1408,52 +1535,27 @@ F_{\mu\nu,\chi}^{mn}(r)=F_{\underline{\mu}\underline{\nu},\chi}^{mn}(r)
 
 \end_inset
 
-Note that this symmetry is also available in 
+And in 
 \begin_inset Formula $k$
 \end_inset
 
--space.
-\end_layout
-
-\begin_layout Enumerate
-In 
-\begin_inset Formula $k$
-\end_inset
-
--space according to Blum 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Blum_I"
-
-\end_inset
-
- with the definition of Hankel transform,
+-space,
 \begin_inset Formula 
 \begin{equation}
-\hat{F}_{\mu\nu}^{mnl}(k)=\left(-\right)^{m+n+\mu+\nu}\hat{F}_{\underline{\mu}\underline{\nu}}^{mnl*}(k)\label{eq:rot-invar-symm-k-l}
-\end{equation}
-
-\end_inset
-
-Therefore
-\begin_inset Formula 
-\begin{equation}
-\hat{F}_{\mu\nu,\chi}^{mn}(k)=\left(-\right)^{m+n+\mu+\nu}\hat{F}_{\underline{\mu}\underline{\nu},\chi}^{mn*}(k)\label{eq:rot-invar-symm-k-chi}
+\hat{F}_{\mu\nu}^{mnl}(k)=\left(-\right)^{l}\hat{F}_{\mu\nu}^{mnl*}(k)
 \end{equation}
 
 \end_inset
 
 
-\end_layout
+\begin_inset Formula 
+\begin{equation}
+\hat{F}_{\mu\nu,\chi}^{mn}(k)=\left(-\right)^{m+n}\hat{F}_{\mu\nu,\underline{\chi}}^{mn*}(k)
+\end{equation}
 
-\begin_layout Enumerate
-
-\color red
-(Symmetries on 
-\begin_inset Formula $k$
 \end_inset
 
- needed.)
+
 \end_layout
 
 \end_body

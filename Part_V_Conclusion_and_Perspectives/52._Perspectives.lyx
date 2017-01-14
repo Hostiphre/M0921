@@ -89,11 +89,24 @@ The work is never perfect, a great deal of unfinished work and theories
 \end_layout
 
 \begin_layout Section
-Reduce memory use in MDFT
+Reduce memory footprint in MDFT
 \end_layout
 
 \begin_layout Standard
-The total CPU time to implement a MDFT minimization using 
+The total CPU time to implement a 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ minimization using the 
 \family typewriter
 \series bold
 convolution
@@ -103,24 +116,25 @@ convolution
  grid.
  But the memory consumed for such a process is typically 1 to 20 G of RAM.
  This is mainly due to the minimizer L-BFGS-B, which firstly needs to store
- several steps of information during the iterations, and secondly it is
- in double precision, it is to say that the density variable 
+ several steps of information during the iterations, and secondly is in
+ double precision.
+ It is to say that the density variable 
 \begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
 \end_inset
 
- and the gradient also need to be stored in double precision, if not, as
- tested, it leads to a divergence of result.
- In addition, during the evaluation of functional, memory at most 3 times
- of 
+ and the gradient also need to be stored in double precision, and if not,
+ as I tested, it leads to divergence.
+ In addition, during the evaluation of the functional, the memory for at
+ most 3 times 
 \begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
 \end_inset
 
- needs to be stored simultaneously.
+ needs to be open simultaneously.
 \end_layout
 
 \begin_layout Standard
-There are to ways to get over this memory limit, and both of them need to
- modify the L-BFGS-B minimizer, which is a 
+There are two ways to get over this memory limit, and both of them need
+ to modify the L-BFGS-B minimizer, which is a 
 \begin_inset Quotes eld
 \end_inset
 
@@ -129,18 +143,10 @@ blackbox
 \end_inset
 
 , in Fortran 77.
- 
-\end_layout
-
-\begin_layout Standard
-The simplest way is to change the double precision to float number of the
- L-BFGS-B minimizer, this action can reduce the memory needed by 2.
- 
-\end_layout
-
-\begin_layout Standard
-And another way to completely pass this limit, is to parallelize is code
- to several nodes using MPI.
+ The simplest way is to change the double precision to single in the L-BFGS-B
+ minimizer; this action can reduce the memory needed by a factor 2.
+ Another way to completely pass this limit is to parallelize the code to
+ several nodes using MPI.
  This requires only to modify the 
 \begin_inset ERT
 status open
@@ -154,15 +160,17 @@ acs{FFT}
 
 \end_inset
 
- and L-BFGS-B process, where their is a mixing of variables 
+ and L-BFGS-B process, where there is a mixing of variables 
 \begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
 \end_inset
 
 .
+ A third route indeed would be to define a minimizer with much less memory
+ requirements.
 \end_layout
 
 \begin_layout Section
-Site-site grid
+Site-based grid
 \end_layout
 
 \begin_layout Standard
@@ -179,8 +187,9 @@ acs{IET}
 
 \end_inset
 
- uses intermolecular spherical coordinates, and cannot describe huge molecules.
- 
+ approach uses intermolecular spherical coordinates, and cannot describe
+ large molecules.
+ As for 
 \begin_inset ERT
 status open
 
@@ -193,9 +202,9 @@ acs{MDFT}
 
 \end_inset
 
- uses a homogeneous spatial grid, thus have the same resolution near and
- far from the solute.
- The defeat of 
+ it uses a homogeneous spatial grid, which has therefore the same resolution
+ near and far from the solute.
+ The caveat of 
 \begin_inset ERT
 status open
 
@@ -208,25 +217,45 @@ acs{MDFT}
 
 \end_inset
 
- is that for very polar solutes, the grid needed should be very fine to
- meet a satisfying result, and in 3D it is a very huge number, as it treats
- the same resolution from near to far from the solute.
- Another natural way to think about construction of the grid is like in
- 
+ is that the 3D grid needed should be relatively fine to produce satisfactory
+ results (typically 3-4 points per Angstrom); for large solutes this may
+ lead to a very huge number of grid points.
+ A natural idea would be to use non-uniform grids.
+ One way to think about the construction of the grid is like in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Site-site-grid-model"
 
 \end_inset
 
-, an spherical grid at each site of solute.
+, a set of spherical grids centered at each solute site.
+ This could be understood as expanding the density into a set of 
+\begin_inset Quotes eld
+\end_inset
+
+atomic-like orbitals
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Formula $\rho(\mathbf{r})=\sum_{\alpha}c_{\alpha}\rho_{\alpha}(\mathbf{r})$
+\end_inset
+
+.
+ Each 
+\begin_inset Quotes eld
+\end_inset
+
+'orbital
+\begin_inset Quotes erd
+\end_inset
+
+ could be possibly expanded onto a local basis set, such as spherical harmonics,
  
-\end_layout
+\begin_inset Formula $\rho_{\alpha}(\mathbf{r})=\sum_{l,m}\rho_{\alpha,l}^{m}(|\mathbf{r}-\mathbf{R_{\alpha}}|)Y_{l}^{m}(\theta,\phi)$
+\end_inset
 
-\begin_layout Standard
-
-\color red
-(This part needs more brain)
+.
 \end_layout
 
 \begin_layout Standard
@@ -270,182 +299,8 @@ name "fig:Site-site-grid-model"
 
 \end_layout
 
-\begin_layout Standard
-The idea can be roughly understand as an interaction site treatment of the
- solute, with a molecular treatment of the solvent.
- It is a matrix of 
-\begin_inset Formula $h_{\text{MS}}(1,2)$
-\end_inset
-
- with a full molecular description of 
-\begin_inset Formula $c_{\text{SS}}(1,2)$
-\end_inset
-
-.
- As in 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{MDFT}
-\end_layout
-
-\end_inset
-
- the solvent density can be else than particle-particle distribution functions,
- it is possible to have different descriptions for solute and solvent.
- The formalism is possible, also as the e
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{DFT}
-\end_layout
-
-\end_inset
-
- shares some formalism with c
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{DFT}
-\end_layout
-
-\end_inset
-
-, a site description of solute which is used as default in 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{QM}
-\end_layout
-
-\end_inset
-
- calculations should also gives some inspiration to the liquid theory.
- (Or I think it is like 3D-RISM, but their is no correspondent 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{DFT}
-\end_layout
-
-\end_inset
-
- theory, nor basis set description of site.) If the sites are expanded onto
- spherical harmonics 
-\begin_inset Formula $Y_{lm}$
-\end_inset
-
-, there is also a rotational invariance between the sites, and the inhomogeneous
- angular grid can be thus ignored, it is only an issue of 
-\begin_inset Formula $\mathbf{r}_{\text{M}}-\mathbf{r}_{\text{N}}$
-\end_inset
-
- between site M and N.
- This is only an idea, the mathematical deduction is not yet fully verified.
-\end_layout
-
-\begin_layout Standard
-The generalized 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{OZ}
-\end_layout
-
-\end_inset
-
- equation to 
-\begin_inset Formula $n$
-\end_inset
-
- components
-\begin_inset Formula 
-\begin{equation}
-h_{\nu\mu}(1,2)=c_{\nu\mu}(1,2)+\rho\sum_{\lambda}x_{\lambda}\int c_{\nu\lambda}(2,3)h_{\lambda\mu}(1,3)\mathrm{d}3
-\end{equation}
-
-\end_inset
-
-thus
-\begin_inset Formula 
-\begin{equation}
-h_{\text{MS}}(1,2)=c_{\text{MS}}(1,2)+\rho\int c_{\text{SS}}(2,3)h_{\text{MS}}(1,3)\mathrm{d}3
-\end{equation}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{equation}
-h_{\text{NS}}(1,2)=c_{\text{NS}}(1,2)+\rho\int c_{\text{SS}}(2,3)h_{\text{NS}}(1,3)\mathrm{d}3
-\end{equation}
-
-\end_inset
-
-Look that 
-\begin_inset Formula $c_{\text{SS}}(2,3)$
-\end_inset
-
- is just the bulk 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{DCF}
-\end_layout
-
-\end_inset
-
-.
- The link between 
-\begin_inset Formula $h_{\text{MS}}(1,2)$
-\end_inset
-
- and 
-\begin_inset Formula $h_{\text{NS}}(1,2)$
-\end_inset
-
- is a translation of center 
-\begin_inset Formula $\mathbf{r}_{\text{M}}-\mathbf{r}_{\text{N}}$
-\end_inset
-
-
-\color red
-(?)
-\color inherit
-.
- Therefore, ...
-\end_layout
-
 \begin_layout Section
-Theories out from the HRF approximation part
+Theories beyond the HRF approximation and other improvements
 \end_layout
 
 \begin_layout Standard
@@ -453,8 +308,20 @@ In terms of
 \begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
 \end_inset
 
-, there can be still development out of HRF approximation, such as 3-body
- correction.
+, there can still be development beyond the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HRF}
+\end_layout
+
+\end_inset
+
+ approximation, such as 3-body corrections.
 \end_layout
 
 \begin_layout Standard
@@ -462,7 +329,7 @@ Apart from the
 \begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
 \end_inset
 
- term, there are still many field of study to develop 
+ term, there are still many fields of study to develop 
 \begin_inset ERT
 status open
 
@@ -476,20 +343,20 @@ acs{MDFT}
 \end_inset
 
 .
- For example, the evaluation of external potential 
+ For example, the evaluation of the external potential 
 \begin_inset Formula $V_{\mathrm{ext}}$
 \end_inset
 
-, which poses problems of convergency for molecular solutes, still needs
- to improve.
- Note that this part can be also a functional of solvent density, in this
- case, the solute is polarizable, and the 
+ still poses occasional problems of convergence for molecular solutes and
+ needs to be improved.
+ Note also that the solute can be made polarizable, so that 
 \begin_inset Formula $V_{\mathrm{ext}}$
 \end_inset
 
- varies during the minimization.
- The polarization can be introduced by for example an extra dipole on the
- solute.
+ becomes itself a functional of the solvent density and varies during the
+ minimization.
+ The polarization can be introduced, for example, by an extra induced dipole
+ on the solute center or on the solute sites.
 \end_layout
 
 \begin_layout Section
@@ -497,10 +364,10 @@ MDFT Viewer
 \end_layout
 
 \begin_layout Standard
-This thesis contains originally a segment on visualization.
- Due to time limit, it is removed.
- Viewer is an important part of code development, which provides beautiful
- visualization and easy analysis, and helps to popularize the code.
+This thesis contained originally a contribution on visualization.
+ Due to time limit, it had to be removed.
+ The Viewer is an important part of the code development; it provides insightful
+ visualization and easier analysis, and may help to popularize the code.
  GaussViewer is a good example.
 \end_layout
 
@@ -522,9 +389,9 @@ acs{MDFT}
 
 \end_inset
 
- is capable to deal with some small chemical system, but it is still far
- from satisfied for common usage in the domain of bio-chemistry as a complement
- of 
+ is presently capable to deal with small chemical system, but it is still
+ far from satisfying for common usage in the domain of bio-chemistry, or
+ as a solvent model for 
 \begin_inset ERT
 status open
 
@@ -547,7 +414,7 @@ key "Mn-oxo"
 \end_inset
 
 .
- The results of 
+ The properties of 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Mn-oxo"
@@ -567,10 +434,10 @@ acs{QM}
 
 \end_inset
 
- calculations using simply continuum model as solvent corrections (research
- subject of my university diploma), which gives identical tendency of entropy
- with respect to temperature (in DMSO).
- In 
+ calculations using simply a continuum model for solvent corrections (research
+ subject of my university diploma), which cannot reproduce the correct tendency
+ of entropy with respect to temperature (in DMSO).
+ It is my intention to re-investigate this problem using the 
 \begin_inset ERT
 status open
 
@@ -583,13 +450,26 @@ acs{MDFT}
 
 \end_inset
 
-, the 
+ approach.
+ It is not clear yet how (beyond the estimate by the 
 \begin_inset Formula $\mathcal{F}_{\mathrm{id}}$
 \end_inset
 
-term gives entropy of information.
- It is not exactly the same as total entropy as there are also contribution
- from charge distribution, etc.
+ term), the solvation entropy rather than the free energy can be estimated
+ from the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ calculations.
 \end_layout
 
 \end_body
