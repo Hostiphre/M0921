@@ -96,8 +96,8 @@ acs{FFT}
 
 \end_inset
 
- treatment for the convolution of spatial part of the integral, a fast generaliz
-ed spherical harmonics transform (
+ treatment for the convolution of spacial functions, a fast generalized
+ spherical harmonics transform (
 \begin_inset ERT
 status open
 
@@ -110,7 +110,8 @@ acs{FGSHT}
 
 \end_inset
 
-) treatment is proposed by developing 
+) treatment is proposed.
+ To this purpose, we develop 
 \begin_inset Formula $\hat{\gamma}$
 \end_inset
 
@@ -158,7 +159,8 @@ where
 \begin_inset Formula $\left|\nu'\right|,\left|\nu\right|<n$
 \end_inset
 
-; 
+.
+ 
 \begin_inset Formula $f_{m}=\left(2m+1\right)^{\frac{1}{2}}$
 \end_inset
 
@@ -179,14 +181,14 @@ acs{DCF}
 
 \end_inset
 
- can also be expended on rotational invariants 
+ can also be expended onto rotational invariants 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Blum_I"
 
 \end_inset
 
-, with the normalization factors according to Blum's definition:
+ with the following normalization factors due to Blum:
 \begin_inset Formula 
 \begin{equation}
 \hat{c}(k,\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})=\sum_{mnl\mu\nu}f_{m}f_{n}\hat{c}_{\mu\nu}^{mnl}(k)\sum_{\mu'\nu'\lambda'}\left(\begin{array}{ccc}
@@ -625,7 +627,8 @@ reference "eq:gamma-xxx-1.2F"
 \end_layout
 
 \begin_layout Standard
-In this way, the integral of the angular part in eq.
+The important conclusion, at the heart of my thesis, is that the integral
+ of the angular part in eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -633,7 +636,7 @@ reference "eq:gamma-1.2F"
 
 \end_inset
 
-) is reduced to a sum a few terms.
+) is reduced to a sum of few terms.
 \end_layout
 
 \end_body

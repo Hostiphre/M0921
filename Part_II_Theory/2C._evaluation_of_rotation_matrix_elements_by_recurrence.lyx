@@ -118,7 +118,7 @@ acs{MDFT}
 
 \end_inset
 
-, evaluation of 
+, we need to evaluate 
 \begin_inset Formula $R_{\mu'\chi}^{m}(\hat{\mathbf{k}})$
 \end_inset
 
@@ -138,7 +138,7 @@ acs{MDFT}
 \begin_inset Formula $\mathbf{k}$
 \end_inset
 
- by its definition:
+:
 \begin_inset Formula 
 \begin{equation}
 R_{\mu'\chi}^{m}(\hat{\mathbf{k}})=r_{\mu'\chi}^{m}(\theta_{k})e^{-i\mu'\phi_{k}}\label{eq:r_definition}
@@ -146,13 +146,9 @@ R_{\mu'\chi}^{m}(\hat{\mathbf{k}})=r_{\mu'\chi}^{m}(\theta_{k})e^{-i\mu'\phi_{k}
 
 \end_inset
 
-is too costly to be done in iterations; on the other hand, to directly stock
- the value of every element is heavy in terms of memory.
- An algorithm of 
-\begin_inset Formula $R_{\mu\mu'}^{m}(\hat{\mathbf{k}})$
-\end_inset
-
- evaluation by recurrence described by Choi 
+Brute force evoluation is too costly to be done iteratively; on the other
+ hand, to store directly each element requires too much memory.
+ An algorithm by recurrence is proposed by Choi 
 \shape italic
 et al.
 
@@ -164,8 +160,9 @@ key "Choi_1999"
 
 \end_inset
 
- suggests an acceptable cost during the computation, by generating the rotation
- matrix elements from these of lower order to avoid extra calculation.
+ that has acceptable numerical cost.
+ It is based on the generation of the elements of the matrix from lower
+ order to avoid extra calculation.
 \end_layout
 
 \begin_layout Section
@@ -403,26 +400,16 @@ G_{\chi\chi'}^{m}=a_{\chi\chi'}^{m}K_{\chi\chi'}^{m}(0,0)+b_{\chi\chi'}^{m}K_{\c
 \end_layout
 
 \begin_layout Standard
-In the case of 
+For 
 \begin_inset Formula $\chi=\pm m$
 \end_inset
 
-, certain terms in eq.
- (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:relation_1"
-
-\end_inset
-
-) are out of definition.
- They are supposed to be zero.
- Another way is to suppose that
+, we impose
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ll}
 a_{\chi\chi'}^{m}=0 & \mathrm{for}\,\chi=\pm m\\
-b_{\chi\chi'}^{m}=0 & \mathrm{for}\,\chi=\pm m\,\mathrm{and}\,\chi=\mp(m-1)
+b_{\chi\chi'}^{m}=0 & \mathrm{for}\,\chi=\pm m\,\mathrm{and}\,\chi=\mp(m-1).
 \end{array}
 \end{equation}
 
@@ -444,7 +431,7 @@ For the case
 \begin_inset Formula $\chi'=\pm m$
 \end_inset
 
- which are not covered in eq.
+ that are not covered in eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
