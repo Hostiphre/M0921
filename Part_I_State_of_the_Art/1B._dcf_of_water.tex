@@ -2,15 +2,16 @@
 \chapter{Direct Correlation Function of Water\label{chpt:dcf-water}}
 
 The bulk \acs{DCF}, which is an input for \acs{MDFT} and does not
-depend on the solute, can be calculated by numerical simulation. In
-this thesis, the SPC/E water is used as solvent. Two sources of bulk
-\acs{DCF} are used: 
+depend on the solute, can be extracted from numerical simulations.
+In this thesis, the SPC/E water is used as solvent. Two sources of
+bulk \acs{DCF} are used: 
 \begin{enumerate}
-\item The dipole \acs{DCF} ($\hat{c}_{S}^{000}$, $\hat{c}_{\Delta}^{110}$,
-$\hat{c}_{D}^{112}$) produced by Zhao \textit{et al.} \citep{zhao_accurate_2013}
+\item The \acs{DCF} at dipolar order ($\hat{c}_{S}^{000}$, $\hat{c}_{\Delta}^{110}$,
+$\hat{c}_{D}^{112}$) by Zhao \textit{et al.} \citep{zhao_accurate_2013}
 using \acs{MD};
-\item The complete \acs{DCF} up to $n_{\max}=5$ produced by Puibasset
-\textit{et al.} \citep{puibasset_bridge_2012} using \acs{MC}.
+\item The complete \acs{DCF} up to a given order, for instance $n_{\max}=5$,
+by Puibasset \textit{et al.} \citep{puibasset_bridge_2012} using
+\acs{MC}.
 \end{enumerate}
 
 \section{Dipole DCF from molecular dynamics simulation}
@@ -71,10 +72,10 @@ and idem. for $\hat{c}$.
 
 \section{DCF projections from bulk Monte Carlo simulation}
 
-The complete \acs{DCF} up to $n_{\max}=5$, that used in this thesis
-without specification, is calculated from the accumulated $g_{\mu\nu}^{mnl}(r)$
-issued from \acs{MC} simulation \citep{puibasset_bridge_2012} by
-resolving the inverted \acs{MOZ} equation
+The complete \acs{DCF} up to $n_{\max}=5$, which is the default
+\acs{DCF} used in this thesis, is calculated from the $g_{\mu\nu}^{mnl}(r)$
+accumulated from \acs{MC} simulation \citep{puibasset_bridge_2012}
+by resolving the inverted \acs{MOZ} equation
 \begin{equation}
 \ln y_{\alpha}(r)=\left\langle \ln\left[\sum_{\alpha'=1}^{\alpha_{\max}}g_{\alpha'}(r)\Phi_{\alpha'}(\tilde{\Omega})\right]\Phi_{\alpha}^{*}(\tilde{\Omega})\right\rangle +\beta v_{\alpha}(r)\label{eq:dcf-inverse-oz}
 \end{equation}
@@ -88,12 +89,11 @@ g_{\alpha}^{\mathrm{MC}}(r), & r\leq r_{\max}^{\mathrm{MC}}\\
 where $\ln y=\gamma+b$ is the cavity function ($b$ the bridge function),
 $\alpha$ the projection number, and $r_{\max}^{\mathrm{MC}}$ is
 the maximum radius of the \acs{MC} simulation. Beyond $r_{\max}^{\mathrm{MC}}$,
-$g$ can be obtained by a normal \acs{HNC} closure, and it is shown
+$g$ can be obtained by the usual \acs{HNC} closure, and it is shown
 that the projections are continuous at $r_{\max}^{\mathrm{MC}}$,
 which means \acs{HNC} closure is enough to cope with long range correlation
-functions. Note that the $\alpha_{\max}$ corresponding to different
-$n_{\max}$ leads to slightly different \acs{DCF} results according
-to eq. (\ref{eq:dcf-inverse-oz},\ref{eq:dcf-closure}). 
+functions. Note that the $\alpha_{\max}$'s for different $n_{\max}$'s
+lead to slightly different \acs{DCF} results according to eq. (\ref{eq:dcf-inverse-oz},\ref{eq:dcf-closure}). 
 
 The \acs{DCF} in $k$-space is obtained by Hankel transform.
 

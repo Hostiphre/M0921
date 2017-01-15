@@ -83,81 +83,6 @@ name "chpt:conclusion"
 \end_layout
 
 \begin_layout Standard
-In the framework of the 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acf{MDFT}
-\end_layout
-
-\end_inset
-
- theory, this thesis presents a complete study of the excess free energy
- functional evaluation under the homogeneous reference fluid (
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{HRF}
-\end_layout
-
-\end_inset
-
-) approximation, equivalent to the hypernetted-chain (
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{HNC}
-\end_layout
-
-\end_inset
-
-) approximation in integral equation language:
-\begin_inset Formula 
-\begin{equation}
-\mathcal{F}_{\mathrm{exc}}=-\frac{k_{\mathrm{B}}T}{2}\int\mathrm{d}\mathbf{r}_{1}\mathrm{d}\mathbf{r}_{2}\mathrm{d}\mathbf{\Omega}_{1}\mathrm{d}\mathbf{\Omega}_{2}\Delta\rho(\mathbf{r}_{1},\mathbf{\Omega}_{1})\Delta\rho(\mathbf{r}_{2},\mathbf{\Omega}_{2})c(\mathbf{r}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\tag{IV.1}
-\end{equation}
-
-\end_inset
-
-where the orientations span the three Euler angles, 
-\begin_inset Formula $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$
-\end_inset
-
-.
- It gives a new method to evaluate solvation properties (grand-canonical
- free energy and microscopic solvent density) within the framework of liquid-sta
-te theory.
- It is more complete and accurate compared within the development of 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acf{MDFT}
-\end_layout
-
-\end_inset
-
- presented so far.
- The approach is yet limited to rigid molecules and the neglect of three-body
- correlations.
-\end_layout
-
-\begin_layout Standard
 In this thesis, we have firstly improved the original angular integration
  algorithm developed previously in the group, which uses 
 \begin_inset ERT
@@ -195,8 +120,9 @@ acf{GSH}
 
 \end_inset
 
- expansion is then built for the treatment of the angular convolution part,
- inspired by Blum's 
+ expansion, which aims in producing the same result as the algorithm mentioned
+ above for molecular solvent but much faster, is then built for the treatment
+ of the angular convolution part, inspired by Blum's 
 \begin_inset Formula $\chi$
 \end_inset
 

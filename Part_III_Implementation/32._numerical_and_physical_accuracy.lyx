@@ -1107,7 +1107,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../_figure/results/rdf-smoothing.pdf
-	width 100col%
+	width 80col%
 	BoundingBox 0cm 0.6cm 33cm 18cm
 
 \end_inset
@@ -1153,7 +1153,7 @@ acs{RDF}
 
 \end_inset
 
- for site O of 
+ of site O in 
 \begin_inset Formula $\mathrm{O_{2}}$
 \end_inset
 
@@ -1178,17 +1178,17 @@ acs{RDF}
 \begin_inset Formula $\frac{1}{N}n_{\mathrm{bin}}$
 \end_inset
 
- as number of bins, where 
+ as number of bins, with 
 \begin_inset Formula $n_{\mathrm{bin}}$
 \end_inset
 
- is determined by the Rice rule, and 
+ determined by the Rice rule, 
 \begin_inset Formula $N$
 \end_inset
 
- vary from 1 to 8.
+ varying from 1 to 8.
  The square box on the left is zoomed and smoothed (with Catmull-Rom spline
- implicitly used by Excel), shown in the right box.
+ implicitly used by Excel) in the right box.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:rdf-with-different"
@@ -4551,7 +4551,35 @@ Theoretically, we expect this minimum value to approach zero when increasing
 \begin_inset Formula $\rho_{0\nu}^{0nl}(r)$
 \end_inset
 
- (0 as the solute is spherical) shown in figure 
+ 
+\begin_inset Marginal
+status collapsed
+
+\begin_layout Plain Layout
+It is normal that the curves in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rho.proj5Ind"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:gamma.proj5Ind"
+
+\end_inset
+
+ are a little noised (with 
+\begin_inset Formula $n_{\mathrm{bin}}$
+\end_inset
+
+) as discussed above.
+\end_layout
+
+\end_inset
+
+(0 as the solute is spherical) shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:rho.proj5Ind"
@@ -4576,7 +4604,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../_figure/results/rho.pdf
-	width 85col%
+	width 90col%
 	BoundingBox 0cm 0.5cm 27cm 15cm
 
 \end_inset
@@ -4622,7 +4650,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../_figure/results/gamma_convo.pdf
-	width 85col%
+	width 90col%
 	BoundingBox 0cm 0.5cm 27cm 15cm
 
 \end_inset
@@ -4665,6 +4693,10 @@ name "fig:gamma.proj5Ind"
 status open
 
 \begin_layout Plain Layout
+\begin_inset Formula $\rho_{0\nu}^{0nl}(r)$
+\end_inset
+
+ and 
 \begin_inset Formula $\gamma_{0\nu}^{0nl}(r)$
 \end_inset
 
@@ -4729,51 +4761,6 @@ reference "fig:unphysical-rho"
  function, this error will go to negative.
  The minimum will have a tendency to converge only if the order of projections
  are above the current order 5.
-\begin_inset Marginal
-status open
-
-\begin_layout Plain Layout
-It is normal that the curves in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:rho.proj5Ind"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:gamma.proj5Ind"
-
-\end_inset
-
- are a little noised (with 
-\begin_inset Formula $n_{\mathrm{bin}}$
-\end_inset
-
-) as discussed above.
- Note that the projections 
-\begin_inset Formula $f_{\mu\nu}^{mnl}$
-\end_inset
-
- are purely real if 
-\begin_inset Formula $f$
-\end_inset
-
- is real and 
-\begin_inset Formula $\mu$
-\end_inset
-
-, 
-\begin_inset Formula $\nu$
-\end_inset
-
- are even number.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -4796,7 +4783,33 @@ acs{GSH}
 \end_inset
 
 s.
- However, in the code MDFT, the density 
+ 
+\begin_inset Marginal
+status collapsed
+
+\begin_layout Plain Layout
+Note that the projections 
+\begin_inset Formula $f_{\mu\nu}^{mnl}$
+\end_inset
+
+ are purely real if 
+\begin_inset Formula $f$
+\end_inset
+
+ is real and 
+\begin_inset Formula $\mu$
+\end_inset
+
+, 
+\begin_inset Formula $\nu$
+\end_inset
+
+ are even number.
+\end_layout
+
+\end_inset
+
+However, in the code MDFT, the density 
 \begin_inset Formula $\rho$
 \end_inset
 
@@ -13248,7 +13261,11 @@ acs{IET}
 
 \end_inset
 
- results, shown in figure 
+ results, as this of 
+\begin_inset Formula $\mathrm{CO}_{2}$
+\end_inset
+
+ shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Comparison-co2"

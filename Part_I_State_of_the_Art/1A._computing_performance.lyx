@@ -72,7 +72,7 @@
 \begin_body
 
 \begin_layout Chapter
-Basics of Algorithm Complexity Analysis
+Basics of Algorithm Complexity
 \begin_inset CommandInset label
 LatexCommand label
 name "chpt:computing-performance"
@@ -83,9 +83,8 @@ name "chpt:computing-performance"
 \end_layout
 
 \begin_layout Standard
-To extract the theoretical performance of a code, one looks at the algorithm
- complexity.
- It is defined as :
+Algorithm complexity is one of crucial criteria to evaluate the theoretical
+ performance of the code, as defined below:
 \end_layout
 
 \begin_layout Standard
@@ -97,7 +96,7 @@ Let
 \begin_inset Formula $g$
 \end_inset
 
- be two real or complex functions defined over the natural numbers 
+ be two functions defined over the natural numbers 
 \begin_inset Formula $\mathbb{N}$
 \end_inset
 
@@ -105,7 +104,7 @@ Let
  We write
 \begin_inset Formula 
 \begin{equation}
-f=\mathcal{O}(g)
+f=O(g)
 \end{equation}
 
 \end_inset
@@ -114,17 +113,17 @@ if there is a strictly positive constant
 \begin_inset Formula $c>0$
 \end_inset
 
- such that for a certain number 
+ such that from a certain number 
 \begin_inset Formula $n>n_{0}$
 \end_inset
 
- we have 
+ we always have 
 \begin_inset Formula $\left|f(n)\right|\leq c\left|g(n)\right|$
 \end_inset
 
 .
  The 
-\begin_inset Formula $\mathcal{O}$
+\begin_inset Formula $O$
 \end_inset
 
  is also called the big-O notation 
@@ -143,10 +142,10 @@ reference "fig:order-of-growth"
 \end_inset
 
  shows the growth tendency of some frequent functions.
- We have:
+ We can see:
 \begin_inset Formula 
 \begin{equation}
-\mathcal{O}(1)>\mathcal{O}(\log_{2}n)>\mathcal{O}(n)>\mathcal{O}(n\log_{2}n)>\mathcal{O}(n^{2})>\mathcal{O}(2^{n})>\mathcal{O}(n!)
+O(1)>O(\log_{2}n)>O(n)>O(n\log_{2}n)>O(n^{2})>O(2^{n})>O(n!)
 \end{equation}
 
 \end_inset
@@ -222,7 +221,7 @@ The inverse of big-O notation
 \end_inset
 
  if 
-\begin_inset Formula $g=\mathcal{O}(f)$
+\begin_inset Formula $g=O(f)$
 \end_inset
 
 
@@ -234,26 +233,23 @@ The notation
 \end_inset
 
  means that both 
-\begin_inset Formula $f=\mathcal{O}(g)$
+\begin_inset Formula $f=O(g)$
 \end_inset
 
  and 
-\begin_inset Formula $g=\mathcal{O}(f)$
+\begin_inset Formula $g=O(f)$
 \end_inset
 
  hold, and we can also say they are of the same order.
 \end_layout
 
 \begin_layout Standard
-While developing a code, one looks for algorithms with a lower algorithm
+In code development we always search for algorithms with a lower algorithm
  complexity.
  Ideally, the implementation of code matches the model and has the same
- growth as its complexity.
+ growth tendency as its complexity.
  But in the practical case, overheads and memory delay can also limit the
  performance.
- 
-\series bold
-This is an important point for MDFT, since it is memory bound.
 \end_layout
 
 \end_body

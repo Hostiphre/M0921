@@ -1010,14 +1010,14 @@ reference "chpt:ions"
 \end_inset
 
 , involving some LJ centers, ions and small molecules.
- The results are also compared to the dipolar reference method - the method
- corresponding to 
-\begin_inset Formula $n_{\max}$
+ The results are also compared to the dipolar reference method, which is
+ the method corresponding to 
+\begin_inset Formula $n_{\max}=1$
 \end_inset
 
-= 1 for linear or pseudo-linear molecules that was fully implemented so
- far - to show that this increase of computing cost has really done an improveme
-nt on the results.
+= for linear or pseudo-linear molecules that was fully implemented so far,
+ to show that this increase of computing cost has really done an improvement
+ on the results.
 \end_layout
 
 \begin_layout Part
@@ -1032,6 +1032,91 @@ filename "Part_IV_Applications/41._ions.lyx"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Part Introduction (ClassicThesis)
+In the framework of the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acf{MDFT}
+\end_layout
+
+\end_inset
+
+ theory, this thesis presents a complete study of the excess free energy
+ functional evaluation under the homogeneous reference fluid (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HRF}
+\end_layout
+
+\end_inset
+
+) approximation (equivalent to the hypernetted-chain (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{HNC}
+\end_layout
+
+\end_inset
+
+) approximation in integral equation language):
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}_{\mathrm{exc}}=-\frac{k_{\mathrm{B}}T}{2}\int\mathrm{d}\mathbf{r}_{1}\mathrm{d}\mathbf{r}_{2}\mathrm{d}\mathbf{\Omega}_{1}\mathrm{d}\mathbf{\Omega}_{2}\Delta\rho(\mathbf{r}_{1},\mathbf{\Omega}_{1})\Delta\rho(\mathbf{r}_{2},\mathbf{\Omega}_{2})c(\mathbf{r}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\tag{IV.1}
+\end{equation}
+
+\end_inset
+
+where the orientations span the three Euler angles, 
+\begin_inset Formula $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$
+\end_inset
+
+.
+ It gives a new method to evaluate solvation properties (grand-canonical
+ free energy and microscopic solvent density) within the framework of liquid-sta
+te theory.
+ It is more complete and accurate compared within the development of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acf{MDFT}
+\end_layout
+
+\end_inset
+
+ presented so far.
+ The approach is yet limited to rigid molecules and the neglect of three-body
+ correlations.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+To complete this story, we conclude all the achievements done in this thesis,
+ and some unfinished work and theories linked to this thesis due to the
+ time limit.
 \end_layout
 
 \begin_layout Part

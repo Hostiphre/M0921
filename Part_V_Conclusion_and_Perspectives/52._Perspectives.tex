@@ -4,46 +4,46 @@
 The work is never perfect, a great deal of unfinished work and theories
 linked to this thesis is presented here. 
 
-\section{Reduce memory use in MDFT}
+\section{Reduce memory footprint in MDFT}
 
-The total CPU time to implement a MDFT minimization using \texttt{\textbf{convolution}}
-algorithms is typically 1 to 30 minutes according to the resolution
-of grid. But the memory consumed for such a process is typically 1
-to 20 G of RAM. This is mainly due to the minimizer L-BFGS-B, which
-firstly needs to store several steps of information during the iterations,
-and secondly it is in double precision, it is to say that the density
-variable $\rho(\mathbf{r},\mathbf{\Omega})$ and the gradient also
-need to be stored in double precision, if not, as tested, it leads
-to a divergence of result. In addition, during the evaluation of functional,
-memory at most 3 times of $\rho(\mathbf{r},\mathbf{\Omega})$ needs
-to be stored simultaneously.
+The total CPU time to implement a \acs{MDFT} minimization using the
+\texttt{\textbf{convolution}} algorithms is typically 1 to 30 minutes
+according to the resolution of grid. But the memory consumed for such
+a process is typically 1 to 20 G of RAM. This is mainly due to the
+minimizer L-BFGS-B, which firstly needs to store several steps of
+information during the iterations, and secondly is in double precision.
+It is to say that the density variable $\rho(\mathbf{r},\mathbf{\Omega})$
+and the gradient also need to be stored in double precision, and if
+not, as I tested, it leads to divergence. In addition, during the
+evaluation of the functional, the memory for at most 3 times $\rho(\mathbf{r},\mathbf{\Omega})$
+needs to be open simultaneously.
 
-There are to ways to get over this memory limit, and both of them
+There are two ways to get over this memory limit, and both of them
 need to modify the L-BFGS-B minimizer, which is a ``blackbox'',
-in Fortran 77. 
+in Fortran 77. The simplest way is to change the double precision
+to single in the L-BFGS-B minimizer; this action can reduce the memory
+needed by a factor 2. Another way to completely pass this limit is
+to parallelize the code to several nodes using MPI. This requires
+only to modify the \acs{FFT} and L-BFGS-B process, where there is
+a mixing of variables $\rho(\mathbf{r},\mathbf{\Omega})$. A third
+route indeed would be to define a minimizer with much less memory
+requirements.
 
-The simplest way is to change the double precision to float number
-of the L-BFGS-B minimizer, this action can reduce the memory needed
-by 2. 
+\section{Site-based grid}
 
-And another way to completely pass this limit, is to parallelize is
-code to several nodes using MPI. This requires only to modify the
-\acs{FFT} and L-BFGS-B process, where their is a mixing of variables
-$\rho(\mathbf{r},\mathbf{\Omega})$.
-
-\section{Site-site grid}
-
-The \acs{IET} uses intermolecular spherical coordinates, and cannot
-describe huge molecules. \acs{MDFT} uses a homogeneous spatial grid,
-thus have the same resolution near and far from the solute. The defeat
-of \acs{MDFT} is that for very polar solutes, the grid needed should
-be very fine to meet a satisfying result, and in 3D it is a very huge
-number, as it treats the same resolution from near to far from the
-solute. Another natural way to think about construction of the grid
-is like in \ref{fig:Site-site-grid-model}, an spherical grid at each
-site of solute. 
-
-\textcolor{red}{(This part needs more brain)}
+The \acs{IET} approach uses intermolecular spherical coordinates,
+and cannot describe large molecules. As for \acs{MDFT} it uses a
+homogeneous spatial grid, which has therefore the same resolution
+near and far from the solute. The caveat of \acs{MDFT} is that the
+3D grid needed should be relatively fine to produce satisfactory results
+(typically 3-4 points per Angstrom); for large solutes this may lead
+to a very huge number of grid points. A natural idea would be to use
+non-uniform grids. One way to think about the construction of the
+grid is like in \ref{fig:Site-site-grid-model}, a set of spherical
+grids centered at each solute site. This could be understood as expanding
+the density into a set of ``atomic-like orbitals'', $\rho(\mathbf{r})=\sum_{\alpha}c_{\alpha}\rho_{\alpha}(\mathbf{r})$.
+Each ``'orbital'' could be possibly expanded onto a local basis
+set, such as spherical harmonics, $\rho_{\alpha}(\mathbf{r})=\sum_{l,m}\rho_{\alpha,l}^{m}(|\mathbf{r}-\mathbf{R_{\alpha}}|)Y_{l}^{m}(\theta,\phi)$.
 
 \begin{figure}[h]
 \begin{centering}
@@ -52,70 +52,41 @@ site of solute.
 \caption{Site-site grid model\label{fig:Site-site-grid-model}}
 \end{figure}
 
-The idea can be roughly understand as an interaction site treatment
-of the solute, with a molecular treatment of the solvent. It is a
-matrix of $h_{\text{MS}}(1,2)$ with a full molecular description
-of $c_{\text{SS}}(1,2)$. As in \acs{MDFT} the solvent density can
-be else than particle-particle distribution functions, it is possible
-to have different descriptions for solute and solvent. The formalism
-is possible, also as the e\acs{DFT} shares some formalism with c\acs{DFT},
-a site description of solute which is used as default in \acs{QM}
-calculations should also gives some inspiration to the liquid theory.
-(Or I think it is like 3D-RISM, but their is no correspondent \acs{DFT}
-theory, nor basis set description of site.) If the sites are expanded
-onto spherical harmonics $Y_{lm}$, there is also a rotational invariance
-between the sites, and the inhomogeneous angular grid can be thus
-ignored, it is only an issue of $\mathbf{r}_{\text{M}}-\mathbf{r}_{\text{N}}$
-between site M and N. This is only an idea, the mathematical deduction
-is not yet fully verified.
 
-The generalized \acs{OZ} equation to $n$ components
-\begin{equation}
-h_{\nu\mu}(1,2)=c_{\nu\mu}(1,2)+\rho\sum_{\lambda}x_{\lambda}\int c_{\nu\lambda}(2,3)h_{\lambda\mu}(1,3)\mathrm{d}3
-\end{equation}
-thus
-\begin{equation}
-h_{\text{MS}}(1,2)=c_{\text{MS}}(1,2)+\rho\int c_{\text{SS}}(2,3)h_{\text{MS}}(1,3)\mathrm{d}3
-\end{equation}
-\begin{equation}
-h_{\text{NS}}(1,2)=c_{\text{NS}}(1,2)+\rho\int c_{\text{SS}}(2,3)h_{\text{NS}}(1,3)\mathrm{d}3
-\end{equation}
-Look that $c_{\text{SS}}(2,3)$ is just the bulk \acs{DCF}. The link
-between $h_{\text{MS}}(1,2)$ and $h_{\text{NS}}(1,2)$ is a translation
-of center $\mathbf{r}_{\text{M}}-\mathbf{r}_{\text{N}}$\textcolor{red}{(?)}.
-Therefore, ...
+\section{Theories beyond the HRF approximation and other improvements}
 
-\section{Theories out from the HRF approximation part}
-
-In terms of $\mathcal{F}_{\mathrm{exc}}$, there can be still development
-out of HRF approximation, such as 3-body correction.
+In terms of $\mathcal{F}_{\mathrm{exc}}$, there can still be development
+beyond the \acs{HRF} approximation, such as 3-body corrections.
 
 Apart from the $\mathcal{F}_{\mathrm{exc}}$ term, there are still
-many field of study to develop \acs{MDFT}. For example, the evaluation
-of external potential $V_{\mathrm{ext}}$, which poses problems of
-convergency for molecular solutes, still needs to improve. Note that
-this part can be also a functional of solvent density, in this case,
-the solute is polarizable, and the $V_{\mathrm{ext}}$ varies during
-the minimization. The polarization can be introduced by for example
-an extra dipole on the solute.
+many fields of study to develop \acs{MDFT}. For example, the evaluation
+of the external potential $V_{\mathrm{ext}}$ still poses occasional
+problems of convergence for molecular solutes and needs to be improved.
+Note also that the solute can be made polarizable, so that $V_{\mathrm{ext}}$
+becomes itself a functional of the solvent density and varies during
+the minimization. The polarization can be introduced, for example,
+by an extra induced dipole on the solute center or on the solute sites.
 
 \section{MDFT Viewer}
 
-This thesis contains originally a segment on visualization. Due to
-time limit, it is removed. Viewer is an important part of code development,
-which provides beautiful visualization and easy analysis, and helps
-to popularize the code. GaussViewer is a good example.
+This thesis contained originally a contribution on visualization.
+Due to time limit, it had to be removed. The Viewer is an important
+part of the code development; it provides insightful visualization
+and easier analysis, and may help to popularize the code. GaussViewer
+is a good example.
 
 \section{Application to real biological systems, and entropy}
 
-From this thesis we can see that \acs{MDFT} is capable to deal with
-some small chemical system, but it is still far from satisfied for
-common usage in the domain of bio-chemistry as a complement of \acs{QM}.
-For example, for real applications, enthalpy and entropy are also
-important, as discussed in ref \citep{Mn-oxo}. The results of \citep{Mn-oxo}
-cannot be repeated with \acs{QM} calculations using simply continuum
-model as solvent corrections (research subject of my university diploma),
-which gives identical tendency of entropy with respect to temperature
-(in DMSO). In \acs{MDFT}, the $\mathcal{F}_{\mathrm{id}}$term gives
-entropy of information. It is not exactly the same as total entropy
-as there are also contribution from charge distribution, etc.
+From this thesis we can see that \acs{MDFT} is presently capable
+to deal with small chemical system, but it is still far from satisfying
+for common usage in the domain of bio-chemistry, or as a solvent model
+for \acs{QM}. For example, for real applications, enthalpy and entropy
+are also important, as discussed in ref \citep{Mn-oxo}. The properties
+of \citep{Mn-oxo} cannot be repeated with \acs{QM} calculations
+using simply a continuum model for solvent corrections (research subject
+of my university diploma), which cannot reproduce the correct tendency
+of entropy with respect to temperature (in DMSO). It is my intention
+to re-investigate this problem using the \acs{MDFT} approach. It
+is not clear yet how (beyond the estimate by the $\mathcal{F}_{\mathrm{id}}$
+term), the solvation entropy rather than the free energy can be estimated
+from the \acs{MDFT} calculations.

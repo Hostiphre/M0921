@@ -72,7 +72,7 @@
 \begin_body
 
 \begin_layout Chapter
-Direct Correlation Function of Bulk Water
+Direct Correlation Function of Water
 \begin_inset CommandInset label
 LatexCommand label
 name "chpt:dcf-water"
@@ -128,7 +128,7 @@ acs{DCF}
 \end_layout
 
 \begin_layout Enumerate
-At dipolar order 
+The 
 \begin_inset ERT
 status open
 
@@ -141,7 +141,7 @@ acs{DCF}
 
 \end_inset
 
- (
+ at dipolar order (
 \begin_inset Formula $\hat{c}_{S}^{000}$
 \end_inset
 
@@ -199,7 +199,7 @@ acs{DCF}
 \begin_inset Formula $n_{\max}=5$
 \end_inset
 
- by Puibasset 
+, by Puibasset 
 \shape italic
 et al.
 
@@ -225,24 +225,10 @@ acs{MC}
 \end_inset
 
 .
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-t sur de toi là ? Le c qu'on utilise est celui de Luc, pas Buibasset.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-These two sources are discussed below.
 \end_layout
 
 \begin_layout Section
-Dipolar DCF from molecular dynamics simulation
+Dipole DCF from molecular dynamics simulation
 \end_layout
 
 \begin_layout Standard
@@ -281,7 +267,7 @@ acs{DCF}
 \begin_inset Formula $n_{\max}=1$
 \end_inset
 
- for a dipolar fluid.
+.
  They are calculated with the angular dependent 
 \begin_inset ERT
 status open
@@ -484,7 +470,8 @@ where
 
 \end_inset
 
-Idem for 
+and idem.
+ for 
 \begin_inset Formula $\hat{c}$
 \end_inset
 
@@ -513,7 +500,20 @@ acs{DCF}
 \begin_inset Formula $n_{\max}=5$
 \end_inset
 
- that is the default dcf used in this thesis is calculated from the 
+, which is the default 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ used in this thesis, is calculated from the 
 \begin_inset Formula $g_{\mu\nu}^{mnl}(r)$
 \end_inset
 
@@ -620,12 +620,11 @@ acs{HNC}
 
 \end_inset
 
- closure and it is shown that the projections are continuous at 
+ closure, and it is shown that the projections are continuous at 
 \begin_inset Formula $r_{\max}^{\mathrm{MC}}$
 \end_inset
 
-.
- This means the 
+, which means 
 \begin_inset ERT
 status open
 
@@ -643,11 +642,11 @@ acs{HNC}
 \begin_inset Formula $\alpha_{\max}$
 \end_inset
 
- for different 
+'s for different 
 \begin_inset Formula $n_{\max}$
 \end_inset
 
- lead to slightly different 
+'s lead to slightly different 
 \begin_inset ERT
 status open
 
@@ -660,7 +659,7 @@ acs{DCF}
 
 \end_inset
 
-, according to eq.
+ results according to eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -754,18 +753,6 @@ reference "fig:Comparison-dcf-ref"
 \end_inset
 
 .
- For XXXXXXXXXXXXXX ATTENTION LU C EN FONCTION DE K PAS DE R DANS TA FIGURE
- –MAX.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-azdazdazdazd
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard

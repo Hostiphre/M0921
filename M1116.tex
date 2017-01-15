@@ -242,71 +242,37 @@ all algorithms for further code development.}
 comparing to \acs{MD} and experimental results. A few applications
 are made for this purpose in section \ref{chpt:ions}, involving some
 LJ centers, ions and small molecules. The results are also compared
-to the dipolar reference method - that was fully implemented so far
-- to show that this increase of computing cost has really done an
-improvement on the results.}
+to the dipolar reference method, which is the method corresponding
+to $n_{\max}=1$= for linear or pseudo-linear molecules that was fully
+implemented so far, to show that this increase of computing cost has
+really done an improvement on the results.}
 
 \part{Applications}
 
 \include{Part_IV_Applications/41._ions}
 
-\ctparttext{In the frame of \acf{MDFT}, this thesis gives a complete study on
-the excess free energy functional evaluation under \acf{HRF} approximation:
+\ctparttext{In the framework of the \acf{MDFT} theory, this thesis presents
+a complete study of the excess free energy functional evaluation under
+the homogeneous reference fluid (\acs{HRF}) approximation (equivalent
+to the hypernetted-chain (\acs{HNC}) approximation in integral equation
+language):
 \begin{equation}
 \mathcal{F}_{\mathrm{exc}}=-\frac{k_{\mathrm{B}}T}{2}\int\mathrm{d}\mathbf{r}_{1}\mathrm{d}\mathbf{r}_{2}\mathrm{d}\mathbf{\Omega}_{1}\mathrm{d}\mathbf{\Omega}_{2}\Delta\rho(\mathbf{r}_{1},\mathbf{\Omega}_{1})\Delta\rho(\mathbf{r}_{2},\mathbf{\Omega}_{2})c(\mathbf{r}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\tag{IV.1}
 \end{equation}
-Where $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$. It thus gives a
-newly developed method to evaluate solvation properties (grand canonical
-free energy and solvent density), within the theory of liquid (which
-works on rigid molecules and statistical quantities), more complete
-and accurate compared to dipole method for linear solvent, and limited
-by the 3-body omission, etc.\\
+where the orientations span the three Euler angles, $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$.
+It gives a new method to evaluate solvation properties (grand-canonical
+free energy and microscopic solvent density) within the framework
+of liquid-state theory. It is more complete and accurate compared
+within the development of \acf{MDFT} presented so far. The approach
+is yet limited to rigid molecules and the neglect of three-body correlations.\\
 \medskip{}
-Firstly, we accomplish the original angular integration algorithm
-using \acs{FFT} to deal with the spatial convolution, which can now
-deal with 3D molecular solvent, by writing out the expression of the
-more complicate rotation matrix which corresponds to 3-Euler-angle
-case. \\
-\medskip{}
-We then build a new algorithm which treats the angular convolution
-part by \acf{GSH} expansion, inspired by Blum's $\chi$-reduction
-of \acs{MOZ} equation. This algorithm takes advantage of the rotational
-invariance, separating the \acs{OZ} equation in irreducible terms
-with a series of $\chi$ values, which can be seen as an analogue
-to the $\mathbf{k}$ vector from \acs{FFT} transform that takes advantage
-of translational invariance.\\
-\medskip{}
-The new algorithm is proven theoretically and practically to be much
-faster than the previous one, with an acceptable accuracy lost.\\
-\medskip{}
-The performed tests show that the proposed methods are suitable for
-fast and accurate calculations of solvation free energies, comparing
-to mathematical equivalent \acf{IET}. As for structure, the loose
-cubic spatial grid prevent the theory to produce radial curves on
-$r$ without noise, compared to \acs{IET}. But it has much more capacity
-to deal with complicate 3D solutes, and produce the 3D structure on
-a regular grid.\\
-\medskip{}
-Comparing to \acs{MD} and experimental results, it is shown that
-the new method works better than dipole method in the most of cases,
-apart from some special solute case, as water.\\
-\medskip{}
-In a word, the new algorithm can be seen as ready for chemical application
-usage. However, there are still some minus problem waiting for a response.
-Firstly, there are some incompatibility within the theory and though
-the implementation, notably the $\gamma$ problem and the conjugate
-form of \acs{DCF} which is explained as clear as possible in the
-main text. There are also some sign and normalization factor issues
-of the projections $f_{\mu\nu}^{mnl}$. The grid dependence of free
-energy is also somehow worrying, but it is out of our current goal
-of research, which work on only the $\mathcal{F}_{\mathrm{exc}}$
-part.\\
-\medskip{}
-\textcolor{red}{The publication linked to this thesis ...}}
+To complete this story, we conclude all the achievements done in this
+thesis, and some unfinished work and theories linked to this thesis
+due to the time limit.}
 
 \part{Conclusion and Perspectives}
 
-\include{Part_V_Conclusion_and_Perspectives/52._Perspectives}
+\include{Part_V_Conclusion_and_Perspectives/51._conclusion}\include{Part_V_Conclusion_and_Perspectives/52._Perspectives}
 
 \cleardoublepage{}
 

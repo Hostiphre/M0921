@@ -7,23 +7,25 @@ and linear solutes compared to \acs{IET}. In this section, we will
 compare them to \acs{MD} and experimental results. All the solutes
 are optimized with the fast \texttt{\textbf{convolution\_standard}}
 algorithm, with implicitly $L=24$ $\textrm{Å}$, $\mathrm{nfft}=72$,
-$m_{\max}=n_{\max}$ unless otherwise specified. Comparison to dipole
-method is also involved in, as we should justify that the increase
-of computing cost is has the capability to produce better results. 
+$m_{\max}=n_{\max}$ unless otherwise specified. Comparison to the
+dipole method is also involved, as we should justify that the increase
+of computing cost when going from $n_{\max}=1$ to $n_{\max}>1$ is
+counter-balanced by the capability to produce better results. 
 
 \section{LJ centers}
 
-The \acs{RDF} of rare gases calculated in \ref{tab:Free-energy-rare-gas}
-is compared to \acs{MD} in figure \ref{fig:rare-gazz} using $n_{\max}=3$
+The \acs{RDF}s of rare gases calculated in $\mathsection$\ref{tab:Free-energy-rare-gas}
+are compared to \acs{MD} in figure \ref{fig:rare-gazz} using $n_{\max}=3$
 to 5. The structures of different $n_{\max}$ is almost identical.
 Comparing to \acs{MD}, it looks like there is no improvement compared
-to the dipole method in ref \citep{Zhao_2011} \textcolor{red}{or
-to calculation involving $c_{00}^{000}$ only.} This kind of disagreement
-in curve shape is regarded as a known default of \acs{HNC} approximation.
+to the dipole method in ref \citep{Zhao_2011} or to calculation involving
+$c_{00}^{000}$ only \citep{levesque_scalar_2012}. This kind of disagreement
+in curve shape is regarded as a known default of \acs{HNC} (or \acs{HRF})
+approximation.
 
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[width=0.9\columnwidth]{_figure/results/rare_gaz}
+\includegraphics[width=0.95\columnwidth]{_figure/results/rare_gaz}
 \par\end{centering}
 \caption{\acs{RDF} of rare gazes compared to \acs{MD} result\label{fig:rare-gazz}}
 \end{figure}
@@ -31,15 +33,16 @@ in curve shape is regarded as a known default of \acs{HNC} approximation.
 
 \section{Charged $\mathrm{CH_{4}}$ series}
 
-The comparison of \acs{RDF} with \acs{MD} results for charged $\mathrm{CH_{4}}$
-series are shown in figure \ref{fig:Comparison-to-MD}. We can see
-that for positive charges, the complete $n_{\max}=5$ gives much better
-results compared to dipole method, which is almost well agreed with
-\acs{MD} results. For negative charges, $n_{\max}=5$ gives nearly
-the same result as dipole method, while the \acs{MD} results are
-more smooth, but the first peak of the \acs{MDFT} results seems to
-be in good position. We can conclude that the complete \acs{DCF}
-gives a large improvement for positive charged ions.
+The comparison between the \acs{RDF}s obtained from \acs{MDFT} with
+\acs{MD} results for charged $\mathrm{CH_{4}}$ series are shown
+in figure \ref{fig:Comparison-to-MD}. We can see that for positive
+charges, the complete $n_{\max}=5$ gives much better results compared
+to the dipole method, which itself almost agrees with \acs{MD} results.
+For negative charges, $n_{\max}=5$ gives nearly the same result as
+dipole method, while the \acs{MD} results are more smooth, but the
+first peak of the \acs{MDFT} results seems to be in good position.
+We can conclude that the complete \acs{DCF} gives a large improvement
+for positive charged ions.
 
 \begin{figure}[h]
 \begin{centering}
@@ -52,23 +55,24 @@ result\label{fig:Comparison-to-MD}}
 
 \section{Solvation free energy of single ions}
 
-\marginpar{We consider that for a macroscopic system, when the number of particles
-$N\rightarrow\infty$, the Gibbs and Helmholtz free energy are almost
-the same. \citep{ensemble_thermo}}From above we can see the \acs{RDF} for positive ions are in well
-agreement with \acs{MD} results. However, the energy is more difficult
-to compare, as there are several conventions of single ions, depending
-on for example box length and charge; and the free energy depends
-largely on the input LJ parameters of the ions, which is independent
-to the method.
+\marginpar{We consider that in a macroscopic system, the fluctuation of $N$
+and $V$ are negligible, and all kinds of free energies becomes the
+same. \citep{ensemble_thermo}}From above we can see the \acs{RDF} for positive ions are in good
+agreement with \acs{MD} results. However, the free energy is more
+difficult to compare, as there are several finite-size corrections
+for single ions, depending on for example box length and charge; besides
+the free energy depends largely on the input LJ parameters of the
+ions, which is independent to the method.
 
-Table \ref{tab:single-ions} gives some experimental and \acs{MD}
-simulation result of solvation free energy and first maximum of \acs{RDF}
-for alkali and halide ions. We can see that the data itself varies
-a lot. Nevertheless, the LJ parameters of ions from literatures can
-also have thousand times of difference. Therefore, we chose a series
-of force field parameters for halide anions and alkali cations from
-ref \citep{horinek_rational_2009} based on SPC/E water as shown also
-in table \ref{tab:single-ions}. 
+Table \ref{tab:single-ions} gives from literatures some experimental
+and \acs{MD} simulation results of solvation free energy as well
+as the positions of the first maximum of the \acs{RDF} for alkali
+and halide ions. We can see that the experimental data themselves
+vary a lot. Furthermore the LJ parameters for ions in the literature
+are extremely dispersed. Therefore, we focused on a single series
+of force field parameters for halide anions and alkali cations taken
+from ref \citep{horinek_rational_2009} based on SPC/E water, as shown
+also in table \ref{tab:single-ions}. 
 
 \begin{table}[h]
 \begin{centering}
@@ -99,12 +103,12 @@ in table \ref{tab:single-ions}.
 \end{tabular*}
 \par\end{centering}
 \caption[Free energy and first maximum of ion-water oxygen \acs{RDF} for alkali
-and halide ions from experimental and \acs{MD} simulation result]{Free energy in $[\mathrm{kJ\cdot mol^{-1}}]$ and first maximum of
-ion-water oxygen radial distribution functions in $[\textrm{Å}]$
-for alkali and halide ions from experimental and \acs{MD} simulation
-result. (a). Ref \citep{MARCUS1994111}. (b). Ref \citep{Noyes_1962}.
-(c) Ref \citep{tissandier_protons_1998}. (e) Ref \citep{horinek_rational_2009}
-from \acs{MD} simulation. (d) Ref \citep{Marcus_1988}.\label{tab:single-ions}}
+and halide ions from experimental and \acs{MD} simulation results]{Free energy $[\mathrm{kJ\cdot mol^{-1}}]$ and first maximum of ion-water
+oxygen \acs{RDF} $[\textrm{Å}]$ for alkali and halide ions from
+experimental and \acs{MD} simulation result. (a). Ref \citep{MARCUS1994111}.
+(b). Ref \citep{Noyes_1962}. (c) Ref \citep{tissandier_protons_1998}.
+(e) Ref \citep{horinek_rational_2009} from \acs{MD} simulation.
+(d) Ref \citep{Marcus_1988}.\label{tab:single-ions}}
 
 \vspace{0.5cm}
 
@@ -115,57 +119,87 @@ from \acs{MD} simulation. (d) Ref \citep{Marcus_1988}.\label{tab:single-ions}}
 \tableheadline{{\footnotesize{}Ion}} & {\scriptsize{}$\Delta G_{\mathrm{solv}}^{\mathrm{MD}}$} & {\scriptsize{}$\Delta\varOmega_{\mathrm{solv}}^{\mathrm{dipole}}$} & {\scriptsize{}$\Delta\varOmega_{\mathrm{solv}}^{\mathrm{nmax3}}$} & {\scriptsize{}$R_{1}^{\mathrm{MD}}$} & {\scriptsize{}$R_{1}^{\mathrm{dipole}}$} & {\scriptsize{}$R_{1}^{\mathrm{nmax3}}$}\tabularnewline
 \midrule 
 \addlinespace[-0.33em]
-{\scriptsize{}$\mathrm{F^{-}}$ } & {\scriptsize{}-430} & {\scriptsize{}diverge} & {\scriptsize{}-368.47} & {\scriptsize{}2.74} & {\scriptsize{}-} & {\scriptsize{}2.71}\tabularnewline
+{\scriptsize{}$\mathrm{F^{-}}$ } & {\scriptsize{}-430} & {\scriptsize{}diverge} & {\scriptsize{}-368.5} & {\scriptsize{}2.74} & {\scriptsize{}-} & {\scriptsize{}2.71}\tabularnewline
 \addlinespace[-0.33em]
-{\scriptsize{}$\mathrm{Cl^{-}}$ } & {\scriptsize{}-306} & {\scriptsize{}diverge} & {\scriptsize{}-297.33} & {\scriptsize{}3.23} & {\scriptsize{}-} & {\scriptsize{}2.88}\tabularnewline
+{\scriptsize{}$\mathrm{Cl^{-}}$ } & {\scriptsize{}-306} & {\scriptsize{}diverge} & {\scriptsize{}-297.3} & {\scriptsize{}3.23} & {\scriptsize{}-} & {\scriptsize{}2.88}\tabularnewline
 \addlinespace[-0.33em]
-{\scriptsize{}$\mathrm{Br^{-}}$ } & {\scriptsize{}-279} & {\scriptsize{}diverge} & {\scriptsize{}-278.32} & {\scriptsize{}3.35} & {\scriptsize{}-} & {\scriptsize{}2.96}\tabularnewline
+{\scriptsize{}$\mathrm{Br^{-}}$ } & {\scriptsize{}-279} & {\scriptsize{}diverge} & {\scriptsize{}-278.3} & {\scriptsize{}3.35} & {\scriptsize{}-} & {\scriptsize{}2.96}\tabularnewline
 \addlinespace[-0.33em]
-{\scriptsize{}$\mathrm{I^{-}}$ } & {\scriptsize{}-241} & {\scriptsize{}diverge} & {\scriptsize{}-253.42} & {\scriptsize{}3.55} & {\scriptsize{}-} & {\scriptsize{}3.12}\tabularnewline
+{\scriptsize{}$\mathrm{I^{-}}$ } & {\scriptsize{}-241} & {\scriptsize{}diverge} & {\scriptsize{}-253.4} & {\scriptsize{}3.55} & {\scriptsize{}-} & {\scriptsize{}3.12}\tabularnewline
 \addlinespace[-0.33em]
-{\scriptsize{}$\mathrm{Li^{+}}$ } & {\scriptsize{}-520} & {\scriptsize{}-707.73} & {\scriptsize{}-405.28} & {\scriptsize{}1.91} & {\scriptsize{}2.46} & {\scriptsize{}2.38}\tabularnewline
+{\scriptsize{}$\mathrm{Li^{+}}$ } & {\scriptsize{}-520} & {\scriptsize{}-707.7} & {\scriptsize{}-405.3} & {\scriptsize{}1.91} & {\scriptsize{}2.46} & {\scriptsize{}2.38}\tabularnewline
 \addlinespace[-0.33em]
-{\scriptsize{}$\mathrm{Na^{+}}$ } & {\scriptsize{}-414} & {\scriptsize{}-621.76} & {\scriptsize{}-366.00} & {\scriptsize{}2.28} & {\scriptsize{}2.54} & {\scriptsize{}2.54}\tabularnewline
+{\scriptsize{}$\mathrm{Na^{+}}$ } & {\scriptsize{}-414} & {\scriptsize{}-621.8} & {\scriptsize{}-366.0} & {\scriptsize{}2.28} & {\scriptsize{}2.54} & {\scriptsize{}2.54}\tabularnewline
 \addlinespace[-0.33em]
-{\scriptsize{}$\mathrm{K^{+}}$ } & {\scriptsize{}-347} & {\scriptsize{}-559.13} & {\scriptsize{}-338.37} & {\scriptsize{}2.54} & {\scriptsize{}2.63} & {\scriptsize{}2.70}\tabularnewline
+{\scriptsize{}$\mathrm{K^{+}}$ } & {\scriptsize{}-347} & {\scriptsize{}-559.1} & {\scriptsize{}-338.4} & {\scriptsize{}2.54} & {\scriptsize{}2.63} & {\scriptsize{}2.70}\tabularnewline
 \addlinespace[-0.33em]
-{\scriptsize{}$\mathrm{Cs^{+}}$ } & {\scriptsize{}-300} & {\scriptsize{}-508.84} & {\scriptsize{}-316.06} & {\scriptsize{}2.79} & {\scriptsize{}2.88} & {\scriptsize{}2.88}\tabularnewline
+{\scriptsize{}$\mathrm{Cs^{+}}$ } & {\scriptsize{}-300} & {\scriptsize{}-508.8} & {\scriptsize{}-316.1} & {\scriptsize{}2.79} & {\scriptsize{}2.88} & {\scriptsize{}2.88}\tabularnewline
 \bottomrule
 \end{tabular*}
 \par\end{centering}
-\caption{Free energies $[\mathrm{kJ\cdot mol^{-1}}]$ and first \acs{RDF}
+\caption[Free energies and first \acs{RDF} maximum of single ions from \acs{MDFT}
+results]{Free energies $[\mathrm{kJ\cdot mol^{-1}}]$ and first \acs{RDF}
 maximum $[\textrm{Å}]$ of single ions from \acs{MDFT} results compared
-to experimental results \label{tab:free-energy-single-ions}}
+to \acs{MD} results \label{tab:free-energy-single-ions}}
 \end{table}
 
 The results shows that the free energies given by \acs{MDFT} is not
-perfect, but in the same order of magnitude as \acs{MD} results.
-Results with \acs{DCF} of $n_{\max}=3$ works better than dipole
-in energy, \textcolor{red}{but in terms of position of first solvation
-maximum it gives the same result for positive ions, which is a little
-different with \acs{MD} results. specially for $\mathrm{Li^{+}}$.
-Which is not completely agreed with the previous $\mathrm{CH_{4}}$
-results.}
+perfect, but lie in the same order of magnitude as \acs{MD} for $\mathrm{Cl}^{-}$
+to $\mathrm{I}^{-}$ and $\mathrm{K}^{+}$ to $\mathrm{Cs}^{+}$.
+They are much less convincing for small ions such as $\mathrm{F}^{-}$,
+$\mathrm{Li}^{+}$ and $\mathrm{Na}^{+}$. Besides, the results with
+a \acs{DCF} at $n_{\max}=3$ works better than the dipolar approximation,
+which is a positive sign for our developments. In contrast, there
+is no improvement in terms of position of the first solvation maximum.
+Note that for this quantity, the agreement between experimental data
+and \acs{MD} is not obvious either. 
 
 \section{Small molecules}
 
-Some solute structure are also generated to compare to \acs{MD},
-shown in figure \ref{fig:Test-solutes-2} and table \ref{tab:Parameters-of-test-solutes-2}.
+\acs{MDFT} calculations involving some small molecular solutes were
+also generated to compare to \acs{MD}; the chosen solutes are shown
+in figure \ref{fig:Test-solutes-2} and defined in table \ref{tab:Parameters-of-test-solutes-2}.
+Note that a certain proportion of them have a non-linear, 3-dimensional
+geometry which could not be handled by the molecular \acs{IET}; this
+shows the advantage of the general 3D-\acs{MDFT} approach adopted
+in this thesis and the new algorithm that we have developed in this
+context.
 
 Figure \ref{fig:Site-O} gives the site-site \acs{RDF}s (solute site
-to water O site) of $n_{\max}=4$, dipole and \acs{MD} results for
-these test solutes. It is shown that in the most of cases, $n_{\max}=4$
-gives better or the same results than dipole, apart from the cases
-of water, specially SPC/E water. In methanol, the dipole method diverge.
+to water O site) for $n_{\max}=4$, the dipolar approximation ($n_{\max}=1$),
+and \acs{MD} for these test solutes. It is shown that in the most
+of the cases, $n_{\max}=4$ does give equivalent or better results
+than the dipolar order, apart from the cases of water, and specially
+SPC/E water. In methanol, the dipole method diverge. For most solutes,
+the comparison to \acs{MD} is far from perfect but can be qualified
+as satisfactory in reproducing the - sometimes complex - shape of
+the \acs{RDF}s and the main peaks positions. This statement is especially
+true for benzene and pyrimidine for example. For hydrophobic molecules
+or molecules with hydrophobic sites (alkanes, oxygen, nitrogen, ...)
+one recovers the slight underestimation of the first peak position
+and the overestimation of peak height that was already remarked for
+rare gases; this is a clear defect of \acs{HNC}. The case of molecules
+giving raise to hydrogen bonds to water (e.g. methanol, or water in
+water) is more problematic and subtle. Here the dipolar approximation
+gives a first peak for the water oxygen around the O-site that is
+too high but has the correct width, whereas $n_{\max}=4$ shifts the
+first peak to higher values and makes it too wide (a sort of merge
+of the first and second peak, an effect even clearer for methanol).
+The H-O first peak on the other hand is at a correct position but
+underestimated, both for water and methanol. The tetrahedral order
+around a water solute is not correctly reproduced, although the correct
+balance to get the right structure is subtle and does not appear too
+far. 
 
-In the purpose to show the the ability of \acs{MDFT} to show calculate
-3D solute structure, due to the spherical coordinate system it adopt,
-we show some 3D figure of solvent in figure \ref{fig:Volume-slice-of}
-and \ref{fig:Iso-surface-of-solvent}. In figure \ref{fig:Iso-surface-of-solvent},
-we can see the famous tetrahedral structure around the water molecule.
-In SPC/E water, there is more density than expected on the north pole,
-and this piece of density disappears with the extra charged added
-on the TIP4P water.
+In the purpose of showing the ability of \acs{MDFT} to calculate
+3D solute structure, we display 3D solvent densities for specific
+solutes in figure \ref{fig:Volume-slice-of} and \ref{fig:Iso-surface-of-solvent}.
+Figure \ref{fig:Iso-surface-of-solvent} complements the discussion
+given just above concerning the expected tetrahedral structure around
+a water molecule in water. That structure can be indeed detected for
+SPC/E water and even more so for the TIP4P model. In SPC/E water,
+there is more density than expected on the north pole, and this piece
+of density disappears with the extra charge added on the TIP4P water.\\
 
 \begin{figure}[H]
 \begin{centering}
@@ -367,7 +401,7 @@ on the TIP4P water.
 \caption{Parameters of test solutes\label{tab:Parameters-of-test-solutes-2}}
 \end{table}
 
-\begin{figure}[!tbph]
+\begin{figure}[H]
 \begin{centering}
 \includegraphics[width=1\columnwidth]{_figure/results/solute\lyxdot acetone-3}
 \par\end{centering}
@@ -385,7 +419,7 @@ $\textrm{Å}$, $\mathrm{nfft}=72$. $\frac{1}{3}n_{\mathrm{bin}}$
 is used in order to avoid noise.\label{fig:Site-O}}
 \end{figure}
 
-\begin{figure}[!tbph]
+\begin{figure}[H]
 \ContinuedFloat
 \begin{centering}
 \includegraphics[width=1\columnwidth]{_figure/results/solute\lyxdot carbondioxide-3}
@@ -402,7 +436,7 @@ is used in order to avoid noise.\label{fig:Site-O}}
 \caption[]{Site-O \acs{RDF} of test solutes (continued)}
 \end{figure}
 
-\begin{figure}[!tbph]
+\begin{figure}[H]
 \ContinuedFloat
 \begin{centering}
 \includegraphics[width=1\columnwidth]{_figure/results/solute\lyxdot nitrogen-3}
@@ -419,7 +453,7 @@ is used in order to avoid noise.\label{fig:Site-O}}
 \caption[]{Site-O \acs{RDF} of test solutes (continued)}
 \end{figure}
 
-\begin{figure}[!tbph]
+\begin{figure}[H]
 \ContinuedFloat
 \begin{centering}
 \includegraphics[width=1\columnwidth]{_figure/results/solute\lyxdot tip4p-3}
@@ -427,14 +461,14 @@ is used in order to avoid noise.\label{fig:Site-O}}
 \caption[]{Site-O \acs{RDF} of test solutes (continued)}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
 \begin{centering}
 \includegraphics[width=0.7\columnwidth]{/Users/Hostiphre/Desktop/_M1116/_figure/results/solute\lyxdot pyrimidine\lyxdot snap}
 \par\end{centering}
 \caption{Volume slice of solvent number density $n(\mathbf{r})$ for pyrimidine\label{fig:Volume-slice-of}}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
 \subfloat[SPC/E water]{\begin{centering}
 \includegraphics[width=0.45\columnwidth]{/Users/Hostiphre/Desktop/_M1116/_figure/results/solute\lyxdot spce\lyxdot snap}
 \par\end{centering}

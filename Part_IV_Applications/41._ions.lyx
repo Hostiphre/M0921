@@ -179,14 +179,18 @@ acs{RDF}
 
 \end_inset
 
- of rare gases calculated in 
+s of rare gases calculated in 
+\begin_inset Formula $\mathsection$
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Free-energy-rare-gas"
 
 \end_inset
 
- is compared to 
+ are compared to 
 \begin_inset ERT
 status open
 
@@ -276,7 +280,7 @@ acs{HRF}
 
 \end_inset
 
- ) approximation.
+) approximation.
 \end_layout
 
 \begin_layout Standard
@@ -290,7 +294,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../_figure/results/rare_gaz.pdf
-	width 90col%
+	width 95col%
 
 \end_inset
 
@@ -355,7 +359,7 @@ Charged
 \end_layout
 
 \begin_layout Standard
-The comparison of the 
+The comparison between the 
 \begin_inset ERT
 status open
 
@@ -368,7 +372,20 @@ acs{RDF}
 
 \end_inset
 
- obtained with 
+s obtained from 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ with 
 \begin_inset ERT
 status open
 
@@ -398,7 +415,7 @@ reference "fig:Comparison-to-MD"
 \end_inset
 
  gives much better results compared to the dipole method, which itself almost
- agree with 
+ agrees with 
 \begin_inset ERT
 status open
 
@@ -539,12 +556,15 @@ Solvation free energy of single ions
 status open
 
 \begin_layout Plain Layout
-We consider that for a macroscopic system, when the number of particles
- 
-\begin_inset Formula $N\rightarrow\infty$
+We consider that in a macroscopic system, the fluctuation of 
+\begin_inset Formula $N$
 \end_inset
 
-, all kinds of free energies are almost the same.
+ and 
+\begin_inset Formula $V$
+\end_inset
+
+ are negligible, and all kinds of free energies becomes the same.
  
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -598,7 +618,7 @@ reference "tab:single-ions"
 
 \end_inset
 
- gives some experimental and 
+ gives from literatures some experimental and 
 \begin_inset ERT
 status open
 
@@ -1881,11 +1901,23 @@ acs{MD}
 
 \end_inset
 
-Free energy in 
+Free energy 
 \begin_inset Formula $[\mathrm{kJ\cdot mol^{-1}}]$
 \end_inset
 
- and first maximum of ion-water oxygen radial distribution functions in
+ and first maximum of ion-water oxygen 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{RDF}
+\end_layout
+
+\end_inset
+
  
 \begin_inset Formula $[\textrm{Å}]$
 \end_inset
@@ -2765,6 +2797,41 @@ diverge
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Free energies and first 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{RDF}
+\end_layout
+
+\end_inset
+
+ maximum of single ions from 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MDFT}
+\end_layout
+
+\end_inset
+
+ results
+\end_layout
+
+\end_inset
+
 Free energies 
 \begin_inset Formula $[\mathrm{kJ\cdot mol^{-1}}]$
 \end_inset
@@ -2799,7 +2866,20 @@ acs{MDFT}
 
 \end_inset
 
- results compared to experimental results 
+ results compared to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{MD}
+\end_layout
+
+\end_inset
+
+ results 
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:free-energy-single-ions"
@@ -3056,7 +3136,20 @@ acs{MD}
 \end_inset
 
  is far from perfect but can be qualified as satisfactory in reproducing
- the - sometimes complex - shape of the RDF's and the main peaks positions.
+ the - sometimes complex - shape of the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{RDF}
+\end_layout
+
+\end_inset
+
+s and the main peaks positions.
  This statement is especially true for benzene and pyrimidine for example.
  For hydrophobic molecules or molecules with hydrophobic sites (alkanes,
  oxygen, nitrogen, ...) one recovers the slight underestimation of the first
@@ -3086,9 +3179,9 @@ acs{HNC}
  merge of the first and second peak, an effect even clearer for methanol).
  The H-O first peak on the other hand is at a correct position but underestimate
 d, both for water and methanol.
- The tetrahedral order around a water solute is not correctly reproduced
- - although the correct balance to get the right structure is subtle and
- does not appear too far.
+ The tetrahedral order around a water solute is not correctly reproduced,
+ although the correct balance to get the right structure is subtle and does
+ not appear too far.
  
 \end_layout
 

@@ -400,7 +400,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../_figure/results/fftw_real_v_cmplx.eps
-	width 50col%
+	width 55col%
 	BoundingBox 0bp 20bp 340bp 235bp
 
 \end_inset
@@ -897,7 +897,7 @@ status open
 \begin_inset Graphics
 	filename ../_figure/results/fgsht_real_v_cmplx.eps
 	width 100col%
-	BoundingBox 0bp 20bp 680bp 235bp
+	BoundingBox 20bp 20bp 660bp 235bp
 
 \end_inset
 
@@ -1152,8 +1152,8 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../_figure/results/k-kernel.eps
-	width 50col%
-	BoundingBox 0bp 20bp 453bp 236bp
+	width 75col%
+	BoundingBox 0bp 20bp 504bp 196bp
 
 \end_inset
 
@@ -2049,7 +2049,7 @@ status open
 \begin_inset Graphics
 	filename ../_figure/results/pure_angular.eps
 	width 100col%
-	BoundingBox 0bp 20bp 667bp 268bp
+	BoundingBox 20bp 20bp 667bp 268bp
 
 \end_inset
 
@@ -2085,13 +2085,13 @@ convolution_pure_angular
 
 \end_inset
 
-Performance comparison of 
+Performance 
 \family typewriter
 \series bold
 convolution_standard
 \family default
 \series default
- and 
+ vs 
 \family typewriter
 \series bold
 convolution_pure_angular
@@ -2264,7 +2264,7 @@ status open
 \begin_inset Graphics
 	filename ../_figure/results/asymm.eps
 	width 100col%
-	BoundingBox 0bp 20bp 648bp 268bp
+	BoundingBox 20bp 20bp 647bp 268bp
 
 \end_inset
 
@@ -2300,13 +2300,13 @@ convolution_asymm
 
 \end_inset
 
-Performance comparison of 
+Performance 
 \family typewriter
 \series bold
 convolution_standard
 \family default
 \series default
- and 
+ vs 
 \family typewriter
 \series bold
 convolution_asymm
@@ -2406,7 +2406,7 @@ status open
 \begin_inset Graphics
 	filename ../_figure/results/nmax.eps
 	width 100col%
-	BoundingBox 0bp 20bp 639bp 268bp
+	BoundingBox 20bp 20bp 639bp 268bp
 
 \end_inset
 
@@ -2442,7 +2442,7 @@ convolution_standard
 
 \end_inset
 
-Performance comparison of 
+Performance 
 \family typewriter
 \series bold
 convolution_standard
@@ -2518,8 +2518,8 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../_figure/results/global_perf.eps
-	scale 50
-	BoundingBox 0bp 20bp 453bp 236bp
+	scale 70
+	BoundingBox 0bp 20bp 504bp 196bp
 
 \end_inset
 

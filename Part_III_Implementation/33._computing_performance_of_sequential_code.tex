@@ -53,7 +53,7 @@ on the choice of algorithm.
 \begin{center}
 \begin{figure}[h]
 \begin{centering}
-\includegraphics[bb=0bp 20bp 340bp 235bp,width=0.5\columnwidth]{_figure/results/fftw_real_v_cmplx}
+\includegraphics[bb=0bp 20bp 340bp 235bp,width=0.55\columnwidth]{_figure/results/fftw_real_v_cmplx}
 \par\end{centering}
 \caption{Timing of real-to-complex \acs{FFT} processes with respect to its
 complex-to-complex process of the same grid number $N$\label{fig:fft-real-to-complex}}
@@ -99,7 +99,7 @@ which is in fact not observed in the following tests.
 \begin{center}
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[bb=0bp 20bp 680bp 235bp,width=1\columnwidth]{_figure/results/fgsht_real_v_cmplx}
+\includegraphics[bb=20bp 20bp 660bp 235bp,width=1\columnwidth]{_figure/results/fgsht_real_v_cmplx}
 \par\end{centering}
 \caption[Timing of real-to-complex \acs{FGSHT} processes with respect to its
 complex-to-complex process of the same $m_{\max}$ and $n_{\max}$]{Timing of real-to-complex \acs{FGSHT} processes with respect to
@@ -131,7 +131,7 @@ mentioned in $\mathsection$\ref{chpt:fft-spatial} also takes time.
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[bb=0bp 20bp 453bp 236bp,width=0.65\columnwidth]{_figure/results/k-kernel}
+\includegraphics[bb=0bp 20bp 504bp 196bp,width=0.75\columnwidth]{_figure/results/k-kernel}
 \par\end{centering}
 \caption[Timing of a $k$-kernel]{Timing of a $k$-kernel (log scale)\label{fig:Timing-k-kernel}}
 \end{figure}
@@ -211,10 +211,9 @@ less sensitive to this effect.
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[bb=0bp 20bp 667bp 268bp,width=1\columnwidth]{_figure/results/pure_angular}
+\includegraphics[bb=20bp 20bp 667bp 268bp,width=1\columnwidth]{_figure/results/pure_angular}
 \par\end{centering}
-\caption[Performance comparison of ``convolution\_standard'' and ``convolution\_pure\_angular'']{Performance comparison of \texttt{\textbf{convolution\_standard}}
-and \texttt{\textbf{convolution\_pure\_angular\label{fig:comparison-pure_angular}}}}
+\caption[Performance comparison of ``convolution\_standard'' and ``convolution\_pure\_angular'']{Performance \texttt{\textbf{convolution\_standard}} vs \texttt{\textbf{convolution\_pure\_angular\label{fig:comparison-pure_angular}}}}
 \end{figure}
 
 
@@ -232,10 +231,9 @@ by \acs{FFT} is also different.
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[bb=0bp 20bp 648bp 268bp,width=1\columnwidth]{_figure/results/asymm}
+\includegraphics[bb=20bp 20bp 647bp 268bp,width=1\columnwidth]{_figure/results/asymm}
 \par\end{centering}
-\caption[Performance comparison of ``convolution\_standard'' and ``convolution\_asymm'']{Performance comparison of \texttt{\textbf{convolution\_standard}}
-and \texttt{\textbf{convolution\_asymm\label{fig:comparison-asymm}}}}
+\caption[Performance comparison of ``convolution\_standard'' and ``convolution\_asymm'']{Performance \texttt{\textbf{convolution\_standard}} vs \texttt{\textbf{convolution\_asymm\label{fig:comparison-asymm}}}}
 \end{figure}
 
 
@@ -250,11 +248,11 @@ as discussed in last section, it is fully recommended to use $m_{\max}=n_{\max}$
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[bb=0bp 20bp 639bp 268bp,width=1\columnwidth]{_figure/results/nmax}
+\includegraphics[bb=20bp 20bp 639bp 268bp,width=1\columnwidth]{_figure/results/nmax}
 \par\end{centering}
 \caption[Performance comparison of ``convolution\_standard'' for $m_{\max}=n_{\max}$
-and $m_{\max}=5$]{Performance comparison of \texttt{\textbf{convolution\_standard}}
-for $m_{\max}=n_{\max}$ and $m_{\max}=5$\label{fig:comparison-nmax}}
+and $m_{\max}=5$]{Performance \texttt{\textbf{convolution\_standard}} for $m_{\max}=n_{\max}$
+and $m_{\max}=5$\label{fig:comparison-nmax}}
 \end{figure}
 
 
@@ -269,7 +267,7 @@ an absolute bottleneck to the whole process, owing to the new algorithm.
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[bb=0bp 20bp 453bp 236bp,scale=0.65]{_figure/results/global_perf}
+\includegraphics[bb=0bp 20bp 504bp 196bp,scale=0.7]{_figure/results/global_perf}
 \par\end{centering}
 \caption[Timing of the whole $\mathcal{F}$ iteration]{Timing of the whole $\mathcal{F}$ iteration with $\mathrm{nfft}/L=72/24$
 grid (log scale), using \texttt{\textbf{convolution\_standard}} algorithm
@@ -279,14 +277,13 @@ grid (log scale), using \texttt{\textbf{convolution\_standard}} algorithm
 In conclusion, we stress that:
 \begin{itemize}
 \item \texttt{\textbf{convolution\_standard}} is the fastest algorithm among
-those that we have tested..
-\item The \texttt{\textbf{convolution}} methods are orders of magnitude
-faster than \texttt{\textbf{naive}} methods.
+those that we have tested. The \texttt{\textbf{convolution}} methods
+are orders of magnitude faster than \texttt{\textbf{naive}} methods.
+It means that we have been able to reduce a complex spatial and angular
+convolution process to roughly the same computer cost as a local calculation
+in both space and angles, which can be seen as the major accomplishment
+of this thesis.
 \item The attempt to fix $m_{\max}$ considerably damages the efficiency,
 in addition to the necessity, $m_{\max}=n_{\max}$ is absolutely recommended.
-\item We have been able to reduce a complex spatial and angular convolution
-process to roughly the same computer cost as a local calculation in
-both space and angles, which can be seen as the major accomplishment
-of this thesis. \newpage{}
 \end{itemize}
-$ $
+
