@@ -31,10 +31,10 @@ will also be briefly mentioned.
 
 Continuum models \citep{Jensen,Cramer_1999,Tomasi_1994_implicit_model},
 which are popular in \acs{QM} calculations, consider the solvent
-as a polarizable medium with dielectric constant $\varepsilon$\marginpar{The dielectric constant $\varepsilon$ is the key parameter characterizing
+as a polarizable medium with dielectric constant $\varepsilon$\marginpar. The dielectric constant $\varepsilon$ is the key parameter characterizing
 the solvent. It is normally a constant value, but that can depend
-on the position in space. (see $\mathsection$\ref{subsec:Poisson=002013Boltzmann-methods})}, with the solute $M$ placed in the cavity within this medium (figure
-\ref{fig:Reaction-field-model}) 
+on the position in space (see $\mathsection$\ref{subsec:Poisson=002013Boltzmann-methods}), with the solute $M$ placed in the cavity within this medium (figure
+\ref{fig:Reaction-field-model}). 
 
 \begin{figure}[h]
 \begin{centering}
@@ -43,7 +43,7 @@ on the position in space. (see $\mathsection$\ref{subsec:Poisson=002013Boltzmann
 \caption{Continuum solvent model\label{fig:Reaction-field-model}}
 \end{figure}
 
-The solvation Gibbs free energy according to this model is
+According to this model the solvation Gibbs free energy is
 \begin{equation}
 \Delta G_{\mathrm{solvation}}=\Delta G_{\mathrm{cavity}}+\Delta G_{\mathrm{dispersion}}+\Delta G_{\mathrm{elec}}\label{eq:Continuum-mod}
 \end{equation}
@@ -66,7 +66,7 @@ to the number of solvent molecules in the first solvation shell. This
 number can be calculated as the area passing through the middle region
 of first shell solvent. This area, named the solvent-accessible surface
 area (SASA) \citep{SAS_1,SAS_2}, can be calculated by adding the
-radius of the probe solvent ball on the solvent excluded surface area
+radius of the probe solvent ball to the solvent excluded surface area
 (figure \ref{fig:sasa}).
 
 \begin{figure}[h]
@@ -142,7 +142,7 @@ the Poisson equation.
 
 This equation cannot be solved analytically for complex geometries
 (such as a protein). Therefore it is done numerically using appropriate
-methods; for example, mentioned in the article of Roux and Simonson
+methods; for example, as mentioned in the article of Roux and Simonson
 \citep{roux_implicit_1999} or Holst \citep{holst_1994_poisson}.
 A density functional approach based on the minimization of the polarization
 density can also be used to solve this equation \citep{Marchi_2001,Levy_2005}.
@@ -212,16 +212,16 @@ and classical, which means the separation of both transitional and
 rotational states are largely inferior of $k_{\mathrm{B}}T$. For
 light molecules, that is not always convincing. Some molecules containing
 hydrogen (e. g. $\mathrm{H_{2}O}$, $\mathrm{NH_{3}}$, and particularly
-$\mathrm{H_{2}}$) exhibit obvious quantum effects at low temperature
+$\mathrm{H_{2}}$) exhibit obvious quantum effects at low temperatures
 in the liquid state. Gaseous $\mathrm{H_{2}O}$ and $\mathrm{NH_{3}}$
 also need quantum effect corrections. However, for the liquid of most
 interest to us, $\mathrm{H_{2}O}$ at room temperature, the contribution
 of this effect is small enough to be neglected. And obviously, there
 should not be any chemical interaction of the solvent with the solute.
-\item Secondly,\marginpar{Compared to atomic models that only depend on $\mathbf{r}^{N}$, the
+\item Secondly,\marginpar{compared to atomic models that only depend on $\mathbf{r}^{N}$, the
 angular correlations can give influence on both structural and thermodynamic
 proprieties. That is why our theory is extended to linear case, $\mathbf{\Omega}\equiv(\Theta,\Phi)$,
-then molecular case, $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$.} the intramolecular movement (vibration and internal rotation) should
+then molecular case, $\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$.} The intramolecular movement (vibration and internal rotation) should
 be either independent of transitional and rotational movement or absent.
 This rigid molecule approximation assumes that the intermolecular
 potential $\mathcal{U}(\mathbf{r}^{N},\mathbf{\Omega}^{N})$ for $N$
@@ -270,12 +270,12 @@ with higher-order corrections can be written in the form of
 where $u(ij)=u(\mathbf{r}_{ij},\mathbf{\Omega_{i}},\mathbf{\Omega_{j}})$
 and $u(ijk)=u(\mathbf{r}_{ij},\mathbf{r}_{jk},\mathbf{r}_{ki},\mathbf{\Omega_{i}},\mathbf{\Omega_{j}},\mathbf{\Omega_{k}})$,
 etc. The omission of the three-body and higher-order terms can cause
-error, for example, in surface tension and surface energy calculation
-\citep{Miyazaki_1975}. However the higher-order terms are often accounted
+errors, for example, in surface tension and surface energy calculation
+\citep{Miyazaki_1975}. However the higher order terms are often accounted
 for by an effective pair potential (measured by experiments or calculated
 by simulations), which reduces considerably the computational cost
 for simulations, or the degree of theory needed. Such models are presented
-below going from simple to molecular liquids. For the molecular solvent
+below, going from simple to molecular liquids. For the molecular solvent
 considered in this thesis, water, most publications have stayed at
 this two-body level of description. 
 \end{enumerate}
@@ -350,7 +350,7 @@ discussed in the following section.
 
 Indeed, a spherical description of interactions is not sufficient
 to fully describe molecular fluids. The site-site model is a further
-extension of atomic models, in which the solvent molecule is represented
+extension of atomic models in which the solvent molecule is represented
 by a set of discrete interaction sites. The total potential energy
 is a sum of spherical interaction potentials:
 \begin{equation}
@@ -391,7 +391,7 @@ T(\mathbf{r})=\nabla^{2}\left(\dfrac{1}{r}\right)=3\mathbf{r}\mathbf{r}/r^{5}-\m
 and $\mathbf{I}$ is the unit tensor. Note that this model can be
 made more realistic by including higher-order electrostatic interactions,
 such as dipole-quadrupole, quadrupole-quadrupole, etc. Such a systematic
-multipolar approach has been proposed for water \citep{Chowdhuri_2006}.
+multipolar approach has previously been proposed for water \citep{Chowdhuri_2006}.
 
 Alternatively, the intermolecular potential can be expanded onto rotational
 invariants in the form:
@@ -422,7 +422,7 @@ most widely used water models.
 \end{figure}
 
 In this thesis, we use the extended simple point charge model (SPC/E)
-of water \citep{SPC/E} as our solvent model through all this thesis.
+of water \citep{SPC/E} as our solvent model throughout.
 It is a 3-site model, the electrostatic interaction being modeled
 using Coulomb's Law and the dispersion and repulsion forces using
 the Lennard-Jones potential, as described above. 
@@ -435,7 +435,7 @@ the center of water molecule has been placed at atom O, for convenance).
 The SPC/E model gives a better radial distribution function and diffusion
 constant than the SPC model. It is the most commonly used model for
 applications.\marginpar{It should be noted that any rigid solvent model is compatible with
-the theory that this thesis bases on, e.g. acetonitrile used in \citep{Zhao_2011}.}
+the theory that this thesis is base on, e.g. acetonitrile used in \citep{Zhao_2011}.}
 
 \begin{table}[h]
 \begin{centering}
@@ -485,14 +485,14 @@ compared to fixed charges.
 Complex models require expensive computing cost, but still can have
 large fluctuations due to use of imposed small system size. There
 is a compromise between the choice of model and the choice of system
-size. For this reason, the rigid models are still nowadays the most
-popular. On the other hand, computing technologies have greatly developed
+size. For this reason, the rigid models are still the most
+popular nowadays. On the other hand, computing technologies have greatly developed
 compared to the theories themselves, which makes it possible to use
 more and more precise models in computation. 
 
 \section{Model of solute}
 
-The model of solute also have a substantial influence on the predicted
+The model of solute also has a substantial influence on the predicted
 energy and structure of solvation. The solute can eventually be treated
 by \acs{QM} calculations in terms of wave function and electron density.
 This is the case for the implicit SCRF method, which for apolar solvents
@@ -505,7 +505,7 @@ uses a quantum solvent model with an implicit solute; this would not
 be profitable even if the solute is of simple geometry (wall). In
 the case of molecular solutes, it is consistent to require the solute
 to have at least the same scale of description as the solvent. A hierarchy
-of possible potential models for solute is described in figure (\ref{fig:Hierarchy-of-models}).
+of possible potential models for solutes is described in figure (\ref{fig:Hierarchy-of-models}).
 \begin{figure}[h]
 \centering{}%
 \noindent\begin{minipage}[t]{1\columnwidth}%
