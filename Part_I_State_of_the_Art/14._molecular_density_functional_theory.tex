@@ -1,10 +1,10 @@
 
 \chapter{Code MDFT\label{chpt:mdft}}
 
-The code MDFT upon which all the development during this thesis is
+The code MDFT upon which all the development in this thesis is
 based is a Fortran 95 sequential code developed by Maximilien Levesque,
 Daniel Borgis \textit{et al.} \citep{gendre_classical_2009,jeanmairet_molecular_2013-1,jeanmairet_molecular_2015,jeanmairet_molecular_2016,Jeanmairet_thesis,levesque_solvation_2012,ramirez_density_2002,ramirez_density_2005,sergiievskyi_fast_2014,Zhao_2011},
-which implement the \acs{MDFT} theory. It reads the force field (Lennard-Jones
+which implements the \acs{MDFT} theory. It reads the force field (Lennard-Jones
 and Coulomb parameters) describing the solute and the solvent as input,
 as well as necessary parameters like the temperature $T$, number
 density of solvent $n_{0}$, etc. It minimizes the functional and
@@ -91,7 +91,7 @@ The main structure of the code is shown in figure \ref{fig:code-mdft}.
 
 \section{Fast Fourier transform}
 
-The fast Fourier transform (\acs{FFT}) is used for example in the
+The fast Fourier transform (\acs{FFT}) is used in the
 evaluation of excess functional in eq. (\ref{eq:4.gamma-k}); in this
 thesis, the FFTW3 library \citep{FFTW3} is used for implementation,
 which performs discrete Fourier Transform (\acs{DFT}) as defined
@@ -109,7 +109,7 @@ Note that after a forward-backward Fourier transform, the original
 function is multiplied by a normalization factor $N_{k}$, which is
 the total number of nodes $k$.
 
-For input function $Y_{k}$ $(k=0,\ldots,n-1)$ in real number, FFTW3
+For input function $Y_{k}$ $(k=0,\ldots,n-1)$ in real numbers, FFTW3
 only outputs elements $k=0,\ldots,\left\lfloor n/2\right\rfloor $
 ( $\left\lfloor n/2\right\rfloor +1$ complex numbers of $X_{j}$
 are stocked; $\left\lfloor n/2\right\rfloor $ being the floor function
@@ -121,8 +121,8 @@ used to regenerate elements of $k>\left\lfloor n/2\right\rfloor $.
 The resulting $X_{j}$ issued from the corresponding backward transform
 is purely real. 
 
-The definition of \acs{FFT} can be differed in some literature, with
+The definition of \acs{FFT} can differ in some literature, with
 the ``$+$'' sign in the exponential of forward transform and ``$-$''
 sign in the exponential of backward transform. According to the Hermitian
 symmetry, we should use the quantities in $k$-space issued from such
-definition with its conjugate form.
+a definition with its conjugate form.
