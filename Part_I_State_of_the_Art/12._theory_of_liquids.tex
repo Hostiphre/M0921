@@ -10,7 +10,7 @@ quantities. Then we change the view to the structure of the solvent.
 The two theories we use in this thesis, here referred to as \acs{IET}
 and c\acs{DFT}, as well as their equivalency, are presented with
 brief derivations in the following sections. The majority of these
-sections is based on the book by Hansen \& McDonald \citep{HANSEN_2ed,Hensen-McDonald},
+sections are based on the book by Hansen \& McDonald \citep{HANSEN_2ed,Hensen-McDonald},
 and the articles and notes of Evans \citep{Evans_1979,Evans_1984,Evans_1992}.
 A very detailed review is done by Wu \textit{et al.} \citep{Wu2009}
 to the same purpose, thus here we only introduce the concepts that
@@ -204,11 +204,11 @@ gives
 \begin{equation}
 \left.\frac{\delta\varOmega[n]}{\delta n(\mathbf{r})}\right|_{n=\bar{n}}=\left.\frac{\delta F_{\mathrm{int}}[n]}{\delta n(\mathbf{r})}\right|_{n=\bar{n}}-V_{\mathrm{int}}(\mathbf{r})=0\label{eq:1.26}
 \end{equation}
-The fact that the right hand vanishes at equilibrium is agreed with
+The fact that the right hand vanishes at equilibrium is agreed with by
 eq. (\ref{eq:delta-f-int}).
 \end{enumerate}
-The solvation free energy functional $\mathcal{F}$\marginpar{Here the character $\mathcal{F}$ is used for ``free-energy functional'',
-it is a free energy of grand ensemble, but differ from Helmholtz free
+The solvation free energy functional $\mathcal{F}$\marginpar{Here the character $\mathcal{F}$ is used for ``free-energy functional'';
+it is a free energy of grand ensemble, but differs from Helmholtz free
 energy $F$. However, it can be proven that all the free energies
 become the same when the fluctuations in $N$ and $V$ are negligible
 \citep{ensemble_thermo}.} is defined as the difference between the grand potential functional
@@ -262,7 +262,7 @@ the free energy functional can be written as:
 \mathcal{F}[n]=\mathcal{F}_{\mathrm{int}}+\mathcal{F}_{\mathrm{ext}}=\mathcal{F}_{\mathrm{id}}+\mathcal{F}_{\mathrm{exc}}+\mathcal{F}_{\mathrm{ext}}
 \end{equation}
 
-Up to this point, a brilliant approach is built, that for a given
+Up to this point a brilliant approach has been built, in that for a given
 choice $V_{N}$, $T$ and $\mu$, one can obtain the equilibrium density
 of solvent $\bar{n}(\mathbf{r})$ by minimizing the free energy functional:
 \begin{equation}
@@ -311,14 +311,14 @@ eq. (\ref{eq:1.59}), giving the minimum density
 \begin{equation}
 \rho^{(1)}(\mathbf{r}_{1})=\rho_{0}^{(1)}\exp\left(-\beta V_{\mathrm{ext}}(\mathbf{r}_{1})+\int\mathrm{d}\mathbf{\mathbf{r}}_{2}\Delta\rho^{(1)}(\mathbf{r}_{2})c^{(2)}(\mathbf{r}_{1},\mathbf{r}_{2})+\mathcal{O}(\Delta\rho{}^{2})\right)\label{eq:1.minimize-anal}
 \end{equation}
-which gives for example, when $\mathcal{O}(\Delta\rho{}^{2})=0$,
-one of the simplest closure equation, the hypernetted-chain \acs{HNC}
+which gives, for example, when $\mathcal{O}(\Delta\rho{}^{2})=0$,
+one of the simplest closure equations, the hypernetted-chain \acs{HNC}
 approximation:
 \begin{equation}
 g(1,2)=1+h(1,2)=\exp\left[-\beta u(1,2)+h(1,2)-c(1,2)\right]
 \end{equation}
 Here $u$ corresponds to $V_{\mathrm{ext}}$ in eq. (\ref{eq:1.minimize-anal})
-when the particle 1 and 2 are respectively the solute and solvent.
+when the particles 1 and 2 are respectively the solute and solvent.
 
 The general form of \acs{OZ} closure is:
 \begin{equation}
@@ -363,7 +363,7 @@ we can deduce eq. (\ref{eq:fexc-complet}) for the \acs{DFT} approach,
 if we impose $\mathcal{O}(\Delta\rho{}^{3})=0$, i.e. the \acs{HNC}
 approximation. And in \acs{IET}, eq. (\ref{eq:2oz2}) is normally
 used for two-component solution. Eq. (\ref{eq:2oz4}) is rarely used.
-The difficulty to solve such equation is to find a proper closure
-equation. As the approximations like \acs{HNC} is already quantitatively
+The difficulty to solve such equation lies in finding a proper closure
+equation. As the approximations like \acs{HNC} are already quantitatively
 far from sufficient to describe solute-solvent correlation, it becomes
 very bad for solute-solute.
