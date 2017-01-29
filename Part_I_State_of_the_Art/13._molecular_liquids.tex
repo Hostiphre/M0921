@@ -1,7 +1,7 @@
 
 \chapter{Approach to Molecular Solvents\label{chpt:iem-mdft}}
 
-In the case of non-spherical solvent like water, the solvent particle
+In the case of non-spherical solvents like water, the solvent particle
 carries a molecular structure described by a collection of distributed
 atomic interaction sites (LJ and Coulombic). The two theories mentioned
 in the previous section are now formulated in the molecular picture
@@ -14,7 +14,7 @@ $g(\mathbf{X}_{1},\mathbf{X}_{2})$ ($X\equiv(\mathbf{r},\mathbf{\Omega})$)
 is proposed, while the molecular \acs{OZ} equation is expanded on
 rotational invariants. The reference interaction site model (RISM)
 \citep{hirata_molecular_2004}, which provides another way for \acs{IET}
-to treat molecular solvent, will not be discussed here for simpleness.
+to treat molecular solvents, will not be discussed here for the sake of simplicity.
 
 \section{Molecular density functional theory}
 
@@ -26,8 +26,8 @@ where $\varOmega[\rho_{0}]$ is the correspondent reference bulk fluid
 grand potential at equilibrium. $\rho(\mathbf{r},\mathbf{\Omega})$
 is the angle-dependent fluid density function, depending on 3 variables
 for spatial coordinates $\mathbf{r}$, and also 3 for orientation
-$\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$. In case of linear solvent,
-this number can reduce to 2, i.e. $\mathbf{\Omega}\equiv(\Theta,\Phi)$.
+$\mathbf{\Omega}\equiv(\Theta,\Phi,\Psi)$. In the case of linear solvents,
+this number can be reduced to 2, i.e. $\mathbf{\Omega}\equiv(\Theta,\Phi)$.
 The homogeneous bulk density $\rho_{0}$ is normalized to $n_{0}/\int\mathrm{d}\mathbf{\Omega}$,
 to keep coherent with the relation
 \begin{equation}
@@ -57,7 +57,7 @@ particle interaction-free condition is:
 \end{equation}
 
 The differentiation of $\mathcal{F}_{\mathrm{id}}[\rho]$ used for
-the minimization, which will be discussed later, has form:
+the minimization, which will be discussed later, has a form:
 \begin{equation}
 \frac{\delta\mathcal{F}_{\mathrm{id}}[\rho]}{\delta\rho(\mathbf{r},\mathbf{\Omega})}=k_{\mathrm{B}}T\ln\left(\dfrac{\rho(\mathbf{r},\mathbf{\Omega})}{\rho_{0}}\right)
 \end{equation}
@@ -109,7 +109,7 @@ The charge density of the solute is projected onto a space grid $\mathbf{r}$,
 \end{equation}
 where $q_{ijk}$ is the charge on the space grid distributed by its
 nearby point charge as shown in figure \ref{fig:Charge-density-projected},
-and $\Delta v$ the volume of the unit cube that this point charge
+and $\Delta v$ is the volume of the unit cube that this point charge
 situates in.
 
 \begin{figure}[h]
@@ -120,7 +120,7 @@ situates in.
 \end{figure}
 
 The electrostatic potential created by the charge distribution $\rho_{q}(\mathbf{r})$,
-$V_{q}(\mathbf{r})$, can be thus computed using a periodic Poisson
+$V_{q}(\mathbf{r})$, can thus be computed using a periodic Poisson
 Solver. The Poisson equation (\ref{eq:poisson})
 \begin{equation}
 \nabla^{2}V_{q}(\mathbf{r})=-\frac{\rho_{q}(\mathbf{r})}{\varepsilon_{0}}
@@ -143,23 +143,23 @@ where $q_{v}$ is the point charge of solvent, and
 \begin{equation}
 \mathbf{r}_{v}=\mathbf{r}+\mathbf{R}(\mathbf{\Omega})\mathbf{s}_{v}
 \end{equation}
-is the cartesian coordinate of a solvent site $v$; $V_{q}(\mathbf{r}_{u})$
+is the Cartesian coordinate of a solvent site $v$; $V_{q}(\mathbf{r}_{u})$
 is the electrostatic potential, given by a linear interpolation of
 the nearby point of $V_{q}(\mathbf{r})$ obtained in the last step
 from the Poisson solver. 
 
 Another method to calculate $V_{\mathrm{coul}}(\mathbf{r},\mathbf{\Omega})$
-is the direct summation, which gives a non-periodic external potential,
+is direct summation, which gives a non-periodic external potential,
 but in the implementation it usually leads to better convergence for
-non-spherical molecules. \marginpar{As in this thesis we only work on the $\mathcal{F}_{\mathrm{exc}}$
-term.}Here we describe its expression, without understanding the reason
+non-spherical molecules. \marginpar{In this thesis we only work on the $\mathcal{F}_{\mathrm{exc}}$
+term.}Here we describe its expression, without going into the reason
 behind the convergence:
 \begin{equation}
 V_{\mathrm{coul}}(\mathbf{r},\mathbf{\Omega})=\sum_{u\in\mathrm{solute}}\sum_{v\in\mathrm{solvent}}\left(\dfrac{q_{u}q_{v}}{4\pi\varepsilon_{0}r_{uv}}\right)
 \end{equation}
-where $r_{uv}$ is calculated as in eq. (\ref{eq:4.ruv}). During
+where $r_{uv}$ is calculated as in eq. (\ref{eq:4.ruv}). For
 this thesis, the direct summation is only used in the minimization
-of non-spherical solutes, in the chapters of implementation and application.
+of non-spherical solutes, specifically in the chapters of implementation and application.
 
 \subsection{The excess term\label{subsec:The-excess-term}}
 
@@ -200,18 +200,18 @@ eq. (\ref{eq:4.gamma}) is a 3D convolution, which leads to
 \begin{equation}
 \hat{\gamma}(\mathbf{k},\mathbf{\Omega}_{1})=\int\mathrm{d}\mathbf{\Omega}_{2}\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega}_{2})\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\label{eq:4.gamma-k}
 \end{equation}
-Here we put the hat symbol on the physical quantities to represented
+Here we put the hat symbol on the physical quantities to represent
 the Fourier transform of their original function.
 
 In eq. (\ref{eq:4.gamma-k}), the integral $\int\mathrm{d}\mathbf{r}_{2}$
-of eq. (\ref{eq:4.gamma}) is transformed into a simple product, only
+of eq. (\ref{eq:4.gamma}) is transformed into a simple product; only
 $N_{\mathbf{r}}N_{\mathbf{\Omega}}^{2}$ \acs{FE} are needed to obtain
 $\hat{\gamma}(\mathbf{k},\mathbf{\Omega}_{1})$ with given $\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega}_{2})$.
 To this computational cost should be added the transform from $\Delta\rho(\mathbf{r},\mathbf{\Omega})$
 to $\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega})$ and the backward
 transform from $\hat{\gamma}(\mathbf{k},\mathbf{\Omega})$ to $\gamma(\mathbf{r},\mathbf{\Omega})$
 which are both of order $N_{\mathbf{\Omega}}\cdot O(N_{\mathbf{r}}\log_{2}N_{\mathbf{r}})$
-due to the properties of Fast Fourier Transforms (\acs{FFT}). The
+due to the properties of Fast Fourier Transform (\acs{FFT}). The
 total number of \acs{FE} is thus reduced from quadratic complexity
 $O(N_{\mathbf{r}}^{2}N_{\mathbf{\Omega}}^{2})$ to $N_{\mathbf{r}}N_{\mathbf{\Omega}}^{2}+2N_{\mathbf{\Omega}}\cdot O(N_{\mathbf{r}}\log_{2}N_{\mathbf{r}})=O(N_{\mathbf{r}}\log_{2}N_{\mathbf{r}}N_{\mathbf{\Omega}}^{2})$.
 As the total number of spatial grid $N_{\mathbf{r}}$ is of magnitude
@@ -242,23 +242,23 @@ in appendix \ref{chpt:symmetry}.
 
 If $F$ describes a homogeneous fluid, the translational invariance
 ($\mathbf{r}_{12}\equiv\mathbf{r}_{1}-\mathbf{r}_{2}$) should be
-presented, then the number of independent variables is reduced from
+presented, so then the number of independent variables is reduced from
 12 to 9:
 \begin{equation}
 F(\mathbf{X}_{1},\mathbf{X}_{2})=F(\mathbf{r}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})=F(r,\hat{\mathbf{r}}_{12},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\label{eq:miet-def-func}
 \end{equation}
 
-We can further expand $F$ on Wigner \acs{GSH}s of the three orientations,
-then $F$ becomes a sum of infinite number of projections that depending
+We can further expand $F$ on Wigner \acs{GSH}s of the three orientations;
+then $F$ becomes a sum of an infinite number of projections depending
 on $r$ and 8 indices:
 \begin{equation}
 F(\mathbf{X}_{1},\mathbf{X}_{2})=\sum_{m,n,l=0}^{\infty}\sum_{\left|\mu',\mu\right|\leq m,\left|\nu',\nu\right|\leq n,\left|\lambda'\right|\leq l}F_{\mu'\mu\nu'\nu\lambda'}^{mnl}(r)R_{\mu'\mu}^{m}(\mathbf{\Omega}_{1})R_{\nu'\nu}^{m}(\mathbf{\Omega}_{2})R_{\lambda'0}^{l}(\hat{\mathbf{r}}_{12})
 \end{equation}
 
 Assuming that this expansion converges, which is normally the case
-for correlation functions, the expansion can be expressed in limit
+for correlation functions, the expansion can be expressed in a limited
 number of projections. If we also take into account the rotational
-invariance by recombine some terms, only $r$ and 5 independent indices
+invariance by recombining some terms, only $r$ and 5 independent indices
 are necessary to describe all the projections:
 \begin{equation}
 F_{\mu\nu}^{mnl}(r)=\sum_{\mu'\nu'\lambda'}\left(\begin{array}{ccc}
@@ -268,8 +268,8 @@ m & n & l\\
 \end{equation}
 
 The projections $F_{\mu\nu}^{mnl}(r)$ with a finite order of expansion
-have much fewer of terms compared to the angular form in eq. (\ref{eq:miet-def-func})
-within the same precision of description.
+have much fewer terms compared to the angular form in eq. (\ref{eq:miet-def-func})
+with the same precision of description.
 
 We can define a basis set of rotational invariant as:
 \begin{equation}
@@ -278,11 +278,11 @@ m & n & l\\
 \mu' & \nu' & \lambda'
 \end{array}\right)R_{\mu'\mu}^{m}(\mathbf{\Omega}_{1})R_{\nu'\nu}^{n}(\mathbf{\Omega}_{2})R_{\lambda'0}^{l}(\mathbf{\hat{r}}_{12})
 \end{equation}
-where the normalization factor $f^{mnl}$ can be any arbitrary nonzero
+where the normalization factor $f^{mnl}$ can be any arbitrary non-zero
 constant, depending only on indices $m$, $n$, $l$. In Blum's convention,
 it is taken as $\left[\left(2m+1\right)\left(2n+1\right)\right]^{\frac{1}{2}}$.
 
-With these definitions, relation between the projections and the original
+With these definitions, the relation between the projections and the original
 function is:
 \begin{equation}
 F(\mathbf{X}_{1},\mathbf{X}_{2})=\sum_{mnl\mu\nu}\tilde{F}_{\mu\nu}^{mnl}(r)\Phi_{\mu\nu}^{mnl}(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2},\mathbf{\hat{r}}_{12})
@@ -311,7 +311,7 @@ and also in $k$-space:
 \hat{\gamma}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})=\sum_{mnl\mu\nu}\hat{\gamma}_{\mu\nu}^{mnl}(k)\Phi_{\mu\nu}^{mnl}(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2},\mathbf{\hat{k}}_{12})
 \end{equation}
 
-The relation between these projections in $r$ and $k$-space are
+The relation between these projections in $r$ and $k$-space is
 built by the Hankel transform:
 \begin{equation}
 \hat{c}_{\mu\nu}^{mnl}(k)=4\pi i^{l}\int\mathrm{d}r\,r^{2}j_{l}(kr)c_{\mu\nu}^{mnl}(r)\label{eq:4.hankel1}
@@ -333,7 +333,7 @@ if $l$ is odd. The complete symmetry relations are listed in $\mathsection$\ref{
 
 The \acs{MOZ} equation based on the rotational invariants $\hat{f}_{\mu\nu}^{mnl}(k)$
 can be found in the article of Blum \citep{Blum_I}, but the form
-is a bit complicate. To provide a simpler form, Blum defined the $\chi$-transform:
+is a bit complicated. To provide a simpler form, Blum defined the $\chi$-transform:
 \begin{equation}
 \hat{c'}_{\mu\nu,\chi}^{mn}(k)=\sum_{l=\left|m-n\right|}^{m+n}\left(\begin{array}{ccc}
 m & n & l\\
