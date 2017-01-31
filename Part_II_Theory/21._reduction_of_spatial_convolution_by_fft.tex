@@ -1,7 +1,7 @@
 
 \chapter{Angular Integration in Excess Functional \label{chpt:fft-spatial}}
 
-As discussed in last chapter, the Fourier transform of the excess
+As discussed last chapter, the Fourier transform of the excess
 functional gradient is:
 \begin{equation}
 \hat{\gamma}(\mathbf{k},\mathbf{\Omega}_{1})=\int\mathrm{d}\mathbf{\Omega}_{2}\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega}_{2})\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\label{eq:gamma-k}
@@ -9,14 +9,14 @@ functional gradient is:
 
 It should be pointed out that the direct correlation function (\acs{DCF}),
 $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$, used
-as an input data in eq. (\ref{eq:gamma-k}) is very memory-costly.
+as input data in eq. (\ref{eq:gamma-k}) is very memory-costly.
 In the previous work \citep{gendre_classical_2009,Zhao_2011,borgis_molecular_2012},
-the \acs{DCF} bas been stocked in the intermolecular form $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
-to profit an economy of memory, where $(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})\equiv(\cos\theta_{1},\cos\theta_{2},\phi_{12})$,
+the \acs{DCF} was stocked in the intermolecular form $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
+to take advantage of an economy of memory, where $(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})\equiv(\cos\theta_{1},\cos\theta_{2},\phi_{12})$,
 and the correspondence of $(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 to $(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$ is calculated
 directly in the code. These works adapt well with linear solvents,
-but are proved less powerful for molecular solvent such as water.
+but are proven less powerful for molecular solvents such as water.
 However, in the case of full Euler angles intermolecular \acs{DCF}
 (fig. \ref{fig:coordinate_systems}), 
 \begin{equation}
@@ -25,18 +25,18 @@ However, in the case of full Euler angles intermolecular \acs{DCF}
 neither the storage of $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 which is definitively impossible, nor the direct calculation of correspondence
 $(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$ to $(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
-due to the increased complexity that makes it too costly, can be regard
-as a possible solution. For instance, with a normal setting of $64^{3}$
+due to the increased complexity and resulting cost, can be regarded
+as possible solutions. For instance, with a normal setting of $64^{3}$
 spatial grid and a Lebedev quadrature of order 2 (14 angles for $\Theta$
 and $\Phi$), and 3 $\Psi$-angles, even if the \acs{DCF} is stocked
 in simple precision (complex number), it takes $64^{3}\times42^{2}\times4\,\mathrm{bytes}\times2=3.52\mathrm{GB}$,
 and for a Lebedev quadrature of order 5 and correspondingly 5 $\Psi$-angles,
 it takes $64^{3}\times250^{2}\times4\,\mathrm{bytes}\times2=131\mathrm{GB}$.
-As a normal PC has only 4 to 16 GB of RAM, it can cause a memory leak. 
+As a normal PC has only 4 to 16 GB of RAM, this can cause a memory leak. 
 
 Therefore, two strategies are developed to treat the full \acs{DCF}
 case. The first one is a direct extension of the previous work, which
-uses the full intermolecular \acs{DCF} with a more complicate angle
+uses the full intermolecular \acs{DCF} with a more complicated angle
 correspondence pre-tabulated in the beginning of the implementation.
 The other calculates the \acs{DCF} directly from rotational invariant
 projections. Here we give a complete discussion of these two strategies.
@@ -62,10 +62,10 @@ in intermolecular frame.\label{fig:coordinate_systems}}
 
 For the full \acs{DCF} in intermolecular coordinates system, $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$,
 only 6 variables are needed instead of 9 for $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$,
-and the storage is considerably reduced. The transform from $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
+and the storage is considerably reduced. The transformation from $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 to $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$ relies
 on the correspondence $\boldsymbol{\omega}(\mathbf{k},\mathbf{\Omega})\equiv(\cos\theta,\phi,\psi)$,
-which is here pre-calculated as a table of data.
+which here is pre-calculated as a table of data.
 
 Finding $\boldsymbol{\omega}$ from $\mathbf{\Omega}$ amounts to
 defining the correspondence between the rotation matrices of the two
@@ -77,7 +77,7 @@ $\mathbf{\hat{R}}_{\mathbf{\Omega}}$
 \end{equation}
 can be expressed by 3 rotation operations $\mathbf{\hat{R}}_{\Phi}$,
 $\mathbf{\hat{R}}_{\Theta}$, and $\mathbf{\hat{R}}_{\Psi}$ which
-rotate along $z$-$y$-$z$ axes (the same convention as defined in
+rotate along $x$-$y$-$z$ axes (the same convention as defined in
 Messiah \citep{Messiah} and Gray-Gubbins \citep{Gray-Gubbins}):
 \begin{align}
 \mathbf{\hat{R}}_{\mathbf{\Omega}} & =\left[\begin{array}{ccc}
@@ -137,7 +137,7 @@ with the rotation matrix related to $\mathbf{k}$ vector:
 \end{equation}
 
 Here we fix $\psi_{k}=0$. $\theta_{k}$ and $\phi_{k}$ are calculated
-from Cartesian coordinates ($k_{x}$, $k_{y}$, $k_{z}$). In the
+from Cartesian coordinates ($k_{x}$, $k_{y}$, $k_{z}$). In
 extreme cases where we cannot define $\theta_{k}$ (for $\left\Vert \mathbf{k}\right\Vert =0$)
 and $\phi_{k}$ (for $k_{x}^{2}+k_{y}^{2}=0$), we can arbitrarily
 fix those angles to zero.
@@ -192,7 +192,7 @@ $(8,8,8,8,8)$ in the case of water, which uses the symmetries in
 $\mathsection$\ref{subsec:Symmetric-dcf} to reduce the number of
 $\phi$ and $\psi$ by two) such that the correspondence from $(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 to $(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$ usually falls
-in between angular grid points of the intermolecular grid. An interpolation
+between angular grid points of the intermolecular grid. An interpolation
 can be done at different orders: zeroth order interpolation, which
 directly takes the nearest point, or linear interpolation.
 
@@ -209,7 +209,7 @@ i_{\psi}=\mathrm{mod}(\left\lfloor \psi(n_{\psi}/\pi)\right\rfloor ,n_{\psi})+1
 \end{array}
 \end{equation}
 where $\left\lfloor f\right\rfloor $ is the floor function. For the
-angle $\phi$ which relate to two solvent molecules, the operation
+angle $\phi$ which relates to two solvent molecules, the operation
 $\phi=\phi_{1}-\phi_{2}$ introduces a double error when integer indices
 are used, as shown in figure \ref{fig:diff_phi}.
 
@@ -225,13 +225,13 @@ schema. In test 0.3-0.4, all $\phi$ or only $\phi_{2}$ is doubled.\label{fig:dif
 \end{figure}
 
 In the actual implementation, as an integer takes 4 bytes and a real
-takes 8 bytes, there is no profit to tabulate $\phi$ in integer two
+takes 8 bytes, there is no profit to tabulate $\phi$ as an integer two
 times, thus $\phi$ is stored directly in real.
 
 \subsection{Linear interpolation of DCF\label{subsec:Linear-interpolation-of}}
 
 At this order, $\boldsymbol{\omega}(\mathbf{k},\mathbf{\Omega})$
-is stored in double precision. All angles are stored in real number,
+is stored in double precision. All angles are stored in real number form,
 and the corresponding \acs{DCF} is calculated as
 \begin{equation}
 c(\omega)=w_{0}c(\omega_{0})+w_{1}c(\omega_{1})
@@ -265,7 +265,7 @@ is to use the \acs{DCF} expressed in terms of rotational invariant
 projections, which takes far less memory than in the intermolecular
 function form thanks to their angular independence and symmetric properties. 
 
-\subsection{Using projections in form of $\hat{c}_{\mu\nu}^{mnl}(k)$\label{subsec:Using-projections-in}}
+\subsection{Using projections in the form of $\hat{c}_{\mu\nu}^{mnl}(k)$\label{subsec:Using-projections-in}}
 
 As described by Blum \citep{Blum_I}, $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 can be expanded as
@@ -273,7 +273,7 @@ can be expanded as
 \hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})=\sum_{mnl\mu\nu}\hat{c}_{\mu\nu}^{mnl}(k)\Phi_{\mu\nu}^{mnl}(\mathbf{\hat{k}},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})
 \end{equation}
 where $\Phi_{\mu\nu}^{mnl}(\mathbf{\hat{k}},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
-are rotational invariants that depends on both the spatial and angular
+are rotational invariants that depend on both the spatial and angular
 coordinates of the two particles (detailed in appendix \ref{chpt:rotational-invariant-expansion}).
 
 For projections of order $n_{\mathrm{max}}=1$ ($n,m\leq1$), the
@@ -292,14 +292,14 @@ invariants expressed below both in laboratory and intermolecular frames:
 \end{align}
 where the orientations in laboratory frame $\mathbf{\Omega}$ are
 here expressed as an orientational vector $\mathbf{\Omega}=(\sin\Theta\cos\Phi,\sin\Theta\sin\Phi,\cos\Theta)$
-in the cartesian coordinate system. 
+in the Cartesian coordinate system. 
 
 To express the \acs{DCF} at higher orders, the number of \acs{FE}
 needed for $\Phi_{\mu\nu}^{mnl}(\mathbf{\hat{k}},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 becomes huge and the \acs{DCF} should be calculated in intermolecular
 frame as indicated below.
 
-\subsection{Using projections in form of $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$\label{subsec:Using-projections-in-1}}
+\subsection{Using projections in the form of $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$\label{subsec:Using-projections-in-1}}
 
 Compared to the expression of $\Phi_{\mu\nu}^{mnl}(\mathbf{\hat{k}},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 in laboratory frame (eq. (\ref{eq:definition_rot_invar})), its intermolecular
@@ -316,7 +316,7 @@ can be separately pre-tabulated for each given $\mathbf{k}$, to avoid
 repetitive evaluation of each term.
 
 Eq. (\ref{eq:dcf-exact}) replaces the interpolation of eq. (\ref{eq:interpolation})
-by an exact formula and it requires the projections $\hat{c}_{\mu\nu,\chi}^{mn}(k)$
+by an exact formula, and it requires the projections $\hat{c}_{\mu\nu,\chi}^{mn}(k)$
 to be stored in memory rather than the full angular representation
 $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$. It
 also requires the passage from orientations in laboratory frame to
