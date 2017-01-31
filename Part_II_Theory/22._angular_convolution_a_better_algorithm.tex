@@ -51,7 +51,7 @@ m & n & l\\
 \end{array}\right)R_{\mu'\mu}^{m}(\mathbf{\Omega}_{1})R_{\nu'\nu}^{n}(\mathbf{\Omega}_{2})R_{\lambda'0}^{l}(\hat{\mathbf{k}})\label{eq:c-projection}
 \end{equation}
 
-As \acs{GSH} possess orthogonality eq. (\ref{eq:gsh-orthogonality})
+As \acs{GSH}s possess orthogonality eq. (\ref{eq:gsh-orthogonality})
 and symmetry eq. (\ref{eq:symm-gsh-1}), eq. (\ref{eq:gamma-k}) can
 be rewritten by (\ref{eq:gamma-projection}, \ref{eq:delta-rho-projection},
 \ref{eq:c-projection}), which gives (here we omit the detailed demonstration
@@ -82,8 +82,8 @@ m & n & l\\
 
 Invariants of form $F_{\mu\nu,\chi}^{mn}(k)$ have a very simple relation
 with their combined function $F(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
-in intermolecular coordinate system (see appendix \ref{chpt:rotational-invariant-expansion},
-eq. (\ref{eq:local-forward}, \ref{eq:local_backward})), that is
+in intermolecular coordinate systems (see appendix \ref{chpt:rotational-invariant-expansion},
+eq. (\ref{eq:local-forward}, \ref{eq:local_backward})); that is
 how the \acs{OZ} equation can be reduced. In \acs{MDFT}, we can
 also take advantage of this quantity by defining the projections of
 $\hat{\gamma}$ and $\hat{\rho}$ in the local frame ($\boldsymbol{\omega}_{i}=\hat{\mathbf{k}}^{-1}\mathbf{\Omega}_{i}$):
@@ -111,7 +111,7 @@ evaluation is shown in $\mathsection$\ref{sec:Operational-algorithm}.}
 \hat{\gamma'}_{\chi\mu}^{m}(\mathbf{k})=\sum_{n\nu}\left(-\right){}^{\chi+\nu}\hat{c'}_{\mu\nu,\chi}^{mn}(k)\Delta\hat{\rho'}_{\chi\underline{\nu}}^{n}(\mathbf{k})\label{eq:gamma-blum}
 \end{equation}
 
-Eq. (\ref{eq:gamma-blum}) is essential to the new algorithm. It makes
+Eq. (\ref{eq:gamma-blum}) is essential to the new algorithm. It states
 that, for the terms with the same index $\chi$, the \acs{OZ} equation
 is a simple product of matrix:
 \begin{equation}
@@ -120,10 +120,10 @@ is a simple product of matrix:
 
 The index $\chi$ shares the same role with $\mathbf{k}$ in the treatment
 of spatial convolution, where the recombination of projections on
-the exponential orthogonal bases gives for each $\mathbf{k}$, a simple
+the exponential orthogonal bases gives, for each $\mathbf{k}$, a simple
 product form of the \acs{OZ} equation.
 
-If we consider the solute is the same as solvent, and take $\hat{c'}_{\nu\mu,\underline{\chi}}^{nm}(k)$
+If we consider the solute is the same as the solvent, and take $\hat{c'}_{\nu\mu,\underline{\chi}}^{nm}(k)$
 in the place of $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$, eq. (\ref{eq:gamma-blum})
 is mathematically identical to eq. (\ref{eq:Blum-reduced-OZ}), as:
 \begin{equation}
@@ -138,12 +138,12 @@ that:
 \begin{equation}
 \hat{c'}_{\nu\mu,\underline{\chi}}^{nm}(k)=\hat{c'}_{\mu\nu,\chi}^{mn*}(k)
 \end{equation}
-The incompatibility in the conjugate is yet to be understand. In the
+The incompatibility in the conjugate is yet to be explained. In the
 code, when we use the $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$ issued from
 \acs{IET}, we also need to take its conjugate to obtain the same
 result as \acs{IET}. Note that the demonstration from eq. (\ref{eq:gamma-projection})
-to eq. (\ref{eq:gamma-blum}) does not contain any incompatibility,
-it only occurs in the comparison with the \acs{IET} formalism for
+to eq. (\ref{eq:gamma-blum}) does not contain any incompatibility;
+it only occurs in comparison with the \acs{IET} formalism for
 homogeneous liquids.
 
 With the approach described above, the integral of the angular part
@@ -152,7 +152,7 @@ Table \ref{tab:FE-of-OZ} shows some parameters linking to computing
 cost of different algorithms. \marginpar{\protect\textsuperscript{{*}}Only if we do not need to calculate
 $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$.}It shows that the expansion on \acs{GSH}s (eq. (\ref{eq:im})) does
 not give any reduction of \acs{FE} compared to its 6D function form
-(eq. (\ref{eq:gamma-k}))\textsuperscript{{*}}; but after the Blum's
+(eq. (\ref{eq:gamma-k}))\textsuperscript{{*}}; but after Blum's
 $\chi$-transform, the \acs{OZ} equation is largely reduced. The
 fact is that as the treatment of spatial convolution takes advantage
 of the transitional invariance $r_{12}$, the $\chi$-transform makes
@@ -199,7 +199,7 @@ spatial grids, the transform described in eq. (\ref{eq:gamma-projection})
 and (\ref{eq:delta-rho-projection}), here defined as the generalized
 spherical harmonic transform (\acs{GSHT}), \textit{a priori }should
 be fast. This is possible owing to the exponential components in the
-definition of \acs{GSH}, that will be discussed later as the fast
+definition of \acs{GSH}, which will be discussed later as the fast
 generalized spherical harmonic transform (\acs{FGSHT}).
 
 \acs{GSHT} provides a forward-backward transform between a general
@@ -229,14 +229,14 @@ To completely expand this function as shown in equation (\ref{eq:GSHT_backward})
 at least $m_{\mathrm{max}}=n$ is needed, where $m_{\mathrm{max}}$
 is the highest order of projections $F_{\mu'\mu}^{m}$ in the expansion.
 Note that $m_{\mathrm{max}}=n$ is not always sufficient to completely
-expand $F(\mathbf{\Omega})$, a discussion to this issue will be given
+expand $F(\mathbf{\Omega})$, so a discussion of this issue will be given
 in $\mathsection$\ref{sec:gsh-imp}. 
 
 To evaluate exactly the integration in equation (\ref{eq:GSHT_forward}),
 at least $n+1$ for $\cos\Theta$ (Gauss-Legendre grid), $2n+1$ for
 $\Phi$ (equal-spaced grid), $2n+1$ for $\Psi$ (equal-spaced grid)
 points of angular grid are needed (c.f. appendix \ref{chpt:equivalence-of-quadrature-projection-order}).
-In the case of water which possesses a $\mathrm{C}_{2}$ symmetry
+In the case of water, which possesses a $\mathrm{C}_{2}$ symmetry
 $F(\Psi+\pi)=F(\Psi)$, only projections of even $\mu$ are nonzero:
 \begin{eqnarray}
 F_{\mu} & = & \int\mathrm{d}\Psi F(\Psi)e^{i\mu\Psi}=\int\mathrm{d}(\Psi+\pi)F(\Psi+\pi)e^{i\mu(\Psi+\pi)}\nonumber \\
@@ -269,7 +269,7 @@ the total degree $\cos\Psi_{2}$ polynomial in the integrand is $2\left\lfloor n/
 then $2\left\lfloor n/2\right\rfloor +1$ points of $\Psi_{2}$ (or
 $\Psi$) are needed. 
 
-For further implementation, we take these conclusions, but distinguish
+For further implementation, we take these conclusions but distinguish
 the order of quadrature $m_{\mathrm{max}}$ (linked to the angular
 grid) and the order of projection $n_{\mathrm{max}}$ (linked to the
 \acs{GSH} transform) for numerical reason.
@@ -292,7 +292,7 @@ or $2$ according to the symmetry $\mathrm{C}_{s}$ of solvent.
 To integrate eq. (\ref{eq:GSHT-fwd}) in a direct way, $(m_{\mathrm{max}}+1)(2m_{\mathrm{max}}+1)(2\left\lfloor m_{\mathrm{max}}/s\right\rfloor +1)=N_{\Theta}N_{\Phi\Psi}=N$
 \acs{FE} are needed for each $F_{\mu'\mu}^{m}$, an overall $O(N_{FE}^{2})$
 process is needed and \textit{vice versa}. Therefore, a faster algorithm
-proposed by Numerical Recipes \citep{Numerical_Recipes_3ed} suggests
+proposed by Numerical Recipes \citep{Numerical_Recipes_3ed} proposes
 to reduce this cost to $O(N_{\Theta}^{2}N_{\Phi\Psi}\ln N_{\Phi\Psi}\simeq N^{4/3})$
 by \acs{FFT}.
 
@@ -402,8 +402,8 @@ as 8 operations:
 \begin{equation}
 \Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})=\frac{f_{m}}{8\pi^{2}}\int\mathrm{d}\mathbf{\Omega}\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega})R_{\mu'\mu}^{m*}(\mathbf{\Omega})\label{eq:fgsht-fwd}
 \end{equation}
-Note that these two steps, the same with their backward transform,
-are commutable, which will be discussed after.
+Note that these two steps, as with their backward transform,
+are commutable, which will be discussed later.
 \item Afterwards the projections in k-frame are then rotated into the local
 coordinate system along the unit vector $\mathbf{\hat{k}}$:
 \begin{equation}
@@ -474,7 +474,7 @@ projections in local frame ${f'}_{\chi\mu}^{m}(\mathbf{k})$ can be
 achieved either by a rotation to the function $\hat{f}(\mathbf{k},\boldsymbol{\omega}_{k})$
 in intermolecular frame following by an \acs{GSH} expansion as eq.
 (\ref{eq:gamma-projection-local}), or an \acs{GSH} expansion that
-gives the projections $f_{\mu'\mu}^{m}(\mathbf{k})$ following by
+gives the projections $f_{\mu'\mu}^{m}(\mathbf{k})$ followed by
 a rotation as eq. (\ref{eq:gamma-p}).
 
 However, the rotation from $f(\mathbf{r},\mathbf{\Omega})$ to $f(\mathbf{r},\boldsymbol{\omega})$
@@ -510,18 +510,17 @@ into $k$-space, replacing
 \begin{equation}
 \Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})=(-)^{\mu'+\mu}\Delta\hat{\rho}_{\underline{\mu'}\underline{\mu}}^{m*}(-\mathbf{k})\label{eq:2.2.symm-rho-k}
 \end{equation}
-Therefore only the projections of $\mu'\geq0$, $\mu\geq0$, or a
-half of $\mathbf{k}$ where one of the dimensions $k_{i}\geq0$ are
+Therefore only the projections of $\mu'\geq0$, $\mu\geq0$, or half of $\mathbf{k}$ where one of the dimensions $k_{i}\geq0$, are
 independent. 
 
-In the implementation, it is a natural choice to keep only a half
-of projections $\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})$, as either
+In the implementation, it is a natural choice to keep only half
+of the projections $\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})$, as either
 the real-to-complex \acs{FFT}3D ($k_{3}\geq0$) or the real-to-complex
-\acs{FGSHT} ($\mu\geq0$) gives implicitly a half of information.
+\acs{FGSHT} ($\mu\geq0$) gives implicitly half of the information.
 As the \acs{OZ} equation (\ref{eq:gamma-blum}) is separable for
 each $\mathbf{k}$, but not on $\mu$ ($\nu$ in equation), it is
-more natural compute a half of $\mathbf{k}$, which is actually the
-choice in our code. All the rest we should prove is that the $\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})$
+more natural to compute half of $\mathbf{k}$, which is actually the
+choice in our code. All the rest we should prove that the $\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})$
 calculated from this half of known density is still able to generate
 all the informations.
 
@@ -553,7 +552,7 @@ sufficient to generate $\hat{\gamma}(\mathbf{k},\mathbf{\Omega})$
 or $\gamma(\mathbf{r},\mathbf{\Omega})$. Thus the \acs{OZ} equation
 can be safely reduced by a factor of two. 
 
-We can also find
+We also find
 \begin{equation}
 R_{\mu'\chi}^{m}(\hat{\mathbf{k}})=(-)^{m}R_{\mu'\underline{\chi}}^{m}(-\hat{\mathbf{k}})=(-)^{m+\mu'+\chi}R_{\underline{\mu'}\chi}^{m}(-\hat{\mathbf{k}})\label{eq:3}
 \end{equation}
@@ -571,16 +570,16 @@ find the symmetries of $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$ in eq. (\ref{eq:rot-inva
 \hat{c}_{\mu\nu,\chi}^{mn}(k)=\left(-\right)^{m+n+\mu+\nu}\hat{c}_{\underline{\mu}\underline{\nu},\chi}^{mn*}(k)
 \end{equation}
 
-It should be noted that not exactly the half of points are calculated.
-If we choose to calculate a half of $\mathbf{k}$, as shown in figure
-\ref{fig:points-symm}, where the 2D plan corresponds two of the three
+It should be noted that not exactly half of the points are calculated.
+If we choose to calculate half of $\mathbf{k}$, as shown in figure
+\ref{fig:points-symm}, where the 2D plan corresponds to two of the three
 dimensions in $k$-space grid, the green points can be generated from
 the black points by the symmetries of eq. (\ref{eq:2.2.symm-rho-k}),
 but the red points should be all calculated, of which the corresponding
-points is also a red point or even itself. This ever caused a huge
+point is also a red point or even itself. This never caused a huge
 problem in the implementation, as we put $\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})$
 and $\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})$ in the same array for
-reason of memory. It should be assured that these points are calculated
+purposes of memory. It should be assured that these points are calculated
 only once.
 
 \begin{figure}[th]
