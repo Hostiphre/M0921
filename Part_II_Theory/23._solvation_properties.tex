@@ -2,8 +2,8 @@
 \chapter{Solvation Properties\label{chpt:solvation-properties}}
 
 The solvation free energy and solvent structure are the most important
-property that we seek; as shown in previous sections, they can be
-both obtained by the minimization of the free energy functional $\mathcal{F}[\rho]$.
+properties that we seek; as shown in previous sections, they can both be
+obtained by the minimization of the free energy functional $\mathcal{F}[\rho]$.
 Here is a discussion about some corrections needed for charged solutes
 and some profiles of structures deduced from the solvent density.
 
@@ -13,7 +13,7 @@ In the calculation of external potential as well as the total solvation
 free energy, the use of different conventions can lead to a charge-independent
 offset, which introduces error for charged solutes \citep{Kastenholz_2006_I,Kastenholz_2006_II,Hunenberger_book}.
 This offset is mainly caused by two sources: (1) resulting from the
-use of a finite system size; in our case, is a system with cubic periodic
+use of a finite system size; in our case, a system with cubic periodic
 boundary conditions, which presents artificial interactions between
 the ion and its own periodic copies, as well as between the solvent
 and the periodic copies of the ion (Type-B); (2) resulting from the
@@ -109,8 +109,8 @@ becomes
 \section{Solvation structure\label{sec:Solvation-structure}}
 
 In MDFT, all the information about solvation structure can be deduced
-from the solvent density $\rho(\mathbf{r},\mathbf{\Omega})$. Here
-presents some examples of structure which are used in later chapters.
+from the solvent density $\rho(\mathbf{r},\mathbf{\Omega})$. Here we
+present some examples of structure which are used in later chapters.
 
 \subsection{Radial and site-site distribution function}
 
@@ -153,15 +153,15 @@ The total function is
 g(r_{i})=\dfrac{\int_{v_{i}}\sum_{i=1}^{N}\rho_{i}\delta(\mathbf{r}-\mathbf{r}_{i})\mathrm{d}v_{i}}{\int_{v_{i}}\delta(\mathbf{r}-\mathbf{r}_{i})\mathrm{d}v_{i}}
 \end{equation}
 and it becomes necessary to sum up the point values $\rho_{i}$ in
-the interval $\delta v=\delta r\cdot S_{r}$, and divide it by the
-number of points in this interval.
+the interval $\delta v=\delta r\cdot S_{r}$, and divide them by the
+number of points in the interval.
 
 A site-site distribution function is the same type as \acs{RDF},
 but the origin for the calculation of $\mathbf{r}$ is no longer at
-the center of the solute, but is now at the site coordinate $\mathbf{r}_{u}$,
+the center of the solute. Instead it is now at the site coordinate $\mathbf{r}_{u}$,
 such that the new coordinates are calculated as $\mathbf{r}'=\mathbf{r}-\mathbf{r}_{u}$.
 Calculation of solvent site outside the solvent center requires more
-complicated calculations, involving the rotation of solvent coordinate
+complicated calculations involving the rotation of solvent coordinate
 to $\mathbf{\Omega}$-frame. It has equivant information of the structure
 to the rotational invariant projections of higher order, the implementation
 of which we have not done here.
@@ -177,9 +177,9 @@ It can be calculated in the same way as $g(r)$.
 
 \subsection{Rotational invariant expansion}
 
-If the solute is simple, like a spherical ion or little molecule,
+If the solute is simple, like a spherical ion or tiny molecule,
 it is convenient to expand the density on rotational invariants which
-possess a lot of symmetries:
+possess numerous symmetries:
 \begin{eqnarray}
 \rho(\mathbf{r},\mathbf{\Omega}) & = & \sum_{mnl\mu\nu}\rho_{\mu\nu}^{mnl}(r)\Phi_{\mu\nu}^{mnl}(0,\mathbf{\Omega},\mathbf{\hat{r}})\label{eq:rot_invar_expansion}\\
  & = & \sum_{mnl\mu\nu}\rho_{\mu\nu}^{mnl}(r)f^{m}f^{n}\sum_{\eta}\left(\begin{array}{ccc}
@@ -200,13 +200,13 @@ m & n & l\\
 
 Like the \acs{RDF} and \acs{PDF}, histogram approach is used in
 this process to evaluate the integration $\int\mathrm{d}\hat{\mathbf{r}}$,
-to take advantage of the $R_{\lambda0}^{l*}(\mathbf{\hat{r}})$ in
+and to take advantage of the $R_{\lambda0}^{l*}(\mathbf{\hat{r}})$ in
 regular spatial space calculated by recurrence (appendix \ref{chpt:rotM-by-recurrence}).
-A detailed deduction for these generalized formula is in appendix
+A detailed deduction for these generalized formulae is in appendix
 \ref{chpt:rotational-invariant-expansion}.
 
 Note that if the solvent is water, that processes a symmetry axis
-$\mathrm{C}_{2v}$, the projections $\rho_{\mu\nu}^{mnl}(r)$ are
+$\mathrm{C}_{2v}$, and the projections $\rho_{\mu\nu}^{mnl}(r)$ are
 purely real.
 
 \subsection{Equivalence between the curves}
