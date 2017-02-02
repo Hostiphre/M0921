@@ -96,8 +96,7 @@ acs{FFT}
 
 \end_inset
 
- treatment for the convolution of spatial part of the integral, a fast generaliz
-ed spherical harmonics transform (
+ treatment for the convolution of spatial part of the integral, a fast generalized spherical harmonics transform (
 \begin_inset ERT
 status open
 
@@ -179,7 +178,7 @@ acs{DCF}
 
 \end_inset
 
- can also be expended on rotational invariants 
+can also be expanded on rotational invariants 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Blum_I"
@@ -351,7 +350,7 @@ where
 \end_layout
 
 \begin_layout Standard
-Compare to (
+Compared to (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:gamma-projection.2F"
@@ -412,7 +411,7 @@ acs{OZ}
 \begin_inset Formula $\gamma$
 \end_inset
 
-, we can be inspired by Blum's reduction of the 
+, we can be guided by Blum's reduction of the 
 \begin_inset ERT
 status open
 
@@ -447,14 +446,14 @@ m & n & l\\
 \end_layout
 
 \begin_layout Standard
-Thus replace (
+Thus replacing (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:gamma-p.2F"
 
 \end_inset
 
-) by (
+) with (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:im.2F"
@@ -633,7 +632,7 @@ reference "eq:gamma-1.2F"
 
 \end_inset
 
-) is reduced to a sum a few terms.
+) is reduced to a sum of a few terms.
 \end_layout
 
 \end_body
