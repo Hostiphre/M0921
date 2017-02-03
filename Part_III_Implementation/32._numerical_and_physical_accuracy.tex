@@ -1026,7 +1026,7 @@ we choose some linear solutes shown in figure \ref{fig:Test-linear-solutes}
 and table \ref{tab:Parameters-of-test-solutes}. The direct summation
 method ($\mathsection$\ref{subsec:The-external-term}) is used for
 $\mathcal{F}_{\mathrm{ext}}$ evaluation, as $\mathrm{O}_{2}$ always
-diverges with Poisson method. We can make hypothesis that this is
+diverges with the Poisson method. We can make a hypothesis that this is
 because the distance between the charges is too short, as shown in
 figure \ref{fig:Test-linear-solutes}; therefore the interpolation
 in $\mathcal{F}_{\mathrm{ext}}$ evaluation can cause divergence.
@@ -1111,10 +1111,10 @@ between $m_{\max}=5$ and $m_{\max}=n_{\max}$.
 \caption[Free energy of solutes]{Free energy of solutes. Reference free energy by \acs{IET} in parentheses.\label{tab:Free-energy-of-solute}}
 \end{table}
 
-The solvent structure around the various solutes are also compared
-to \acs{IET} results, as this of $\mathrm{CO}_{2}$ shown in figure
+The solvent structures around the various solutes are also compared
+to \acs{IET} results, as for $\mathrm{CO}_{2}$ shown in figure
 \ref{fig:Comparison-co2}. For the projections of $m=0$, they are
-well agreed with \acs{IET} results, but for the projections with
+well in agreement with \acs{IET} results, but for the projections with
 $m=2$, a factor of normalization at $\sqrt{3}$ appears, which seems
 to have no reason to exist, as the factor normally linked to $m$
 is $2m+1$ or $\sqrt{2m+1}$. 
@@ -1133,35 +1133,35 @@ to avoid noise.\label{fig:Comparison-co2}}
 
 \section{First conclusion}
 
-From the above results, the following first conclusions may be drawn:
+From the above results, the following initial conclusions may be drawn:
 \begin{itemize}
-\item \acs{MDFT} is capable to produce the solvation free energy at chemical
-precision with normal convergence criteria (which gives 2 decimal
+\item \acs{MDFT} is capable of producing the solvation free energy at chemical
+precision with normal convergence criteria (which gives 2 decimals
 for a specific spatial and angular grid), which is nearly the same
 compared to mathematical equivalent \acs{IET} results for LJ centers,
 single ions and linear solutes. The variance of free energy due to
 discretization parameters is at chemical precision, i.e. 1 to 2 kJ/mol.
 To keep this precision, at least $n_{\max}=3$ is needed, and the
-order of quadrature $m_{\max}$ has no influence to the energy and
+order of quadrature $m_{\max}$ has no influence on the energy and
 structure if it is larger than $n_{\max}$. This $n_{\max}$ is far
 from sufficient to describe the solvent density $\rho$, but sufficient
 for $\gamma$. As $\rho$ is produced by the minimization, its expansion
-has no influence to the final result. The different branches produce
-almost the same result with the same \acs{DCF}, comparing to the
-error introduced by spatial grid dependence; while \texttt{\textbf{naive\_interpolation}}
+has no influence on the final result. The different branches produce
+almost the same result with the same \acs{DCF}, compared to the
+error introduced by spatial grid dependence, while \texttt{\textbf{naive\_interpolation}}
 seems to be a bit more stable compared to \texttt{\textbf{convolution}}
 methods in terms of convergence for negative molecules, but exhibits
-a small an energy shift about 2 kJ/mol for neutral LJ centers. For
+a small energy shift, about 2 kJ/mol for neutral LJ centers. For
 charged solutes, the two types of free energy corrections mentioned
 in this thesis are needed.
 \item As for structure, \acs{MDFT} can also produce the same result as
 \acs{IET}. It requires about $n_{\max}=4$ to have a converged curve
-of $g(r)$ projections. For solutes, we are obliged to use looser
-sampling rate to have a smooth curve; as the spatial grid is cubic,
+of $g(r)$ projections. For solutes, we are obliged to use a looser
+sampling rate to have a smooth curve as the spatial grid is cubic,
 but not in spherical coordinates as \acs{IET}. Indeed \acs{MDFT}
 has the great advantage to be generalizable to produce 3D solvent
-structures for complicate molecules, but \acs{IET} is ideal, and
-much more efficient, to give information about small symmetric molecules
+structures for complicated molecules, but \acs{IET} is ideal, and
+much more efficient when giving information about small symmetric molecules
 using functions with respect to $r$.
 \end{itemize}
 
