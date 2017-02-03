@@ -19,9 +19,9 @@ process. \label{fig:find-eq-den}}
 \end{figure}
 
 As shown in figure \ref{fig:find-eq-den}, the three functional terms
-and its gradients can be both calculated separately. With the first
-two terms well presented in section \ref{chpt:mdft}, this section
-aims to summary all the algorithms to evaluate the excess functional
+and their gradients can be calculated separately. With the first
+two terms well represented in section \ref{chpt:mdft}, this section
+aims to summarise all the algorithms to evaluate the excess functional
 gradient $\gamma(\mathbf{r},\mathbf{\Omega})$ from $\Delta\rho(\mathbf{r},\mathbf{\Omega})$,
 knowing that
 \begin{equation}
@@ -40,7 +40,7 @@ According to the commutativity of operations (see $\mathsection$\ref{subsec:Comm
 the only possible algorithms to evaluate $\gamma(\mathbf{r},\mathbf{\Omega})$
 from $\Delta\rho(\mathbf{r},\mathbf{\Omega})$ are shown in the figure
 \ref{fig:Possible-algorithms}. We recall here that $\mathbf{\Omega}$
-and $f_{\mu'\mu}^{m}$ refers to orientations in the laboratory frame
+and $f_{\mu'\mu}^{m}$ refer to orientations in the laboratory frame
 whereas $\boldsymbol{\omega}$ and ${f'}_{\chi\mu}^{m}$ refers to
 orientations in the intermolecular frame (axis $\overrightarrow{Oz}$
 in the direction of $\mathbf{k}$).
@@ -54,7 +54,7 @@ in the direction of $\mathbf{k}$).
 
 Several branches are built to test and compare between algorithms,
 which are shown below in table \ref{tab:Branch-option}. These branches
-should give numerically the same result in certain conditions, that
+should give numerically the same result in certain conditions, which
 will be discussed in later sections. 
 
 \begin{table}[H]
@@ -101,14 +101,14 @@ from $\Delta\hat{\rho}(\mathbf{k},\mathbf{\Omega})$ with
 The \acs{DCF} in laboratory frame, $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$,
 is reconstructed from the intermolecular \acs{DCF}, $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$,
 by a pre-established relation $\boldsymbol{\omega}(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$.
-The difference between branches is the way to calculate $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$.
-Branch\textbf{ }\texttt{\textbf{naive\_standard}} use $c_{\mu\nu,\chi}^{mn}(k)$
-as input \acs{DCF}, and calculate $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
+The difference between branches is the method to calculate $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$.
+Branch\textbf{ }\texttt{\textbf{naive\_standard}} uses $c_{\mu\nu,\chi}^{mn}(k)$
+as input \acs{DCF}, and calculates $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
 directly (eq. (\ref{eq:dcf-exact})) during the evaluation of eq.
 (\ref{eq:gamma-naive}) with these coefficients. Branch \texttt{\textbf{naive\_zero-order}}
 and \texttt{\textbf{naive\_interpolation}} use a pre-tabulated $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
 as input, either calculated from $c_{\mu\nu,\chi}^{mn}(k)$ or in
-other way. Branch \texttt{\textbf{naive\_zero-order}} takes the neatest
+another way. Branch \texttt{\textbf{naive\_zero-order}} takes the neatest
 point of $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
 according to the pre-established correspondence $\boldsymbol{\omega}(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$,
 while \texttt{\textbf{naive\_interpolation}} gives a linear interpolation
@@ -135,7 +135,7 @@ which seems not to be a wise choice.
 
 \section{Branches ``convolution''}
 
-The method \texttt{\textbf{convolution}}, which are developed in the
+The method \texttt{\textbf{convolution}}, which is developed in the
 objective of this thesis and detailed theoretically in section \ref{chpt:angular-convolution},
 contains three branches.
 
@@ -150,7 +150,7 @@ reduction ($\mathsection$\ref{subsec:Reduction-by-symmetry}), i.e.
 artificially generating all the projections $\Delta\rho_{\mu'\mu}^{m}(\mathbf{r})$
 from the projections of $\mu\geq0$ given implicitly by the real-to-complex
 \acs{FGSHT} process; while \texttt{\textbf{convolution\_standard}}
-takes only the projections $\mu\geq0$, calculate the projections
+takes only the projections $\mu\geq0$, and calculates the projections
 in local frame (eq. (\ref{eq:2.2.rho-rot-rho}))
 \begin{equation}
 \Delta\hat{\rho'}_{\chi\mu}^{m}(\mathbf{k})=\sum_{\mu'}\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})R_{\mu'\chi}^{m}(\mathbf{\hat{k}})
@@ -167,12 +167,12 @@ path
 \left(b\right)\shortrightarrow\left(d\right)\shortrightarrow\left(f\right)\shortrightarrow\left(j\right)\shortrightarrow\left(n\right)\shortrightarrow\left(o\right)\shortrightarrow\left(p\right)
 \]
 which swaps the \acs{FFT} and \acs{FGSHT} processes. It takes implicitly
-$k_{3}\geq0$ from the real-to-complex \acs{FFT} process, thus implements
+$k_{3}\geq0$ from the real-to-complex \acs{FFT} process, thus implementing
 the same number of \acs{FE} for the \acs{OZ} equation as \texttt{\textbf{convolution\_standard}}.
 
 Theoretically, \texttt{\textbf{convolution\_standard}} should be the
 fastest \texttt{\textbf{convolution}} method as its number of \acs{FE}
-for \acs{FFT} process is depending on the number of projections $\Delta\rho_{\mu'\mu}^{m}$,
+for \acs{FFT} process depends on the number of projections $\Delta\rho_{\mu'\mu}^{m}$,
 which is smaller than the number of \acs{FE} for \texttt{\textbf{convolution\_pure\_angular}}
 depending on the number of angles $(\Theta,\Phi,\Psi)$.
 
@@ -185,14 +185,14 @@ Branches \texttt{\textbf{naive\_dipole}} and \texttt{\textbf{naive\_nmax1}}
 go through the path $\left(b\right)\shortrightarrow\left(h\right)\shortrightarrow\left(p\right)$,
 calculating $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 directly with the projections $\hat{c}^{mnl}(k)$ as shown in $\mathsection$\ref{subsec:Using-projections-in},
-with separately the \acs{DCF} of the references \citep{zhao_accurate_2013}
+with separately with the \acs{DCF} of the references \citep{zhao_accurate_2013}
 and \citep{puibasset_bridge_2012}, whose slight difference is shown
 in $\mathsection$\ref{subsec:Comparison-with-non-coupling}. 
 
-Branch \texttt{\textbf{reference\_dipole}} use \acs{DCF} in \citep{zhao_accurate_2013},
+Branch \texttt{\textbf{reference\_dipole}} uses \acs{DCF} in \citep{zhao_accurate_2013},
 which is the original method in \acs{MDFT} to calculate $\mathcal{F}_{\mathrm{exc}}$
 via multipole expansion, and is mathematically equivalent to \texttt{\textbf{naive\_dipole}}.
-In addition with branch \texttt{\textbf{convolution\_standard}} that
+In addition, with branch \texttt{\textbf{convolution\_standard}} that
 can also use the two \acs{DCF}s mentioned above, a test of validation
 can be performed, which should in any case be exactly the same numerically
 if the same \acs{DCF} is used.
