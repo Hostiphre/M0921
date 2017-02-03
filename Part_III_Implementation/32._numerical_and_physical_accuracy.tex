@@ -539,14 +539,14 @@ the symmetry
 \gamma_{\mu'\mu}^{m}(\mathbf{k})=(-)^{\mu'+\mu}\gamma_{\underline{\mu'}\underline{\mu}}^{m*}(-\mathbf{k})\label{eq:4-1}
 \end{equation}
 is not totally respected, and this imposes that $\gamma_{\mu'\mu}^{m}(\mathbf{r})$
-has a imaginary part. This imaginary part has been omitted implicitly
-in the ``real to complex'' \acs{FFT} process used in, for example,
+has an imaginary part. This imaginary part has been omitted implicitly
+in the ``real to complex'' \acs{FFT} process used with, for example,
 \acs{FGSHT} in \texttt{\textbf{convolution\_standard}}, or \acs{FFT}3D
 in \texttt{\textbf{convolution\_pure\_angular}}. That is to say, we
 keep only the part of nonnegative $\mathbf{k}$ or nonnegative $\mu$,
 supposing that the part we omit respects the symmetry.
 
-In the purpose that the three algorithm gives the same result, we
+In the event that the three algorithms give the same result, we
 can artificially impose at the border:
 \begin{equation}
 R_{\mu'\chi}^{m}(k_{i}^{\mathrm{max}})=\frac{1}{2}\left[R_{\mu'\chi}^{m}(k_{i})+R_{\mu'\chi}^{m}(-k_{i})\right]
@@ -556,7 +556,7 @@ If more than one dimension is in conflict, this process can be done
 twice (4 terms for ``edges'' of the cube) or three times (8 terms
 for ``vertices''). The point $\mathbf{k}=\hat{0}$ is different;
 as it is defined along the $z$-axes to avoid underdetermination,
-it does not respect eq. (\ref{eq:3-1}) and (\ref{eq:2-1}), neither.
+it does not respect eq. (\ref{eq:3-1}) or (\ref{eq:2-1}).
 However, this point is proven to be negligible compared to the hundreds
 of thousands of total points.
 
@@ -585,7 +585,7 @@ linked to symmetry, and in fact we used an odd grid. The projections
 $\gamma_{\mu\nu}^{mnl}(r)$ of these two algorithms seem to be identical
 (figure \ref{fig:gamma-proj}), which is to say that the global profile
 of the two should be almost the same, and thus the error would not
-be very decisive. Knowing that the difference is even more compensated
+be very decisive. Knowing that the difference is even further compensated
 with many iterations as shown in table \ref{tab:free-energy}, we
 can consider that this slight difference has no consequence to the
 final result.
@@ -664,19 +664,19 @@ the energy has a tendency to decrease when increasing the resolution
 of grid (nfft). This decrease does not link to the border correction
 mentioned in $\mathsection$\ref{sec:Free-energy-correction}, as
 both the box length and the charge remain the same for the whole set
-of test. From (b) we consider that at least a 3 points grid in 1 dimension
+of tests. From (b) we consider that at least a 3-point grid in 1 dimension
 (each direction) per Angstrom is needed to reduce the uncertainty
 due to grid resolution. The molecule in Figure (c) is neutral (although
-dipolar), i.e. does not need any border correction neither. We see
+dipolar), i.e. it does not need any border correction either. We see
 that the energy also varies with respect to the box length (with direct
-summation this time), and have the same tendency for different resolution
+summation this time), and has the same tendency for different resolutions
 $\mathrm{nfft}/L$. The curves of $\mathrm{nfft}/L=3$ and $\mathrm{nfft}/L=4$
 do not give too much difference. Figure (d) fixed the Lebedev quadrature
 for $\Theta$ and $\Phi$, but left varying the $\Psi$. We can also
 see a dependence on $\Psi$ which does not completely vanish when
-increasing the resolution of angular grid. Since during the whole
+increasing the resolution of the angular grid. Since throughout the whole
 thesis the $\Psi$ is theoretically fixed by the order of the quadrature
-in $\Theta$ and $\Phi$, this remains an issue for further verification.
+in $\Theta$ and $\Phi$, this remains an issue requiring further verification.
 We can roughly conclude that an error around 1-2 kJ/mol is common
 for this code. The spatial grid dependence will not be treated in
 this thesis as it may come from other terms of the functional.
@@ -714,12 +714,12 @@ which depend on the box length and charge of the ion. To verify these
 dependencies, we implement a systematic calculation with variable
 charge and box length using 3 different methods, the parameters of
 which are shown in table \ref{tab:parameters-ch4}. It should be noted
-that, the \texttt{\textbf{naive\_interpolation}} only used 14 Lebedev
+that the \texttt{\textbf{naive\_interpolation}} only used 14 Lebedev
 and 3 $\Psi$ angles to converge, which gives exactly the same result
 with 26 Lebedev and 4 $\Psi$ angles. That means the \texttt{\textbf{naive}}
 methods do not need an order of quadrature $m_{\max}$ to be greater
 than the order of \acs{DCF} $n_{\max}$. \marginpar{Some points of negative charge diverged; (in \acs{IET}, the negative
-charge also have difficulty to converge), and all the converged results
+charges also have difficulty converging), and all the converged results
 are presented.}
 
 \begin{table}[h]
@@ -815,7 +815,7 @@ The intercept values in each of figures \ref{fig:ch4_nmax1_lmn} to
 \ref{fig:ch4_nmax1_new} correspond to the free energy of an infinite
 box. The \acs{IET} results to be compared were obtained using the
 1D-HNC formalism (1 distance, 5 angles) developed by Belloni and collaborators
-\citep{belloni_efficient_2014}. The calculation were done with a
+\citep{belloni_efficient_2014}. The calculations were done with a
 cut-off distance of $R_{\max}=102.4\textrm{Å}$ and an additional
 Born-like correction of $-2.556k_{\mathrm{B}}T$ to obtain the free
 energy in the infinite system. The difference in free energy between
@@ -828,7 +828,7 @@ of type-C:
 \dfrac{2\pi}{3}f_{Q}\eta\gamma=82.104\mathrm{kJ}\cdot\mathrm{mol^{-1}}\label{eq:eta-gamma}
 \end{equation}
 The measured number and the theoretical one are a little different,
-it can be principally due to the lack of point at the -1 charge side.
+which can be principally due to the lack of point at the -1 charge side.
 
 \subsection{Comparison with IET after corrections}
 
@@ -869,7 +869,7 @@ as well as the dependence on $q$ for ``nmax5\_convo'' after correction.
 But if we look at the free energies without comparing them in figure
 \ref{fig:Comparison-to-IET,with-corr-alles}, we can see that these
 differences are almost negligible compared to the total energy they
-possess, and the curves only differs with different \acs{DCF}s.
+possess, and the curves only differ with different \acs{DCF}s.
 
 \subsection{Dependence on $m_{\max}$ and $n_{\max}$}
 
@@ -915,9 +915,9 @@ $n_{\max}=0,\ldots,5$.\label{fig:Comparison-to-IET,with-corr-nmax}}
 As we see, the free energy of charged $\mathrm{C}\mathrm{H}_{4}^{\mathfrak{q}}$
 series depends a lot on the order of \acs{DCF}, $n_{\max}$. To study
 systematically the influence of $m_{\max}$ and $n_{\max}$, we chose
-a series of tests with three charge: -0.6, 0, and +1, using \texttt{\textbf{convolution\_standard}},
+a series of tests with three charges: -0.6, 0, and +1, using \texttt{\textbf{convolution\_standard}},
 as shown in table \ref{tab:Free-energy-of-mnmax}. Three types of
-energy are listed: the results issued from \acs{IET}, the case when
+energy are listed: the results issued from \acs{IET}, and the case when
 $m_{\max}=n_{\max}$ and $m_{\max}=5$. As we said previously the
 gradient $\gamma$ is smoother than $\rho$; it is worthwhile to study
 the case when the order of quadrature $m_{\max}$ for the expansion
@@ -929,26 +929,26 @@ From table \ref{tab:Free-energy-of-mnmax} we can see that the free
 energy becomes stable in any case when $n_{\max}\geq3$; the free
 energies are quite in agreement with \acs{IET} results; and there
 is almost no difference between $m_{\max}=n_{\max}$ and $m_{\max}=5$.
-That means, the quadrature of $\rho$ have no influence to the final
+That means the quadrature of $\rho$ has no influence on the final
 energy, which is yet comprehensible, as the extra order of quadrature
 gives no influence to the functional gradient, and the $\rho$ used
 to evaluate the functional is given by minimization, i.e. without
 expansion on \acs{GSH}s.
 
-A scheme of free energy evaluation with respect to $n_{\max}$ ($m_{\max}=5$,
-as some of the points of $m_{\max}=n_{\max}$ have difficulty to converge
-and if convergence is achieved they give usually the same result)
+A scheme of free energy evaluation with respect to $n_{\max}$ ($m_{\max}=5$
+(as some of the points of $m_{\max}=n_{\max}$ have difficulty converging
+and if convergence is achieved they usually give the same result)
 is made in figure \ref{fig:Comparison-to-IET,with-corr-nmax}. We
 see that from $n_{\max}=3$ to higher order, the curves do not vary
-a lot. We can conclude that within $n_{\max}\geq3$ to $n_{\max}=5$,
+much. We can conclude that within $n_{\max}\geq3$ to $n_{\max}=5$,
 the error in free energy is acceptable.\marginpar{We take solute-solvent formalism for \acs{MDFT}, and \acs{IET} takes
 the solvent-solute formalism. Thus in \acs{MDFT} the $g_{\mu\nu}^{mnl}$
 corresponds to the $g_{\nu\mu}^{nml}$ in \acs{IET}. In figure \ref{fig:Comparison-to-IET.rot_invar}
-it is converted to give a easier understanding. }
+it is converted to give better understanding. }
 
 Some selected projections $\rho_{0\nu}^{0nl}(r)$ (0 as solute is
 spherical) are compared to \acs{IET} in figure \ref{fig:Comparison-to-IET.rot_invar}.
-We can see that they are in good agreement.
+We can see that they are well in agreement.
 
 \begin{figure}[!t]
 \begin{centering}
@@ -968,18 +968,18 @@ of $\mathrm{C}\mathrm{H}_{4}^{\mathfrak{q}}$ series comparing to
 series with different $m_{\max}$ and $n_{\max}$\label{fig:RDF-and-polarization}}
 \end{figure}
 
-If we compare one charge in one graph, with all the $n_{\max}$, we
+If we compare one charge in one graph with all the $n_{\max}$, we
 can determine which $n_{\max}$ is sufficient to have a good structure
 of the density $\rho$. Figure \ref{fig:RDF-and-polarization} gives
 the \acs{RDF}s and \acs{RPF}s for the three charges, as well as
-their zoomed parts in order to have a clear view of the differences.
-Firstly we can see that in the most of cases, apart form uncharged
+their zoomed parts, in order to have a clear view of the differences.
+Firstly we can see that in most cases, apart from uncharged
 $\mathrm{C}\mathrm{H}_{4}$ and some $n_{\max}=1$, the curves of
 $m_{\max}=5$ and $m_{\max}=n_{\max}$ are superposed. That means
-even for structure of single ions, extra order of $m_{\max}$ is useless.
+even for structures of single ions, extra order of $m_{\max}$ is useless.
 For -0.6, the curves converge from $n_{\max}=3$, and for +1, $n_{\max}=4$.
-For $\mathrm{C}\mathrm{H}_{4}$ it seems to be bazar, but looking
-at the scale of the schema and we consider that it converges from
+For $\mathrm{C}\mathrm{H}_{4}$ it seems to be bizarre, but looking
+at the scale of the schema we take into consideration that it converges from
 $n_{\max}=4$. To conclude, for $\mathrm{C}\mathrm{H}_{4}^{\mathfrak{q}}$
 series, we think $n_{\max}=3$ is sufficient for energy, and $n_{\max}=4$
 is sufficient for the structure to converge (without considering higher
@@ -988,9 +988,9 @@ order projections).
 \section{Uncharged LJ centers}
 
 As there is an energy shift between \texttt{\textbf{naive\_interpolation}}
-and \acs{IET} results even for un charged $\mathrm{C}\mathrm{H}_{4}$
+and \acs{IET} results even for uncharged $\mathrm{C}\mathrm{H}_{4}$
 (figure \ref{fig:Comparison-to-IET,with-corr}), we have calculated
-in addition some other uncharged LJ centers. 
+some other uncharged LJ centers. 
 \begin{table}[h]
 \begin{centering}
 \begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}ccccccccccc}
