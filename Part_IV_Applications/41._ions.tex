@@ -1,8 +1,8 @@
 
 \chapter{Comparison to MD simulation\label{chpt:ions}}
 
-In the last chapter, we have proven that \acs{MDFT} is capable to
-correctly predict solvation properties of LJ centers, single ions
+In the last chapter, we proved that \acs{MDFT} is capable of
+correctly predicting solvation properties of LJ centers, single ions
 and linear solutes compared to \acs{IET}. In this section, we will
 compare them to \acs{MD} and experimental results. All the solutes
 are optimized with the fast \texttt{\textbf{convolution\_standard}}
@@ -10,15 +10,15 @@ algorithm, with implicitly $L=24$ $\textrm{Å}$, $\mathrm{nfft}=72$,
 $m_{\max}=n_{\max}$ unless otherwise specified. Comparison to the
 dipole method is also involved, as we should justify that the increase
 of computing cost when going from $n_{\max}=1$ to $n_{\max}>1$ is
-counter-balanced by the capability to produce better results. 
+counterbalanced by the ability to produce better results. 
 
 \section{LJ centers}
 
 The \acs{RDF}s of rare gases calculated in $\mathsection$\ref{tab:Free-energy-rare-gas}
 are compared to \acs{MD} in figure \ref{fig:rare-gazz} using $n_{\max}=3$
 to 5. The structures of different $n_{\max}$ is almost identical.
-Comparing to \acs{MD}, it looks like there is no improvement compared
-to the dipole method in ref \citep{Zhao_2011} or to calculation involving
+Comparing to \acs{MD}, it seems there is no improvement over the dipole method 
+in ref \citep{Zhao_2011} or to calculation involving
 $c_{00}^{000}$ only \citep{levesque_scalar_2012}. This kind of disagreement
 in curve shape is regarded as a known default of \acs{HNC} (or \acs{HRF})
 approximation.
@@ -27,7 +27,7 @@ approximation.
 \begin{centering}
 \includegraphics[width=0.95\columnwidth]{_figure/results/rare_gaz}
 \par\end{centering}
-\caption{\acs{RDF} of rare gazes compared to \acs{MD} result\label{fig:rare-gazz}}
+\caption{\acs{RDF} of rare gasses compared to \acs{MD} result\label{fig:rare-gazz}}
 \end{figure}
 
 
@@ -39,8 +39,8 @@ in figure \ref{fig:Comparison-to-MD}. We can see that for positive
 charges, the complete $n_{\max}=5$ gives much better results compared
 to the dipole method, which itself almost agrees with \acs{MD} results.
 For negative charges, $n_{\max}=5$ gives nearly the same result as
-dipole method, while the \acs{MD} results are more smooth, but the
-first peak of the \acs{MDFT} results seems to be in good position.
+dipole method, while the \acs{MD} results are more smooth. Still the
+first peak of the \acs{MDFT} results seems to be in a good position.
 We can conclude that the complete \acs{DCF} gives a large improvement
 for positive charged ions.
 
@@ -56,15 +56,15 @@ result\label{fig:Comparison-to-MD}}
 \section{Solvation free energy of single ions}
 
 \marginpar{We consider that in a macroscopic system, the fluctuation of $N$
-and $V$ are negligible, and all kinds of free energies becomes the
-same. \citep{ensemble_thermo}}From above we can see the \acs{RDF} for positive ions are in good
+and $V$ are negligible, and all kinds of free energies become the
+same. \citep{ensemble_thermo}}From the previous paragraph we can see the \acs{RDF} for positive ions are in good
 agreement with \acs{MD} results. However, the free energy is more
 difficult to compare, as there are several finite-size corrections
-for single ions, depending on for example box length and charge; besides
+for single ions, depending on for example box length and charge; besides,
 the free energy depends largely on the input LJ parameters of the
 ions, which is independent to the method.
 
-Table \ref{tab:single-ions} gives from literatures some experimental
+Table \ref{tab:single-ions} gives some independent experimental
 and \acs{MD} simulation results of solvation free energy as well
 as the positions of the first maximum of the \acs{RDF} for alkali
 and halide ions. We can see that the experimental data themselves
@@ -72,7 +72,7 @@ vary a lot. Furthermore the LJ parameters for ions in the literature
 are extremely dispersed. Therefore, we focused on a single series
 of force field parameters for halide anions and alkali cations taken
 from ref \citep{horinek_rational_2009} based on SPC/E water, as shown
-also in table \ref{tab:single-ions}. 
+in table \ref{tab:single-ions}. 
 
 \begin{table}[h]
 \begin{centering}
@@ -143,12 +143,12 @@ maximum $[\textrm{Å}]$ of single ions from \acs{MDFT} results compared
 to \acs{MD} results \label{tab:free-energy-single-ions}}
 \end{table}
 
-The results shows that the free energies given by \acs{MDFT} is not
+The results shows that the free energies given by \acs{MDFT} are not
 perfect, but lie in the same order of magnitude as \acs{MD} for $\mathrm{Cl}^{-}$
 to $\mathrm{I}^{-}$ and $\mathrm{K}^{+}$ to $\mathrm{Cs}^{+}$.
 They are much less convincing for small ions such as $\mathrm{F}^{-}$,
 $\mathrm{Li}^{+}$ and $\mathrm{Na}^{+}$. Besides, the results with
-a \acs{DCF} at $n_{\max}=3$ works better than the dipolar approximation,
+a \acs{DCF} at $n_{\max}=3$ work better than the dipolar approximation,
 which is a positive sign for our developments. In contrast, there
 is no improvement in terms of position of the first solvation maximum.
 Note that for this quantity, the agreement between experimental data
@@ -167,36 +167,36 @@ context.
 
 Figure \ref{fig:Site-O} gives the site-site \acs{RDF}s (solute site
 to water O site) for $n_{\max}=4$, the dipolar approximation ($n_{\max}=1$),
-and \acs{MD} for these test solutes. It is shown that in the most
+and \acs{MD} for these test solutes. It is shown that in most
 of the cases, $n_{\max}=4$ does give equivalent or better results
-than the dipolar order, apart from the cases of water, and specially
-SPC/E water. In methanol, the dipole method diverge. For most solutes,
+than the dipolar order, apart from the cases of water, and especially
+SPC/E water. In methanol, the dipole method diverges. For most solutes,
 the comparison to \acs{MD} is far from perfect but can be qualified
 as satisfactory in reproducing the - sometimes complex - shape of
 the \acs{RDF}s and the main peaks positions. This statement is especially
-true for benzene and pyrimidine for example. For hydrophobic molecules
-or molecules with hydrophobic sites (alkanes, oxygen, nitrogen, ...)
+true for benzene and pyrimidine, for example. For hydrophobic molecules
+or molecules with hydrophobic sites (alkanes, oxygen, nitrogen)
 one recovers the slight underestimation of the first peak position
-and the overestimation of peak height that was already remarked for
+and the overestimation of peak height already remarked for
 rare gases; this is a clear defect of \acs{HNC}. The case of molecules
-giving raise to hydrogen bonds to water (e.g. methanol, or water in
+giving rise to hydrogen bonds to water (e.g. methanol, or water in
 water) is more problematic and subtle. Here the dipolar approximation
 gives a first peak for the water oxygen around the O-site that is
 too high but has the correct width, whereas $n_{\max}=4$ shifts the
 first peak to higher values and makes it too wide (a sort of merge
 of the first and second peak, an effect even clearer for methanol).
-The H-O first peak on the other hand is at a correct position but
+The H-O first peak, on the other hand, is at a correct position but
 underestimated, both for water and methanol. The tetrahedral order
 around a water solute is not correctly reproduced, although the correct
 balance to get the right structure is subtle and does not appear too
 far. 
 
-In the purpose of showing the ability of \acs{MDFT} to calculate
+For the purpose of showing the ability of \acs{MDFT} to calculate
 3D solute structure, we display 3D solvent densities for specific
 solutes in figure \ref{fig:Volume-slice-of} and \ref{fig:Iso-surface-of-solvent}.
 Figure \ref{fig:Iso-surface-of-solvent} complements the discussion
 given just above concerning the expected tetrahedral structure around
-a water molecule in water. That structure can be indeed detected for
+a water molecule in water. That structure can indeed be detected for
 SPC/E water and even more so for the TIP4P model. In SPC/E water,
 there is more density than expected on the north pole, and this piece
 of density disappears with the extra charge added on the TIP4P water.\\
