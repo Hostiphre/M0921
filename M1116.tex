@@ -160,10 +160,10 @@ As discussed in $\mathsection$\ref{subsec:The-excess-term}, eq.
 such that the integral $\int\mathrm{d}\mathbf{r}_{2}$ in eq. (\ref{eq:gamma-II})
 is transformed into a simple product in eq. (\ref{eq:gamma-k-II}),
 giving a great advantage in terms of computational efficiency for
-huge spatial grid. \\
+huge spatial grids. \\
 \medskip{}
-In the previous work \citep{Zhao_2011}, $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
-in eq. (\ref{eq:gamma-k-II}) is evaluated with a pre- tabulated intermolecular
+From the previous work \citep{Zhao_2011}, $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
+in eq. (\ref{eq:gamma-k-II}) is evaluated with a pre-tabulated intermolecular
 \acs{DCF}, $\hat{c}(k,\cos\theta_{1},\cos\theta_{2},\phi_{12})$,
 which is appropriate for linear molecules. Section \ref{chpt:fft-spatial}
 gives a complete evaluation of $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
@@ -172,7 +172,7 @@ or rotational invariant projections.\\
 \medskip{}
 On the other hand, the increased precision of \acs{DCF} evaluation
 makes the computing cost of the original algorithm no longer reasonable.
-Further approximation should be therefore made. Section \ref{chpt:angular-convolution}
+Further approximations should therefore be made. Section \ref{chpt:angular-convolution}
 presents a new algorithm to treat the angular convolution in eq. (\ref{eq:gamma-k-II}),
 which takes advantage of the rotational invariance by expanding the
 density variable $\rho(\mathbf{r},\mathbf{\Omega})$ on Wigner generalized
@@ -181,7 +181,7 @@ largely simplified, and the memory needed for the storage of \acs{DCF}
 is no longer important.\\
 \medskip{}
 The solvent properties involved in this thesis are presented in section
-\ref{chpt:solvation-properties}, organized in two aspects, the energy
+\ref{chpt:solvation-properties} and organized in two aspects, the energy
 and the structure. The solvation free energy corrections and some
 forms of structure are presented.}
 
@@ -214,18 +214,18 @@ sections, the results are regrouped into two aspects, the accuracy
 and performance:\\
 \medskip{}
 Section \ref{chpt:accuracy} examines all the possible accuracy loss
-in the implementation, comparing to the theoretical model, which is
+in the implementation compared to the theoretical model, which is
 in a general sense continuous and infinite. The accuracy loss is mainly
 due to the discretization of the system: the finite expansion of \acs{GSHT},
-the effects linking to discretized grid, as well as finite size of
-sample box. The factors linked to these effects are thus analyzed,
+the effects linking to a discretized grid, as well as finite size of
+sample box. The factors linked to these effects are thus analyzed
 in order to determine their acceptable minimum number to give a reasonable
 result.\\
 \medskip{}
 Section \ref{chpt:seq-code-performance} discusses the computing performance
-of the code from subroutines to entire algorithms. The goal is to
+of the code, from subroutines to entire algorithms. The goal is to
 show that the new algorithms are much faster than the old ones, according
-to the theory; but also, to give a detailed evaluation of timing of
+to the theory, but also to give a detailed evaluation of timing of
 all algorithms for further code development.}
 
 \part{Implementation}
@@ -245,7 +245,7 @@ LJ centers, ions and small molecules. The results are also compared
 to the dipolar reference method, which is the method corresponding
 to $n_{\max}=1$= for linear or pseudo-linear molecules that was fully
 implemented so far, to show that this increase of computing cost has
-really done an improvement on the results.}
+made an improvement on the results.}
 
 \part{Applications}
 
@@ -263,11 +263,11 @@ where the orientations span the three Euler angles, $\mathbf{\Omega}\equiv(\Thet
 It gives a new method to evaluate solvation properties (grand-canonical
 free energy and microscopic solvent density) within the framework
 of liquid-state theory. It is more complete and accurate compared
-within the development of \acf{MDFT} presented so far. The approach
+with the development of \acf{MDFT} presented so far. The approach
 is yet limited to rigid molecules and the neglect of three-body correlations.\\
 \medskip{}
-To complete this story, we conclude all the achievements done in this
-thesis, and some unfinished work and theories linked to this thesis
+To complete this work, we conclude all the achievements done in this
+thesis, and some unfinished work and related theories remaining
 due to the time limit.}
 
 \part{Conclusion and Perspectives}
