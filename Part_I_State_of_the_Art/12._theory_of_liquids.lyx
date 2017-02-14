@@ -129,8 +129,8 @@ acs{DFT}
 \end_inset
 
 , as well as their equivalency, are presented with brief derivations in
- the following sections.
- The majority of these sections is based on the book by Hansen & McDonald
+ the following content.
+ The majority of this section is based on the book by Hansen & McDonald
  
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -372,7 +372,7 @@ the intrinsic chemical potential.
 \begin_layout Standard
 We can also define the intrinsic free energy: 
 \begin_inset Marginal
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Formula $N=\int\mathrm{d}\mathbf{r}\bar{n}(\mathbf{r})$
@@ -408,6 +408,10 @@ F_{\mathrm{int}} & = & F-\int\mathrm{d}\mathbf{r}\bar{n}(\mathbf{r})V_{\mathrm{e
 \end_inset
 
 where 
+\begin_inset Formula $F$
+\end_inset
+
+ is the Helmholtz free energy and
 \begin_inset Formula 
 \begin{equation}
 \bar{n}(\mathbf{r})=\left\langle \varrho(\mathbf{r})\right\rangle =\left\langle \sum_{i=1}^{N}\delta(\mathbf{r}-\mathbf{r}_{1})\right\rangle 
@@ -933,7 +937,7 @@ free-energy functional
 \begin_inset Quotes erd
 \end_inset
 
-, it is a free energy of grand ensemble, but differ from Helmholtz free
+; it is a free energy of grand ensemble, but differs from Helmholtz free
  energy 
 \begin_inset Formula $F$
 \end_inset
@@ -1110,8 +1114,8 @@ the free energy functional can be written as:
 \end_layout
 
 \begin_layout Standard
-Up to this point, a brilliant approach is built, that for a given choice
- 
+Up to this point a brilliant approach has been built, in that for a given
+ choice 
 \begin_inset Formula $V_{N}$
 \end_inset
 
@@ -1350,11 +1354,11 @@ reference "eq:1.59"
 
 \end_inset
 
-which gives for example, when 
+which gives, for example, when 
 \begin_inset Formula $\mathcal{O}(\Delta\rho{}^{2})=0$
 \end_inset
 
-, one of the simplest closure equation, the hypernetted-chain 
+, one of the simplest closure equations, the hypernetted-chain 
 \begin_inset ERT
 status open
 
@@ -1391,7 +1395,7 @@ reference "eq:1.minimize-anal"
 
 \end_inset
 
-) when the particle 1 and 2 are respectively the solute and solvent.
+) when the particles 1 and 2 are respectively the solute and solvent.
 \end_layout
 
 \begin_layout Standard
@@ -1479,7 +1483,7 @@ reference "eq:1.oz-origine"
  components can be written as
 \begin_inset Formula 
 \begin{equation}
-h_{\nu\mu}(1,2)=c_{\nu\mu}(1,2)+\rho\sum_{\lambda}x_{\lambda}\int c_{\nu\lambda}(2,3)h_{\lambda\mu}(1,3)\mathrm{d}3
+h_{\nu\mu}(1,2)=c_{\nu\mu}(1,2)+\rho\sum_{\lambda}x_{\lambda}\int h_{\lambda\mu}(1,3)c_{\nu\lambda}(2,3)\mathrm{d}3
 \end{equation}
 
 \end_inset
@@ -1668,7 +1672,8 @@ reference "eq:2oz4"
 \end_inset
 
 ) is rarely used.
- The difficulty to solve such equation is to find a proper closure equation.
+ The difficulty to solve such equation lies in finding a proper closure
+ equation.
  As the approximations like 
 \begin_inset ERT
 status open
@@ -1682,7 +1687,7 @@ acs{HNC}
 
 \end_inset
 
- is already quantitatively far from sufficient to describe solute-solvent
+ are already quantitatively far from sufficient to describe solute-solvent
  correlation, it becomes very bad for solute-solute.
 \end_layout
 

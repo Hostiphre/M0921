@@ -245,7 +245,7 @@ name "fig:Reaction-field-model"
 \end_layout
 
 \begin_layout Standard
-The solvation Gibbs free energy according to this model is
+According to this model the solvation Gibbs free energy is
 \begin_inset Formula 
 \begin{equation}
 \Delta G_{\mathrm{solvation}}=\Delta G_{\mathrm{cavity}}+\Delta G_{\mathrm{dispersion}}+\Delta G_{\mathrm{elec}}\label{eq:Continuum-mod}
@@ -307,7 +307,7 @@ key "SAS_1,SAS_2"
 
 \end_inset
 
-, can be calculated by adding the radius of the probe solvent ball on the
+, can be calculated by adding the radius of the probe solvent ball to the
  solvent excluded surface area (figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -567,7 +567,7 @@ reference "eq:poisson"
 This equation cannot be solved analytically for complex geometries (such
  as a protein).
  Therefore it is done numerically using appropriate methods; for example,
- mentioned in the article of Roux and Simonson 
+ as mentioned in the article of Roux and Simonson 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "roux_implicit_1999"
@@ -796,8 +796,7 @@ Firstly, the quantum effects should be ignored.
 
 .
  For light molecules, that is not always convincing.
- Some molecules containing hydrogen (e.
- g.
+ Some molecules containing hydrogen (e.g.
  
 \begin_inset Formula $\mathrm{H_{2}O}$
 \end_inset
@@ -810,7 +809,7 @@ Firstly, the quantum effects should be ignored.
 \begin_inset Formula $\mathrm{H_{2}}$
 \end_inset
 
-) exhibit obvious quantum effects at low temperature in the liquid state.
+) exhibit obvious quantum effects at low temperatures in the liquid state.
  Gaseous 
 \begin_inset Formula $\mathrm{H_{2}O}$
 \end_inset
@@ -1077,7 +1076,7 @@ where
 \end_inset
 
 , etc.
- The omission of the three-body and higher-order terms can cause error,
+ The omission of the three-body and higher-order terms can cause errors,
  for example, in surface tension and surface energy calculation 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -1086,11 +1085,11 @@ key "Miyazaki_1975"
 \end_inset
 
 .
- However the higher-order terms are often accounted for by an effective
+ However the higher order terms are often accounted for by an effective
  pair potential (measured by experiments or calculated by simulations),
  which reduces considerably the computational cost for simulations, or the
  degree of theory needed.
- Such models are presented below going from simple to molecular liquids.
+ Such models are presented below, going from simple to molecular liquids.
  For the molecular solvent considered in this thesis, water, most publications
  have stayed at this two-body level of description.
  
@@ -1315,7 +1314,7 @@ Site-site interactions
 \begin_layout Standard
 Indeed, a spherical description of interactions is not sufficient to fully
  describe molecular fluids.
- The site-site model is a further extension of atomic models, in which the
+ The site-site model is a further extension of atomic models in which the
  solvent molecule is represented by a set of discrete interaction sites.
  The total potential energy is a sum of spherical interaction potentials:
 \begin_inset Formula 
@@ -1437,7 +1436,8 @@ and
  Note that this model can be made more realistic by including higher-order
  electrostatic interactions, such as dipole-quadrupole, quadrupole-quadrupole,
  etc.
- Such a systematic multipolar approach has been proposed for water 
+ Such a systematic multipolar approach has previously been proposed for
+ water 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Chowdhuri_2006"
@@ -1572,7 +1572,7 @@ key "SPC/E"
 
 \end_inset
 
- as our solvent model through all this thesis.
+ as our solvent model throughout.
  It is a 3-site model, the electrostatic interaction being modeled using
  Coulomb's Law and the dispersion and repulsion forces using the Lennard-Jones
  potential, as described above.
@@ -1599,7 +1599,7 @@ status open
 
 \begin_layout Plain Layout
 It should be noted that any rigid solvent model is compatible with the theory
- that this thesis bases on, e.g.
+ that this thesis is based on, e.g.
  acetonitrile used in 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -2073,7 +2073,7 @@ Complex models require expensive computing cost, but still can have large
  fluctuations due to use of imposed small system size.
  There is a compromise between the choice of model and the choice of system
  size.
- For this reason, the rigid models are still nowadays the most popular.
+ For this reason, the rigid models are still the most popular nowadays.
  On the other hand, computing technologies have greatly developed compared
  to the theories themselves, which makes it possible to use more and more
  precise models in computation.
@@ -2085,7 +2085,7 @@ Model of solute
 \end_layout
 
 \begin_layout Standard
-The model of solute also have a substantial influence on the predicted energy
+The model of solute also has a substantial influence on the predicted energy
  and structure of solvation.
  The solute can eventually be treated by 
 \begin_inset ERT
@@ -2114,7 +2114,7 @@ acs{QM}
  (wall).
  In the case of molecular solutes, it is consistent to require the solute
  to have at least the same scale of description as the solvent.
- A hierarchy of possible potential models for solute is described in figure
+ A hierarchy of possible potential models for solutes is described in figure
  (
 \begin_inset CommandInset ref
 LatexCommand ref

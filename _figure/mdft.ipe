@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
-<ipe version="70107" creator="Ipe 7.1.7">
-<info created="D:20160118213509" modified="D:20160820161055"/>
+<ipe version="70206" creator="Ipe 7.2.6">
+<info created="D:20160118213509" modified="D:20170214205307"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -414,9 +414,9 @@ h
 316 808 l
 h
 </path>
-<text matrix="1 0 0 1 60 -28" transformations="translations" pos="192 808" stroke="black" type="label" width="118.563" height="11.569" depth="5.2" halign="center" valign="center">evaluate $\mathcal{F}[\varphi^{(i)}]$ and $\frac{\mathcal{F}[\varphi^{(i)}]}{\varphi^{(i)}}$</text>
-<text transformations="translations" pos="252 800" stroke="black" type="label" width="16.061" height="8.853" depth="1.93" halign="center" valign="center">$\varphi^{(i)}$</text>
-<text matrix="1 0 0 1 0 -68" transformations="translations" pos="252 800" stroke="black" type="label" width="26.148" height="8.853" depth="1.93" halign="center" valign="center">$\varphi^{(i+1)}$</text>
+<text matrix="1 0 0 1 60 -28" transformations="translations" pos="192 808" stroke="black" type="label" width="122.437" height="11.569" depth="5.2" halign="center" valign="center">evaluate $\mathcal{F}[\varphi^{(i)}]$ and $\frac{\delta\mathcal{F}[\varphi^{(i)}]}{\delta\varphi^{(i)}}$</text>
+<text transformations="translations" pos="252 800" stroke="black" type="label" width="16.061" height="8.853" depth="1.93" halign="center" valign="center" style="math">\varphi^{(i)}</text>
+<text matrix="1 0 0 1 0 -68" transformations="translations" pos="252 800" stroke="black" type="label" width="26.148" height="8.853" depth="1.93" halign="center" valign="center" style="math">\varphi^{(i+1)}</text>
 <path matrix="1 0 0 1 0 8" stroke="black" fill="white" cap="1" join="1">
 200 756 m
 200 740 l

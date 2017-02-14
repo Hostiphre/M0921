@@ -83,7 +83,7 @@ name "chpt:iem-mdft"
 \end_layout
 
 \begin_layout Standard
-In the case of non-spherical solvent like water, the solvent particle carries
+In the case of non-spherical solvents like water, the solvent particle carries
  a molecular structure described by a collection of distributed atomic interacti
 on sites (LJ and Coulombic).
  The two theories mentioned in the previous section are now formulated in
@@ -171,7 +171,8 @@ acs{IET}
 
 \end_inset
 
- to treat molecular solvent, will not be discussed here for simpleness.
+ to treat molecular solvents, will not be discussed here for the sake of
+ simplicity.
 \end_layout
 
 \begin_layout Section
@@ -219,7 +220,7 @@ where
 \end_inset
 
 .
- In case of linear solvent, this number can reduce to 2, i.e.
+ In the case of linear solvents, this number can be reduced to 2, i.e.
  
 \begin_inset Formula $\mathbf{\Omega}\equiv(\Theta,\Phi)$
 \end_inset
@@ -298,7 +299,7 @@ regarding to
 :
 \begin_inset Formula 
 \begin{equation}
-\left.\frac{\delta\mathcal{F}[\rho]}{\delta\rho(\mathbf{r},\mathbf{\Omega})}\right|_{\rho=\rho_{0}}=0
+\left.\frac{\delta\mathcal{F}[\rho]}{\delta\rho(\mathbf{r},\mathbf{\Omega})}\right|_{\rho=\bar{\rho}}=0
 \end{equation}
 
 \end_inset
@@ -331,7 +332,7 @@ The differentiation of
 \begin_inset Formula $\mathcal{F}_{\mathrm{id}}[\rho]$
 \end_inset
 
- used for the minimization, which will be discussed later, has form:
+ used for the minimization, which will be discussed later, has the form:
 \begin_inset Formula 
 \begin{equation}
 \frac{\delta\mathcal{F}_{\mathrm{id}}[\rho]}{\delta\rho(\mathbf{r},\mathbf{\Omega})}=k_{\mathrm{B}}T\ln\left(\dfrac{\rho(\mathbf{r},\mathbf{\Omega})}{\rho_{0}}\right)
@@ -410,7 +411,7 @@ where
 \end_inset
 
  and 
-\begin_inset Formula $\sigma_{uv}=\left(\sigma_{u}+\sigma_{v}\right)$
+\begin_inset Formula $\sigma_{uv}=\left(\sigma_{u}+\sigma_{v}\right)/2$
 \end_inset
 
  are the geometric and arithmetic average Lennard-Jones parameters between
@@ -494,7 +495,7 @@ reference "fig:Charge-density-projected"
 \begin_inset Formula $\Delta v$
 \end_inset
 
- the volume of the unit cube that this point charge situates in.
+ is the volume of the unit cube that this point charge situates in.
 \end_layout
 
 \begin_layout Standard
@@ -548,7 +549,7 @@ The electrostatic potential created by the charge distribution
 \begin_inset Formula $V_{q}(\mathbf{r})$
 \end_inset
 
-, can be thus computed using a periodic Poisson Solver.
+, can thus be computed using a periodic Poisson Solver.
  The Poisson equation (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -622,7 +623,7 @@ where
 
 \end_inset
 
-is the cartesian coordinate of a solvent site 
+is the Cartesian coordinate of a solvent site 
 \begin_inset Formula $v$
 \end_inset
 
@@ -644,15 +645,15 @@ Another method to calculate
 \begin_inset Formula $V_{\mathrm{coul}}(\mathbf{r},\mathbf{\Omega})$
 \end_inset
 
- is the direct summation, which gives a non-periodic external potential,
- but in the implementation it usually leads to better convergence for non-spheri
-cal molecules.
+ is direct summation, which gives a non-periodic external potential, but
+ in the implementation it usually leads to better convergence for non-spherical
+ molecules.
  
 \begin_inset Marginal
 status open
 
 \begin_layout Plain Layout
-As in this thesis we only work on the 
+In this thesis we only work on the 
 \begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
 \end_inset
 
@@ -661,8 +662,8 @@ As in this thesis we only work on the
 
 \end_inset
 
-Here we describe its expression, without understanding the reason behind
- the convergence:
+Here we describe its expression, without going into the reason behind the
+ convergence:
 \begin_inset Formula 
 \begin{equation}
 V_{\mathrm{coul}}(\mathbf{r},\mathbf{\Omega})=\sum_{u\in\mathrm{solute}}\sum_{v\in\mathrm{solvent}}\left(\dfrac{q_{u}q_{v}}{4\pi\varepsilon_{0}r_{uv}}\right)
@@ -683,8 +684,9 @@ reference "eq:4.ruv"
 \end_inset
 
 ).
- During this thesis, the direct summation is only used in the minimization
- of non-spherical solutes, in the chapters of implementation and application.
+ For this thesis, the direct summation is only used in the minimization
+ of non-spherical solutes, specifically in the chapters of implementation
+ and application.
 \end_layout
 
 \begin_layout Subsection
@@ -822,7 +824,7 @@ acs{FE}
 A convolution
 \begin_inset Formula 
 \begin{equation}
-h(x_{1})\equiv f(x_{2})\otimes g(x_{2})\equiv\int_{a}^{b}f(x_{2})g(x_{1}-x_{2})dx_{2}\label{eq:convolution-1}
+h(x_{1})\equiv f(x_{2})\otimes g(x_{2})\equiv\int f(x_{2})g(x_{1}-x_{2})dx_{2}\label{eq:convolution-1}
 \end{equation}
 
 \end_inset
@@ -860,8 +862,8 @@ reference "eq:4.gamma"
 
 \end_inset
 
-Here we put the hat symbol on the physical quantities to represented the
- Fourier transform of their original function.
+Here we put the hat symbol on the physical quantities to represent the Fourier
+ transform of their original function.
 \end_layout
 
 \begin_layout Standard
@@ -885,7 +887,7 @@ reference "eq:4.gamma"
 
 \end_inset
 
-) is transformed into a simple product, only 
+) is transformed into a simple product; only 
 \begin_inset Formula $N_{\mathbf{r}}N_{\mathbf{\Omega}}^{2}$
 \end_inset
 
@@ -931,7 +933,7 @@ acs{FE}
 \begin_inset Formula $N_{\mathbf{\Omega}}\cdot O(N_{\mathbf{r}}\log_{2}N_{\mathbf{r}})$
 \end_inset
 
- due to the properties of Fast Fourier Transforms (
+ due to the properties of Fast Fourier Transform (
 \begin_inset ERT
 status open
 
@@ -1235,11 +1237,11 @@ acs{GSH}
 
 \end_inset
 
-s of the three orientations, then 
+s of the three orientations; then 
 \begin_inset Formula $F$
 \end_inset
 
- becomes a sum of infinite number of projections that depending on 
+ becomes a sum of an infinite number of projections that depending on 
 \begin_inset Formula $r$
 \end_inset
 
@@ -1256,8 +1258,8 @@ F(\mathbf{X}_{1},\mathbf{X}_{2})=\sum_{m,n,l=0}^{\infty}\sum_{\left|\mu',\mu\rig
 
 \begin_layout Standard
 Assuming that this expansion converges, which is normally the case for correlati
-on functions, the expansion can be expressed in limit number of projections.
- If we also take into account the rotational invariance by recombine some
+on functions, the expansion can be expressed in a limited number of projections.
+ If we also take into account the rotational invariance by recombining some
  terms, only 
 \begin_inset Formula $r$
 \end_inset
@@ -1290,7 +1292,7 @@ reference "eq:miet-def-func"
 
 \end_inset
 
-) within the same precision of description.
+) with the same precision of description.
 \end_layout
 
 \begin_layout Standard
@@ -1309,7 +1311,7 @@ where the normalization factor
 \begin_inset Formula $f^{mnl}$
 \end_inset
 
- can be any arbitrary nonzero constant, depending only on indices 
+ can be any arbitrary non-zero constant, depending only on indices 
 \begin_inset Formula $m$
 \end_inset
 
@@ -1330,7 +1332,7 @@ where the normalization factor
 \end_layout
 
 \begin_layout Standard
-With these definitions, relation between the projections and the original
+With these definitions, the relation between the projections and the original
  function is:
 \begin_inset Formula 
 \begin{equation}
@@ -1399,7 +1401,7 @@ and also in
 -space:
 \begin_inset Formula 
 \begin{equation}
-\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})=\sum_{mnl\mu\nu}\hat{c}_{\mu\nu}^{mnl}(k)\Phi_{\mu\nu}^{mnl}(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2},\mathbf{\hat{k}}_{12})
+\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})=\sum_{mnl\mu\nu}\hat{c}_{\mu\nu}^{mnl}(k)\Phi_{\mu\nu}^{mnl}(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2},\mathbf{\hat{k}})
 \end{equation}
 
 \end_inset
@@ -1407,7 +1409,7 @@ and also in
 
 \begin_inset Formula 
 \begin{equation}
-\hat{\gamma}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})=\sum_{mnl\mu\nu}\hat{\gamma}_{\mu\nu}^{mnl}(k)\Phi_{\mu\nu}^{mnl}(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2},\mathbf{\hat{k}}_{12})
+\hat{\gamma}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})=\sum_{mnl\mu\nu}\hat{\gamma}_{\mu\nu}^{mnl}(k)\Phi_{\mu\nu}^{mnl}(\mathbf{\Omega}_{1},\mathbf{\Omega}_{2},\mathbf{\hat{k}})
 \end{equation}
 
 \end_inset
@@ -1424,7 +1426,7 @@ The relation between these projections in
 \begin_inset Formula $k$
 \end_inset
 
--space are built by the Hankel transform:
+-space is built by the Hankel transform:
 \begin_inset Formula 
 \begin{equation}
 \hat{c}_{\mu\nu}^{mnl}(k)=4\pi i^{l}\int\mathrm{d}r\,r^{2}j_{l}(kr)c_{\mu\nu}^{mnl}(r)\label{eq:4.hankel1}
@@ -1568,7 +1570,7 @@ key "Blum_I"
 
 \end_inset
 
-, but the form is a bit complicate.
+, but the form is a bit complicated.
  To provide a simpler form, Blum defined the 
 \begin_inset Formula $\chi$
 \end_inset

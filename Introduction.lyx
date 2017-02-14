@@ -102,7 +102,7 @@ acs{MDFT}
  molecular objects in arbitrary molecular solvents (mainly water) efficiently
  and with microscopic accuracy.
  The introduction will seek to highlight the objective of this thesis and
- help explain such topics like why theorists are interested in the nature
+ help explain such topics as why theorists are interested in the nature
  of solvation, what are the present computing trends in solvation simulations,
  and where our work situates in this frame of solvation theories.
 \end_layout
@@ -186,7 +186,7 @@ key "iupac"
 \begin_inset Formula $k_{\mathrm{B}}T$
 \end_inset
 
-, as well as other effects etc.
+, as well as other effects, etc.
 \end_layout
 
 \begin_layout Standard
@@ -378,8 +378,8 @@ key "Jorgensen_1995_MC"
 .
  These calculations are very demanding in computing cost, due to the need
  for numerous (hundreds or thousands) solvent molecules to form a realistic
- model, and an even greater number of configurations (millions) to be statistica
-lly significant.
+ model, and an even greater number of configurations (millions) in order
+ to be statistically significant.
 \end_layout
 
 \begin_layout Standard
@@ -568,9 +568,10 @@ acs{DFT}
 
 \end_inset
 
- gives the solvation grand potential (usually named as free energy) and
- the equilibrium solvent density by minimizing the free energy functional
- of the solvent density in the presence of a given external potential.
+ gives the solvation free energy of the grand potential (usually named as
+ free energy for simplification) and the equilibrium solvent density by
+ minimizing the free energy functional of the solvent density in the presence
+ of a given external potential.
  Borgis and collaborators 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -660,7 +661,7 @@ acs{IET}
 The majority of work of all these theories has been focused on water, since
  it is one of the most difficult systems to model due to its molecular geometry,
  unavoidable multi-body character, quantum effects, and hydrogen bonds,
- etc.
+ to name a few.
  The importance of including instantaneous polarization in potential functions
  is also an issue 
 \begin_inset CommandInset citation
@@ -696,14 +697,14 @@ status open
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="5">
-<features booktabs="true" tabularvalignment="middle">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="100col%">
+<column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<column alignment="center" valignment="top" width="0pt">
+<row topspace="-0.17em">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -711,6 +712,8 @@ status open
 status collapsed
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Theory
 \end_layout
 
@@ -721,7 +724,7 @@ Theory
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -729,6 +732,8 @@ Theory
 status collapsed
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Speed
 \end_layout
 
@@ -739,7 +744,7 @@ Speed
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -747,6 +752,8 @@ Speed
 status collapsed
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Long-Range
 \end_layout
 
@@ -757,7 +764,7 @@ Long-Range
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -765,6 +772,8 @@ Long-Range
 status collapsed
 
 \begin_layout Plain Layout
+
+\size footnotesize
 First-Shell
 \end_layout
 
@@ -775,7 +784,7 @@ First-Shell
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -783,6 +792,8 @@ First-Shell
 status collapsed
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Polarizable Solvent
 \end_layout
 
@@ -794,59 +805,71 @@ Polarizable Solvent
 \end_inset
 </cell>
 </row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+<row topspace="-0.33em">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Continuum model
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 fast
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 yes
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 no
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 fully
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
+<row topspace="-0.33em">
 <cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Simulation by time
+
+\size footnotesize
+Classical molecular simulations
 \end_layout
 
 \end_inset
@@ -855,6 +878,8 @@ Simulation by time
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 costly
 \end_layout
 
@@ -864,6 +889,8 @@ costly
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 yes
 \end_layout
 
@@ -873,6 +900,8 @@ yes
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 yes
 \end_layout
 
@@ -882,17 +911,21 @@ yes
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 partially, very costly
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
+<row topspace="-0.33em">
 <cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Theory of liquids
 \end_layout
 
@@ -902,6 +935,8 @@ Theory of liquids
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 fast
 \end_layout
 
@@ -911,6 +946,8 @@ fast
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 yes
 \end_layout
 
@@ -920,6 +957,8 @@ yes
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 yes
 \end_layout
 
@@ -929,6 +968,8 @@ yes
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 partially
 \end_layout
 
@@ -1145,7 +1186,7 @@ acs{IET}
 \begin_inset Quotes eld
 \end_inset
 
-efficiency
+performance
 \begin_inset Quotes erd
 \end_inset
 

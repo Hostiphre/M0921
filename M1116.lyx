@@ -578,7 +578,7 @@ reference "eq:gamma-k-II"
 \end_inset
 
 ), giving a great advantage in terms of computational efficiency for huge
- spatial grid.
+ spatial grids.
  
 \begin_inset Newline newline
 \end_inset
@@ -587,7 +587,7 @@ reference "eq:gamma-k-II"
 \begin_inset VSpace medskip
 \end_inset
 
-In the previous work 
+From the previous work 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Zhao_2011"
@@ -606,7 +606,7 @@ reference "eq:gamma-k-II"
 
 \end_inset
 
-) is evaluated with a pre- tabulated intermolecular 
+) is evaluated with a pre-tabulated intermolecular 
 \begin_inset ERT
 status open
 
@@ -675,7 +675,6 @@ acs{DCF}
 
  evaluation makes the computing cost of the original algorithm no longer
  reasonable.
- Further approximation should be therefore made.
  Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -740,7 +739,7 @@ reference "chpt:solvation-properties"
 
 \end_inset
 
-, organized in two aspects, the energy and the structure.
+ and organized in two aspects, the energy and the structure.
  The solvation free energy corrections and some forms of structure are presented.
 \end_layout
 
@@ -870,7 +869,7 @@ reference "chpt:accuracy"
 
 \end_inset
 
- examines all the possible accuracy loss in the implementation, comparing
+ examines all the possible accuracy loss in the implementation compared
  to the theoretical model, which is in a general sense continuous and infinite.
  The accuracy loss is mainly due to the discretization of the system: the
  finite expansion of 
@@ -886,9 +885,9 @@ acs{GSHT}
 
 \end_inset
 
-, the effects linking to discretized grid, as well as finite size of sample
+, the effects linking to a discretized grid, as well as finite size of sample
  box.
- The factors linked to these effects are thus analyzed, in order to determine
+ The factors linked to these effects are thus analyzed in order to determine
  their acceptable minimum number to give a reasonable result.
 \begin_inset Newline newline
 \end_inset
@@ -904,11 +903,11 @@ reference "chpt:seq-code-performance"
 
 \end_inset
 
- discusses the computing performance of the code from subroutines to entire
+ discusses the computing performance of the code, from subroutines to entire
  algorithms.
  The goal is to show that the new algorithms are much faster than the old
- ones, according to the theory; but also, to give a detailed evaluation
- of timing of all algorithms for further code development.
+ ones, according to the theory, but also to give a detailed evaluation of
+ timing of all algorithms for further code development.
 \end_layout
 
 \begin_layout Part
@@ -946,8 +945,8 @@ filename "Part_III_Implementation/33._computing_performance_of_sequential_code.l
 \end_layout
 
 \begin_layout Part Introduction (ClassicThesis)
-In chapter III, we have studied the numerical accuracy of the code (in effect
- of the 
+In chapter III, we have studied the numerical accuracy of the code (through
+ 
 \begin_inset ERT
 status open
 
@@ -1015,9 +1014,9 @@ reference "chpt:ions"
 \begin_inset Formula $n_{\max}=1$
 \end_inset
 
-= for linear or pseudo-linear molecules that was fully implemented so far,
- to show that this increase of computing cost has really done an improvement
- on the results.
+ for linear or pseudo-linear molecules that was fully implemented so far,
+ to show that this increase of computing cost has made an improvement on
+ the results.
 \end_layout
 
 \begin_layout Part
@@ -1114,9 +1113,9 @@ acf{MDFT}
 \begin_inset VSpace medskip
 \end_inset
 
-To complete this story, we conclude all the achievements done in this thesis,
- and some unfinished work and theories linked to this thesis due to the
- time limit.
+To complete this work, we conclude all the achievements done in this thesis,
+ and some unfinished work and related theories remaining due to the time
+ limit.
 \end_layout
 
 \begin_layout Part
@@ -1133,7 +1132,7 @@ filename "Part_V_Conclusion_and_Perspectives/51._conclusion.lyx"
 
 \begin_inset CommandInset include
 LatexCommand include
-filename "Part_V_Conclusion_and_Perspectives/52._Perspectives.lyx"
+filename "Part_V_Conclusion_and_Perspectives/52._perspectives.lyx"
 
 \end_inset
 

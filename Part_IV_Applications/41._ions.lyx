@@ -553,7 +553,7 @@ Solvation free energy of single ions
 
 \begin_layout Standard
 \begin_inset Marginal
-status open
+status collapsed
 
 \begin_layout Plain Layout
 We consider that in a macroscopic system, the fluctuation of 
@@ -657,15 +657,21 @@ key "horinek_rational_2009"
 
 \end_inset
 
- based on SPC/E water, as shown also in table 
+ based on SPC/E water, as shown in table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:single-ions"
 
 \end_inset
 
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:free-energy-single-ions"
+
+\end_inset
+
 .
- 
 \end_layout
 
 \begin_layout Standard
@@ -694,18 +700,9 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex CT - Table Headline
-status collapsed
 
-\begin_layout Plain Layout
-
-\size footnotesize
+\size scriptsize
 Ion
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -984,7 +981,7 @@ Ion
 \begin_layout Plain Layout
 
 \size scriptsize
-3.30
+3.434
 \end_layout
 
 \end_inset
@@ -995,7 +992,7 @@ Ion
 \begin_layout Plain Layout
 
 \size scriptsize
-0.55
+0.465
 \end_layout
 
 \end_inset
@@ -1006,7 +1003,7 @@ Ion
 \begin_layout Plain Layout
 
 \size scriptsize
--430
+430
 \end_layout
 
 \end_inset
@@ -1088,7 +1085,7 @@ Ion
 \begin_layout Plain Layout
 
 \size scriptsize
-3.78
+4.394
 \end_layout
 
 \end_inset
@@ -1099,7 +1096,7 @@ Ion
 \begin_layout Plain Layout
 
 \size scriptsize
-0.52
+0.416
 \end_layout
 
 \end_inset
@@ -1110,7 +1107,7 @@ Ion
 \begin_layout Plain Layout
 
 \size scriptsize
--306
+306
 \end_layout
 
 \end_inset
@@ -1192,7 +1189,7 @@ Ion
 \begin_layout Plain Layout
 
 \size scriptsize
-4.00
+4.834
 \end_layout
 
 \end_inset
@@ -1203,7 +1200,7 @@ Ion
 \begin_layout Plain Layout
 
 \size scriptsize
-0.37
+0.211
 \end_layout
 
 \end_inset
@@ -1214,7 +1211,7 @@ Ion
 \begin_layout Plain Layout
 
 \size scriptsize
--279
+279
 \end_layout
 
 \end_inset
@@ -1296,7 +1293,7 @@ Ion
 \begin_layout Plain Layout
 
 \size scriptsize
-4.25
+5.334
 \end_layout
 
 \end_inset
@@ -1307,7 +1304,7 @@ Ion
 \begin_layout Plain Layout
 
 \size scriptsize
-0.32
+0.158
 \end_layout
 
 \end_inset
@@ -1318,7 +1315,7 @@ Ion
 \begin_layout Plain Layout
 
 \size scriptsize
--241
+241
 \end_layout
 
 \end_inset
@@ -1400,7 +1397,7 @@ Ion
 \begin_layout Plain Layout
 
 \size scriptsize
-3.02
+2.874
 \end_layout
 
 \end_inset
@@ -1411,7 +1408,7 @@ Ion
 \begin_layout Plain Layout
 
 \size scriptsize
-0.02
+0.000615
 \end_layout
 
 \end_inset
@@ -1422,7 +1419,7 @@ Ion
 \begin_layout Plain Layout
 
 \size scriptsize
--520
+520
 \end_layout
 
 \end_inset
@@ -1504,7 +1501,7 @@ Ion
 \begin_layout Plain Layout
 
 \size scriptsize
-3.49
+3.814
 \end_layout
 
 \end_inset
@@ -1515,7 +1512,7 @@ Ion
 \begin_layout Plain Layout
 
 \size scriptsize
-0.02
+0.000615
 \end_layout
 
 \end_inset
@@ -1526,7 +1523,7 @@ Ion
 \begin_layout Plain Layout
 
 \size scriptsize
--414
+414
 \end_layout
 
 \end_inset
@@ -1608,7 +1605,7 @@ Ion
 \begin_layout Plain Layout
 
 \size scriptsize
-3.85
+4.534
 \end_layout
 
 \end_inset
@@ -1619,7 +1616,7 @@ Ion
 \begin_layout Plain Layout
 
 \size scriptsize
-0.02
+0.000615
 \end_layout
 
 \end_inset
@@ -1630,7 +1627,7 @@ Ion
 \begin_layout Plain Layout
 
 \size scriptsize
--347
+347
 \end_layout
 
 \end_inset
@@ -1816,7 +1813,7 @@ no data
 \begin_layout Plain Layout
 
 \size scriptsize
-4.17
+5.174
 \end_layout
 
 \end_inset
@@ -1827,7 +1824,7 @@ no data
 \begin_layout Plain Layout
 
 \size scriptsize
-0.02
+0.000615
 \end_layout
 
 \end_inset
@@ -1838,7 +1835,7 @@ no data
 \begin_layout Plain Layout
 
 \size scriptsize
--300
+300
 \end_layout
 
 \end_inset
@@ -2015,8 +2012,10 @@ name "tab:single-ions"
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="9" columns="7">
+<lyxtabular version="3" rows="17" columns="9">
 <features booktabs="true" tabularvalignment="middle" tabularwidth="100line%">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
@@ -2029,13 +2028,62 @@ name "tab:single-ions"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex CT - Table Headline
-status collapsed
+
+\size scriptsize
+Ion
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
-Ion
+\size scriptsize
+\begin_inset Formula $\sigma$
+\end_inset
+
+ 
+\begin_inset Formula $[\textrm{Å}]$
+\end_inset
+
+
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+
+\size scriptsize
+(e)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ [
+\begin_inset Formula $\mathrm{kJ\cdot mol^{-1}}$
+\end_inset
+
+]
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+
+\size scriptsize
+(e)
 \end_layout
 
 \end_inset
@@ -2151,6 +2199,28 @@ Ion
 \begin_layout Plain Layout
 
 \size scriptsize
+3.434
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.465
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
 -430
 \end_layout
 
@@ -2162,7 +2232,7 @@ Ion
 \begin_layout Plain Layout
 
 \size scriptsize
-diverge
+-805
 \end_layout
 
 \end_inset
@@ -2173,7 +2243,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--368.5
+-351
 \end_layout
 
 \end_inset
@@ -2195,7 +2265,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--
+2.71
 \end_layout
 
 \end_inset
@@ -2233,6 +2303,28 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
+4.394
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.416
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
 -306
 \end_layout
 
@@ -2244,7 +2336,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
-diverge
+-521
 \end_layout
 
 \end_inset
@@ -2255,7 +2347,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--297.3
+-233
 \end_layout
 
 \end_inset
@@ -2277,7 +2369,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--
+3.21
 \end_layout
 
 \end_inset
@@ -2288,7 +2380,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
-2.88
+3.21
 \end_layout
 
 \end_inset
@@ -2315,6 +2407,28 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
+4.834
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.211
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
 -279
 \end_layout
 
@@ -2326,7 +2440,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
-diverge
+-464
 \end_layout
 
 \end_inset
@@ -2337,7 +2451,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--278.3
+-205
 \end_layout
 
 \end_inset
@@ -2359,7 +2473,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--
+3.37
 \end_layout
 
 \end_inset
@@ -2370,7 +2484,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
-2.96
+3.37
 \end_layout
 
 \end_inset
@@ -2397,6 +2511,28 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
+5.334
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.158
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
 -241
 \end_layout
 
@@ -2408,7 +2544,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
-diverge
+-388
 \end_layout
 
 \end_inset
@@ -2419,7 +2555,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--253.4
+-166
 \end_layout
 
 \end_inset
@@ -2441,7 +2577,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--
+3.54
 \end_layout
 
 \end_inset
@@ -2452,7 +2588,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
-3.12
+3.54
 \end_layout
 
 \end_inset
@@ -2479,6 +2615,28 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
+2.874
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.000615
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
 -520
 \end_layout
 
@@ -2490,7 +2648,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--707.7
+-870
 \end_layout
 
 \end_inset
@@ -2501,7 +2659,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--405.3
+-480
 \end_layout
 
 \end_inset
@@ -2513,6 +2671,526 @@ diverge
 
 \size scriptsize
 1.91
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.13
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="-0.33em">
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $\mathrm{Na^{+}}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+3.814
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.000615
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-414
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-742
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-412
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.28
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.29
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.38
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="-0.33em">
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $\mathrm{K^{+}}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+4.534
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.000615
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-347
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-623
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-358
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.54
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.54
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.54
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="-0.33em">
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $\mathrm{Cs^{+}}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+5.174
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.000615
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-300
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-528
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-317
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.79
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.79
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.79
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="-0.33em">
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $\mathrm{Li^{+}}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+1.374
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+1.538
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-521
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-889
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-492
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+1.96
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.13
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="-0.33em">
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $\mathrm{Na^{+}}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.134
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+1.538
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-415
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-749
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-419
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.34
 \end_layout
 
 \end_inset
@@ -2547,6 +3225,318 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
+\begin_inset Formula $\mathrm{K^{+}}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.774
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+1.538
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-345
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-610
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-360
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.68
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.71
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.71
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="-0.33em">
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $\mathrm{Cs^{+}}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+3.334
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+1.538
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-300
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-512
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-318
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.98
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+3.04
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+3.04
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="-0.33em">
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $\mathrm{Li^{+}}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+1.474
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.65
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-523
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-891
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-490
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+1.96
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.13
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="-0.33em">
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
 \begin_inset Formula $\mathrm{Na^{+}}$
 \end_inset
 
@@ -2561,7 +3551,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--414
+2.234
 \end_layout
 
 \end_inset
@@ -2572,7 +3562,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--621.8
+0.65
 \end_layout
 
 \end_inset
@@ -2583,7 +3573,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--366.0
+-416
 \end_layout
 
 \end_inset
@@ -2594,7 +3584,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
-2.28
+-753
 \end_layout
 
 \end_inset
@@ -2605,7 +3595,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
-2.54
+-415
 \end_layout
 
 \end_inset
@@ -2616,7 +3606,29 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
-2.54
+2.33
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.38
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.37
 \end_layout
 
 \end_inset
@@ -2643,7 +3655,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--347
+2.894
 \end_layout
 
 \end_inset
@@ -2654,7 +3666,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--559.1
+0.65
 \end_layout
 
 \end_inset
@@ -2665,7 +3677,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--338.4
+-344
 \end_layout
 
 \end_inset
@@ -2676,7 +3688,29 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
-2.54
+-612
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-358
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.65
 \end_layout
 
 \end_inset
@@ -2698,7 +3732,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
-2.70
+2.71
 \end_layout
 
 \end_inset
@@ -2725,7 +3759,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--300
+3.434
 \end_layout
 
 \end_inset
@@ -2736,7 +3770,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--508.8
+0.65
 \end_layout
 
 \end_inset
@@ -2747,7 +3781,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
--316.1
+-299
 \end_layout
 
 \end_inset
@@ -2758,7 +3792,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
-2.79
+-517
 \end_layout
 
 \end_inset
@@ -2769,7 +3803,7 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
-2.88
+-318
 \end_layout
 
 \end_inset
@@ -2780,7 +3814,29 @@ diverge
 \begin_layout Plain Layout
 
 \size scriptsize
-2.88
+2.93
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.96
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2.96
 \end_layout
 
 \end_inset
@@ -2900,7 +3956,69 @@ name "tab:free-energy-single-ions"
 \end_layout
 
 \begin_layout Standard
-The results shows that the free energies given by 
+The results shows in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:free-energy-single-ions"
+
+\end_inset
+
+ are calculated with 
+\begin_inset Formula $L=32$
+\end_inset
+
+ 
+\begin_inset Formula $\textrm{Å}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathrm{nfft}=96$
+\end_inset
+
+; and 
+\begin_inset Formula $m_{\max}=3$
+\end_inset
+
+ to ensure that the 
+\begin_inset Formula $\mathcal{F}_{\mathrm{id}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{F}_{\mathrm{ext}}$
+\end_inset
+
+ terms calculated by using the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ at 
+\begin_inset Formula $n_{\max}=3$
+\end_inset
+
+ or the dipole 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
+\end_inset
+
+ are exactly the same.
+ The free energies given by 
 \begin_inset ERT
 status open
 
@@ -2911,6 +4029,10 @@ status open
 acs{MDFT}
 \end_layout
 
+\end_inset
+
+ with 
+\begin_inset Formula $n_{\max}=3$
 \end_inset
 
  is not perfect, but lie in the same order of magnitude as 
@@ -2926,37 +4048,69 @@ acs{MD}
 
 \end_inset
 
- for 
-\begin_inset Formula $\mathrm{Cl}^{-}$
+.
+ For negative ions, there is always a shift at 
+\begin_inset Formula $\sim80\,\mathrm{kJ\cdot mol^{-1}}$
 \end_inset
 
- to 
-\begin_inset Formula $\mathrm{I}^{-}$
+ (knowing that the correction of type-C is at 
+\begin_inset Formula $82\,\mathrm{kJ\cdot mol^{-1}}$
 \end_inset
 
- and 
-\begin_inset Formula $\mathrm{K}^{+}$
+ but we cannot tell what the shift is).
+ For positive ions, the magnitude of free energy is slightly underestimated
+ with small 
+\begin_inset Formula $\sigma$
 \end_inset
 
- to 
-\begin_inset Formula $\mathrm{Cs}^{+}$
+, and slightly overestimated for large 
+\begin_inset Formula $\sigma$
 \end_inset
 
 .
- They are much less convincing for small ions such as 
-\begin_inset Formula $\mathrm{F}^{-}$
+ On the other hand, the free energies given by dipole 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{DCF}
+\end_layout
+
 \end_inset
 
-, 
-\begin_inset Formula $\mathrm{Li}^{+}$
+ is too large in magnitude.
+ In contrast, the position of the first solvation maximum for the three
+ methods do not vary between them (apart from 
+\begin_inset Formula $\mathrm{Li^{+}}$
 \end_inset
 
- and 
-\begin_inset Formula $\mathrm{Na}^{+}$
+ which is very small).
+ But if we look at the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+acs{RDF}
+\end_layout
+
 \end_inset
 
-.
- Besides, the results with a 
+ of charged 
+\begin_inset Formula $\mathrm{CH_{4}}$
+\end_inset
+
+ series, we can see that 
+\begin_inset Formula $n_{\max}=3$
+\end_inset
+
+ still works better.
+ We can conclude that the results in energy with a 
 \begin_inset ERT
 status open
 
@@ -2975,23 +4129,6 @@ acs{DCF}
 
  works better than the dipolar approximation, which is a positive sign for
  our developments.
- In contrast, there is no improvement in terms of position of the first
- solvation maximum.
- Note that for this quantity, the agreement between experimental data and
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-acs{MD}
-\end_layout
-
-\end_inset
-
- is not obvious either.
  
 \end_layout
 
@@ -9141,20 +10278,6 @@ name "fig:Iso-surface-of-solvent"
 
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $ $
 \end_inset
 
 

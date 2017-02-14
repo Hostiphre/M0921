@@ -83,9 +83,9 @@ name "chpt:mdft"
 \end_layout
 
 \begin_layout Standard
-The code MDFT upon which all the development during this thesis is based
- is a Fortran 95 sequential code developed by Maximilien Levesque, Daniel
- Borgis 
+The code MDFT upon which all the development in this thesis is based is
+ a Fortran 95 sequential code developed by Maximilien Levesque, Daniel Borgis
+ 
 \shape italic
 et al.
 
@@ -97,7 +97,7 @@ key "gendre_classical_2009,jeanmairet_molecular_2013-1,jeanmairet_molecular_2015
 
 \end_inset
 
-, which implement the 
+, which implements the 
 \begin_inset ERT
 status open
 
@@ -438,7 +438,7 @@ acs{FFT}
 
 \end_inset
 
-) is used for example in the evaluation of excess functional in eq.
+) is used, for example, in the evaluation of excess functional in eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -509,7 +509,7 @@ For input function
 \begin_inset Formula $(k=0,\ldots,n-1)$
 \end_inset
 
- in real number, FFTW3 only outputs elements 
+ in real numbers, FFTW3 only outputs elements 
 \begin_inset Formula $k=0,\ldots,\left\lfloor n/2\right\rfloor $
 \end_inset
 
@@ -564,7 +564,7 @@ acs{FFT}
 
 \end_inset
 
- can be differed in some literature, with the 
+ can differ in some literature, with the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -593,7 +593,7 @@ acs{FFT}
 \begin_inset Formula $k$
 \end_inset
 
--space issued from such definition with its conjugate form.
+-space issued from the definition with its conjugate form.
 \end_layout
 
 \end_body
