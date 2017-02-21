@@ -640,7 +640,7 @@ acs{RDF}
 ous fluids, which can be calculated equivalently as:
 \begin_inset Formula 
 \begin{equation}
-g(r)=\left\langle \rho(r,\hat{\mathbf{r}})\right\rangle =\dfrac{\int\rho(r,\hat{\mathbf{r}})\mathrm{d}s_{r}}{\int\mathrm{d}s_{r}}
+g(r)=\left\langle \rho(r,\hat{\mathbf{r}})\right\rangle /\rho_{0}=\dfrac{\int\rho(r,\hat{\mathbf{r}})\mathrm{d}s_{r}}{\rho_{0}\int\mathrm{d}s_{r}}
 \end{equation}
 
 \end_inset
@@ -665,7 +665,7 @@ To do this integration, it is required to transform
 -point discrete space grid:
 \begin_inset Formula 
 \begin{equation}
-\rho(\mathbf{r})=\int\mathrm{d}\mathbf{\Omega}\rho(\mathbf{r},\mathbf{\Omega})=\sum_{i=1}^{N}\rho_{i}\delta(\mathbf{r}-\mathbf{r}_{i})
+\rho(\mathbf{r})=\int\mathrm{d}\mathbf{\Omega}\rho(\mathbf{r},\mathbf{\Omega})/\rho_{0}=\sum_{i=1}^{N}\rho_{i}\delta(\mathbf{r}-\mathbf{r}_{i})
 \end{equation}
 
 \end_inset
@@ -804,7 +804,7 @@ acs{RPF}
 ) is defined as 
 \begin_inset Formula 
 \begin{equation}
-p(r)=\left\langle \mathbf{P}(\mathbf{r})\cdot\hat{\mathbf{r}}\right\rangle 
+p(r)=\left\langle \mathbf{P}(\mathbf{r})\cdot\hat{\mathbf{r}}\right\rangle /\rho_{0}
 \end{equation}
 
 \end_inset
@@ -814,7 +814,7 @@ where
 \end_inset
 
  is the polarization 
-\begin_inset Formula $\mathbf{P}(\mathbf{r})=\int\mathbf{\Omega}\cdot\rho(\mathbf{r},\mathbf{\Omega})\mathrm{d}\mathbf{\Omega}$
+\begin_inset Formula $\mathbf{P}(\mathbf{r})=\int\mathrm{d}\mathbf{\Omega}\mathbf{\Omega}\cdot\rho(\mathbf{r},\mathbf{\Omega})/\rho_{0}$
 \end_inset
 
 .
@@ -835,7 +835,7 @@ If the solute is simple, like a spherical ion or little molecule, it is
  numerous symmetries:
 \begin_inset Formula 
 \begin{eqnarray}
-\rho(\mathbf{r},\mathbf{\Omega}) & = & \sum_{mnl\mu\nu}\rho_{\mu\nu}^{mnl}(r)\Phi_{\mu\nu}^{mnl}(0,\mathbf{\Omega},\mathbf{\hat{r}})\label{eq:rot_invar_expansion}\\
+\rho(\mathbf{r},\mathbf{\Omega})/\rho_{0} & = & \sum_{mnl\mu\nu}\rho_{\mu\nu}^{mnl}(r)\Phi_{\mu\nu}^{mnl}(0,\mathbf{\Omega},\mathbf{\hat{r}})\label{eq:rot_invar_expansion}\\
  & = & \sum_{mnl\mu\nu}\rho_{\mu\nu}^{mnl}(r)f^{m}f^{n}\sum_{\eta}\left(\begin{array}{ccc}
 m & n & l\\
 \mu & \eta & -\mu-\eta
@@ -859,7 +859,7 @@ The forward transform to obtain the projections is:
 \rho_{\mu\nu}^{mnl}(r)=f^{m}f^{n}\sum_{\eta}\left(\begin{array}{ccc}
 m & n & l\\
 \mu & \eta & -\mu-\eta
-\end{array}\right)\int\mathrm{d}\hat{\mathbf{r}}R_{-\mu-\eta,0}^{l*}(\mathbf{\hat{r}})\int\mathrm{d}\mathbf{\Omega}\rho(r,\hat{\mathbf{r}},\mathbf{\Omega})R_{\eta,\nu}^{n*}(\mathbf{\Omega})
+\end{array}\right)\int\mathrm{d}\hat{\mathbf{r}}R_{-\mu-\eta,0}^{l*}(\mathbf{\hat{r}})\int\mathrm{d}\mathbf{\Omega}\rho(r,\hat{\mathbf{r}},\mathbf{\Omega})R_{\eta,\nu}^{n*}(\mathbf{\Omega})/\rho_{0}
 \end{equation}
 
 \end_inset
@@ -962,7 +962,7 @@ reference "eq:rot_invar_expansion"
  The projection is thus
 \begin_inset Formula 
 \begin{equation}
-\rho_{00}^{000}(r)=\int\mathrm{d}\hat{\mathbf{r}}\mathrm{d}\mathbf{\Omega}\rho(\mathbf{r},\mathbf{\Omega})=g(r)
+\rho_{00}^{000}(r)=\int\mathrm{d}\hat{\mathbf{r}}\mathrm{d}\mathbf{\Omega}\rho(\mathbf{r},\mathbf{\Omega})/\rho_{0}=g(r)
 \end{equation}
 
 \end_inset
@@ -989,7 +989,7 @@ reference "chpt:rotational-invariant-expansion"
 such that:
 \begin_inset Formula 
 \begin{equation}
-\rho_{00}^{011}(r)=\int\mathrm{d}\hat{\mathbf{r}}\mathrm{d}\mathbf{\Omega}\rho(\mathbf{r},\mathbf{\Omega})\Phi_{00}^{011*}(\mathbf{r},\mathbf{\Omega})=-\dfrac{\int\mathrm{d}\hat{\mathbf{r}}\mathbf{P}(\mathbf{r})\cdot\hat{\mathbf{r}}}{\int\mathrm{d}\hat{\mathbf{r}}\mathrm{d}\mathbf{\Omega}\left\Vert \Phi_{00}^{011}(\mathbf{r},\mathbf{\Omega})\right\Vert ^{2}}
+\rho_{00}^{011}(r)=\int\mathrm{d}\hat{\mathbf{r}}\mathrm{d}\mathbf{\Omega}\rho(\mathbf{r},\mathbf{\Omega})\Phi_{00}^{011*}(\mathbf{r},\mathbf{\Omega})/\rho_{0}=-\dfrac{\int\mathrm{d}\hat{\mathbf{r}}\mathbf{P}(\mathbf{r})\cdot\hat{\mathbf{r}}}{\int\mathrm{d}\hat{\mathbf{r}}\mathrm{d}\mathbf{\Omega}\left\Vert \Phi_{00}^{011}(\mathbf{r},\mathbf{\Omega})\right\Vert ^{2}}
 \end{equation}
 
 \end_inset
