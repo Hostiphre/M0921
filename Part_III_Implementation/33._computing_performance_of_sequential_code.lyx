@@ -104,7 +104,7 @@ In this section, we will evaluate the performance only concerning the
 \begin_inset Formula $\mathcal{F}_{\mathrm{ext}}$
 \end_inset
 
- contribution, require a computer time of the same magnitude than the new
+ contribution, require a computer time of the same magnitude as the new
  algorithms for 
 \begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
 \end_inset
@@ -228,8 +228,8 @@ key "Numerical_Recipes_3ed"
 
 \end_inset
 
- doesn't totally exist, but it appears of the same form, depending on the
- algorithm of 
+ does not totally exist, but it appears to be of the same form, depending
+ on the algorithm of 
 \begin_inset ERT
 status open
 
@@ -250,9 +250,9 @@ key "Briggs-DFT"
 \end_inset
 
 .
- It should be noted that a grid of prime number is always at the peaks in
- the figure, which means it can be twice longer or more than that of a nearby
- composite number.
+ It should be noted that a grid of prime number is always at one of the
+ peaks in the figure, which means it can be twice or more times slower than
+ that of a nearby composite number.
  Therefore it is better to use an even number grid, for which the 
 \begin_inset Formula $k$
 \end_inset
@@ -269,9 +269,9 @@ reference "subsec:k-border-effect"
 \end_inset
 
  should absolutely be accounted for.
- Apart from this conclusion, to compare the algorithms for angular integration
- involved in this thesis, we are not really interested in computing performance
- with respect to the number of spatial grid.
+ Apart from this, to compare the algorithms for angular integration involved
+ in this thesis, we are not really interested in computing performance with
+ respect to the number of spatial grid.
  However, the ratio of real and complex 
 \begin_inset ERT
 status open
@@ -376,7 +376,7 @@ acs{FFT}
 \end_inset
 
 .
- This should not give a great difference if 
+ This should not give a significant difference if 
 \begin_inset Formula $n_{\mathrm{angle}}\sim n_{\mathrm{proj}}$
 \end_inset
 
@@ -489,7 +489,7 @@ reference "fig:time-gsht-fgsht"
 \end_inset
 
 .
- There is no reason to see in detail how much 
+ There is no reason to view in detail how much 
 \begin_inset ERT
 status open
 
@@ -789,9 +789,10 @@ acs{FFT}
 \end_inset
 
  or 
-\begin_inset Formula $s.$
+\begin_inset Formula $s$
 \end_inset
 
+.
  The difference between these two is that the real one performs real-to-complex
  
 \begin_inset ERT
@@ -822,7 +823,7 @@ acs{FFT}
 Theoretically, the ratio should be greater than 0.5.
  This could mean there may be an extra process in the complex one, or it
  is controlled by the memory.
- Ultimately, the final result 0.3 means, that doing 
+ Ultimately, the final result 0.3 means that doing 
 \begin_inset Formula $n_{\mathrm{spatial}}$
 \end_inset
 
@@ -1427,7 +1428,7 @@ convolution_pure_angular
 \begin_inset Formula $k$
 \end_inset
 
- takes time in the same order of magnitude as the rest of iteration.
+ takes time on the same order of magnitude as the rest of the iteration.
  And once 
 \begin_inset Formula $m_{\max}\geq2$
 \end_inset
@@ -2196,7 +2197,7 @@ acs{FGSHT}
 
 \end_inset
 
-; while for the processes in a 
+, while for the processes in a 
 \begin_inset Formula $k$
 \end_inset
 
@@ -2206,7 +2207,7 @@ acs{FGSHT}
 asymm
 \family default
 \series default
- always takes longer time.
+ always takes longer.
  Since in 
 \family typewriter
 \series bold
@@ -2386,7 +2387,7 @@ acs{FGSHT}
 \begin_inset Formula $m_{\max}$
 \end_inset
 
- is not cost-free, as discussed in last section, it is fully recommended
+ is not cost-free, so as discussed in the last section, it is fully recommended
  to use 
 \begin_inset Formula $m_{\max}=n_{\max}$
 \end_inset
@@ -2497,8 +2498,8 @@ reference "fig:Timing-full"
 \begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
 \end_inset
 
- is at the same order of magnitude than other two terms and the same dependency
- on angular grid.
+ is at the same order of magnitude as the other two terms and the same dependenc
+y on angular grid.
  That means that considering the priority of code optimization, the 
 \begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
 \end_inset
@@ -2613,7 +2614,7 @@ The attempt to fix
 \begin_inset Formula $m_{\max}$
 \end_inset
 
- considerably damages the efficiency, in addition to the necessity, 
+ considerably damages the efficiency; in addition to the necessity, 
 \begin_inset Formula $m_{\max}=n_{\max}$
 \end_inset
 

@@ -636,7 +636,7 @@ m & n & l\\
 \end_layout
 
 \begin_layout Standard
-Thus Eq.
+Thus eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -734,7 +734,7 @@ acs{FGSHT}
 
 \end_inset
 
-), or being developed into
+), or by being developed into
 \begin_inset Formula 
 \begin{equation}
 F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)=\sum_{mn\mu\nu\chi}F_{\mu\nu,\chi}^{mn}(r)f^{m}f^{n}r_{\chi\mu}^{m}(\theta_{1})r_{\underline{\chi}\nu}^{n}(\theta_{2})e^{-i\chi(\phi_{12}\equiv\phi_{1}-\phi_{2})}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}\label{eq:eq_s1_local}
@@ -1083,9 +1083,9 @@ acs{MDFT}
 \end_inset
 
 , the rotational invariants are used to describe the solvent.
- It possess symmetric rules, introduced by the indistinguishability of the
- two particles, symmetry properties of single particle, and its real number
- property as a physical quantity.
+ It possesses symmetric rules, introduced by the indistinguishability of
+ the two particles, symmetry properties of the single particle, and its
+ real number property as a physical quantity.
  Here we list all the symmetric rules concerning the 2-molecule system.
 \end_layout
 
@@ -1194,7 +1194,7 @@ F(\theta_{1},\theta_{2},\phi,\psi_{1},\psi_{2})=F(\pi-\theta_{2},\pi-\theta_{1},
 \end_layout
 
 \begin_layout Standard
-And an additive symmetric rule is possessed by particles having 
+And an additive symmetric rule is owned by particles having 
 \end_layout
 
 \begin_layout Enumerate
@@ -1266,7 +1266,7 @@ reference "eq:def_f_mnl_munu"
 
 \end_inset
 
-), and the definition of Hankel transhform:
+), and the definition of Hankel transform:
 \begin_inset Formula 
 \begin{equation}
 \hat{F}_{\mu\nu}^{mnl}(k)=4\pi i^{l}\int\mathrm{d}r\,r^{2}j_{l}(kr)F_{\mu\nu}^{mnl}(r)\label{eq:hankel}
@@ -1355,7 +1355,7 @@ reference "eq:symm_dcf_2"
 
 \end_inset
 
-), which adapts to pure solvent, as well as the symmetry of 
+), which adapts to pure solvents, as well as the symmetry of 
 \begin_inset ERT
 status open
 
@@ -1392,7 +1392,7 @@ F_{\nu\mu}^{nml}(r)=\left(-\right)^{m+n+\mu+\nu}F_{\mu\nu}^{mnl}(r)
 
 \end_inset
 
-Of course, if the particles 1 and 2 belong to 2 different species 
+Of course, if the particles 1 and 2 belong to two different species 
 \begin_inset Formula $\alpha$
 \end_inset
 
@@ -1417,7 +1417,7 @@ acs{PDF}
 \begin_inset Formula $\alpha\beta$
 \end_inset
 
- and on the left refers to the 
+ and the one on the left refers to the 
 \begin_inset ERT
 status open
 
@@ -1510,7 +1510,7 @@ key "Blum_I"
 
 \end_inset
 
-, we have also:
+, we also have:
 \begin_inset Formula 
 \begin{equation}
 F_{\mu\nu}^{mnl}(r)=F_{\underline{\mu}\underline{\nu}}^{mnl}(r)

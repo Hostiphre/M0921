@@ -83,7 +83,7 @@ name "chpt:ions"
 \end_layout
 
 \begin_layout Standard
-In the last chapter, we have proven that 
+In the last chapter, we proved that 
 \begin_inset ERT
 status open
 
@@ -96,8 +96,8 @@ acs{MDFT}
 
 \end_inset
 
- is capable to correctly predict solvation properties of LJ centers, single
- ions and linear solutes compared to 
+ is capable of correctly predicting solvation properties of LJ centers,
+ single ions and linear solutes compared to 
 \begin_inset ERT
 status open
 
@@ -157,7 +157,7 @@ convolution_standard
 \begin_inset Formula $n_{\max}>1$
 \end_inset
 
- is counter-balanced by the capability to produce better results.
+ is counterbalanced by the ability to produce better results.
  
 \end_layout
 
@@ -233,8 +233,7 @@ acs{MD}
 
 \end_inset
 
-, it looks like there is no improvement compared to the dipole method in
- ref 
+, it seems that there is no improvement over the dipole method in ref 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Zhao_2011"
@@ -317,7 +316,7 @@ acs{RDF}
 
 \end_inset
 
- of rare gazes compared to 
+ of rare gases compared to 
 \begin_inset ERT
 status open
 
@@ -446,7 +445,8 @@ acs{MD}
 
 \end_inset
 
- results are more smooth, but the first peak of the 
+ results are more smooth.
+ Still the first peak of the 
 \begin_inset ERT
 status open
 
@@ -459,7 +459,7 @@ acs{MDFT}
 
 \end_inset
 
- results seems to be in good position.
+ results seems to be in the good position.
  We can conclude that the complete 
 \begin_inset ERT
 status open
@@ -564,7 +564,7 @@ We consider that in a macroscopic system, the fluctuation of
 \begin_inset Formula $V$
 \end_inset
 
- are negligible, and all kinds of free energies becomes the same.
+ are negligible, and all kinds of free energies become the same.
  
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -577,7 +577,7 @@ key "ensemble_thermo"
 
 \end_inset
 
-From above we can see the 
+From the previous paragraph we can see the 
 \begin_inset ERT
 status open
 
@@ -606,7 +606,7 @@ acs{MD}
  results.
  However, the free energy is more difficult to compare, as there are several
  finite-size corrections for single ions, depending on for example box length
- and charge; besides the free energy depends largely on the input LJ parameters
+ and charge; besides, the free energy depends largely on the input LJ parameters
  of the ions, which is independent to the method.
 \end_layout
 
@@ -4035,7 +4035,7 @@ acs{MDFT}
 \begin_inset Formula $n_{\max}=3$
 \end_inset
 
- is not perfect, but lie in the same order of magnitude as 
+ are not perfect, but lie in the same order of magnitude as 
 \begin_inset ERT
 status open
 
@@ -4127,7 +4127,7 @@ acs{DCF}
 \begin_inset Formula $n_{\max}=3$
 \end_inset
 
- works better than the dipolar approximation, which is a positive sign for
+ work better than the dipolar approximation, which is a positive sign for
  our developments.
  
 \end_layout
@@ -4252,13 +4252,13 @@ acs{MD}
 \end_inset
 
  for these test solutes.
- It is shown that in the most of the cases, 
+ It is shown that in most of the cases, 
 \begin_inset Formula $n_{\max}=4$
 \end_inset
 
  does give equivalent or better results than the dipolar order, apart from
- the cases of water, and specially SPC/E water.
- In methanol, the dipole method diverge.
+ the cases of water, and especially SPC/E water.
+ In methanol, the dipole method diverges.
  For most solutes, the comparison to 
 \begin_inset ERT
 status open
@@ -4287,11 +4287,11 @@ acs{RDF}
 \end_inset
 
 s and the main peaks positions.
- This statement is especially true for benzene and pyrimidine for example.
+ This statement is especially true for benzene and pyrimidine, for example.
  For hydrophobic molecules or molecules with hydrophobic sites (alkanes,
  oxygen, nitrogen, ...) one recovers the slight underestimation of the first
- peak position and the overestimation of peak height that was already remarked
- for rare gases; this is a clear defect of 
+ peak position and the overestimation of peak height already remarked for
+ rare gases; this is a clear defect of 
 \begin_inset ERT
 status open
 
@@ -4305,7 +4305,7 @@ acs{HNC}
 \end_inset
 
 .
- The case of molecules giving raise to hydrogen bonds to water (e.g.
+ The case of molecules giving rise to hydrogen bonds to water (e.g.
  methanol, or water in water) is more problematic and subtle.
  Here the dipolar approximation gives a first peak for the water oxygen
  around the O-site that is too high but has the correct width, whereas 
@@ -4314,8 +4314,8 @@ acs{HNC}
 
  shifts the first peak to higher values and makes it too wide (a sort of
  merge of the first and second peak, an effect even clearer for methanol).
- The H-O first peak on the other hand is at a correct position but underestimate
-d, both for water and methanol.
+ The H-O first peak, on the other hand, is at a correct position but underestima
+ted, both for water and methanol.
  The tetrahedral order around a water solute is not correctly reproduced,
  although the correct balance to get the right structure is subtle and does
  not appear too far.
@@ -4323,7 +4323,7 @@ d, both for water and methanol.
 \end_layout
 
 \begin_layout Standard
-In the purpose of showing the ability of 
+For the purpose of showing the ability of 
 \begin_inset ERT
 status open
 
@@ -4361,7 +4361,7 @@ reference "fig:Iso-surface-of-solvent"
 
  complements the discussion given just above concerning the expected tetrahedral
  structure around a water molecule in water.
- That structure can be indeed detected for SPC/E water and even more so
+ That structure can indeed be detected for SPC/E water and even more so
  for the TIP4P model.
  In SPC/E water, there is more density than expected on the north pole,
  and this piece of density disappears with the extra charge added on the

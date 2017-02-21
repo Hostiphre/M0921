@@ -147,7 +147,7 @@ R_{\mu'\chi}^{m}(\hat{\mathbf{k}})=r_{\mu'\chi}^{m}(\theta_{k})e^{-i\mu'\phi_{k}
 \end_inset
 
 is too costly to be done in iterations; on the other hand, to directly stock
- the value of every element is heavy in terms of memory.
+ the value of every element is taxing in terms of memory.
  An algorithm of 
 \begin_inset Formula $R_{\mu\mu'}^{m}(\hat{\mathbf{k}})$
 \end_inset

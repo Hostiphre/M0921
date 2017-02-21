@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.6">
-<info created="D:20161113164453" modified="D:20161113165850"/>
+<info created="D:20161113164453" modified="D:20170218094006"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -254,14 +254,29 @@ h
 <page>
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
-<path layer="alpha" matrix="4 0 0 4 -640 -2288" stroke="black" dash="dotted">
-4 0 0 4 208 752 e
+<path layer="alpha" matrix="5.33333 0 0 5.33333 -805.333 -3338.67" stroke="black" fill="white" dash="dotted">
+12 0 0 12 208 752 e
 </path>
-<path matrix="4 0 0 4 -640 -2288" stroke="black" dash="dotted">
+<path matrix="4 0 0 4 -528 -2336" stroke="black" fill="lightgray" dash="dotted">
+12 0 0 12 208 752 e
+</path>
+<path matrix="4 0 0 4 -456 -2240" stroke="black" fill="lightgray" dash="dotted">
+12 0 0 12 208 752 e
+</path>
+<path matrix="4 0 0 4 -528 -2336" stroke="black" fill="gray" dash="dotted">
 8 0 0 8 208 752 e
 </path>
-<path matrix="4 0 0 4 -640 -2288" stroke="black" dash="dotted">
+<path matrix="4 0 0 4 -456 -2240" stroke="black" fill="gray" dash="dotted">
+8 0 0 8 208 752 e
+</path>
+<path matrix="4 0 0 4 -640 -2288" stroke="black" fill="lightgray" dash="dotted">
 12 0 0 12 208 752 e
+</path>
+<path matrix="4 0 0 4 -640 -2288" stroke="black" fill="gray" dash="dotted">
+8 0 0 8 208 752 e
+</path>
+<path matrix="4 0 0 4 -640 -2288" stroke="black" fill="darkgray" dash="dotted">
+4 0 0 4 208 752 e
 </path>
 <path matrix="4 0 0 4 -640 -2288" stroke="black" dash="dotted">
 196 752 m
@@ -354,28 +369,22 @@ h
 <path matrix="1 0 0 1 33.9411 -33.9411" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="4 0 0 4 -528 -2336" stroke="black" dash="dotted">
+<path matrix="4 0 0 4 -528 -2336" stroke="black" fill="darkgray" dash="dotted">
 4 0 0 4 208 752 e
 </path>
-<path matrix="4 0 0 4 -528 -2336" stroke="black" dash="dotted">
-8 0 0 8 208 752 e
-</path>
-<path matrix="4 0 0 4 -528 -2336" stroke="black" dash="dotted">
-12 0 0 12 208 752 e
-</path>
-<path matrix="4 0 0 4 -528 -2336" stroke="black" dash="dotted">
+<path matrix="5.33333 0 0 4 -805.333 -2336" stroke="black" dash="dotted">
 196 752 m
 220 752 l
 </path>
-<path matrix="4 0 0 4 -528 -2336" stroke="black" dash="dotted">
+<path matrix="4 0 0 5.33333 -528 -3338.67" stroke="black" dash="dotted">
 208 764 m
 208 740 l
 </path>
-<path matrix="4 0 0 4 -528 -2336" stroke="black" dash="dotted">
+<path matrix="5.32696 0 0 5.32696 -804.028 -3333.85" stroke="black" dash="dotted">
 199.515 760.485 m
 216.485 743.515 l
 </path>
-<path matrix="4 0 0 4 -528 -2336" stroke="black" dash="dotted">
+<path matrix="5.37924 0 0 5.37924 -814.568 -3372.87" stroke="black" dash="dotted">
 216.485 760.485 m
 199.515 743.515 l
 </path>
@@ -454,110 +463,127 @@ h
 <path matrix="1 0 0 1 145.941 -81.9411" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="4 0 0 4 -512 -2248" stroke="black" dash="dotted">
+<path matrix="4 0 0 4 -456 -2240" stroke="black" fill="darkgray" dash="dotted">
 4 0 0 4 208 752 e
 </path>
-<path matrix="4 0 0 4 -512 -2248" stroke="black" dash="dotted">
-8 0 0 8 208 752 e
-</path>
-<path matrix="4 0 0 4 -512 -2248" stroke="black" dash="dotted">
-12 0 0 12 208 752 e
-</path>
-<path matrix="4 0 0 4 -512 -2248" stroke="black" dash="dotted">
+<path matrix="4 0 0 4 -456 -2240" stroke="black" dash="dotted">
 196 752 m
 220 752 l
 </path>
-<path matrix="4 0 0 4 -512 -2248" stroke="black" dash="dotted">
+<path matrix="4 0 0 4 -456 -2240" stroke="black" dash="dotted">
 208 764 m
 208 740 l
 </path>
-<path matrix="4 0 0 4 -512 -2248" stroke="black" dash="dotted">
+<path matrix="4 0 0 4 -456 -2240" stroke="black" dash="dotted">
 199.515 760.485 m
 216.485 743.515 l
 </path>
-<path matrix="4 0 0 4 -512 -2248" stroke="black" dash="dotted">
+<path matrix="4 0 0 4 -456 -2240" stroke="black" dash="dotted">
 216.485 760.485 m
 199.515 743.515 l
 </path>
-<path matrix="1 0 0 1 128 40" fill="black">
+<path matrix="1 0 0 1 184 48" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 116.686 51.3137" fill="black">
+<path matrix="1 0 0 1 172.686 59.3137" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 112 40" fill="black">
+<path matrix="1 0 0 1 168 48" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 116.686 28.6863" fill="black">
+<path matrix="1 0 0 1 172.686 36.6863" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 128 24" fill="black">
+<path matrix="1 0 0 1 184 32" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 139.314 28.6863" fill="black">
+<path matrix="1 0 0 1 195.314 36.6863" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 144 40" fill="black">
+<path matrix="1 0 0 1 200 48" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 139.314 51.3137" fill="black">
+<path matrix="1 0 0 1 195.314 59.3137" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 128 56" fill="black">
+<path matrix="1 0 0 1 184 64" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 105.373 62.6274" fill="black">
+<path matrix="1 0 0 1 161.373 70.6274" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 96 40" fill="black">
+<path matrix="1 0 0 1 152 48" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 105.373 17.3726" fill="black">
+<path matrix="1 0 0 1 161.373 25.3726" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 128 8" fill="black">
+<path matrix="1 0 0 1 184 16" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 150.627 17.3726" fill="black">
+<path matrix="1 0 0 1 206.627 25.3726" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 160 40" fill="black">
+<path matrix="1 0 0 1 216 48" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 150.627 62.6274" fill="black">
+<path matrix="1 0 0 1 206.627 70.6274" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 128 72" fill="black">
+<path matrix="1 0 0 1 184 80" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 128 88" fill="black">
+<path matrix="1 0 0 1 184 96" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 94.0589 73.9411" fill="black">
+<path matrix="1 0 0 1 150.059 81.9411" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 80 40" fill="black">
+<path matrix="1 0 0 1 136 48" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 94.0589 6.0589" fill="black">
+<path matrix="1 0 0 1 150.059 14.0589" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 128 -8" fill="black">
+<path matrix="1 0 0 1 184 0" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 176 40" fill="black">
+<path matrix="1 0 0 1 232 48" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 161.941 73.9411" fill="black">
+<path matrix="1 0 0 1 217.941 81.9411" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<path matrix="1 0 0 1 161.941 6.0589" fill="black">
+<path matrix="1 0 0 1 217.941 14.0589" fill="black">
 1.6065 0 0 1.6065 192 720 e
 </path>
-<text matrix="1 0 0 1 8 -16" transformations="translations" pos="216 784" stroke="black" type="label" width="36.863" height="7.473" depth="2.49" valign="baseline" style="math">\rho(r,\theta,\phi)</text>
-<text matrix="1 0 0 1 -12 -100" transformations="translations" pos="204 824" stroke="black" type="label" width="6.41" height="4.289" depth="0" valign="baseline" style="math">\alpha</text>
-<text matrix="1 0 0 1 72 -32" transformations="translations" pos="248 796" stroke="black" type="label" width="6.161" height="6.926" depth="1.93" valign="baseline" style="math">\beta</text>
-<text matrix="1 0 0 1 96 -112" transformations="translations" pos="208 788" stroke="black" type="label" width="5.711" height="4.297" depth="1.93" valign="baseline" style="math">\gamma</text>
-<text transformations="translations" pos="232 756" stroke="black" type="label" width="20.202" height="6.918" depth="0" valign="baseline">local</text>
+<text matrix="1 0 0 1 8 12" transformations="translations" pos="216 784" stroke="black" type="label" width="212.346" height="12.331" depth="11.37" halign="center" valign="baseline" size="Large" style="math">\displaystyle\rho_\alpha(r,\theta,\phi,\mathbf{\Omega})=\sum_{n\nu}\rho_\nu^n\Phi^{0nn}_{0\nu}(\omega_1,\omega_2,\hat{\mathbf{r}})</text>
+<text matrix="1 0 0 1 -12 -100" transformations="translations" pos="204 824" stroke="black" type="label" width="10.831" height="7.412" depth="0" valign="baseline" size="LARGE" style="math">\alpha</text>
+<text matrix="1 0 0 1 128 -24" transformations="translations" pos="248 796" stroke="black" type="label" width="10.471" height="11.953" depth="3.35" valign="baseline" size="LARGE" style="math">\beta</text>
+<text matrix="1 0 0 1 96 -112" transformations="translations" pos="208 788" stroke="black" type="label" width="9.68" height="7.41" depth="3.35" valign="baseline" size="LARGE" style="math">\gamma</text>
+<path matrix="1 0 0 1 112 16" fill="black">
+1.6065 0 0 1.6065 192 720 e
+</path>
+<path matrix="1 0 0 1 176 -48" fill="black">
+1.6065 0 0 1.6065 192 720 e
+</path>
+<path matrix="1 0 0 1 66.7452 -2.74517" fill="black">
+1.6065 0 0 1.6065 192 720 e
+</path>
+<path matrix="1 0 0 1 48 -48" fill="black">
+1.6065 0 0 1.6065 192 720 e
+</path>
+<path matrix="1 0 0 1 66.7452 -93.2548" fill="black">
+1.6065 0 0 1.6065 192 720 e
+</path>
+<path matrix="1 0 0 1 112 -112" fill="black">
+1.6065 0 0 1.6065 192 720 e
+</path>
+<path matrix="1 0 0 1 157.255 -93.2548" fill="black">
+1.6065 0 0 1.6065 192 720 e
+</path>
+<path matrix="1 0 0 1 157.255 -2.74517" fill="black">
+1.6065 0 0 1.6065 192 720 e
+</path>
 </page>
 </ipe>

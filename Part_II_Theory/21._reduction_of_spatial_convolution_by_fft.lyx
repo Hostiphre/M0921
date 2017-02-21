@@ -113,7 +113,7 @@ acs{DCF}
 \begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 \end_inset
 
-, used as an input data in eq.
+, used as input data in eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -142,11 +142,11 @@ acs{DCF}
 
 \end_inset
 
- bas been stocked in the intermolecular form 
+ was stocked in the intermolecular form 
 \begin_inset Formula $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
 \end_inset
 
- to profit an economy of memory, where 
+ to take advantage of an economy of memory, where 
 \begin_inset Formula $(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})\equiv(\cos\theta_{1},\cos\theta_{2},\phi_{12})$
 \end_inset
 
@@ -159,8 +159,8 @@ acs{DCF}
 \end_inset
 
  is calculated directly in the code.
- These works adapt well with linear solvents, but are proved less powerful
- for molecular solvent such as water.
+ These works adapt well with linear solvents, but are proven less powerful
+ for molecular solvents such as water.
  However, in the case of full Euler angles intermolecular 
 \begin_inset ERT
 status open
@@ -203,8 +203,8 @@ neither the storage of
 \begin_inset Formula $(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
 \end_inset
 
- due to the increased complexity that makes it too costly, can be regard
- as a possible solution.
+ due to the increased complexity and resulting cost, can be regarded as
+ possible solutions.
  For instance, with a normal setting of 
 \begin_inset Formula $64^{3}$
 \end_inset
@@ -247,7 +247,7 @@ acs{DCF}
 \end_inset
 
 .
- As a normal PC has only 4 to 16 GB of RAM, it can cause a memory leak.
+ As a normal PC has only 4 to 16 GB of RAM, this can cause a memory leak.
  
 \end_layout
 
@@ -280,7 +280,7 @@ acs{DCF}
 
 \end_inset
 
- with a more complicate angle correspondence pre-tabulated in the beginning
+ with a more complicated angle correspondence pre-tabulated in the beginning
  of the implementation.
  The other calculates the 
 \begin_inset ERT
@@ -418,7 +418,7 @@ acs{DCF}
 \end_inset
 
 , and the storage is considerably reduced.
- The transform from 
+ The transformation from 
 \begin_inset Formula $\hat{c}(\mathbf{k},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 \end_inset
 
@@ -725,7 +725,7 @@ Here we fix
 \end_inset
 
 ).
- In the extreme cases where we cannot define 
+ In extreme cases where we cannot define 
 \begin_inset Formula $\theta_{k}$
 \end_inset
 
@@ -999,7 +999,7 @@ where
 \begin_inset Formula $\phi$
 \end_inset
 
- which relate to two solvent molecules, the operation 
+ which relates to two solvent molecules, the operation 
 \begin_inset Formula $\phi=\phi_{1}-\phi_{2}$
 \end_inset
 
@@ -1103,7 +1103,7 @@ In the actual implementation, as an integer takes 4 bytes and a real takes
 \begin_inset Formula $\phi$
 \end_inset
 
- in integer two times, thus 
+ in integer form two times, thus 
 \begin_inset Formula $\phi$
 \end_inset
 
@@ -1127,7 +1127,7 @@ At this order,
 \end_inset
 
  is stored in double precision.
- All angles are stored in real number, and the corresponding 
+ All angles are stored in real number form, and the corresponding 
 \begin_inset ERT
 status open
 
@@ -1307,7 +1307,7 @@ acs{DCF}
 \end_layout
 
 \begin_layout Subsection
-Using projections in form of 
+Using projections in the form of 
 \begin_inset Formula $\hat{c}_{\mu\nu}^{mnl}(k)$
 \end_inset
 
@@ -1345,8 +1345,8 @@ where
 \begin_inset Formula $\Phi_{\mu\nu}^{mnl}(\mathbf{\hat{k}},\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})$
 \end_inset
 
- are rotational invariants that depends on both the spatial and angular
- coordinates of the two particles (detailed in appendix 
+ are rotational invariants that depend on both the spatial and angular coordinat
+es of the two particles (detailed in appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chpt:rotational-invariant-expansion"
@@ -1421,7 +1421,7 @@ where the orientations in laboratory frame
 \begin_inset Formula $\mathbf{\Omega}=(\sin\Theta\cos\Phi,\sin\Theta\sin\Phi,\cos\Theta)$
 \end_inset
 
- in the cartesian coordinate system.
+ in the Cartesian coordinate system.
  
 \end_layout
 
@@ -1473,7 +1473,7 @@ acs{DCF}
 \end_layout
 
 \begin_layout Subsection
-Using projections in form of 
+Using projections in the form of 
 \begin_inset Formula $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$
 \end_inset
 
@@ -1579,7 +1579,7 @@ reference "eq:interpolation"
 
 \end_inset
 
-) by an exact formula and it requires the projections 
+) by an exact formula, and it requires the projections 
 \begin_inset Formula $\hat{c}_{\mu\nu,\chi}^{mn}(k)$
 \end_inset
 

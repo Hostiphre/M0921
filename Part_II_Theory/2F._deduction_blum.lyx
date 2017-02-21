@@ -179,7 +179,7 @@ acs{DCF}
 
 \end_inset
 
- can also be expended on rotational invariants 
+ can also be expanded on rotational invariants 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Blum_I"
@@ -351,7 +351,7 @@ where
 \end_layout
 
 \begin_layout Standard
-Compare to (
+Compared to (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:gamma-projection.2F"
@@ -447,7 +447,7 @@ m & n & l\\
 \end_layout
 
 \begin_layout Standard
-Thus replace (
+Thus replacing (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:gamma-p.2F"
@@ -477,7 +477,7 @@ m & n & l\\
 
 \end_inset
 
-then by eq.
+then with eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -633,7 +633,7 @@ reference "eq:gamma-1.2F"
 
 \end_inset
 
-) is reduced to a sum a few terms.
+) is reduced to a sum of few terms.
 \end_layout
 
 \end_body

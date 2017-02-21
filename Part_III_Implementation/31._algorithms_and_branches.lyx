@@ -211,7 +211,8 @@ reference "fig:find-eq-den"
 
 \end_inset
 
-, the three functional terms and its gradients can be both calculated separately.
+, the three functional terms and their gradients can be both calculated
+ separately.
  With the first two terms well presented in section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -219,7 +220,7 @@ reference "chpt:mdft"
 
 \end_inset
 
-, this section aims to summary all the algorithms to evaluate the excess
+, this section aims to summarize all the algorithms to evaluate the excess
  functional gradient 
 \begin_inset Formula $\gamma(\mathbf{r},\mathbf{\Omega})$
 \end_inset
@@ -295,7 +296,7 @@ reference "fig:Possible-algorithms"
 \begin_inset Formula $f_{\mu'\mu}^{m}$
 \end_inset
 
- refers to orientations in the laboratory frame whereas 
+ refer to orientations in the laboratory frame whereas 
 \begin_inset Formula $\boldsymbol{\omega}$
 \end_inset
 
@@ -303,7 +304,7 @@ reference "fig:Possible-algorithms"
 \begin_inset Formula ${f'}_{\chi\mu}^{m}$
 \end_inset
 
- refers to orientations in the intermolecular frame (axis 
+ refer to orientations in the intermolecular frame (axis 
 \begin_inset Formula $\overrightarrow{Oz}$
 \end_inset
 
@@ -1125,7 +1126,7 @@ acs{DCF}
 \end_inset
 
 .
- The difference between branches is the way to calculate 
+ The difference between branches is the method to calculate 
 \begin_inset Formula $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
 \end_inset
 
@@ -1137,7 +1138,7 @@ acs{DCF}
 naive_standard
 \family default
 \series default
- use 
+ uses 
 \begin_inset Formula $c_{\mu\nu,\chi}^{mn}(k)$
 \end_inset
 
@@ -1154,7 +1155,7 @@ acs{DCF}
 
 \end_inset
 
-, and calculate 
+, and calculates 
 \begin_inset Formula $\hat{c}(k,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})$
 \end_inset
 
@@ -1195,7 +1196,7 @@ naive_interpolation
 \begin_inset Formula $c_{\mu\nu,\chi}^{mn}(k)$
 \end_inset
 
- or in other way.
+ or in another way.
  Branch 
 \family typewriter
 \series bold
@@ -1373,7 +1374,7 @@ convolution
 \end_layout
 
 \begin_layout Standard
-The method 
+The methods 
 \family typewriter
 \series bold
 convolution
@@ -1472,7 +1473,7 @@ convolution_standard
 \begin_inset Formula $\mu\geq0$
 \end_inset
 
-, calculate the projections in local frame (eq.
+, and calculates the projections in local frame (eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1574,7 +1575,7 @@ acs{FFT}
 
 \end_inset
 
- process, thus implements the same number of 
+ process, thus implementing the same number of 
 \begin_inset ERT
 status open
 
@@ -1648,7 +1649,7 @@ acs{FFT}
 
 \end_inset
 
- process is depending on the number of projections 
+ process depends on the number of projections 
 \begin_inset Formula $\Delta\rho_{\mu'\mu}^{m}$
 \end_inset
 
@@ -1780,7 +1781,7 @@ Branch
 reference_dipole
 \family default
 \series default
- use 
+ uses 
 \begin_inset ERT
 status open
 

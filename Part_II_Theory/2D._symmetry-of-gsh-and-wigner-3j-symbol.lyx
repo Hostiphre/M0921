@@ -97,7 +97,7 @@ acs{GSH}
 
 \end_inset
 
-, Winger D-symbol) play a huge role in the reduction of molecular Ornstein-Zerni
+, Wigner D-symbol) play a huge role in the reduction of molecular Ornstein-Zerni
 ke equation as well as finding the relation between rotational invariant
  projections.
  Their main properties, presented in Messiah 
@@ -328,7 +328,7 @@ acs{GSH}
 \end_inset
 
  given in lectures.
- Here we adopt the definition in the book of Messiah:
+ Here we adopt the definition proposed by Messiah:
 \begin_inset Formula 
 \begin{equation}
 R_{\mu'\mu}^{m}(\phi\theta\psi)=e^{-i\mu'\phi}r_{\mu'\mu}^{m}(\theta)e^{-i\mu\psi}\label{eq:GSH-def}
@@ -616,7 +616,7 @@ acs{GSH}
 
 \end_inset
 
- in books and articles used in this thesis are different.
+ in books and articles used in this thesis varies depending on the source.
  In Messiah 
 \begin_inset CommandInset citation
 LatexCommand citep

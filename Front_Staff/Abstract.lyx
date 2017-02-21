@@ -299,7 +299,7 @@ acs{HRF}
 
 
 \lang french
-), équivalent à l'approximation de la chaîne hypernettée (
+), équivalant à l'approximation de la chaîne hypernettée (
 \lang american
 
 \begin_inset ERT
@@ -376,8 +376,8 @@ acs{GSH}
 s).
  On montre que le nouvel algorithme est beaucoup plus rapide que le précédent.
  Les deux algorithmes sont appropriés pour des solutés arbitraires tridimensionn
-el dans l'eau liquide, et pour prédire l'énergie libre et la structure de
- solvatation d'ions et de molécules.
+els dans l'eau liquide, et pour prédire l'énergie libre et la structure
+ de solvatation d'ions et de molécules.
 \end_layout
 
 \begin_layout Standard

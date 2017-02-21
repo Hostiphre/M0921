@@ -472,7 +472,7 @@ acs{GSH}
 
 \end_inset
 
- possess orthogonality eq.
+s possess orthogonality eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -620,7 +620,7 @@ Invariants of form
 \begin_inset Formula $F(k,\boldsymbol{\omega_{1}},\boldsymbol{\omega_{2}})$
 \end_inset
 
- in intermolecular coordinate system (see appendix 
+ in the intermolecular coordinate system (see appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chpt:rotational-invariant-expansion"
@@ -642,7 +642,7 @@ reference "eq:local_backward"
 
 \end_inset
 
-)), that is how the 
+)); that is how the 
 \begin_inset ERT
 status open
 
@@ -857,7 +857,7 @@ reference "eq:gamma-blum"
 \end_inset
 
 ) is essential to the new algorithm.
- It makes that, for the terms with the same index 
+ It states that, for the terms with the same index 
 \begin_inset Formula $\chi$
 \end_inset
 
@@ -895,7 +895,7 @@ The index
 \end_inset
 
  in the treatment of spatial convolution, where the recombination of projections
- on the exponential orthogonal bases gives for each 
+ on the exponential orthogonal bases gives, for each 
 \begin_inset Formula $\mathbf{k}$
 \end_inset
 
@@ -916,7 +916,7 @@ acs{OZ}
 \end_layout
 
 \begin_layout Standard
-If we consider the solute is the same as solvent, and take 
+If we consider the solute is the same as the solvent, and take 
 \begin_inset Formula $\hat{c'}_{\nu\mu,\underline{\chi}}^{nm}(k)$
 \end_inset
 
@@ -984,7 +984,7 @@ reference "sec:Symmetry-rot_invar"
 
 \end_inset
 
-The incompatibility in the conjugate is yet to be understand.
+The incompatibility in the conjugate is yet to be explained.
  In the code, when we use the 
 \begin_inset Formula $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$
 \end_inset
@@ -1032,8 +1032,8 @@ reference "eq:gamma-blum"
 
 \end_inset
 
-) does not contain any incompatibility, it only occurs in the comparison
- with the 
+) does not contain any incompatibility; it only occurs in comparison with
+ the 
 \begin_inset ERT
 status open
 
@@ -1140,7 +1140,7 @@ reference "eq:gamma-k"
 
 \end_inset
 
-; but after the Blum's 
+; but after Blum's 
 \begin_inset Formula $\chi$
 \end_inset
 
@@ -2199,7 +2199,7 @@ reference "eq:GSHT_backward"
 \begin_inset Formula $F(\mathbf{\Omega})$
 \end_inset
 
-, a discussion to this issue will be given in 
+, while a discussion of this issue will be given in 
 \begin_inset Formula $\mathsection$
 \end_inset
 
@@ -2522,7 +2522,7 @@ key "Numerical_Recipes_3ed"
 
 \end_inset
 
- suggests to reduce this cost to 
+ proposes to reduce this cost to 
 \begin_inset Formula $O(N_{\Theta}^{2}N_{\Phi\Psi}\ln N_{\Phi\Psi}\simeq N^{4/3})$
 \end_inset
 
@@ -3194,8 +3194,8 @@ s:
 
 \end_inset
 
-Note that these two steps, the same with their backward transform, are commutabl
-e, which will be discussed after.
+Note that these two steps, as with their backward transform, are commutable,
+ which will be discussed later.
 \end_layout
 
 \begin_layout Enumerate
@@ -3532,7 +3532,7 @@ It can be also proven that the passage from the function
 \begin_inset Formula $\hat{f}(\mathbf{k},\boldsymbol{\omega}_{k})$
 \end_inset
 
- in intermolecular frame following by an 
+ in intermolecular frame followed by an 
 \begin_inset ERT
 status open
 
@@ -3744,7 +3744,7 @@ Therefore only the projections of
 \begin_inset Formula $\mu\geq0$
 \end_inset
 
-, or a half of 
+, or half of 
 \begin_inset Formula $\mathbf{k}$
 \end_inset
 
@@ -3757,8 +3757,8 @@ Therefore only the projections of
 \end_layout
 
 \begin_layout Standard
-In the implementation, it is a natural choice to keep only a half of projections
- 
+In the implementation, it is a natural choice to keep only half of the projectio
+ns 
 \begin_inset Formula $\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})$
 \end_inset
 
@@ -3796,7 +3796,7 @@ acs{FGSHT}
 \begin_inset Formula $\mu\geq0$
 \end_inset
 
-) gives implicitly a half of information.
+) gives implicitly half of the information.
  As the 
 \begin_inset ERT
 status open
@@ -3829,7 +3829,7 @@ reference "eq:gamma-blum"
 \begin_inset Formula $\nu$
 \end_inset
 
- in equation), it is more natural compute a half of 
+ in equation), it is more natural to compute half of 
 \begin_inset Formula $\mathbf{k}$
 \end_inset
 
@@ -4053,8 +4053,8 @@ reference "eq:rot-invar-symm-k-chi"
 \end_layout
 
 \begin_layout Standard
-It should be noted that not exactly the half of points are calculated.
- If we choose to calculate a half of 
+It should be noted that not exactly half of the points are calculated.
+ If we choose to calculate half of 
 \begin_inset Formula $\mathbf{k}$
 \end_inset
 
@@ -4065,7 +4065,7 @@ reference "fig:points-symm"
 
 \end_inset
 
-, where the 2D plan corresponds two of the three dimensions in 
+, where the 2D plan corresponds to two of the three dimensions in 
 \begin_inset Formula $k$
 \end_inset
 
@@ -4079,7 +4079,7 @@ reference "eq:2.2.symm-rho-k"
 \end_inset
 
 ), but the red points should be all calculated, of which the corresponding
- points is also a red point or even itself.
+ points are also a red point or even itself.
  This ever caused a huge problem in the implementation, as we put 
 \begin_inset Formula $\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})$
 \end_inset
@@ -4088,7 +4088,7 @@ reference "eq:2.2.symm-rho-k"
 \begin_inset Formula $\hat{\gamma}_{\mu'\mu}^{m}(\mathbf{k})$
 \end_inset
 
- in the same array for reason of memory.
+ in the same array for purposes of memory.
  It should be assured that these points are calculated only once.
 \end_layout
 

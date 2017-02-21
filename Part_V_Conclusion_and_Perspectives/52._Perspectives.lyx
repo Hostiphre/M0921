@@ -83,9 +83,8 @@ name "chpt:perspectives"
 \end_layout
 
 \begin_layout Standard
-The work is never perfect, a great deal of unfinished work and theories
- linked to this thesis is presented here.
- 
+Since no work is ever perfect, a great deal of unfinished work and theories
+ linked to this thesis are presented here for consideration.
 \end_layout
 
 \begin_layout Section
@@ -114,7 +113,7 @@ convolution
 \series default
  algorithms is typically 1 to 30 minutes according to the resolution of
  grid.
- But the memory consumed for such a process is typically 1 to 20 G of RAM.
+ But the memory consumed for such a process is typically 1 to 20 GB of RAM.
  This is mainly due to the minimizer L-BFGS-B, which firstly needs to store
  several steps of information during the iterations, and secondly is in
  double precision.
@@ -123,7 +122,7 @@ convolution
 \end_inset
 
  and the gradient also need to be stored in double precision, and if not,
- as I tested, it leads to divergence.
+ as tested, it leads to divergence.
  In addition, during the evaluation of the functional, the memory for at
  most 3 times 
 \begin_inset Formula $\rho(\mathbf{r},\mathbf{\Omega})$
@@ -133,8 +132,8 @@ convolution
 \end_layout
 
 \begin_layout Standard
-There are two ways to get over this memory limit, and both of them need
- to modify the L-BFGS-B minimizer, which is a 
+There are two ways to get over this memory limit, and both of them involve
+ modifying the L-BFGS-B minimizer, which is a 
 \begin_inset Quotes eld
 \end_inset
 
@@ -143,8 +142,9 @@ blackbox
 \end_inset
 
 , in Fortran 77.
- The simplest way is to change the double precision to single in the L-BFGS-B
- minimizer; this action can reduce the memory needed by a factor 2.
+ The simplest method is to change the double precision to single in the
+ L-BFGS-B minimizer; this action can reduce the memory needed by a factor
+ of 2.
  Another way to completely pass this limit is to parallelize the code to
  several nodes using MPI.
  This requires only to modify the 
@@ -165,8 +165,7 @@ acs{FFT}
 \end_inset
 
 .
- A third route indeed would be to define a minimizer with much less memory
- requirements.
+ A third route would be to define a minimizer with much less memory requirements.
 \end_layout
 
 \begin_layout Section
@@ -202,8 +201,8 @@ acs{MDFT}
 
 \end_inset
 
- it uses a homogeneous spatial grid, which has therefore the same resolution
- near and far from the solute.
+ it uses a homogeneous spatial grid, which has the same resolution near
+ and far from the solute.
  The caveat of 
 \begin_inset ERT
 status open
@@ -329,7 +328,7 @@ Apart from the
 \begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
 \end_inset
 
- term, there are still many fields of study to develop 
+ term, still many fields of study remains to be developed in 
 \begin_inset ERT
 status open
 
@@ -353,7 +352,7 @@ acs{MDFT}
 \begin_inset Formula $V_{\mathrm{ext}}$
 \end_inset
 
- becomes itself a functional of the solvent density and varies during the
+ itself becomes a functional of the solvent density and varies during the
  minimization.
  The polarization can be introduced, for example, by an extra induced dipole
  on the solute center or on the solute sites.
@@ -364,8 +363,8 @@ MDFT Viewer
 \end_layout
 
 \begin_layout Standard
-This thesis contained originally a contribution on visualization.
- Due to time limit, it had to be removed.
+This thesis originally contained a contribution on visualization.
+ Due to time limitation, it had to be removed.
  The Viewer is an important part of the code development; it provides insightful
  visualization and easier analysis, and may help to popularize the code.
  GaussViewer is a good example.
@@ -389,9 +388,9 @@ acs{MDFT}
 
 \end_inset
 
- is presently capable to deal with small chemical system, but it is still
- far from satisfying for common usage in the domain of bio-chemistry, or
- as a solvent model for 
+ is presently capable of dealing with small chemical systems, but it is
+ still far from satisfying for common usage in the domain of bio-chemistry,
+ or as a solvent model for 
 \begin_inset ERT
 status open
 

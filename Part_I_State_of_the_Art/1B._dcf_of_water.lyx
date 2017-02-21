@@ -110,7 +110,7 @@ acs{MDFT}
 \end_inset
 
  and does not depend on the solute, can be extracted from numerical simulations.
- In this thesis, the SPC/E water is used as solvent.
+ In this thesis, the SPC/E water is used as a solvent.
  Two sources of bulk 
 \begin_inset ERT
 status open
@@ -262,7 +262,7 @@ acs{DCF}
 
 \end_inset
 
-, contains three primary rotational invariant projections that correspondent
+, contains three primary rotational invariant projections that correspond
  to 
 \begin_inset Formula $n_{\max}=1$
 \end_inset
@@ -360,8 +360,8 @@ where
 \end_layout
 
 \begin_layout Standard
-The correlation functions are then expanded on projected onto a basis of
- rotational invariants:
+The correlation functions are then projected onto a basis of rotational
+ invariants:
 \begin_inset Formula 
 \begin{equation}
 h^{nml}(k)=f^{nml}\left\langle h(k,\mathbf{\Omega}_{1},\mathbf{\Omega}_{2})\Phi^{nml}\right\rangle _{\mathbf{\Omega}_{1},\mathbf{\Omega}_{2}}
@@ -700,8 +700,8 @@ acs{DCF}
 \end_layout
 
 \begin_layout Standard
-The convention of rotational invariants adapts those of Blum, which gives
- for example for 
+The convention of rotational invariants adapts those of Blum, which gives,
+ for example, for 
 \begin_inset Formula $n_{\max}=1$
 \end_inset
 

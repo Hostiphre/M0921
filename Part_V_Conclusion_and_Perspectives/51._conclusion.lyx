@@ -100,9 +100,9 @@ acs{FFT}
  to deal with the spatial convolution, and a direct integration over angles.
  For practical reasons, this initial approach was limited to linear or pseudo-li
 near solvents in order to reduce the number of angular variables.
- In this work, it have been extended to deal with arbitrary 3D molecular
- solvent, which is mainly about to write out the expression of the more
- complicated rotation matrix which corresponds to 3-Euler-angle case.
+ In this work, it has been extended to deal with arbitrary 3D molecular
+ solvents, which is mainly about writing out the expression of the more
+ complicated rotation matrix which corresponds to the 3-Euler-angle case.
  
 \end_layout
 
@@ -120,7 +120,7 @@ acf{GSH}
 
 \end_inset
 
- expansion, which aims in producing the same result as the algorithm mentioned
+ expansion, which aims to produce the same result as the algorithm mentioned
  above for molecular solvent but much faster, is then built for the treatment
  of the angular convolution part, inspired by Blum's 
 \begin_inset Formula $\chi$
@@ -179,7 +179,7 @@ acs{FFT}
 \end_layout
 
 \begin_layout Standard
-The new algorithm has been proven theoretically and practically much faster
+Theoretically and practically the new algorithm has been proven much faster
  than the previous one, with an acceptable accuracy lost.
 \end_layout
 
@@ -248,7 +248,7 @@ acf{MDFT}
 \end_layout
 
 \begin_layout Standard
-Comparing to 
+Compared to 
 \begin_inset ERT
 status open
 
@@ -271,7 +271,7 @@ dipolar-like
 \end_inset
 
  method.
- Concerning the solvent structure, the agreement to 
+ Concerning the solvent structure, the agreement with 
 \begin_inset ERT
 status open
 
@@ -315,10 +315,10 @@ acs{HNC}
 
  theory has to be improved or corrected.
  Concerning thermodynamic properties such as solvation free energies, some
- of small monovalent ions have been tested in this purpose.
- In this case, we showed that it is very important to account for finite
- size effects through two type of corrections: a Madelung correction reminiscent
- of the Born correction for spherical systems, scaling as 
+ small monovalent ions have been tested in this purpose.
+ In this case we showed that it is very important to account for finite
+ size effects through two types of corrections: a Madelung correction reminiscen
+t of the Born correction for spherical systems, scaling as 
 \begin_inset Formula $q^{2}/L$
 \end_inset
 
@@ -331,8 +331,8 @@ acs{HNC}
  The tests need now to be extended to relevant databanks of organic molecules
  in order to fully assess the relevance of the method.
  One can anticipate that it will require the introduction of ad-hoc pressure
- corrections, or three-body correction terms in the functional in order
- to compensate the much too high pressure given by the 
+ corrections, or three-body correction terms in the functional, in order
+ to compensate for the overly high pressure given by the 
 \begin_inset ERT
 status open
 
@@ -358,12 +358,12 @@ acs{HNC}
 
 \end_inset
 
- functional, a defect that has been pointed out recently.
+ functional, a defect that has been pointed out previously.
 \end_layout
 
 \begin_layout Standard
-In a word, the new algorithm is now ready for chemical applications usage.
- However, there are still some minor problems waiting for a response.
+In short, the new algorithm is now ready for chemical applications usage.
+ However, there are still some minor problems needing to be addressed.
  Firstly, there are some slight incompatibilities within the theory and
  through the implementation, notably the 
 \begin_inset Formula $\gamma$
@@ -389,9 +389,9 @@ acs{DCF}
 \end_inset
 
 .
- The grid dependence of free energy is also somehow worrying; it might be
- due to a little deficiency in the calculation of the external potential,
- present in the initial version of the 
+ The grid dependence of free energy is somewhat worrying; it might be due
+ to a slight deficiency in the calculation of the external potential, present
+ in the initial version of the 
 \begin_inset ERT
 status open
 
@@ -405,7 +405,7 @@ acf{MDFT}
 \end_inset
 
  code used.
- This issue is not deepened as this thesis mainly treat the excess 
+ Such an issue is not deepened as this thesis mainly treats the excess 
 \begin_inset Formula $\mathcal{F}_{\mathrm{exc}}$
 \end_inset
 

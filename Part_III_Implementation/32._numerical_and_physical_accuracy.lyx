@@ -129,7 +129,7 @@ acs{FGSHT}
  can be far from imperceptible within the level of discretization allowed
  by the computing capacity nowadays.
  This section works on all the possible effects and parameters that have
- an influence to the accuracy, e.g.
+ an influence on the accuracy, e.g.
  the usage of different algorithms, or different discretizing parameters
  or convergence criteria.
  The goal of this study is to determine in which conditions the errors can
@@ -142,8 +142,8 @@ Significant digits and curve resolution
 \end_layout
 
 \begin_layout Standard
-Before we examine the effects of discretization and limited orders, here
- is firstly a discussion of precision that the code can achieve.
+Before we examine the effects of discretization and limited orders, let
+ us first have a discussion concerning precision that the code can achieve.
  The implementation can always give numbers at machine precision (approximativel
 y 
 \begin_inset Formula $10^{-13}$
@@ -203,7 +203,7 @@ reference "tab:conv_criteria"
 \end_inset
 
 , the normal convergence criteria (well converged) that we use in this thesis
- can give a free energy at two decimal.
+ can give a free energy at two decimals.
  In case of convergence difficulty, as for some molecular solutes, looser
  criteria can be used.
 \end_layout
@@ -236,7 +236,7 @@ status collapsed
 \begin_layout Plain Layout
 
 \size footnotesize
-Criterial,
+Criteria,
 \end_layout
 
 \end_inset
@@ -974,10 +974,10 @@ name "tab:conv_criteria"
 \end_layout
 
 \begin_layout Standard
-Noted that although the convergence criteria allow several decimals, if
- the result is for chemical usage, it is better to take no decimal or at
- most only one, as the error of normal simulation of chemical system is
- already at 1 to 2 
+Note that although the convergence criteria allow several decimals, if the
+ result is for chemical usage, it is better to take no decimal or at most
+ only one, as the error of normal simulations of chemical system is already
+ at 1 to 2 
 \begin_inset Formula $\mathrm{kJ/mol}$
 \end_inset
 
@@ -1035,7 +1035,7 @@ reference "sec:Solvation-structure"
 \begin_inset Formula $\delta r$
 \end_inset
 
-) can have an influence to the shown results.
+) can have an influence on the shown results.
  Implicitly (without specification) the number of bins is determined by
  the Rice rule:
 \begin_inset Formula 
@@ -1076,7 +1076,7 @@ acs{RDF}
 
 \end_inset
 
- with different resolution parameter for the site O of the 
+ with different resolution parameters for the site O of the 
 \begin_inset Formula $\mathrm{O_{2}}$
 \end_inset
 
@@ -4313,7 +4313,7 @@ s.
 \end_layout
 
 \begin_layout Standard
-We can see that, all the 
+We can see that all the 
 \begin_inset Formula $E_{a}^{\mathrm{max}}$
 \end_inset
 
@@ -4347,15 +4347,15 @@ acs{FGSHT}
 \begin_inset Formula $m_{\max}\geq n_{\max}$
 \end_inset
 
- may not be negligle either, knowing that the values of trigonometric functions
- are in between 
+ may not be negligible either, knowing that the values of trigonometric
+ functions are in between 
 \begin_inset Formula $\left[-1,1\right]$
 \end_inset
 
 .
- However, if the most portion of the function is a polynomial within the
- required order, the extra part does not play a great role, the total mean
- error will not be as significant as seen now.
+ However, if the greatest portion of the function is a polynomial within
+ the required order, the extra part does not play a great role, and the
+ total mean error will not be as significant as seen now.
  
 \end_layout
 
@@ -4804,7 +4804,7 @@ Note that the projections
 \begin_inset Formula $\nu$
 \end_inset
 
- are even number.
+ are even numbers.
 \end_layout
 
 \end_inset
@@ -4882,7 +4882,7 @@ reference "fig:gamma.proj5Ind"
 \begin_inset Formula $\gamma$
 \end_inset
 
- is much stronger than the terms of 
+ are much stronger than the terms of 
 \begin_inset Formula $n=3,4,5$
 \end_inset
 
@@ -4891,7 +4891,7 @@ reference "fig:gamma.proj5Ind"
 \begin_inset Formula $\gamma$
 \end_inset
 
- already converge within 
+ already converges within 
 \begin_inset Formula $n_{\max}\leq5$
 \end_inset
 
@@ -5838,7 +5838,7 @@ acs{DCF}
 
 \end_inset
 
- is used, in the condition that the error due to discretization is not fatal.
+ is used, on the condition that the error due to discretization is not fatal.
  The most direct comparison can be done with the free energy and structure
  obtained at the end of minimization.
  To be more strict, it is also worthwhile to study only the 
@@ -5929,7 +5929,7 @@ acs{GSH}
 
 \end_inset
 
- expansion (difference between for instance 
+ expansion (difference between, for instance, 
 \family typewriter
 \series bold
 naive_standard
@@ -5994,7 +5994,7 @@ reference "fig:Possible-algorithms"
 
 \end_inset
 
-, we can be first interested in the local paths from 
+, we can first examine the local paths from 
 \begin_inset Formula $\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{k})$
 \end_inset
 
@@ -6166,7 +6166,7 @@ The detailed error value of
  here has not been noted, as it was regarded as a bug in the code at that
  time, then the code has since been modified.
  But in fact, the choice to add corrections or not on the even number grid
- is not something about right and wrong.
+ is not a matter of right and wrong.
 \end_layout
 
 \end_inset
@@ -6478,7 +6478,7 @@ is not totally respected, and this imposes that
 \begin_inset Formula $\gamma_{\mu'\mu}^{m}(\mathbf{r})$
 \end_inset
 
- has a imaginary part.
+ has an imaginary part.
  This imaginary part has been omitted implicitly in the 
 \begin_inset Quotes eld
 \end_inset
@@ -6551,8 +6551,8 @@ convolution_pure_angular
 \end_layout
 
 \begin_layout Standard
-In the purpose that the three algorithm gives the same result, we can artificial
-ly impose at the border:
+For the purpose that the three algorithm gives the same result, we can artificia
+lly impose at the border:
 \begin_inset Formula 
 \begin{equation}
 R_{\mu'\chi}^{m}(k_{i}^{\mathrm{max}})=\frac{1}{2}\left[R_{\mu'\chi}^{m}(k_{i})+R_{\mu'\chi}^{m}(-k_{i})\right]
@@ -6606,7 +6606,7 @@ reference "eq:3-1"
 
 \end_inset
 
-) and (
+) or (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:2-1"
@@ -6784,7 +6784,7 @@ reference "fig:gamma-proj"
 
 ), which is to say that the global profile of the two should be almost the
  same, and thus the error would not be very decisive.
- Knowing that the difference is even more compensated with many iterations
+ Knowing that the difference is even further compensated with many iterations
  as shown in table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -7404,15 +7404,15 @@ reference "sec:Free-energy-correction"
 \end_inset
 
 , as both the box length and the charge remain the same for the whole set
- of test.
- From (b) we consider that at least a 3 points grid in 1 dimension (each
+ of tests.
+ From (b) we consider that at least a 3-points grid in 1 dimension (each
  direction) per Angstrom is needed to reduce the uncertainty due to grid
  resolution.
  The molecule in Figure (c) is neutral (although dipolar), i.e.
- does not need any border correction neither.
+ it does not need any border correction neither.
  We see that the energy also varies with respect to the box length (with
- direct summation this time), and have the same tendency for different resolutio
-n 
+ direct summation this time), and has the same tendency for different resolution
+s 
 \begin_inset Formula $\mathrm{nfft}/L$
 \end_inset
 
@@ -7445,7 +7445,7 @@ n
 
  which does not completely vanish when increasing the resolution of angular
  grid.
- Since during the whole thesis the 
+ Since throughout the whole thesis the 
 \begin_inset Formula $\Psi$
 \end_inset
 
@@ -7457,7 +7457,7 @@ n
 \begin_inset Formula $\Phi$
 \end_inset
 
-, this remains an issue for further verification.
+, this remains an issue requiring further verification.
  We can roughly conclude that an error around 1-2 kJ/mol is common for this
  code.
  The spatial grid dependence will not be treated in this thesis as it may
@@ -7711,7 +7711,7 @@ reference "tab:parameters-ch4"
 \end_inset
 
 .
- It should be noted that, the 
+ It should be noted that the 
 \family typewriter
 \series bold
 naive_interpolation
@@ -7773,7 +7773,7 @@ acs{IET}
 
 \end_inset
 
-, the negative charge also have difficulty to converge), and all the converged
+, the negative charges also have difficulty converging), and all the converged
  results are presented.
 \end_layout
 
@@ -8687,7 +8687,7 @@ key "belloni_efficient_2014"
 \end_inset
 
 .
- The calculation were done with a cut-off distance of 
+ The calculations were done with a cut-off distance of 
 \begin_inset Formula $R_{\max}=102.4\textrm{Å}$
 \end_inset
 
@@ -8743,8 +8743,8 @@ reference "fig:Comparison-to-IET,without-correction"
 
 \end_inset
 
-The measured number and the theoretical one are a little different, it can
- be principally due to the lack of point at the -1 charge side.
+The measured number and the theoretical one are a little different, which
+ can be principally due to the lack of point at the -1 charge side.
 \end_layout
 
 \begin_layout Subsection
@@ -9009,7 +9009,7 @@ reference "fig:Comparison-to-IET,with-corr-alles"
 \end_inset
 
 , we can see that these differences are almost negligible compared to the
- total energy they possess, and the curves only differs with different 
+ total energy they possess, and the curves only differ with different 
 \begin_inset ERT
 status open
 
@@ -10091,7 +10091,7 @@ acs{DCF}
 \begin_inset Formula $n_{\max}$
 \end_inset
 
-, we chose a series of tests with three charge: -0.6, 0, and +1, using 
+, we chose a series of tests with three charges: -0.6, 0, and +1, using 
 \family typewriter
 \series bold
 convolution_standard
@@ -10118,7 +10118,7 @@ acs{IET}
 
 \end_inset
 
-, the case when 
+, and the case when 
 \begin_inset Formula $m_{\max}=n_{\max}$
 \end_inset
 
@@ -10218,8 +10218,8 @@ acs{IET}
 \begin_inset Formula $\rho$
 \end_inset
 
- have no influence to the final energy, which is yet comprehensible, as
- the extra order of quadrature gives no influence to the functional gradient,
+ has no influence on the final energy, which is yet comprehensible, as the
+ extra order of quadrature gives no influence on the functional gradient,
  and the 
 \begin_inset Formula $\rho$
 \end_inset
@@ -10254,8 +10254,8 @@ A scheme of free energy evaluation with respect to
 \begin_inset Formula $m_{\max}=n_{\max}$
 \end_inset
 
- have difficulty to converge and if convergence is achieved they give usually
- the same result) is made in figure 
+ have difficulty converging and if convergence is achieved they usually
+ give the same result) is made in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Comparison-to-IET,with-corr-nmax"
@@ -10350,7 +10350,7 @@ reference "fig:Comparison-to-IET.rot_invar"
 
 \end_inset
 
- it is converted to give a easier understanding.
+ it is converted to give better understanding.
  
 \end_layout
 
@@ -10385,7 +10385,7 @@ reference "fig:Comparison-to-IET.rot_invar"
 \end_inset
 
 .
- We can see that they are in good agreement.
+ We can see that they are well in agreement.
 \end_layout
 
 \begin_layout Standard
@@ -10565,7 +10565,7 @@ name "fig:RDF-and-polarization"
 \end_layout
 
 \begin_layout Standard
-If we compare one charge in one graph, with all the 
+If we compare one charge in one graph with all the 
 \begin_inset Formula $n_{\max}$
 \end_inset
 
@@ -10611,9 +10611,9 @@ acs{RPF}
 
 \end_inset
 
-s for the three charges, as well as their zoomed parts in order to have
+s for the three charges, as well as their zoomed parts, in order to have
  a clear view of the differences.
- Firstly we can see that in the most of cases, apart form uncharged 
+ Firstly we can see that in most cases, apart from uncharged 
 \begin_inset Formula $\mathrm{C}\mathrm{H}_{4}$
 \end_inset
 
@@ -10630,7 +10630,7 @@ s for the three charges, as well as their zoomed parts in order to have
 \end_inset
 
  are superposed.
- That means even for structure of single ions, extra order of 
+ That means even for structures of single ions, extra order of 
 \begin_inset Formula $m_{\max}$
 \end_inset
 
@@ -10648,7 +10648,7 @@ s for the three charges, as well as their zoomed parts in order to have
 \begin_inset Formula $\mathrm{C}\mathrm{H}_{4}$
 \end_inset
 
- it seems to be bazar, but looking at the scale of the schema and we consider
+ it seems to be a mess, but looking at the scale of the schema, we consider
  that it converges from 
 \begin_inset Formula $n_{\max}=4$
 \end_inset
@@ -10694,7 +10694,7 @@ acs{IET}
 
 \end_inset
 
- results even for un charged 
+ results even for uncharged 
 \begin_inset Formula $\mathrm{C}\mathrm{H}_{4}$
 \end_inset
 
@@ -10705,7 +10705,7 @@ reference "fig:Comparison-to-IET,with-corr"
 
 \end_inset
 
-), we have calculated in addition some other uncharged LJ centers.
+), we have calculated some other uncharged LJ centers.
  
 \begin_inset Float table
 placement h
@@ -11529,9 +11529,9 @@ reference "subsec:The-external-term"
 \begin_inset Formula $\mathrm{O}_{2}$
 \end_inset
 
- always diverges with Poisson method.
- We can make hypothesis that this is because the distance between the charges
- is too short, as shown in figure 
+ always diverges with the Poisson method.
+ We can make a hypothesis that this is because the distance between the
+ charges is too short, as shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Test-linear-solutes"
@@ -13248,7 +13248,7 @@ name "tab:Free-energy-of-solute"
 \end_layout
 
 \begin_layout Standard
-The solvent structure around the various solutes are also compared to 
+The solvent structures around the various solutes are also compared to 
 \begin_inset ERT
 status open
 
@@ -13277,7 +13277,7 @@ reference "fig:Comparison-co2"
 \begin_inset Formula $m=0$
 \end_inset
 
-, they are well agreed with 
+, they are well in agreement with 
 \begin_inset ERT
 status open
 
@@ -13434,7 +13434,7 @@ First conclusion
 \end_layout
 
 \begin_layout Standard
-From the above results, the following first conclusions may be drawn:
+From the above results, the following initial conclusions may be drawn:
 \end_layout
 
 \begin_layout Itemize
@@ -13450,10 +13450,10 @@ acs{MDFT}
 
 \end_inset
 
- is capable to produce the solvation free energy at chemical precision with
- normal convergence criteria (which gives 2 decimal for a specific spatial
- and angular grid), which is nearly the same compared to mathematical equivalent
- 
+ is capable of producing the solvation free energy at chemical precision
+ with normal convergence criteria (which gives 2 decimals for a specific
+ spatial and angular grid), which is nearly the same compared to mathematical
+ equivalent 
 \begin_inset ERT
 status open
 
@@ -13478,7 +13478,7 @@ acs{IET}
 \begin_inset Formula $m_{\max}$
 \end_inset
 
- has no influence to the energy and structure if it is larger than 
+ has no influence on the energy and structure if it is larger than 
 \begin_inset Formula $n_{\max}$
 \end_inset
 
@@ -13500,7 +13500,7 @@ acs{IET}
 \begin_inset Formula $\rho$
 \end_inset
 
- is produced by the minimization, its expansion has no influence to the
+ is produced by the minimization, its expansion has no influence on the
  final result.
  The different branches produce almost the same result with the same 
 \begin_inset ERT
@@ -13515,7 +13515,7 @@ acs{DCF}
 
 \end_inset
 
-, comparing to the error introduced by spatial grid dependence; while 
+, compared to the error introduced by spatial grid dependence; while 
 \family typewriter
 \series bold
 naive_interpolation
@@ -13528,7 +13528,7 @@ convolution
 \family default
 \series default
  methods in terms of convergence for negative molecules, but exhibits a
- small an energy shift about 2 kJ/mol for neutral LJ centers.
+ small energy shift about 2 kJ/mol for neutral LJ centers.
  For charged solutes, the two types of free energy corrections mentioned
  in this thesis are needed.
 \end_layout
@@ -13570,7 +13570,7 @@ acs{IET}
 \end_inset
 
  projections.
- For solutes, we are obliged to use looser sampling rate to have a smooth
+ For solutes, we are obliged to use a looser sampling rate to have a smooth
  curve; as the spatial grid is cubic, but not in spherical coordinates as
  
 \begin_inset ERT
@@ -13600,7 +13600,7 @@ acs{MDFT}
 \end_inset
 
  has the great advantage to be generalizable to produce 3D solvent structures
- for complicate molecules, but 
+ for complicated molecules, but 
 \begin_inset ERT
 status open
 
@@ -13613,7 +13613,7 @@ acs{IET}
 
 \end_inset
 
- is ideal, and much more efficient, to give information about small symmetric
+ is ideal, and much more efficient when giving information about small symmetric
  molecules using functions with respect to 
 \begin_inset Formula $r$
 \end_inset

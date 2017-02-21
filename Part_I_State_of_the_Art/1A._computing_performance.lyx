@@ -83,7 +83,7 @@ name "chpt:computing-performance"
 \end_layout
 
 \begin_layout Standard
-Algorithm complexity is one of crucial criteria to evaluate the theoretical
+Algorithm complexity is one of the crucial criteria to evaluate the theoretical
  performance of the code, as defined below:
 \end_layout
 

@@ -83,8 +83,8 @@ name "chpt:solvation-properties"
 \end_layout
 
 \begin_layout Standard
-The solvation free energy and solvent structure are the most important property
- that we seek; as shown in previous sections, they can be both obtained
+The solvation free energy and solvent structure are the most important propertie
+s that we seek; as shown in previous sections, they can both be obtained
  by the minimization of the free energy functional 
 \begin_inset Formula $\mathcal{F}[\rho]$
 \end_inset
@@ -117,11 +117,11 @@ key "Kastenholz_2006_I,Kastenholz_2006_II,Hunenberger_book"
 
 .
  This offset is mainly caused by two sources: (1) resulting from the use
- of a finite system size; in our case, is a system with cubic periodic boundary
- conditions, which presents artificial interactions between the ion and
- its own periodic copies, as well as between the solvent and the periodic
- copies of the ion (Type-B); (2) resulting from the choice of convention
- for summing up the contributions of solvent charges to the electrostatic
+ of a finite system size; in our case, it is a system with cubic periodic
+ boundary conditions, which presents artificial interactions between the
+ ion and its own periodic copies, as well as between the solvent and the
+ periodic copies of the ion (Type-B); (2) resulting from the choice of conventio
+n for summing up the contributions of solvent charges to the electrostatic
  potential in the sample system (Type-C).
 \end_layout
 
@@ -597,7 +597,7 @@ In MDFT, all the information about solvation structure can be deduced from
 \end_inset
 
 .
- Here presents some examples of structure which are used in later chapters.
+ Here we present some examples of structure which are used in later chapters.
 \end_layout
 
 \begin_layout Subsection
@@ -762,8 +762,8 @@ acs{RDF}
 \begin_inset Formula $\mathbf{r}$
 \end_inset
 
- is no longer at the center of the solute, but is now at the site coordinate
- 
+ is no longer at the center of the solute; instead it is now at the site
+ coordinate 
 \begin_inset Formula $\mathbf{r}_{u}$
 \end_inset
 
@@ -778,7 +778,7 @@ d calculations, involving the rotation of solvent coordinate to
 \end_inset
 
 -frame.
- It has equivant information of the structure to the rotational invariant
+ It has equivalent information of the structure to the rotational invariant
  projections of higher order, the implementation of which we have not done
  here.
 \end_layout
@@ -832,7 +832,7 @@ Rotational invariant expansion
 \begin_layout Standard
 If the solute is simple, like a spherical ion or little molecule, it is
  convenient to expand the density on rotational invariants which possess
- a lot of symmetries:
+ numerous symmetries:
 \begin_inset Formula 
 \begin{eqnarray}
 \rho(\mathbf{r},\mathbf{\Omega}) & = & \sum_{mnl\mu\nu}\rho_{\mu\nu}^{mnl}(r)\Phi_{\mu\nu}^{mnl}(0,\mathbf{\Omega},\mathbf{\hat{r}})\label{eq:rot_invar_expansion}\\
@@ -899,7 +899,7 @@ acs{PDF}
 \begin_inset Formula $\int\mathrm{d}\hat{\mathbf{r}}$
 \end_inset
 
-, to take advantage of the 
+ to take advantage of the 
 \begin_inset Formula $R_{\lambda0}^{l*}(\mathbf{\hat{r}})$
 \end_inset
 
@@ -911,7 +911,7 @@ reference "chpt:rotM-by-recurrence"
 \end_inset
 
 ).
- A detailed deduction for these generalized formula is in appendix 
+ A detailed deduction for these generalized formulae is in appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chpt:rotational-invariant-expansion"
