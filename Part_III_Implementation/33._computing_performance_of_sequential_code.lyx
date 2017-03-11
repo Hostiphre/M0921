@@ -816,11 +816,7 @@ acs{FFT}
 \end_inset
 
 ) than the complex one.
-
-\color red
- 
-\color inherit
-Theoretically, the ratio should be greater than 0.5.
+ Theoretically, the ratio should be greater than 0.5.
  This could mean there may be an extra process in the complex one, or it
  is controlled by the memory.
  Ultimately, the final result 0.3 means that doing 

@@ -243,7 +243,7 @@ status open
 
 \begin_layout Plain Layout
 Here the projections 
-\begin_inset Formula $F_{\mu\nu,\chi}^{mn}$
+\begin_inset Formula ${F'}_{\mu\nu,\chi}^{mn}$
 \end_inset
 
  are defined as in 
@@ -254,11 +254,7 @@ key "Fries_Patey_1985"
 \end_inset
 
 .
-
-\color red
- 
-\color inherit
-Eq.
+ Eq.
  (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -613,7 +609,7 @@ m & n & l\\
 
 \begin_layout Standard
 Invariants of form 
-\begin_inset Formula $F_{\mu\nu,\chi}^{mn}(k)$
+\begin_inset Formula $\hat{F'}_{\mu\nu,\chi}^{mn}(k)$
 \end_inset
 
  have a very simple relation with their combined function 
@@ -877,7 +873,7 @@ acs{OZ}
  equation is a simple product of matrix:
 \begin_inset Formula 
 \begin{equation}
-\tilde{\gamma'}_{\chi}=\left[\left(-\right){}^{\chi+\nu}\tilde{c'}_{\chi}\right]\tilde{\rho'}_{\chi}
+\tilde{\gamma'}_{\chi}=\left[\left(-\right){}^{\chi+\nu}\tilde{c'}_{\chi}\right]\Delta\tilde{\rho'}_{\chi}
 \end{equation}
 
 \end_inset
@@ -3687,7 +3683,7 @@ R_{\mu'\mu}^{m}(\mathbf{\Omega})=(-)^{\mu'+\mu}R_{\underline{\mu'}\underline{\mu
 we find
 \begin_inset Formula 
 \begin{equation}
-\Delta\hat{\rho}_{\mu'\mu}^{m}(\mathbf{r})=(-)^{\mu'+\mu}\Delta\hat{\rho}_{\underline{\mu'}\underline{\mu}}^{m*}(\mathbf{r})\label{eq:2.2.symm-rho-r}
+\Delta\rho_{\mu'\mu}^{m}(\mathbf{r})=(-)^{\mu'+\mu}\Delta\rho_{\underline{\mu'}\underline{\mu}}^{m*}(\mathbf{r})\label{eq:2.2.symm-rho-r}
 \end{equation}
 
 \end_inset
@@ -4044,7 +4040,7 @@ reference "eq:rot-invar-symm-k-chi"
 ):
 \begin_inset Formula 
 \begin{equation}
-\hat{c}_{\mu\nu,\chi}^{mn}(k)=\left(-\right)^{m+n+\mu+\nu}\hat{c}_{\underline{\mu}\underline{\nu},\chi}^{mn*}(k)
+\hat{c'}_{\mu\nu,\chi}^{mn}(k)=\left(-\right)^{m+n+\mu+\nu}\hat{c'}_{\underline{\mu}\underline{\nu},\chi}^{mn*}(k)
 \end{equation}
 
 \end_inset

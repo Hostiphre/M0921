@@ -1580,7 +1580,7 @@ reference "eq:interpolation"
 \end_inset
 
 ) by an exact formula, and it requires the projections 
-\begin_inset Formula $\hat{c}_{\mu\nu,\chi}^{mn}(k)$
+\begin_inset Formula $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$
 \end_inset
 
  to be stored in memory rather than the full angular representation 

@@ -575,7 +575,7 @@ Transform between
 \end_inset
 
  and 
-\begin_inset Formula $F_{\mu\nu,\chi}^{mn}(r)$
+\begin_inset Formula ${F'}_{\mu\nu,\chi}^{mn}(r)$
 \end_inset
 
  
@@ -585,7 +585,7 @@ Transform between
 Suppose
 \begin_inset Formula 
 \begin{equation}
-F_{\mu\nu,\chi}^{mn}(r)=\sum_{l}\left(\begin{array}{ccc}
+{F'}_{\mu\nu,\chi}^{mn}(r)=\sum_{l}\left(\begin{array}{ccc}
 m & n & l\\
 \chi & -\chi & 0
 \end{array}\right)F_{\mu\nu}^{mnl}(r)\label{eq:def_f_mn_munuchi}
@@ -627,7 +627,7 @@ we have as the inverse transform
 F_{\mu\nu}^{mnl}(r)=\left(2l+1\right)\sum_{\chi}\left(\begin{array}{ccc}
 m & n & l\\
 \chi & -\chi & 0
-\end{array}\right)F_{\mu\nu,\chi}^{mn}(r)\label{eq:def_f_mnl_munu}
+\end{array}\right){F'}_{\mu\nu,\chi}^{mn}(r)\label{eq:def_f_mnl_munu}
 \end{equation}
 
 \end_inset
@@ -650,12 +650,12 @@ reference "eq:eq_total_local"
 F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r) & = & \sum_{mnl\mu\nu}\left(2l+1\right)\sum_{\chi'}\left(\begin{array}{ccc}
 m & n & l\\
 \chi' & -\chi' & 0
-\end{array}\right)F_{\mu\nu,\chi'}^{mn}(r)\times\nonumber \\
+\end{array}\right){F'}_{\mu\nu,\chi'}^{mn}(r)\times\nonumber \\
  &  & \sum_{\chi}\left(\begin{array}{ccc}
 m & n & l\\
 \chi & -\chi & 0
 \end{array}\right)f^{m}f^{n}R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})R_{\underline{\chi}\nu}^{n}(\boldsymbol{\omega}_{2})\nonumber \\
- & = & \sum_{mn\mu\nu}\sum_{\chi'}\sum_{\chi}F_{\mu\nu,\chi'}^{mn}(r)f^{m}f^{n}R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})R_{\underline{\chi}\nu}^{n}(\boldsymbol{\omega}_{2})\times\nonumber \\
+ & = & \sum_{mn\mu\nu}\sum_{\chi'}\sum_{\chi}{F'}_{\mu\nu,\chi'}^{mn}(r)f^{m}f^{n}R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})R_{\underline{\chi}\nu}^{n}(\boldsymbol{\omega}_{2})\times\nonumber \\
  &  & \sum_{l}\left(2l+1\right)\left(\begin{array}{ccc}
 m & n & l\\
 \chi' & -\chi' & 0
@@ -688,7 +688,7 @@ m & n & l\\
 we have
 \begin_inset Formula 
 \begin{equation}
-F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)=\sum_{mn\mu\nu\chi}F_{\mu\nu,\chi}^{mn}(r)f^{m}f^{n}R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})R_{\underline{\chi}\nu}^{n}(\boldsymbol{\omega}_{2})\label{eq:local-forward}
+F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)=\sum_{mn\mu\nu\chi}{F'}_{\mu\nu,\chi}^{mn}(r)f^{m}f^{n}R_{\chi\mu}^{m}(\boldsymbol{\omega}_{1})R_{\underline{\chi}\nu}^{n}(\boldsymbol{\omega}_{2})\label{eq:local-forward}
 \end{equation}
 
 \end_inset
@@ -696,7 +696,7 @@ F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)=\sum_{mn\mu\nu\chi}F_{\mu\n
 and
 \begin_inset Formula 
 \begin{equation}
-F_{\mu\nu,\chi}^{mn}(r)=\int\mathrm{d}\boldsymbol{\omega}_{1}\mathrm{d}\boldsymbol{\omega}_{2}F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)f^{m}f^{n}R_{\chi\mu}^{m*}(\boldsymbol{\omega}_{1})R_{\underline{\chi}\nu}^{n*}(\boldsymbol{\omega}_{2})\label{eq:local_backward}
+{F'}_{\mu\nu,\chi}^{mn}(r)=\int\mathrm{d}\boldsymbol{\omega}_{1}\mathrm{d}\boldsymbol{\omega}_{2}F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)f^{m}f^{n}R_{\chi\mu}^{m*}(\boldsymbol{\omega}_{1})R_{\underline{\chi}\nu}^{n*}(\boldsymbol{\omega}_{2})\label{eq:local_backward}
 \end{equation}
 
 \end_inset
@@ -737,7 +737,7 @@ acs{FGSHT}
 ), or by being developed into
 \begin_inset Formula 
 \begin{equation}
-F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)=\sum_{mn\mu\nu\chi}F_{\mu\nu,\chi}^{mn}(r)f^{m}f^{n}r_{\chi\mu}^{m}(\theta_{1})r_{\underline{\chi}\nu}^{n}(\theta_{2})e^{-i\chi(\phi_{12}\equiv\phi_{1}-\phi_{2})}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}\label{eq:eq_s1_local}
+F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)=\sum_{mn\mu\nu\chi}{F'}_{\mu\nu,\chi}^{mn}(r)f^{m}f^{n}r_{\chi\mu}^{m}(\theta_{1})r_{\underline{\chi}\nu}^{n}(\theta_{2})e^{-i\chi(\phi_{12}\equiv\phi_{1}-\phi_{2})}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}\label{eq:eq_s1_local}
 \end{equation}
 
 \end_inset
@@ -766,7 +766,7 @@ Rotational invariant transform with FFT-3D
 Suppose
 \begin_inset Formula 
 \begin{equation}
-F_{\mu\nu,\chi}^{m}(r,\theta_{2})=\sum_{n}F_{\mu\nu,\chi}^{mn}(r)f^{n}r_{\underline{\chi}\nu}^{n}(\theta_{2})
+{F'}_{\mu\nu,\chi}^{m}(r,\theta_{2})=\sum_{n}{F'}_{\mu\nu,\chi}^{mn}(r)f^{n}r_{\underline{\chi}\nu}^{n}(\theta_{2})
 \end{equation}
 
 \end_inset
@@ -774,7 +774,7 @@ F_{\mu\nu,\chi}^{m}(r,\theta_{2})=\sum_{n}F_{\mu\nu,\chi}^{mn}(r)f^{n}r_{\underl
 then we have
 \begin_inset Formula 
 \begin{equation}
-F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)=\sum_{m\mu\nu\chi}F_{\mu\nu,\chi}^{m}(r,\theta_{2})f^{m}r_{\chi\mu}^{m}(\theta_{1})e^{-i\chi\phi_{12}}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}
+F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)=\sum_{m\mu\nu\chi}{F'}_{\mu\nu,\chi}^{m}(r,\theta_{2})f^{m}r_{\chi\mu}^{m}(\theta_{1})e^{-i\chi\phi_{12}}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}
 \end{equation}
 
 \end_inset
@@ -786,7 +786,7 @@ F(\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2},r)=\sum_{m\mu\nu\chi}F_{\mu\nu
 The inverse transform should be
 \begin_inset Formula 
 \begin{equation}
-F_{\mu\nu,\chi}^{mn}(r)=\frac{1}{2}\int\mathrm{d}(\cos\theta_{2})F_{\mu\nu,\chi}^{m}(r,\theta_{2})r_{\underline{\chi}\nu}^{n}(\theta_{2})
+{F'}_{\mu\nu,\chi}^{mn}(r)=\frac{1}{2}\int\mathrm{d}(\cos\theta_{2}){F'}_{\mu\nu,\chi}^{m}(r,\theta_{2})r_{\underline{\chi}\nu}^{n}(\theta_{2})
 \end{equation}
 
 \end_inset
@@ -798,7 +798,7 @@ F_{\mu\nu,\chi}^{mn}(r)=\frac{1}{2}\int\mathrm{d}(\cos\theta_{2})F_{\mu\nu,\chi}
 In the same way, suppose
 \begin_inset Formula 
 \begin{equation}
-F_{\mu\nu,\chi}(r,\theta_{1},\theta_{2})=\sum_{m}F_{\mu\nu,\chi}^{m}(r,\theta_{2})r_{\chi\mu}^{m}(\theta_{1})
+{F'}_{\mu\nu,\chi}(r,\theta_{1},\theta_{2})=\sum_{m}{F'}_{\mu\nu,\chi}^{m}(r,\theta_{2})r_{\chi\mu}^{m}(\theta_{1})
 \end{equation}
 
 \end_inset
@@ -806,7 +806,7 @@ F_{\mu\nu,\chi}(r,\theta_{1},\theta_{2})=\sum_{m}F_{\mu\nu,\chi}^{m}(r,\theta_{2
 and the inverse transform
 \begin_inset Formula 
 \begin{equation}
-F_{\mu\nu,\chi}^{m}(r,\theta_{2})=\frac{1}{2}\int\mathrm{d}(\cos\theta_{1})F_{\mu\nu,\chi}(r,\theta_{1},\theta_{2})r_{\chi\mu}^{m}(\theta_{1})
+{F'}_{\mu\nu,\chi}^{m}(r,\theta_{2})=\frac{1}{2}\int\mathrm{d}(\cos\theta_{1}){F'}_{\mu\nu,\chi}(r,\theta_{1},\theta_{2})r_{\chi\mu}^{m}(\theta_{1})
 \end{equation}
 
 \end_inset
@@ -818,7 +818,7 @@ F_{\mu\nu,\chi}^{m}(r,\theta_{2})=\frac{1}{2}\int\mathrm{d}(\cos\theta_{1})F_{\m
 then we have
 \begin_inset Formula 
 \begin{equation}
-F(r,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})=\sum_{\mu\nu\chi}F_{\mu\nu,\chi}(r,\theta_{1},\theta_{2})e^{-i\chi\phi_{12}}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}\label{eq:eq_s3_local}
+F(r,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})=\sum_{\mu\nu\chi}{F'}_{\mu\nu,\chi}(r,\theta_{1},\theta_{2})e^{-i\chi\phi_{12}}e^{-i\mu\psi_{1}}e^{-i\nu\psi_{2}}\label{eq:eq_s3_local}
 \end{equation}
 
 \end_inset
@@ -1229,7 +1229,7 @@ Symmetric rules of rotational invariant projections
 
 \begin_layout Standard
 We can deduce all the symmetries with the definition of 
-\begin_inset Formula $F(r,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})\Leftrightarrow F_{\mu\nu,\chi}^{mn}(r)$
+\begin_inset Formula $F(r,\boldsymbol{\omega}_{1},\boldsymbol{\omega}_{2})\Leftrightarrow{F'}_{\mu\nu,\chi}^{mn}(r)$
 \end_inset
 
  in eq.
@@ -1248,7 +1248,7 @@ reference "eq:local_backward"
 \end_inset
 
 ), 
-\begin_inset Formula $F_{\mu\nu}^{mnl}\Leftrightarrow F_{\mu\nu,\chi}^{mn}$
+\begin_inset Formula $F_{\mu\nu}^{mnl}\Leftrightarrow{F'}_{\mu\nu,\chi}^{mn}$
 \end_inset
 
  in eq.
@@ -1306,7 +1306,7 @@ reference "eq:symm-glp-1"
  is real,
 \begin_inset Formula 
 \begin{equation}
-F_{\mu\nu,\chi}^{mn}(r)=\left(-\right)^{\mu+\nu}F_{\underline{\mu}\underline{\nu},\underline{\chi}}^{mn*}(r)
+{F'}_{\mu\nu,\chi}^{mn}(r)=\left(-\right)^{\mu+\nu}{F'}_{\underline{\mu}\underline{\nu},\underline{\chi}}^{mn*}(r)
 \end{equation}
 
 \end_inset
@@ -1338,7 +1338,7 @@ As the the spherical Bessel function
 Therefore
 \begin_inset Formula 
 \begin{equation}
-\hat{F}_{\mu\nu,\chi}^{mn}(k)=\left(-\right)^{m+n+\mu+\nu}\hat{F}_{\underline{\mu}\underline{\nu},\chi}^{mn*}(k)\label{eq:rot-invar-symm-k-chi}
+\hat{F'}_{\mu\nu,\chi}^{mn}(k)=\left(-\right)^{m+n+\mu+\nu}\hat{F'}_{\underline{\mu}\underline{\nu},\chi}^{mn*}(k)\label{eq:rot-invar-symm-k-chi}
 \end{equation}
 
 \end_inset
@@ -1379,7 +1379,7 @@ r_{\chi\mu}^{m}(\pi-\theta)=\left(-\right)^{m+\mu}r_{\underline{\chi}\mu}^{m}(\t
 we can find
 \begin_inset Formula 
 \begin{equation}
-F_{\nu\mu,\chi}^{nm}(r)=\left(-\right)^{m+n+\mu+\nu}F_{\mu\nu,\chi}^{mn}(r)
+{F'}_{\nu\mu,\chi}^{nm}(r)=\left(-\right)^{m+n+\mu+\nu}{F'}_{\mu\nu,\chi}^{mn}(r)
 \end{equation}
 
 \end_inset
@@ -1469,13 +1469,13 @@ reference "eq:symm_dcf_1"
 ),
 \begin_inset Formula 
 \begin{equation}
-F_{\mu\nu,\chi}^{mn}(r)=F_{\mu\nu,\chi}^{mn*}(r)
+{F'}_{\mu\nu,\chi}^{mn}(r)={F'}_{\mu\nu,\chi}^{mn*}(r)
 \end{equation}
 
 \end_inset
 
 which implies that 
-\begin_inset Formula $F_{\mu\nu,\chi}^{mn}(r)$
+\begin_inset Formula ${F'}_{\mu\nu,\chi}^{mn}(r)$
 \end_inset
 
  and 
@@ -1521,7 +1521,7 @@ F_{\mu\nu}^{mnl}(r)=F_{\underline{\mu}\underline{\nu}}^{mnl}(r)
 
 \begin_inset Formula 
 \begin{equation}
-F_{\mu\nu,\chi}^{mn}(r)=F_{\underline{\mu}\underline{\nu},\chi}^{mn}(r)
+{F'}_{\mu\nu,\chi}^{mn}(r)={F'}_{\underline{\mu}\underline{\nu},\chi}^{mn}(r)
 \end{equation}
 
 \end_inset
@@ -1541,7 +1541,7 @@ And in
 
 \begin_inset Formula 
 \begin{equation}
-\hat{F}_{\mu\nu,\chi}^{mn}(k)=\left(-\right)^{m+n}\hat{F}_{\mu\nu,\underline{\chi}}^{mn*}(k)
+\hat{F'}_{\mu\nu,\chi}^{mn}(k)=\left(-\right)^{m+n}\hat{F'}_{\mu\nu,\underline{\chi}}^{mn*}(k)
 \end{equation}
 
 \end_inset

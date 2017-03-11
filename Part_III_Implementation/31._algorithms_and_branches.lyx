@@ -542,7 +542,7 @@ standard
 
 \begin_layout Plain Layout
 use 
-\begin_inset Formula $\hat{c}_{\mu\nu,\chi}^{mn}(k)$
+\begin_inset Formula $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$
 \end_inset
 
  as input 
@@ -1139,7 +1139,7 @@ naive_standard
 \family default
 \series default
  uses 
-\begin_inset Formula $c_{\mu\nu,\chi}^{mn}(k)$
+\begin_inset Formula $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$
 \end_inset
 
  as input 
@@ -1193,7 +1193,7 @@ naive_interpolation
 \end_inset
 
  as input, either calculated from 
-\begin_inset Formula $c_{\mu\nu,\chi}^{mn}(k)$
+\begin_inset Formula $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$
 \end_inset
 
  or in another way.
@@ -1259,7 +1259,7 @@ naive
 \end_inset
 
  in 
-\begin_inset Formula $c_{\mu\nu,\chi}^{mn}(k)$
+\begin_inset Formula $\hat{c'}_{\mu\nu,\chi}^{mn}(k)$
 \end_inset
 
  or in 

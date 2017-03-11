@@ -220,13 +220,13 @@ status open
 \begin_inset Tabular
 <lyxtabular version="3" rows="9" columns="5">
 <features booktabs="true" tabularvalignment="middle" tabularwidth="100line%">
-<column alignment="left" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
-<row topspace="-0.03cm">
-<cell alignment="left" valignment="top" topline="true" usebox="none">
+<row topspace="-0.17cm">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -328,7 +328,7 @@ Very Strict
 </cell>
 </row>
 <row topspace="-0.33cm">
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -433,7 +433,7 @@ Criteria
 </cell>
 </row>
 <row topspace="-0.33em">
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -505,7 +505,7 @@ Criteria
 </cell>
 </row>
 <row topspace="-0.33em">
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -577,7 +577,7 @@ Criteria
 </cell>
 </row>
 <row topspace="-0.33em">
-<cell alignment="left" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -637,7 +637,7 @@ Criteria
 </cell>
 </row>
 <row topspace="-0.33em">
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -697,7 +697,7 @@ Criteria
 </cell>
 </row>
 <row topspace="-0.33em">
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -757,7 +757,7 @@ Criteria
 </cell>
 </row>
 <row topspace="-0.33em">
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -817,7 +817,7 @@ Criteria
 </cell>
 </row>
 <row topspace="-0.33em">
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -12297,9 +12297,7 @@ key "Boutard200525"
 \begin_inset Formula $\mathrm{N_{2}}$
 \end_inset
 
- 
-\color red
-[ref]
+
 \end_layout
 
 \end_inset

@@ -516,7 +516,7 @@ Gubbins eq.
 \sum_{\mu'\nu'\lambda'}\left(\begin{array}{ccc}
 m & n & l\\
 \mu' & \nu' & \lambda'
-\end{array}\right)R_{\mu',\chi}^{m}(\hat{\mathbf{k}})R_{\nu'\underline{\chi'}}^{n}(\hat{\mathbf{k}})R_{\lambda'0}^{l}(\hat{\mathbf{k}})=\left(\begin{array}{ccc}
+\end{array}\right)R_{\mu'\chi}^{m}(\hat{\mathbf{k}})R_{\nu'\underline{\chi'}}^{n}(\hat{\mathbf{k}})R_{\lambda'0}^{l}(\hat{\mathbf{k}})=\left(\begin{array}{ccc}
 m & n & l\\
 \chi & -\chi' & 0
 \end{array}\right)\label{eq:gg.a91.2F}
